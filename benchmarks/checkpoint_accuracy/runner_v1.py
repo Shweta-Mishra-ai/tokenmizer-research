@@ -744,7 +744,7 @@ def main():
     elif args.domain:
         sessions_to_run = {k: v for k, v in SESSIONS.items() if v["domain"] == args.domain}
 
-    print(f"\n🧠 TokenMizer Experiment — {len(sessions_to_run)} sessions")
+    print(f"\n[TokenMizer Experiment] {len(sessions_to_run)} sessions")
     print("Running...\n")
 
     results = []
@@ -752,9 +752,9 @@ def main():
         try:
             r = run_session(name, sess)
             results.append(r)
-            print(f"  ✓ [{r.domain:<22}] {name}")
+            print(f"  OK [{r.domain:<22}] {name}")
         except Exception as e:
-            print(f"  ✗ {name}: {e}")
+            print(f"  FAIL {name}: {e}")
 
     if not results:
         print("No results."); return
@@ -768,7 +768,7 @@ def main():
     if args.json:
         out = Path("experiment_results.json")
         out.write_text(json.dumps([asdict(r) for r in results], indent=2))
-        print(f"\n✓ Saved to {out}")
+        print(f"\n[OK] Saved to {out}")
         print("  (use this JSON to make paper charts in matplotlib/seaborn)")
 
     print("\nDone.")

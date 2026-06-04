@@ -27,6 +27,6 @@ class GraphValidator:
         if len(label) < 8:                kappa -= 0.20
         if self._verb_only.match(label.strip()): kappa -= 0.40
         if self._url_pat.search(label):
-            from ..graph_memory.graph import NodeType
-            node.type = NodeType.API
+            from .graph import NodeType as _NT
+            node.type = _NT.API  # Note: intentional side-effect for URL detection
         return round(max(0.0, min(1.0, kappa)), 3)

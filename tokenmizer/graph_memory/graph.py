@@ -230,6 +230,10 @@ class GraphMemory:
                               confidence=row[6], created_at=row[7],
                               updated_at=row[8])
                 self._nodes[n.id] = n
+            for row in con.execute("SELECT * FROM edges"):
+                e = GraphEdge(source_id=row[0], target_id=row[1],
+                              type=EdgeType(row[2]), weight=row[3])
+                self._edges.append(e)
 
     def _save(self) -> None:
         with sqlite3.connect(self._db_path) as con:
@@ -240,3 +244,7 @@ class GraphMemory:
                      n.status.value if n.status else None,
                      n.summary, n.importance, n.confidence,
                      n.created_at, n.updated_at))
+            for e in self._edges:
+                con.execute("""INSERT OR REPLACE INTO edges
+                    VALUES (?,?,?,?)""",
+                    (e.source_id, e.target_id, e.type.value, e.weight))

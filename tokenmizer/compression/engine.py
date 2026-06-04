@@ -80,7 +80,8 @@ class CompressionEngine:
     def _layer4_comments(self, text: str) -> str:
         text = re.sub(r'(?m)^\s*#.*$', '', text)
         text = re.sub(r'//[^\n]*', '', text)
-        text = re.sub(r'--[^\n]*', '', text)
+        # Only strip -- comments at start of line (SQL style), not inline
+        text = re.sub(r'(?m)^\s*--[^\n]*$', '', text)
         return text
 
     def _layer5_history_prune(self, text: str) -> str:

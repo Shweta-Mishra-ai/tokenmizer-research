@@ -219,10 +219,11 @@ def baseline_naive_summary(messages):
 # SESSIONS (same 21 as V1 — imported inline)
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Import sessions from V1 file
+# Import sessions from V1 file (runner_v1.py in the same directory)
 import sys
-sys.path.insert(0, '/home/claude')
-from run_experiment import SESSIONS
+from pathlib import Path as _Path
+sys.path.insert(0, str(_Path(__file__).resolve().parent))
+from runner_v1 import SESSIONS
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -331,7 +332,7 @@ def ablation_study(sessions: dict):
                 _, dr = precision_recall_v2(decisions, gt["decisions"])
                 _, fr = precision_recall_v2(files,     gt["files"])
             else:
-                from run_experiment import precision_recall as pr_v1
+                from runner_v1 import precision_recall as pr_v1
                 _, tr = pr_v1(completed, gt["completed_tasks"])
                 _, dr = pr_v1(decisions, gt["decisions"])
                 _, fr = pr_v1(files,     gt["files"])
@@ -452,7 +453,7 @@ def main():
     sessions_to_run = {k: v for k, v in SESSIONS.items()
                        if not args.domain or v["domain"] == args.domain}
 
-    print(f"\n🧠 TokenMizer V2 — {len(sessions_to_run)} sessions")
+    print(f"\n[TokenMizer V2] {len(sessions_to_run)} sessions")
     print("Improvements: expanded patterns + fuzzy matching + compound split + decision CSV split\n")
 
     results_v2 = []
@@ -460,9 +461,9 @@ def main():
         try:
             r = run_session(name, sess)
             results_v2.append(r)
-            print(f"  ✓ [{r.domain:<22}] {name}")
+            print(f"  OK [{r.domain:<22}] {name}")
         except Exception as e:
-            print(f"  ✗ {name}: {e}")
+            print(f"  FAIL {name}: {e}")
 
     print_table1(results_v2, "V2")
     print_table2(results_v2)
@@ -470,7 +471,7 @@ def main():
     print_abstract(results_v2)
 
     if args.compare:
-        from run_experiment import SESSIONS as S1, build_graph, precision_recall as pr1, count_tokens as ct1
+        from runner_v1 import SESSIONS as S1, build_graph, precision_recall as pr1, count_tokens as ct1
         results_v1 = []
         for name, sess in sessions_to_run.items():
             msgs, gt = sess["messages"], sess["ground_truth"]
@@ -479,7 +480,7 @@ def main():
             _, tr = pr1(g.completed_tasks, gt["completed_tasks"])
             _, dr = pr1(g.decisions,       gt["decisions"])
             _, fr = pr1(g.files,           gt["files"])
-            from run_experiment import Result as R1, build_checkpoint as bc1
+            from runner_v1 import Result as R1, build_checkpoint as bc1
             ckpt = bc1(name, g)
             results_v1.append(R1(name, sess["domain"], len(msgs), tok, g.total_nodes,
                                  0, tr, dr, fr, ckpt["tokens"],
@@ -491,9 +492,11 @@ def main():
         ablation_study(sessions_to_run)
 
     if args.json:
-        out = Path("experiment_results_v2.json")
+        results_dir = _Path(__file__).resolve().parent.parent / "results"
+        results_dir.mkdir(parents=True, exist_ok=True)
+        out = results_dir / "experiment_results_v2.json"
         out.write_text(json.dumps([asdict(r) for r in results_v2], indent=2))
-        print(f"\n✓ Saved: {out}")
+        print(f"\n[OK] Saved: {out}")
 
     print("\nDone.")
 
