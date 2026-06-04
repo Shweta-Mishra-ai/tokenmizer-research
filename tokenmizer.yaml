@@ -1,0 +1,30 @@
+# TokenMizer Configuration
+# Copy to tokenmizer.yaml.local and edit for your setup
+
+provider: anthropic          # anthropic | openai | google | groq | openrouter | deepseek | mistral | cohere | ollama
+default_model: claude-sonnet-4-6
+
+graph_checkpoint:
+  enabled: true
+  trigger_at_percent: 0.85   # checkpoint when context reaches 85% of MECW
+  use_llm_extraction: false  # true = better recall, costs ~$0.001/call
+  max_nodes: 500
+
+compression:
+  enabled: true
+  engine: heuristic          # heuristic | llmlingua | auto
+  min_tokens_to_compress: 300
+
+cache:
+  enabled: true
+  similarity_threshold: 0.92
+  ttl_seconds: 3600
+  max_size: 1000
+
+validator:
+  min_confidence: 0.50
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  log_level: info
