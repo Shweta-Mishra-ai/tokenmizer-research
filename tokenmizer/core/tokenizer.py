@@ -6,4 +6,6 @@ try:
         return len(_enc.encode(text))
 except ImportError:
     def count_tokens(text: str) -> int:
+        if not text:
+            return 0
         return max(1, len(text) // 4)

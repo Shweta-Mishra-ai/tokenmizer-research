@@ -185,6 +185,26 @@ If you use TokenMizer in your research, please cite:
 
 ---
 
+## Development & Testing
+
+To install development dependencies and run the unit test suite locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/Shweta-Mishra-ai/tokenmizer.git
+cd tokenmizer
+
+# Install with development dependencies
+pip install -e ".[dev]"
+
+# Run all unit tests
+pytest tests/ -v
+```
+
+All tests are automatically run on GitHub Actions for every pull request and push to the main branch.
+
+---
+
 ## Contributing
 
 Contributions welcome! Priority areas:

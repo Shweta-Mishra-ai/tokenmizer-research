@@ -10,7 +10,7 @@ class TestCountTokens:
 
     def test_empty_string(self):
         result = count_tokens("")
-        assert result >= 1  # min 1 per fallback
+        assert result == 0
 
     def test_longer_text_more_tokens(self):
         short = count_tokens("hello")
