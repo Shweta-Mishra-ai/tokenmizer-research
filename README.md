@@ -1,5 +1,4 @@
- **TokenMizer**.
-This version strips out the hyper-marketing fluff, drops the "Explain Like I'm 10" tone, and presents the project transparently as an architectural proxy solution. It directly reflects your actual research data, including the exact heuristic constraints, specific recall ceilings, and domain-dependent variations from your benchmark evaluations.
+
 # TokenMizer 🧠
 **Graph-Structured Session Memory for Long-Horizon LLM Context Management.**
 TokenMizer is an open-source, transparent reverse proxy that models iterative LLM session history as a typed knowledge graph. By extracting structured state transitions, decisions, and file modifications on the fly, it serializes long conversation histories into highly compact context resume blocks—minimizing context window degradation without requiring changes to your application code.
