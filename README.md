@@ -1,176 +1,166 @@
-# TokenMizer 🧠
 
-**Graph-structured session memory for efficient LLM context preservation.**
+# TokenMizer
 
-TokenMizer is an open-source, transparent proxy that models LLM session history as a typed knowledge graph — preventing context loss in long-horizon sessions without changing a single line of your application code.
+**Graph-Structured Session Memory for Long-Horizon LLM Context Management.**
 
-[![arXiv](https://img.shields.io/badge/arXiv-2026-red)](https://arxiv.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+TokenMizer is an open-source, transparent proxy system that models iterative LLM session history as a typed knowledge graph[span_1](start_span)[span_1](end_span). By extracting structured state transitions, decisions, and file modifications on the fly, it serializes long conversation histories into highly compact resume blocks—minimizing context window degradation without requiring changes to your application code[span_2](start_span)[span_2](end_span).
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
 
 ---
 
-## The Problem
+## The Problem: Context Window Degradation
 
-At ~950 tokens/turn, a development session exhausts a 16k-token context window after just 16 turns. When that happens:
-- Architectural decisions made in turn 3 vanish
-- Technology choices and their rationales are lost
-- Completed vs pending task status disappears
+In iterative developer or data science sessions, interactions grow long and repetitive. At an average volume of 950 tokens per turn, a standard 16k-token Maximum Effective Context Window (MECW) is exhausted in roughly 16 turns[span_3](start_span)[span_3](end_span). 
 
-Existing mitigations (truncation, summarization) treat history as **flat text** — they can't distinguish a *completed* task from a *pending* one, or record *why* Redis was chosen over PostgreSQL.
-
-## The Solution
-
-TokenMizer extracts **structured session state** into a typed knowledge graph (14 node types, 7 edge types), then serializes it into a compact **resume block** averaging **78 tokens** — 2× smaller than any text-retention baseline, while achieving higher decision recall.
-
-```
-Without TokenMizer: turn 16 → context overflow → session lost
-With TokenMizer:    turn 14 → checkpoint (78 tok) → session continues indefinitely
-```
+Existing mitigations (truncation, summarization, retrieval augmentation) treat history as flat text, destroying the typed, relational structure that makes sessions resumable[span_4](start_span)[span_4](end_span).
+* Architectural decisions and structural choices made early vanish[span_5](start_span)[span_5](end_span).
+* Explicit task lifecycles (what is completed vs. what is pending) become blurred[span_6](start_span)[span_6](end_span).
+* A natural language summary cannot reliably distinguish a completed task from a pending one, nor can it preserve the rationale for a technology decision[span_7](start_span)[span_7](end_span).
 
 ---
 
-## Quick Start
+## The Solution: Structural State Resuming
 
+TokenMizer intercepts raw session tokens, passes them through a deterministic compression and extraction framework, maintains a localized knowledge graph, and compresses long-horizon state into a structured **resume block** averaging **78 tokens**[span_8](start_span)[span_8](end_span).
+
+```text
+Standard Stream: [Turn 1-14 Messages (~13.3k tokens)] ──> [Context Overflow / Lost State]
+TokenMizer:      [Turn 1-14 Messages] ──> Graph Extraction ──> [78-Token Resume Block Injection]
+
+```
+## System Architecture
+TokenMizer operates as a transparent HTTP reverse proxy implementing the OpenAI Chat Completions API.
+### 1. Knowledge Graph Schema
+The structural session memory defines 14 node types across three functional categories, and 7 semantic edge types:
+ * **Action Nodes (with active lifecycles):** TASK, FILE, ERROR, TEST, SCHEMA, METRIC
+ * **Decision Nodes:** DECISION, DEPENDENCY, API
+ * **Context Nodes (static state):** GOAL, ENVIRONMENT, PROJECT, CONCEPT, AGENT
+ * **Semantic Relationships:** DEPENDS_ON, RELATED_TO, IMPLEMENTS, FIXES, BLOCKS, PART_OF, SUPERSEDES
+### 2. The 8-Layer Compression Pipeline
+An 8-layer compression pipeline reduces context overhead before neural stages are applied. The first 6 heuristic layers achieve 47.3% token reduction at zero inference cost.
+ 1. **AI Filler Removal:** Strip conversational preambles (-31.2% mean reduction).
+ 2. **Order-Preserving Line Deduplication:** Pruning recursive stack traces and logs (-16.1% mean reduction).
+ 3. **Whitespace Normalization**.
+ 4. **Targeted Comment Stripping**.
+ 5. **History Pruning**.
+ 6. **Smart Truncation:** Object-aware context rules.
+ 7. **Neural Compaction (Optional Layer 7-8):** Integrating LLMLingua-2 and LongLLMLingua.
+### 3. Semantic Cache
+A sentence-embedding semantic cache reduces repeated-query latency.
+## Quick Start & Installation
+### Automated Local Setup
+For local development, use the provided setup script to enforce system prerequisites, build an isolated virtual environment, and scaffold the .env configuration. Save the following as scripts/setup.sh and execute it:
 ```bash
-pip install tokenmizer
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Start the proxy (configure your LLM provider API key first)
-export ANTHROPIC_API_KEY=sk-ant-...
-tokenmizer serve
+echo "=========================================="
+echo " TokenMizer Infrastructure Setup"
+echo "=========================================="
+
+echo "--> [1/4] Checking system prerequisites..."
+if ! command -v python3 &> /dev/null; then
+    echo "FATAL: python3 is not installed or not in PATH." >&2
+    exit 1
+fi
+
+if ! command -v docker &> /dev/null; then
+    echo "FATAL: docker is not installed. Containerized vector cache cannot run." >&2
+    exit 1
+fi
+
+PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+if $(python3 -c "import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)"); then
+    echo "Python version $PYTHON_VERSION detected (>= 3.10)."
+else
+    echo "FATAL: Python 3.10 or higher is required. Detected $PYTHON_VERSION." >&2
+    exit 1
+fi
+
+echo "--> [2/4] Provisioning isolated virtual environment..."
+if [ ! -d ".venv" ]; then
+    python3 -m venv .venv
+    echo "Created virtual environment at .venv/"
+else
+    echo "Virtual environment .venv/ already exists."
+fi
+
+echo "--> [3/4] Installing Python dependencies..."
+source .venv/bin/activate
+pip install --upgrade pip --quiet
+if [ -f "pyproject.toml" ] || [ -f "setup.py" ]; then
+    pip install -e ".[dev]"
+elif [ -f "requirements.txt" ]; then
+    pip install -r requirements.txt
+else
+    echo "FATAL: No dependency configuration found." >&2
+    exit 1
+fi
+
+echo "--> [4/4] Configuring environment variables..."
+if [ ! -f ".env" ]; then
+    cat <<EOF> .env
+ENVIRONMENT=development
+HOST=127.0.0.1
+PORT=8000
+ANTHROPIC_API_KEY=sk-ant-xxx
+OPENAI_API_KEY=sk-proj-xxx
+ENABLE_SEMANTIC_CACHE=true
+CHECKPOINT_THRESHOLD=0.85
+EOF
+    echo "Generated base .env file. UPDATE WITH ACTUAL API KEYS."
+else
+    echo ".env file already exists. Preserving local keys."
+fi
+
+echo "Setup Complete. Activate the environment with: source .venv/bin/activate"
+
 ```
-
-Then point your OpenAI-compatible client to `http://localhost:8000`:
-
+### Client Integration
+Point your local environment, IDE proxy, or client to the TokenMizer endpoint. Activating the workflow requires passing a tracking string (session_id) inside the request payload.
 ```python
 from openai import OpenAI
 
-client = OpenAI(base_url="http://localhost:8000/v1", api_key="any")
+client = OpenAI(base_url="http://localhost:8000/v1", api_key="passthrough")
 
 response = client.chat.completions.create(
     model="claude-sonnet-4-6",
-    messages=[{"role": "user", "content": "Build a FastAPI auth service"}],
-    extra_body={"session_id": "my-project"}  # activates full pipeline
+    messages=[{"role": "user", "content": "Refactor the database connection to use connection pooling."}],
+    extra_body={"session_id": "production-backend-refactor"}
 )
-```
-
-No `session_id`? Zero overhead — requests pass through unchanged.
-
----
-
-## How It Works
 
 ```
-Client App  →  TokenMizer Proxy  →  LLM Provider
-               ┌─────────────────────────────────┐
-               │  Graph Memory     (14 node types)│
-               │  Hybrid Extractor (heuristic+LLM)│
-               │  Checkpoint Mgr   (3 tiers)      │
-               │  Compression      (8 layers)     │
-               │  Semantic Cache   (embeddings)   │
-               └─────────────────────────────────┘
-               SQLite Graph DB    Checkpoint Store
-```
-
-### Graph Schema
-| Node Category | Types |
-|---------------|-------|
-| Action nodes  | TASK, FILE, ERROR, TEST, SCHEMA, METRIC |
-| Decision nodes| DECISION, DEPENDENCY, API |
-| Context nodes | GOAL, ENVIRONMENT, PROJECT, CONCEPT, AGENT |
-
-Edge types: `DEPENDS_ON`, `RELATED_TO`, `IMPLEMENTS`, `FIXES`, `BLOCKS`, `PART_OF`, `SUPERSEDES`
-
-### Checkpoint Tiers
-| Tier | Content | Token Budget |
-|------|---------|--------------|
-| Critical | GOAL + in-progress tasks + top decision | ≤ 100 |
-| Standard | All tasks + decisions + files + env | ≤ 300 |
-| Full | Complete graph | ≤ 600 |
-
-### Compression Pipeline (zero external deps for layers 1–6)
-1. Filler removal — **31.2% reduction**
-2. Deduplication — **16.1% reduction**
-3. Whitespace normalization
-4. Comment stripping
-5. History pruning
-6. File-type smart truncation
-7. LLMLingua-2 (optional)
-8. LongLLMLingua (optional)
-
-**Total heuristic reduction: 47.3%**
-
----
-
-## Benchmark Results
-
-Evaluated on 21 sessions across 5 domains (software engineering, data science, DevOps, research, debugging):
-
-| Method | Task Recall | Decision Recall | File Recall | Avg Tokens |
-|--------|-------------|-----------------|-------------|------------|
+*Note: If no session_id is passed, the request passes through with no overhead.*
+## Empirical Benchmarks
+TokenMizer was evaluated on a controlled benchmark of 21 sessions spanning 5 application domains (software engineering, data science, DevOps, research/writing, and debugging). **All reported results are measured on this benchmark; no estimated values are presented**.
+### Performance Profile Across Domains
+Across 21 sessions and 5 domains, TokenMizer achieves mean task recall 51.0%, decision recall 46.6%, and file recall 58.7%.
+| Domain | Task Recall | Decision Recall | File Recall | Mean Information Loss |
+|---|---|---|---|---|
+| **Software Eng (n=6)** | 47% | 70% | 72% | 37% |
+| **Data Science (n=5)** | 69% | 48% | 40% | 48% |
+| **DevOps (n=4)** | 45% | 38% | 50% | 56% |
+| **Research (n=3)** | 44% | 44% | 33% | 59% |
+| **Debugging (n=3)** | 43% | 11% | 100% | 49% |
+| **Aggregate Mean** | **51.0%** | **46.6%** | **58.7%** | **48%** |
+### Comparative Context Efficiency
+TokenMizer produces resume blocks averaging 78 tokens (range: 42-124)—2x smaller than any evaluated baseline (159-170 tokens)—while achieving higher decision recall than all three baselines (+9-17 percentage points).
+| Method | Task Recall | Decision Recall | File Recall | Mean Resume Tokens |
+|---|---|---|---|---|
 | Naive Truncation | 45% | 35% | 55% | 165 |
-| Sliding Window | 50% | 30% | 60% | 159 |
+| Sliding Window (10) | 50% | 30% | 60% | 159 |
 | Naive Summary | 42% | 38% | 48% | 170 |
-| **TokenMizer V2** | **51%** | **47%** | 59% | **78** |
-
-Key: **2× fewer tokens, highest decision recall.** No baseline preserves *why* decisions were made.
-
-See [`benchmarks/`](benchmarks/) to reproduce all results.
-
----
-
-## Supported Providers
-
-| Provider | Models | Free tier |
-|----------|--------|-----------|
-| Anthropic | Claude 3/4 family | No |
-| OpenAI | GPT-4o, o-series | No |
-| Google | Gemini 1.5/2.0 | Yes |
-| Groq | Llama 3.x | Yes |
-| OpenRouter | 100+ models | Partial |
-| DeepSeek | DeepSeek-V3 | Partial |
-| Mistral | Mistral/Mixtral | No |
-| Cohere | Command R+ | No |
-| Ollama | Any local model | Yes |
-
----
-
-## Configuration
-
-```yaml
-# tokenmizer.yaml
-provider: anthropic
-default_model: claude-sonnet-4-6
-
-graph_checkpoint:
-  enabled: true
-  trigger_at_percent: 0.85
-  use_llm_extraction: false  # set true for better recall, adds cost
-  max_nodes: 500
-
-compression:
-  enabled: true
-  engine: heuristic
-  min_tokens_to_compress: 300
-
-cache:
-  enabled: true
-  similarity_threshold: 0.92
-  ttl_seconds: 3600
-
-validator:
-  min_confidence: 0.50
-```
-
----
-
-## Research Paper
-
-**TokenMizer: Graph-Structured Session Memory for Long-Horizon LLM Context Management**
-Shweta Mishra, Independent Researcher, 2026.
-
-→ [arXiv preprint](#) *(link after submission)*
-
+| **TokenMizer V2** | **51%** | **47%** | **59%** | **78** |
+No evaluated baseline preserves *why* a technology was chosen, only that it was mentioned.
+## Current Technical Limitations
+Practitioners should be aware of the architectural constraints:
+ * **Synthetic Benchmark:** The benchmark is a synthetic but carefully constructed corpus. Evaluation on live developer sessions is identified as the highest-priority future work.
+ * **Implicit Phrasing Vulnerability:** Sessions with implicit reasoning (research, planning) score substantially lower than sessions with explicit imperative phrasing. Several sessions exhibit 0% task recall due to highly implicit language that heuristic extraction cannot capture.
+ * **Decision Recall Ceiling:** The current 47% decision recall is limited by heuristic pattern matching against indirect phrasing. A hybrid extraction pipeline with an LLM upgrade path is designed to address this.
+## Research Paper Citation
 If you use TokenMizer in your research, please cite:
 ```bibtex
 @article{mishra2026tokenmizer,
@@ -179,44 +169,12 @@ If you use TokenMizer in your research, please cite:
   author  = {Mishra, Shweta},
   journal = {arXiv preprint},
   year    = {2026},
-  url     = {https://github.com/Shweta-Mishra-ai/tokenmizer}
+  url     = {[https://github.com/Shweta-Mishra-ai/tokenmizer](https://github.com/Shweta-Mishra-ai/tokenmizer)}
 }
+
 ```
-
----
-
-## Development & Testing
-
-To install development dependencies and run the unit test suite locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/Shweta-Mishra-ai/tokenmizer.git
-cd tokenmizer
-
-# Install with development dependencies
-pip install -e ".[dev]"
-
-# Run all unit tests
-pytest tests/ -v
-```
-
-All tests are automatically run on GitHub Actions for every pull request and push to the main branch.
-
----
-
-## Contributing
-
-Contributions welcome! Priority areas:
-- Real-session evaluation data
-- LLM extractor evaluation
-- Embedding-based edge linking
-- Cross-session memory
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
 ## License
+This project is distributed under the open-source **MIT License** © Shweta Mishra 2026.
+```</EOF>
 
-MIT © Shweta Mishra 2026
+```
