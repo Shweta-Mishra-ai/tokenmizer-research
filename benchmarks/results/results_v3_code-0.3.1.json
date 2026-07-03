@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "generated": "2026-07-03T11:11:41.736874",
+    "code_version": "0.3.1",
+    "code_commit": "main @ v0.3.1 release",
+    "runner": "benchmarks/checkpoint_accuracy/runner_v2.py (product repo)",
+    "machine": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.0",
+    "method": "heuristic-only extraction, 3 synthetic sessions, graph vs plain-summary baseline",
+    "caveats": "n=3 synthetic sessions; directional. Real-transcript suite is the planned expansion."
+  },
+  "sessions": [
+    {
+      "session": "fastapi_auth",
+      "turns": 18,
+      "heu_task_recall": 0.6,
+      "heu_decision_recall": 1.0,
+      "heu_file_recall": 1.0,
+      "heu_time_ms": 529.8877000022912,
+      "heu_nodes": 27,
+      "sum_task_recall": 0.6,
+      "sum_decision_recall": 1.0,
+      "sum_file_recall": 1.0,
+      "resume_tokens": 302
+    },
+    {
+      "session": "react_dashboard",
+      "turns": 10,
+      "heu_task_recall": 0.667,
+      "heu_decision_recall": 0.8,
+      "heu_file_recall": 1.0,
+      "heu_time_ms": 23.62639999773819,
+      "heu_nodes": 27,
+      "sum_task_recall": 0.667,
+      "sum_decision_recall": 0.6,
+      "sum_file_recall": 1.0,
+      "resume_tokens": 260
+    },
+    {
+      "session": "ml_pipeline",
+      "turns": 10,
+      "heu_task_recall": 1.0,
+      "heu_decision_recall": 0.75,
+      "heu_file_recall": 1.0,
+      "heu_time_ms": 8.100600003672298,
+      "heu_nodes": 17,
+      "sum_task_recall": 1.0,
+      "sum_decision_recall": 0.5,
+      "sum_file_recall": 0.75,
+      "resume_tokens": 201
+    }
+  ]
+}
