@@ -1,0 +1,194 @@
+{
+ "id": "gen_data_streaming_003",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'data/streaming', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a Kafka pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a Kafka pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in connect/debezium.json, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's consumer lag growing unbounded during the nightly spike. Things were fine until offset commit failures under broker restart showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 windowed aggregation over five-minute tumbling windows \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 the dead letter topic with a replay tool \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to a cost review of the broker cluster once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, Flink for the stateful stream processing felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in scripts/replay.py, of all places. We'll circle back to an automated schema compatibility check in CI once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the change data capture connector on the orders table wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe protobuf for the internal service events is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. I keep meaning to get to partitioning by tenant rather than by hash but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but one topic per event type rather than a shared bus would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 compaction on the entity state topics \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but backward-compatible schema evolution only won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to reducing end-to-end latency below one second but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out an integration test spinning up a real broker wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, at-least-once delivery with idempotent consumers felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got the topic layout with twelve partitions per stream working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, a seven-day retention on the raw topics felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up partition skew putting 60% of traffic on one consumer and it's been a pain."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "windowed aggregation over five-minute tumbling windows",
+   "compaction on the entity state topics",
+   "the topic layout with twelve partitions per stream",
+   "an integration test spinning up a real broker",
+   "the dead letter topic with a replay tool",
+   "the change data capture connector on the orders table"
+  ],
+  "pending_tasks": [
+   "an automated schema compatibility check in CI",
+   "reducing end-to-end latency below one second",
+   "partitioning by tenant rather than by hash",
+   "a cost review of the broker cluster"
+  ],
+  "decisions": [
+   "one topic per event type rather than a shared bus",
+   "a seven-day retention on the raw topics",
+   "at-least-once delivery with idempotent consumers",
+   "backward-compatible schema evolution only",
+   "Flink for the stateful stream processing",
+   "protobuf for the internal service events"
+  ],
+  "files": [
+   "connect/debezium.json",
+   "scripts/replay.py"
+  ],
+  "errors": [
+   "partition skew putting 60% of traffic on one consumer",
+   "consumer lag growing unbounded during the nightly spike",
+   "offset commit failures under broker restart"
+  ]
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "id": "gen_ml_python_001",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a fraud detection model now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: drift monitoring on the input distributions."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: baseline logistic regression at 0.71 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: inference timeouts on the long-document path. Error: non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/serve.py."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with ONNX export for the serving runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: an online A/B test against the current model. Updated: tests/test_features.py."
+  },
+  {
+   "role": "user",
+   "content": "Build it with XGBoost over a neural network for tabular data."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Implemented: gradient boosting reaching 0.84 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: hyperparameter search over 200 trials."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: a model registry entry for the release candidate."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: batch inference over the full customer base."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Use a 90-day lookback window for features."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: configs/model.yaml. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with MLflow for experiment tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with scikit-learn pipelines for preprocessing."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: a fairness audit across customer segments."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: the evaluation set overlapping the training window."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "batch inference over the full customer base",
+   "hyperparameter search over 200 trials",
+   "a model registry entry for the release candidate",
+   "drift monitoring on the input distributions",
+   "gradient boosting reaching 0.84 AUC",
+   "baseline logistic regression at 0.71 AUC"
+  ],
+  "pending_tasks": [
+   "a fairness audit across customer segments",
+   "an online A/B test against the current model"
+  ],
+  "decisions": [
+   "ONNX export for the serving runtime",
+   "MLflow for experiment tracking",
+   "sentence-transformers for the text embeddings",
+   "scikit-learn pipelines for preprocessing",
+   "XGBoost over a neural network for tabular data",
+   "a 90-day lookback window for features"
+  ],
+  "files": [
+   "tests/test_features.py",
+   "src/serve.py",
+   "Makefile",
+   "src/evaluate.py",
+   "configs/model.yaml"
+  ],
+  "errors": [
+   "inference timeouts on the long-document path",
+   "the evaluation set overlapping the training window",
+   "non-determinism from an unseeded shuffle"
+  ]
+ }
+}

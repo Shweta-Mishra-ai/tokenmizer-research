@@ -1,0 +1,131 @@
+{
+ "id": "gen_devops_ci_001",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'devops/ci', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a CI pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a CI pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up a nightly job running the slow integration suite, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with release-please for version bumps?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in scripts/run_tests.sh."
+  },
+  {
+   "role": "user",
+   "content": "How's a CI pipeline rebuild coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in Makefile."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward pytest-xdist for test parallelism."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to self-hosted runners for the GPU tests."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Artifact upload for the failing test logs is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Going with a required review from one code owner for this. Wrapped up parallel test execution across four shards, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with test retries limited to two attempts for this. Made the changes over in .github/dependabot.yml."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in conftest.py now. Most of it is in .pre-commit-config.yaml now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing a flaky test failing one run in twenty on the timing assertion."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "parallel test execution across four shards",
+   "artifact upload for the failing test logs",
+   "a nightly job running the slow integration suite"
+  ],
+  "pending_tasks": [
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "test retries limited to two attempts",
+   "a required review from one code owner",
+   "pytest-xdist for test parallelism",
+   "release-please for version bumps"
+  ],
+  "files": [
+   "conftest.py",
+   ".pre-commit-config.yaml",
+   "scripts/run_tests.sh",
+   ".github/dependabot.yml",
+   "Makefile"
+  ],
+  "errors": [
+   "a flaky test failing one run in twenty on the timing assertion"
+  ]
+ }
+}

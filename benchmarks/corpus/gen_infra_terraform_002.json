@@ -1,0 +1,123 @@
+{
+ "id": "gen_infra_terraform_002",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'infra/terraform', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a compliance baseline rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a compliance baseline rollout now."
+  },
+  {
+   "role": "user",
+   "content": "How's a compliance baseline rollout coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, a hub-and-spoke network topology made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until a state lock left behind by a cancelled apply showed up out of nowhere. We'll circle back to splitting the monolithic state file once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/backend.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "How's a compliance baseline rollout coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/iam.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe separate accounts for production and staging is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. So I went ahead and got encrypted EBS volumes across all instances working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 remote state in S3 with DynamoDB locking \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got security groups restricted to named ports handled."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to moving the legacy resources under Terraform but other things keep jumping the queue. I keep meaning to get to a disaster recovery restore rehearsal but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a cost anomaly alert is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/rds.tf chasing this down. That's out of the way now \u2014 CloudWatch alarms on the error rate metric \u2014 onto the next thing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "encrypted EBS volumes across all instances",
+   "security groups restricted to named ports",
+   "CloudWatch alarms on the error rate metric",
+   "remote state in S3 with DynamoDB locking"
+  ],
+  "pending_tasks": [
+   "a disaster recovery restore rehearsal",
+   "a cost anomaly alert",
+   "moving the legacy resources under Terraform",
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "a hub-and-spoke network topology",
+   "separate accounts for production and staging"
+  ],
+  "files": [
+   "terraform/rds.tf",
+   "terraform/iam.tf",
+   "terraform/backend.tf"
+  ],
+  "errors": [
+   "a state lock left behind by a cancelled apply"
+  ]
+ }
+}

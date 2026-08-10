@@ -1,0 +1,131 @@
+{
+ "id": "gen_product_analytics_003",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'product/analytics', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a churn driver investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a churn driver investigation now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: an experiment contaminated by overlapping assignment."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Statistical significance testing on the primary metric is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Instrumentation on every onboarding step is in and working. Created: analytics/segments.sql."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in analytics/cohorts.sql chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Amplitude for product analytics."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a holdout group excluded from all experiments handled. Next: a qualitative follow-up with churned accounts."
+  },
+  {
+   "role": "user",
+   "content": "How's a churn driver investigation coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: analytics/significance.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: survivorship bias in the retention calculation. Not today, but sunsetting the legacy dashboard is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the dashboard tracking the three north star metrics."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with counting activation on first collaborative action for this."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "statistical significance testing on the primary metric",
+   "instrumentation on every onboarding step",
+   "a holdout group excluded from all experiments",
+   "the dashboard tracking the three north star metrics"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts",
+   "sunsetting the legacy dashboard"
+  ],
+  "decisions": [
+   "Amplitude for product analytics",
+   "counting activation on first collaborative action"
+  ],
+  "files": [
+   "analytics/significance.py",
+   "dashboards/north_star.json",
+   "analytics/cohorts.sql",
+   "analytics/segments.sql"
+  ],
+  "errors": [
+   "survivorship bias in the retention calculation",
+   "an experiment contaminated by overlapping assignment"
+  ]
+ }
+}

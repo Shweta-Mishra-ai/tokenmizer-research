@@ -1,0 +1,165 @@
+{
+ "id": "gen_ml_python_002",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a fraud detection model now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: Polars instead of pandas for the feature pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: notebooks/eda.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: configs/model.yaml."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: an offline evaluation against last quarter's data. Completed: SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: a feature store migration."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: a stratified train/validation/test split. Created: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: gradient boosting reaching 0.84 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: drift monitoring on the input distributions."
+  },
+  {
+   "role": "user",
+   "content": "Use quantile clipping on the numeric features."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: baseline logistic regression at 0.71 AUC."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: hyperparameter search over 200 trials."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/serve.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a stratified train/validation/test split",
+   "SHAP explanations for the top features",
+   "an offline evaluation against last quarter's data",
+   "gradient boosting reaching 0.84 AUC",
+   "baseline logistic regression at 0.71 AUC",
+   "drift monitoring on the input distributions",
+   "hyperparameter search over 200 trials"
+  ],
+  "pending_tasks": [
+   "a feature store migration"
+  ],
+  "decisions": [
+   "Polars instead of pandas for the feature pipeline",
+   "quantile clipping on the numeric features",
+   "Optuna for hyperparameter search"
+  ],
+  "files": [
+   "src/train.py",
+   "data/schema.json",
+   "configs/model.yaml",
+   "src/serve.py",
+   "notebooks/eda.ipynb",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

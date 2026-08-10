@@ -1,0 +1,158 @@
+{
+ "id": "gen_backend_python_004",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an async task queue service now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: a load test against the order path."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: pytest fixtures for a throwaway database."
+  },
+  {
+   "role": "user",
+   "content": "Build it with UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Files: api/models.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: soft deletes on the tenant table."
+  },
+  {
+   "role": "user",
+   "content": "Use uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "assistant",
+   "content": "Error: an IntegrityError on duplicate order submission. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: connection pooling against Postgres."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: structlog for JSON log output."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error: a 500 from an unhandled TimeoutError in the payment client. Updated: api/deps.py."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: SQLAlchemy 2.0 with the async engine."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: pagination on the list endpoints."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: db/session.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection pooling against Postgres",
+   "pytest fixtures for a throwaway database",
+   "pagination on the list endpoints"
+  ],
+  "pending_tasks": [
+   "soft deletes on the tenant table",
+   "a load test against the order path"
+  ],
+  "decisions": [
+   "uvicorn behind gunicorn in production",
+   "UUIDv7 primary keys instead of integers",
+   "structlog for JSON log output",
+   "SQLAlchemy 2.0 with the async engine"
+  ],
+  "files": [
+   "api/deps.py",
+   "db/session.py",
+   "requirements.txt",
+   "docker-compose.yml",
+   "api/models.py"
+  ],
+  "errors": [
+   "an IntegrityError on duplicate order submission",
+   "a deadlock between the invoice and ledger updates",
+   "a 500 from an unhandled TimeoutError in the payment client"
+  ]
+ }
+}

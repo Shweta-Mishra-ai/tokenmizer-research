@@ -1,0 +1,115 @@
+{
+ "id": "gen_infra_terraform_005",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'infra/terraform', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a compliance baseline rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a compliance baseline rollout now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 a module for the standard service deployment \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe Terraform over CloudFormation is worth trying. Given what happened last time, maybe Checkov for policy scanning is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but a hub-and-spoke network topology would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. So I went ahead and got VPC flow logs shipped to the log bucket working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 encrypted EBS volumes across all instances \u2014 onto the next thing. I keep meaning to get to removing the last hardcoded account IDs but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, AWS as the single cloud provider felt like the right call given the constraints. Spent most of the afternoon in terraform/variables.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/iam.tf, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but moving the legacy resources under Terraform is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe private subnets for every compute workload is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to documenting the module interfaces once the current thing lands. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, OIDC for CI authentication into AWS made the most sense here. Not today, but policy-as-code checks in the plan stage is on my mind for later this week."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VPC flow logs shipped to the log bucket",
+   "a module for the standard service deployment",
+   "encrypted EBS volumes across all instances"
+  ],
+  "pending_tasks": [
+   "removing the last hardcoded account IDs",
+   "moving the legacy resources under Terraform",
+   "policy-as-code checks in the plan stage",
+   "documenting the module interfaces"
+  ],
+  "decisions": [
+   "AWS as the single cloud provider",
+   "private subnets for every compute workload",
+   "Checkov for policy scanning",
+   "a hub-and-spoke network topology",
+   "Terraform over CloudFormation",
+   "OIDC for CI authentication into AWS"
+  ],
+  "files": [
+   "terraform/iam.tf",
+   "terraform/variables.tf"
+  ],
+  "errors": []
+ }
+}

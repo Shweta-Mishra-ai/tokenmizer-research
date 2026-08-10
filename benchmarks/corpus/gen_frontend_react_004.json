@@ -1,0 +1,166 @@
+{
+ "id": "gen_frontend_react_004",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'frontend/react', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a checkout flow rewrite."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a checkout flow rewrite now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up keyboard navigation across the data grid, all green now. Made the changes over in src/api/client.ts."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tailwind.config.js."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up focus trapping in the modal component, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with Playwright for end-to-end tests?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up a virtualised list for the 10k-row view earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in src/App.tsx now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in src/store/session.ts now."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with Tailwind for styling?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Most of it is in vite.config.ts now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in src/hooks/useMetrics.ts now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the empty and loading states for every panel. Going with pnpm as the package manager for this."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Replacing the date picker with a headless one is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "How's a checkout flow rewrite coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the metrics grid with responsive breakpoints."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use Recharts for the visualisations here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on Vitest over Jest for the unit suite."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up session persistence in localStorage, all green now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the metrics grid with responsive breakpoints",
+   "focus trapping in the modal component",
+   "a virtualised list for the 10k-row view",
+   "the empty and loading states for every panel",
+   "session persistence in localStorage",
+   "keyboard navigation across the data grid"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one"
+  ],
+  "decisions": [
+   "Tailwind for styling",
+   "Vitest over Jest for the unit suite",
+   "Recharts for the visualisations",
+   "pnpm as the package manager",
+   "Playwright for end-to-end tests"
+  ],
+  "files": [
+   "src/hooks/useMetrics.ts",
+   "tailwind.config.js",
+   "src/store/session.ts",
+   "vite.config.ts",
+   "src/App.tsx",
+   "src/api/client.ts"
+  ],
+  "errors": []
+ }
+}

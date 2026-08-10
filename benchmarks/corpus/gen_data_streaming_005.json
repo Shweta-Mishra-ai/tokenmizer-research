@@ -1,0 +1,113 @@
+{
+ "id": "gen_data_streaming_005",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'data/streaming', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a Kafka pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a Kafka pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in config/kafka.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "How's a Kafka pipeline rebuild coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in connect/debezium.json chasing this down. So I went ahead and got the change data capture connector on the orders table working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to an automated schema compatibility check in CI but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the dead letter topic with a replay tool handled."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in scripts/replay.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but reducing end-to-end latency below one second is on my mind for later this week. Weighing the tradeoffs, a seven-day retention on the raw topics made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but partitioning by tenant rather than by hash is on my mind for later this week. Weighing the tradeoffs, at-least-once delivery with idempotent consumers made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a Kafka pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got checkpointing to durable storage every 30 seconds handled."
+  },
+  {
+   "role": "user",
+   "content": "How's a Kafka pipeline rebuild coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a schema registry entry for every event type working, then moved on. I keep meaning to get to tiered storage for the older segments but other things keep jumping the queue."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the dead letter topic with a replay tool",
+   "checkpointing to durable storage every 30 seconds",
+   "the change data capture connector on the orders table",
+   "a schema registry entry for every event type"
+  ],
+  "pending_tasks": [
+   "partitioning by tenant rather than by hash",
+   "tiered storage for the older segments",
+   "an automated schema compatibility check in CI",
+   "reducing end-to-end latency below one second"
+  ],
+  "decisions": [
+   "a seven-day retention on the raw topics",
+   "at-least-once delivery with idempotent consumers"
+  ],
+  "files": [
+   "scripts/replay.py",
+   "config/kafka.yaml",
+   "connect/debezium.json"
+  ],
+  "errors": []
+ }
+}

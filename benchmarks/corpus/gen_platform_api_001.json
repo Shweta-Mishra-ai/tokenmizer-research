@@ -1,0 +1,148 @@
+{
+ "id": "gen_platform_api_001",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'platform/api', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an API gateway migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an API gateway migration now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing cursor pagination skipping rows during concurrent writes."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to expanding the sandbox data set."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in gateway/kong.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "A usage dashboard for API consumers is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in openapi/v2.yaml now. Still need to get to sunsetting v1 after the six-month window."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up cursor-based pagination across all list endpoints earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward RFC 7807 problem details for errors."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up SDK generation for three languages, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped consistent error envelopes with machine-readable codes."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/auth.py now. Most of it is in api/routes/webhooks.py now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use JSON only, no XML support here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to documenting the webhook replay procedure."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tests/test_webhooks.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consistent error envelopes with machine-readable codes",
+   "SDK generation for three languages",
+   "cursor-based pagination across all list endpoints"
+  ],
+  "pending_tasks": [
+   "expanding the sandbox data set",
+   "documenting the webhook replay procedure",
+   "a usage dashboard for API consumers",
+   "sunsetting v1 after the six-month window"
+  ],
+  "decisions": [
+   "JSON only, no XML support",
+   "RFC 7807 problem details for errors"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "api/routes/webhooks.py",
+   "tests/test_webhooks.py",
+   "gateway/kong.yaml",
+   "api/auth.py"
+  ],
+  "errors": [
+   "cursor pagination skipping rows during concurrent writes"
+  ]
+ }
+}

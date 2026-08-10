@@ -1,0 +1,131 @@
+{
+ "id": "gen_devops_ci_004",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'devops/ci', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a monorepo pipeline split."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a monorepo pipeline split now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a concurrency group cancelling superseded runs."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Coverage reporting posted to the pull request is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing test pollution from an unreset global singleton."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in Makefile now."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with test retries limited to two attempts?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Going with Codecov for coverage tracking for this."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "A rollback job for failed deploys is next on the list. Pinning all third-party actions by digest is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with uv for dependency installation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on release-please for version bumps."
+  },
+  {
+   "role": "user",
+   "content": "How's a monorepo pipeline split coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: an out of disk space failure on the runner."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in conftest.py now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in Dockerfile now. Finished up dependency caching across pipeline runs earlier today."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dependency caching across pipeline runs",
+   "a concurrency group cancelling superseded runs",
+   "coverage reporting posted to the pull request"
+  ],
+  "pending_tasks": [
+   "pinning all third-party actions by digest",
+   "a rollback job for failed deploys"
+  ],
+  "decisions": [
+   "uv for dependency installation",
+   "test retries limited to two attempts",
+   "Codecov for coverage tracking",
+   "release-please for version bumps"
+  ],
+  "files": [
+   "Dockerfile",
+   "conftest.py",
+   "Makefile"
+  ],
+  "errors": [
+   "test pollution from an unreset global singleton",
+   "an out of disk space failure on the runner"
+  ]
+ }
+}

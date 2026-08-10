@@ -1,0 +1,160 @@
+{
+ "id": "gen_ml_python_004",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a fraud detection model now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a stratified train/validation/test split. Decided: sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/serve.py. Chose: Polars instead of pandas for the feature pipeline."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: batch inference over the full customer base. Bug: NaN losses after the learning rate change."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Evidently for drift reporting."
+  },
+  {
+   "role": "user",
+   "content": "How's a fraud detection model coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: ONNX export for the serving runtime."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Next: retraining automation on a weekly cadence."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Build it with AUC-PR as the primary metric given the imbalance."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/features.py. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: an offline evaluation against last quarter's data."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: a time-based split to avoid leakage."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: non-determinism from an unseeded shuffle. Pending: shadow deployment against live traffic."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: gradient boosting reaching 0.84 AUC."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "gradient boosting reaching 0.84 AUC",
+   "a stratified train/validation/test split",
+   "an offline evaluation against last quarter's data",
+   "batch inference over the full customer base"
+  ],
+  "pending_tasks": [
+   "shadow deployment against live traffic",
+   "retraining automation on a weekly cadence"
+  ],
+  "decisions": [
+   "Polars instead of pandas for the feature pipeline",
+   "Evidently for drift reporting",
+   "AUC-PR as the primary metric given the imbalance",
+   "ONNX export for the serving runtime",
+   "sentence-transformers for the text embeddings",
+   "a time-based split to avoid leakage"
+  ],
+  "files": [
+   "requirements.txt",
+   "src/features.py",
+   "data/schema.json",
+   "src/train.py",
+   "src/serve.py"
+  ],
+  "errors": [
+   "non-determinism from an unseeded shuffle",
+   "NaN losses after the learning rate change"
+  ]
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "id": "gen_data_sql_004",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a data quality initiative."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a data quality initiative now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing timezone drift between the source and warehouse."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in models/staging/stg_events.sql chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on an ELT rather than ETL pattern. Haven't started a cost review of the warehouse spend yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward a medallion bronze/silver/gold layout."
+  },
+  {
+   "role": "user",
+   "content": "How's a data quality initiative coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out a materialised view for the executive dashboard wasn't as bad as expected, it's sorted. That's out of the way now \u2014 partitioning the events table by month \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: freshness tests on every source table. Between the last two messages I also got the slowly changing dimension on customer tier handled."
+  },
+  {
+   "role": "user",
+   "content": "How's a data quality initiative coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up a schema drift break when the source added a column and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "How's a data quality initiative coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: incremental models for the daily aggregates. The bulk of the diff ended up living in sql/indexes.sql, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but Kafka for the event transport won out in the end."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "incremental models for the daily aggregates",
+   "freshness tests on every source table",
+   "a materialised view for the executive dashboard",
+   "the slowly changing dimension on customer tier",
+   "partitioning the events table by month"
+  ],
+  "pending_tasks": [
+   "a cost review of the warehouse spend"
+  ],
+  "decisions": [
+   "Kafka for the event transport",
+   "a medallion bronze/silver/gold layout",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "models/staging/stg_events.sql",
+   "sql/indexes.sql"
+  ],
+  "errors": [
+   "timezone drift between the source and warehouse",
+   "a schema drift break when the source added a column"
+  ]
+ }
+}

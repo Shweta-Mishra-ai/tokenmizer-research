@@ -1,0 +1,170 @@
+{
+ "id": "gen_infra_terraform_004",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'infra/terraform', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a disaster recovery setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a disaster recovery setup now."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe OIDC for CI authentication into AWS is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Spent most of the afternoon in terraform/backend.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 encrypted EBS volumes across all instances \u2014 onto the next thing. That's out of the way now \u2014 the NAT gateway consolidated to one per region \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a disaster recovery restore rehearsal is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to documenting the module interfaces once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 VPC flow logs shipped to the log bucket \u2014 onto the next thing. The bulk of the diff ended up living in .github/workflows/plan.yml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, AWS as the single cloud provider felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to a cost anomaly alert but other things keep jumping the queue. After going back and forth, Terragrunt for the DRY module wiring felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's a cyclic dependency between the security group rules."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but a hub-and-spoke network topology won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/rds.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 security groups restricted to named ports \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got an RDS instance with automated backups working, then moved on. I keep meaning to get to splitting the monolithic state file but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a read replica in the secondary region working, then moved on. Spent most of the afternoon in terraform/variables.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got IAM roles scoped per service working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in environments/prod/terragrunt.hcl chasing this down."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "security groups restricted to named ports",
+   "IAM roles scoped per service",
+   "an RDS instance with automated backups",
+   "VPC flow logs shipped to the log bucket",
+   "a read replica in the secondary region",
+   "encrypted EBS volumes across all instances",
+   "the NAT gateway consolidated to one per region"
+  ],
+  "pending_tasks": [
+   "a cost anomaly alert",
+   "splitting the monolithic state file",
+   "documenting the module interfaces",
+   "a disaster recovery restore rehearsal"
+  ],
+  "decisions": [
+   "AWS as the single cloud provider",
+   "a hub-and-spoke network topology",
+   "Terragrunt for the DRY module wiring",
+   "OIDC for CI authentication into AWS"
+  ],
+  "files": [
+   "environments/prod/terragrunt.hcl",
+   "terraform/rds.tf",
+   ".github/workflows/plan.yml",
+   "terraform/variables.tf",
+   "terraform/backend.tf"
+  ],
+  "errors": [
+   "a cyclic dependency between the security group rules"
+  ]
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "id": "gen_data_sql_006",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a query performance pass now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use UTC everywhere for timestamps here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Finished up surrogate keys across the dimension tables earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 column-level lineage documentation \u2014 onto the next thing. Most of it is in dbt_project.yml now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use Airflow for orchestration here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Selected: Kafka for the event transport."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in models/marts/dim_customer.sql, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started documenting the grain of each fact table yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in models/staging/stg_events.sql chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but moving the nightly job to an hourly cadence is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with soft deletes with a valid_to column for this."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in sql/indexes.sql now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to retiring the legacy reporting views."
+  },
+  {
+   "role": "user",
+   "content": "How's a query performance pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got row count reconciliation against the source system handled."
+  },
+  {
+   "role": "user",
+   "content": "How's a query performance pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consolidating the three customer definitions is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "How's a query performance pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: models/marts/fct_orders.sql."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "surrogate keys across the dimension tables",
+   "row count reconciliation against the source system",
+   "column-level lineage documentation"
+  ],
+  "pending_tasks": [
+   "moving the nightly job to an hourly cadence",
+   "retiring the legacy reporting views",
+   "documenting the grain of each fact table",
+   "consolidating the three customer definitions"
+  ],
+  "decisions": [
+   "soft deletes with a valid_to column",
+   "Airflow for orchestration",
+   "Kafka for the event transport",
+   "UTC everywhere for timestamps"
+  ],
+  "files": [
+   "sql/indexes.sql",
+   "models/marts/fct_orders.sql",
+   "models/staging/stg_events.sql",
+   "dbt_project.yml",
+   "models/marts/dim_customer.sql"
+  ],
+  "errors": []
+ }
+}

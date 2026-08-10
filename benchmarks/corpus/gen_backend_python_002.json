@@ -1,0 +1,186 @@
+{
+ "id": "gen_backend_python_002",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a document ingestion service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a document ingestion service now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: idempotency keys on the order create path."
+  },
+  {
+   "role": "user",
+   "content": "Build it with Alembic for schema migrations."
+  },
+  {
+   "role": "assistant",
+   "content": "Done: pagination on the list endpoints. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Redis for refresh token storage."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: tests/test_orders.py. Finished: POST /api/orders and GET /api/orders/{id}."
+  },
+  {
+   "role": "user",
+   "content": "How's a document ingestion service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: the User model with email and hashed_password columns."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: audit logging for admin actions. Updated: docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "How's a document ingestion service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: OpenAPI schema generation for the public routes."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: db/session.py. Files: api/orders.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: connection pooling against Postgres."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: Pydantic v2 for request validation."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: a health check endpoint at /healthz."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: caching the catalogue lookup."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: backfilling created_at on legacy rows."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the User model with email and hashed_password columns",
+   "idempotency keys on the order create path",
+   "POST /api/orders and GET /api/orders/{id}",
+   "OpenAPI schema generation for the public routes",
+   "a health check endpoint at /healthz",
+   "connection pooling against Postgres",
+   "pagination on the list endpoints"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows",
+   "splitting the settings module per environment",
+   "audit logging for admin actions",
+   "caching the catalogue lookup"
+  ],
+  "decisions": [
+   "Pydantic v2 for request validation",
+   "Redis for refresh token storage",
+   "Alembic for schema migrations"
+  ],
+  "files": [
+   "db/session.py",
+   "api/orders.py",
+   "core/config.py",
+   "tests/test_orders.py",
+   "requirements.txt",
+   "docker-compose.yml"
+  ],
+  "errors": [
+   "a deadlock between the invoice and ledger updates"
+  ]
+ }
+}

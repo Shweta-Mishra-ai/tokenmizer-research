@@ -1,0 +1,149 @@
+{
+ "id": "gen_security_appsec_003",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'security/appsec', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an authentication hardening pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an authentication hardening pass now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use mTLS between internal services here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started automated dependency updates yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: field-level encryption for PII columns."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in SECURITY.md now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: dependency pinning with a lockfile."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: session fixation after login."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Input sanitisation on the file upload path is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward Argon2id over bcrypt for new password hashes."
+  },
+  {
+   "role": "user",
+   "content": "How's an authentication hardening pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: encrypted secrets at rest in the vault. Made the changes over in docs/threat-model.md."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: a threat model for the payments flow. That's out of the way now \u2014 rotation of the leaked deploy key \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got session invalidation on password change working, then moved on. Next: audit log retention policy."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: parameterised queries across the data layer."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing a path traversal in the file download handler."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "rotation of the leaked deploy key",
+   "session invalidation on password change",
+   "encrypted secrets at rest in the vault",
+   "parameterised queries across the data layer",
+   "input sanitisation on the file upload path",
+   "dependency pinning with a lockfile"
+  ],
+  "pending_tasks": [
+   "audit log retention policy",
+   "automated dependency updates",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "Argon2id over bcrypt for new password hashes",
+   "mTLS between internal services",
+   "field-level encryption for PII columns"
+  ],
+  "files": [
+   "docs/threat-model.md",
+   "SECURITY.md"
+  ],
+  "errors": [
+   "session fixation after login",
+   "a path traversal in the file download handler"
+  ]
+ }
+}

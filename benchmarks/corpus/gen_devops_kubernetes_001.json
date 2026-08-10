@@ -1,0 +1,142 @@
+{
+ "id": "gen_devops_kubernetes_001",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a zero-downtime deploy pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a zero-downtime deploy pipeline now."
+  },
+  {
+   "role": "user",
+   "content": "How's a zero-downtime deploy pipeline coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the secrets migration into the external secret store wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got horizontal pod autoscaling on CPU and request rate working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until DNS resolution failures inside the mesh sidecar showed up out of nowhere. So I went ahead and got readiness and liveness probes on every workload working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "How's a zero-downtime deploy pipeline coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a rolling deploy with surge and unavailable tuned working, then moved on. It wasn't an obvious choice, but Loki for log aggregation won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the ingress with automatic certificate renewal handled."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to a chaos test on node eviction but other things keep jumping the queue. Spent most of the afternoon in argocd/apps/api.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but Prometheus and Grafana for metrics won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a canary stage in the deploy pipeline working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up a 502 during rolling deploys from missing readiness gates and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but moving the remaining cron jobs to Kubernetes is on my mind for later this week. I keep meaning to get to a runbook for the failover procedure but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but an upgrade rehearsal in staging is on my mind for later this week. That's out of the way now \u2014 pod disruption budgets for the stateful services \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/networkpolicy.yaml, of all places."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the secrets migration into the external secret store",
+   "pod disruption budgets for the stateful services",
+   "a canary stage in the deploy pipeline",
+   "a rolling deploy with surge and unavailable tuned",
+   "readiness and liveness probes on every workload",
+   "horizontal pod autoscaling on CPU and request rate",
+   "the ingress with automatic certificate renewal"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes",
+   "a chaos test on node eviction",
+   "a runbook for the failover procedure",
+   "an upgrade rehearsal in staging"
+  ],
+  "decisions": [
+   "Prometheus and Grafana for metrics",
+   "Loki for log aggregation"
+  ],
+  "files": [
+   "k8s/networkpolicy.yaml",
+   "argocd/apps/api.yaml"
+  ],
+  "errors": [
+   "DNS resolution failures inside the mesh sidecar",
+   "a 502 during rolling deploys from missing readiness gates"
+  ]
+ }
+}

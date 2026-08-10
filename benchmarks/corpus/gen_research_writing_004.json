@@ -1,0 +1,140 @@
+{
+ "id": "gen_research_writing_004",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'research/writing', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: targeting the workshop deadline rather than the main track."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: an ethics statement."
+  },
+  {
+   "role": "user",
+   "content": "Build it with framing the contribution as a measurement study."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the reproducibility statement with exact commands."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, including the negative result on implicit language felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: paper/related_work.tex."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in notes/outline.md now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in Makefile. Most of it is in paper/abstract.tex now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the abstract rewritten to lead with the result wasn't as bad as expected, it's sorted. Going with Zotero for reference management for this."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the related work section covering twelve papers wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: the ACL template over the generic LaTeX class."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the introduction cut from four pages to two. Things were fine until a missing statistical test on the headline comparison showed up out of nowhere."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the related work section covering twelve papers",
+   "the reproducibility statement with exact commands",
+   "the abstract rewritten to lead with the result",
+   "the introduction cut from four pages to two"
+  ],
+  "pending_tasks": [
+   "an ethics statement"
+  ],
+  "decisions": [
+   "framing the contribution as a measurement study",
+   "Zotero for reference management",
+   "targeting the workshop deadline rather than the main track",
+   "the ACL template over the generic LaTeX class",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "paper/related_work.tex",
+   "paper/abstract.tex",
+   "Makefile",
+   "notes/outline.md"
+  ],
+  "errors": [
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

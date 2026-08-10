@@ -1,0 +1,169 @@
+{
+ "id": "gen_debug_production_004",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'debug/production', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a memory leak hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a memory leak hunt now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: reviewing the other call sites with the same pattern. Implemented: capturing a heap profile during the spike."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: a timeline of the incident from the metrics."
+  },
+  {
+   "role": "user",
+   "content": "Use a feature flag to disable the suspect path."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Build it with py-spy for the production profiling."
+  },
+  {
+   "role": "assistant",
+   "content": "Next: a permanent fix replacing the hotfix. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: duplicate charges from a non-idempotent retry. Completed: the postmortem document with action items."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: documenting the failure mode in the runbook. Still need: cleaning up the temporary debug logging."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: rolling back before investigating further."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: a 30% error rate on the payment callback. Chose: increasing the connection pool as a stopgap."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: the hotfix reverting the connection pool change."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with a blameless postmortem format."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: instrumenting the slow query with timing spans."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/pool.py."
+  },
+  {
+   "role": "user",
+   "content": "Build it with paging on error rate rather than absolute count."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/handlers/checkout.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "capturing a heap profile during the spike",
+   "the postmortem document with action items",
+   "the hotfix reverting the connection pool change",
+   "instrumenting the slow query with timing spans",
+   "a timeline of the incident from the metrics"
+  ],
+  "pending_tasks": [
+   "a permanent fix replacing the hotfix",
+   "documenting the failure mode in the runbook",
+   "cleaning up the temporary debug logging",
+   "reviewing the other call sites with the same pattern"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "increasing the connection pool as a stopgap",
+   "a feature flag to disable the suspect path",
+   "a blameless postmortem format",
+   "paging on error rate rather than absolute count",
+   "py-spy for the production profiling"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "src/pool.py",
+   "logs/analysis.py"
+  ],
+  "errors": [
+   "a 30% error rate on the payment callback",
+   "duplicate charges from a non-idempotent retry"
+  ]
+ }
+}

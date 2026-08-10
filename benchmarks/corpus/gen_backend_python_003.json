@@ -1,0 +1,147 @@
+{
+ "id": "gen_backend_python_003",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an async task queue service now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: background retry for failed webhook deliveries."
+  },
+  {
+   "role": "user",
+   "content": "How's an async task queue service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: request ID middleware for structured logging."
+  },
+  {
+   "role": "user",
+   "content": "Build it with Redis for refresh token storage."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Updated: api/deps.py."
+  },
+  {
+   "role": "user",
+   "content": "How's an async task queue service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: a load test against the order path."
+  },
+  {
+   "role": "user",
+   "content": "How's an async task queue service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: api/main.py. Files: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: OpenAPI schema generation for the public routes."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: caching the catalogue lookup."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Pydantic v2 for request validation."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: moving the email sender behind an interface."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: api/orders.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: idempotency keys on the order create path."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: tests/test_orders.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "request ID middleware for structured logging",
+   "background retry for failed webhook deliveries",
+   "OpenAPI schema generation for the public routes",
+   "idempotency keys on the order create path"
+  ],
+  "pending_tasks": [
+   "a load test against the order path",
+   "caching the catalogue lookup",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "Redis for refresh token storage",
+   "Pydantic v2 for request validation"
+  ],
+  "files": [
+   "api/orders.py",
+   "tests/test_orders.py",
+   "api/main.py",
+   "api/deps.py",
+   "core/config.py",
+   "requirements.txt"
+  ],
+  "errors": []
+ }
+}

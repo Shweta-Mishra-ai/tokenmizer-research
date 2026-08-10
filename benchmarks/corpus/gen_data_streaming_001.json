@@ -1,0 +1,150 @@
+{
+ "id": "gen_data_streaming_001",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'data/streaming', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a dead letter queue redesign."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a dead letter queue redesign now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a dead letter queue redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, at-least-once delivery with idempotent consumers felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got checkpointing to durable storage every 30 seconds handled."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in connect/debezium.json chasing this down. So I went ahead and got a schema registry entry for every event type working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a dead letter queue redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to migrating the remaining consumers off the v1 schema once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but Debezium for change data capture won out in the end. Not today, but partitioning by tenant rather than by hash is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a replay procedure for the last 24 hours is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got an integration test spinning up a real broker working, then moved on. The bulk of the diff ended up living in streams/windowing.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 backpressure handling in the consumer loop \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in config/kafka.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but a seven-day retention on the raw topics won out in the end. That's out of the way now \u2014 the topic layout with twelve partitions per stream \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a dead letter queue redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 consumer lag monitoring with alerting \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until a poison message halting the consumer group showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "How's a dead letter queue redesign coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the change data capture connector on the orders table wasn't as bad as expected, it's sorted."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an integration test spinning up a real broker",
+   "checkpointing to durable storage every 30 seconds",
+   "a schema registry entry for every event type",
+   "the topic layout with twelve partitions per stream",
+   "backpressure handling in the consumer loop",
+   "consumer lag monitoring with alerting",
+   "the change data capture connector on the orders table"
+  ],
+  "pending_tasks": [
+   "partitioning by tenant rather than by hash",
+   "migrating the remaining consumers off the v1 schema",
+   "a replay procedure for the last 24 hours"
+  ],
+  "decisions": [
+   "Debezium for change data capture",
+   "a seven-day retention on the raw topics",
+   "at-least-once delivery with idempotent consumers"
+  ],
+  "files": [
+   "connect/debezium.json",
+   "config/kafka.yaml",
+   "streams/windowing.py"
+  ],
+  "errors": [
+   "a poison message halting the consumer group"
+  ]
+ }
+}

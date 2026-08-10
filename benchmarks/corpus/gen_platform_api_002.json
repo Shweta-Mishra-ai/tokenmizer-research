@@ -1,0 +1,140 @@
+{
+ "id": "gen_platform_api_002",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'platform/api', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a public API v2 design."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a public API v2 design now."
+  },
+  {
+   "role": "user",
+   "content": "How's a public API v2 design coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the sandbox environment for partner testing."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in api/pagination.py. Haven't started sunsetting v1 after the six-month window yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use OpenAPI as the source of truth for SDK generation here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Idempotency keys on all write operations is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a deprecation header on the v1 routes."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Field-level filtering on the large resources is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to expanding the sandbox data set. Settled on cursor pagination rather than offset."
+  },
+  {
+   "role": "user",
+   "content": "How's a public API v2 design coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with snake_case field naming throughout for this."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Per-key rate limits with headers exposing the budget is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/routes/webhooks.py now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up consistent error envelopes with machine-readable codes earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: inconsistent 404 versus 403 on unauthorised resources."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up webhook signature verification earlier today."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "webhook signature verification",
+   "per-key rate limits with headers exposing the budget",
+   "idempotency keys on all write operations",
+   "a deprecation header on the v1 routes",
+   "consistent error envelopes with machine-readable codes",
+   "the sandbox environment for partner testing"
+  ],
+  "pending_tasks": [
+   "sunsetting v1 after the six-month window",
+   "expanding the sandbox data set",
+   "field-level filtering on the large resources"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "cursor pagination rather than offset",
+   "snake_case field naming throughout"
+  ],
+  "files": [
+   "api/pagination.py",
+   "api/routes/webhooks.py"
+  ],
+  "errors": [
+   "inconsistent 404 versus 403 on unauthorised resources"
+  ]
+ }
+}

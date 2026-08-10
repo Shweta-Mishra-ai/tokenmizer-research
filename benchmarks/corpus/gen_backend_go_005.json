@@ -1,0 +1,165 @@
+{
+ "id": "gen_backend_go_005",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'backend/go', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a file transfer service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a file transfer service now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up table-driven tests for the parser, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on NATS for the message transport."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with errgroup for concurrent fan-out?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in internal/store/postgres.go."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the config to environment variables is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in Dockerfile now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Protobuf schema versioning is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up a worker pool bounded at 32 goroutines earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a circuit breaker around the downstream call."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use sqlc for type-safe database access here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "A soak test over 24 hours is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use Go 1.23 as the toolchain here."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up context propagation through every handler earlier today. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use OpenTelemetry for traces here."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up the retry policy with exponential backoff earlier today. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up graceful shutdown on SIGTERM, all green now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use testcontainers for integration tests here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a circuit breaker around the downstream call",
+   "the retry policy with exponential backoff",
+   "protobuf schema versioning",
+   "context propagation through every handler",
+   "graceful shutdown on SIGTERM",
+   "table-driven tests for the parser",
+   "a worker pool bounded at 32 goroutines"
+  ],
+  "pending_tasks": [
+   "a soak test over 24 hours",
+   "moving the config to environment variables"
+  ],
+  "decisions": [
+   "sqlc for type-safe database access",
+   "errgroup for concurrent fan-out",
+   "testcontainers for integration tests",
+   "NATS for the message transport",
+   "OpenTelemetry for traces",
+   "Go 1.23 as the toolchain"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "Dockerfile"
+  ],
+  "errors": []
+ }
+}

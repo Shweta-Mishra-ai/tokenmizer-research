@@ -1,0 +1,178 @@
+{
+ "id": "gen_backend_go_001",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'backend/go', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a job scheduler."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a job scheduler now."
+  },
+  {
+   "role": "user",
+   "content": "How's a job scheduler coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on a monorepo layout with internal packages."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up graceful shutdown on SIGTERM, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on pgx as the Postgres driver."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing a panic on malformed protobuf input. Shipped structured logging with request correlation."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on buf for protobuf linting and generation."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up Prometheus metrics on the request path, all green now. We're seeing nil pointer dereference in the retry handler."
+  },
+  {
+   "role": "user",
+   "content": "How's a job scheduler coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in internal/handler/orders.go. A circuit breaker around the downstream call is in and working."
+  },
+  {
+   "role": "user",
+   "content": "How's a job scheduler coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up the gRPC service definition and generated stubs, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up protobuf schema versioning, all green now. Most of it is in Dockerfile now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started replacing the mutex with a sharded map yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use golangci-lint in CI here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Most of it is in internal/handler/orders_test.go now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the config to environment variables is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in internal/worker/pool.go."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a job scheduler?"
+  },
+  {
+   "role": "assistant",
+   "content": "A worker pool bounded at 32 goroutines is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started profiling the p99 latency spike yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: excessive allocations causing GC pressure."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the gRPC service definition and generated stubs",
+   "structured logging with request correlation",
+   "Prometheus metrics on the request path",
+   "a worker pool bounded at 32 goroutines",
+   "graceful shutdown on SIGTERM",
+   "a circuit breaker around the downstream call",
+   "protobuf schema versioning"
+  ],
+  "pending_tasks": [
+   "replacing the mutex with a sharded map",
+   "profiling the p99 latency spike",
+   "moving the config to environment variables"
+  ],
+  "decisions": [
+   "buf for protobuf linting and generation",
+   "a monorepo layout with internal packages",
+   "golangci-lint in CI",
+   "pgx as the Postgres driver"
+  ],
+  "files": [
+   "internal/handler/orders.go",
+   "internal/worker/pool.go",
+   "Dockerfile",
+   "internal/handler/orders_test.go"
+  ],
+  "errors": [
+   "nil pointer dereference in the retry handler",
+   "excessive allocations causing GC pressure",
+   "a panic on malformed protobuf input"
+  ]
+ }
+}

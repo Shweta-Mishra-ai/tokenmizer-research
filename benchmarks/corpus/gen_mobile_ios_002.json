@@ -1,0 +1,186 @@
+{
+ "id": "gen_mobile_ios_002",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'mobile/ios', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an accessibility overhaul."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an accessibility overhaul now."
+  },
+  {
+   "role": "user",
+   "content": "How's an accessibility overhaul coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: reducing cold start below 400ms."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: async/await instead of Combine for networking."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Sources/Sync/SyncEngine.swift."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: crash reporting integration."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: Core Data persistence for the workout log."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a crash from a missing NSMotionUsageDescription key."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a duplicate record after an interrupted sync. Still need: handling the offline conflict resolution case."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: .swiftlint.yml."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the HealthKit permission flow."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "user",
+   "content": "Build it with SwiftLint in the build phase."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Created: fastlane/Fastfile."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: keychain storage for the auth token."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: The Composable Architecture for state."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: VoiceOver labels across the main screens. Chose: SwiftUI for all new screens."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a retain cycle in the sync completion handler."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: a widget showing today's activity. Finished: the subscription purchase and restore flow."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the HealthKit permission flow",
+   "keychain storage for the auth token",
+   "the subscription purchase and restore flow",
+   "a widget showing today's activity",
+   "crash reporting integration",
+   "Core Data persistence for the workout log",
+   "VoiceOver labels across the main screens"
+  ],
+  "pending_tasks": [
+   "handling the offline conflict resolution case",
+   "reducing cold start below 400ms"
+  ],
+  "decisions": [
+   "The Composable Architecture for state",
+   "iOS 17 as the minimum deployment target",
+   "Core Data over Realm for local storage",
+   "async/await instead of Combine for networking",
+   "SwiftUI for all new screens",
+   "SwiftLint in the build phase"
+  ],
+  "files": [
+   "fastlane/Fastfile",
+   "Sources/Sync/SyncEngine.swift",
+   ".swiftlint.yml"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync",
+   "a retain cycle in the sync completion handler",
+   "a crash from a missing NSMotionUsageDescription key"
+  ]
+ }
+}

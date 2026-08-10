@@ -1,0 +1,143 @@
+{
+ "id": "gen_product_analytics_004",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'product/analytics', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an experiment platform rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an experiment platform rollout now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on a two-week minimum experiment runtime. TODO: sunsetting the legacy dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an experiment platform rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: a double-counted signup event inflating the funnel top."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, an experiment registry with pre-registered hypotheses felt like the right call given the constraints. Done: a funnel from signup through first value."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an experiment platform rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's the active user count differing 12% between two dashboards."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an experiment platform rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up the experiment assignment and exposure logging earlier today. Files: config/taxonomy.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in analytics/cohorts.sql, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: an automated experiment readout template."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with median rather than mean for the latency metrics for this. The bulk of the diff ended up living in docs/metric_definitions.md, of all places."
+  },
+  {
+   "role": "user",
+   "content": "How's an experiment platform rollout coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but reconciling the two conflicting active-user counts is on my mind for later this week. Deduplication of the double-fired signup event is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up statistical significance testing on the primary metric, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a sample size calculation for the pricing test."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in analytics/segments.sql, of all places. Settled on counting monthly actives on a rolling 28-day window."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the experiment assignment and exposure logging",
+   "statistical significance testing on the primary metric",
+   "deduplication of the double-fired signup event",
+   "a sample size calculation for the pricing test",
+   "a funnel from signup through first value"
+  ],
+  "pending_tasks": [
+   "sunsetting the legacy dashboard",
+   "an automated experiment readout template",
+   "reconciling the two conflicting active-user counts"
+  ],
+  "decisions": [
+   "median rather than mean for the latency metrics",
+   "an experiment registry with pre-registered hypotheses",
+   "counting monthly actives on a rolling 28-day window",
+   "a two-week minimum experiment runtime"
+  ],
+  "files": [
+   "analytics/cohorts.sql",
+   "analytics/segments.sql",
+   "docs/metric_definitions.md",
+   "config/taxonomy.yaml"
+  ],
+  "errors": [
+   "the active user count differing 12% between two dashboards",
+   "a double-counted signup event inflating the funnel top"
+  ]
+ }
+}

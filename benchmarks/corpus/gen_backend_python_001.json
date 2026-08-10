@@ -1,0 +1,169 @@
+{
+ "id": "gen_backend_python_001",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a Django billing API."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a Django billing API now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: flaky tests from shared database state. Completed: request ID middleware for structured logging."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: migrations/env.py. Files: db/session.py."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: backfilling created_at on legacy rows."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with Alembic for schema migrations."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Build it with structlog for JSON log output."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: api/main.py. Files: api/deps.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: a health check endpoint at /healthz."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: requirements.txt. Completed: idempotency keys on the order create path."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: background retry for failed webhook deliveries."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: Redis for refresh token storage."
+  },
+  {
+   "role": "user",
+   "content": "How's a Django billing API coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: Python 3.12 as the runtime."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the Alembic baseline migration. Finished: OpenAPI schema generation for the public routes."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: pytest fixtures for a throwaway database."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "request ID middleware for structured logging",
+   "pytest fixtures for a throwaway database",
+   "background retry for failed webhook deliveries",
+   "a health check endpoint at /healthz",
+   "the Alembic baseline migration",
+   "idempotency keys on the order create path",
+   "OpenAPI schema generation for the public routes"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows"
+  ],
+  "decisions": [
+   "Redis for refresh token storage",
+   "Alembic for schema migrations",
+   "Python 3.12 as the runtime",
+   "uvicorn behind gunicorn in production",
+   "structlog for JSON log output"
+  ],
+  "files": [
+   "migrations/env.py",
+   "api/deps.py",
+   "api/main.py",
+   "requirements.txt",
+   "core/config.py",
+   "db/session.py"
+  ],
+  "errors": [
+   "flaky tests from shared database state"
+  ]
+ }
+}

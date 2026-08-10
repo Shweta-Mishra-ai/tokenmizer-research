@@ -1,0 +1,121 @@
+{
+ "id": "gen_research_writing_005",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'research/writing', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, targeting the workshop deadline rather than the main track made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up the introduction cut from four pages to two earlier today. That's out of the way now \u2014 a limitations section naming the sample size problem \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in figures/architecture.py now. Weighing the tradeoffs, framing the contribution as a measurement study made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up the reproducibility statement with exact commands, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: the evaluation table with confidence intervals."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in paper/abstract.tex, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a plain-language summary for the blog post yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got an appendix documenting the corpus construction handled."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use an explicit statement that the corpus is synthetic here."
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the abstract rewritten to lead with the result. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a first pass at the methodology section."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the abstract rewritten to lead with the result",
+   "a first pass at the methodology section",
+   "an appendix documenting the corpus construction",
+   "the introduction cut from four pages to two",
+   "the reproducibility statement with exact commands",
+   "a limitations section naming the sample size problem",
+   "the evaluation table with confidence intervals"
+  ],
+  "pending_tasks": [
+   "a plain-language summary for the blog post"
+  ],
+  "decisions": [
+   "targeting the workshop deadline rather than the main track",
+   "an explicit statement that the corpus is synthetic",
+   "framing the contribution as a measurement study"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "paper/abstract.tex"
+  ],
+  "errors": []
+ }
+}

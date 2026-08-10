@@ -1,0 +1,104 @@
+{
+ "id": "gen_devops_kubernetes_003",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a cost reduction pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a cost reduction pass now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in charts/api/templates/deployment.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until DNS resolution failures inside the mesh sidecar showed up out of nowhere. I keep meaning to get to an upgrade rehearsal in staging but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got node affinity rules keeping the databases separate handled. After going back and forth, Velero for cluster backups felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a canary stage in the deploy pipeline handled. Spent most of the afternoon in charts/api/values.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but a blue-green strategy for the database proxy won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but external-secrets backed by Vault would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "How's a cost reduction pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but Karpenter instead of the cluster autoscaler won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out resource requests and limits for all containers wasn't as bad as expected, it's sorted."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "node affinity rules keeping the databases separate",
+   "resource requests and limits for all containers",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "an upgrade rehearsal in staging"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "a blue-green strategy for the database proxy",
+   "external-secrets backed by Vault",
+   "Karpenter instead of the cluster autoscaler"
+  ],
+  "files": [
+   "charts/api/templates/deployment.yaml",
+   "charts/api/values.yaml"
+  ],
+  "errors": [
+   "DNS resolution failures inside the mesh sidecar"
+  ]
+ }
+}

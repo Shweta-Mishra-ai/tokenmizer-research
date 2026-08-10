@@ -1,0 +1,106 @@
+{
+ "id": "gen_security_appsec_002",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'security/appsec', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a penetration test remediation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a penetration test remediation now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a path traversal in the file download handler. Weighing the tradeoffs, Trivy for container image scanning made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: an API key committed to the repository history."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: policy/egress.yaml. Still need: automated dependency updates."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up rotation of the leaked deploy key, all green now. Not today, but a third-party penetration test is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "How's a penetration test remediation coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: SECURITY.md. Turns out encrypted secrets at rest in the vault wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, Vault as the single secrets store made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: a security runbook for incident response."
+  },
+  {
+   "role": "user",
+   "content": "How's a penetration test remediation coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in security/redaction.py, of all places. Finished: CSP headers on all rendered responses."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "encrypted secrets at rest in the vault",
+   "CSP headers on all rendered responses",
+   "rotation of the leaked deploy key"
+  ],
+  "pending_tasks": [
+   "automated dependency updates",
+   "a security runbook for incident response",
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "Trivy for container image scanning",
+   "Vault as the single secrets store"
+  ],
+  "files": [
+   "security/redaction.py",
+   "SECURITY.md",
+   "policy/egress.yaml"
+  ],
+  "errors": [
+   "an API key committed to the repository history",
+   "a path traversal in the file download handler"
+  ]
+ }
+}

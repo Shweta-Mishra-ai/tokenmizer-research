@@ -1,0 +1,160 @@
+{
+ "id": "gen_product_analytics_005",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'product/analytics', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a pricing change evaluation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a pricing change evaluation now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: config/taxonomy.yaml."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: tests/test_metrics.py. Decided: a seven-day activation window."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a segment definition for activated accounts working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: a sample size calculation for the pricing test."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in docs/metric_definitions.md now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: analytics/cohorts.sql."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a qualitative follow-up with churned accounts yet, soon though. We'll circle back to reconciling the two conflicting active-user counts once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in notebooks/churn_drivers.ipynb, of all places. After going back and forth, Amplitude for product analytics felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Use one primary metric per experiment."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Done: a holdout group excluded from all experiments. TODO: instrumenting the mobile funnel."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got the dashboard tracking the three north star metrics working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, reporting absolute lift alongside relative felt like the right call given the constraints. Between the last two messages I also got instrumentation on every onboarding step handled."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: a two-week minimum experiment runtime."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with weekly rather than daily cohorts for readability for this. Implemented: the experiment assignment and exposure logging."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a sample size calculation for the pricing test",
+   "a segment definition for activated accounts",
+   "the dashboard tracking the three north star metrics",
+   "a holdout group excluded from all experiments",
+   "instrumentation on every onboarding step",
+   "the experiment assignment and exposure logging"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts",
+   "reconciling the two conflicting active-user counts",
+   "instrumenting the mobile funnel"
+  ],
+  "decisions": [
+   "a seven-day activation window",
+   "reporting absolute lift alongside relative",
+   "one primary metric per experiment",
+   "a two-week minimum experiment runtime",
+   "weekly rather than daily cohorts for readability",
+   "Amplitude for product analytics"
+  ],
+  "files": [
+   "tests/test_metrics.py",
+   "config/taxonomy.yaml",
+   "notebooks/churn_drivers.ipynb",
+   "analytics/cohorts.sql",
+   "docs/metric_definitions.md"
+  ],
+  "errors": []
+ }
+}

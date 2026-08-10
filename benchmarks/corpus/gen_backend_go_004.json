@@ -1,0 +1,149 @@
+{
+ "id": "gen_backend_go_004",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'backend/go', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a gRPC gateway service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a gRPC gateway service now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with zerolog for logging for this."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into nil pointer dereference in the retry handler."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the retry policy with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up the gRPC service definition and generated stubs, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up benchmark tests on the hot encode path, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Table-driven tests for the parser is in and working. Shipped protobuf schema versioning."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up Prometheus metrics on the request path earlier today. Most of it is in internal/worker/pool.go now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Vendoring the internal proto definitions is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to a soak test over 24 hours."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with OpenTelemetry for traces?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in proto/orders.proto now. Still need to get to replacing the mutex with a sharded map."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with pgx as the Postgres driver for this."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped connection reuse in the HTTP client."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection reuse in the HTTP client",
+   "table-driven tests for the parser",
+   "the gRPC service definition and generated stubs",
+   "Prometheus metrics on the request path",
+   "the retry policy with exponential backoff",
+   "benchmark tests on the hot encode path",
+   "protobuf schema versioning"
+  ],
+  "pending_tasks": [
+   "a soak test over 24 hours",
+   "replacing the mutex with a sharded map",
+   "vendoring the internal proto definitions"
+  ],
+  "decisions": [
+   "pgx as the Postgres driver",
+   "zerolog for logging",
+   "OpenTelemetry for traces"
+  ],
+  "files": [
+   "proto/orders.proto",
+   "internal/worker/pool.go"
+  ],
+  "errors": [
+   "nil pointer dereference in the retry handler"
+  ]
+ }
+}

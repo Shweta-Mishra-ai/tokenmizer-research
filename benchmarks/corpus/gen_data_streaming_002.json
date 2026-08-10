@@ -1,0 +1,133 @@
+{
+ "id": "gen_data_streaming_002",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'data/streaming', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a change data capture setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a change data capture setup now."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but keying events by aggregate ID for ordering would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in connect/debezium.json, of all places. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "How's a change data capture setup coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's offset commit failures under broker restart."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a replay procedure for the last 24 hours is on my mind for later this week. Somewhere in there we picked up a schema incompatibility rejecting valid producers and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, protobuf for the internal service events made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, a seven-day retention on the raw topics made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a change data capture setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but one topic per event type rather than a shared bus won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in schemas/order_placed.avsc chasing this down. Not today, but documenting the ordering guarantees is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out backpressure handling in the consumer loop wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got consumer group rebalancing tuned for slow consumers working, then moved on. Turns out the topic layout with twelve partitions per stream wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's silent message loss from an auto-commit race. I keep meaning to get to a cost review of the broker cluster but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got an integration test spinning up a real broker handled."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer group rebalancing tuned for slow consumers",
+   "backpressure handling in the consumer loop",
+   "the topic layout with twelve partitions per stream",
+   "an integration test spinning up a real broker"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees",
+   "a replay procedure for the last 24 hours",
+   "a cost review of the broker cluster"
+  ],
+  "decisions": [
+   "one topic per event type rather than a shared bus",
+   "keying events by aggregate ID for ordering",
+   "protobuf for the internal service events",
+   "a seven-day retention on the raw topics"
+  ],
+  "files": [
+   "connect/debezium.json",
+   "schemas/order_placed.avsc"
+  ],
+  "errors": [
+   "a schema incompatibility rejecting valid producers",
+   "offset commit failures under broker restart",
+   "silent message loss from an auto-commit race"
+  ]
+ }
+}

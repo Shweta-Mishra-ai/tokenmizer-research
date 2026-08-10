@@ -1,0 +1,171 @@
+{
+ "id": "gen_devops_kubernetes_004",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an autoscaling review now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the ingress with automatic certificate renewal wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but per-namespace cost attribution is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a rolling deploy with surge and unavailable tuned handled. Spent most of the afternoon in .github/workflows/deploy.yml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe Velero for cluster backups is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to a runbook for the failover procedure but other things keep jumping the queue. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in Dockerfile, of all places. That's out of the way now \u2014 pod disruption budgets for the stateful services \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "How's an autoscaling review coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out resource requests and limits for all containers wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 cluster autoscaler on the spot node group \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe Karpenter instead of the cluster autoscaler is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to an upgrade rehearsal in staging but other things keep jumping the queue. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in scripts/rollout.sh, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the secrets migration into the external secret store handled."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/cluster.tf, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until an ImagePullBackOff from an expired registry credential showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/hpa.yaml, of all places. So I went ahead and got readiness and liveness probes on every workload working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/ingress.yaml, of all places. Things were fine until a 502 during rolling deploys from missing readiness gates showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but a blue-green strategy for the database proxy won out in the end. We'll circle back to tightening the pod security admission profile once the current thing lands."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cluster autoscaler on the spot node group",
+   "the secrets migration into the external secret store",
+   "pod disruption budgets for the stateful services",
+   "resource requests and limits for all containers",
+   "readiness and liveness probes on every workload",
+   "the ingress with automatic certificate renewal",
+   "a rolling deploy with surge and unavailable tuned"
+  ],
+  "pending_tasks": [
+   "a runbook for the failover procedure",
+   "per-namespace cost attribution",
+   "an upgrade rehearsal in staging",
+   "tightening the pod security admission profile"
+  ],
+  "decisions": [
+   "Karpenter instead of the cluster autoscaler",
+   "a blue-green strategy for the database proxy",
+   "Velero for cluster backups"
+  ],
+  "files": [
+   "Dockerfile",
+   "terraform/cluster.tf",
+   ".github/workflows/deploy.yml",
+   "k8s/ingress.yaml",
+   "k8s/hpa.yaml",
+   "scripts/rollout.sh"
+  ],
+  "errors": [
+   "an ImagePullBackOff from an expired registry credential",
+   "a 502 during rolling deploys from missing readiness gates"
+  ]
+ }
+}

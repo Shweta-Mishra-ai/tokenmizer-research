@@ -1,0 +1,123 @@
+{
+ "id": "gen_frontend_react_005",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'frontend/react', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a checkout flow rewrite."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a checkout flow rewrite now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "A virtualised list for the 10k-row view is in and working. The metrics grid with responsive breakpoints is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up keyboard navigation across the data grid earlier today."
+  },
+  {
+   "role": "user",
+   "content": "How's a checkout flow rewrite coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to error boundaries around each route."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up dark mode using CSS custom properties earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with Tailwind for styling for this. Still need to get to migrating the remaining class components."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to memoising the chart data transform."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up server-side pagination on the results table, all green now. Ran into an infinite re-render from an unstable dependency array."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on Vitest over Jest for the unit suite."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up the toast notification system earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in src/App.tsx. Made the changes over in package.json."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dark mode using CSS custom properties",
+   "the metrics grid with responsive breakpoints",
+   "server-side pagination on the results table",
+   "the toast notification system",
+   "a virtualised list for the 10k-row view",
+   "keyboard navigation across the data grid"
+  ],
+  "pending_tasks": [
+   "memoising the chart data transform",
+   "error boundaries around each route",
+   "migrating the remaining class components"
+  ],
+  "decisions": [
+   "Vitest over Jest for the unit suite",
+   "Tailwind for styling"
+  ],
+  "files": [
+   "package.json",
+   "src/App.tsx"
+  ],
+  "errors": [
+   "an infinite re-render from an unstable dependency array"
+  ]
+ }
+}

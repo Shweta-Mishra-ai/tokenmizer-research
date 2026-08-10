@@ -1,0 +1,156 @@
+{
+ "id": "gen_backend_python_006",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a FastAPI orders service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a FastAPI orders service now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: the User model with email and hashed_password columns."
+  },
+  {
+   "role": "user",
+   "content": "How's a FastAPI orders service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: moving the email sender behind an interface."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: db/session.py."
+  },
+  {
+   "role": "user",
+   "content": "Build it with structlog for JSON log output."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Updated: docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: a load test against the order path."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: api/models.py."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: Celery for the background worker."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: connection pooling against Postgres."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: rate limiting on the auth routes. Finished: OpenAPI schema generation for the public routes."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: api/main.py."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: request ID middleware for structured logging."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: Pydantic v2 for request validation."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: migrations/env.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the User model with email and hashed_password columns",
+   "connection pooling against Postgres",
+   "request ID middleware for structured logging",
+   "OpenAPI schema generation for the public routes"
+  ],
+  "pending_tasks": [
+   "a load test against the order path",
+   "rate limiting on the auth routes",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "Pydantic v2 for request validation",
+   "structlog for JSON log output",
+   "uvicorn behind gunicorn in production",
+   "Celery for the background worker"
+  ],
+  "files": [
+   "api/models.py",
+   "api/main.py",
+   "db/session.py",
+   "docker-compose.yml",
+   "migrations/env.py"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "id": "gen_backend_python_005",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'backend/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a document ingestion service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a document ingestion service now."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with Celery for the background worker."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: db/session.py. Done: pagination on the list endpoints."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: input validation on the payment payload."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: the User model with email and hashed_password columns. Updated: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "How's a document ingestion service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: api/main.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: api/orders.py. Finished: idempotency keys on the order create path."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: POST /api/orders and GET /api/orders/{id}."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: api/deps.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: pytest fixtures for a throwaway database."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: background retry for failed webhook deliveries. TODO: soft deletes on the tenant table."
+  },
+  {
+   "role": "user",
+   "content": "Build it with UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Updated: docker-compose.yml."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "POST /api/orders and GET /api/orders/{id}",
+   "background retry for failed webhook deliveries",
+   "pagination on the list endpoints",
+   "pytest fixtures for a throwaway database",
+   "input validation on the payment payload",
+   "the User model with email and hashed_password columns",
+   "idempotency keys on the order create path"
+  ],
+  "pending_tasks": [
+   "soft deletes on the tenant table"
+  ],
+  "decisions": [
+   "Celery for the background worker",
+   "UUIDv7 primary keys instead of integers"
+  ],
+  "files": [
+   "requirements.txt",
+   "db/session.py",
+   "api/orders.py",
+   "api/main.py",
+   "api/deps.py",
+   "docker-compose.yml"
+  ],
+  "errors": []
+ }
+}

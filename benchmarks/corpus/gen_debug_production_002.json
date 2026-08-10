@@ -1,0 +1,123 @@
+{
+ "id": "gen_debug_production_002",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'debug/production', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a performance regression hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a performance regression hunt now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: documenting the failure mode in the runbook."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: rolling back before investigating further. Selected: sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: config/flags.yaml."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: correlating the errors with the deploy timeline."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: reviewing the other call sites with the same pattern. Implemented: a regression test covering the failure mode."
+  },
+  {
+   "role": "user",
+   "content": "How's a performance regression hunt coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error: p99 latency rising from 200ms to 4 seconds."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: ruling out the cache layer as the cause. Selected: a canary deploy for the fix."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: backfilling the corrupted rows."
+  },
+  {
+   "role": "user",
+   "content": "How's a performance regression hunt coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: monitoring/alerts.yaml. TODO: a follow-up on the third-party client bug report."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: adding structured logging around the suspect path."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a regression test covering the failure mode",
+   "ruling out the cache layer as the cause",
+   "adding structured logging around the suspect path",
+   "correlating the errors with the deploy timeline"
+  ],
+  "pending_tasks": [
+   "reviewing the other call sites with the same pattern",
+   "a follow-up on the third-party client bug report",
+   "documenting the failure mode in the runbook",
+   "backfilling the corrupted rows"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "sampling traces at 10% rather than 1%",
+   "a canary deploy for the fix"
+  ],
+  "files": [
+   "config/flags.yaml",
+   "monitoring/alerts.yaml"
+  ],
+  "errors": [
+   "p99 latency rising from 200ms to 4 seconds"
+  ]
+ }
+}

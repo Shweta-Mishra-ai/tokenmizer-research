@@ -1,0 +1,159 @@
+{
+ "id": "gen_systems_rust_005",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'systems/rust', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a compression library."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a compression library now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until a panic on slice index out of bounds showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got SIMD acceleration on the checksum path handled."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to reducing the binary size below 2MB once the current thing lands. The bulk of the diff ended up living in Cargo.lock, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in benches/parse.rs, of all places. Not today, but a miri run over the concurrency tests is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but Rust 2021 edition with MSRV 1.75 would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "How's a compression library coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 criterion benchmarks on the parse loop \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in src/parser.rs, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to publishing the crate to crates.io but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but documenting the public API surface is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in src/lib.rs, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a no_std core module working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but thiserror for library errors and anyhow at the boundary would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got zero-copy deserialisation of the record header handled. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's stack overflow on deeply nested input."
+  },
+  {
+   "role": "user",
+   "content": "How's a compression library coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the streaming parser over a bounded buffer handled. So I went ahead and got an async runtime built on tokio working, then moved on."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "zero-copy deserialisation of the record header",
+   "SIMD acceleration on the checksum path",
+   "criterion benchmarks on the parse loop",
+   "a no_std core module",
+   "an async runtime built on tokio",
+   "the streaming parser over a bounded buffer"
+  ],
+  "pending_tasks": [
+   "documenting the public API surface",
+   "a miri run over the concurrency tests",
+   "reducing the binary size below 2MB",
+   "publishing the crate to crates.io"
+  ],
+  "decisions": [
+   "thiserror for library errors and anyhow at the boundary",
+   "Rust 2021 edition with MSRV 1.75"
+  ],
+  "files": [
+   "Cargo.lock",
+   "benches/parse.rs",
+   "src/lib.rs",
+   "src/parser.rs"
+  ],
+  "errors": [
+   "a panic on slice index out of bounds",
+   "stack overflow on deeply nested input"
+  ]
+ }
+}
