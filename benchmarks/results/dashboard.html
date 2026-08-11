@@ -1,4 +1,4 @@
-<title>TokenMizer &amp; Graph-Memory Methods — n=100 Benchmark</title>
+<title>TokenMizer vs. Other Memory Methods — 100-Session Test</title>
 <style>
   .viz-root {
     color-scheme: light;
@@ -153,22 +153,22 @@
 <div class="viz-root">
 
 <header class="page">
-  <h1>TokenMizer &amp; graph-memory methods — n=100 benchmark</h1>
+  <h1>TokenMizer vs. other memory methods — 100-session test</h1>
   <p class="sub">
-    8 memory methods, one 100-session labelled corpus, one scorer. TokenMizer is the real
-    product engine (0.5.2) run out-of-process; the other seven are deterministic
-    reimplementations of one structural property each of MemGPT, Mem0, Graphiti/Zep and
-    GraphRAG — not the vendor libraries themselves (none call an LLM). Full methodology and
-    caveats in <code class="inline">benchmarks/results/REPORT_n100.md</code>.
+    We tested 8 memory methods on the same 100 test conversations, using the same scoring
+    rules for all of them. TokenMizer is the real product (version 0.5.2). The other 7 are
+    rebuilt versions of the strategy used by MemGPT, Mem0, Graphiti/Zep, and GraphRAG — they
+    do not use an AI model, so treat them as a lower bound on what those real products could do.
+    Full write-up: <code class="inline">benchmarks/results/REPORT_n100.md</code>.
   </p>
-  <p class="meta">Generated 2026-08-10T20:02 UTC · match threshold 0.6 · 3,000-resample bootstrap, seed 1729 · corpus: 100 sessions (94 synthetic, 6 real) · 2,516 turns · 1,620 labelled items · 23 domains</p>
+  <p class="meta">Made on 2026-08-10 · 100 test conversations (94 generated, 6 real) · 1,620 facts checked · 23 topic areas</p>
 </header>
 
 <div class="tiles" id="tiles"></div>
 
 <div class="card">
-  <h2>Macro F1 by method<span class="badge">ranked</span></h2>
-  <p class="desc">Mean of per-category F1 (completed / pending / decisions / files / errors), pooled over all 100 sessions. Whiskers are the 95% bootstrap CI (3,000 resamples over sessions). TokenMizer is ring-highlighted.</p>
+  <h2>Overall score by method<span class="badge">ranked</span></h2>
+  <p class="desc">Each method's average accuracy across all 5 things we checked for (completed tasks, pending tasks, decisions, files, errors), averaged over all 100 test conversations. The thin lines through each bar show the range where the true score most likely falls. TokenMizer's bar has a border around it.</p>
   <div class="chart-relative">
     <div class="chart-wrap"><svg id="chart-rank" viewBox="0 0 920 400" role="img" aria-label="Macro F1 ranked bar chart"></svg></div>
     <div class="tooltip" id="tt-rank"></div>
@@ -177,14 +177,14 @@
 </div>
 
 <div class="card">
-  <h2>Per-category F1 heatmap</h2>
-  <p class="desc">Same eight methods, five ground-truth categories. Color is sequential (light → dark blue = low → high F1) and encodes magnitude only — it is independent of the method-identity colors used elsewhere on this page.</p>
+  <h2>Score by category</h2>
+  <p class="desc">The same 8 methods, broken down by the 5 things we checked for. Darker blue means a higher score.</p>
   <div class="table-scroll" id="heatmap"></div>
 </div>
 
 <div class="card">
-  <h2>Register collapse — the corpus's central finding</h2>
-  <p class="desc">Every generated session is tagged by how explicitly it states its facts. All four pattern-matching graph methods (TokenMizer included) land in a narrow ~19–25% band once marker words like "Completed:" or "Decided:" disappear — a &gt;45-point drop from the explicit-text score. This is a shared ceiling of pattern-based extraction, not a TokenMizer-specific gap. (<code class="inline">unspecified</code> = the 6 real sessions carried over from the product repo's eval corpus, which predate the register tag.)</p>
+  <h2>The main finding: clear language vs. indirect language</h2>
+  <p class="desc">Every generated conversation is labeled by how directly it states facts — from clear markers like "Decided: X" down to facts buried inside a longer sentence with no marker word. All 4 pattern-matching methods, including TokenMizer, drop to around 19–25% accuracy once the marker words disappear — a drop of more than 45 points from their best score. This happens to every method that relies on pattern matching, not just TokenMizer. (<code class="inline">Unspecified</code> = the 6 real conversations, which were not labeled this way.)</p>
   <div class="chart-relative">
     <div class="chart-wrap"><svg id="chart-register" viewBox="0 0 920 420" role="img" aria-label="Macro F1 by register, line chart"></svg></div>
     <div class="tooltip" id="tt-register"></div>
@@ -197,42 +197,42 @@
 </div>
 
 <div class="card">
-  <h2>TokenMizer vs. every other method — paired difference</h2>
-  <p class="desc">Mean of (TokenMizer macro F1 − other method macro F1), paired per session, with a 95% bootstrap CI. Bars crossing zero are statistically indistinguishable from a tie at this sample size and threshold.</p>
+  <h2>TokenMizer compared to each method, one by one</h2>
+  <p class="desc">How much better (or worse) TokenMizer scored than each other method, on the same conversations. The line through each bar shows the range where the true difference likely falls. If that range crosses zero, we can't be sure there's a real difference.</p>
   <div class="chart-relative">
-    <div class="chart-wrap"><svg id="chart-diff" viewBox="0 0 920 320" role="img" aria-label="Paired comparison of TokenMizer against every other method"></svg></div>
+    <div class="chart-wrap"><svg id="chart-diff" viewBox="0 0 920 320" role="img" aria-label="Comparison of TokenMizer against every other method"></svg></div>
     <div class="tooltip" id="tt-diff"></div>
   </div>
   <div class="callout">
-    <strong>Read it straight:</strong> TokenMizer beats GraphRAG-style (+12.5pt), MemGPT-style (+21.6pt) and every naive
-    baseline (+36 to +40pt) well outside noise. Against Graphiti-style and Mem0-style the CI straddles zero
-    (P(Δ≤0) ≈ 91–92%) — a tie, not a win, despite TokenMizer's smaller resume-token footprint (99 vs. 118–120 tokens).
+    <strong>In plain terms:</strong> TokenMizer beats GraphRAG-style (+12.5 points), MemGPT-style (+21.6 points), and
+    every simple baseline (+36 to +40 points) — these are real, reliable wins. Against Graphiti-style and Mem0-style,
+    the range crosses zero, meaning it's a tie, not a win — though TokenMizer's output is smaller (99 tokens vs.
+    118–120 tokens).
   </div>
 </div>
 
 <div class="card">
-  <h2>Efficiency &amp; cost</h2>
-  <p class="desc">Resume-token footprint (lower is more compact) and extraction latency (dominated by process-launch overhead for the real TokenMizer subprocess, not algorithmic cost) per method.</p>
+  <h2>Output size and speed</h2>
+  <p class="desc">How big each method's summary is (smaller is more efficient, if the score is similar) and how long it takes to process one conversation.</p>
   <div class="table-scroll" id="efficiency-table"></div>
 </div>
 
 <div class="card">
   <h2>Full results table</h2>
-  <p class="desc">Every number behind the charts above. Domain-level breakdown (23 domains × 8 methods) is folded by default — TokenMizer's range there is 20% (<code class="inline">devops/kubernetes</code>) to 100% (three real-transcript audit domains).</p>
+  <p class="desc">All the numbers behind the charts above. The topic-by-topic breakdown (23 topics × 8 methods) is hidden by default — click to expand it. TokenMizer's score there ranges from 20% (Kubernetes/DevOps topics) up to 100% (the 3 real-conversation topics it was tuned on).</p>
   <div class="table-scroll" id="full-table"></div>
   <details class="tablefold">
-    <summary>Show domain breakdown (23 domains × 8 methods)</summary>
+    <summary>Show topic-by-topic breakdown (23 topics × 8 methods)</summary>
     <div class="table-scroll" id="domain-table" style="margin-top:10px;"></div>
   </details>
 </div>
 
 <footer class="page">
-  Source data: <code class="inline">benchmarks/results/memorybench_n100_20260810.json</code> ·
-  reproduce with <code class="inline">python -m benchmarks.memorybench.run</code> in the
-  <code class="inline">tokenmizer-research</code> repo · full writeup in
-  <code class="inline">benchmarks/results/REPORT_n100.md</code> (limitations §8, incl. that 94/100
-  sessions are synthetic and the non-TokenMizer methods are deterministic approximations, not
-  the named vendor libraries).
+  Data file: <code class="inline">benchmarks/results/memorybench_n100_20260810.json</code> ·
+  to re-run this test: <code class="inline">python -m benchmarks.memorybench.run</code> ·
+  full write-up with limitations: <code class="inline">benchmarks/results/REPORT_n100.md</code>
+  (note: 94 of the 100 test conversations were generated for this test, not real, and the
+  non-TokenMizer methods do not use an AI model — see the report for details).
 </footer>
 
 </div>
@@ -274,12 +274,12 @@ function el(tag, attrs) {
   const wrap = document.getElementById("tiles");
   const tm = DATA.results["tokenmizer_v0.5.2"];
   const items = [
-    { label: "Sessions in corpus", value: "100", foot: "94 synthetic + 6 real transcripts, 23 domains" },
-    { label: "Methods compared", value: "8", foot: "1 real engine + 4 graph-style + 3 naive baselines" },
-    { label: "TokenMizer macro F1", value: pct(tm.macro_f1), foot: `95% CI [${pct(tm.macro_f1_ci95[0])}, ${pct(tm.macro_f1_ci95[1])}]` },
-    { label: "vs. Graphiti / Mem0-style", value: "≈ tie", foot: "Δ −2.7 / −2.8 pt, CI crosses zero (§ comparison chart)" },
-    { label: "TokenMizer resume tokens", value: fmt(tm.avg_resume_tokens, 0), foot: `${fmt(tm.avg_compression_ratio,1)}× compression vs. raw transcript` },
-    { label: "Weakest category", value: "Errors 36%", foot: "Decisions 50% next weakest — see heatmap" },
+    { label: "Test conversations", value: "100", foot: "94 generated + 6 real, 23 topic areas" },
+    { label: "Methods compared", value: "8", foot: "TokenMizer + 4 other memory methods + 3 simple baselines" },
+    { label: "TokenMizer's score", value: pct(tm.macro_f1), foot: `Likely true range: ${pct(tm.macro_f1_ci95[0])} to ${pct(tm.macro_f1_ci95[1])}` },
+    { label: "vs. Graphiti / Mem0-style", value: "About a tie", foot: "No reliable difference found — see comparison chart" },
+    { label: "TokenMizer's output size", value: fmt(tm.avg_resume_tokens, 0) + " tokens", foot: `${fmt(tm.avg_compression_ratio,1)}x smaller than the raw conversation` },
+    { label: "Weakest category", value: "Errors (36%)", foot: "Decisions (50%) is the next weakest — see score table" },
   ];
   items.forEach(it => {
     const t = document.createElement("div"); t.className = "tile";
@@ -401,7 +401,7 @@ function textOnFill(hex) {
   const svg = document.getElementById("chart-register");
   const tt = document.getElementById("tt-register");
   const order = ["explicit", "semi", "mixed", "implicit", "unspecified"];
-  const RLABEL = { explicit: "Explicit", semi: "Semi-explicit", mixed: "Mixed", implicit: "Implicit", unspecified: "Unspecified (real)" };
+  const RLABEL = { explicit: "Clear markers", semi: "Plain sentence", mixed: "Mixed", implicit: "Indirect / buried", unspecified: "Unspecified (real)" };
   const W = 920, H = 420, ML = 50, MR = 170, MT = 20, MB = 40;
   const plotW = W - ML - MR, plotH = H - MT - MB;
   const x = i => ML + (i / (order.length - 1)) * plotW;
@@ -459,7 +459,7 @@ function textOnFill(hex) {
 })();
 (function registerTable() {
   const order = ["explicit", "semi", "mixed", "implicit", "unspecified"];
-  const RLABEL = { explicit: "Explicit", semi: "Semi-explicit", mixed: "Mixed", implicit: "Implicit", unspecified: "Unspecified" };
+  const RLABEL = { explicit: "Clear markers", semi: "Plain sentence", mixed: "Mixed", implicit: "Indirect / buried", unspecified: "Unspecified" };
   let html = '<table class="data"><thead><tr><th>Method</th>';
   order.forEach(r => html += `<th>${RLABEL[r]}</th>`);
   html += '</tr></thead><tbody>';
