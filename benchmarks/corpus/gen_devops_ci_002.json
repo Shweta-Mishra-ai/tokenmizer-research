@@ -1,0 +1,151 @@
+{
+ "id": "gen_devops_ci_002",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'devops/ci', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a release automation project."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a release automation project now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: test pollution from an unreset global singleton. Most of it is in tox.ini now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started publishing test timing history yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on GitHub Actions over the self-managed runner fleet."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped automated changelog generation on tag. Made the changes over in .github/workflows/ci.yml."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing an out of disk space failure on the runner. Settled on buildx with a remote cache backend."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on semantic versioning driven by commit messages. Haven't started splitting the linting job from the test job yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in scripts/run_tests.sh now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use pytest-xdist for test parallelism here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "How's a release automation project coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Coverage reporting posted to the pull request is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in .github/workflows/release.yml. Made the changes over in Dockerfile."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on trunk-based development with short-lived branches."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started self-hosted runners for the GPU tests yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up parallel test execution across four shards, all green now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "parallel test execution across four shards",
+   "coverage reporting posted to the pull request",
+   "automated changelog generation on tag"
+  ],
+  "pending_tasks": [
+   "self-hosted runners for the GPU tests",
+   "publishing test timing history",
+   "splitting the linting job from the test job"
+  ],
+  "decisions": [
+   "GitHub Actions over the self-managed runner fleet",
+   "buildx with a remote cache backend",
+   "pytest-xdist for test parallelism",
+   "semantic versioning driven by commit messages",
+   "trunk-based development with short-lived branches"
+  ],
+  "files": [
+   "scripts/run_tests.sh",
+   "tox.ini",
+   ".github/workflows/release.yml",
+   "Dockerfile",
+   ".github/workflows/ci.yml"
+  ],
+  "errors": [
+   "an out of disk space failure on the runner",
+   "test pollution from an unreset global singleton"
+  ]
+ }
+}

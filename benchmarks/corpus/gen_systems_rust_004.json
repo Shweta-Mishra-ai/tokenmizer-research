@@ -1,0 +1,121 @@
+{
+ "id": "gen_systems_rust_004",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'systems/rust', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a compression library."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a compression library now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in fuzz/fuzz_targets/decode.rs chasing this down. Not today, but adding a tracing subscriber is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got zero-copy deserialisation of the record header working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got memory-mapped reads for the index file working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but arc-swap for the hot config reload would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got SIMD acceleration on the checksum path handled."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in src/parser.rs, of all places. Weighing the tradeoffs, parking_lot mutexes over the std ones made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "How's a compression library coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but profiling the allocation hot path is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got property tests over the encoder round trip handled."
+  },
+  {
+   "role": "user",
+   "content": "How's a compression library coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but documenting the public API surface is on my mind for later this week. We'll circle back to a miri run over the concurrency tests once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got error types unified behind thiserror working, then moved on."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "memory-mapped reads for the index file",
+   "SIMD acceleration on the checksum path",
+   "property tests over the encoder round trip",
+   "zero-copy deserialisation of the record header",
+   "error types unified behind thiserror"
+  ],
+  "pending_tasks": [
+   "profiling the allocation hot path",
+   "a miri run over the concurrency tests",
+   "documenting the public API surface",
+   "adding a tracing subscriber"
+  ],
+  "decisions": [
+   "parking_lot mutexes over the std ones",
+   "arc-swap for the hot config reload"
+  ],
+  "files": [
+   "fuzz/fuzz_targets/decode.rs",
+   "src/parser.rs"
+  ],
+  "errors": []
+ }
+}

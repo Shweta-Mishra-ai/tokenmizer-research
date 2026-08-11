@@ -1,0 +1,177 @@
+{
+ "id": "gen_frontend_react_001",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'frontend/react', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a customer support console."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a customer support console now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Replacing the date picker with a headless one is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in src/components/DataTable.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Optimistic updates on the toggle controls is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in src/store/session.ts."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use Vite as the build tool here."
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on TanStack Query for server state. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to migrating the remaining class components. Finished up form validation with inline error messages earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on Playwright for end-to-end tests."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up a virtualised list for the 10k-row view earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on TypeScript in strict mode."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Memoising the chart data transform is next on the list. Shipped the metrics grid with responsive breakpoints."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing layout shift on the chart container."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with Zustand instead of Redux for local state?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Made the changes over in src/api/client.ts."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a Storybook entry for each primitive yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tailwind.config.js."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up keyboard navigation across the data grid, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing a memory leak from an unsubscribed event listener."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "optimistic updates on the toggle controls",
+   "keyboard navigation across the data grid",
+   "a virtualised list for the 10k-row view",
+   "the metrics grid with responsive breakpoints",
+   "form validation with inline error messages"
+  ],
+  "pending_tasks": [
+   "a Storybook entry for each primitive",
+   "replacing the date picker with a headless one",
+   "memoising the chart data transform",
+   "migrating the remaining class components"
+  ],
+  "decisions": [
+   "Zustand instead of Redux for local state",
+   "TanStack Query for server state",
+   "Playwright for end-to-end tests",
+   "TypeScript in strict mode",
+   "Vite as the build tool"
+  ],
+  "files": [
+   "src/store/session.ts",
+   "tailwind.config.js",
+   "src/components/DataTable.tsx",
+   "src/api/client.ts"
+  ],
+  "errors": [
+   "a memory leak from an unsubscribed event listener",
+   "layout shift on the chart container"
+  ]
+ }
+}

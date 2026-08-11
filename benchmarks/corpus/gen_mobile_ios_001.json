@@ -1,0 +1,134 @@
+{
+ "id": "gen_mobile_ios_001",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'mobile/ios', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a payments SDK integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a payments SDK integration now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: a crash from a missing NSMotionUsageDescription key."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: Sources/Widgets/ActivityWidget.swift. Decided: Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the HealthKit permission flow."
+  },
+  {
+   "role": "user",
+   "content": "Use iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: watchOS companion app. Done: keychain storage for the auth token."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Sources/Store/WorkoutStore.swift. Error: memory growth from uncancelled image tasks."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a duplicate record after an interrupted sync. Completed: crash reporting integration."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the SwiftUI onboarding sequence. Finished: Core Data persistence for the workout log."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: Sources/App/ContentView.swift. Decided: XCTest with snapshot assertions."
+  },
+  {
+   "role": "user",
+   "content": "How's a payments SDK integration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: localisation into three languages."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: deep links into the workout detail screen."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the HealthKit permission flow",
+   "the SwiftUI onboarding sequence",
+   "deep links into the workout detail screen",
+   "Core Data persistence for the workout log",
+   "crash reporting integration",
+   "keychain storage for the auth token"
+  ],
+  "pending_tasks": [
+   "localisation into three languages",
+   "watchOS companion app"
+  ],
+  "decisions": [
+   "XCTest with snapshot assertions",
+   "Core Data over Realm for local storage",
+   "iOS 17 as the minimum deployment target"
+  ],
+  "files": [
+   "Sources/App/ContentView.swift",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Store/WorkoutStore.swift"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync",
+   "a crash from a missing NSMotionUsageDescription key",
+   "memory growth from uncancelled image tasks"
+  ]
+ }
+}

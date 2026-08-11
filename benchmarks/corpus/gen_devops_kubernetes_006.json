@@ -1,0 +1,168 @@
+{
+ "id": "gen_devops_kubernetes_006",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an autoscaling review now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's CrashLoopBackOff after the config map rename."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 the Helm chart for the API deployment \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, cert-manager for TLS certificates made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/ingress.yaml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a chaos test on node eviction is on my mind for later this week. After going back and forth, Prometheus and Grafana for metrics felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out node affinity rules keeping the databases separate wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in k8s/networkpolicy.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 cluster autoscaler on the spot node group \u2014 onto the next thing. I keep meaning to get to a runbook for the failover procedure but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out horizontal pod autoscaling on CPU and request rate wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a canary stage in the deploy pipeline handled."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in Dockerfile chasing this down. It wasn't an obvious choice, but external-secrets backed by Vault won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in .github/workflows/deploy.yml chasing this down. I keep meaning to get to tightening the pod security admission profile but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the ingress with automatic certificate renewal handled."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in scripts/rollout.sh chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the secrets migration into the external secret store handled."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "node affinity rules keeping the databases separate",
+   "the ingress with automatic certificate renewal",
+   "the Helm chart for the API deployment",
+   "horizontal pod autoscaling on CPU and request rate",
+   "the secrets migration into the external secret store",
+   "cluster autoscaler on the spot node group",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "a runbook for the failover procedure",
+   "a chaos test on node eviction",
+   "tightening the pod security admission profile"
+  ],
+  "decisions": [
+   "external-secrets backed by Vault",
+   "cert-manager for TLS certificates",
+   "Prometheus and Grafana for metrics"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "k8s/networkpolicy.yaml",
+   "Dockerfile",
+   ".github/workflows/deploy.yml",
+   "k8s/ingress.yaml"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename"
+  ]
+ }
+}

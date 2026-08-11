@@ -1,0 +1,133 @@
+{
+ "id": "gen_product_analytics_001",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'product/analytics', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an onboarding redesign measurement."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an onboarding redesign measurement now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a sample size calculation for the pricing test working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a segment definition for activated accounts."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on a two-week minimum experiment runtime. Wrapped up statistical significance testing on the primary metric, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe counting monthly actives on a rolling 28-day window is worth trying. I think we should use median rather than mean for the latency metrics here."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a holdout group excluded from all experiments handled."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in analytics/experiments.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got the event taxonomy covering fourteen product actions working, then moved on. We're leaning toward weekly rather than daily cohorts for readability."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to extending the cohort window to twelve months once the current thing lands. Haven't started instrumenting the mobile funnel yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started an automated experiment readout template yet, soon though. Issue: peeking at results before the runtime completed."
+  },
+  {
+   "role": "user",
+   "content": "How's an onboarding redesign measurement coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up the active user count differing 12% between two dashboards and it's been a pain."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a holdout group excluded from all experiments",
+   "the event taxonomy covering fourteen product actions",
+   "a sample size calculation for the pricing test",
+   "statistical significance testing on the primary metric",
+   "a segment definition for activated accounts"
+  ],
+  "pending_tasks": [
+   "an automated experiment readout template",
+   "instrumenting the mobile funnel",
+   "extending the cohort window to twelve months"
+  ],
+  "decisions": [
+   "weekly rather than daily cohorts for readability",
+   "median rather than mean for the latency metrics",
+   "a two-week minimum experiment runtime",
+   "counting monthly actives on a rolling 28-day window"
+  ],
+  "files": [
+   "dashboards/north_star.json",
+   "analytics/experiments.py"
+  ],
+  "errors": [
+   "peeking at results before the runtime completed",
+   "the active user count differing 12% between two dashboards"
+  ]
+ }
+}

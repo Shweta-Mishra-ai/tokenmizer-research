@@ -1,0 +1,132 @@
+{
+ "id": "gen_frontend_react_006",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'frontend/react', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an internal admin panel."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an internal admin panel now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into a memory leak from an unsubscribed event listener."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in src/components/DataTable.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: layout shift on the chart container."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an internal admin panel?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started an accessibility audit of the nav yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up server-side pagination on the results table, all green now. Still need to get to a bundle size budget in CI."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use React 19 with the compiler enabled here."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in src/store/session.ts now. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use TanStack Query for server state here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Most of it is in package.json now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in tests/dashboard.spec.ts now. Wrapped up a virtualised list for the 10k-row view, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up focus trapping in the modal component, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Replacing the date picker with a headless one is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use TypeScript in strict mode here."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a virtualised list for the 10k-row view",
+   "focus trapping in the modal component",
+   "server-side pagination on the results table"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one",
+   "a bundle size budget in CI",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "TypeScript in strict mode",
+   "TanStack Query for server state",
+   "React 19 with the compiler enabled"
+  ],
+  "files": [
+   "src/store/session.ts",
+   "tests/dashboard.spec.ts",
+   "src/components/DataTable.tsx",
+   "package.json"
+  ],
+  "errors": [
+   "layout shift on the chart container",
+   "a memory leak from an unsubscribed event listener"
+  ]
+ }
+}

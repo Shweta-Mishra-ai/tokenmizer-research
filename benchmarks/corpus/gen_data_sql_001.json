@@ -1,0 +1,150 @@
+{
+ "id": "gen_data_sql_001",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an event pipeline redesign."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an event pipeline redesign now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up a covering index on the customer lookup, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's stale data from a silently failing incremental run."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an event pipeline redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got deduplication on the raw event stream working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Going with Parquet as the landing format for this. Files: tests/schema.yml."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: freshness tests on every source table. Files: macros/revenue.sql."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: Snowflake over BigQuery for the warehouse."
+  },
+  {
+   "role": "user",
+   "content": "How's an event pipeline redesign coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in models/marts/dim_customer.sql."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: incremental models for the daily aggregates."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an event pipeline redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in scripts/backfill.py. Pending: unit tests for the revenue macro."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got column-level lineage documentation handled."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until a fan-out join inflating revenue by 3x showed up out of nowhere. Not today, but a cost review of the warehouse spend is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up row count reconciliation against the source system earlier today."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "column-level lineage documentation",
+   "deduplication on the raw event stream",
+   "row count reconciliation against the source system",
+   "incremental models for the daily aggregates",
+   "a covering index on the customer lookup",
+   "freshness tests on every source table"
+  ],
+  "pending_tasks": [
+   "unit tests for the revenue macro",
+   "a cost review of the warehouse spend"
+  ],
+  "decisions": [
+   "Parquet as the landing format",
+   "Snowflake over BigQuery for the warehouse"
+  ],
+  "files": [
+   "scripts/backfill.py",
+   "tests/schema.yml",
+   "macros/revenue.sql",
+   "models/marts/dim_customer.sql",
+   "models/marts/fct_orders.sql"
+  ],
+  "errors": [
+   "a fan-out join inflating revenue by 3x",
+   "stale data from a silently failing incremental run"
+  ]
+ }
+}

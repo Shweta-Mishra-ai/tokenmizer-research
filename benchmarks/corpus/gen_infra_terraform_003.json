@@ -1,0 +1,140 @@
+{
+ "id": "gen_infra_terraform_003",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'infra/terraform', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a state migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a state migration now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a state migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but a disaster recovery restore rehearsal is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, private subnets for every compute workload made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the VPC with public and private subnets across three zones wasn't as bad as expected, it's sorted. I keep meaning to get to documenting the module interfaces but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until provider version drift between two engineers showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got security groups restricted to named ports working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a state migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/main.tf, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/outputs.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out a read replica in the secondary region wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but provider versions pinned to a minor range would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. So I went ahead and got tagging enforced through a provider default working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a state migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/iam.tf, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in modules/service/main.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in environments/prod/terragrunt.hcl, of all places. The bulk of the diff ended up living in terraform/vpc.tf, of all places."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "security groups restricted to named ports",
+   "a read replica in the secondary region",
+   "the VPC with public and private subnets across three zones",
+   "tagging enforced through a provider default"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces",
+   "a disaster recovery restore rehearsal"
+  ],
+  "decisions": [
+   "provider versions pinned to a minor range",
+   "private subnets for every compute workload"
+  ],
+  "files": [
+   "terraform/main.tf",
+   "terraform/iam.tf",
+   "terraform/vpc.tf",
+   "modules/service/main.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/outputs.tf"
+  ],
+  "errors": [
+   "provider version drift between two engineers"
+  ]
+ }
+}

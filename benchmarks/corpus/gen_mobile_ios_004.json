@@ -1,0 +1,150 @@
+{
+ "id": "gen_mobile_ios_004",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'mobile/ios', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a fitness tracking app."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a fitness tracking app now."
+  },
+  {
+   "role": "user",
+   "content": "Use Swift Package Manager for dependencies."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: unit tests for the sync reducer. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: XCTest with snapshot assertions."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: memory growth from uncancelled image tasks."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: App/Info.plist."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: Package.swift."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: watchOS companion app."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: a widget showing today's activity. Finished: the subscription purchase and restore flow."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error: a retain cycle in the sync completion handler. Files: Tests/SyncTests.swift."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fitness tracking app?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: background sync with a URLSession task."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: Sources/Auth/Keychain.swift."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fitness tracking app?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: Sources/App/ContentView.swift."
+  },
+  {
+   "role": "user",
+   "content": "How's a fitness tracking app coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: main thread blocking during the Core Data import. Created: .swiftlint.yml."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: Core Data persistence for the workout log."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the subscription purchase and restore flow",
+   "background sync with a URLSession task",
+   "a widget showing today's activity",
+   "unit tests for the sync reducer",
+   "Core Data persistence for the workout log"
+  ],
+  "pending_tasks": [
+   "watchOS companion app"
+  ],
+  "decisions": [
+   "XCTest with snapshot assertions",
+   "Swift Package Manager for dependencies"
+  ],
+  "files": [
+   ".swiftlint.yml",
+   "Sources/Auth/Keychain.swift",
+   "App/Info.plist",
+   "Sources/App/ContentView.swift",
+   "Tests/SyncTests.swift",
+   "Package.swift"
+  ],
+  "errors": [
+   "memory growth from uncancelled image tasks",
+   "main thread blocking during the Core Data import",
+   "a retain cycle in the sync completion handler"
+  ]
+ }
+}

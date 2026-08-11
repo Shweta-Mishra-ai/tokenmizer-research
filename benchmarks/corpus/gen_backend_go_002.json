@@ -1,0 +1,115 @@
+{
+ "id": "gen_backend_go_002",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'backend/go', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a metrics collector."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a metrics collector now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Context propagation through every handler is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up Prometheus metrics on the request path, all green now. Made the changes over in internal/store/postgres.go."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up a circuit breaker around the downstream call, all green now. Ran into connection churn exhausting ephemeral ports."
+  },
+  {
+   "role": "user",
+   "content": "How's a metrics collector coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up graceful shutdown on SIGTERM earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped connection reuse in the HTTP client."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up structured logging with request correlation earlier today. Ran into a deadlock between the two mutexes."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward golangci-lint in CI."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to vendoring the internal proto definitions. Made the changes over in internal/worker/pool.go."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up a worker pool bounded at 32 goroutines earlier today. Going with a monorepo layout with internal packages for this."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a circuit breaker around the downstream call",
+   "a worker pool bounded at 32 goroutines",
+   "Prometheus metrics on the request path",
+   "context propagation through every handler",
+   "structured logging with request correlation",
+   "graceful shutdown on SIGTERM",
+   "connection reuse in the HTTP client"
+  ],
+  "pending_tasks": [
+   "vendoring the internal proto definitions"
+  ],
+  "decisions": [
+   "golangci-lint in CI",
+   "a monorepo layout with internal packages"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "internal/worker/pool.go"
+  ],
+  "errors": [
+   "a deadlock between the two mutexes",
+   "connection churn exhausting ephemeral ports"
+  ]
+ }
+}

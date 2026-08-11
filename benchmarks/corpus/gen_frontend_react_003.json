@@ -1,0 +1,103 @@
+{
+ "id": "gen_frontend_react_003",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'frontend/react', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a checkout flow rewrite."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a checkout flow rewrite now."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with Recharts for the visualisations?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward MSW for mocking the API in tests. An accessibility audit of the nav is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "How's a checkout flow rewrite coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up the metrics grid with responsive breakpoints, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped keyboard navigation across the data grid."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error boundaries around each route is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in package.json now. Wrapped up server-side pagination on the results table, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a virtualised list for the 10k-row view. Made the changes over in vite.config.ts."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in tailwind.config.js now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the metrics grid with responsive breakpoints",
+   "server-side pagination on the results table",
+   "keyboard navigation across the data grid",
+   "a virtualised list for the 10k-row view"
+  ],
+  "pending_tasks": [
+   "error boundaries around each route",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "MSW for mocking the API in tests",
+   "Recharts for the visualisations"
+  ],
+  "files": [
+   "tailwind.config.js",
+   "vite.config.ts",
+   "package.json"
+  ],
+  "errors": []
+ }
+}

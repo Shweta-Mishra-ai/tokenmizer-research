@@ -1,0 +1,140 @@
+{
+ "id": "gen_devops_ci_003",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'devops/ci', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a monorepo pipeline split."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a monorepo pipeline split now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a rollback job for failed deploys yet, soon though. We're leaning toward pytest-xdist for test parallelism."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on test retries limited to two attempts. Most of it is in .github/dependabot.yml now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use buildx with a remote cache backend here."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with Codecov for coverage tracking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that. Going with uv for dependency installation for this."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in Dockerfile."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up container image build with layer caching, all green now."
+  },
+  {
+   "role": "user",
+   "content": "How's a monorepo pipeline split coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "A merge queue for the busy repositories is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward GitHub Actions over the self-managed runner fleet."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped automated changelog generation on tag."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in .github/workflows/release.yml."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Quarantining the six flakiest tests is in and working. Wrapped up coverage reporting posted to the pull request, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped signed release artifacts."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "coverage reporting posted to the pull request",
+   "automated changelog generation on tag",
+   "signed release artifacts",
+   "quarantining the six flakiest tests",
+   "container image build with layer caching"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "uv for dependency installation",
+   "pytest-xdist for test parallelism",
+   "Codecov for coverage tracking",
+   "buildx with a remote cache backend",
+   "test retries limited to two attempts",
+   "GitHub Actions over the self-managed runner fleet"
+  ],
+  "files": [
+   ".github/workflows/release.yml",
+   "Dockerfile",
+   ".github/dependabot.yml"
+  ],
+  "errors": []
+ }
+}

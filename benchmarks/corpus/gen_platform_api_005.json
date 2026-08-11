@@ -1,0 +1,158 @@
+{
+ "id": "gen_platform_api_005",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'platform/api', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an API gateway migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an API gateway migration now."
+  },
+  {
+   "role": "user",
+   "content": "How's an API gateway migration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "At-least-once webhook delivery with retries is in and working. Per-key rate limits with headers exposing the budget is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started documenting the webhook replay procedure yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "How's an API gateway migration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to expanding the sandbox data set."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up request/response logging with PII stripped, all green now."
+  },
+  {
+   "role": "user",
+   "content": "How's an API gateway migration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/routes/webhooks.py now. Haven't started field-level filtering on the large resources yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use OpenAPI as the source of truth for SDK generation here."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up consistent error envelopes with machine-readable codes earlier today. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "How's an API gateway migration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "SDK generation for three languages is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped the OpenAPI specification for every public route."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in openapi/v2.yaml now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a rate limit tier for enterprise keys yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on all write operations is in and working. Most of it is in api/ratelimit.py now."
+  },
+  {
+   "role": "user",
+   "content": "How's an API gateway migration coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with HMAC-SHA256 for webhook signatures for this."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in gateway/kong.yaml now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "per-key rate limits with headers exposing the budget",
+   "consistent error envelopes with machine-readable codes",
+   "the OpenAPI specification for every public route",
+   "request/response logging with PII stripped",
+   "at-least-once webhook delivery with retries",
+   "idempotency keys on all write operations",
+   "SDK generation for three languages"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "a rate limit tier for enterprise keys",
+   "expanding the sandbox data set",
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "HMAC-SHA256 for webhook signatures"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "gateway/kong.yaml",
+   "api/auth.py",
+   "api/routes/webhooks.py",
+   "api/ratelimit.py"
+  ],
+  "errors": []
+ }
+}

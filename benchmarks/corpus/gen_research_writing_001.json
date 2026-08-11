@@ -1,0 +1,130 @@
+{
+ "id": "gen_research_writing_001",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'research/writing', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 a limitations section naming the sample size problem \u2014 onto the next thing. Done: the reproducibility statement with exact commands."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with Zotero for reference management for this."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: the artifact submission package."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in Makefile chasing this down. Updated: paper/appendix.tex."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: releasing the corpus alongside the paper."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in figures/architecture.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but reconciling the two conflicting result tables is on my mind for later this week. Created: paper/related_work.tex."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in paper/main.tex chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 the related work section covering twelve papers \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: the evaluation table with confidence intervals."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: a single-column layout for the preprint."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the related work section covering twelve papers",
+   "a limitations section naming the sample size problem",
+   "the reproducibility statement with exact commands",
+   "the evaluation table with confidence intervals"
+  ],
+  "pending_tasks": [
+   "the artifact submission package",
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "Zotero for reference management",
+   "a single-column layout for the preprint"
+  ],
+  "files": [
+   "paper/related_work.tex",
+   "paper/appendix.tex",
+   "figures/architecture.py",
+   "paper/main.tex",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

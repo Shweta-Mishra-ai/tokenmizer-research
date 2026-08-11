@@ -1,0 +1,167 @@
+{
+ "id": "gen_devops_ci_005",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'devops/ci', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a build time reduction pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a build time reduction pass now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: cache corruption producing stale build artifacts."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going with test retries limited to two attempts for this."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use pytest-xdist for test parallelism here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Cutting the pipeline below eight minutes is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up coverage reporting posted to the pull request, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: a permissions error pushing the release tag."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a build time reduction pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped artifact upload for the failing test logs."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in .github/dependabot.yml. Dependency caching across pipeline runs is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started deduplicating the three near-identical workflows yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in Dockerfile now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to self-hosted runners for the GPU tests. Wrapped up signed release artifacts, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into the pipeline timing out after 60 minutes."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up required status checks on the default branch, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up a matrix build over three Python versions, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Parallel test execution across four shards is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tox.ini."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "required status checks on the default branch",
+   "coverage reporting posted to the pull request",
+   "artifact upload for the failing test logs",
+   "dependency caching across pipeline runs",
+   "a matrix build over three Python versions",
+   "parallel test execution across four shards",
+   "signed release artifacts"
+  ],
+  "pending_tasks": [
+   "deduplicating the three near-identical workflows",
+   "self-hosted runners for the GPU tests",
+   "cutting the pipeline below eight minutes"
+  ],
+  "decisions": [
+   "pytest-xdist for test parallelism",
+   "test retries limited to two attempts"
+  ],
+  "files": [
+   "tox.ini",
+   "Dockerfile",
+   ".github/dependabot.yml"
+  ],
+  "errors": [
+   "the pipeline timing out after 60 minutes",
+   "a permissions error pushing the release tag",
+   "cache corruption producing stale build artifacts"
+  ]
+ }
+}

@@ -1,0 +1,185 @@
+{
+ "id": "gen_debug_production_003",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'debug/production', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a performance regression hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a performance regression hunt now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a performance regression hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the postmortem document with action items. Issue: a 30% error rate on the payment callback."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: ruling out the cache layer as the cause."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: a blameless postmortem format. Created: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Use rolling back before investigating further."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: scripts/repro.py. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/client.py."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: confirming the hypothesis with a targeted experiment."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: reviewing the other call sites with the same pattern."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with a feature flag to disable the suspect path."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: bisecting the regression to a single commit."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: documenting the failure mode in the runbook."
+  },
+  {
+   "role": "user",
+   "content": "How's a performance regression hunt coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: reproducing the failure in a staging environment."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: docs/postmortem.md."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: duplicate charges from a non-idempotent retry."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: a permanent fix replacing the hotfix."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: capturing a heap profile during the spike."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "bisecting the regression to a single commit",
+   "ruling out the cache layer as the cause",
+   "confirming the hypothesis with a targeted experiment",
+   "reproducing the failure in a staging environment",
+   "capturing a heap profile during the spike",
+   "the postmortem document with action items"
+  ],
+  "pending_tasks": [
+   "a permanent fix replacing the hotfix",
+   "reviewing the other call sites with the same pattern",
+   "documenting the failure mode in the runbook"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "a feature flag to disable the suspect path",
+   "a blameless postmortem format",
+   "sampling traces at 10% rather than 1%"
+  ],
+  "files": [
+   "logs/analysis.py",
+   "docs/postmortem.md",
+   "scripts/repro.py",
+   "tests/test_regression.py",
+   "src/client.py"
+  ],
+  "errors": [
+   "a 30% error rate on the payment callback",
+   "duplicate charges from a non-idempotent retry"
+  ]
+ }
+}

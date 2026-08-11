@@ -1,0 +1,103 @@
+{
+ "id": "gen_data_sql_003",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a reporting layer rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a reporting layer rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in dags/daily_refresh.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got a covering index on the customer lookup handled."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with Snowflake over BigQuery for the warehouse. Build it with Great Expectations for data quality checks."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 a materialised view for the executive dashboard \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in macros/revenue.sql, of all places. Selected: hashed surrogate keys for stability."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to moving the nightly job to an hourly cadence once the current thing lands. Using: soft deletes with a valid_to column."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped column-level lineage documentation."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but dbt for the transformation layer won out in the end."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a materialised view for the executive dashboard",
+   "a covering index on the customer lookup",
+   "column-level lineage documentation"
+  ],
+  "pending_tasks": [
+   "moving the nightly job to an hourly cadence"
+  ],
+  "decisions": [
+   "Snowflake over BigQuery for the warehouse",
+   "hashed surrogate keys for stability",
+   "dbt for the transformation layer",
+   "soft deletes with a valid_to column",
+   "Great Expectations for data quality checks"
+  ],
+  "files": [
+   "macros/revenue.sql",
+   "dags/daily_refresh.py"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,188 @@
+{
+ "id": "gen_platform_api_003",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'platform/api', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a versioning strategy rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a versioning strategy rollout now."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use Kong as the API gateway here."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "How's a versioning strategy rollout coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tests/test_webhooks.py. Settled on JSON only, no XML support."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped SDK generation for three languages."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with exponential backoff with jitter for webhook retries?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Expanding the sandbox data set is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/ratelimit.py now."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/pagination.py now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Settled on OpenAPI as the source of truth for SDK generation."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped a deprecation header on the v1 routes."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up the OpenAPI specification for every public route earlier today. Going with OAuth 2.0 client credentials for machine access for this."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up per-key rate limits with headers exposing the budget earlier today. Finished up consistent error envelopes with machine-readable codes earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing cursor pagination skipping rows during concurrent writes."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Request/response logging with PII stripped is in and working."
+  },
+  {
+   "role": "user",
+   "content": "How's a versioning strategy rollout coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into an SDK deserialisation failure on a new nullable field. Ran into rate limit headers reporting a stale budget."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward snake_case field naming throughout. Documenting the webhook replay procedure is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to a usage dashboard for API consumers."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The sandbox environment for partner testing is in and working. Haven't started field-level filtering on the large resources yet, soon though."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "request/response logging with PII stripped",
+   "consistent error envelopes with machine-readable codes",
+   "per-key rate limits with headers exposing the budget",
+   "SDK generation for three languages",
+   "a deprecation header on the v1 routes",
+   "the OpenAPI specification for every public route",
+   "the sandbox environment for partner testing"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "documenting the webhook replay procedure",
+   "a usage dashboard for API consumers",
+   "expanding the sandbox data set"
+  ],
+  "decisions": [
+   "JSON only, no XML support",
+   "Kong as the API gateway",
+   "OAuth 2.0 client credentials for machine access",
+   "OpenAPI as the source of truth for SDK generation",
+   "exponential backoff with jitter for webhook retries",
+   "snake_case field naming throughout"
+  ],
+  "files": [
+   "api/ratelimit.py",
+   "api/pagination.py",
+   "tests/test_webhooks.py"
+  ],
+  "errors": [
+   "an SDK deserialisation failure on a new nullable field",
+   "rate limit headers reporting a stale budget",
+   "cursor pagination skipping rows during concurrent writes"
+  ]
+ }
+}

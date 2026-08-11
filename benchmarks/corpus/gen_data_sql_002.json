@@ -1,0 +1,159 @@
+{
+ "id": "gen_data_sql_002",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a reporting layer rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a reporting layer rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in models/marts/dim_customer.sql, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but an anomaly alert on the daily order count is on my mind for later this week. Settled on Airflow for orchestration."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: dags/daily_refresh.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in macros/revenue.sql, of all places. Archiving events older than two years is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up duplicate rows from a non-unique natural key and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: a medallion bronze/silver/gold layout."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: documenting the grain of each fact table."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up partitioning the events table by month earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: scripts/backfill.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out a covering index on the customer lookup wasn't as bad as expected, it's sorted. Not today, but retiring the legacy reporting views is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up row count reconciliation against the source system earlier today. Updated: profiles.yml."
+  },
+  {
+   "role": "user",
+   "content": "Build it with Kafka for the event transport."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a covering index on the customer lookup",
+   "row count reconciliation against the source system",
+   "partitioning the events table by month"
+  ],
+  "pending_tasks": [
+   "documenting the grain of each fact table",
+   "retiring the legacy reporting views",
+   "archiving events older than two years",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "Airflow for orchestration",
+   "a medallion bronze/silver/gold layout",
+   "Kafka for the event transport"
+  ],
+  "files": [
+   "models/marts/fct_orders.sql",
+   "dags/daily_refresh.py",
+   "models/marts/dim_customer.sql",
+   "macros/revenue.sql",
+   "scripts/backfill.py",
+   "profiles.yml"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours",
+   "duplicate rows from a non-unique natural key"
+  ]
+ }
+}

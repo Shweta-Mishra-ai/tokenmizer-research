@@ -1,0 +1,159 @@
+{
+ "id": "gen_devops_kubernetes_005",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an autoscaling review now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but Trivy for image scanning in CI won out in the end."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe cert-manager for TLS certificates is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but moving the remaining cron jobs to Kubernetes is on my mind for later this week. Between the last two messages I also got node affinity rules keeping the databases separate handled."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, spot instances for the batch workloads made the most sense here. Between the last two messages I also got the secrets migration into the external secret store handled."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out network policies isolating the payments namespace wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got resource requests and limits for all containers handled."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/networkpolicy.yaml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in k8s/ingress.yaml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, Kustomize overlays per environment made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 pod disruption budgets for the stateful services \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until CrashLoopBackOff after the config map rename showed up out of nowhere."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/cluster.tf, of all places. The bulk of the diff ended up living in argocd/apps/api.yaml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in scripts/rollout.sh, of all places. Between the last two messages I also got readiness and liveness probes on every workload handled."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 the Helm chart for the API deployment \u2014 onto the next thing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the Helm chart for the API deployment",
+   "the secrets migration into the external secret store",
+   "resource requests and limits for all containers",
+   "node affinity rules keeping the databases separate",
+   "network policies isolating the payments namespace",
+   "readiness and liveness probes on every workload",
+   "pod disruption budgets for the stateful services"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes"
+  ],
+  "decisions": [
+   "cert-manager for TLS certificates",
+   "spot instances for the batch workloads",
+   "Trivy for image scanning in CI",
+   "Kustomize overlays per environment"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "argocd/apps/api.yaml",
+   "terraform/cluster.tf",
+   "k8s/networkpolicy.yaml",
+   "k8s/ingress.yaml"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename"
+  ]
+ }
+}

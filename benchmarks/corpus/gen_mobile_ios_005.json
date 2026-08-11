@@ -1,0 +1,148 @@
+{
+ "id": "gen_mobile_ios_005",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'mobile/ios', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a widget and live activity feature."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a widget and live activity feature now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: fastlane/Fastfile."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: Core Data persistence for the workout log."
+  },
+  {
+   "role": "user",
+   "content": "How's a widget and live activity feature coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: .swiftlint.yml."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a widget and live activity feature?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: localisation into three languages. Implemented: background sync with a URLSession task."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: Sources/Store/WorkoutStore.swift."
+  },
+  {
+   "role": "user",
+   "content": "Use fastlane for the release pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: dark mode across every screen. Files: Sources/Widgets/ActivityWidget.swift."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a widget and live activity feature?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the HealthKit permission flow."
+  },
+  {
+   "role": "user",
+   "content": "How's a widget and live activity feature coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: the subscription purchase and restore flow. Created: Package.swift."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: Sources/Auth/Keychain.swift."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: an iPad layout for the summary screen."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: SwiftLint in the build phase."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the subscription purchase and restore flow",
+   "dark mode across every screen",
+   "background sync with a URLSession task",
+   "the HealthKit permission flow",
+   "Core Data persistence for the workout log"
+  ],
+  "pending_tasks": [
+   "an iPad layout for the summary screen",
+   "localisation into three languages"
+  ],
+  "decisions": [
+   "iOS 17 as the minimum deployment target",
+   "SwiftLint in the build phase",
+   "fastlane for the release pipeline"
+  ],
+  "files": [
+   "Sources/Store/WorkoutStore.swift",
+   "fastlane/Fastfile",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Auth/Keychain.swift",
+   ".swiftlint.yml",
+   "Package.swift"
+  ],
+  "errors": []
+ }
+}

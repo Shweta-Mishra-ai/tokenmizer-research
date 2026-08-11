@@ -1,0 +1,123 @@
+{
+ "id": "gen_security_appsec_004",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'security/appsec', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a dependency audit."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a dependency audit now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in security/middleware.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in security/redaction.py."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in config/csp.json now. Implemented: dependency pinning with a lockfile."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: signed container images in the registry."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Going with OIDC for single sign-on for this. We're leaning toward gitleaks as a pre-commit hook."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: a threat model for the payments flow."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in SECURITY.md now. Wrapped up rotation of the leaked deploy key, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: .gitleaks.toml."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not today, but MFA enforcement for admin accounts is on my mind for later this week. Implemented: encrypted secrets at rest in the vault."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "An SBOM generated at build time is in and working. Created: policy/egress.yaml."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an SBOM generated at build time",
+   "rotation of the leaked deploy key",
+   "dependency pinning with a lockfile",
+   "encrypted secrets at rest in the vault",
+   "signed container images in the registry"
+  ],
+  "pending_tasks": [
+   "a threat model for the payments flow",
+   "MFA enforcement for admin accounts"
+  ],
+  "decisions": [
+   "gitleaks as a pre-commit hook",
+   "OIDC for single sign-on"
+  ],
+  "files": [
+   "policy/egress.yaml",
+   "security/redaction.py",
+   "config/csp.json",
+   "security/middleware.py",
+   "SECURITY.md",
+   ".gitleaks.toml"
+  ],
+  "errors": []
+ }
+}

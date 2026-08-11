@@ -1,0 +1,148 @@
+{
+ "id": "gen_security_appsec_005",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'security/appsec', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an authentication hardening pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an authentication hardening pass now."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: dependency pinning with a lockfile."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in .github/workflows/security.yml. Made the changes over in security/middleware.py."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in api/auth.py chasing this down. Weighing the tradeoffs, Dependabot for dependency updates made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: short-lived tokens with refresh rotation."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's an SSRF in the webhook fetcher."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: least-privilege IAM roles for the workers."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: terraform/iam.tf."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up CSP headers on all rendered responses earlier today."
+  },
+  {
+   "role": "user",
+   "content": "How's an authentication hardening pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to automated dependency updates once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up signed container images in the registry, all green now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got encrypted secrets at rest in the vault handled."
+  },
+  {
+   "role": "user",
+   "content": "How's an authentication hardening pass coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, gitleaks as a pre-commit hook felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to a review of the CORS allowlist."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "encrypted secrets at rest in the vault",
+   "dependency pinning with a lockfile",
+   "signed container images in the registry",
+   "least-privilege IAM roles for the workers",
+   "CSP headers on all rendered responses"
+  ],
+  "pending_tasks": [
+   "automated dependency updates",
+   "a review of the CORS allowlist"
+  ],
+  "decisions": [
+   "Dependabot for dependency updates",
+   "short-lived tokens with refresh rotation",
+   "gitleaks as a pre-commit hook"
+  ],
+  "files": [
+   "security/middleware.py",
+   ".github/workflows/security.yml",
+   "terraform/iam.tf",
+   "api/auth.py"
+  ],
+  "errors": [
+   "an SSRF in the webhook fetcher"
+  ]
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "id": "gen_infra_terraform_001",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'infra/terraform', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a networking rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a networking rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, OIDC for CI authentication into AWS made the most sense here. Not today, but splitting the monolithic state file is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got encrypted EBS volumes across all instances handled. Turns out a read replica in the secondary region wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but S3 lifecycle rules moving logs to Glacier after 90 days would probably fit better. Not sure if it matters, but AWS as the single cloud provider would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/rds.tf chasing this down. Not today, but moving the legacy resources under Terraform is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 CloudWatch alarms on the error rate metric \u2014 onto the next thing. Not today, but policy-as-code checks in the plan stage is on my mind for later this week."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe Aurora Postgres over standard RDS is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but Terragrunt for the DRY module wiring would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in environments/prod/terragrunt.hcl chasing this down. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up an apply failing on an IAM eventual consistency delay and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in terraform/backend.tf chasing this down. Spent most of the afternoon in modules/service/main.tf chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "How's a networking rebuild coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 security groups restricted to named ports \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/outputs.tf, of all places."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "CloudWatch alarms on the error rate metric",
+   "a read replica in the secondary region",
+   "encrypted EBS volumes across all instances",
+   "security groups restricted to named ports"
+  ],
+  "pending_tasks": [
+   "moving the legacy resources under Terraform",
+   "policy-as-code checks in the plan stage",
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "S3 lifecycle rules moving logs to Glacier after 90 days",
+   "Terragrunt for the DRY module wiring",
+   "AWS as the single cloud provider",
+   "Aurora Postgres over standard RDS",
+   "OIDC for CI authentication into AWS"
+  ],
+  "files": [
+   "environments/prod/terragrunt.hcl",
+   "terraform/rds.tf",
+   "terraform/backend.tf",
+   "modules/service/main.tf",
+   "terraform/outputs.tf"
+  ],
+  "errors": [
+   "an apply failing on an IAM eventual consistency delay"
+  ]
+ }
+}

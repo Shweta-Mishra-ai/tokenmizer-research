@@ -1,0 +1,133 @@
+{
+ "id": "gen_devops_kubernetes_002",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'devops/kubernetes', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a cluster upgrade to 1.31."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a cluster upgrade to 1.31 now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the ingress with automatic certificate renewal handled. The bulk of the diff ended up living in argocd/apps/api.yaml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in k8s/ingress.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up DNS resolution failures inside the mesh sidecar and it's been a pain. I keep meaning to get to a chaos test on node eviction but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out network policies isolating the payments namespace wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got horizontal pod autoscaling on CPU and request rate working, then moved on. Not sure what changed, but now there's CrashLoopBackOff after the config map rename."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got a canary stage in the deploy pipeline working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "Not sure what changed, but now there's OOMKilled pods on the ingestion worker. Weighing the tradeoffs, Karpenter instead of the cluster autoscaler made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but Loki for log aggregation would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got the Helm chart for the API deployment working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "How's a cluster upgrade to 1.31 coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 resource requests and limits for all containers \u2014 onto the next thing. Spent most of the afternoon in charts/api/values.yaml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but cert-manager for TLS certificates won out in the end."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the Helm chart for the API deployment",
+   "resource requests and limits for all containers",
+   "horizontal pod autoscaling on CPU and request rate",
+   "the ingress with automatic certificate renewal",
+   "network policies isolating the payments namespace",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "a chaos test on node eviction"
+  ],
+  "decisions": [
+   "Karpenter instead of the cluster autoscaler",
+   "cert-manager for TLS certificates",
+   "Loki for log aggregation"
+  ],
+  "files": [
+   "argocd/apps/api.yaml",
+   "k8s/ingress.yaml",
+   "charts/api/values.yaml"
+  ],
+  "errors": [
+   "OOMKilled pods on the ingestion worker",
+   "CrashLoopBackOff after the config map rename",
+   "DNS resolution failures inside the mesh sidecar"
+  ]
+ }
+}

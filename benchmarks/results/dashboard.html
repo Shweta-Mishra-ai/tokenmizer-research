@@ -1,0 +1,574 @@
+<title>TokenMizer vs. Other Memory Methods — 100-Session Test</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --surface-page:   #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --good:           #006300;
+
+    --s1: #2a78d6; /* tokenmizer */
+    --s2: #eb6834; /* graphiti */
+    --s3: #1baf7a; /* mem0 */
+    --s4: #eda100; /* graphrag */
+    --s5: #e87ba4; /* memgpt */
+    --s6: #008300; /* sliding window */
+    --s7: #4a3aa7; /* naive truncation */
+    --s8: #e34948; /* naive summary */
+
+    --seq-100:#cde2fb; --seq-200:#9ec5f4; --seq-300:#6da7ec; --seq-400:#3987e5;
+    --seq-500:#256abf; --seq-600:#184f95; --seq-700:#0d366b;
+
+    --div-blue:#2a78d6; --div-red:#e34948; --div-mid:#f0efec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --surface-page:   #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --good:           #0ca30c;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+      --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+      --div-blue:#3987e5; --div-red:#e66767; --div-mid:#383835;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --surface-page:   #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --good:           #0ca30c;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --div-blue:#3987e5; --div-red:#e66767; --div-mid:#383835;
+  }
+
+  .viz-root {
+    background: var(--surface-page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 28px 20px 60px;
+    max-width: 1180px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .viz-root * { box-sizing: border-box; }
+
+  header.page { margin-bottom: 28px; }
+  header.page h1 { font-size: 26px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  header.page p.sub { color: var(--text-secondary); font-size: 14.5px; line-height: 1.55; margin: 0 0 4px; max-width: 900px; }
+  header.page p.meta { color: var(--text-muted); font-size: 12.5px; margin-top: 10px; }
+  code.inline { background: var(--surface-1); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 12.5px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px 22px;
+    margin-bottom: 22px;
+  }
+  .card h2 { font-size: 15px; font-weight: 650; margin: 0 0 4px; }
+  .card p.desc { color: var(--text-secondary); font-size: 13px; line-height: 1.5; margin: 0 0 16px; max-width: 820px; }
+
+  /* Stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 22px; }
+  .tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .tile .label { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; }
+  .tile .value { font-size: 28px; font-weight: 700; line-height: 1; }
+  .tile .foot { font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.4; }
+  .tile .value small { font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+
+  svg text { fill: var(--text-secondary); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .axis-line { stroke: var(--baseline); stroke-width: 1; }
+  .grid-line { stroke: var(--grid); stroke-width: 1; }
+  .value-label { fill: var(--text-primary); font-size: 11.5px; font-weight: 600; }
+  .cat-label { fill: var(--text-primary); font-size: 12.5px; font-weight: 600; }
+  .muted-label { fill: var(--text-muted); font-size: 11px; }
+
+  .chart-wrap { width: 100%; overflow-x: auto; }
+  .chart-wrap svg { display:block; width: 100%; height: auto; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px 20px; margin: 14px 2px 0; }
+  .legend .item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text-secondary); }
+  .legend .swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+
+  /* Heatmap */
+  table.heat { border-collapse: collapse; width: 100%; font-size: 13px; }
+  table.heat th, table.heat td { padding: 9px 12px; text-align: right; white-space: nowrap; }
+  table.heat th { color: var(--text-muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .02em; border-bottom: 1px solid var(--grid); }
+  table.heat td.method { text-align: left; font-weight: 600; color: var(--text-primary); }
+  table.heat tr.anchor td.method { color: var(--s1); }
+  table.heat td.cell { border-radius: 6px; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  /* Data tables */
+  .table-scroll { width: 100%; overflow-x: auto; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 12.8px; font-variant-numeric: tabular-nums; }
+  table.data th, table.data td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+  table.data th { color: var(--text-muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .02em; text-align: right; }
+  table.data th:first-child, table.data td:first-child { text-align: left; }
+  table.data td:first-child { color: var(--text-primary); font-weight: 600; }
+  table.data tr.anchor td:first-child { color: var(--s1); }
+  table.data tbody tr:hover { background: color-mix(in srgb, var(--text-primary) 4%, transparent); }
+
+  details.tablefold summary { cursor: pointer; font-size: 12.5px; color: var(--text-secondary); margin-top: 12px; user-select: none; }
+  details.tablefold summary:hover { color: var(--text-primary); }
+
+  .tooltip {
+    position: absolute; pointer-events: none; background: var(--text-primary); color: var(--surface-1);
+    font-size: 12px; padding: 6px 9px; border-radius: 6px; line-height: 1.4; opacity: 0; transition: opacity .1s;
+    white-space: nowrap; z-index: 10; transform: translate(-50%, -100%);
+  }
+  .chart-relative { position: relative; }
+
+  .callout { background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--s1); border-radius: 8px; padding: 14px 16px; font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin-top: 16px; }
+  .callout strong { color: var(--text-primary); }
+
+  .badge { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; background: color-mix(in srgb, var(--s1) 16%, transparent); color: var(--s1); margin-left: 8px; vertical-align: middle; }
+
+  footer.page { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 12px; line-height: 1.7; }
+  footer.page a { color: var(--text-secondary); }
+
+  @media (max-width: 640px) {
+    header.page h1 { font-size: 21px; }
+    .card { padding: 16px; }
+  }
+</style>
+
+<div class="viz-root">
+
+<header class="page">
+  <h1>TokenMizer vs. other memory methods — 100-session test</h1>
+  <p class="sub">
+    We tested 8 memory methods on the same 100 test conversations, using the same scoring
+    rules for all of them. TokenMizer is the real product (version 0.5.2). The other 7 are
+    rebuilt versions of the strategy used by MemGPT, Mem0, Graphiti/Zep, and GraphRAG — they
+    do not use an AI model, so treat them as a lower bound on what those real products could do.
+    Full write-up: <code class="inline">benchmarks/results/REPORT_n100.md</code>.
+  </p>
+  <p class="meta">Made on 2026-08-10 · 100 test conversations (94 generated, 6 real) · 1,620 facts checked · 23 topic areas</p>
+</header>
+
+<div class="tiles" id="tiles"></div>
+
+<div class="card">
+  <h2>Overall score by method<span class="badge">ranked</span></h2>
+  <p class="desc">Each method's average accuracy across all 5 things we checked for (completed tasks, pending tasks, decisions, files, errors), averaged over all 100 test conversations. The thin lines through each bar show the range where the true score most likely falls. TokenMizer's bar has a border around it.</p>
+  <div class="chart-relative">
+    <div class="chart-wrap"><svg id="chart-rank" viewBox="0 0 920 400" role="img" aria-label="Macro F1 ranked bar chart"></svg></div>
+    <div class="tooltip" id="tt-rank"></div>
+  </div>
+  <div class="legend" id="legend-rank"></div>
+</div>
+
+<div class="card">
+  <h2>Score by category</h2>
+  <p class="desc">The same 8 methods, broken down by the 5 things we checked for. Darker blue means a higher score.</p>
+  <div class="table-scroll" id="heatmap"></div>
+</div>
+
+<div class="card">
+  <h2>The main finding: clear language vs. indirect language</h2>
+  <p class="desc">Every generated conversation is labeled by how directly it states facts — from clear markers like "Decided: X" down to facts buried inside a longer sentence with no marker word. All 4 pattern-matching methods, including TokenMizer, drop to around 19–25% accuracy once the marker words disappear — a drop of more than 45 points from their best score. This happens to every method that relies on pattern matching, not just TokenMizer. (<code class="inline">Unspecified</code> = the 6 real conversations, which were not labeled this way.)</p>
+  <div class="chart-relative">
+    <div class="chart-wrap"><svg id="chart-register" viewBox="0 0 920 420" role="img" aria-label="Macro F1 by register, line chart"></svg></div>
+    <div class="tooltip" id="tt-register"></div>
+  </div>
+  <div class="legend" id="legend-register"></div>
+  <details class="tablefold">
+    <summary>Show as table</summary>
+    <div class="table-scroll" id="register-table" style="margin-top:10px;"></div>
+  </details>
+</div>
+
+<div class="card">
+  <h2>TokenMizer compared to each method, one by one</h2>
+  <p class="desc">How much better (or worse) TokenMizer scored than each other method, on the same conversations. The line through each bar shows the range where the true difference likely falls. If that range crosses zero, we can't be sure there's a real difference.</p>
+  <div class="chart-relative">
+    <div class="chart-wrap"><svg id="chart-diff" viewBox="0 0 920 320" role="img" aria-label="Comparison of TokenMizer against every other method"></svg></div>
+    <div class="tooltip" id="tt-diff"></div>
+  </div>
+  <div class="callout">
+    <strong>In plain terms:</strong> TokenMizer beats GraphRAG-style (+12.5 points), MemGPT-style (+21.6 points), and
+    every simple baseline (+36 to +40 points) — these are real, reliable wins. Against Graphiti-style and Mem0-style,
+    the range crosses zero, meaning it's a tie, not a win — though TokenMizer's output is smaller (99 tokens vs.
+    118–120 tokens).
+  </div>
+</div>
+
+<div class="card">
+  <h2>Output size and speed</h2>
+  <p class="desc">How big each method's summary is (smaller is more efficient, if the score is similar) and how long it takes to process one conversation.</p>
+  <div class="table-scroll" id="efficiency-table"></div>
+</div>
+
+<div class="card">
+  <h2>Full results table</h2>
+  <p class="desc">All the numbers behind the charts above. The topic-by-topic breakdown (23 topics × 8 methods) is hidden by default — click to expand it. TokenMizer's score there ranges from 20% (Kubernetes/DevOps topics) up to 100% (the 3 real-conversation topics it was tuned on).</p>
+  <div class="table-scroll" id="full-table"></div>
+  <details class="tablefold">
+    <summary>Show topic-by-topic breakdown (23 topics × 8 methods)</summary>
+    <div class="table-scroll" id="domain-table" style="margin-top:10px;"></div>
+  </details>
+</div>
+
+<footer class="page">
+  Data file: <code class="inline">benchmarks/results/memorybench_n100_20260810.json</code> ·
+  to re-run this test: <code class="inline">python -m benchmarks.memorybench.run</code> ·
+  full write-up with limitations: <code class="inline">benchmarks/results/REPORT_n100.md</code>
+  (note: 94 of the 100 test conversations were generated for this test, not real, and the
+  non-TokenMizer methods do not use an AI model — see the report for details).
+</footer>
+
+</div>
+
+<script>
+const DATA = {"generated": "2026-08-10T20:02:01.868745+00:00", "corpus": "100 sessions (94 synthetic, 6 real) \u00b7 2516 turns \u00b7 1620 labelled items \u00b7 23 domains \u00b7 registers: explicit, implicit, mixed, semi, unspecified", "threshold": 0.6, "bootstrap_iterations": 3000, "bootstrap_seed": 1729, "methods": {"tokenmizer_v0.5.2": "Real product engine \u2014 GraphMemory + HybridExtractor heuristic pass (out of process).", "graphiti_style": "Bi-temporal graph \u2014 every fact is kept and timestamped by turn; a later, lexically similar decision marks the earlier one superseded but never deletes it.", "graphrag_style": "Entity/community graph \u2014 wide net on files and named-technology entities (its actual design target); tasks have no status concept in this strategy, so completion state is only weakly recovered.", "mem0_style": "Flat fact store, whole transcript, last-write-wins dedup on lexically similar facts \u2014 no node types, no graph edges, no supersede tracking.", "memgpt_style": "Core/archival paging \u2014 only the most recent ~40% of turns are in the always-visible core context; everything older requires an archival query this benchmark never issues, so it contributes nothing.", "sliding_window_10": "Keep the last 10 raw messages verbatim, drop everything earlier.", "naive_truncation": "Keep the last ~300 tokens of raw transcript verbatim, drop the rest.", "naive_summary": "Concatenate the whole transcript and truncate to the first ~120 words."}, "results": {"tokenmizer_v0.5.2": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.9622641509433962, "recall": 0.5213849287169042, "f1": 0.6763189929809112, "expected": 491, "extracted": 265, "tp": 256, "spurious": 10}, "pending_tasks": {"precision": 0.9431818181818182, "recall": 0.3721973094170404, "f1": 0.5337620578778135, "expected": 223, "extracted": 88, "tp": 83, "spurious": 5}, "decisions": {"precision": 0.5693430656934306, "recall": 0.4450704225352113, "f1": 0.4995946165072158, "expected": 355, "extracted": 274, "tp": 158, "spurious": 118}, "files": {"precision": 0.9801488833746899, "recall": 0.9801488833746899, "f1": 0.9801488833746899, "expected": 403, "extracted": 403, "tp": 395, "spurious": 8}, "errors": {"precision": 0.5063291139240507, "recall": 0.27702702702702703, "f1": 0.35811769843869423, "expected": 148, "extracted": 79, "tp": 41, "spurious": 39}}, "macro_f1": 0.5678, "macro_f1_ci95": [0.521, 0.6151], "avg_resume_tokens": 99.1, "avg_total_tokens": 340.6, "avg_compression_ratio": 5.13, "avg_extract_ms": 37.978, "avg_node_count": 11.1, "macro_f1_by_register": {"explicit": 0.707, "implicit": 0.2532, "mixed": 0.5464, "semi": 0.515, "unspecified": 0.936}, "macro_f1_by_origin": {"real": 0.91, "synthetic": 0.5459}, "macro_f1_by_domain": {"audit/infra": 0.6, "audit/nlp": 0.8875, "audit/python": 1.0, "audit/security": 1.0, "audit/storage": 0.9722, "audit/systems": 1.0, "backend/go": 0.6307, "backend/python": 0.753, "data/sql": 0.5499, "data/streaming": 0.25, "debug/production": 0.7091, "devops/ci": 0.5638, "devops/kubernetes": 0.2, "frontend/react": 0.5276, "frontend/typescript": 0.9643, "infra/terraform": 0.21, "ml/python": 0.7494, "mobile/ios": 0.6828, "platform/api": 0.5364, "product/analytics": 0.5077, "research/writing": 0.6014, "security/appsec": 0.5989, "systems/rust": 0.4694}}, "graphiti_style": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.6906474820143885, "recall": 0.594704684317719, "f1": 0.6390953444895354, "expected": 491, "extracted": 417, "tp": 292, "spurious": 129}, "pending_tasks": {"precision": 0.42543859649122806, "recall": 0.4349775784753363, "f1": 0.4301552106430155, "expected": 223, "extracted": 228, "tp": 97, "spurious": 131}, "decisions": {"precision": 0.7012987012987013, "recall": 0.6112676056338028, "f1": 0.6531954625268261, "expected": 355, "extracted": 308, "tp": 217, "spurious": 92}, "files": {"precision": 0.9299191374663073, "recall": 0.8560794044665012, "f1": 0.8914728682170542, "expected": 403, "extracted": 371, "tp": 345, "spurious": 26}, "errors": {"precision": 0.7830188679245284, "recall": 0.5675675675675675, "f1": 0.6581083632244666, "expected": 148, "extracted": 106, "tp": 84, "spurious": 23}}, "macro_f1": 0.5944, "macro_f1_ci95": [0.5461, 0.6419], "avg_resume_tokens": 119.8, "avg_total_tokens": 340.6, "avg_compression_ratio": 4.57, "avg_extract_ms": 0.921, "avg_node_count": 14.3, "macro_f1_by_register": {"explicit": 0.8486, "implicit": 0.1922, "mixed": 0.6317, "semi": 0.6814, "unspecified": 0.6056}, "macro_f1_by_origin": {"real": 0.5816, "synthetic": 0.5952}, "macro_f1_by_domain": {"audit/infra": 0.4933, "audit/nlp": 0.6583, "audit/python": 0.4857, "audit/security": 0.5476, "audit/storage": 0.6476, "audit/systems": 0.6571, "backend/go": 0.7033, "backend/python": 0.8242, "data/sql": 0.5857, "data/streaming": 0.132, "debug/production": 0.8382, "devops/ci": 0.6733, "devops/kubernetes": 0.1933, "frontend/react": 0.6504, "frontend/typescript": 0.4671, "infra/terraform": 0.21, "ml/python": 0.7987, "mobile/ios": 0.8813, "platform/api": 0.6756, "product/analytics": 0.5985, "research/writing": 0.658, "security/appsec": 0.6996, "systems/rust": 0.3135}}, "graphrag_style": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.9111111111111111, "recall": 0.1670061099796334, "f1": 0.28227194492254726, "expected": 491, "extracted": 90, "tp": 82, "spurious": 8}, "pending_tasks": {"precision": 0.2248062015503876, "recall": 0.13004484304932734, "f1": 0.16477272727272727, "expected": 223, "extracted": 129, "tp": 29, "spurious": 100}, "decisions": {"precision": 0.8014440433212996, "recall": 0.6253521126760564, "f1": 0.7025316455696202, "expected": 355, "extracted": 277, "tp": 222, "spurious": 55}, "files": {"precision": 0.9299191374663073, "recall": 0.8560794044665012, "f1": 0.8914728682170542, "expected": 403, "extracted": 371, "tp": 345, "spurious": 26}, "errors": {"precision": 0.5267857142857143, "recall": 0.40540540540540543, "f1": 0.4581931141599794, "expected": 148, "extracted": 112, "tp": 60, "spurious": 53}}, "macro_f1": 0.4432, "macro_f1_ci95": [0.4071, 0.4804], "avg_resume_tokens": 79.5, "avg_total_tokens": 340.6, "avg_compression_ratio": 5.82, "avg_extract_ms": 0.51, "avg_node_count": 9.8, "macro_f1_by_register": {"explicit": 0.6853, "implicit": 0.1906, "mixed": 0.4673, "semi": 0.3729, "unspecified": 0.5159}, "macro_f1_by_origin": {"real": 0.5153, "synthetic": 0.4386}, "macro_f1_by_domain": {"audit/infra": 0.4381, "audit/nlp": 0.5333, "audit/python": 0.5893, "audit/security": 0.5643, "audit/storage": 0.4667, "audit/systems": 0.5, "backend/go": 0.3859, "backend/python": 0.6816, "data/sql": 0.4562, "data/streaming": 0.132, "debug/production": 0.6732, "devops/ci": 0.3565, "devops/kubernetes": 0.1933, "frontend/react": 0.3762, "frontend/typescript": 0.5631, "infra/terraform": 0.2367, "ml/python": 0.7039, "mobile/ios": 0.6731, "platform/api": 0.4024, "product/analytics": 0.5101, "research/writing": 0.4669, "security/appsec": 0.454, "systems/rust": 0.2333}}, "mem0_style": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.6932367149758454, "recall": 0.5926680244399185, "f1": 0.6390197061107689, "expected": 491, "extracted": 414, "tp": 291, "spurious": 127}, "pending_tasks": {"precision": 0.46190476190476193, "recall": 0.4349775784753363, "f1": 0.4480369515011547, "expected": 223, "extracted": 210, "tp": 97, "spurious": 113}, "decisions": {"precision": 0.7016393442622951, "recall": 0.6084507042253521, "f1": 0.6517307014451886, "expected": 355, "extracted": 305, "tp": 216, "spurious": 91}, "files": {"precision": 0.9299191374663073, "recall": 0.8560794044665012, "f1": 0.8914728682170542, "expected": 403, "extracted": 371, "tp": 345, "spurious": 26}, "errors": {"precision": 0.7830188679245284, "recall": 0.5675675675675675, "f1": 0.6581083632244666, "expected": 148, "extracted": 106, "tp": 84, "spurious": 23}}, "macro_f1": 0.5955, "macro_f1_ci95": [0.5459, 0.6423], "avg_resume_tokens": 118.0, "avg_total_tokens": 340.6, "avg_compression_ratio": 4.69, "avg_extract_ms": 0.927, "avg_node_count": 14.1, "macro_f1_by_register": {"explicit": 0.849, "implicit": 0.1922, "mixed": 0.6331, "semi": 0.6848, "unspecified": 0.6056}, "macro_f1_by_origin": {"real": 0.5816, "synthetic": 0.5964}, "macro_f1_by_domain": {"audit/infra": 0.4933, "audit/nlp": 0.6583, "audit/python": 0.4857, "audit/security": 0.5476, "audit/storage": 0.6476, "audit/systems": 0.6571, "backend/go": 0.7053, "backend/python": 0.8164, "data/sql": 0.5907, "data/streaming": 0.132, "debug/production": 0.8399, "devops/ci": 0.6809, "devops/kubernetes": 0.1933, "frontend/react": 0.6534, "frontend/typescript": 0.4671, "infra/terraform": 0.21, "ml/python": 0.7987, "mobile/ios": 0.8813, "platform/api": 0.6816, "product/analytics": 0.5985, "research/writing": 0.6606, "security/appsec": 0.6996, "systems/rust": 0.3135}}, "memgpt_style": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.7053140096618358, "recall": 0.3014256619144603, "f1": 0.4223529641719279, "expected": 491, "extracted": 207, "tp": 148, "spurious": 61}, "pending_tasks": {"precision": 0.5185185185185185, "recall": 0.18834080717488788, "f1": 0.2763157894736842, "expected": 223, "extracted": 81, "tp": 42, "spurious": 39}, "decisions": {"precision": 0.675, "recall": 0.22535211267605634, "f1": 0.3378959718420024, "expected": 355, "extracted": 120, "tp": 80, "spurious": 39}, "files": {"precision": 0.9329608938547486, "recall": 0.4292803970223325, "f1": 0.5880042333211218, "expected": 403, "extracted": 179, "tp": 173, "spurious": 12}, "errors": {"precision": 0.7346938775510204, "recall": 0.25, "f1": 0.37305699481865284, "expected": 148, "extracted": 49, "tp": 37, "spurious": 13}}, "macro_f1": 0.3523, "macro_f1_ci95": [0.3188, 0.3843], "avg_resume_tokens": 59.6, "avg_total_tokens": 340.6, "avg_compression_ratio": 11.12, "avg_extract_ms": 0.356, "avg_node_count": 6.4, "macro_f1_by_register": {"explicit": 0.4636, "implicit": 0.1008, "mixed": 0.3567, "semi": 0.3887, "unspecified": 0.4906}, "macro_f1_by_origin": {"real": 0.4696, "synthetic": 0.3448}, "macro_f1_by_domain": {"audit/infra": 0.5333, "audit/nlp": 0.3083, "audit/python": 0.2667, "audit/security": 0.5, "audit/storage": 0.8095, "audit/systems": 0.4, "backend/go": 0.3814, "backend/python": 0.4485, "data/sql": 0.3855, "data/streaming": 0.0581, "debug/production": 0.4599, "devops/ci": 0.4374, "devops/kubernetes": 0.1096, "frontend/react": 0.4488, "frontend/typescript": 0.3655, "infra/terraform": 0.1509, "ml/python": 0.4594, "mobile/ios": 0.473, "platform/api": 0.3807, "product/analytics": 0.3575, "research/writing": 0.3082, "security/appsec": 0.4017, "systems/rust": 0.1578}}, "sliding_window_10": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.19898391193903472, "recall": 0.4745417515274949, "f1": 0.280393693126245, "expected": 491, "extracted": 1181, "tp": 233, "spurious": 946}, "pending_tasks": {"precision": 0.0829805249788315, "recall": 0.4260089686098655, "f1": 0.13890443046945522, "expected": 223, "extracted": 1181, "tp": 95, "spurious": 1083}, "decisions": {"precision": 0.11939034716342083, "recall": 0.39154929577464787, "f1": 0.18298523906000538, "expected": 355, "extracted": 1181, "tp": 139, "spurious": 1040}, "files": {"precision": 0.15664690939881457, "recall": 0.4739454094292804, "f1": 0.23546777020318133, "expected": 403, "extracted": 1181, "tp": 191, "spurious": 996}, "errors": {"precision": 0.06265876375952582, "recall": 0.5135135135135135, "f1": 0.11168924017952893, "expected": 148, "extracted": 1181, "tp": 76, "spurious": 1107}}, "macro_f1": 0.184, "macro_f1_ci95": [0.175, 0.1948], "avg_resume_tokens": 150.0, "avg_total_tokens": 340.6, "avg_compression_ratio": 2.45, "avg_extract_ms": 0.003, "avg_node_count": 11.8, "macro_f1_by_register": {"explicit": 0.1576, "implicit": 0.1704, "mixed": 0.1785, "semi": 0.1682, "unspecified": 0.2789}, "macro_f1_by_origin": {"real": 0.2218, "synthetic": 0.1816}, "macro_f1_by_domain": {"audit/infra": 0.2102, "audit/nlp": 0.2289, "audit/python": 0.1832, "audit/security": 0.2178, "audit/storage": 0.2913, "audit/systems": 0.1991, "backend/go": 0.201, "backend/python": 0.169, "data/sql": 0.1963, "data/streaming": 0.1734, "debug/production": 0.1609, "devops/ci": 0.1974, "devops/kubernetes": 0.1726, "frontend/react": 0.1814, "frontend/typescript": 0.3661, "infra/terraform": 0.1722, "ml/python": 0.1794, "mobile/ios": 0.1551, "platform/api": 0.1612, "product/analytics": 0.1865, "research/writing": 0.1617, "security/appsec": 0.1894, "systems/rust": 0.1985}}, "naive_truncation": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.17683686176836863, "recall": 0.8676171079429735, "f1": 0.29379310344827586, "expected": 491, "extracted": 2409, "tp": 426, "spurious": 1983}, "pending_tasks": {"precision": 0.0805313408053134, "recall": 0.8430493273542601, "f1": 0.14701886914143592, "expected": 223, "extracted": 2409, "tp": 188, "spurious": 2215}, "decisions": {"precision": 0.12702366127023662, "recall": 0.847887323943662, "f1": 0.22094684307679022, "expected": 355, "extracted": 2409, "tp": 301, "spurious": 2103}, "files": {"precision": 0.14819427148194272, "recall": 0.8883374689826302, "f1": 0.25401349308799726, "expected": 403, "extracted": 2409, "tp": 358, "spurious": 2052}, "errors": {"precision": 0.05105853051058531, "recall": 0.8445945945945946, "f1": 0.0962956699829956, "expected": 148, "extracted": 2409, "tp": 125, "spurious": 2286}}, "macro_f1": 0.2046, "macro_f1_ci95": [0.1967, 0.2136], "avg_resume_tokens": 286.8, "avg_total_tokens": 340.6, "avg_compression_ratio": 1.18, "avg_extract_ms": 0.011, "avg_node_count": 24.1, "macro_f1_by_register": {"explicit": 0.1904, "implicit": 0.1878, "mixed": 0.1969, "semi": 0.1919, "unspecified": 0.2837}, "macro_f1_by_origin": {"real": 0.2218, "synthetic": 0.2035}, "macro_f1_by_domain": {"audit/infra": 0.2102, "audit/nlp": 0.2289, "audit/python": 0.1832, "audit/security": 0.2178, "audit/storage": 0.2913, "audit/systems": 0.1991, "backend/go": 0.2147, "backend/python": 0.2096, "data/sql": 0.2092, "data/streaming": 0.187, "debug/production": 0.1908, "devops/ci": 0.2224, "devops/kubernetes": 0.1879, "frontend/react": 0.1982, "frontend/typescript": 0.3661, "infra/terraform": 0.1914, "ml/python": 0.203, "mobile/ios": 0.1928, "platform/api": 0.1929, "product/analytics": 0.2006, "research/writing": 0.1885, "security/appsec": 0.2079, "systems/rust": 0.2168}}, "naive_summary": {"sessions_scored": 100, "micro_by_category": {"completed_tasks": {"precision": 0.1409062693978895, "recall": 0.4623217922606925, "f1": 0.21598477640342528, "expected": 491, "extracted": 1611, "tp": 227, "spurious": 1384}, "pending_tasks": {"precision": 0.07014276846679081, "recall": 0.48878923766816146, "f1": 0.12268050478590423, "expected": 223, "extracted": 1611, "tp": 109, "spurious": 1498}, "decisions": {"precision": 0.12290502793296089, "recall": 0.5492957746478874, "f1": 0.20086620625073157, "expected": 355, "extracted": 1611, "tp": 195, "spurious": 1413}, "files": {"precision": 0.12725015518311608, "recall": 0.5310173697270472, "f1": 0.2053026775456339, "expected": 403, "extracted": 1611, "tp": 214, "spurious": 1406}, "errors": {"precision": 0.0521415270018622, "recall": 0.581081081081081, "f1": 0.09569606167786035, "expected": 148, "extracted": 1611, "tp": 86, "spurious": 1527}}, "macro_f1": 0.1673, "macro_f1_ci95": [0.1566, 0.1801], "avg_resume_tokens": 185.8, "avg_total_tokens": 340.6, "avg_compression_ratio": 1.85, "avg_extract_ms": 0.032, "avg_node_count": 16.1, "macro_f1_by_register": {"explicit": 0.1625, "implicit": 0.1361, "mixed": 0.1521, "semi": 0.1479, "unspecified": 0.2751}, "macro_f1_by_origin": {"real": 0.1853, "synthetic": 0.1662}, "macro_f1_by_domain": {"audit/infra": 0.1473, "audit/nlp": 0.208, "audit/python": 0.1338, "audit/security": 0.1784, "audit/storage": 0.2605, "audit/systems": 0.1836, "backend/go": 0.18, "backend/python": 0.2024, "data/sql": 0.1703, "data/streaming": 0.1228, "debug/production": 0.165, "devops/ci": 0.1883, "devops/kubernetes": 0.1401, "frontend/react": 0.1596, "frontend/typescript": 0.3661, "infra/terraform": 0.1368, "ml/python": 0.1762, "mobile/ios": 0.163, "platform/api": 0.1427, "product/analytics": 0.1485, "research/writing": 0.1454, "security/appsec": 0.1694, "systems/rust": 0.1827}}}, "comparisons_vs_tokenmizer": {"tokenmizer_v0.5.2_vs_graphiti_style": {"n": 100, "mean_diff": -0.0266, "ci_lo": -0.0644, "ci_hi": 0.0104, "p_le_zero": 0.9117}, "tokenmizer_v0.5.2_vs_graphrag_style": {"n": 100, "mean_diff": 0.1246, "ci_lo": 0.0878, "ci_hi": 0.1606, "p_le_zero": 0.0}, "tokenmizer_v0.5.2_vs_mem0_style": {"n": 100, "mean_diff": -0.0277, "ci_lo": -0.0643, "ci_hi": 0.0121, "p_le_zero": 0.9167}, "tokenmizer_v0.5.2_vs_memgpt_style": {"n": 100, "mean_diff": 0.2155, "ci_lo": 0.1827, "ci_hi": 0.2497, "p_le_zero": 0.0}, "tokenmizer_v0.5.2_vs_sliding_window_10": {"n": 100, "mean_diff": 0.3838, "ci_lo": 0.3413, "ci_hi": 0.4277, "p_le_zero": 0.0}, "tokenmizer_v0.5.2_vs_naive_truncation": {"n": 100, "mean_diff": 0.3632, "ci_lo": 0.3185, "ci_hi": 0.4072, "p_le_zero": 0.0}, "tokenmizer_v0.5.2_vs_naive_summary": {"n": 100, "mean_diff": 0.4005, "ci_lo": 0.3569, "ci_hi": 0.4418, "p_le_zero": 0.0}}};
+
+const METHOD_ORDER = [
+  "tokenmizer_v0.5.2", "graphiti_style", "mem0_style", "graphrag_style",
+  "memgpt_style", "sliding_window_10", "naive_truncation", "naive_summary"
+];
+const COLOR_VAR = {
+  "tokenmizer_v0.5.2": "--s1", "graphiti_style": "--s2", "mem0_style": "--s3",
+  "graphrag_style": "--s4", "memgpt_style": "--s5", "sliding_window_10": "--s6",
+  "naive_truncation": "--s7", "naive_summary": "--s8"
+};
+const LABEL = {
+  "tokenmizer_v0.5.2": "TokenMizer 0.5.2", "graphiti_style": "Graphiti-style",
+  "mem0_style": "Mem0-style", "graphrag_style": "GraphRAG-style",
+  "memgpt_style": "MemGPT-style", "sliding_window_10": "Sliding window (10)",
+  "naive_truncation": "Naive truncation", "naive_summary": "Naive summary"
+};
+const CATS = ["completed_tasks", "pending_tasks", "decisions", "files", "errors"];
+const CAT_LABEL = { completed_tasks: "Completed", pending_tasks: "Pending", decisions: "Decisions", files: "Files", errors: "Errors" };
+
+const root = document.querySelector(".viz-root");
+function cvar(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
+function pct(v, d) { return (v * 100).toFixed(d === undefined ? 0 : d) + "%"; }
+function fmt(v, d) { return v.toFixed(d === undefined ? 1 : d); }
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs) {
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+
+// ── Stat tiles ─────────────────────────────────────────────────────────
+(function tiles() {
+  const wrap = document.getElementById("tiles");
+  const tm = DATA.results["tokenmizer_v0.5.2"];
+  const items = [
+    { label: "Test conversations", value: "100", foot: "94 generated + 6 real, 23 topic areas" },
+    { label: "Methods compared", value: "8", foot: "TokenMizer + 4 other memory methods + 3 simple baselines" },
+    { label: "TokenMizer's score", value: pct(tm.macro_f1), foot: `Likely true range: ${pct(tm.macro_f1_ci95[0])} to ${pct(tm.macro_f1_ci95[1])}` },
+    { label: "vs. Graphiti / Mem0-style", value: "About a tie", foot: "No reliable difference found — see comparison chart" },
+    { label: "TokenMizer's output size", value: fmt(tm.avg_resume_tokens, 0) + " tokens", foot: `${fmt(tm.avg_compression_ratio,1)}x smaller than the raw conversation` },
+    { label: "Weakest category", value: "Errors (36%)", foot: "Decisions (50%) is the next weakest — see score table" },
+  ];
+  items.forEach(it => {
+    const t = document.createElement("div"); t.className = "tile";
+    t.innerHTML = `<div class="label">${it.label}</div><div class="value">${it.value}</div><div class="foot">${it.foot}</div>`;
+    wrap.appendChild(t);
+  });
+})();
+
+// ── Chart 1: ranked bar with CI whiskers ─────────────────────────────────
+(function rankChart() {
+  const svg = document.getElementById("chart-rank");
+  const tt = document.getElementById("tt-rank");
+  const W = 920, H = 400, ML = 170, MR = 60, MT = 16, MB = 30;
+  const plotW = W - ML - MR, plotH = H - MT - MB;
+  const rows = METHOD_ORDER.map(m => ({ m, f1: DATA.results[m].macro_f1, ci: DATA.results[m].macro_f1_ci95 }))
+    .sort((a, b) => b.f1 - a.f1);
+  const rowH = plotH / rows.length;
+  const barH = Math.min(26, rowH * 0.55);
+  const xMax = 1.0;
+  const x = v => ML + (v / xMax) * plotW;
+
+  // gridlines
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(g => {
+    svg.appendChild(el("line", { class: "grid-line", x1: x(g), x2: x(g), y1: MT, y2: MT + plotH }));
+    const t = el("text", { x: x(g), y: MT + plotH + 18, "text-anchor": "middle", class: "muted-label" });
+    t.textContent = pct(g, 0); svg.appendChild(t);
+  });
+  svg.appendChild(el("line", { class: "axis-line", x1: ML, x2: ML, y1: MT, y2: MT + plotH }));
+
+  rows.forEach((r, i) => {
+    const cy = MT + i * rowH + rowH / 2;
+    const color = cvar(COLOR_VAR[r.m]);
+    const label = el("text", { x: ML - 12, y: cy + 4, "text-anchor": "end", class: "cat-label" });
+    label.textContent = LABEL[r.m];
+    if (r.m === "tokenmizer_v0.5.2") label.setAttribute("fill", color);
+    svg.appendChild(label);
+
+    // CI whisker
+    const wy = cy;
+    svg.appendChild(el("line", { x1: x(r.ci[0]), x2: x(r.ci[1]), y1: wy, y2: wy, stroke: color, "stroke-width": 1.5, opacity: 0.55 }));
+    [r.ci[0], r.ci[1]].forEach(v => {
+      svg.appendChild(el("line", { x1: x(v), x2: x(v), y1: wy - 5, y2: wy + 5, stroke: color, "stroke-width": 1.5, opacity: 0.55 }));
+    });
+
+    // bar
+    const bar = el("rect", {
+      x: ML, y: cy - barH / 2, width: Math.max(0, x(r.f1) - ML), height: barH,
+      rx: 4, fill: color, opacity: r.m === "tokenmizer_v0.5.2" ? 1 : 0.85,
+      stroke: r.m === "tokenmizer_v0.5.2" ? color : "none", "stroke-width": 2,
+    });
+    svg.appendChild(bar);
+    bar.addEventListener("mousemove", (ev) => showTip(tt, ev, `<b>${LABEL[r.m]}</b><br>${pct(r.f1)} [${pct(r.ci[0])}, ${pct(r.ci[1])}]`));
+    bar.addEventListener("mouseleave", () => hideTip(tt));
+
+    const vlabel = el("text", { x: x(r.f1) + 8, y: cy + 4, class: "value-label" });
+    vlabel.textContent = pct(r.f1);
+    svg.appendChild(vlabel);
+  });
+})();
+
+function showTip(tt, ev, html) {
+  tt.innerHTML = html; tt.style.opacity = 1;
+  const rect = tt.parentElement.getBoundingClientRect();
+  tt.style.left = (ev.clientX - rect.left) + "px";
+  tt.style.top = (ev.clientY - rect.top - 10) + "px";
+}
+function hideTip(tt) { tt.style.opacity = 0; }
+
+// ── Legend for rank chart ────────────────────────────────────────────────
+(function legendRank() {
+  const wrap = document.getElementById("legend-rank");
+  METHOD_ORDER.forEach(m => {
+    const item = document.createElement("div"); item.className = "item";
+    item.innerHTML = `<span class="swatch" style="background:${cvar(COLOR_VAR[m])}"></span>${LABEL[m]}`;
+    wrap.appendChild(item);
+  });
+})();
+
+// ── Heatmap ──────────────────────────────────────────────────────────────
+function seqColor(v) {
+  const steps = [
+    [0.0, cvar("--seq-100")], [0.15, cvar("--seq-100")], [0.3, cvar("--seq-200")],
+    [0.45, cvar("--seq-300")], [0.6, cvar("--seq-400")], [0.75, cvar("--seq-500")],
+    [0.9, cvar("--seq-600")], [1.0, cvar("--seq-700")],
+  ];
+  for (let i = 0; i < steps.length; i++) if (v <= steps[i][0]) return steps[i][1];
+  return steps[steps.length - 1][1];
+}
+function textOnFill(hex) {
+  // crude luminance check for label contrast inside the filled cell
+  const h = hex.replace("#", "");
+  const r = parseInt(h.substr(0,2),16), g = parseInt(h.substr(2,2),16), b = parseInt(h.substr(4,2),16);
+  const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+  return lum > 0.55 ? "#0b0b0b" : "#ffffff";
+}
+(function heatmap() {
+  const wrap = document.getElementById("heatmap");
+  let html = '<table class="heat"><thead><tr><th style="text-align:left">Method</th>';
+  CATS.forEach(c => html += `<th>${CAT_LABEL[c]}</th>`);
+  html += '</tr></thead><tbody>';
+  METHOD_ORDER.forEach(m => {
+    const r = DATA.results[m];
+    html += `<tr class="${m === 'tokenmizer_v0.5.2' ? 'anchor' : ''}"><td class="method">${LABEL[m]}</td>`;
+    CATS.forEach(c => {
+      const f1 = r.micro_by_category[c] ? r.micro_by_category[c].f1 : null;
+      if (f1 === null) { html += `<td class="cell">—</td>`; return; }
+      const bg = seqColor(f1);
+      const fg = textOnFill(bg);
+      html += `<td class="cell" style="background:${bg};color:${fg}">${pct(f1)}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+})();
+
+// ── Register collapse line chart ─────────────────────────────────────────
+(function registerChart() {
+  const svg = document.getElementById("chart-register");
+  const tt = document.getElementById("tt-register");
+  const order = ["explicit", "semi", "mixed", "implicit", "unspecified"];
+  const RLABEL = { explicit: "Clear markers", semi: "Plain sentence", mixed: "Mixed", implicit: "Indirect / buried", unspecified: "Unspecified (real)" };
+  const W = 920, H = 420, ML = 50, MR = 170, MT = 20, MB = 40;
+  const plotW = W - ML - MR, plotH = H - MT - MB;
+  const x = i => ML + (i / (order.length - 1)) * plotW;
+  const y = v => MT + plotH - v * plotH;
+
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(g => {
+    svg.appendChild(el("line", { class: "grid-line", x1: ML, x2: ML + plotW, y1: y(g), y2: y(g) }));
+    const t = el("text", { x: ML - 10, y: y(g) + 4, "text-anchor": "end", class: "muted-label" });
+    t.textContent = pct(g, 0); svg.appendChild(t);
+  });
+  order.forEach((reg, i) => {
+    const t = el("text", { x: x(i), y: MT + plotH + 22, "text-anchor": "middle", class: "muted-label" });
+    t.textContent = RLABEL[reg]; svg.appendChild(t);
+  });
+  svg.appendChild(el("line", { class: "axis-line", x1: ML, x2: ML, y1: MT, y2: MT + plotH }));
+
+  METHOD_ORDER.forEach(m => {
+    const color = cvar(COLOR_VAR[m]);
+    const vals = order.map(r => DATA.results[m].macro_f1_by_register[r]);
+    const pts = vals.map((v, i) => [x(i), y(v === undefined ? 0 : v)]);
+    const isAnchor = m === "tokenmizer_v0.5.2";
+    const path = el("path", {
+      d: "M" + pts.map(p => p.join(",")).join(" L "),
+      fill: "none", stroke: color, "stroke-width": isAnchor ? 3 : 2,
+      "stroke-linejoin": "round", "stroke-linecap": "round", opacity: isAnchor ? 1 : 0.85,
+    });
+    svg.appendChild(path);
+    pts.forEach(([px, py], i) => {
+      const v = vals[i];
+      if (v === undefined) return;
+      const dot = el("circle", { cx: px, cy: py, r: isAnchor ? 5 : 4, fill: color, stroke: cvar("--surface-1"), "stroke-width": 2 });
+      svg.appendChild(dot);
+      const hit = el("circle", { cx: px, cy: py, r: 10, fill: "transparent" });
+      hit.addEventListener("mousemove", (ev) => showTip(tt, ev, `<b>${LABEL[m]}</b><br>${RLABEL[order[i]]}: ${pct(v)}`));
+      hit.addEventListener("mouseleave", () => hideTip(tt));
+      svg.appendChild(hit);
+    });
+    // end label
+    const lastIdx = vals.map((v,i)=>v!==undefined?i:-1).filter(i=>i>=0).pop();
+    if (lastIdx !== undefined) {
+      const lt = el("text", { x: x(lastIdx) + 10, y: y(vals[lastIdx]) + 4, class: "muted-label", fill: color });
+      lt.textContent = LABEL[m];
+      lt.setAttribute("font-weight", isAnchor ? "700" : "500");
+      svg.appendChild(lt);
+    }
+  });
+})();
+(function legendRegister() {
+  const wrap = document.getElementById("legend-register");
+  METHOD_ORDER.forEach(m => {
+    const item = document.createElement("div"); item.className = "item";
+    item.innerHTML = `<span class="swatch" style="background:${cvar(COLOR_VAR[m])}"></span>${LABEL[m]}`;
+    wrap.appendChild(item);
+  });
+})();
+(function registerTable() {
+  const order = ["explicit", "semi", "mixed", "implicit", "unspecified"];
+  const RLABEL = { explicit: "Clear markers", semi: "Plain sentence", mixed: "Mixed", implicit: "Indirect / buried", unspecified: "Unspecified" };
+  let html = '<table class="data"><thead><tr><th>Method</th>';
+  order.forEach(r => html += `<th>${RLABEL[r]}</th>`);
+  html += '</tr></thead><tbody>';
+  METHOD_ORDER.forEach(m => {
+    html += `<tr class="${m === 'tokenmizer_v0.5.2' ? 'anchor' : ''}"><td>${LABEL[m]}</td>`;
+    order.forEach(r => {
+      const v = DATA.results[m].macro_f1_by_register[r];
+      html += `<td>${v === undefined ? '—' : pct(v)}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById("register-table").innerHTML = html;
+})();
+
+// ── Paired diff chart ────────────────────────────────────────────────────
+(function diffChart() {
+  const svg = document.getElementById("chart-diff");
+  const tt = document.getElementById("tt-diff");
+  const others = METHOD_ORDER.filter(m => m !== "tokenmizer_v0.5.2");
+  const rows = others.map(m => {
+    const c = DATA.comparisons_vs_tokenmizer["tokenmizer_v0.5.2_vs_" + m];
+    return { m, diff: c.mean_diff, lo: c.ci_lo, hi: c.ci_hi };
+  });
+  const W = 920, H = 320, ML = 170, MR = 60, MT = 16, MB = 30;
+  const plotW = W - ML - MR, plotH = H - MT - MB;
+  const rowH = plotH / rows.length;
+  const barH = Math.min(24, rowH * 0.5);
+  const xMin = -0.1, xMax = 0.45;
+  const x = v => ML + ((v - xMin) / (xMax - xMin)) * plotW;
+  const zeroX = x(0);
+
+  [-0.1, 0, 0.1, 0.2, 0.3, 0.4].forEach(g => {
+    svg.appendChild(el("line", { class: "grid-line", x1: x(g), x2: x(g), y1: MT, y2: MT + plotH }));
+    const t = el("text", { x: x(g), y: MT + plotH + 18, "text-anchor": "middle", class: "muted-label" });
+    t.textContent = (g >= 0 ? "+" : "") + Math.round(g * 100) + "pt"; svg.appendChild(t);
+  });
+  svg.appendChild(el("line", { x1: zeroX, x2: zeroX, y1: MT, y2: MT + plotH, class: "axis-line", "stroke-width": 1.5 }));
+
+  rows.forEach((r, i) => {
+    const cy = MT + i * rowH + rowH / 2;
+    const ahead = r.diff >= 0;
+    const color = ahead ? cvar("--div-blue") : cvar("--div-red");
+    const label = el("text", { x: ML - 12, y: cy + 4, "text-anchor": "end", class: "cat-label" });
+    label.textContent = LABEL[r.m]; svg.appendChild(label);
+
+    svg.appendChild(el("line", { x1: x(r.lo), x2: x(r.hi), y1: cy, y2: cy, stroke: color, "stroke-width": 1.5, opacity: 0.5 }));
+    [r.lo, r.hi].forEach(v => svg.appendChild(el("line", { x1: x(v), x2: x(v), y1: cy - 5, y2: cy + 5, stroke: color, "stroke-width": 1.5, opacity: 0.5 })));
+
+    const barX = Math.min(x(0), x(r.diff));
+    const barW = Math.abs(x(r.diff) - x(0));
+    const bar = el("rect", { x: barX, y: cy - barH / 2, width: barW, height: barH, rx: 4, fill: color });
+    svg.appendChild(bar);
+    bar.addEventListener("mousemove", (ev) => showTip(tt, ev,
+      `<b>TokenMizer vs ${LABEL[r.m]}</b><br>Δ ${r.diff >= 0 ? "+" : ""}${(r.diff*100).toFixed(1)}pt &nbsp; [${(r.lo*100).toFixed(1)}, ${(r.hi*100).toFixed(1)}]`));
+    bar.addEventListener("mouseleave", () => hideTip(tt));
+
+    const vlabel = el("text", {
+      x: r.diff >= 0 ? x(r.diff) + 8 : x(r.diff) - 8, y: cy + 4,
+      "text-anchor": r.diff >= 0 ? "start" : "end", class: "value-label"
+    });
+    vlabel.textContent = (r.diff >= 0 ? "+" : "") + (r.diff * 100).toFixed(1) + "pt";
+    svg.appendChild(vlabel);
+  });
+})();
+
+// ── Efficiency table ──────────────────────────────────────────────────────
+(function efficiencyTable() {
+  let html = '<table class="data"><thead><tr><th>Method</th><th>Resume tokens</th><th>Total tokens</th><th>Compression</th><th>ms / session</th><th>Nodes / session</th></tr></thead><tbody>';
+  METHOD_ORDER.forEach(m => {
+    const r = DATA.results[m];
+    html += `<tr class="${m === 'tokenmizer_v0.5.2' ? 'anchor' : ''}"><td>${LABEL[m]}</td>` +
+      `<td>${fmt(r.avg_resume_tokens,0)}</td><td>${fmt(r.avg_total_tokens,0)}</td>` +
+      `<td>${fmt(r.avg_compression_ratio,1)}×</td><td>${fmt(r.avg_extract_ms,2)}</td><td>${fmt(r.avg_node_count,1)}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  document.getElementById("efficiency-table").innerHTML = html;
+})();
+
+// ── Full results table ────────────────────────────────────────────────────
+(function fullTable() {
+  let html = '<table class="data"><thead><tr><th>Method</th><th>Macro F1</th><th>95% CI</th>' +
+    CATS.map(c => `<th>${CAT_LABEL[c]} F1</th>`).join("") +
+    '<th>Real (n=6)</th><th>Synthetic (n=94)</th></tr></thead><tbody>';
+  METHOD_ORDER.forEach(m => {
+    const r = DATA.results[m];
+    html += `<tr class="${m === 'tokenmizer_v0.5.2' ? 'anchor' : ''}"><td>${LABEL[m]}</td>` +
+      `<td>${pct(r.macro_f1)}</td><td>[${pct(r.macro_f1_ci95[0])}, ${pct(r.macro_f1_ci95[1])}]</td>` +
+      CATS.map(c => `<td>${r.micro_by_category[c] ? pct(r.micro_by_category[c].f1) : '—'}</td>`).join("") +
+      `<td>${pct(r.macro_f1_by_origin.real)}</td><td>${pct(r.macro_f1_by_origin.synthetic)}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  document.getElementById("full-table").innerHTML = html;
+})();
+
+// ── Domain breakdown table ────────────────────────────────────────────────
+(function domainTable() {
+  const domains = Object.keys(DATA.results["tokenmizer_v0.5.2"].macro_f1_by_domain).sort();
+  let html = '<table class="data"><thead><tr><th>Domain</th>' +
+    METHOD_ORDER.map(m => `<th>${LABEL[m]}</th>`).join("") + '</tr></thead><tbody>';
+  domains.forEach(d => {
+    html += `<tr><td>${d}</td>`;
+    METHOD_ORDER.forEach(m => {
+      const v = DATA.results[m].macro_f1_by_domain[d];
+      html += `<td>${v === undefined ? '—' : pct(v)}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById("domain-table").innerHTML = html;
+})();
+</script>

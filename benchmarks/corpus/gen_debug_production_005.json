@@ -1,0 +1,141 @@
+{
+ "id": "gen_debug_production_005",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'debug/production', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an outage root cause analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an outage root cause analysis now."
+  },
+  {
+   "role": "user",
+   "content": "How's an outage root cause analysis coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: capturing a heap profile during the spike."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with increasing the connection pool as a stopgap."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a thundering herd on cache expiry."
+  },
+  {
+   "role": "user",
+   "content": "How's an outage root cause analysis coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: scripts/repro.py. Selected: a feature flag to disable the suspect path."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: py-spy for the production profiling."
+  },
+  {
+   "role": "user",
+   "content": "Build it with a blameless postmortem format."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: monitoring/alerts.yaml. Agreed, that works."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: adding structured logging around the suspect path."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: docs/postmortem.md."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: a timeline of the incident from the metrics. Selected: rolling back before investigating further."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: a follow-up on the third-party client bug report. Using: paging on error rate rather than absolute count."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: backfilling the corrupted rows."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "adding structured logging around the suspect path",
+   "capturing a heap profile during the spike",
+   "a timeline of the incident from the metrics"
+  ],
+  "pending_tasks": [
+   "backfilling the corrupted rows",
+   "a follow-up on the third-party client bug report"
+  ],
+  "decisions": [
+   "a blameless postmortem format",
+   "a feature flag to disable the suspect path",
+   "increasing the connection pool as a stopgap",
+   "rolling back before investigating further",
+   "py-spy for the production profiling",
+   "paging on error rate rather than absolute count"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "monitoring/alerts.yaml",
+   "tests/test_regression.py",
+   "docs/postmortem.md"
+  ],
+  "errors": [
+   "a thundering herd on cache expiry"
+  ]
+ }
+}

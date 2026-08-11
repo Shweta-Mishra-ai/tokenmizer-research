@@ -1,0 +1,133 @@
+{
+ "id": "gen_ml_python_003",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a fraud detection model now."
+  },
+  {
+   "role": "user",
+   "content": "Build it with Evidently for drift reporting."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Using: Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: hyperparameter search over 200 trials. Completed: batch inference over the full customer base."
+  },
+  {
+   "role": "user",
+   "content": "How's a fraud detection model coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Makefile. Created: data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: the evaluation set overlapping the training window."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Files: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: a stratified train/validation/test split."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: cross-validation across five folds. Completed: class imbalance handling with focal loss."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: AUC-PR as the primary metric given the imbalance. Finished: an offline evaluation against last quarter's data."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: an online A/B test against the current model. Updated: src/train.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an offline evaluation against last quarter's data",
+   "SHAP explanations for the top features",
+   "class imbalance handling with focal loss",
+   "a stratified train/validation/test split",
+   "hyperparameter search over 200 trials",
+   "batch inference over the full customer base",
+   "cross-validation across five folds"
+  ],
+  "pending_tasks": [
+   "an online A/B test against the current model"
+  ],
+  "decisions": [
+   "AUC-PR as the primary metric given the imbalance",
+   "Optuna for hyperparameter search",
+   "Evidently for drift reporting"
+  ],
+  "files": [
+   "data/schema.json",
+   "requirements.txt",
+   "Makefile",
+   "src/train.py"
+  ],
+  "errors": [
+   "the evaluation set overlapping the training window"
+  ]
+ }
+}

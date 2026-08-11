@@ -1,0 +1,133 @@
+{
+ "id": "gen_product_analytics_002",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'product/analytics', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a churn driver investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a churn driver investigation now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got instrumentation on every onboarding step handled. After going back and forth, median rather than mean for the latency metrics felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "How's a churn driver investigation coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in analytics/experiments.py chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with a 95% confidence threshold for experiment calls?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Updated: config/taxonomy.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "It wasn't an obvious choice, but an experiment registry with pre-registered hypotheses won out in the end. Hit a snag: timezone mismatch splitting one day across two cohorts."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard tracking the three north star metrics is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: the event taxonomy covering fourteen product actions. Somewhere in there we picked up survivorship bias in the retention calculation and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "How's a churn driver investigation coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got documentation of every metric definition working, then moved on. I keep meaning to get to sunsetting the legacy dashboard but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into peeking at results before the runtime completed."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but Amplitude for product analytics would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "instrumentation on every onboarding step",
+   "the event taxonomy covering fourteen product actions",
+   "the dashboard tracking the three north star metrics",
+   "documentation of every metric definition"
+  ],
+  "pending_tasks": [
+   "sunsetting the legacy dashboard"
+  ],
+  "decisions": [
+   "Amplitude for product analytics",
+   "an experiment registry with pre-registered hypotheses",
+   "a 95% confidence threshold for experiment calls",
+   "median rather than mean for the latency metrics"
+  ],
+  "files": [
+   "notebooks/churn_drivers.ipynb",
+   "config/taxonomy.yaml",
+   "dashboards/north_star.json",
+   "analytics/experiments.py"
+  ],
+  "errors": [
+   "timezone mismatch splitting one day across two cohorts",
+   "survivorship bias in the retention calculation",
+   "peeking at results before the runtime completed"
+  ]
+ }
+}

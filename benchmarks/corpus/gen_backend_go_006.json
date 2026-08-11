@@ -1,0 +1,115 @@
+{
+ "id": "gen_backend_go_006",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'backend/go', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a gRPC gateway service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a gRPC gateway service now."
+  },
+  {
+   "role": "user",
+   "content": "How's a gRPC gateway service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started profiling the p99 latency spike yet, soon though. Shipped structured logging with request correlation."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: a goroutine leak on the cancelled request path."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward testcontainers for integration tests. Moving the config to environment variables is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in internal/store/postgres.go."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in cmd/server/main.go now. Finished up protobuf schema versioning earlier today."
+  },
+  {
+   "role": "user",
+   "content": "How's a gRPC gateway service coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up a circuit breaker around the downstream call, all green now. Ran into a data race on the shared counter."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a fuzz test on the decoder yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward sqlc for type-safe database access. Prometheus metrics on the request path is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a gRPC gateway service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started vendoring the internal proto definitions yet, soon though."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "protobuf schema versioning",
+   "Prometheus metrics on the request path",
+   "a circuit breaker around the downstream call",
+   "structured logging with request correlation"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "a fuzz test on the decoder",
+   "vendoring the internal proto definitions",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "sqlc for type-safe database access",
+   "testcontainers for integration tests"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "cmd/server/main.go"
+  ],
+  "errors": [
+   "a data race on the shared counter",
+   "a goroutine leak on the cancelled request path"
+  ]
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "id": "gen_research_writing_003",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'research/writing', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got restructuring the argument around three claims working, then moved on. Between the last two messages I also got the related work section covering twelve papers handled."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: notes/outline.md."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into a numerical inconsistency between the abstract and table three."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in paper/abstract.tex chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: paper/appendix.tex."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use including the negative result on implicit language here."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to reconciling the two conflicting result tables. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "The discussion section is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in Makefile chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Given what happened last time, maybe Zotero for reference management is worth trying."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Shipped figure one showing the system architecture."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: citations normalised to a single bibliography style."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: paper/evaluation.tex."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but reporting macro F1 rather than accuracy would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, a single-column layout for the preprint felt like the right call given the constraints. OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Use reporting per-domain breakdowns in the appendix."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got the evaluation table with confidence intervals handled."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: paper/related_work.tex."
+  },
+  {
+   "role": "user",
+   "content": "How's a grant proposal coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: a missing statistical test on the headline comparison."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: a first pass at the methodology section."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: the ACL template over the generic LaTeX class."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a first pass at the methodology section",
+   "the evaluation table with confidence intervals",
+   "the related work section covering twelve papers",
+   "citations normalised to a single bibliography style",
+   "figure one showing the system architecture",
+   "restructuring the argument around three claims"
+  ],
+  "pending_tasks": [
+   "the discussion section",
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "Zotero for reference management",
+   "the ACL template over the generic LaTeX class",
+   "a single-column layout for the preprint",
+   "reporting macro F1 rather than accuracy",
+   "reporting per-domain breakdowns in the appendix",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "Makefile",
+   "paper/appendix.tex",
+   "paper/abstract.tex",
+   "paper/evaluation.tex",
+   "notes/outline.md",
+   "paper/related_work.tex"
+  ],
+  "errors": [
+   "a numerical inconsistency between the abstract and table three",
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

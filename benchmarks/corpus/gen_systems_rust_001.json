@@ -1,0 +1,140 @@
+{
+ "id": "gen_systems_rust_001",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Generated session \u2014 domain pack 'systems/rust', register='implicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an HTTP proxy."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an HTTP proxy now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in Cargo.lock chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 zero-copy deserialisation of the record header \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll circle back to a compatibility shim for the old format once the current thing lands."
+  },
+  {
+   "role": "user",
+   "content": "Not sure if it matters, but Rust 2021 edition with MSRV 1.75 would probably fit better."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it. Between the last two messages I also got fuzzing the input decoder with cargo-fuzz handled."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, bincode for the wire encoding felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in src/main.rs chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in src/buffer.rs, of all places. The bulk of the diff ended up living in benches/parse.rs, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I keep meaning to get to documenting the public API surface but other things keep jumping the queue."
+  },
+  {
+   "role": "user",
+   "content": "How's an HTTP proxy coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "That's out of the way now \u2014 criterion benchmarks on the parse loop \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out memory-mapped reads for the index file wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Things were fine until unbounded memory growth in the buffer pool showed up out of nowhere. Somewhere in there we picked up a use-after-free found by miri in the unsafe block and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in Cargo.toml, of all places."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "criterion benchmarks on the parse loop",
+   "memory-mapped reads for the index file",
+   "fuzzing the input decoder with cargo-fuzz",
+   "zero-copy deserialisation of the record header"
+  ],
+  "pending_tasks": [
+   "documenting the public API surface",
+   "a compatibility shim for the old format"
+  ],
+  "decisions": [
+   "Rust 2021 edition with MSRV 1.75",
+   "bincode for the wire encoding"
+  ],
+  "files": [
+   "benches/parse.rs",
+   "src/main.rs",
+   "Cargo.lock",
+   "src/buffer.rs",
+   "Cargo.toml"
+  ],
+  "errors": [
+   "unbounded memory growth in the buffer pool",
+   "a use-after-free found by miri in the unsafe block"
+  ]
+ }
+}

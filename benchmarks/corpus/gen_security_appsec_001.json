@@ -1,0 +1,140 @@
+{
+ "id": "gen_security_appsec_001",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'security/appsec', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a dependency audit."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a dependency audit now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: a security runbook for incident response."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the last two messages I also got rotation of the leaked deploy key handled. Finished up CSP headers on all rendered responses earlier today."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: credential redaction on every log path."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: signed container images in the registry."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: a third-party penetration test."
+  },
+  {
+   "role": "user",
+   "content": "How's a dependency audit coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: .github/workflows/security.yml. Wrapped up an SBOM generated at build time, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward short-lived tokens with refresh rotation. After going back and forth, gitleaks as a pre-commit hook felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pending: a threat model for the payments flow."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in terraform/iam.tf, of all places."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: session invalidation on password change."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in SECURITY.md, of all places. That's out of the way now \u2014 encrypted secrets at rest in the vault \u2014 onto the next thing."
+  },
+  {
+   "role": "user",
+   "content": "I think we should use OIDC for single sign-on here."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "session invalidation on password change",
+   "signed container images in the registry",
+   "credential redaction on every log path",
+   "an SBOM generated at build time",
+   "CSP headers on all rendered responses",
+   "encrypted secrets at rest in the vault",
+   "rotation of the leaked deploy key"
+  ],
+  "pending_tasks": [
+   "a security runbook for incident response",
+   "a threat model for the payments flow",
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "OIDC for single sign-on",
+   "short-lived tokens with refresh rotation",
+   "gitleaks as a pre-commit hook"
+  ],
+  "files": [
+   ".github/workflows/security.yml",
+   "SECURITY.md",
+   "terraform/iam.tf"
+  ],
+  "errors": []
+ }
+}

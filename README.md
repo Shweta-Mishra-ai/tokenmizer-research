@@ -78,10 +78,36 @@ Large raw texts (monolithic files, long API payloads, system context dumps) pass
  7. **Neural Compaction (Optional Layer 7-8):** Integrating LLMLingua-2 and LongLLMLingua configurations for payloads crossing strict size thresholds.
 ### 3. Local Semantic Cache
 Built on a localized sentence-transformer pipeline (all-MiniLM-L6-v2), the cache stores upstream responses locally. Incoming requests are vectorized and run against historical semantic vectors using cosine similarity evaluation (\theta = 0.92). Matches return instant local storage records at zero token cost and sub-millisecond latencies.
-## Controlled Empirical Benchmarks
-The framework was evaluated across a controlled, static corpus of 21 synthetic session logs mapping common development contexts.
-### Performance Profile Across Domains
-Evaluation demonstrates high architectural performance in structured command environments, alongside a clear performance drop-off when analyzing natural, implicit language (e.g., planning, high-level research summaries):
+## Benchmarks
+### Latest: 100-Session Multi-Method Test (n=100)
+TokenMizer (the real product engine, version 0.5.2) was tested against 7 other memory methods — including rebuilt strategies based on MemGPT, Mem0, Graphiti/Zep, and GraphRAG, plus simple baselines — on 100 test conversations, using the same scoring rules for every method.
+
+![TokenMizer vs. other memory methods — overall score, n=100](assets/benchmark_n100_scores.svg)
+
+| Method | Overall score | Likely true range |
+|---|---|---|
+| **TokenMizer 0.5.2** | **57%** | 52%–62% |
+| Graphiti-style | 59% | 55%–64% |
+| Mem0-style | 60% | 55%–64% |
+| GraphRAG-style | 44% | 41%–48% |
+| MemGPT-style | 35% | 32%–38% |
+| Naive truncation | 20% | 20%–21% |
+| Sliding window (10) | 18% | 18%–19% |
+| Naive summary | 17% | 16%–18% |
+
+**What this shows:**
+* TokenMizer clearly beats simple baselines, MemGPT-style, and GraphRAG-style.
+* Against Graphiti-style and Mem0-style, the scores are close enough to call it a tie, not a win — though TokenMizer's output is smaller (99 tokens vs. 118–120 tokens).
+* TokenMizer's weakest areas are finding **decisions** (50%) and **errors** (36%) in a conversation — the clearest place to improve next.
+* Every method tested, including TokenMizer, does much worse (around 20%) when a conversation states facts indirectly instead of using clear markers like "Decided:" or "Completed:". This is a shared limit of pattern-matching, not specific to TokenMizer.
+
+Full write-up, method: [`benchmarks/results/REPORT_n100.md`](benchmarks/results/REPORT_n100.md). Interactive dashboard: [`benchmarks/results/dashboard.html`](benchmarks/results/dashboard.html). Raw data: [`benchmarks/results/memorybench_n100_20260810.json`](benchmarks/results/memorybench_n100_20260810.json). Reproduce with:
+```bash
+python -m benchmarks.memorybench.run
+```
+
+### Earlier: 21-Session Domain Benchmark
+The original evaluation, kept for history, used a smaller 21-session synthetic corpus:
 | Domain Split | Task Recall | Decision Recall | File Recall | Mean Information Loss |
 |---|---|---|---|---|
 | **Software Engineering (n=6)** | 47% | 70% | 72% | 37% |
@@ -90,8 +116,7 @@ Evaluation demonstrates high architectural performance in structured command env
 | **Research/Writing (n=3)** | 44% | 44% | 33% | 59% |
 | **Debugging (n=3)** | 43% | 11% | 100% | 49% |
 | **Aggregate Dataset Mean** | **51%** | **47%** | **59%** | **48%** |
-### Comparative Context Efficiency
-Baselines were tracked by matching textual entities against historical boundaries using identical fuzzy label parameters:
+
 | Metric Backing | Task Recall | Decision Recall | File Recall | Mean Resume Token Footprint |
 |---|---|---|---|---|
 | Naive Truncation (Last 300 tokens) | 45% | 35% | 55% | 165 tokens |
@@ -100,9 +125,9 @@ Baselines were tracked by matching textual entities against historical boundarie
 | **TokenMizer V2 Engine** | **51%** | **47%** | 59% | **78 tokens** |
 ## Current Technical Limitations
 Practitioners integrating TokenMizer into highly specific developer workflows should be aware of the current architectural parameters:
- * **Heuristic Dependency:** The V2 default processing engine relies on deterministic compiled regex layers. Implicit conversational assertions (e.g., *"Let's tentatively roll out Redis and see how it performs"*) escape traditional trigger matching, contributing to the current 47% decision recall ceiling.
- * **Overfitting Risks:** The default extraction models are optimized around concrete, action-oriented syntax patterns. Conversations relying on highly implicit or academic prose (e.g., the grant_proposal_nsf evaluation set) inherently trigger poor or zero-recall structural matching profiles.
- * **Evaluation Scope:** Current benchmark statistics are derived entirely from structured, synthetic developer sessions engineered by the repository maintainer. Production evaluation on dynamic, live developer histories represents active, unquantified work.
+ * **Heuristic Dependency:** The default processing engine relies on deterministic compiled regex layers. Implicit conversational assertions (e.g., *"Let's tentatively roll out Redis and see how it performs"*) escape traditional trigger matching, contributing to the current decision-recall ceiling — confirmed at n=100 above, where every pattern-based method tested (TokenMizer included) drops to roughly 20% on indirect language.
+ * **Overfitting Risks:** The default extraction models are optimized around concrete, action-oriented syntax patterns. Conversations relying on highly implicit or academic prose inherently trigger poor or zero-recall structural matching profiles.
+ * **Evaluation Scope:** The n=100 benchmark above adds 4 comparison methods and 79 more sessions over the original n=21 evaluation, but 94 of those 100 sessions are still synthetic, not captured production transcripts. Production evaluation on dynamic, live developer histories remains active, unquantified work.
 ## Data Privacy & Security Guardrails
 TokenMizer is designed for air-gapped security compliance:
  * **Zero Telemetry Leakage:** The graph extraction layer, regex processors, caching databases, and embedding functions execute completely in-memory or within localized persistent SQLite layers. No payloads are transferred over public monitoring networks.

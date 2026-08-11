@@ -1,0 +1,178 @@
+{
+ "id": "gen_platform_api_004",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Generated session \u2014 domain pack 'platform/api', register='semi'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a public API v2 design."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a public API v2 design now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into clock skew invalidating webhook signatures."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started a usage dashboard for API consumers yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in tests/test_webhooks.py. Settled on Kong as the API gateway."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of it is in api/ratelimit.py now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're seeing rate limit headers reporting a stale budget. Documenting the webhook replay procedure is next on the list."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a public API v2 design?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up webhook signature verification, all green now."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're leaning toward exponential backoff with jitter for webhook retries. Finished up the sandbox environment for partner testing earlier today."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a public API v2 design?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in api/pagination.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "SDK generation for three languages is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in api/routes/webhooks.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up per-key rate limits with headers exposing the budget earlier today. Settled on cursor pagination rather than offset."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "A deprecation header on the v1 routes is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with OAuth 2.0 client credentials for machine access?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hit a snag: a breaking change shipped in a minor version. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with snake_case field naming throughout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a public API v2 design?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped up cursor-based pagination across all list endpoints, all green now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "SDK generation for three languages",
+   "a deprecation header on the v1 routes",
+   "per-key rate limits with headers exposing the budget",
+   "webhook signature verification",
+   "the sandbox environment for partner testing",
+   "cursor-based pagination across all list endpoints"
+  ],
+  "pending_tasks": [
+   "a usage dashboard for API consumers",
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "cursor pagination rather than offset",
+   "OAuth 2.0 client credentials for machine access",
+   "Kong as the API gateway",
+   "snake_case field naming throughout",
+   "exponential backoff with jitter for webhook retries"
+  ],
+  "files": [
+   "tests/test_webhooks.py",
+   "api/ratelimit.py",
+   "api/pagination.py",
+   "api/routes/webhooks.py",
+   "api/auth.py"
+  ],
+  "errors": [
+   "clock skew invalidating webhook signatures",
+   "rate limit headers reporting a stale budget",
+   "a breaking change shipped in a minor version"
+  ]
+ }
+}

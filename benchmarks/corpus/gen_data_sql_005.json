@@ -1,0 +1,166 @@
+{
+ "id": "gen_data_sql_005",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'data/sql', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a schema normalisation effort."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a schema normalisation effort now."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started moving the nightly job to an hourly cadence yet, soon though."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spent most of the afternoon in profiles.yml chasing this down."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a materialised view for the executive dashboard."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somewhere in there we picked up stale data from a silently failing incremental run and it's been a pain."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Made the changes over in macros/revenue.sql."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: scripts/backfill.py."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out column-level lineage documentation wasn't as bad as expected, it's sorted."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Done: the slowly changing dimension on customer tier."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff ended up living in dags/daily_refresh.py, of all places."
+  },
+  {
+   "role": "user",
+   "content": "How's a schema normalisation effort coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ran into a fan-out join inflating revenue by 3x."
+  },
+  {
+   "role": "user",
+   "content": "Can we do this with a medallion bronze/silver/gold layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Weighing the tradeoffs, Kafka for the event transport made the most sense here. So I went ahead and got backfilling six months of historical revenue working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: duplicate rows from a non-unique natural key. The bulk of the diff ended up living in tests/schema.yml, of all places."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't started retiring the legacy reporting views yet, soon though."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "the slowly changing dimension on customer tier",
+   "column-level lineage documentation",
+   "a materialised view for the executive dashboard"
+  ],
+  "pending_tasks": [
+   "retiring the legacy reporting views",
+   "moving the nightly job to an hourly cadence"
+  ],
+  "decisions": [
+   "Kafka for the event transport",
+   "a medallion bronze/silver/gold layout"
+  ],
+  "files": [
+   "profiles.yml",
+   "scripts/backfill.py",
+   "macros/revenue.sql",
+   "dags/daily_refresh.py",
+   "models/marts/fct_orders.sql",
+   "tests/schema.yml"
+  ],
+  "errors": [
+   "a fan-out join inflating revenue by 3x",
+   "duplicate rows from a non-unique natural key",
+   "stale data from a silently failing incremental run"
+  ]
+ }
+}

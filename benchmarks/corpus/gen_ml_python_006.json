@@ -1,0 +1,159 @@
+{
+ "id": "gen_ml_python_006",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a document classifier."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a document classifier now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the feature engineering pipeline with 42 features."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error: a silent dtype coercion dropping precision. Done: a stratified train/validation/test split."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: src/serve.py."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: an offline evaluation against last quarter's data. Next: documenting the model card."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Issue: non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: class imbalance handling with focal loss."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: hyperparameter search over 200 trials. Updated: src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: the evaluation set overlapping the training window."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: cross-validation across five folds. Completed: gradient boosting reaching 0.84 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: sentence-transformers for the text embeddings."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "hyperparameter search over 200 trials",
+   "the feature engineering pipeline with 42 features",
+   "a stratified train/validation/test split",
+   "class imbalance handling with focal loss",
+   "cross-validation across five folds",
+   "gradient boosting reaching 0.84 AUC",
+   "an offline evaluation against last quarter's data"
+  ],
+  "pending_tasks": [
+   "documenting the model card"
+  ],
+  "decisions": [
+   "Optuna for hyperparameter search",
+   "sentence-transformers for the text embeddings"
+  ],
+  "files": [
+   "requirements.txt",
+   "src/train.py",
+   "src/serve.py",
+   "Makefile",
+   "src/evaluate.py"
+  ],
+  "errors": [
+   "a silent dtype coercion dropping precision",
+   "non-determinism from an unseeded shuffle",
+   "the evaluation set overlapping the training window"
+  ]
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "id": "gen_research_writing_002",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Generated session \u2014 domain pack 'research/writing', register='mixed'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: paper/main.tex. Updated: notes/outline.md."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "After going back and forth, reporting macro F1 rather than accuracy felt like the right call given the constraints."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "So I went ahead and got the related work section covering twelve papers working, then moved on."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need to get to the discussion section. Chose: targeting the workshop deadline rather than the main track."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: releasing the corpus alongside the paper. Weighing the tradeoffs, bootstrap confidence intervals rather than t-tests made the most sense here."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shipped citations normalised to a single bibliography style."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Figure one showing the system architecture is in and working."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished up a first pass at the methodology section earlier today. Decided: an explicit statement that the corpus is synthetic."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "An appendix documenting the corpus construction is in and working. The abstract rewritten to lead with the result is in and working."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: paper/references.bib."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the related work section covering twelve papers",
+   "the abstract rewritten to lead with the result",
+   "figure one showing the system architecture",
+   "an appendix documenting the corpus construction",
+   "a first pass at the methodology section",
+   "citations normalised to a single bibliography style"
+  ],
+  "pending_tasks": [
+   "the discussion section"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "targeting the workshop deadline rather than the main track",
+   "an explicit statement that the corpus is synthetic",
+   "bootstrap confidence intervals rather than t-tests",
+   "reporting macro F1 rather than accuracy"
+  ],
+  "files": [
+   "notes/outline.md",
+   "paper/main.tex",
+   "paper/references.bib",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

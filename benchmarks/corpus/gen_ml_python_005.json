@@ -1,0 +1,149 @@
+{
+ "id": "gen_ml_python_005",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'ml/python', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a churn prediction model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a churn prediction model now."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: an online A/B test against the current model."
+  },
+  {
+   "role": "user",
+   "content": "How's a churn prediction model coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: drift monitoring on the input distributions."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: a feature store migration."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Done: an offline evaluation against last quarter's data."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: the feature engineering pipeline with 42 features. Decided: a 90-day lookback window for features."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Polars instead of pandas for the feature pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with MLflow for experiment tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed, that works. Updated: src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Created: data/schema.json. Files: src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "How's a churn prediction model coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a model registry entry for the release candidate."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: batch inference over the full customer base."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with ONNX export for the serving runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: a stratified train/validation/test split. Agreed, that works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "batch inference over the full customer base",
+   "drift monitoring on the input distributions",
+   "the feature engineering pipeline with 42 features",
+   "a stratified train/validation/test split",
+   "SHAP explanations for the top features",
+   "an offline evaluation against last quarter's data",
+   "a model registry entry for the release candidate"
+  ],
+  "pending_tasks": [
+   "an online A/B test against the current model",
+   "a feature store migration"
+  ],
+  "decisions": [
+   "a 90-day lookback window for features",
+   "MLflow for experiment tracking",
+   "Polars instead of pandas for the feature pipeline",
+   "ONNX export for the serving runtime"
+  ],
+  "files": [
+   "src/train.py",
+   "requirements.txt",
+   "src/evaluate.py",
+   "data/schema.json"
+  ],
+  "errors": []
+ }
+}

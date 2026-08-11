@@ -1,0 +1,149 @@
+{
+ "id": "gen_debug_production_001",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'debug/production', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on an intermittent failure investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on an intermittent failure investigation now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Created: config/flags.yaml. Files: tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: backfilling the corrupted rows. Completed: a timeline of the incident from the metrics."
+  },
+  {
+   "role": "user",
+   "content": "Build it with treating the third-party timeout as the root cause."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, running with it."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still need: an alert on the metric that would have caught it."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: ruling out the cache layer as the cause."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: keeping the extra logging for two weeks."
+  },
+  {
+   "role": "user",
+   "content": "Build it with rolling back before investigating further."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: reproducing the failure in a staging environment."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: the hotfix reverting the connection pool change. Created: src/handlers/checkout.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: src/pool.py. Done: instrumenting the slow query with timing spans."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: bisecting the regression to a single commit."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "bisecting the regression to a single commit",
+   "ruling out the cache layer as the cause",
+   "a timeline of the incident from the metrics",
+   "the hotfix reverting the connection pool change",
+   "reproducing the failure in a staging environment",
+   "instrumenting the slow query with timing spans"
+  ],
+  "pending_tasks": [
+   "backfilling the corrupted rows",
+   "an alert on the metric that would have caught it"
+  ],
+  "decisions": [
+   "sampling traces at 10% rather than 1%",
+   "keeping the extra logging for two weeks",
+   "treating the third-party timeout as the root cause",
+   "rolling back before investigating further"
+  ],
+  "files": [
+   "tests/test_regression.py",
+   "logs/analysis.py",
+   "src/handlers/checkout.py",
+   "config/flags.yaml",
+   "src/pool.py"
+  ],
+  "errors": []
+ }
+}

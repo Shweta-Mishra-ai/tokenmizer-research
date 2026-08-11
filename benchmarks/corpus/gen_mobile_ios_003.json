@@ -1,0 +1,212 @@
+{
+ "id": "gen_mobile_ios_003",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Generated session \u2014 domain pack 'mobile/ios', register='explicit'. Facts are embedded verbatim in each message, so every ground-truth label is substring-grounded regardless of surrounding phrasing.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's work on a subscription billing flow."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, starting on a subscription billing flow now."
+  },
+  {
+   "role": "user",
+   "content": "Build it with async/await instead of Combine for networking."
+  },
+  {
+   "role": "assistant",
+   "content": "Done: VoiceOver labels across the main screens. Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "How's a subscription billing flow coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next: reducing cold start below 400ms."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: fastlane/Fastfile."
+  },
+  {
+   "role": "user",
+   "content": "Where are we on a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "TODO: an App Store privacy nutrition label review. TODO: watchOS companion app."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decided: fastlane for the release pipeline."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Sources/Sync/SyncEngine.swift."
+  },
+  {
+   "role": "user",
+   "content": "Let's go with XCTest with snapshot assertions."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds good, going with that."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug: memory growth from uncancelled image tasks."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error: a retain cycle in the sync completion handler."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: deep links into the workout detail screen."
+  },
+  {
+   "role": "user",
+   "content": "What's next on this?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished: crash reporting integration."
+  },
+  {
+   "role": "user",
+   "content": "What's left before we can call this done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Selected: The Composable Architecture for state. Files: Tests/SyncTests.swift."
+  },
+  {
+   "role": "user",
+   "content": "What's the status?"
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: App/Info.plist."
+  },
+  {
+   "role": "user",
+   "content": "How's a subscription billing flow coming along?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose: Keychain for token storage rather than UserDefaults."
+  },
+  {
+   "role": "user",
+   "content": "Any issues so far?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: the HealthKit permission flow."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed: keychain storage for the auth token."
+  },
+  {
+   "role": "user",
+   "content": "Anything blocking?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files: Sources/Auth/Keychain.swift."
+  },
+  {
+   "role": "user",
+   "content": "Give me an update."
+  },
+  {
+   "role": "assistant",
+   "content": "Updated: Sources/Widgets/ActivityWidget.swift."
+  },
+  {
+   "role": "user",
+   "content": "What did you decide on the approach?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented: unit tests for the sync reducer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "keychain storage for the auth token",
+   "unit tests for the sync reducer",
+   "crash reporting integration",
+   "VoiceOver labels across the main screens",
+   "the HealthKit permission flow",
+   "deep links into the workout detail screen"
+  ],
+  "pending_tasks": [
+   "reducing cold start below 400ms",
+   "watchOS companion app",
+   "an App Store privacy nutrition label review"
+  ],
+  "decisions": [
+   "fastlane for the release pipeline",
+   "async/await instead of Combine for networking",
+   "XCTest with snapshot assertions",
+   "The Composable Architecture for state",
+   "Core Data over Realm for local storage",
+   "Keychain for token storage rather than UserDefaults"
+  ],
+  "files": [
+   "Sources/Sync/SyncEngine.swift",
+   "App/Info.plist",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Tests/SyncTests.swift",
+   "Sources/Auth/Keychain.swift",
+   "fastlane/Fastfile"
+  ],
+  "errors": [
+   "a retain cycle in the sync completion handler",
+   "memory growth from uncancelled image tasks"
+  ]
+ }
+}
