@@ -1,41 +1,40 @@
-# TokenMizer Benchmarks
+# Benchmarks
 
-All results from the paper are reproducible with these scripts.
+Two benchmark suites are maintained in this repository. `memorybench` is
+current and is the basis of the paper in `paper/`. `checkpoint_accuracy`
+is the original 21-session evaluation, kept for provenance.
 
-## `memorybench` — n=100 multi-method benchmark (current)
+## `memorybench` — n=100 multi-method benchmark
 
-The main benchmark suite: the real TokenMizer 0.5.2 engine vs. seven other
-memory strategies (deterministic reimplementations of MemGPT, Mem0,
-Graphiti/Zep, GraphRAG, plus three naive baselines), scored identically
-against a 100-session labelled corpus (94 synthetic + the 6 real sessions
-carried over from the product repo's own eval harness).
+Compares the TokenMizer 0.5.2 product engine against seven other memory
+strategies (deterministic reimplementations of MemGPT, Mem0,
+Graphiti/Zep, and GraphRAG, plus three naive baselines) on a 100-session
+labelled corpus (94 generated, 6 real), using one shared scorer.
 
 ```bash
-# No installation needed — pure Python stdlib
+# No installation required — pure standard-library Python.
 python3 -m benchmarks.memorybench.run
 python3 -m benchmarks.memorybench.run --json out.json --csv out.csv
 python3 -m benchmarks.memorybench.run --skip memgpt_style   # skip a method
-python3 -m benchmarks.memorybench.generate -n 86            # regenerate the synthetic corpus
+python3 -m benchmarks.memorybench.generate -n 86            # regenerate the corpus
 ```
 
-Full writeup: **[`results/REPORT_n100.md`](results/REPORT_n100.md)**.
-Latest results: `results/memorybench_n100_20260810.json` (aggregates) and
-`.csv` (flat, per session × method × category — filter/pivot directly).
-Dashboard: `results/dashboard.html`.
+Results write-up: [`results/REPORT_n100.md`](results/REPORT_n100.md).
+Interactive dashboard: [`results/dashboard.html`](results/dashboard.html).
+Raw results: `results/memorybench_n100_20260810.json` and matching `.csv`.
 
-Read `benchmarks/memorybench/methods/common.py` and each
-`methods/*_style.py` docstring before quoting a "MemGPT" or "Mem0" number —
-none of the non-TokenMizer methods call an LLM or run the actual vendor
-library; each reproduces one structural property of the named strategy
-deterministically. The report's §1 and §8 spell out exactly what that
-does and doesn't license you to claim.
+The four "-style" methods reproduce one structural property of the named
+system deterministically, with no model call — see
+`benchmarks/memorybench/methods/common.py` and each method module's
+docstring before quoting a result under the vendor's name. Section 1 of
+`REPORT_n100.md` states precisely what these numbers do and do not
+support.
 
-## `checkpoint_accuracy` — legacy 21-session runner (superseded)
+## `checkpoint_accuracy` — original 21-session evaluation
 
-The original V1/V2 heuristic comparison this repo shipped with. Superseded
-by `memorybench` (10x the sessions, real product engine instead of an
-inline reimplementation, formal CIs) but kept for history — the paper's
-originally-reported numbers came from here.
+The initial V1/V2 heuristic comparison. Superseded by `memorybench` as the
+primary evaluation, kept here for provenance since earlier reported
+figures were computed against it.
 
 ```bash
 python3 benchmarks/checkpoint_accuracy/runner_v2.py
@@ -44,8 +43,8 @@ python3 benchmarks/checkpoint_accuracy/runner_v2.py --compare
 python3 benchmarks/checkpoint_accuracy/runner_v2.py --json
 ```
 
-- 21 sessions across 5 domains: Software Engineering (n=6), Data Science
-  (n=5), DevOps (n=4), Research (n=3), Debugging (n=3)
-- `results/results_v1.json` — V1 heuristic baseline
-- `results/results_v2.json` — V2 improved extractor (reported in paper)
-- `results/results_v3_code-0.3.1.json` — spot-check against product repo v0.3.1
+- 21 sessions across 5 domains: software engineering (n=6), data science
+  (n=5), DevOps (n=4), research (n=3), debugging (n=3).
+- `results/results_v1.json` — V1 heuristic baseline.
+- `results/results_v2.json` — V2 improved extractor.
+- `results/results_v3_code-0.3.1.json` — spot check against product v0.3.1.

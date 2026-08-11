@@ -1,0 +1,1435 @@
+% ================================================================
+%  TokenMizer: Graph-Structured Session Memory for
+%  Long-Horizon LLM Context Management
+%  IEEE Transactions Style — Journal Version 2
+%
+%  Version 2 extends the original 21-session pilot (retained in
+%  Section VII-A for provenance) with a controlled 100-session,
+%  8-method comparison against reimplemented MemGPT, Mem0,
+%  Graphiti/Zep, and GraphRAG strategies plus three naive
+%  baselines (Section VII-B). All values in this manuscript are
+%  measured against the corpus and code released at
+%  https://github.com/Shweta-Mishra-ai/tokenmizer-research.
+%  No estimated results are presented.
+% ================================================================
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{balance}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[colorlinks=true,
+            linkcolor=blue!60!black,
+            citecolor=blue!60!black,
+            urlcolor=blue!60!black]{hyperref}
+
+\definecolor{rowours}{HTML}{FEF9C3}
+\definecolor{rowgood}{HTML}{DCFCE7}
+\definecolor{rowwarn}{HTML}{FEE2E2}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+\tolerance=9999
+\emergencystretch=4em
+\hbadness=10000
+
+% ================================================================
+\title{TokenMizer: Graph-Structured Session Memory\\
+for Long-Horizon LLM Context Management}
+
+\author{Shweta~Mishra%
+\thanks{Independent Researcher, India.
+E-mail: \href{mailto:shweta.mishra.research@gmail.com}{shweta.mishra.research@gmail.com}.
+Product: \url{https://github.com/Shweta-Mishra-ai/tokenmizer}.
+Benchmark suite, corpus, and reproduction code for this manuscript:
+\url{https://github.com/Shweta-Mishra-ai/tokenmizer-research}.
+Manuscript received June 4, 2026; revised August 11, 2026.}%
+}
+
+% ================================================================
+\begin{document}
+\maketitle
+
+% ================================================================
+\begin{abstract}
+Large language model (LLM) deployments for long-horizon tasks
+face a fundamental constraint: context windows are finite while
+productive work sessions are not.
+When session history exceeds the Maximum Effective Context
+Window (MECW), critical structured information---architectural
+decisions, task status transitions, file modification histories,
+and resolved errors---is silently discarded.
+Existing mitigations (truncation, summarization, retrieval
+augmentation) treat history as flat text, destroying the typed,
+relational structure that makes sessions resumable.
+
+We present \textbf{TokenMizer}, an open-source proxy system
+that models LLM session history as a typed knowledge graph
+(14 node types, 7 edge types) populated by a hybrid extraction
+pipeline, serialized by a three-tier checkpoint system into
+compact resume blocks, and supported by an 8-layer compression
+pipeline and a semantic response cache.
+
+This paper reports two evaluations.
+An initial pilot (21 sessions, 5 domains) established that
+TokenMizer's V2 heuristic extractor outperforms naive
+truncation, sliding-window, and free-text summarization
+baselines on decision recall at roughly half the resume-token
+cost.
+The pilot did not compare against any other structured-memory
+system.
+We therefore conduct a substantially larger controlled study:
+\textbf{100 labelled sessions} (94 constructed for this study,
+6 carried over from the product's own evaluation corpus,
+spanning 23 application domains) scored against
+\textbf{eight memory methods} under one shared, asymmetric
+coverage-based scorer, with \textbf{bootstrap 95\% confidence
+intervals} (3{,}000 resamples) on every reported comparison.
+Four of the eight methods are deterministic reimplementations of
+one structural property each of MemGPT, Mem0, Graphiti/Zep, and
+GraphRAG, run with no language-model call; this is a
+methodologically load-bearing distinction we state precisely in
+Section~\ref{sec:threats} and repeat at every point the
+comparison is reported.
+
+At $n=100$, TokenMizer scores $57\%$ macro F1
+($95\%$ CI $[52\%,62\%]$), which is significantly higher than
+the GraphRAG-style ($44\%$), MemGPT-style ($35\%$), and all
+three naive baselines ($17$--$20\%$), and is
+\emph{statistically indistinguishable} from the Graphiti-style
+($59\%$) and Mem0-style ($60\%$) reimplementations
+(paired bootstrap $95\%$ CI on the difference crosses zero for
+both).
+TokenMizer produces the smallest resume block of the four
+structured methods (99 tokens versus 60--120).
+Its two weakest categories, relative to both its own strengths
+and the comparison methods, are decision extraction ($50\%$ F1)
+and error extraction ($36\%$ F1).
+Every pattern-matching method tested, TokenMizer included,
+degrades to $19$--$25\%$ macro F1 on sessions that state facts
+indirectly rather than with explicit lexical markers---a
+shared ceiling of regex-based extraction that this study is,
+to our knowledge, the first to quantify across multiple
+independently-implemented memory strategies on one corpus.
+
+TokenMizer is released as open-source software (MIT licence).
+The 100-session corpus, all eight method implementations, the
+scoring harness, and raw per-session results are released
+alongside this manuscript for independent verification.
+\end{abstract}
+
+\begin{IEEEkeywords}
+large language models, context management, session memory,
+knowledge graph, prompt compression, semantic caching,
+long-horizon tasks, benchmark evaluation, information extraction
+\end{IEEEkeywords}
+
+% ================================================================
+\section{Introduction}
+\label{sec:intro}
+% ================================================================
+
+\IEEEPARstart{L}{arge} language model (LLM) deployments for
+software engineering~\cite{sweagent,copilot}, data
+science~\cite{housurvey}, and research assistance increasingly
+involve \emph{long-horizon sessions}: multi-turn interactions
+spanning hours, where each turn builds on the accumulated
+context of previous turns.
+These sessions develop rich internal structure: technology
+choices made in turn 3 constrain implementation options in
+turn 12; errors resolved in turn 7 inform test strategies in
+turn 15; files modified in turn 4 must be updated consistently
+in turn 18.
+
+The fundamental constraint is context window capacity.
+Paulsen~\cite{paulsen2025} defines the \emph{Maximum Effective
+Context Window} (MECW) as the context length at which model
+task accuracy degrades below an acceptable threshold.
+Critically, MECW is substantially lower than the advertised
+maximum context window (MCW) for complex, multi-step tasks.
+Liu et al.~\cite{lostmiddle} further demonstrate that content
+placed in the \emph{middle} of long contexts is systematically
+under-attended, amplifying the effective degradation.
+At approximately 950~tokens per turn, a development session
+exhausts a 16{,}000-token MECW after only 16~turns.
+
+\subsection{Limitations of Existing Approaches}
+
+Three categories of mitigation exist, each with a structural
+limitation.
+
+\textbf{Truncation-based methods}~\cite{brownfewshot} discard
+the oldest messages when the context budget fills.
+This preserves recency but discards exactly the content
+that matters most: architectural decisions, initial technology
+choices, and goal definitions established early in a session.
+
+\textbf{Summarization-based methods}~\cite{langchain}
+produce free-text summaries via a secondary LLM call.
+These compress well but are structurally imprecise: a natural
+language summary cannot reliably distinguish a \emph{completed}
+task from a \emph{pending} one, nor can it preserve the
+\emph{rationale} for a technology decision.
+
+\textbf{Retrieval- and memory-augmented methods}~\cite{rag,memgpt,mem0,zep}
+retrieve or store relevant facts on demand.
+As Section~\ref{sec:related} details, these systems differ
+substantially in whether retained facts are typed, whether
+superseded facts are deleted or retained, and whether older
+turns remain reachable without an explicit query --- design
+choices this paper measures directly rather than assumes.
+
+\subsection{Key Insight and Contributions}
+
+The core insight motivating TokenMizer is that
+\textbf{session history is not flat text---it is a structured
+knowledge artifact}, containing tasks with status lifecycles,
+decisions with rationales, files with modification histories,
+resolved errors, and environment facts that scope all other
+entities, connected by typed relationships
+(\textsc{implements}, \textsc{fixes}, \textsc{depends-on}, etc.)
+that encode causal and structural dependencies.
+A representation that preserves this structure enables
+efficient, queryable context preservation: discard the raw
+conversation tokens, retain the typed graph, serialize to a
+compact resume block.
+
+\textbf{Contributions:}
+\begin{enumerate}
+\item A \textbf{formal typed knowledge graph schema} for LLM
+  sessions with 14 node types, 7 edge types, and a well-defined
+  status transition system (Section~\ref{sec:graph}).
+\item A \textbf{hybrid extraction pipeline}, a
+  \textbf{three-tier checkpoint system}, an \textbf{8-layer
+  compression pipeline}, and a \textbf{semantic response cache}
+  (Sections~\ref{sec:extraction}--\ref{sec:cache}).
+\item A \textbf{21-session pilot benchmark} against three naive
+  baselines, with a full ablation study
+  (Section~\ref{sec:pilot}).
+\item The paper's primary empirical contribution: a
+  \textbf{controlled 100-session, 8-method comparison} against
+  deterministic reimplementations of four published memory
+  strategies (MemGPT, Mem0, Graphiti/Zep, GraphRAG), with
+  bootstrap confidence intervals on every comparison, a
+  register-stratified analysis isolating pattern-matching's
+  central failure mode, and a released corpus, harness, and raw
+  results for independent reproduction
+  (Section~\ref{sec:extended}).
+\end{enumerate}
+
+% ================================================================
+\section{Background and Related Work}
+\label{sec:related}
+% ================================================================
+
+\subsection{Context Window Degradation}
+
+Paulsen~\cite{paulsen2025} introduces the MECW concept,
+demonstrating empirically that all tested frontier models
+degrade in accuracy on multi-step tasks before reaching
+their advertised MCW.
+For a model with MCW\,=\,128{,}000 tokens, the MECW may be
+as low as 16{,}000 tokens for complex coding tasks.
+This motivates the 16k-token MECW used as the running example
+throughout this paper.
+Liu et al.~\cite{lostmiddle} demonstrate the ``lost in the
+middle'' phenomenon: retrieval and multi-document QA tasks
+show U-shaped accuracy profiles, with content in the middle
+of long prompts systematically under-used.
+
+\subsection{Memory Systems for LLMs}
+\label{sec:related-memory}
+
+\textbf{MemGPT}~\cite{memgpt} proposes an OS-inspired
+hierarchical memory model distinguishing main context (fast,
+limited) from external storage (slow, unlimited), with
+paging between them driven by explicit function calls the
+LLM itself issues.
+Facts that page out of main context are not deleted, but they
+are also not spontaneously recalled: reaching them again
+requires the model to issue a targeted archival-search call.
+Section~\ref{sec:memgpt-style} reimplements this core/archival
+asymmetry deterministically and measures its consequence:
+recall on facts stated early in a long session degrades once
+they age out of the always-visible window.
+
+\textbf{Mem0}~\cite{mem0} extracts short natural-language
+memories from a conversation and stores them in a flat,
+undifferentiated pool, using an LLM to decide, memory by
+memory, whether a new fact adds, updates, or deletes an
+existing one.
+It has no typed schema and no explicit edge structure.
+
+\textbf{Graphiti}~\cite{zep}, the temporal knowledge-graph
+engine underlying Zep, represents facts as edges in a
+bi-temporal graph: every edge carries a \texttt{valid\_at} and
+an \texttt{invalid\_at} timestamp, and a superseded fact is
+marked invalid rather than deleted.
+This directly targets a failure mode TokenMizer's own
+\textsc{supersedes} edge type (Table~\ref{tab:edgetypes}) was
+designed for, making Graphiti the closest architectural
+relative among the systems compared in
+Section~\ref{sec:extended} and the one against which
+TokenMizer's advantage is smallest.
+
+\textbf{GraphRAG}~\cite{graphrag} builds knowledge graphs from
+document corpora to improve retrieval-augmented summarization
+over static text collections.
+Its schema is entity- and community-oriented and carries no
+task-lifecycle concept; Section~\ref{sec:extended} finds this
+distinction empirically, not just architecturally: the
+GraphRAG-style reimplementation is competitive with TokenMizer
+on decisions and files but far behind on completed- and
+pending-task recall.
+
+\textbf{LangChain Memory}~\cite{langchain} provides several
+memory backends including ConversationKGMemory, architecturally
+similar to TokenMizer but using an untyped, schema-free graph
+with extraction and lifecycle management left to the
+application developer.
+
+\subsection{Prompt Compression}
+
+\textbf{LLMLingua}~\cite{llmlingua} and
+\textbf{LongLLMLingua}~\cite{longllmlingua} use small proxy
+LLMs to compute per-token importance scores, removing
+low-importance tokens at 2--6$\times$ compression ratios.
+TokenMizer incorporates LLMLingua-2 as layers 7--8 in its
+compression pipeline, applied after heuristic preprocessing
+has removed structurally trivial content.
+
+\textbf{RECOMP}~\cite{recomp} applies selective summarization
+for retrieval-augmented generation, retrieving only relevant
+passages.
+TokenMizer applies structural extraction rather than textual
+retrieval: the resume block is generated from graph state, not
+retrieved text, enabling typed queries that passage retrieval
+cannot natively support.
+
+\subsection{Positioning}
+
+Table~\ref{tab:related} summarizes the qualitative differences
+among the systems above.
+Section~\ref{sec:extended} is, to our knowledge, the first
+evaluation to score TokenMizer, MemGPT-style paging, Mem0-style
+flat storage, Graphiti-style temporal retention, and
+GraphRAG-style entity extraction against one shared corpus and
+one shared scorer, rather than citing each system's own
+self-reported numbers on its own benchmark.
+
+\begin{table}[t]
+  \centering
+  \caption{Qualitative Comparison with Related Systems.
+  ``Deletes superseded facts'' distinguishes MemGPT/Mem0-style
+  last-write-wins behavior from Graphiti's and TokenMizer's
+  explicit supersession tracking.}
+  \label{tab:related}
+  \renewcommand{\arraystretch}{1.3}
+  \footnotesize
+  \begin{tabular}{@{}p{1.9cm}p{1.55cm}p{1.5cm}p{1.15cm}@{}}
+    \toprule
+    \textbf{System} & \textbf{Struct.\ graph} &
+    \textbf{Deletes superseded} &
+    \textbf{Cross-session} \\
+    \midrule
+    Sliding window      & None      & n/a (no memory) & No \\
+    LangChain KG Mem.   & Untyped   & No               & Yes \\
+    MemGPT~\cite{memgpt} & Vector DB & No (pages out)   & Yes \\
+    Mem0~\cite{mem0}     & None (flat) & Yes (LLM-judged) & Yes \\
+    Graphiti/Zep~\cite{zep} & Bi-temporal & No (invalidated) & Yes \\
+    GraphRAG~\cite{graphrag} & Entity/comm. & n/a (static) & No \\
+    \rowcolor{rowours}
+    \textbf{TokenMizer}
+      & \textbf{Typed, 14-class} & \textbf{No (edge)}
+      & \textbf{Partial} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ================================================================
+\section{Problem Formulation}
+\label{sec:problem}
+% ================================================================
+
+\begin{definition}[LLM Session]
+A session $S = \langle m_1, m_2, \ldots, m_n \rangle$ is an
+ordered sequence of messages, each with token count
+$\tau(m_i) > 0$. The cumulative token count at turn $t$ is
+$T(t) = \sum_{i=1}^{t} \tau(m_i)$.
+\end{definition}
+
+\begin{definition}[Context Overflow]
+A session overflows at the first turn $n^*$ such that:
+\begin{equation}
+  T(n^*) > T_{\mathrm{MECW}}
+  \label{eq:overflow}
+\end{equation}
+For $\bar{\tau} = 950$ tokens/turn and
+$T_{\mathrm{MECW}} = 16{,}000$:
+$n^* = \lfloor 16{,}000 / 950 \rfloor = 16$.
+\end{definition}
+
+\begin{definition}[Structured Resume Block]
+A resume block $R$ is a compact text representation of the
+session knowledge graph $G$, serialized to at most
+$T_{\mathrm{budget}}$ tokens.
+After a checkpoint at turn $n^* - 2$, the new context is:
+\begin{equation}
+  C' = R \;\cup\; \{m_{n^*-1}, m_{n^*}\}
+  \label{eq:resume}
+\end{equation}
+satisfying $|C'| \leq T_{\mathrm{MECW}}$ by construction.
+\end{definition}
+
+\begin{definition}[Category Coverage Score]
+\label{def:coverage}
+For a ground-truth item $g$ and a candidate extraction $c$,
+coverage is the fraction of $g$'s content words present in
+$c$, or exact substring containment for items of at least 6
+characters:
+\begin{equation}
+  \mathrm{covers}(c, g) =
+    \left(\;|g| \geq 6 \wedge g \in c\;\right) \;\vee\;
+    \frac{|W_g \cap W_c|}{|W_g|} \geq \theta
+  \label{eq:coverage}
+\end{equation}
+with $\theta = 0.6$ throughout this paper and $W_x$ the
+content-word set of $x$ (stopwords removed).
+Coverage is deliberately asymmetric: the denominator is always
+the ground-truth item's token set, so a method cannot inflate
+recall by emitting one long label containing every keyword ---
+that label would also fail precision, defined symmetrically
+over the same relation (Section~\ref{sec:extended-scoring}).
+\end{definition}
+
+% ================================================================
+\section{System Architecture}
+\label{sec:system}
+% ================================================================
+
+\subsection{Deployment Model}
+\label{sec:deploy}
+
+Figure~\ref{fig:arch} shows the system architecture.
+TokenMizer operates as a transparent HTTP reverse proxy
+implementing the OpenAI Chat Completions API.
+The client configures \texttt{base\_url} to the TokenMizer
+server; no application code changes are required beyond this
+endpoint substitution.
+An optional \texttt{session\_id} parameter in the request body
+activates the full pipeline; its absence produces a transparent
+passthrough with zero overhead, making adoption incremental.
+
+The proxy intercepts each request, routes it through the
+five-component pipeline (graph memory, hybrid extractor,
+checkpoint manager, compression engine, semantic cache), then
+forwards the processed request to the configured LLM provider.
+Nine providers are supported via a common adapter interface.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig1_architecture}
+  \caption{TokenMizer system architecture. The proxy sits
+    transparently between any OpenAI-compatible client and
+    the LLM provider. When \texttt{session\_id} is present,
+    the five-component pipeline is activated; otherwise the
+    request passes through with no overhead. Persistent
+    storage comprises a SQLite graph database and a JSON
+    checkpoint store.}
+  \label{fig:arch}
+\end{figure}
+
+\subsection{Knowledge Graph Schema}
+\label{sec:graph}
+
+Figure~\ref{fig:kgraph} illustrates a representative session
+graph. The schema defines 14 node types across three
+functional categories.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_graph}
+  \caption{Session knowledge graph for a FastAPI
+    authentication session (8 representative nodes).
+    Edge labels show typed relationships; node colors
+    indicate type. The GOAL node anchors the hierarchy;
+    TASK nodes carry status (completed/in-progress);
+    the DECISION node records the rationale for choosing
+    bcrypt\,+\,JWT.}
+  \label{fig:kgraph}
+\end{figure}
+
+\subsubsection{Node Types}
+Table~\ref{tab:nodetypes} defines the 14 node types.
+\emph{Action nodes} carry status lifecycles;
+\emph{context nodes} are static.
+
+\begin{table}[t]
+  \centering
+  \caption{Node Types (14 total). Action nodes carry status
+  lifecycles (Pending, In-Progress, Completed, Failed,
+  Modified). Context nodes are status-free.}
+  \label{tab:nodetypes}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}p{2.4cm}p{1.7cm}p{3.5cm}@{}}
+    \toprule
+    \textbf{Type} & \textbf{Category} & \textbf{Primary trigger} \\
+    \midrule
+    \texttt{TASK}       & Action    & Imperative verb + object \\
+    \texttt{FILE}       & Action    & Extension or path pattern \\
+    \texttt{ERROR}      & Action    & Error / exception / failure \\
+    \texttt{TEST}       & Action    & Test / spec / assert \\
+    \texttt{SCHEMA}     & Action    & Schema / table / model \\
+    \texttt{METRIC}     & Action    & Metric / score / benchmark \\
+    \midrule
+    \texttt{DECISION}   & Decision  & Decided / Using / Chose \\
+    \texttt{DEPENDENCY} & Decision  & Install / package / library \\
+    \texttt{API}        & Decision  & URL / API / endpoint \\
+    \midrule
+    \texttt{GOAL}       & Context   & First-turn imperative \\
+    \texttt{ENVIRONMENT}& Context   & Version / runtime / OS \\
+    \texttt{PROJECT}    & Context   & Repository / project name \\
+    \texttt{CONCEPT}    & Context   & Abstract domain term \\
+    \texttt{AGENT}      & Context   & Service / CI / orchestrator \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Node Attributes}
+Each node carries a normalized \textbf{label}
+($\leq$120 chars); a \textbf{status}
+$\sigma \in$ \{Pending, In-Progress, Completed, Failed,
+Modified\} for action nodes; an \textbf{importance score}
+$\rho \in [0,1]$ that increases on reference and decays with
+inactivity, governing checkpoint serialization priority; a
+\textbf{confidence score} $\kappa \in [0,1]$ assigned by
+GraphValidator (nodes with $\kappa < 0.50$ are rejected); and
+creation/last-update timestamps.
+
+\subsubsection{Edge Types}
+Table~\ref{tab:edgetypes} defines all 7 edge types.
+Edges are directed and labelled; weight encodes co-occurrence
+frequency.
+
+\begin{table}[t]
+  \centering
+  \caption{Edge Types (7 total).}
+  \label{tab:edgetypes}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}p{2.1cm}p{5.5cm}@{}}
+    \toprule
+    \textbf{Type} & \textbf{Semantics} \\
+    \midrule
+    \texttt{DEPENDS\_ON}  & A cannot function without B \\
+    \texttt{RELATED\_TO}  & A and B address the same concern \\
+    \texttt{IMPLEMENTS}   & A is the realization of B \\
+    \texttt{FIXES}        & A resolves error B \\
+    \texttt{BLOCKS}       & A cannot proceed until B resolves \\
+    \texttt{PART\_OF}     & A is a component of B \\
+    \texttt{SUPERSEDES}   & A replaces or overrides B \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Graph Maintenance}
+\textbf{Deduplication} uses identity-based addressing:
+$\mathrm{id}(n) = \texttt{sha1}(\tau(n):\ell_\mathrm{norm})[:12]$,
+where $\ell_\mathrm{norm}$ is the lowercase, whitespace-normalized
+label.
+Re-extraction of an existing entity updates importance score
+and status rather than creating a duplicate node.
+Status transitions obey monotonic ordering
+(Pending $\to$ In-Progress $\to$ Completed/Failed); downgrades
+are rejected to prevent extraction noise from reverting
+confirmed progress.
+\textbf{Pruning} evicts nodes with importance score $< 0.1$
+when the graph exceeds 500 nodes; \texttt{DECISION},
+\texttt{ENVIRONMENT}, \texttt{GOAL}, and \texttt{SCHEMA} nodes
+are unconditionally retained.
+
+% ================================================================
+\section{Hybrid Extraction Pipeline}
+\label{sec:extraction}
+% ================================================================
+
+\subsection{V1 Heuristic Extractor}
+
+The baseline extractor applies 34 compiled regular expressions
+(11 for tasks, 8 for decisions, 5 for files, 4 for errors, 6
+for environment and endpoints).
+Mean extraction latency across the 21-session pilot:
+\textbf{0.5\,ms} per session; inference cost \$0.
+
+\subsection{V2 Improvements}
+\label{sec:v2}
+
+Error analysis on the pilot benchmark identifies four
+systematic failure modes, addressed in V2 and re-examined at
+$n=100$ in Section~\ref{sec:extended}:
+
+\begin{enumerate}
+\item \textbf{Incomplete trigger vocabulary.} V1 misses 9
+  common completion verbs (\textit{Fixed}, \textit{Deployed},
+  \textit{Resolved}, \textit{Migrated}, \textit{Running},
+  \textit{Launched}, \textit{Shipped}, \textit{Finished},
+  \textit{Updated}).
+\item \textbf{Label verbosity mismatch.} Extracted labels are
+  verbose while ground-truth annotations are concise; exact
+  matching yields 0\% recall on correctly-identified events.
+\item \textbf{Compound sentences.} A single sentence encoding
+  multiple facts (``Completed: API auth, tests, deployment'')
+  is split on comma boundaries in V2.
+\item \textbf{CSV-encoded decisions.} ``Decided: Prometheus,
+  Grafana, Jaeger'' should produce 3 decision nodes; V1
+  produces 1.
+\end{enumerate}
+
+\subsection{Fuzzy Label Matching}
+\label{sec:fuzzy}
+
+\begin{definition}[Fuzzy Match]
+\label{def:fuzzy}
+Labels $a$ and $b$ fuzzy-match if:
+\begin{equation}
+  (a \subseteq b) \;\vee\; (b \subseteq a) \;\vee\;
+  \frac{|W_a \cap W_b|}{\min(|W_a|, |W_b|)} \geq 0.50
+  \label{eq:fuzzy}
+\end{equation}
+where $W_x = \{w : w \in \mathrm{tokens}(x),\; |w| \geq 3\}$.
+\end{definition}
+
+This symmetric-denominator matcher is used internally by the
+pilot benchmark (Section~\ref{sec:pilot}).
+The $n=100$ study (Section~\ref{sec:extended}) instead scores
+every method under the asymmetric coverage relation of
+Definition~\ref{def:coverage}, so that a method cannot win
+recall by emitting one long label, a failure mode a
+symmetric, either-direction matcher does not fully rule out.
+
+\subsection{GraphValidator}
+
+Every candidate node passes through the GraphValidator before
+graph insertion:
+\begin{align}
+  \kappa(n) &= 0.50 \notag \\
+             &+ 0.20 \cdot \mathbf{1}[\text{file path pattern}] \notag \\
+             &+ 0.10 \cdot \mathbf{1}[|\ell| > 15] \notag \\
+             &+ 0.10 \cdot \mathbf{1}[\text{version number present}] \notag \\
+             &- 0.20 \cdot \mathbf{1}[|\ell| < 8] \notag \\
+             &- 0.40 \cdot \mathbf{1}[\text{single generic verb}]
+  \label{eq:confidence}
+\end{align}
+Nodes with $\kappa < 0.50$ are rejected. Type correction is
+applied after scoring: extension-matched labels are forced to
+\texttt{FILE}; URL-pattern labels to \texttt{API}.
+
+\subsection{LLM Extractor (Upgrade Path)}
+\label{sec:llm-extractor}
+
+The product codebase includes an LLM extractor that sends
+recent messages to a small inference model with a structured
+JSON extraction prompt, intended to address indirect phrasing
+regex patterns cannot capture.
+\textit{The LLM extractor is not exercised by either evaluation
+in this paper}: both the pilot and the $n=100$ study run only
+the heuristic pipeline, and none of the four comparison methods
+in Section~\ref{sec:extended} call a language model either.
+This is a deliberate, symmetric scope restriction --- see
+Section~\ref{sec:threats} --- not a claim that the heuristic
+path is sufficient; Section~\ref{sec:extended-register}
+quantifies exactly where it is not.
+
+% ================================================================
+\section{Checkpoint System}
+\label{sec:checkpoint}
+% ================================================================
+
+\subsection{Trigger Condition and Serialization}
+
+Checkpoints trigger when cumulative token count exceeds 85\%
+of the configured MECW.
+Algorithm~\ref{alg:checkpoint} defines checkpoint serialization:
+nodes are ordered by importance score and appended to the
+resume block until the token budget is exhausted.
+
+\begin{algorithm}[t]
+\caption{Checkpoint Serialization}
+\label{alg:checkpoint}
+\begin{algorithmic}[1]
+\REQUIRE Graph $G$, budget $T_\mathrm{budget}$
+\ENSURE Resume block $R$
+\STATE $R \leftarrow [\texttt{[CHECKPOINT: session\_id]}]$
+\STATE $N \leftarrow \mathrm{sort\_by\_importance}(G.\mathrm{nodes})$
+\FOR{$n \in N$}
+  \IF{$\tau(R) + \tau(\mathrm{serialize}(n)) > T_\mathrm{budget}$}
+    \STATE \textbf{break}
+  \ENDIF
+  \STATE $R.\mathrm{append}(\mathrm{serialize}(n))$
+\ENDFOR
+\STATE $\Delta G \leftarrow G - G_\mathrm{prev}$
+\STATE \textbf{store}$(R, \Delta G)$ to checkpoint store
+\RETURN $R$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[t]
+  \centering
+  \caption{Checkpoint Resume Tiers with Example Contents.}
+  \label{tab:tiers}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}p{1.3cm}p{4.8cm}r@{}}
+    \toprule
+    \textbf{Tier} & \textbf{Content} & \textbf{Budget} \\
+    \midrule
+    Critical & GOAL + in-progress TASKs + top DECISION
+              & $\leq 100$ tok \\
+    Standard & All TASKs + all DECISIONs + FILEs + ENV
+              & $\leq 300$ tok \\
+    Full     & Complete graph incl.\ DEPENDENCIEs, SCHEMAs
+              & $\leq 600$ tok \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Each checkpoint stores a \emph{graph diff} (nodes added,
+modified, or removed since the previous checkpoint), enabling
+incremental resume-block updates at $O(\Delta)$ rather than
+$O(|G|)$ cost per checkpoint.
+
+% ================================================================
+\section{Compression Pipeline}
+\label{sec:compression}
+% ================================================================
+
+The 8-layer compression pipeline is applied to large inputs
+(files, long API responses, historical messages) before they
+enter the context window.
+\textbf{Layer 1} (filler removal) strips AI-generated hedging
+and discourse markers via 15 compiled patterns, the dominant
+stage at \textbf{31.2\% reduction} on the representative session
+in Fig.~\ref{fig:compression}.
+\textbf{Layer 2} (deduplication) removes repeated code blocks
+and log lines (\textbf{16.1\%} additional).
+\textbf{Layers 3--6} perform whitespace normalization,
+language-aware comment stripping, history pruning, and
+file-type-specific smart truncation.
+\textbf{Layers 7--8} apply LLMLingua-2~\cite{llmlingua} and
+LongLLMLingua~\cite{longllmlingua} for inputs above 300 and
+4{,}000 tokens respectively, gated by a semantic-similarity
+floor of 0.55 to prevent over-compression, contributing a
+further 5.3\% reduction.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig7_compression}
+  \caption{Compression pipeline staged token reduction on a
+    representative 747-token session. Filler removal (Layer 1)
+    contributes 31.2\% reduction---the dominant stage.
+    Layers 1--6 require zero external dependencies (heuristic
+    only). LLMLingua-2 (Layer 7) adds an optional 5.3\%.
+    Total heuristic reduction: 47.3\%.}
+  \label{fig:compression}
+\end{figure}
+
+% ================================================================
+\section{Semantic Cache}
+\label{sec:cache}
+% ================================================================
+
+The semantic cache stores LLM responses keyed by
+sentence-transformer embeddings~\cite{sentbert}
+(\texttt{all-MiniLM-L6-v2}, 384 dimensions), with cosine
+similarity lookup at threshold $\theta = 0.92$, LRU eviction,
+and a 3{,}600\,s TTL.
+A preliminary measurement on a controlled 10-query, 3-cluster
+workload gives a 70\% hit rate; this is a proof-of-concept
+figure, not a production estimate, and evaluation on real
+query logs at scale remains future work.
+
+% ================================================================
+\section{Implementation}
+\label{sec:impl}
+% ================================================================
+
+TokenMizer's product implementation (evaluated in
+Section~\ref{sec:extended} via the real, unmodified package,
+run out-of-process) is written in Python 3.10+, comprising
+approximately 6{,}300 lines across the \texttt{graph\_memory}
+module alone plus \texttt{checkpoints}, \texttt{compression},
+\texttt{security}, \texttt{analytics}, and \texttt{api}
+modules.
+The HTTP proxy uses FastAPI and Uvicorn; token counting uses
+\texttt{tiktoken}~\cite{tiktoken} with a character-based
+fallback when unavailable; the knowledge graph persists to
+SQLite~\cite{sqlite}.
+All extraction inputs are scanned for API keys, private keys,
+and credential patterns before graph insertion, with matches
+redacted to \texttt{[REDACTED]}.
+Configuration is YAML-based, with extraction, checkpoint, and
+compression thresholds exposed as user-configurable parameters.
+
+% ================================================================
+\section{Results}
+\label{sec:experiments}
+% ================================================================
+
+\subsection{Pilot Study (n=21)}
+\label{sec:pilot}
+
+The pilot benchmark comprises 21 synthetic sessions across 5
+domains (software engineering $n{=}6$, data science $n{=}5$,
+DevOps $n{=}4$, research/writing $n{=}3$, debugging $n{=}3$),
+manually annotated with ground-truth completed tasks,
+decisions, and files, scored under fuzzy matching
+(Definition~\ref{def:fuzzy}).
+Table~\ref{tab:pilot-baselines} compares TokenMizer's V2
+engine against three naive baselines under this scorer.
+
+\begin{table}[t]
+  \centering
+  \caption{Pilot Study (n=21): TokenMizer V2 vs.\ Naive
+  Baselines. Fuzzy matching (Def.~\ref{def:fuzzy}); no
+  bootstrap CIs computed at this sample size.}
+  \label{tab:pilot-baselines}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    \textbf{Method} & \textbf{Task R} & \textbf{Dec.\ R} &
+    \textbf{File R} & \textbf{Tokens} \\
+    \midrule
+    Naive truncation      & 45\% & 35\% & 55\% & 165 \\
+    Sliding window (10)   & 50\% & 30\% & \textbf{60\%} & 159 \\
+    Naive summary         & 42\% & 38\% & 48\% & 170 \\
+    \rowcolor{rowours}
+    \textbf{TokenMizer V2} & \textbf{51\%} & \textbf{47\%} & 59\% & \textbf{78} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Figure~\ref{fig:domain-ci} breaks recall down by domain with
+95\% confidence intervals; the wide intervals at $n\leq6$ per
+domain are themselves evidence that a 21-session corpus cannot
+support fine-grained domain claims, motivating the larger
+corpus in Section~\ref{sec:extended}.
+Figure~\ref{fig:ablation} isolates the contribution of each V2
+fix via ablation on a 10-session sample: fuzzy label matching
+(Section~\ref{sec:fuzzy}) contributes $+33$ percentage points
+of task recall, the dominant single improvement, while
+expanded trigger vocabulary alone contributes comparatively
+little without it.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig3_domain_ci}
+  \caption{Pilot study: extraction recall by domain with 95\%
+    confidence intervals ($n=21$, TokenMizer V2). Debugging
+    achieves 100\% file recall but 11\% decision recall,
+    illustrating that no single domain is uniformly easy.}
+  \label{fig:domain-ci}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig4_ablation}
+  \caption{Pilot study ablation ($n=10$ sample): cumulative
+    contribution of each V1$\to$V2 fix. Fuzzy matching is the
+    dominant contributor; error bars omitted at this sample
+    size.}
+  \label{fig:ablation}
+\end{figure}
+
+The pilot has two limitations this paper's main contribution
+addresses. First, it compares TokenMizer only against
+naive, unstructured baselines, leaving open whether its
+advantage holds against \emph{other} structured-memory
+systems. Second, at $n=21$ with domain cells as small as
+$n=3$, no comparison in Table~\ref{tab:pilot-baselines} carries
+a confidence interval, so ``TokenMizer wins'' cannot be
+distinguished from sampling noise at this scale. Both
+limitations motivate Section~\ref{sec:extended}.
+
+\subsection{Extended Multi-Method Study (n=100)}
+\label{sec:extended}
+
+\subsubsection{Corpus}
+\label{sec:extended-corpus}
+
+The extended corpus comprises 100 labelled sessions: 6 real
+sessions carried over from the product repository's own
+evaluation harness, and 94 sessions constructed for this
+study using a seeded generator (fixed seed, byte-reproducible)
+drawing from 15 domain fact-pools covering backend, frontend,
+DevOps, security, data, mobile, and research-writing contexts,
+for 23 distinct domains in total.
+Every ground-truth label is embedded verbatim in some message
+of its session, so every label is substring-grounded
+regardless of surrounding phrasing; a corpus-wide grounding
+check is run before every scoring pass and the harness refuses
+to score a corpus that fails it.
+
+Each generated session is additionally tagged by
+\emph{register} --- how directly it states its facts ---
+independently of its domain:
+\textbf{explicit} (canonical markers, e.g.\ ``Decided: X.''),
+\textbf{semi} (plain sentences, e.g.\ ``Going with X for
+this.''), \textbf{implicit} (the fact arrives inside reasoning
+with no marker word, e.g.\ ``After weighing it, X felt like the
+right call given the constraints.''), and \textbf{mixed} (each
+fact in the session independently rolls one of the three).
+The corpus totals 2{,}516 turns and 1{,}620 labelled
+ground-truth items across five categories: completed tasks
+(491), pending tasks (223), decisions (355), files (403), and
+errors (148).
+
+\subsubsection{Methods Compared}
+\label{sec:extended-methods}
+
+\textbf{TokenMizer} is the unmodified product package, version
+0.5.2, invoked out-of-process against a real checkout so that
+its \texttt{tokenmizer} module cannot be shadowed by any
+same-named package, run through \texttt{GraphMemory.ex\allowbreak
+tract\_from\_messages()} with the heuristic \texttt{HybridExtractor}
+pass (Section~\ref{sec:extraction}); the LLM extraction path
+(Section~\ref{sec:llm-extractor}) is not exercised.
+
+Four methods are deterministic reimplementations of one
+structural property each of a published system, built on the
+\emph{same} shared regex family as one another (though not the
+same as TokenMizer's own patterns) so that a score difference
+reflects strategy rather than incidental regex quality. None
+calls a language model; each module's implementation states
+this again inline as a standing caveat, because the risk of a
+reader silently substituting ``the vendor product'' for ``the
+strategy this module reimplements'' is the single most
+important methodological risk this study carries.
+
+\begin{itemize}
+\item \textbf{MemGPT-style}
+  (Section~\ref{sec:related-memory})
+  \label{sec:memgpt-style}
+  extracts only from the most recent $\sim$40\% of turns,
+  reproducing MemGPT's core/archival asymmetry: older facts
+  are not deleted but are unreachable without a query this
+  benchmark never issues.
+\item \textbf{Mem0-style} extracts from the full transcript
+  into one flat, untyped pool with last-write-wins
+  deduplication on lexically similar facts, approximating
+  Mem0's LLM-judged ADD/UPDATE conflict resolution without an
+  LLM.
+\item \textbf{Graphiti-style} extracts from the full transcript
+  and never deletes a fact; a later, lexically similar decision
+  is treated as superseding an earlier one, but both are
+  retained, reproducing Graphiti's bi-temporal
+  invalidate-don't-delete edge semantics.
+\item \textbf{GraphRAG-style} casts a wide net for files and
+  named-technology entities but has no task-status concept,
+  approximating only completed/pending recall via a narrow
+  two-verb signal, reflecting that status tracking is outside
+  GraphRAG's actual design target.
+\end{itemize}
+
+Three naive baselines carry no typed extraction at all:
+\textbf{sliding window} (last 10 messages verbatim),
+\textbf{naive truncation} (last $\sim$300 tokens verbatim), and
+\textbf{naive summary} (first $\sim$120 words of the
+concatenated transcript). Each is scored by treating its kept
+text, split into sentences, as an untyped candidate pool
+checked against every category --- the correct treatment for a
+method with no notion of category, rather than an
+artificially generous or punitive scoring choice.
+
+\subsubsection{Scoring}
+\label{sec:extended-scoring}
+
+Every method is scored under the asymmetric coverage relation
+of Definition~\ref{def:coverage} at $\theta = 0.6$. For each
+category, precision and recall are computed over the
+\emph{covers} relation and combined into an F1 score; a
+session's macro F1 is the mean F1 across its five categories
+(categories with zero expected and zero extracted items are
+excluded, not treated as a perfect or zero score).
+The headline metric is the mean of per-session macro F1 across
+all 100 sessions, with 95\% confidence intervals from
+3{,}000-iteration case resampling over sessions (percentile
+bootstrap~\cite{efron}), and paired-difference bootstrap intervals
+(same resampling, paired within session) for every comparison
+against TokenMizer.
+
+\subsubsection{Overall Results}
+
+Table~\ref{tab:main-results} and Fig.~\ref{fig:overall} report
+the headline comparison.
+TokenMizer scores $57\%$ macro F1
+($95\%$ CI $[52\%, 62\%]$), ahead of GraphRAG-style ($44\%$),
+MemGPT-style ($35\%$), and all three naive baselines
+($17$--$20\%$), each by a margin excluded from zero at the
+95\% level (Table~\ref{tab:paired}, Fig.~\ref{fig:paired}).
+Against Graphiti-style ($59\%$) and Mem0-style ($60\%$), the
+paired-difference confidence interval crosses zero
+($-2.7$ and $-2.8$ percentage points respectively, $95\%$ CI
+spanning $[-6.4, +1.0]$ and $[-6.4, +1.2]$): the honest
+reading is a statistical tie, not a loss, and not a win.
+TokenMizer produces the smallest resume block among the four
+structured methods (99 tokens versus 118--120 for
+Graphiti/Mem0-style and 60 for MemGPT-style, whose small
+footprint reflects the fraction of the session it can see at
+all rather than efficient encoding of what it sees).
+
+\begin{table}[t]
+  \centering
+  \caption{Overall Results, n=100 (100 sessions, 3,000-resample
+  bootstrap, $\theta=0.6$). CI = 95\% bootstrap confidence
+  interval on macro F1.}
+  \label{tab:main-results}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    \textbf{Method} & \textbf{Macro F1} & \textbf{95\% CI} &
+    \textbf{Tok.} & \textbf{ms} \\
+    \midrule
+    \rowcolor{rowours}
+    \textbf{TokenMizer 0.5.2} & \textbf{57\%} & [52, 62] & \textbf{99} & 38.0 \\
+    Graphiti-style   & 59\% & [55, 64] & 120 & 0.9 \\
+    Mem0-style       & 60\% & [55, 64] & 118 & 0.9 \\
+    GraphRAG-style   & 44\% & [41, 48] & 80  & 0.5 \\
+    MemGPT-style     & 35\% & [32, 38] & 60  & 0.4 \\
+    Naive truncation & 20\% & [20, 21] & 287 & 0.01 \\
+    Sliding window   & 18\% & [18, 19] & 150 & 0.00 \\
+    Naive summary    & 17\% & [16, 18] & 186 & 0.03 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_n100_overall}
+  \caption{Macro F1 by method, ranked, n=100, with 95\%
+    bootstrap confidence intervals. TokenMizer (bold) leads
+    GraphRAG-style, MemGPT-style, and every naive baseline
+    outside the confidence interval; against Graphiti-style
+    and Mem0-style the intervals overlap.}
+  \label{fig:overall}
+\end{figure}
+
+\begin{table}[t]
+  \centering
+  \caption{Paired Bootstrap: TokenMizer $-$ Method, n=100.
+  $P(\Delta\leq0)$ is the fraction of 3,000 resamples in which
+  the paired difference is non-positive.}
+  \label{tab:paired}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}lrrr@{}}
+    \toprule
+    \textbf{Comparison} & \textbf{Mean $\Delta$} & \textbf{95\% CI} & $P(\Delta\!\leq\!0)$ \\
+    \midrule
+    vs.\ Graphiti-style   & $-2.7$pp & [$-6.4$, $+1.0$] & 91.2\% \\
+    vs.\ Mem0-style       & $-2.8$pp & [$-6.4$, $+1.2$] & 91.7\% \\
+    \rowcolor{rowgood}
+    vs.\ GraphRAG-style   & $+12.5$pp & [$+8.8$, $+16.1$] & 0.0\% \\
+    \rowcolor{rowgood}
+    vs.\ MemGPT-style     & $+21.6$pp & [$+18.3$, $+25.0$] & 0.0\% \\
+    \rowcolor{rowgood}
+    vs.\ sliding window   & $+38.4$pp & [$+34.1$, $+42.8$] & 0.0\% \\
+    \rowcolor{rowgood}
+    vs.\ naive truncation & $+36.3$pp & [$+31.9$, $+40.7$] & 0.0\% \\
+    \rowcolor{rowgood}
+    vs.\ naive summary    & $+40.1$pp & [$+35.7$, $+44.2$] & 0.0\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_n100_paired_diff}
+  \caption{Paired bootstrap difference (TokenMizer $-$ method)
+    on macro F1, n=100, 95\% CI. Intervals excluding zero
+    (black) are reliable differences; the two grey intervals
+    (Graphiti-style, Mem0-style) cross zero.}
+  \label{fig:paired}
+\end{figure}
+
+\subsubsection{Per-Category Breakdown}
+
+Table~\ref{tab:category} and Fig.~\ref{fig:heatmap} decompose
+the headline score by category.
+TokenMizer's file extraction is effectively solved ($98\%$ F1,
+the best of any method) and its completed-task recall leads
+the comparison group. Its two weakest categories are
+\textbf{decisions} ($50\%$, against $65\%$ for both
+Graphiti-style and Mem0-style) and \textbf{errors} ($36\%$,
+against $66\%$ for the same two). The error category is the
+starkest gap: of 148 labelled errors, TokenMizer extracts 79
+(recall $28\%$), of which 39 do not match any ground-truth
+item (precision $51\%$); this is the clearest, most concrete
+target for engineering improvement this study identifies.
+
+\begin{table}[t]
+  \centering
+  \caption{Per-Category Micro F1, n=100.}
+  \label{tab:category}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}lrrrrr@{}}
+    \toprule
+    \textbf{Method} & \textbf{Comp.} & \textbf{Pend.} &
+    \textbf{Dec.} & \textbf{Files} & \textbf{Err.} \\
+    \midrule
+    \rowcolor{rowours}
+    TokenMizer      & 68\% & \textbf{53\%} & 50\% & \textbf{98\%} & 36\% \\
+    Graphiti-style  & 64\% & 43\% & \textbf{65\%} & 89\% & \textbf{66\%} \\
+    Mem0-style      & 64\% & 45\% & \textbf{65\%} & 89\% & \textbf{66\%} \\
+    GraphRAG-style  & 28\% & 16\% & \textbf{70\%} & 89\% & 46\% \\
+    MemGPT-style    & 42\% & 28\% & 34\% & 59\% & 37\% \\
+    Baselines       & 22--29\% & 12--15\% & 18--25\% & 21--25\% & 10--11\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_n100_category_heatmap}
+  \caption{Per-category F1, n=100. Darker is higher. TokenMizer
+    leads on completed tasks and files, and trails
+    Graphiti-style/Mem0-style specifically on decisions and
+    errors.}
+  \label{fig:heatmap}
+\end{figure}
+
+\subsubsection{Register: The Shared Ceiling of Pattern Matching}
+\label{sec:extended-register}
+
+Table~\ref{tab:register} and Fig.~\ref{fig:register} report
+macro F1 by register.
+Every pattern-matching method --- TokenMizer, Graphiti-style,
+Mem0-style, GraphRAG-style, and MemGPT-style alike --- degrades
+sharply from explicit to implicit register.
+TokenMizer falls from $71\%$ (explicit) to $25\%$ (implicit), a
+46-point drop; Graphiti-style and Mem0-style fall from $85\%$
+to $19\%$, a 66-point drop, the steepest of any method, since
+their advantage over TokenMizer is concentrated in the
+explicit-marker case and largely disappears once markers are
+absent.
+All four converge to a narrow $19$--$25\%$ band on implicit
+text, indistinguishable from one another at this corpus size.
+This is, to our knowledge, the first result to show this
+convergence empirically across multiple independently
+implemented extraction strategies rather than asserting it of
+any single system: the ceiling is a property of
+pattern-matching as a strategy, not of any one implementation
+of it, and none of the four methods' extraction path in this
+study involves a language model that could plausibly move it
+(Section~\ref{sec:llm-extractor}).
+
+\begin{table}[t]
+  \centering
+  \caption{Macro F1 by Register, n=100.}
+  \label{tab:register}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    \textbf{Method} & \textbf{Explicit} & \textbf{Semi} &
+    \textbf{Mixed} & \textbf{Implicit} \\
+    \midrule
+    \rowcolor{rowours}
+    TokenMizer      & 71\% & 52\% & 55\% & \textbf{25\%} \\
+    Graphiti/Mem0-style & \textbf{85\%} & \textbf{68\%} & 63\% & 19\% \\
+    GraphRAG-style  & 69\% & 37\% & 47\% & 19\% \\
+    MemGPT-style    & 46\% & 39\% & 36\% & 10\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_n100_register}
+  \caption{Macro F1 by register, n=100. All four
+    pattern-matching methods converge to 19--25\% once explicit
+    markers (``Decided:'', ``Completed:'') are absent from the
+    text, a shared ceiling of the extraction strategy rather
+    than of any one implementation.}
+  \label{fig:register}
+\end{figure}
+
+\subsubsection{Corpus Origin and Domain Variance}
+
+TokenMizer scores $91\%$ macro F1 on the 6 real sessions versus
+$55\%$ on the 94 generated sessions; Graphiti-style and
+Mem0-style show the opposite, near-flat pattern ($58\%$ vs.\
+$60\%$).
+The real-session sample is small ($n=6$) and this split is
+reported as directional, not as a second confidence-bounded
+result: it is consistent with TokenMizer's patterns having been
+iterated primarily against sessions resembling that corpus,
+rather than a general property established at this sample size.
+Domain-level macro F1 for TokenMizer (Fig.~\ref{fig:domain})
+ranges from $20\%$ (\texttt{devops/kubernetes}) to $100\%$
+(three audit domains drawn from the real-session subset),
+consistent with the same explanation.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_n100_domain_variance}
+  \caption{TokenMizer macro F1 by domain, n=100, 23 domains.
+    The three domains at 100\% are audit/* real sessions;
+    infrastructure-heavy synthetic domains
+    (\texttt{devops/kubernetes}, \texttt{infra/terraform},
+    \texttt{data/streaming}) score lowest.}
+  \label{fig:domain}
+\end{figure}
+
+\subsubsection{Cost}
+
+TokenMizer's mean 38.0\,ms per session is 40--80$\times$ the
+reimplemented methods' 0.4--0.9\,ms.
+This reflects the evaluation's process-isolation design
+(Section~\ref{sec:extended-methods}): TokenMizer runs as a
+freshly launched subprocess against the real package per
+session, incurring Python interpreter startup once per call,
+while the four reimplementations run in-process against
+already-loaded text. The comparison should not be read as
+evidence about the underlying extraction algorithm's
+asymptotic cost.
+
+% ================================================================
+\section{Discussion}
+\label{sec:discussion}
+% ================================================================
+
+Three findings carry beyond this specific corpus.
+
+\textbf{First}, TokenMizer's advantage over naive baselines,
+established directionally at $n=21$ in the pilot
+(Table~\ref{tab:pilot-baselines}), replicates at $n=100$ with
+formal confidence intervals (Table~\ref{tab:paired}): this
+paper's headline claim about naive baselines is now supported
+by a controlled comparison an order of magnitude larger than
+the original, not merely a repeated assertion.
+
+\textbf{Second}, and previously untested, TokenMizer's
+advantage does \emph{not} extend to two of the four
+graph/structured-memory strategies compared: against
+Graphiti-style and Mem0-style specifically, the confidence
+interval on the paired difference crosses zero. Graphiti's
+architectural similarity to TokenMizer (Table~\ref{tab:related}
+and Section~\ref{sec:related-memory}) --- both retain
+superseded facts rather than deleting them --- may explain why
+the gap is smallest here rather than against MemGPT-style or
+GraphRAG-style, which differ from TokenMizer more
+structurally.
+
+\textbf{Third}, decision and error extraction
+(Table~\ref{tab:category}) are TokenMizer's most improvable
+categories in absolute terms and relative to the peer group
+simultaneously, which is a stronger signal than either fact
+alone: a category that is merely low but consistent with peers
+would suggest a corpus-difficulty explanation; a category that
+is low \emph{and} behind peers scored on the identical corpus
+points at the extraction patterns themselves.
+
+% ================================================================
+\section{Threats to Validity}
+\label{sec:threats}
+% ================================================================
+
+\textbf{Construct validity.} Four of the eight methods compared
+are not the named vendor products.
+MemGPT, Mem0, Graphiti, and GraphRAG all perform their real
+extraction with a language model in the loop; this study's
+reimplementations of them call no model at all, by the explicit
+scope decision recorded in Section~\ref{sec:extended-methods}.
+Every reported number for these four methods should be read as
+a lower bound on what the named system would likely achieve,
+particularly on the implicit-register text of
+Section~\ref{sec:extended-register}, where a model that can
+actually read a sentence would plausibly outperform every
+method in this study.
+
+\textbf{Internal validity.} 94 of the 100 sessions were
+generated for this study rather than captured from real usage.
+Every label is grounded (recoverable verbatim from some message
+in its session; Section~\ref{sec:extended-corpus}), but grounded
+synthetic text is not equivalent to the lexical and structural
+variety of real developer transcripts. The 6-session real split
+(Section~\ref{sec:experiments}, ``Corpus Origin'') is too small
+to bound this gap quantitatively.
+
+\textbf{Statistical validity.} All results use one match
+threshold ($\theta=0.6$, Definition~\ref{def:coverage}) and one
+bootstrap configuration (3{,}000 resamples, case resampling over
+sessions). The TokenMizer/Graphiti-style/Mem0-style ordering,
+already within noise at this threshold, has not been checked
+for stability under a threshold sweep, unlike the product
+repository's own single-method evaluation harness, which ships
+one.
+
+\textbf{External validity.} Every method processes one
+session's full transcript in a single pass. None of the actual
+multi-session consolidation behavior the named systems are
+partly designed for (Mem0's cross-conversation fact merging,
+Graphiti's graph accretion over weeks of interaction) is
+exercised here; this is a single-session extraction benchmark
+only, and no claim in this paper should be read as bearing on
+cross-session performance.
+
+% ================================================================
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+% ================================================================
+
+This paper presents TokenMizer, a system that addresses LLM
+context loss by modeling session history as a typed knowledge
+graph and serializing it into compact, structured resume
+blocks, and reports two evaluations of it.
+A 21-session pilot established a decision-recall advantage over
+naive truncation, sliding-window, and summarization baselines
+at roughly half their resume-token cost.
+A subsequent, substantially larger controlled study --- 100
+sessions, 8 methods, bootstrap confidence intervals throughout
+--- replicates that advantage with formal statistical support
+and additionally finds that it does not extend to two
+comparably-designed memory strategies (Graphiti-style,
+Mem0-style), where the honest result is a tie. The same study
+identifies decision and error extraction as TokenMizer's most
+improvable categories and shows that every pattern-matching
+method tested, independent of implementation, shares a common
+ceiling of roughly 20\% macro F1 on text that states facts
+indirectly.
+
+Three directions follow directly from these results.
+\textbf{First}, closing the decision/error gap identified in
+Table~\ref{tab:category} is a concrete, scoped engineering
+target rather than a general call for improvement.
+\textbf{Second}, evaluating the product's existing LLM
+extraction path (Section~\ref{sec:llm-extractor}) against the
+same $n=100$ corpus would test directly whether a model call
+closes the register gap of Section~\ref{sec:extended-register},
+rather than leaving it as the inferred but untested explanation
+this paper offers.
+\textbf{Third}, the same test would need to be run fairly
+against LLM-backed versions of the four comparison methods, not
+against TokenMizer alone, for any resulting claim of superiority
+to carry the same evidentiary weight as the comparisons in this
+paper.
+
+% ================================================================
+\section*{Data and Code Availability}
+% ================================================================
+
+The 100-session corpus, all eight method implementations, the
+scoring harness, the 21-session pilot benchmark, and raw
+per-session results (JSON and CSV) for every number in
+Section~\ref{sec:experiments} are released at
+\url{https://github.com/Shweta-Mishra-ai/tokenmizer-research}.
+The corpus generator (\texttt{benchmarks/memorybench/generate.py})
+is seeded and produces byte-identical output on re-run.
+The TokenMizer product itself is released separately at
+\url{https://github.com/Shweta-Mishra-ai/tokenmizer} under the
+MIT licence.
+
+% ================================================================
+\balance
+\begin{thebibliography}{00}
+
+\bibitem{paulsen2025}
+N.~Paulsen, ``Context Is What You Need: The Maximum Effective
+Context Window,'' \emph{arXiv preprint arXiv:2509.21361}, 2025.
+
+\bibitem{memgpt}
+C.~Packer, V.~Fang, S.~G.~Patil, K.~Lin, S.~Wooders, and
+J.~E.~Gonzalez, ``MemGPT: Towards LLMs as Operating
+Systems,'' \emph{arXiv preprint arXiv:2310.08560}, 2023.
+
+\bibitem{mem0}
+P.~Chhikara, D.~Khant, S.~Aryan, T.~Singh, and D.~Yadav,
+``Mem0: Building Production-Ready AI Agents with Scalable
+Long-Term Memory,'' \emph{arXiv preprint arXiv:2504.19413}, 2025.
+
+\bibitem{zep}
+P.~Rasmussen, P.~Paliychuk, T.~Beauvais, J.~Ryan, and
+D.~Chalef, ``Zep: A Temporal Knowledge Graph Architecture for
+Agent Memory,'' \emph{arXiv preprint arXiv:2501.13956}, 2025.
+
+\bibitem{rag}
+P.~Lewis \emph{et al.}, ``Retrieval-Augmented Generation for
+Knowledge-Intensive NLP Tasks,'' in \emph{Proc.\ NeurIPS},
+2020, pp.\ 9459--9474.
+
+\bibitem{llmlingua}
+H.~Jiang \emph{et al.}, ``LLMLingua: Compressing Prompts for
+Accelerated Inference of Large Language Models,'' in
+\emph{Proc.\ EMNLP}, 2023, pp.\ 13358--13376.
+
+\bibitem{longllmlingua}
+H.~Jiang \emph{et al.}, ``LongLLMLingua: Accelerating and
+Enhancing LLMs in Long Context Scenarios,''
+\emph{arXiv preprint arXiv:2310.06839}, 2023.
+
+\bibitem{recomp}
+F.~Xu \emph{et al.}, ``RECOMP: Improving Retrieval-Augmented
+LMs with Context Compression and Selective Augmentation,''
+in \emph{Proc.\ ICLR}, 2024.
+
+\bibitem{graphrag}
+D.~Edge \emph{et al.}, ``From Local to Global: A Graph
+RAG Approach to Query-Focused Summarization,''
+\emph{arXiv preprint arXiv:2404.16130}, 2024.
+
+\bibitem{lostmiddle}
+N.~F.~Liu \emph{et al.}, ``Lost in the Middle: How Language
+Models Use Long Contexts,'' \emph{Trans.\ ACL}, vol.\ 12,
+pp.\ 157--173, 2024.
+
+\bibitem{langchain}
+H.~Chase, ``LangChain,''
+\url{https://github.com/langchain-ai/langchain}, 2022.
+
+\bibitem{sentbert}
+N.~Reimers and I.~Gurevych, ``Sentence-BERT: Sentence
+Embeddings Using Siamese BERT-Networks,'' in
+\emph{Proc.\ EMNLP}, 2019, pp.\ 3982--3992.
+
+\bibitem{sweagent}
+J.~Yang \emph{et al.}, ``SWE-agent: Agent-Computer Interfaces
+Enable Automated Software Engineering,'' in \emph{Proc.\
+NeurIPS}, 2024.
+
+\bibitem{copilot}
+GitHub, ``GitHub Copilot,''
+\url{https://github.com/features/copilot}, 2024.
+
+\bibitem{fastapi}
+S.~Ram\'irez, ``FastAPI,''
+\url{https://fastapi.tiangolo.com}, 2018.
+
+\bibitem{sqlite}
+D.~R.~Hipp, ``SQLite,''
+\url{https://www.sqlite.org}, 2000.
+
+\bibitem{tiktoken}
+OpenAI, ``tiktoken: Fast BPE Tokeniser,''
+\url{https://github.com/openai/tiktoken}, 2023.
+
+\bibitem{housurvey}
+X.~Hou \emph{et al.}, ``Large Language Models for Software
+Engineering: A Systematic Literature Review,''
+\emph{arXiv preprint arXiv:2308.10620}, 2024.
+
+\bibitem{brownfewshot}
+T.~Brown \emph{et al.}, ``Language Models are Few-Shot
+Learners,'' in \emph{Proc.\ NeurIPS}, 2020,
+pp.\ 1877--1901.
+
+\bibitem{efron}
+B.~Efron and R.~J.~Tibshirani, \emph{An Introduction to the
+Bootstrap}. Boca Raton, FL, USA: Chapman \& Hall/CRC, 1994.
+
+\end{thebibliography}
+
+\end{document}
