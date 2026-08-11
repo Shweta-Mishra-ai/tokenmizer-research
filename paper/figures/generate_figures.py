@@ -38,7 +38,7 @@ plt.rcParams.update({
     "grid.linewidth": 0.5,
 })
 
-RESULTS_PATH = Path(__file__).resolve().parents[2] / "benchmarks" / "results" / "memorybench_n100_20260810.json"
+RESULTS_PATH = Path(__file__).resolve().parents[2] / "benchmarks" / "results" / "memorybench_n100_20260811.json"
 OUT_DIR = Path(__file__).resolve().parent
 
 ORDER = [
