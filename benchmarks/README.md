@@ -21,7 +21,7 @@ python3 -m benchmarks.memorybench.generate -n 86            # regenerate the cor
 
 Results write-up: [`results/REPORT_n100.md`](results/REPORT_n100.md).
 Interactive dashboard: [`results/dashboard.html`](results/dashboard.html).
-Raw results: `results/memorybench_n100_20260811.json` and matching `.csv`.
+Raw results: `results/memorybench_n100_20260812.json` and matching `.csv`.
 
 The four "-style" methods reproduce one structural property of the named
 system deterministically, with no model call — see

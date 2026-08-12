@@ -16,15 +16,11 @@ Shweta Mishra, 2026.
 [`paper/tokenmizer_ieee.pdf`](paper/tokenmizer_ieee.pdf) ·
 [LaTeX source](paper/tokenmizer_ieee.tex)
 
-The manuscript reports two evaluations plus a fix-and-remeasure cycle
-between them: a 21-session pilot against naive truncation,
-sliding-window, and summarization baselines; a controlled 100-session,
-8-method comparison against deterministic reimplementations of MemGPT,
-Mem0, Graphiti/Zep, and GraphRAG, with bootstrap confidence intervals
-on every reported comparison; and, after that comparison identified
-decision and error extraction as TokenMizer's weakest categories, a
-traced-and-fixed error analysis (§XI) that closed part of the gap and
-was re-measured on the identical benchmark before being reported.
+The manuscript is a single, current-state evaluation: it reports one
+controlled 100-session, 8-method comparison of the released TokenMizer
+0.5.3 product against deterministic reimplementations of MemGPT, Mem0,
+Graphiti/Zep, and GraphRAG plus three naive baselines, with bootstrap
+confidence intervals on every reported comparison.
 
 ### Headline results (n = 100, TokenMizer 0.5.3)
 
@@ -32,9 +28,9 @@ was re-measured on the identical benchmark before being reported.
 
 | Method | Macro F1 | 95% CI |
 |---|---:|---:|
-| **TokenMizer 0.5.3** | **60%** | [55%, 65%] |
 | Mem0-style | 60% | [55%, 64%] |
 | Graphiti-style | 59% | [55%, 64%] |
+| **TokenMizer 0.5.3** | **57%** | [52%, 62%] |
 | GraphRAG-style | 44% | [41%, 48%] |
 | MemGPT-style | 35% | [32%, 38%] |
 | Naive truncation | 20% | [20%, 21%] |
@@ -43,26 +39,26 @@ was re-measured on the identical benchmark before being reported.
 
 TokenMizer significantly outperforms GraphRAG-style, MemGPT-style, and
 every naive baseline. Against Graphiti-style and Mem0-style, the
-paired-difference confidence interval still crosses zero: a statistical
-tie, not a win — the same conclusion as the first (0.5.2) measurement,
-but the point estimate has moved from trailing both to nominally
-leading both, after decision F1 improved 50%→59% and error F1 improved
-36%→44% (§XI). TokenMizer's resume block (100 tokens) is smaller than
-Graphiti-style's and Mem0-style's (117–119) but larger than
-MemGPT-style's (60), which reaches that size by seeing under half the
-conversation rather than by encoding it more efficiently. Every
-pattern-matching method tested — TokenMizer included — still degrades
-to 19–27% macro F1 on sessions that state facts indirectly rather than
-with explicit lexical markers, essentially unmoved by the fix cycle: a
-shared limitation of regex-based extraction, not a version-specific
-gap, quantified here across four independently implemented strategies
-on one corpus.
+paired-difference confidence interval crosses zero: a statistical tie,
+not a loss and not a win. TokenMizer's resume block (99 tokens) is
+smaller than Graphiti-style's and Mem0-style's (118–120) but larger
+than MemGPT-style's (60), which reaches that size by seeing under half
+the conversation rather than by encoding it more efficiently. Its two
+weakest categories, both in absolute terms and relative to the two
+methods it otherwise ties, are decision extraction (50% F1, against 65%
+for Graphiti/Mem0-style) and error extraction (36% F1, against 66%).
+Every pattern-matching method tested — TokenMizer included — degrades
+to 19–25% macro F1 on sessions that state facts indirectly rather than
+with explicit lexical markers, a shared limitation of regex-based
+extraction quantified here across four independently implemented
+strategies on one corpus.
 
-Four of the eight compared methods reproduce one structural property of
-a published system, deterministically and with no language-model call —
-they are not the vendor products. See `benchmarks/memorybench/methods/`
-and the paper's Threats to Validity section (§XII) before quoting any
-of these four under the named system's identity.
+Four of the seven comparison methods reproduce one structural property
+of a published system, deterministically and with no language-model
+call — they are not the vendor products. See
+`benchmarks/memorybench/methods/` and the paper's Threats to Validity
+section before quoting any of these four under the named system's
+identity.
 
 ## Repository layout
 
@@ -70,8 +66,8 @@ of these four under the named system's identity.
 paper/                    Manuscript source, figures, and compiled PDF
   tokenmizer_ieee.tex        IEEE-format manuscript (this repo's primary output)
   figures/                   Publication figures + generator script
-  fig1_architecture.png,     Architecture and pilot-study figures
-  fig2_graph.png, ...        (referenced by the manuscript)
+  fig1_architecture.png,     Architecture figures referenced by the manuscript
+  fig2_graph.png
 
 benchmarks/
   memorybench/               n=100 multi-method benchmark: corpus loader,
@@ -80,7 +76,8 @@ benchmarks/
   corpus/                    100 labelled sessions (94 generated, 6 real)
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
-  checkpoint_accuracy/       Original 21-session pilot benchmark
+  checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;
+                              not covered by the current manuscript
 ```
 
 ## Reproducing the results
@@ -98,7 +95,7 @@ python -m benchmarks.memorybench.run --json out.json --csv out.csv
 # Regenerate the 94-session synthetic corpus (seeded, deterministic)
 python -m benchmarks.memorybench.generate -n 86
 
-# Run the original 21-session pilot
+# Run the earlier 21-session benchmark (kept for history, not covered by the paper)
 python3 benchmarks/checkpoint_accuracy/runner_v2.py
 ```
 
