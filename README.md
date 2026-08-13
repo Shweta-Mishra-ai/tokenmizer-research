@@ -18,19 +18,19 @@ Shweta Mishra, 2026.
 
 The manuscript is a single, current-state evaluation: it reports one
 controlled 100-session, 8-method comparison of the released TokenMizer
-0.5.3 product against deterministic reimplementations of MemGPT, Mem0,
+0.5.4 product against deterministic reimplementations of MemGPT, Mem0,
 Graphiti/Zep, and GraphRAG plus three naive baselines, with bootstrap
 confidence intervals on every reported comparison.
 
-### Headline results (n = 100, TokenMizer 0.5.3)
+### Headline results (n = 100, TokenMizer 0.5.4)
 
 ![Macro F1 by method, ranked, with 95% bootstrap confidence intervals](paper/figures/fig_n100_overall.png)
 
 | Method | Macro F1 | 95% CI |
 |---|---:|---:|
+| **TokenMizer 0.5.4** | **60%** | [55%, 65%] |
 | Mem0-style | 60% | [55%, 64%] |
 | Graphiti-style | 59% | [55%, 64%] |
-| **TokenMizer 0.5.3** | **57%** | [52%, 62%] |
 | GraphRAG-style | 44% | [41%, 48%] |
 | MemGPT-style | 35% | [32%, 38%] |
 | Naive truncation | 20% | [20%, 21%] |
@@ -40,18 +40,25 @@ confidence intervals on every reported comparison.
 TokenMizer significantly outperforms GraphRAG-style, MemGPT-style, and
 every naive baseline. Against Graphiti-style and Mem0-style, the
 paired-difference confidence interval crosses zero: a statistical tie,
-not a loss and not a win. TokenMizer's resume block (99 tokens) is
-smaller than Graphiti-style's and Mem0-style's (118–120) but larger
-than MemGPT-style's (60), which reaches that size by seeing under half
-the conversation rather than by encoding it more efficiently. Its two
+not a loss and not a win, though TokenMizer's point estimate now matches
+Mem0-style exactly. TokenMizer's resume block (100 tokens) is smaller
+than Graphiti-style's and Mem0-style's (118–120) but larger than
+MemGPT-style's (60), which reaches that size by seeing under half the
+conversation rather than by encoding it more efficiently. Its two
 weakest categories, both in absolute terms and relative to the two
-methods it otherwise ties, are decision extraction (50% F1, against 65%
-for Graphiti/Mem0-style) and error extraction (36% F1, against 66%).
-Every pattern-matching method tested — TokenMizer included — degrades
-to 19–25% macro F1 on sessions that state facts indirectly rather than
-with explicit lexical markers, a shared limitation of regex-based
-extraction quantified here across four independently implemented
-strategies on one corpus.
+methods it otherwise ties, are decision extraction (59% F1, against 65%
+for Graphiti/Mem0-style) and error extraction (44% F1, against 66%).
+An earlier version of this evaluation (TokenMizer 0.5.3, superseded)
+found these same two categories further behind (50% and 36% F1); the
+gaps identified there were closed to the extent a targeted vocabulary
+and pattern fix could close them — see the product repository's 0.5.4
+CHANGELOG. Every pattern-matching method tested — TokenMizer included —
+still degrades to 19–27% macro F1 on sessions that state facts
+indirectly rather than with explicit lexical markers, a shared
+limitation of regex-based extraction quantified here across four
+independently implemented strategies on one corpus, and unmoved by this
+fix since it targets vocabulary coverage, not the underlying
+architecture.
 
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
