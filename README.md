@@ -94,6 +94,19 @@ methods are regex reimplementations, not the vendor products, so none of
 this is a claim against Mem0 or Zep. Full protocol and numbers:
 [`benchmarks/results/REPORT_extraction_rounds.md`](benchmarks/results/REPORT_extraction_rounds.md).
 
+A follow-up round tested the product on what the corpora cannot contain: a
+real 914-message agent session, a fuzzer, a scan of all 134 regexes, and a
+concurrent load test of the HTTP endpoint. It found and fixed several
+problems:
+- Agent tool calls were never read.
+- Tool-only turns were silently skipped as duplicates.
+- One message of padded whitespace took 10 seconds (a proxy DoS).
+- One legal JSON character crashed extraction.
+
+On that real session, about 87% of stored facts are genuine, against about
+45% before (judged by hand). The labelled-corpus scores are unchanged. See
+[`benchmarks/results/REPORT_real_sessions_and_robustness.md`](benchmarks/results/REPORT_real_sessions_and_robustness.md).
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
