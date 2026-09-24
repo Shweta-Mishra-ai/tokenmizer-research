@@ -1,0 +1,144 @@
+{
+ "id": "ho_product_analytics_001",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume an experiment platform rollout please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming an experiment platform rollout."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of analytics/significance.py along the way.\nProblem: a double-counted signup event inflating the funnel top.\n✅ A segment definition for activated accounts."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with counting activation on first collaborative action. Up next is a qualitative follow-up with churned accounts."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at analytics/experiments.py for the details.\n**Done:** statistical significance testing on the primary metric.\nTests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Let's not forget about extending the cohort window to twelve months."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `tests/test_metrics.py`. Final choice: Amplitude for product analytics."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Exception: a sample ratio mismatch in the pricing experiment."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. New file: dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Tracked the flakiness down to the active user count differing 12% between two dashboards."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on a seven-day activation window. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've finished the experiment assignment and exposure logging. We decided on weekly rather than daily cohorts for readability. No errors on the last run. Most of the edits went into notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. I'll tackle an automated experiment readout template tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "I've finished a funnel from signup through first value."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a segment definition for activated accounts",
+   "statistical significance testing on the primary metric",
+   "a funnel from signup through first value",
+   "the experiment assignment and exposure logging"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts",
+   "an automated experiment readout template",
+   "extending the cohort window to twelve months"
+  ],
+  "decisions": [
+   "weekly rather than daily cohorts for readability",
+   "a seven-day activation window",
+   "counting activation on first collaborative action",
+   "Amplitude for product analytics"
+  ],
+  "files": [
+   "dashboards/north_star.json",
+   "notebooks/churn_drivers.ipynb",
+   "tests/test_metrics.py",
+   "analytics/experiments.py",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "a double-counted signup event inflating the funnel top",
+   "a sample ratio mismatch in the pricing experiment",
+   "the active user count differing 12% between two dashboards"
+  ]
+ }
+}

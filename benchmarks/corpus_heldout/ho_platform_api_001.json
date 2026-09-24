@@ -1,0 +1,137 @@
+{
+ "id": "ho_platform_api_001",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a partner integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a partner integration now."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added SDK generation for three languages. Per-key rate limits with headers exposing the budget landed in the last commit. Look at sdk/python/client.py for the details."
+  },
+  {
+   "role": "user",
+   "content": "Let's do URL-based versioning over header negotiation."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next I'll pick up GraphQL as an alternative surface. The sandbox environment for partner testing is done and tested. Sticking with ISO 8601 timestamps in UTC."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Field-level filtering on the large resources hasn't been done yet."
+  },
+  {
+   "role": "user",
+   "content": "How about RFC 7807 problem details for errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. I touched api/pagination.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "I touched gateway/kong.yaml as well."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We hit a breaking change shipped in a minor version. Getting webhook deliveries duplicated after a consumer timeout on every run. I'll explain the reasoning below. We'll go with Kong as the API gateway."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Look at api/routes/webhooks.py for the details. Just merged request/response logging with PII stripped. I've finished cursor-based pagination across all list endpoints."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Webhook signature verification is now in place."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer HMAC-SHA256 for webhook signatures. I'd prefer JSON only, no XML support."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Makes sense, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "per-key rate limits with headers exposing the budget",
+   "request/response logging with PII stripped",
+   "cursor-based pagination across all list endpoints",
+   "webhook signature verification",
+   "SDK generation for three languages",
+   "the sandbox environment for partner testing"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "GraphQL as an alternative surface"
+  ],
+  "decisions": [
+   "HMAC-SHA256 for webhook signatures",
+   "ISO 8601 timestamps in UTC",
+   "URL-based versioning over header negotiation",
+   "JSON only, no XML support",
+   "Kong as the API gateway",
+   "RFC 7807 problem details for errors"
+  ],
+  "files": [
+   "api/pagination.py",
+   "gateway/kong.yaml",
+   "api/routes/webhooks.py",
+   "sdk/python/client.py"
+  ],
+  "errors": [
+   "a breaking change shipped in a minor version",
+   "webhook deliveries duplicated after a consumer timeout"
+  ]
+ }
+}

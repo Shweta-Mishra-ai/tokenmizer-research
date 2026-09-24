@@ -1,0 +1,127 @@
+{
+ "id": "ho_platform_api_005",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a webhook delivery system."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll tackle a rate limit tier for enterprise keys tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with snake_case field naming throughout. GraphQL as an alternative surface hasn't been done yet."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build broke with rate limit headers reporting a stale budget. The build broke with inconsistent 404 versus 403 on unauthorised resources. I've finished cursor-based pagination across all list endpoints."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. The change is in api/pagination.py."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "We hit a breaking change shipped in a minor version. Consistent error envelopes with machine-readable codes is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with URL-based versioning over header negotiation."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is sunsetting v1 after the six-month window. If the migration fails, we roll back automatically. Request/response logging with PII stripped is now in place. Look at api/routes/webhooks.py for the details."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added the OpenAPI specification for every public route."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Webhook signature verification is done and tested. Sticking with RFC 7807 problem details for errors. Next I'll pick up a usage dashboard for API consumers."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "At-least-once webhook delivery with retries works now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cursor-based pagination across all list endpoints",
+   "webhook signature verification",
+   "request/response logging with PII stripped",
+   "consistent error envelopes with machine-readable codes",
+   "at-least-once webhook delivery with retries",
+   "the OpenAPI specification for every public route"
+  ],
+  "pending_tasks": [
+   "sunsetting v1 after the six-month window",
+   "a rate limit tier for enterprise keys",
+   "GraphQL as an alternative surface",
+   "a usage dashboard for API consumers"
+  ],
+  "decisions": [
+   "URL-based versioning over header negotiation",
+   "snake_case field naming throughout",
+   "RFC 7807 problem details for errors"
+  ],
+  "files": [
+   "api/pagination.py",
+   "api/routes/webhooks.py"
+  ],
+  "errors": [
+   "a breaking change shipped in a minor version",
+   "rate limit headers reporting a stale budget",
+   "inconsistent 404 versus 403 on unauthorised resources"
+  ]
+ }
+}

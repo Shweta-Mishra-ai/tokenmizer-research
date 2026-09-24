@@ -1,0 +1,126 @@
+{
+ "id": "ho_backend_go_004",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a metrics collector."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a metrics collector now."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: Dockerfile. Let me know if you want me to keep going. We decided on zerolog for logging."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: internal/store/postgres.go. We could also consider caching, but it's not needed yet. Remaining: replacing the mutex with a sharded map."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Approach: gRPC over REST for internal traffic."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: a worker pool bounded at 32 goroutines.\nThat should be it for this part.\n✅ The gRPC service definition and generated stubs.\nMerged: a circuit breaker around the downstream call."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: reducing allocations in the serialiser."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Left to do: distributed tracing spans across services."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: sqlc for type-safe database access. New file: internal/worker/pool.go. No errors on the last run. Exception: connection churn exhausting ephemeral ports."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: moving the config to environment variables."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: Prometheus metrics on the request path. Exception: a panic on malformed protobuf input. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] the retry policy with exponential backoff"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a worker pool bounded at 32 goroutines",
+   "the retry policy with exponential backoff",
+   "the gRPC service definition and generated stubs",
+   "Prometheus metrics on the request path",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "replacing the mutex with a sharded map",
+   "reducing allocations in the serialiser",
+   "distributed tracing spans across services",
+   "moving the config to environment variables"
+  ],
+  "decisions": [
+   "gRPC over REST for internal traffic",
+   "zerolog for logging",
+   "sqlc for type-safe database access"
+  ],
+  "files": [
+   "internal/worker/pool.go",
+   "Dockerfile",
+   "internal/store/postgres.go"
+  ],
+  "errors": [
+   "a panic on malformed protobuf input",
+   "connection churn exhausting ephemeral ports"
+  ]
+ }
+}

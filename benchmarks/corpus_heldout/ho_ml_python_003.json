@@ -1,0 +1,101 @@
+{
+ "id": "ho_ml_python_003",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an embedding search service."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an embedding search service now."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The feature engineering pipeline with 42 features took longer than planned but it's behind us now. Crossed batch inference over the full customer base off the list this morning. The on-call page last night was target leakage from a post-outcome feature."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of tests/test_features.py along the way."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up src/train.py again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Honestly MLflow for experiment tracking seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up configs/model.yaml again for a small tweak. Fine by me. With SHAP explanations for the top features sorted, the rest should go quicker. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "At some point retraining automation on a weekly cadence has to happen too. Had to open up requirements.txt again for a small tweak. Here's a quick summary of where things stand. Tracked the flakiness down to a silent dtype coercion dropping precision."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Optuna for hyperparameter search is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in Makefile, near the top. Fine by me. Crossed class imbalance handling with focal loss off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once a model registry entry for the release candidate was in, the flaky tests stopped. At some point documenting the model card has to happen too."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "class imbalance handling with focal loss",
+   "batch inference over the full customer base",
+   "a model registry entry for the release candidate",
+   "SHAP explanations for the top features",
+   "the feature engineering pipeline with 42 features"
+  ],
+  "pending_tasks": [
+   "documenting the model card",
+   "retraining automation on a weekly cadence"
+  ],
+  "decisions": [
+   "MLflow for experiment tracking",
+   "Optuna for hyperparameter search"
+  ],
+  "files": [
+   "Makefile",
+   "src/train.py",
+   "configs/model.yaml",
+   "tests/test_features.py",
+   "requirements.txt"
+  ],
+  "errors": [
+   "target leakage from a post-outcome feature",
+   "a silent dtype coercion dropping precision"
+  ]
+ }
+}

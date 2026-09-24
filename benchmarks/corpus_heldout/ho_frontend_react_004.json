@@ -1,0 +1,151 @@
+{
+ "id": "ho_frontend_react_004",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a checkout flow rewrite please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a checkout flow rewrite."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: Tailwind for styling.\n- `src/hooks/useMetrics.ts`"
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Status: form validation with inline error messages — complete. Final choice: Playwright for end-to-end tests."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Exception: a CORS failure against the staging API. Blocker: a race condition between two in-flight fetches."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: package.json."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ An infinite re-render from an unstable dependency array."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Decision: Vitest over Jest for the unit suite."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: code splitting on the route boundaries. Edited `src/store/session.ts`. Merged: dark mode using CSS custom properties."
+  },
+  {
+   "role": "user",
+   "content": "Go with Recharts for the visualisations."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: migrating the remaining class components."
+  },
+  {
+   "role": "user",
+   "content": "Decision: Vite as the build tool."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: React 19 with the compiler enabled."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: session persistence in localStorage."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] optimistic updates on the toggle controls\nTests pass locally; CI will confirm."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "session persistence in localStorage",
+   "dark mode using CSS custom properties",
+   "code splitting on the route boundaries",
+   "form validation with inline error messages",
+   "optimistic updates on the toggle controls"
+  ],
+  "pending_tasks": [
+   "migrating the remaining class components"
+  ],
+  "decisions": [
+   "Recharts for the visualisations",
+   "React 19 with the compiler enabled",
+   "Tailwind for styling",
+   "Playwright for end-to-end tests",
+   "Vite as the build tool",
+   "Vitest over Jest for the unit suite"
+  ],
+  "files": [
+   "src/store/session.ts",
+   "package.json",
+   "src/hooks/useMetrics.ts"
+  ],
+  "errors": [
+   "a race condition between two in-flight fetches",
+   "a CORS failure against the staging API",
+   "an infinite re-render from an unstable dependency array"
+  ]
+ }
+}

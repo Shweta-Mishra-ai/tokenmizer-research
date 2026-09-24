@@ -1,0 +1,141 @@
+{
+ "id": "ho_research_writing_004",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a literature review."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a literature review now."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up Makefile again for a small tweak. Before release, somebody needs to look at a plain-language summary for the blog post."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Reconciling the two conflicting result tables can wait until after the demo. Had to open up paper/evaluation.tex again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up paper/references.bib again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the reproducibility statement with exact commands was in, the flaky tests stopped. Before release, somebody needs to look at an ethics statement. Ended up rewriting half of paper/main.tex along the way."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of data/results.json along the way."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. A first pass at the methodology section took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The introduction cut from four pages to two took longer than planned but it's behind us now. Restructuring the argument around three claims took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "My gut says an explicit statement that the corpus is synthetic is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up paper/abstract.tex again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed releasing the corpus alongside the paper is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "Status on a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once a limitations section naming the sample size problem was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed peer feedback incorporated from two reviewers off the list this morning. Should we decide on naming later?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "peer feedback incorporated from two reviewers",
+   "the reproducibility statement with exact commands",
+   "a limitations section naming the sample size problem",
+   "a first pass at the methodology section",
+   "the introduction cut from four pages to two",
+   "restructuring the argument around three claims"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting result tables",
+   "a plain-language summary for the blog post",
+   "an ethics statement"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "an explicit statement that the corpus is synthetic"
+  ],
+  "files": [
+   "data/results.json",
+   "paper/evaluation.tex",
+   "paper/main.tex",
+   "Makefile",
+   "paper/abstract.tex",
+   "paper/references.bib"
+  ],
+  "errors": []
+ }
+}

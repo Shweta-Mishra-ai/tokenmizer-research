@@ -1,0 +1,135 @@
+{
+ "id": "ho_debug_production_001",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a latency incident investigation please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a latency incident investigation."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: reviewing the other call sites with the same pattern. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] a timeline of the incident from the metrics"
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "New file: src/pool.py."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "**Next steps:** cleaning up the temporary debug logging.\nProblem: a thundering herd on cache expiry.\nModified: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Go with increasing the connection pool as a stopgap."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: a permanent fix replacing the hotfix. Approach: py-spy for the production profiling."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: a canary deploy for the fix. Merged: confirming the hypothesis with a targeted experiment. Should we decide on naming later? Modified: src/client.py."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: ruling out the cache layer as the cause.\nFinal choice: a feature flag to disable the suspect path.\n**Done:** capturing a heap profile during the spike.\nLet me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Status on a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failure: a 30% error rate on the payment callback. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Please use sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status on a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Modified: monitoring/alerts.yaml."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a timeline of the incident from the metrics",
+   "confirming the hypothesis with a targeted experiment",
+   "capturing a heap profile during the spike",
+   "ruling out the cache layer as the cause"
+  ],
+  "pending_tasks": [
+   "reviewing the other call sites with the same pattern",
+   "cleaning up the temporary debug logging",
+   "a permanent fix replacing the hotfix"
+  ],
+  "decisions": [
+   "a feature flag to disable the suspect path",
+   "a canary deploy for the fix",
+   "py-spy for the production profiling",
+   "sampling traces at 10% rather than 1%",
+   "increasing the connection pool as a stopgap"
+  ],
+  "files": [
+   "src/client.py",
+   "logs/analysis.py",
+   "src/pool.py",
+   "monitoring/alerts.yaml"
+  ],
+  "errors": [
+   "a 30% error rate on the payment callback",
+   "a thundering herd on cache expiry"
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "id": "ho_infra_terraform_001",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a multi-account AWS layout."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a multi-account AWS layout now."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tagging enforced through a provider default took longer than planned but it's behind us now. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Checkov for policy scanning seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Before release, somebody needs to look at removing the last hardcoded account IDs. I'll explain the reasoning below. Ended up rewriting half of .github/workflows/plan.yml along the way."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed VPC flow logs shipped to the log bucket off the list this morning. Let's not forget about documenting the module interfaces."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in terraform/main.tf, near the top. Ended up rewriting half of terraform/variables.tf along the way. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, private subnets for every compute workload it is."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed a module for the standard service deployment off the list this morning. The retry wrapper handles failed requests with exponential backoff. The team agreed Terraform over CloudFormation is the way forward. The fix lives in environments/prod/terragrunt.hcl, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up terraform/iam.tf again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The NAT gateway consolidated to one per region took longer than planned but it's behind us now. The fix lives in terraform/rds.tf, near the top."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VPC flow logs shipped to the log bucket",
+   "a module for the standard service deployment",
+   "tagging enforced through a provider default",
+   "the NAT gateway consolidated to one per region"
+  ],
+  "pending_tasks": [
+   "removing the last hardcoded account IDs",
+   "documenting the module interfaces"
+  ],
+  "decisions": [
+   "Checkov for policy scanning",
+   "private subnets for every compute workload",
+   "Terraform over CloudFormation"
+  ],
+  "files": [
+   "terraform/rds.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/variables.tf",
+   "terraform/iam.tf",
+   ".github/workflows/plan.yml",
+   "terraform/main.tf"
+  ],
+  "errors": []
+ }
+}

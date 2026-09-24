@@ -1,0 +1,135 @@
+{
+ "id": "ho_debug_production_003",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a data corruption postmortem."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a data corruption postmortem now."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a data corruption postmortem?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in src/pool.py, near the top. An alert on the metric that would have caught it can wait until after the demo. With bisecting the regression to a single commit sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Status on a data corruption postmortem?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. Everything looked green, then a thundering herd on cache expiry again."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed a blameless postmortem format is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in scripts/repro.py, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of src/client.py along the way. Before release, somebody needs to look at a load test reproducing the traffic pattern."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Once capturing a heap profile during the spike was in, the flaky tests stopped. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? No more worrying about adding structured logging around the suspect path, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm. With correlating the errors with the deploy timeline sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Honestly reverting to the previous library version seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, an incident severity of SEV-2 it is. In the end a canary deploy for the fix was simpler than the alternatives. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a data corruption postmortem?"
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about the hotfix reverting the connection pool change, that part's handled. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Status on a data corruption postmortem?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Reproducing the failure in a staging environment took longer than planned but it's behind us now. Parking a follow-up on the third-party client bug report for now, it's not urgent. The fix lives in tests/test_regression.py, near the top."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "reproducing the failure in a staging environment",
+   "capturing a heap profile during the spike",
+   "correlating the errors with the deploy timeline",
+   "the hotfix reverting the connection pool change",
+   "bisecting the regression to a single commit",
+   "adding structured logging around the suspect path"
+  ],
+  "pending_tasks": [
+   "an alert on the metric that would have caught it",
+   "a follow-up on the third-party client bug report",
+   "a load test reproducing the traffic pattern"
+  ],
+  "decisions": [
+   "reverting to the previous library version",
+   "a canary deploy for the fix",
+   "an incident severity of SEV-2",
+   "a blameless postmortem format"
+  ],
+  "files": [
+   "src/pool.py",
+   "scripts/repro.py",
+   "tests/test_regression.py",
+   "src/client.py"
+  ],
+  "errors": [
+   "a thundering herd on cache expiry"
+  ]
+ }
+}

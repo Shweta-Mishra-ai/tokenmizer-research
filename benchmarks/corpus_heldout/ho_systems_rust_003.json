@@ -1,0 +1,119 @@
+{
+ "id": "ho_systems_rust_003",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a compression library."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "- `benches/parse.rs`\nThe error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: publishing the crate to crates.io.\n**Done:** cross-compilation for aarch64.\nLet me know if you want me to keep going.\nWe decided on serde with a custom binary format."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Final choice: parking_lot mutexes over the std ones."
+  },
+  {
+   "role": "user",
+   "content": "Go with arc-swap for the hot config reload."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me.\n- `src/buffer.rs`\nWe decided on thiserror for library errors and anyhow at the boundary."
+  },
+  {
+   "role": "user",
+   "content": "Go with rayon for the parallel scan."
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm.\nOK, will do.\n- `tests/roundtrip.rs`"
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] property tests over the encoder round trip\nStatus: criterion benchmarks on the parse loop — complete.\nModified: Cargo.toml."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: an async runtime built on tokio.\n✅ The streaming parser over a bounded buffer."
+  },
+  {
+   "role": "user",
+   "content": "Please use clap for argument parsing."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do.\nEdited `Cargo.lock`.\n**Done:** a no_std core module."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: fuzz/fuzz_targets/decode.rs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-compilation for aarch64",
+   "a no_std core module",
+   "the streaming parser over a bounded buffer",
+   "criterion benchmarks on the parse loop",
+   "an async runtime built on tokio",
+   "property tests over the encoder round trip"
+  ],
+  "pending_tasks": [
+   "publishing the crate to crates.io"
+  ],
+  "decisions": [
+   "arc-swap for the hot config reload",
+   "clap for argument parsing",
+   "rayon for the parallel scan",
+   "serde with a custom binary format",
+   "thiserror for library errors and anyhow at the boundary",
+   "parking_lot mutexes over the std ones"
+  ],
+  "files": [
+   "fuzz/fuzz_targets/decode.rs",
+   "src/buffer.rs",
+   "Cargo.lock",
+   "tests/roundtrip.rs",
+   "Cargo.toml",
+   "benches/parse.rs"
+  ],
+  "errors": []
+ }
+}

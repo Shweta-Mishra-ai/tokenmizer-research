@@ -1,0 +1,136 @@
+{
+ "id": "ho_data_streaming_004",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a real-time aggregation service please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a real-time aggregation service."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Exactly-once semantics on the aggregation job is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in config/kafka.yaml. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "How about backward-compatible schema evolution only?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Status on a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched connect/debezium.json as well."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Backpressure handling in the consumer loop works now. I've added windowed aggregation over five-minute tumbling windows. Consumer lag monitoring with alerting is done and tested. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How about consumer offsets committed after processing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. I'll tackle partitioning by tenant rather than by hash tomorrow. Let me know if you want me to keep going. Opting for keying events by aggregate ID for ordering."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in streams/windowing.py. The build broke with consumer lag growing unbounded during the nightly spike. Just merged an integration test spinning up a real broker."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at docker-compose.yml for the details."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The change data capture connector on the orders table is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed silent message loss from an auto-commit race in staging. Opting for a seven-day retention on the raw topics. The dead letter topic with a replay tool works now. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is a replay procedure for the last 24 hours. Should we decide on naming later?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backpressure handling in the consumer loop",
+   "consumer lag monitoring with alerting",
+   "exactly-once semantics on the aggregation job",
+   "windowed aggregation over five-minute tumbling windows",
+   "an integration test spinning up a real broker",
+   "the dead letter topic with a replay tool",
+   "the change data capture connector on the orders table"
+  ],
+  "pending_tasks": [
+   "a replay procedure for the last 24 hours",
+   "partitioning by tenant rather than by hash"
+  ],
+  "decisions": [
+   "keying events by aggregate ID for ordering",
+   "backward-compatible schema evolution only",
+   "consumer offsets committed after processing",
+   "a seven-day retention on the raw topics"
+  ],
+  "files": [
+   "docker-compose.yml",
+   "config/kafka.yaml",
+   "connect/debezium.json",
+   "streams/windowing.py"
+  ],
+  "errors": [
+   "silent message loss from an auto-commit race",
+   "consumer lag growing unbounded during the nightly spike"
+  ]
+ }
+}

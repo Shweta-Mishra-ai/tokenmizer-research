@@ -1,0 +1,162 @@
+{
+ "id": "ho_infra_terraform_002",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a cost optimisation pass."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Checkov for policy scanning is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Let's not forget about removing the last hardcoded account IDs. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Status on a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] encrypted EBS volumes across all instances"
+  },
+  {
+   "role": "user",
+   "content": "Go with a hub-and-spoke network topology."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. No more worrying about the VPC with public and private subnets across three zones, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: S3 lifecycle rules moving logs to Glacier after 90 days. Had to open up terraform/rds.tf again for a small tweak. I've finished remote state in S3 with DynamoDB locking."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of terraform/variables.tf along the way."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Final choice: Aurora Postgres over standard RDS. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Status on a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Crossed security groups restricted to named ports off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Seeing a plan diff from an untracked manual console change in the logs."
+  },
+  {
+   "role": "user",
+   "content": "Decision: one state file per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. OK, will do. Before release, somebody needs to look at a disaster recovery restore rehearsal."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll tackle a cost anomaly alert tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: environments/prod/terragrunt.hcl.\n**Next steps:** moving the legacy resources under Terraform."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "- `terraform/vpc.tf`"
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in modules/service/main.tf."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged CloudWatch alarms on the error rate metric. OIDC for CI authentication into AWS ended up being the pragmatic option. Worth noting: nothing here changes the public API."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "CloudWatch alarms on the error rate metric",
+   "the VPC with public and private subnets across three zones",
+   "security groups restricted to named ports",
+   "encrypted EBS volumes across all instances",
+   "remote state in S3 with DynamoDB locking"
+  ],
+  "pending_tasks": [
+   "a cost anomaly alert",
+   "removing the last hardcoded account IDs",
+   "a disaster recovery restore rehearsal",
+   "moving the legacy resources under Terraform"
+  ],
+  "decisions": [
+   "one state file per environment",
+   "Checkov for policy scanning",
+   "S3 lifecycle rules moving logs to Glacier after 90 days",
+   "a hub-and-spoke network topology",
+   "Aurora Postgres over standard RDS",
+   "OIDC for CI authentication into AWS"
+  ],
+  "files": [
+   "terraform/rds.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/variables.tf",
+   "modules/service/main.tf",
+   "terraform/vpc.tf"
+  ],
+  "errors": [
+   "a plan diff from an untracked manual console change"
+  ]
+ }
+}

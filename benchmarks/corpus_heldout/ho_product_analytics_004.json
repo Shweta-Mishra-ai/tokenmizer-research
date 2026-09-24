@@ -1,0 +1,117 @@
+{
+ "id": "ho_product_analytics_004",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a retention cohort study."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed excluding internal accounts from every metric is the way forward. The team agreed a two-week minimum experiment runtime is the way forward. Once the dashboard tracking the three north star metrics was in, the flaky tests stopped. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "With documentation of every metric definition sorted, the rest should go quicker. In the end a 95% confidence threshold for experiment calls was simpler than the alternatives. With weekly retention cohorts over six months sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up notebooks/churn_drivers.ipynb again for a small tweak. We could also consider caching, but it's not needed yet. A holdout group excluded from all experiments took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Honestly counting monthly actives on a rolling 28-day window seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "The on-call page last night was a double-counted signup event inflating the funnel top. That should be it for this part. The fix lives in analytics/significance.py, near the top. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Status on a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — peeking at results before the runtime completed."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Parking instrumenting the mobile funnel for now, it's not urgent."
+  },
+  {
+   "role": "user",
+   "content": "Status on a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "The on-call page last night was survivorship bias in the retention calculation. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about a qualitative follow-up with churned accounts. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm. Let's not forget about a guardrail metric on support ticket volume."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "weekly retention cohorts over six months",
+   "the dashboard tracking the three north star metrics",
+   "documentation of every metric definition",
+   "a holdout group excluded from all experiments"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts",
+   "a guardrail metric on support ticket volume",
+   "instrumenting the mobile funnel"
+  ],
+  "decisions": [
+   "a two-week minimum experiment runtime",
+   "excluding internal accounts from every metric",
+   "a 95% confidence threshold for experiment calls",
+   "counting monthly actives on a rolling 28-day window"
+  ],
+  "files": [
+   "notebooks/churn_drivers.ipynb",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "a double-counted signup event inflating the funnel top",
+   "peeking at results before the runtime completed",
+   "survivorship bias in the retention calculation"
+  ]
+ }
+}

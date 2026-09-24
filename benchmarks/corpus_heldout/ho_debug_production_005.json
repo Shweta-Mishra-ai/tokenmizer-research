@@ -1,0 +1,152 @@
+{
+ "id": "ho_debug_production_005",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up an intermittent failure investigation."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below.\n**Error:** a thundering herd on cache expiry."
+  },
+  {
+   "role": "user",
+   "content": "Please use reverting to the previous library version."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "New file: scripts/repro.py.\n✅ Reproducing the failure in a staging environment.\nLeft to do: cleaning up the temporary debug logging."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on a blameless postmortem format.\nModified: config/flags.yaml.\n**Decision:** a feature flag to disable the suspect path.\nI'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "✅ Bisecting the regression to a single commit."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** the postmortem document with action items.\nI'll explain the reasoning below.\n**Decision:** keeping the extra logging for two weeks."
+  },
+  {
+   "role": "user",
+   "content": "Go with rolling back before investigating further."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Next steps:** documenting the failure mode in the runbook.\nThe retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Decision: py-spy for the production profiling."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Makes sense, doing that. Files changed: tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: a load test reproducing the traffic pattern. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Problem: a 30% error rate on the payment callback."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: a timeline of the incident from the metrics."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a timeline of the incident from the metrics",
+   "the postmortem document with action items",
+   "reproducing the failure in a staging environment",
+   "bisecting the regression to a single commit"
+  ],
+  "pending_tasks": [
+   "cleaning up the temporary debug logging",
+   "a load test reproducing the traffic pattern",
+   "documenting the failure mode in the runbook"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "a blameless postmortem format",
+   "py-spy for the production profiling",
+   "reverting to the previous library version",
+   "a feature flag to disable the suspect path",
+   "keeping the extra logging for two weeks"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "tests/test_regression.py",
+   "logs/analysis.py",
+   "config/flags.yaml"
+  ],
+  "errors": [
+   "a 30% error rate on the payment callback",
+   "a thundering herd on cache expiry"
+  ]
+ }
+}

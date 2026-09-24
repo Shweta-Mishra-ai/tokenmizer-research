@@ -1,0 +1,111 @@
+{
+ "id": "ho_devops_kubernetes_001",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a cluster upgrade to 1.31."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a cluster upgrade to 1.31 now."
+  },
+  {
+   "role": "user",
+   "content": "My gut says a blue-green strategy for the database proxy is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Everything looked green, then CrashLoopBackOff after the config map rename again."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking a runbook for the failover procedure for now, it's not urgent. The fix lives in Dockerfile, near the top. The fix lives in k8s/networkpolicy.yaml, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of terraform/cluster.tf along the way. Pod disruption budgets for the stateful services took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Tightening the pod security admission profile can wait until after the demo."
+  },
+  {
+   "role": "user",
+   "content": "Honestly spot instances for the batch workloads seems like less hassle. My gut says cert-manager for TLS certificates is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Once the ingress with automatic certificate renewal was in, the flaky tests stopped. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in charts/api/values.yaml, near the top. The on-call page last night was certificate renewal failing the ACME HTTP challenge. No more worrying about resource requests and limits for all containers, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking moving the remaining cron jobs to Kubernetes for now, it's not urgent. Let's not forget about consolidating the three ingress controllers. No errors on the last run. Had to open up scripts/rollout.sh again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Status on a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed external-secrets backed by Vault is the way forward."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "resource requests and limits for all containers",
+   "pod disruption budgets for the stateful services",
+   "the ingress with automatic certificate renewal"
+  ],
+  "pending_tasks": [
+   "tightening the pod security admission profile",
+   "moving the remaining cron jobs to Kubernetes",
+   "consolidating the three ingress controllers",
+   "a runbook for the failover procedure"
+  ],
+  "decisions": [
+   "external-secrets backed by Vault",
+   "spot instances for the batch workloads",
+   "cert-manager for TLS certificates",
+   "a blue-green strategy for the database proxy"
+  ],
+  "files": [
+   "terraform/cluster.tf",
+   "scripts/rollout.sh",
+   "Dockerfile",
+   "charts/api/values.yaml",
+   "k8s/networkpolicy.yaml"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename",
+   "certificate renewal failing the ACME HTTP challenge"
+  ]
+ }
+}

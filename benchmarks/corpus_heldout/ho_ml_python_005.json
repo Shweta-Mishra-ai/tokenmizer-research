@@ -1,0 +1,118 @@
+{
+ "id": "ho_ml_python_005",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a demand forecasting pipeline please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a demand forecasting pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Decision: sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ Target leakage from a post-outcome feature.\nIf the migration fails, we roll back automatically.\nOK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** a model registry entry for the release candidate."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: ONNX export for the serving runtime.\n- [ ] calibrating the output probabilities\n- `requirements.txt`"
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: a time-based split to avoid leakage."
+  },
+  {
+   "role": "user",
+   "content": "Go with MLflow for experiment tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Remaining: a feature store migration. Left to do: reducing inference latency below 50ms. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status on a demand forecasting pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand.\n- `src/features.py`\n- [x] gradient boosting reaching 0.84 AUC\nBlocker: non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on scikit-learn pipelines for preprocessing."
+  },
+  {
+   "role": "user",
+   "content": "Status on a demand forecasting pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** the feature engineering pipeline with 42 features.\nEdited `src/evaluate.py`."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: documenting the model card. Here's a quick summary of where things stand."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the feature engineering pipeline with 42 features",
+   "a model registry entry for the release candidate",
+   "gradient boosting reaching 0.84 AUC"
+  ],
+  "pending_tasks": [
+   "calibrating the output probabilities",
+   "reducing inference latency below 50ms",
+   "documenting the model card",
+   "a feature store migration"
+  ],
+  "decisions": [
+   "a time-based split to avoid leakage",
+   "sentence-transformers for the text embeddings",
+   "MLflow for experiment tracking",
+   "ONNX export for the serving runtime",
+   "scikit-learn pipelines for preprocessing"
+  ],
+  "files": [
+   "requirements.txt",
+   "src/features.py",
+   "src/evaluate.py"
+  ],
+  "errors": [
+   "target leakage from a post-outcome feature",
+   "non-determinism from an unseeded shuffle"
+  ]
+ }
+}

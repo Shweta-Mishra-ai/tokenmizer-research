@@ -1,0 +1,88 @@
+{
+ "id": "ho_ml_python_004",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a document classifier."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a document classifier now."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added drift monitoring on the input distributions. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Go with sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Let's do scikit-learn pipelines for preprocessing."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. The error handling path is covered by the existing tests. Ended up rewriting half of data/schema.json along the way. Left to do: a fairness audit across customer segments."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] an offline evaluation against last quarter's data\nDecision: MLflow for experiment tracking."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed a silent dtype coercion dropping precision in staging.\nIf the migration fails, we roll back automatically.\n- `configs/model.yaml`\nChanges made: the feature engineering pipeline with 42 features."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll tackle documenting the model card tomorrow. If the migration fails, we roll back automatically."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the feature engineering pipeline with 42 features",
+   "an offline evaluation against last quarter's data",
+   "drift monitoring on the input distributions"
+  ],
+  "pending_tasks": [
+   "a fairness audit across customer segments",
+   "documenting the model card"
+  ],
+  "decisions": [
+   "scikit-learn pipelines for preprocessing",
+   "MLflow for experiment tracking",
+   "sentence-transformers for the text embeddings"
+  ],
+  "files": [
+   "data/schema.json",
+   "configs/model.yaml"
+  ],
+  "errors": [
+   "a silent dtype coercion dropping precision"
+  ]
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "id": "ho_mobile_ios_005",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a payments SDK integration."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** Keychain for token storage rather than UserDefaults.\nTests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `Sources/Widgets/ActivityWidget.swift`. Status: the subscription purchase and restore flow — complete. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `Package.swift`. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Exception: a crash from a missing NSMotionUsageDescription key.\n**Decision:** async/await instead of Combine for networking.\nWorth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "New file: App/Info.plist."
+  },
+  {
+   "role": "user",
+   "content": "Please use SwiftUI for all new screens."
+  },
+  {
+   "role": "assistant",
+   "content": "- [ ] watchOS companion app\nThe retry wrapper handles failed requests with exponential backoff.\nFine by me."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet.\nFiles changed: Tests/SyncTests.swift.\n✅ The SwiftUI onboarding sequence.\n- [x] unit tests for the sync reducer"
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on a modular package layout per feature. Approach: Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Status on a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Follow-up: an iPad layout for the summary screen."
+  },
+  {
+   "role": "user",
+   "content": "Go with iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ Memory growth from uncancelled image tasks.\nMakes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Status: deep links into the workout detail screen — complete. No errors on the last run."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the subscription purchase and restore flow",
+   "unit tests for the sync reducer",
+   "the SwiftUI onboarding sequence",
+   "deep links into the workout detail screen"
+  ],
+  "pending_tasks": [
+   "watchOS companion app",
+   "an iPad layout for the summary screen"
+  ],
+  "decisions": [
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftUI for all new screens",
+   "async/await instead of Combine for networking",
+   "iOS 17 as the minimum deployment target",
+   "a modular package layout per feature",
+   "Core Data over Realm for local storage"
+  ],
+  "files": [
+   "App/Info.plist",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Tests/SyncTests.swift",
+   "Package.swift"
+  ],
+  "errors": [
+   "memory growth from uncancelled image tasks",
+   "a crash from a missing NSMotionUsageDescription key"
+  ]
+ }
+}

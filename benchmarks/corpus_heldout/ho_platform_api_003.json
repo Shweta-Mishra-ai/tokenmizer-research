@@ -1,0 +1,109 @@
+{
+ "id": "ho_platform_api_003",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a partner integration please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a partner integration."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll tackle documenting the webhook replay procedure tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at docs/api/changelog.md for the details."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** JSON only, no XML support.\nSticking with HMAC-SHA256 for webhook signatures.\nShould we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: GraphQL as an alternative surface.\n- [x] at-least-once webhook delivery with retries\nException: rate limit headers reporting a stale budget."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I picked OpenAPI as the source of truth for SDK generation."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** exponential backoff with jitter for webhook retries.\n✅ Request/response logging with PII stripped.\nThe retry wrapper handles failed requests with exponential backoff.\nJust merged a deprecation header on the v1 routes."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The on-call page last night was webhook deliveries duplicated after a consumer timeout.\n❌ A breaking change shipped in a minor version."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in api/auth.py. Opting for ISO 8601 timestamps in UTC. We still have to do expanding the sandbox data set. Tests pass locally; CI will confirm."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a deprecation header on the v1 routes",
+   "request/response logging with PII stripped",
+   "at-least-once webhook delivery with retries"
+  ],
+  "pending_tasks": [
+   "documenting the webhook replay procedure",
+   "expanding the sandbox data set",
+   "GraphQL as an alternative surface"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "JSON only, no XML support",
+   "exponential backoff with jitter for webhook retries",
+   "ISO 8601 timestamps in UTC",
+   "HMAC-SHA256 for webhook signatures"
+  ],
+  "files": [
+   "docs/api/changelog.md",
+   "api/auth.py"
+  ],
+  "errors": [
+   "a breaking change shipped in a minor version",
+   "webhook deliveries duplicated after a consumer timeout",
+   "rate limit headers reporting a stale budget"
+  ]
+ }
+}

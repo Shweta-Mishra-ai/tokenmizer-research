@@ -1,0 +1,116 @@
+{
+ "id": "ho_research_writing_005",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a grant proposal please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a grant proposal."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: figures/architecture.py."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Getting a missing statistical test on the headline comparison on every run."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "An appendix documenting the corpus construction landed in the last commit. Look at paper/references.bib for the details."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. We'll go with including the negative result on implicit language."
+  },
+  {
+   "role": "user",
+   "content": "Honestly framing the contribution as a measurement study seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Reconciling the two conflicting result tables is still outstanding. We still have to do a final proofread pass. Fine by me. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: the introduction cut from four pages to two. Just merged the abstract rewritten to lead with the result. Next I'll pick up shortening to the eight-page limit."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up paper/abstract.tex again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Status: the related work section covering twelve papers — complete."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "New file: notes/outline.md. We hit the page count exceeding the submission limit."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the introduction cut from four pages to two",
+   "the abstract rewritten to lead with the result",
+   "the related work section covering twelve papers",
+   "an appendix documenting the corpus construction"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting result tables",
+   "shortening to the eight-page limit",
+   "a final proofread pass"
+  ],
+  "decisions": [
+   "framing the contribution as a measurement study",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "paper/abstract.tex",
+   "notes/outline.md",
+   "paper/references.bib"
+  ],
+  "errors": [
+   "the page count exceeding the submission limit",
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

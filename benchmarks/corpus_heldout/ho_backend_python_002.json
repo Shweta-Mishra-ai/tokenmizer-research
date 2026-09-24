@@ -1,0 +1,147 @@
+{
+ "id": "ho_backend_python_002",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a tenant provisioning API please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a tenant provisioning API."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in core/config.py. The retry wrapper handles failed requests with exponential backoff. Getting an IntegrityError on duplicate order submission on every run."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Connection pooling against Postgres is now in place. Let's standardise on Postgres over MySQL for JSONB support. Pagination on the list endpoints is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Up next is splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "We hit connection pool exhaustion under concurrent load. Look at api/models.py for the details."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The User model with email and hashed_password columns landed in the last commit. Sticking with pytest-asyncio for the async test suite. Request ID middleware for structured logging is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Let's do Redis for refresh token storage."
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Idempotency keys on the order create path landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Input validation on the payment payload is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next I'll pick up caching the catalogue lookup. OpenAPI schema generation for the public routes landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched tests/test_orders.py as well."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer Pydantic v2 for request validation."
+  },
+  {
+   "role": "assistant",
+   "content": "Opting for uvicorn behind gunicorn in production. Worth noting: nothing here changes the public API. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the email sender behind an interface hasn't been done yet. OK, will do. I'll tackle audit logging for admin actions tomorrow."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection pooling against Postgres",
+   "OpenAPI schema generation for the public routes",
+   "pagination on the list endpoints",
+   "idempotency keys on the order create path",
+   "input validation on the payment payload",
+   "request ID middleware for structured logging",
+   "the User model with email and hashed_password columns"
+  ],
+  "pending_tasks": [
+   "audit logging for admin actions",
+   "splitting the settings module per environment",
+   "caching the catalogue lookup",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "Postgres over MySQL for JSONB support",
+   "Pydantic v2 for request validation",
+   "UUIDv7 primary keys instead of integers",
+   "Redis for refresh token storage",
+   "uvicorn behind gunicorn in production",
+   "pytest-asyncio for the async test suite"
+  ],
+  "files": [
+   "tests/test_orders.py",
+   "core/config.py",
+   "api/models.py"
+  ],
+  "errors": [
+   "an IntegrityError on duplicate order submission",
+   "connection pool exhaustion under concurrent load"
+  ]
+ }
+}

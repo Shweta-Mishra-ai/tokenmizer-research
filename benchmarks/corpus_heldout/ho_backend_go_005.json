@@ -1,0 +1,187 @@
+{
+ "id": "ho_backend_go_005",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a file transfer service."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "I picked pgx as the Postgres driver. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Connection reuse in the HTTP client landed in the last commit. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Status on a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is moving the config to environment variables."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged Prometheus metrics on the request path. Look at cmd/server/main.go for the details."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Structured logging with request correlation is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into go.mod. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Context propagation through every handler is now in place. I touched internal/handler/orders.go as well."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "The gRPC service definition and generated stubs landed in the last commit. I've finished the retry policy with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is a soak test over 24 hours. Protobuf schema versioning is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with gRPC over REST for internal traffic."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Distributed tracing spans across services hasn't been done yet. Look at internal/store/postgres.go for the details."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build broke with a data race on the shared counter."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer errgroup for concurrent fan-out."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. The build broke with excessive allocations causing GC pressure."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Sticking with Go 1.23 as the toolchain."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? The change is in internal/handler/orders_test.go."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on golangci-lint in CI. Let me know if you want me to keep going."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection reuse in the HTTP client",
+   "context propagation through every handler",
+   "protobuf schema versioning",
+   "the gRPC service definition and generated stubs",
+   "structured logging with request correlation",
+   "Prometheus metrics on the request path",
+   "the retry policy with exponential backoff"
+  ],
+  "pending_tasks": [
+   "a soak test over 24 hours",
+   "moving the config to environment variables",
+   "distributed tracing spans across services"
+  ],
+  "decisions": [
+   "golangci-lint in CI",
+   "pgx as the Postgres driver",
+   "gRPC over REST for internal traffic",
+   "errgroup for concurrent fan-out",
+   "Go 1.23 as the toolchain"
+  ],
+  "files": [
+   "cmd/server/main.go",
+   "internal/store/postgres.go",
+   "internal/handler/orders_test.go",
+   "go.mod",
+   "internal/handler/orders.go"
+  ],
+  "errors": [
+   "a data race on the shared counter",
+   "excessive allocations causing GC pressure"
+  ]
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "id": "ho_backend_python_001",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a FastAPI orders service please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a FastAPI orders service."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: api/main.py. Follow-up: splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: connection pooling against Postgres."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: the Alembic baseline migration. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "✅ Background retry for failed webhook deliveries.\nChanges made: input validation on the payment payload."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Status: pytest fixtures for a throwaway database — complete. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `docker-compose.yml`. We decided on structlog for JSON log output. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: rate limiting on the auth routes. We could also consider caching, but it's not needed yet."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "New file: api/models.py.\n- `api/deps.py`\nThe retry wrapper handles failed requests with exponential backoff.\nEdited `core/config.py`."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Final choice: Redis for refresh token storage."
+  },
+  {
+   "role": "user",
+   "content": "Please use SQLAlchemy 2.0 with the async engine."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** UUIDv7 primary keys instead of integers.\nFine by me.\n**Done:** POST /api/orders and GET /api/orders/{id}."
+  },
+  {
+   "role": "user",
+   "content": "Go with Celery for the background worker."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** pagination on the list endpoints."
+  },
+  {
+   "role": "user",
+   "content": "Please use pytest-asyncio for the async test suite."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: moving the email sender behind an interface."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection pooling against Postgres",
+   "pagination on the list endpoints",
+   "input validation on the payment payload",
+   "POST /api/orders and GET /api/orders/{id}",
+   "pytest fixtures for a throwaway database",
+   "the Alembic baseline migration",
+   "background retry for failed webhook deliveries"
+  ],
+  "pending_tasks": [
+   "moving the email sender behind an interface",
+   "splitting the settings module per environment",
+   "rate limiting on the auth routes"
+  ],
+  "decisions": [
+   "Celery for the background worker",
+   "UUIDv7 primary keys instead of integers",
+   "pytest-asyncio for the async test suite",
+   "Redis for refresh token storage",
+   "structlog for JSON log output",
+   "SQLAlchemy 2.0 with the async engine"
+  ],
+  "files": [
+   "api/models.py",
+   "docker-compose.yml",
+   "core/config.py",
+   "api/main.py",
+   "api/deps.py"
+  ],
+  "errors": []
+ }
+}

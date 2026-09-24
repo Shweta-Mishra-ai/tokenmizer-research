@@ -1,0 +1,132 @@
+{
+ "id": "ho_data_streaming_003",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume an event schema migration please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming an event schema migration."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Final choice: a separate cluster for the analytics workloads. Modified: streams/aggregator.py. Changes made: consumer group rebalancing tuned for slow consumers."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `streams/consumer.py`."
+  },
+  {
+   "role": "user",
+   "content": "Status on an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later?\n- `connect/debezium.json`"
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [ ] tiered storage for the older segments"
+  },
+  {
+   "role": "user",
+   "content": "Decision: one topic per event type rather than a shared bus. Go with Avro with a schema registry for the payloads."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Fine by me. We could also consider caching, but it's not needed yet."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: the dead letter topic with a replay tool.\n- `schemas/order_placed.avsc`\n- `scripts/replay.py`\nTests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Go with a seven-day retention on the raw topics."
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "- `tests/test_aggregator.py`\nThe retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Status: compaction on the entity state topics — complete."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: exactly-once semantics on the aggregation job."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Open item: partitioning by tenant rather than by hash."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "compaction on the entity state topics",
+   "consumer group rebalancing tuned for slow consumers",
+   "the dead letter topic with a replay tool",
+   "exactly-once semantics on the aggregation job"
+  ],
+  "pending_tasks": [
+   "tiered storage for the older segments",
+   "partitioning by tenant rather than by hash"
+  ],
+  "decisions": [
+   "a separate cluster for the analytics workloads",
+   "a seven-day retention on the raw topics",
+   "Avro with a schema registry for the payloads",
+   "one topic per event type rather than a shared bus"
+  ],
+  "files": [
+   "tests/test_aggregator.py",
+   "scripts/replay.py",
+   "connect/debezium.json",
+   "streams/aggregator.py",
+   "schemas/order_placed.avsc",
+   "streams/consumer.py"
+  ],
+  "errors": []
+ }
+}

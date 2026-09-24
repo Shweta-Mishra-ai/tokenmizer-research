@@ -1,0 +1,136 @@
+{
+ "id": "ho_devops_ci_002",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a flaky test investigation please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a flaky test investigation."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "A merge queue for the busy repositories can wait until after the demo. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Honestly test retries limited to two attempts seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Parking publishing test timing history for now, it's not urgent. Had to open up tox.ini again for a small tweak. Let me know if you want me to keep going. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up Dockerfile again for a small tweak. Parallel test execution across four shards took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once dependency caching across pipeline runs was in, the flaky tests stopped. Let's not forget about self-hosted runners for the GPU tests. Coverage reporting posted to the pull request took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of conftest.py along the way. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Honestly release-please for version bumps seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. No more worrying about a matrix build over three Python versions, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ruff replacing flake8 and isort ended up being the pragmatic option. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of Makefile along the way. Ended up rewriting half of .github/workflows/release.yml along the way. Once container image build with layer caching was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about a rollback job for failed deploys."
+  },
+  {
+   "role": "user",
+   "content": "Status on a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. Ended up rewriting half of .github/dependabot.yml along the way."
+  },
+  {
+   "role": "user",
+   "content": "Status on a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Signed release artifacts took longer than planned but it's behind us now. Once quarantining the six flakiest tests was in, the flaky tests stopped. Worth noting: nothing here changes the public API."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a matrix build over three Python versions",
+   "container image build with layer caching",
+   "coverage reporting posted to the pull request",
+   "parallel test execution across four shards",
+   "quarantining the six flakiest tests",
+   "signed release artifacts",
+   "dependency caching across pipeline runs"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "self-hosted runners for the GPU tests",
+   "publishing test timing history",
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "ruff replacing flake8 and isort",
+   "release-please for version bumps",
+   "test retries limited to two attempts"
+  ],
+  "files": [
+   "Makefile",
+   "tox.ini",
+   ".github/dependabot.yml",
+   "conftest.py",
+   "Dockerfile",
+   ".github/workflows/release.yml"
+  ],
+  "errors": []
+ }
+}

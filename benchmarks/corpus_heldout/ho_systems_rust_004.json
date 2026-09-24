@@ -1,0 +1,98 @@
+{
+ "id": "ho_systems_rust_004",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an HTTP proxy."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an HTTP proxy now."
+  },
+  {
+   "role": "user",
+   "content": "Status on an HTTP proxy?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. I've finished the streaming parser over a bounded buffer."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an HTTP proxy?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at src/main.rs for the details. Most of the edits went into Cargo.toml. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Let's do cargo-deny for licence and advisory checks."
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged cross-compilation for aarch64. We still have to do reducing the binary size below 2MB. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Let's standardise on arc-swap for the hot config reload. I picked rayon for the parallel scan. The change is in benches/parse.rs."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an HTTP proxy?"
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is documenting the public API surface."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? An async runtime built on tokio works now. Most of the edits went into src/lib.rs."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. A miri run over the concurrency tests is still outstanding. I picked bincode for the wire encoding."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-compilation for aarch64",
+   "the streaming parser over a bounded buffer",
+   "an async runtime built on tokio"
+  ],
+  "pending_tasks": [
+   "reducing the binary size below 2MB",
+   "a miri run over the concurrency tests",
+   "documenting the public API surface"
+  ],
+  "decisions": [
+   "rayon for the parallel scan",
+   "arc-swap for the hot config reload",
+   "cargo-deny for licence and advisory checks",
+   "bincode for the wire encoding"
+  ],
+  "files": [
+   "src/main.rs",
+   "benches/parse.rs",
+   "Cargo.toml",
+   "src/lib.rs"
+  ],
+  "errors": []
+ }
+}

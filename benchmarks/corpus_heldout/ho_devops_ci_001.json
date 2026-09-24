@@ -1,0 +1,137 @@
+{
+ "id": "ho_devops_ci_001",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a release automation project."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Getting an out of disk space failure on the runner on every run."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. The change is in Dockerfile."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Coverage reporting posted to the pull request landed in the last commit. Most of the edits went into conftest.py. Up next is publishing test timing history."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged a nightly job running the slow integration suite. Noticed test pollution from an unreset global singleton in staging. Just merged artifact upload for the failing test logs. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. I've finished automated changelog generation on tag."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer Codecov for coverage tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with ruff replacing flake8 and isort. We hit a permissions error pushing the release tag."
+  },
+  {
+   "role": "user",
+   "content": "How about release-please for version bumps?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. I'll tackle a merge queue for the busy repositories tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "We still have to do a rollback job for failed deploys."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched Makefile as well. We could also consider caching, but it's not needed yet. I'll tackle deduplicating the three near-identical workflows tomorrow. Just merged dependency caching across pipeline runs."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched pyproject.toml as well. Tests pass locally; CI will confirm. The change is in tox.ini."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "artifact upload for the failing test logs",
+   "coverage reporting posted to the pull request",
+   "automated changelog generation on tag",
+   "a nightly job running the slow integration suite",
+   "dependency caching across pipeline runs"
+  ],
+  "pending_tasks": [
+   "publishing test timing history",
+   "deduplicating the three near-identical workflows",
+   "a rollback job for failed deploys",
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "Codecov for coverage tracking",
+   "release-please for version bumps",
+   "ruff replacing flake8 and isort"
+  ],
+  "files": [
+   "pyproject.toml",
+   "tox.ini",
+   "conftest.py",
+   "Makefile",
+   "Dockerfile"
+  ],
+  "errors": [
+   "a permissions error pushing the release tag",
+   "an out of disk space failure on the runner",
+   "test pollution from an unreset global singleton"
+  ]
+ }
+}

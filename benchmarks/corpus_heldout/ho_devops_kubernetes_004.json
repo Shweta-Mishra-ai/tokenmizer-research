@@ -1,0 +1,110 @@
+{
+ "id": "ho_devops_kubernetes_004",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a multi-region rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a multi-region rollout now."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. A canary stage in the deploy pipeline landed in the last commit. Per-namespace cost attribution is still outstanding. Let's standardise on cert-manager for TLS certificates."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Node affinity rules keeping the databases separate landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with spot instances for the batch workloads. Most of the edits went into k8s/hpa.yaml. We'll go with a blue-green strategy for the database proxy. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. We still have to do consolidating the three ingress controllers."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Opting for Karpenter instead of the cluster autoscaler. No errors on the last run. The Helm chart for the API deployment is now in place. Moving the remaining cron jobs to Kubernetes is still outstanding."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Seeing OOMKilled pods on the ingestion worker in the logs. A rolling deploy with surge and unavailable tuned is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Let's do ArgoCD for GitOps delivery."
+  },
+  {
+   "role": "assistant",
+   "content": "The secrets migration into the external secret store is now in place. Makes sense, doing that. Sticking with Velero for cluster backups."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at scripts/rollout.sh for the details."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the secrets migration into the external secret store",
+   "a canary stage in the deploy pipeline",
+   "a rolling deploy with surge and unavailable tuned",
+   "node affinity rules keeping the databases separate",
+   "the Helm chart for the API deployment"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes",
+   "consolidating the three ingress controllers",
+   "per-namespace cost attribution"
+  ],
+  "decisions": [
+   "Karpenter instead of the cluster autoscaler",
+   "ArgoCD for GitOps delivery",
+   "cert-manager for TLS certificates",
+   "a blue-green strategy for the database proxy",
+   "Velero for cluster backups",
+   "spot instances for the batch workloads"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "k8s/hpa.yaml"
+  ],
+  "errors": [
+   "OOMKilled pods on the ingestion worker"
+  ]
+ }
+}

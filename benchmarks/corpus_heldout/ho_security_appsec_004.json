@@ -1,0 +1,156 @@
+{
+ "id": "ho_security_appsec_004",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a secrets management migration."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of .github/workflows/security.yml along the way. Rather than overthinking it, short-lived tokens with refresh rotation it is. Ended up rewriting half of SECURITY.md along the way."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — session fixation after login."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of terraform/iam.tf along the way. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Status on a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. The team agreed Semgrep in the pull request pipeline is the way forward. Parking a security runbook for incident response for now, it's not urgent. Crossed signed container images in the registry off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Vault as the single secrets store seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Worth noting: nothing here changes the public API. Once rate limiting on the password reset endpoint was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Before release, somebody needs to look at automated dependency updates. Dependabot for dependency updates ended up being the pragmatic option. Had to open up security/middleware.py again for a small tweak. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The on-call page last night was an XSS in the comment renderer. Crossed session invalidation on password change off the list this morning. Let's not forget about a threat model for the payments flow. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Argon2id over bcrypt for new password hashes is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up docs/threat-model.md again for a small tweak. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the end a 90-day key rotation schedule was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. The on-call page last night was a SQL injection in the search filter."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed credential redaction on every log path off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. The fix lives in security/redaction.py, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about MFA enforcement for admin accounts."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "session invalidation on password change",
+   "signed container images in the registry",
+   "credential redaction on every log path",
+   "rate limiting on the password reset endpoint"
+  ],
+  "pending_tasks": [
+   "a security runbook for incident response",
+   "MFA enforcement for admin accounts",
+   "a threat model for the payments flow",
+   "automated dependency updates"
+  ],
+  "decisions": [
+   "Dependabot for dependency updates",
+   "Vault as the single secrets store",
+   "a 90-day key rotation schedule",
+   "Argon2id over bcrypt for new password hashes",
+   "short-lived tokens with refresh rotation",
+   "Semgrep in the pull request pipeline"
+  ],
+  "files": [
+   "security/redaction.py",
+   "docs/threat-model.md",
+   "SECURITY.md",
+   "terraform/iam.tf",
+   ".github/workflows/security.yml",
+   "security/middleware.py"
+  ],
+  "errors": [
+   "an XSS in the comment renderer",
+   "session fixation after login",
+   "a SQL injection in the search filter"
+  ]
+ }
+}

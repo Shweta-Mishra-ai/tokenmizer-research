@@ -1,0 +1,151 @@
+{
+ "id": "ho_platform_api_004",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an API gateway migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an API gateway migration now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `sdk/python/client.py`.\n**Next steps:** documenting the webhook replay procedure."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Status: SDK generation for three languages — complete."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "**Error:** clock skew invalidating webhook signatures.\nShould we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: gateway/kong.yaml. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Decision: OpenAPI as the source of truth for SDK generation."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] request/response logging with PII stripped\nHere's a quick summary of where things stand.\nApproach: ISO 8601 timestamps in UTC.\nEdited `api/errors.py`."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on snake_case field naming throughout."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet.\n**Decision:** OAuth 2.0 client credentials for machine access."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: the OpenAPI specification for every public route.\n- [x] cursor-based pagination across all list endpoints"
+  },
+  {
+   "role": "user",
+   "content": "Status on an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on exponential backoff with jitter for webhook retries. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going.\n- [x] consistent error envelopes with machine-readable codes\nMerged: per-key rate limits with headers exposing the budget."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: tests/test_webhooks.py. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand.\n- `api/auth.py`"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "per-key rate limits with headers exposing the budget",
+   "SDK generation for three languages",
+   "consistent error envelopes with machine-readable codes",
+   "request/response logging with PII stripped",
+   "the OpenAPI specification for every public route",
+   "cursor-based pagination across all list endpoints"
+  ],
+  "pending_tasks": [
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "ISO 8601 timestamps in UTC",
+   "snake_case field naming throughout",
+   "exponential backoff with jitter for webhook retries",
+   "OpenAPI as the source of truth for SDK generation",
+   "OAuth 2.0 client credentials for machine access"
+  ],
+  "files": [
+   "api/errors.py",
+   "sdk/python/client.py",
+   "api/auth.py",
+   "tests/test_webhooks.py",
+   "gateway/kong.yaml"
+  ],
+  "errors": [
+   "clock skew invalidating webhook signatures"
+  ]
+ }
+}

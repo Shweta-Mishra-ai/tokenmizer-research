@@ -1,0 +1,125 @@
+{
+ "id": "ho_debug_production_002",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume an intermittent failure investigation please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming an intermittent failure investigation."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reviewing the other call sites with the same pattern hasn't been done yet. Worth noting: nothing here changes the public API. I'll tackle documenting the failure mode in the runbook tomorrow. We still have to do an alert on the metric that would have caught it."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. The build broke with a cascading failure from the retry storm."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Look at src/client.py for the details."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I picked rolling back before investigating further. I touched logs/analysis.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Reproducing the failure in a staging environment is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "How about increasing the connection pool as a stopgap?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. I've added the postmortem document with action items."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged correlating the errors with the deploy timeline. Look at config/flags.yaml for the details."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer a feature flag to disable the suspect path."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Fine by me. Most of the edits went into src/handlers/checkout.py."
+  },
+  {
+   "role": "user",
+   "content": "Status on an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Ruling out the cache layer as the cause is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Adding structured logging around the suspect path is done and tested."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "ruling out the cache layer as the cause",
+   "reproducing the failure in a staging environment",
+   "correlating the errors with the deploy timeline",
+   "adding structured logging around the suspect path",
+   "the postmortem document with action items"
+  ],
+  "pending_tasks": [
+   "documenting the failure mode in the runbook",
+   "an alert on the metric that would have caught it",
+   "reviewing the other call sites with the same pattern"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "a feature flag to disable the suspect path",
+   "increasing the connection pool as a stopgap"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "src/client.py",
+   "logs/analysis.py",
+   "config/flags.yaml"
+  ],
+  "errors": [
+   "a cascading failure from the retry storm"
+  ]
+ }
+}

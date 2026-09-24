@@ -1,0 +1,127 @@
+{
+ "id": "ho_data_sql_005",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a warehouse migration please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a warehouse migration."
+  },
+  {
+   "role": "user",
+   "content": "Decision: soft deletes with a valid_to column."
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Fine by me. Merged: the star schema for the orders fact table. Sticking with Airflow for orchestration."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We decided on UTC everywhere for timestamps. Status: a covering index on the customer lookup — complete."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in macros/revenue.sql, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in sql/indexes.sql, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the end Snowflake over BigQuery for the warehouse was simpler than the alternatives.\nIf the migration fails, we roll back automatically.\n✅ Freshness tests on every source table."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on an ELT rather than ETL pattern. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. We still have to do moving the nightly job to an hourly cadence."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: the slowly changing dimension on customer tier. I picked Parquet as the landing format."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. A cost review of the warehouse spend hasn't been done yet. An anomaly alert on the daily order count hasn't been done yet. Noticed the nightly job timing out after 6 hours in staging."
+  },
+  {
+   "role": "user",
+   "content": "Status on a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched profiles.yml as well. Column-level lineage documentation works now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "column-level lineage documentation",
+   "freshness tests on every source table",
+   "the slowly changing dimension on customer tier",
+   "a covering index on the customer lookup",
+   "the star schema for the orders fact table"
+  ],
+  "pending_tasks": [
+   "an anomaly alert on the daily order count",
+   "moving the nightly job to an hourly cadence",
+   "a cost review of the warehouse spend"
+  ],
+  "decisions": [
+   "Airflow for orchestration",
+   "soft deletes with a valid_to column",
+   "Snowflake over BigQuery for the warehouse",
+   "Parquet as the landing format",
+   "UTC everywhere for timestamps",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "macros/revenue.sql",
+   "sql/indexes.sql",
+   "profiles.yml"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours"
+  ]
+ }
+}

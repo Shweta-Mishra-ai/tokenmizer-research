@@ -1,0 +1,152 @@
+{
+ "id": "ho_data_streaming_001",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an event schema migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an event schema migration now."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about the dead letter topic with a replay tool, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Had to open up docker-compose.yml again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "With compaction on the entity state topics sorted, the rest should go quicker. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about an integration test spinning up a real broker, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Consumer group rebalancing tuned for slow consumers took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "My gut says one topic per event type rather than a shared bus is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, keying events by aggregate ID for ordering it is. Makes sense, doing that. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of streams/aggregator.py along the way."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Everything looked green, then a schema incompatibility rejecting valid producers again."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Crossed exactly-once semantics on the aggregation job off the list this morning. Had to open up connect/debezium.json again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, backward-compatible schema evolution only it is. The fix lives in streams/dlq.py, near the top."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Flink for the stateful stream processing is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the ordering guarantees can wait until after the demo. OK, will do. Crossed consumer lag monitoring with alerting off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "With a schema registry entry for every event type sorted, the rest should go quicker. The fix lives in scripts/replay.py, near the top."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. The fix lives in config/kafka.yaml, near the top."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer group rebalancing tuned for slow consumers",
+   "the dead letter topic with a replay tool",
+   "an integration test spinning up a real broker",
+   "exactly-once semantics on the aggregation job",
+   "consumer lag monitoring with alerting",
+   "compaction on the entity state topics",
+   "a schema registry entry for every event type"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees"
+  ],
+  "decisions": [
+   "backward-compatible schema evolution only",
+   "one topic per event type rather than a shared bus",
+   "keying events by aggregate ID for ordering",
+   "Flink for the stateful stream processing"
+  ],
+  "files": [
+   "streams/aggregator.py",
+   "scripts/replay.py",
+   "streams/dlq.py",
+   "docker-compose.yml",
+   "config/kafka.yaml",
+   "connect/debezium.json"
+  ],
+  "errors": [
+   "a schema incompatibility rejecting valid producers"
+  ]
+ }
+}

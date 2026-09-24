@@ -1,0 +1,118 @@
+{
+ "id": "ho_security_appsec_005",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a compliance readiness review please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a compliance readiness review."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: dependency pinning with a lockfile. That should be it for this part. Changes made: CSP headers on all rendered responses."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once signed container images in the registry was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged encrypted secrets at rest in the vault. If the migration fails, we roll back automatically. The fix lives in SECURITY.md, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Follow-up: audit log retention policy."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched .gitleaks.toml as well."
+  },
+  {
+   "role": "user",
+   "content": "Please use Vault as the single secrets store."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end gitleaks as a pre-commit hook was simpler than the alternatives. Fine by me. Just merged least-privilege IAM roles for the workers."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "- `security/redaction.py`\nModified: security/middleware.py.\nI touched config/csp.json as well.\nThat should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: OIDC for single sign-on. New file: docs/threat-model.md. Up next is a security runbook for incident response."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Once rotation of the leaked deploy key was in, the flaky tests stopped. I've added input sanitisation on the file upload path."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "signed container images in the registry",
+   "least-privilege IAM roles for the workers",
+   "CSP headers on all rendered responses",
+   "input sanitisation on the file upload path",
+   "dependency pinning with a lockfile",
+   "encrypted secrets at rest in the vault",
+   "rotation of the leaked deploy key"
+  ],
+  "pending_tasks": [
+   "a security runbook for incident response",
+   "audit log retention policy"
+  ],
+  "decisions": [
+   "Vault as the single secrets store",
+   "OIDC for single sign-on",
+   "gitleaks as a pre-commit hook"
+  ],
+  "files": [
+   ".gitleaks.toml",
+   "security/redaction.py",
+   "docs/threat-model.md",
+   "security/middleware.py",
+   "config/csp.json",
+   "SECURITY.md"
+  ],
+  "errors": []
+ }
+}

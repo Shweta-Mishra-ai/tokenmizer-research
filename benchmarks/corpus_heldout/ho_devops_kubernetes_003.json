@@ -1,0 +1,133 @@
+{
+ "id": "ho_devops_kubernetes_003",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a multi-region rollout."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `k8s/networkpolicy.yaml`. Files changed: charts/api/templates/deployment.yaml. Modified: scripts/rollout.sh."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: Prometheus and Grafana for metrics. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Go with cert-manager for TLS certificates."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. New file: charts/api/values.yaml. Left to do: an upgrade rehearsal in staging."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `k8s/hpa.yaml`. Files changed: argocd/apps/api.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run.\nChanges made: the ingress with automatic certificate renewal.\n**Decision:** Kustomize overlays per environment."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. We decided on spot instances for the batch workloads."
+  },
+  {
+   "role": "user",
+   "content": "Decision: ArgoCD for GitOps delivery."
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: consolidating the three ingress controllers. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "✅ Network policies isolating the payments namespace."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: resource requests and limits for all containers. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: pod disruption budgets for the stateful services."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "network policies isolating the payments namespace",
+   "the ingress with automatic certificate renewal",
+   "resource requests and limits for all containers",
+   "pod disruption budgets for the stateful services"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers",
+   "an upgrade rehearsal in staging"
+  ],
+  "decisions": [
+   "cert-manager for TLS certificates",
+   "Kustomize overlays per environment",
+   "spot instances for the batch workloads",
+   "Prometheus and Grafana for metrics",
+   "ArgoCD for GitOps delivery"
+  ],
+  "files": [
+   "k8s/hpa.yaml",
+   "argocd/apps/api.yaml",
+   "charts/api/values.yaml",
+   "charts/api/templates/deployment.yaml",
+   "k8s/networkpolicy.yaml",
+   "scripts/rollout.sh"
+  ],
+  "errors": []
+ }
+}

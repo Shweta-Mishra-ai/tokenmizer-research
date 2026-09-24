@@ -1,0 +1,119 @@
+{
+ "id": "ho_data_sql_003",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a reporting layer rebuild."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next I'll pick up unit tests for the revenue macro. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Let's do UTC everywhere for timestamps."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. No errors on the last run. I touched scripts/backfill.py as well."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched models/marts/dim_customer.sql as well. Just merged backfilling six months of historical revenue."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in dags/daily_refresh.py. Let me know if you want me to keep going. Opting for soft deletes with a valid_to column."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into profiles.yml. The retry wrapper handles failed requests with exponential backoff. We'll go with Parquet as the landing format. Look at models/marts/fct_orders.sql for the details."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed timezone drift between the source and warehouse in staging. Just merged a materialised view for the executive dashboard. We hit a schema drift break when the source added a column. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Archiving events older than two years hasn't been done yet. Just merged deduplication on the raw event stream. Look at macros/revenue.sql for the details. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged a covering index on the customer lookup."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Freshness tests on every source table is now in place."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "a covering index on the customer lookup",
+   "a materialised view for the executive dashboard",
+   "deduplication on the raw event stream",
+   "freshness tests on every source table"
+  ],
+  "pending_tasks": [
+   "archiving events older than two years",
+   "unit tests for the revenue macro"
+  ],
+  "decisions": [
+   "Parquet as the landing format",
+   "UTC everywhere for timestamps",
+   "soft deletes with a valid_to column"
+  ],
+  "files": [
+   "macros/revenue.sql",
+   "dags/daily_refresh.py",
+   "models/marts/fct_orders.sql",
+   "profiles.yml",
+   "models/marts/dim_customer.sql",
+   "scripts/backfill.py"
+  ],
+  "errors": [
+   "timezone drift between the source and warehouse",
+   "a schema drift break when the source added a column"
+  ]
+ }
+}

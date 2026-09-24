@@ -1,0 +1,108 @@
+{
+ "id": "ho_data_streaming_002",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a real-time aggregation service."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a real-time aggregation service now."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer Debezium for change data capture. My gut says Kafka over Kinesis for the event backbone is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. OK, will do. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Ended up rewriting half of config/kafka.yaml along the way. Crossed the change data capture connector on the orders table off the list this morning. Windowed aggregation over five-minute tumbling windows landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: backpressure handling in the consumer loop. Once consumer lag monitoring with alerting was in, the flaky tests stopped. Checkpointing to durable storage every 30 seconds is now in place. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Decision: protobuf for the internal service events."
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed consumer group rebalancing tuned for slow consumers off the list this morning. Fine by me. Tiered storage for the older segments is still outstanding."
+  },
+  {
+   "role": "user",
+   "content": "Decision: a seven-day retention on the raw topics. My gut says consumer offsets committed after processing is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Here's a quick summary of where things stand. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Migrating the remaining consumers off the v1 schema hasn't been done yet. Should we decide on naming later?"
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Most of the edits went into connect/debezium.json."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Avro with a schema registry for the payloads seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "windowed aggregation over five-minute tumbling windows",
+   "consumer lag monitoring with alerting",
+   "checkpointing to durable storage every 30 seconds",
+   "the change data capture connector on the orders table",
+   "consumer group rebalancing tuned for slow consumers",
+   "backpressure handling in the consumer loop"
+  ],
+  "pending_tasks": [
+   "tiered storage for the older segments",
+   "migrating the remaining consumers off the v1 schema"
+  ],
+  "decisions": [
+   "Debezium for change data capture",
+   "Avro with a schema registry for the payloads",
+   "a seven-day retention on the raw topics",
+   "Kafka over Kinesis for the event backbone",
+   "consumer offsets committed after processing",
+   "protobuf for the internal service events"
+  ],
+  "files": [
+   "config/kafka.yaml",
+   "connect/debezium.json"
+  ],
+  "errors": []
+ }
+}

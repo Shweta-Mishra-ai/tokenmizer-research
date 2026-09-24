@@ -1,0 +1,126 @@
+{
+ "id": "ho_infra_terraform_005",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a networking rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a networking rebuild."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a networking rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in terraform/main.tf, near the top. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Tracked the flakiness down to subnet exhaustion in the primary availability zone."
+  },
+  {
+   "role": "user",
+   "content": "Status on a networking rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about a read replica in the secondary region, that part's handled. That should be it for this part. Rather than overthinking it, Terragrunt for the DRY module wiring it is."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. Tagging enforced through a provider default took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "A cost anomaly alert can wait until after the demo. One state file per environment ended up being the pragmatic option."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a networking rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Had to open up modules/service/main.tf again for a small tweak. Terraform over CloudFormation ended up being the pragmatic option. The team agreed OIDC for CI authentication into AWS is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Removing the last hardcoded account IDs can wait until after the demo."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. With IAM roles scoped per service sorted, the rest should go quicker. Once remote state in S3 with DynamoDB locking was in, the flaky tests stopped. The fix lives in .github/workflows/plan.yml, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Status on a networking rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "At some point policy-as-code checks in the plan stage has to happen too."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The VPC with public and private subnets across three zones took longer than planned but it's behind us now. At some point a drift detection job on a daily schedule has to happen too."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "IAM roles scoped per service",
+   "remote state in S3 with DynamoDB locking",
+   "a read replica in the secondary region",
+   "the VPC with public and private subnets across three zones",
+   "tagging enforced through a provider default"
+  ],
+  "pending_tasks": [
+   "removing the last hardcoded account IDs",
+   "policy-as-code checks in the plan stage",
+   "a drift detection job on a daily schedule",
+   "a cost anomaly alert"
+  ],
+  "decisions": [
+   "Terraform over CloudFormation",
+   "Terragrunt for the DRY module wiring",
+   "one state file per environment",
+   "OIDC for CI authentication into AWS"
+  ],
+  "files": [
+   "terraform/main.tf",
+   "modules/service/main.tf",
+   ".github/workflows/plan.yml"
+  ],
+  "errors": [
+   "subnet exhaustion in the primary availability zone"
+  ]
+ }
+}

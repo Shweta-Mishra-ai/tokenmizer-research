@@ -1,0 +1,129 @@
+{
+ "id": "ho_product_analytics_003",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a pricing change evaluation."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged statistical significance testing on the primary metric. Noticed peeking at results before the runtime completed in staging. Next I'll pick up reconciling the two conflicting active-user counts."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched analytics/cohorts.sql as well. I touched docs/metric_definitions.md as well."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Just merged the event taxonomy covering fourteen product actions."
+  },
+  {
+   "role": "user",
+   "content": "Status on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've finished the experiment assignment and exposure logging. Documentation of every metric definition landed in the last commit. Most of the edits went into tests/test_metrics.py."
+  },
+  {
+   "role": "user",
+   "content": "How about reporting absolute lift alongside relative?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The change is in notebooks/churn_drivers.ipynb. Just merged a holdout group excluded from all experiments."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Seeing timezone mismatch splitting one day across two cohorts in the logs. A sample size calculation for the pricing test is done and tested. We could also consider caching, but it's not needed yet. I touched analytics/experiments.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Look at dashboards/north_star.json for the details."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build broke with survivorship bias in the retention calculation. We could also consider caching, but it's not needed yet."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "A segment definition for activated accounts is done and tested. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "How about one primary metric per experiment?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Worth noting: nothing here changes the public API. We still have to do sunsetting the legacy dashboard."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a holdout group excluded from all experiments",
+   "documentation of every metric definition",
+   "the experiment assignment and exposure logging",
+   "statistical significance testing on the primary metric",
+   "a sample size calculation for the pricing test",
+   "the event taxonomy covering fourteen product actions",
+   "a segment definition for activated accounts"
+  ],
+  "pending_tasks": [
+   "sunsetting the legacy dashboard",
+   "reconciling the two conflicting active-user counts"
+  ],
+  "decisions": [
+   "one primary metric per experiment",
+   "reporting absolute lift alongside relative"
+  ],
+  "files": [
+   "notebooks/churn_drivers.ipynb",
+   "analytics/experiments.py",
+   "analytics/cohorts.sql",
+   "tests/test_metrics.py",
+   "dashboards/north_star.json",
+   "docs/metric_definitions.md"
+  ],
+  "errors": [
+   "peeking at results before the runtime completed",
+   "timezone mismatch splitting one day across two cohorts",
+   "survivorship bias in the retention calculation"
+  ]
+ }
+}
