@@ -74,6 +74,26 @@ slower. Full before/after analysis, including the root cause:
 [`benchmarks/results/REPORT_post_0.5.4.md`](benchmarks/results/REPORT_post_0.5.4.md).
 The paper still reports the released 0.5.4.
 
+### Extraction rounds on unreleased `main` (2026-09-25)
+
+Two rounds of extraction work on the product branch, measured on three
+corpora. Of these, **only held-out v2 was never tuned against**:
+
+| Corpus | Before (`a184cf1`) | After (`b6a5422`) |
+|---|---:|---:|
+| Main corpus (n=100). Tuned against it. | 61% | 92% |
+| Held-out v1 (n=80). Contaminated by round 3. | 40% | 79% |
+| **Held-out v2 (n=80). Never tuned against.** | **33%** | **51%** |
+
+The honest gain is **+17.4 points [+14.6, +20.4]** on phrasing the fixes
+never saw. It came with precision up in every category, extraction about 22%
+slower (15 → 19 ms median per session), and resume blocks about 47% larger.
+Pending-task recall (19%) and errors (45% F1) on held-out v2 remain weak,
+and pattern matching has a ceiling on implicit phrasing. The comparison
+methods are regex reimplementations, not the vendor products, so none of
+this is a claim against Mem0 or Zep. Full protocol and numbers:
+[`benchmarks/results/REPORT_extraction_rounds.md`](benchmarks/results/REPORT_extraction_rounds.md).
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
@@ -95,6 +115,8 @@ benchmarks/
                               scorer, synthetic-session generator, and all
                               eight method implementations
   corpus/                    100 labelled sessions (94 generated, 6 real)
+  corpus_heldout/            80 held-out sessions, disjoint templates (v1)
+  corpus_heldout2/           80 held-out sessions, a third template set (v2)
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
   checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;

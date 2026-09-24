@@ -83,6 +83,11 @@ at it, and none of the changes is architectural.
 
 ## Regressions — root-caused
 
+> **Update, 2026-09-25:** both defects below are fixed in product commit
+> `9554b39` (adjectival "failed" and the contraction-tail label), with
+> tests. See [`REPORT_extraction_rounds.md`](REPORT_extraction_rounds.md)
+> for the follow-up work and its measurement on held-out phrasing.
+
 Six sessions scored lower. The two large ones share one cause, and it is a
 **product bug** introduced by the new error patterns, not benchmark noise:
 
