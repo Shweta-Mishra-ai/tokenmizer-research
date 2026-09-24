@@ -1,0 +1,96 @@
+{
+ "id": "ho2_security_appsec_004",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a compliance readiness review."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a compliance readiness review."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves CSP headers on all rendered responses behind us. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards Vault as the single secrets store."
+  },
+  {
+   "role": "assistant",
+   "content": ".gitleaks.toml got a few more lines. That leaves least-privilege IAM roles for the workers behind us. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, a deny-by-default egress policy wins."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "terraform/iam.tf got a few more lines. We landed on a 90-day key rotation schedule. Audit log retention policy keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Between the options, field-level encryption for PII columns came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, Argon2id over bcrypt for new password hashes wins. We landed on Trivy for container image scanning."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Rotation of the leaked deploy key is no longer on my plate."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "rotation of the leaked deploy key",
+   "least-privilege IAM roles for the workers",
+   "CSP headers on all rendered responses"
+  ],
+  "pending_tasks": [
+   "audit log retention policy"
+  ],
+  "decisions": [
+   "Argon2id over bcrypt for new password hashes",
+   "a deny-by-default egress policy",
+   "a 90-day key rotation schedule",
+   "Trivy for container image scanning",
+   "field-level encryption for PII columns",
+   "Vault as the single secrets store"
+  ],
+  "files": [
+   ".gitleaks.toml",
+   "terraform/iam.tf"
+  ],
+  "errors": []
+ }
+}

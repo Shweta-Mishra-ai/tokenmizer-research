@@ -1,0 +1,144 @@
+{
+ "id": "ho2_data_streaming_004",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a real-time aggregation service back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a real-time aggregation service."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need to do partitioning by tenant rather than by hash next."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consumer group rebalancing tuned for slow consumers went out this morning. Managed to finish checkpointing to durable storage every 30 seconds."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Running into a poison message halting the consumer group."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "The topic layout with twelve partitions per stream went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I still owe you tiered storage for the older segments."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish an integration test spinning up a real broker."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in streams/windowing.py. I put it in streams/dlq.py. The change data capture connector on the orders table is finished."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "We keep getting offset commit failures under broker restart."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in connect/debezium.json."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Avro with a schema registry for the payloads?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Windowed aggregation over five-minute tumbling windows is finished. Once the build is green we can merge. I'd go with a seven-day retention on the raw topics."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is keying events by aggregate ID for ordering. I'd go with Debezium for change data capture. Haven't gotten to documenting the ordering guarantees."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. See tests/test_aggregator.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an integration test spinning up a real broker",
+   "windowed aggregation over five-minute tumbling windows",
+   "checkpointing to durable storage every 30 seconds",
+   "the topic layout with twelve partitions per stream",
+   "the change data capture connector on the orders table",
+   "consumer group rebalancing tuned for slow consumers"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees",
+   "partitioning by tenant rather than by hash",
+   "tiered storage for the older segments"
+  ],
+  "decisions": [
+   "Debezium for change data capture",
+   "Avro with a schema registry for the payloads",
+   "a seven-day retention on the raw topics",
+   "keying events by aggregate ID for ordering"
+  ],
+  "files": [
+   "streams/dlq.py",
+   "tests/test_aggregator.py",
+   "connect/debezium.json",
+   "streams/windowing.py"
+  ],
+  "errors": [
+   "a poison message halting the consumer group",
+   "offset commit failures under broker restart"
+  ]
+ }
+}

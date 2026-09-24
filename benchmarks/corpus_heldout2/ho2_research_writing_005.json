@@ -1,0 +1,115 @@
+{
+ "id": "ho2_research_writing_005",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a technical design document."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a technical design document."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — the related work section covering twelve papers. Between the options, a single-column layout for the preprint came out ahead. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "[done] the introduction cut from four pages to two"
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Between the options, the ACL template over the generic LaTeX class came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in paper/references.bib. A first pass at the methodology section is finished."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report restructuring the argument around three claims is sorted. Resolution: an explicit statement that the corpus is synthetic. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A limitations section naming the sample size problem is no longer on my plate. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reconciling the two conflicting result tables keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on targeting the workshop deadline rather than the main track."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Turns out the flakiness was a missing statistical test on the headline comparison. Edits are in paper/abstract.tex. An appendix documenting the corpus construction is finished."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a limitations section naming the sample size problem",
+   "restructuring the argument around three claims",
+   "an appendix documenting the corpus construction",
+   "the related work section covering twelve papers",
+   "a first pass at the methodology section",
+   "the introduction cut from four pages to two"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "the ACL template over the generic LaTeX class",
+   "targeting the workshop deadline rather than the main track",
+   "a single-column layout for the preprint",
+   "an explicit statement that the corpus is synthetic"
+  ],
+  "files": [
+   "paper/references.bib",
+   "paper/abstract.tex"
+  ],
+  "errors": [
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "id": "ho2_systems_rust_003",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a compression library."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a compression library."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "[done] a lock-free ring buffer for the writer"
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** SIMD acceleration on the checksum path."
+  },
+  {
+   "role": "user",
+   "content": "I want bincode for the wire encoding."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with parking_lot mutexes over the std ones. [ ] reducing the binary size below 2MB"
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Next task: documenting the public API surface."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** fuzzing the input decoder with cargo-fuzz.\nChosen: tokio over async-std for the runtime.\nDecision made: rayon for the parallel scan."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: the streaming parser over a bounded buffer. Error — unbounded memory growth in the buffer pool. [done] a no_std core module"
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — criterion benchmarks on the parse loop. Next task: profiling the allocation hot path."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: tests/roundtrip.rs.\n**Bug:** integer overflow in the length calculation.\nTouched: benches/parse.rs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "fuzzing the input decoder with cargo-fuzz",
+   "criterion benchmarks on the parse loop",
+   "SIMD acceleration on the checksum path",
+   "the streaming parser over a bounded buffer",
+   "a lock-free ring buffer for the writer",
+   "a no_std core module"
+  ],
+  "pending_tasks": [
+   "reducing the binary size below 2MB",
+   "documenting the public API surface",
+   "profiling the allocation hot path"
+  ],
+  "decisions": [
+   "rayon for the parallel scan",
+   "tokio over async-std for the runtime",
+   "bincode for the wire encoding",
+   "parking_lot mutexes over the std ones"
+  ],
+  "files": [
+   "benches/parse.rs",
+   "tests/roundtrip.rs"
+  ],
+  "errors": [
+   "integer overflow in the length calculation",
+   "unbounded memory growth in the buffer pool"
+  ]
+ }
+}

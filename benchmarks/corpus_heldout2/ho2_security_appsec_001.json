@@ -1,0 +1,117 @@
+{
+ "id": "ho2_security_appsec_001",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a compliance readiness review."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a compliance readiness review."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Chosen: Dependabot for dependency updates."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chosen: Semgrep in the pull request pipeline. After a couple of tries, an SBOM generated at build time finally works. Root of the pain: a timing attack on the token comparison. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — encrypted secrets at rest in the vault. I'd like to get MFA enforcement for admin accounts in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** least-privilege IAM roles for the workers.\nRotation of the leaked deploy key: done.\nPager went off for an SSRF in the webhook fetcher again."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report signed container images in the registry is sorted. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. ✔ Dependency pinning with a lockfile"
+  },
+  {
+   "role": "user",
+   "content": "Personally field-level encryption for PII columns feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. [ ] a review of the CORS allowlist A threat model for the payments flow is waiting on me. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. SECURITY.md got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "security/middleware.py got a few more lines. No regressions so far."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dependency pinning with a lockfile",
+   "signed container images in the registry",
+   "least-privilege IAM roles for the workers",
+   "encrypted secrets at rest in the vault",
+   "rotation of the leaked deploy key",
+   "an SBOM generated at build time"
+  ],
+  "pending_tasks": [
+   "a review of the CORS allowlist",
+   "MFA enforcement for admin accounts",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "Dependabot for dependency updates",
+   "field-level encryption for PII columns",
+   "Semgrep in the pull request pipeline"
+  ],
+  "files": [
+   "security/middleware.py",
+   "SECURITY.md"
+  ],
+  "errors": [
+   "a timing attack on the token comparison",
+   "an SSRF in the webhook fetcher"
+  ]
+ }
+}

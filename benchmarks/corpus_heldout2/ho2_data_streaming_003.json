@@ -1,0 +1,168 @@
+{
+ "id": "ho2_data_streaming_003",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a real-time aggregation service."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a real-time aggregation service."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Still open: migrating the remaining consumers off the v1 schema."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — an integration test spinning up a real broker. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge.\n**Choice:** Avro with a schema registry for the payloads."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: Debezium for change data capture. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "I want Flink for the stateful stream processing."
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Let's use Kafka over Kinesis for the event backbone."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Stick with backward-compatible schema evolution only."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: tests/test_aggregator.py. Good call, switching. No regressions so far. Queued: tiered storage for the older segments."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "[done] consumer lag monitoring with alerting"
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? ✔ The change data capture connector on the orders table ✔ Backpressure handling in the consumer loop"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a real-time aggregation service?"
+  },
+  {
+   "role": "assistant",
+   "content": "✔ The topic layout with twelve partitions per stream"
+  },
+  {
+   "role": "user",
+   "content": "Let's use consumer offsets committed after processing."
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: consumer group rebalancing tuned for slow consumers. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug found: a poison message halting the consumer group."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: a cost review of the broker cluster. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: scripts/replay.py. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `schemas/order_placed.avsc`"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the topic layout with twelve partitions per stream",
+   "consumer lag monitoring with alerting",
+   "an integration test spinning up a real broker",
+   "backpressure handling in the consumer loop",
+   "the change data capture connector on the orders table",
+   "consumer group rebalancing tuned for slow consumers"
+  ],
+  "pending_tasks": [
+   "a cost review of the broker cluster",
+   "tiered storage for the older segments",
+   "migrating the remaining consumers off the v1 schema"
+  ],
+  "decisions": [
+   "Kafka over Kinesis for the event backbone",
+   "consumer offsets committed after processing",
+   "Avro with a schema registry for the payloads",
+   "backward-compatible schema evolution only",
+   "Debezium for change data capture",
+   "Flink for the stateful stream processing"
+  ],
+  "files": [
+   "scripts/replay.py",
+   "schemas/order_placed.avsc",
+   "tests/test_aggregator.py"
+  ],
+  "errors": [
+   "a poison message halting the consumer group"
+  ]
+ }
+}

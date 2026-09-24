@@ -1,0 +1,153 @@
+{
+ "id": "ho2_backend_go_002",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a gRPC gateway service."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a gRPC gateway service."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makefile got a few more lines. go.mod got a few more lines. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report protobuf schema versioning is sorted. Retries only apply to failed jobs. internal/store/postgres.go got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report the retry policy with exponential backoff is sorted."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Between the options, a monorepo layout with internal packages came out ahead. Glad to report benchmark tests on the hot encode path is sorted. Table-driven tests for the parser is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Eventually moving the config to environment variables has to get done too."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "A fuzz test on the decoder keeps slipping. internal/worker/pool.go got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards buf for protobuf linting and generation."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Root of the pain: context deadline exceeded on the upstream call. Turned out cmd/server/main.go was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, structured logging with request correlation finally works."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out internal/handler/orders.go was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Pager went off for a deadlock between the two mutexes again."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, OpenTelemetry for traces came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pgx as the Postgres driver is the clear winner here. Turns out the flakiness was a data race on the shared counter."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the retry policy with exponential backoff",
+   "protobuf schema versioning",
+   "structured logging with request correlation",
+   "table-driven tests for the parser",
+   "benchmark tests on the hot encode path"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "a fuzz test on the decoder"
+  ],
+  "decisions": [
+   "buf for protobuf linting and generation",
+   "pgx as the Postgres driver",
+   "a monorepo layout with internal packages",
+   "OpenTelemetry for traces"
+  ],
+  "files": [
+   "internal/handler/orders.go",
+   "cmd/server/main.go",
+   "internal/worker/pool.go",
+   "internal/store/postgres.go",
+   "go.mod",
+   "Makefile"
+  ],
+  "errors": [
+   "context deadline exceeded on the upstream call",
+   "a deadlock between the two mutexes",
+   "a data race on the shared counter"
+  ]
+ }
+}

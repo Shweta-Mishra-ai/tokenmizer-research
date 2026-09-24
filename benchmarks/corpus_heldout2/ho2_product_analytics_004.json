@@ -1,0 +1,119 @@
+{
+ "id": "ho2_product_analytics_004",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an activation funnel analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an activation funnel analysis."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards a 95% confidence threshold for experiment calls."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me check the docs first. A sample size calculation for the pricing test is no longer on my plate. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Personally a seven-day activation window feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up instrumenting the mobile funnel. The error budget is fine this month. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves instrumentation on every onboarding step behind us."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the flakiness was survivorship bias in the retention calculation. That leaves deduplication of the double-fired signup event behind us. Root of the pain: peeking at results before the runtime completed. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me check the docs first. Most of the afternoon went into tests/test_metrics.py. Glad to report statistical significance testing on the primary metric is sorted. Turned out config/taxonomy.yaml was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up a guardrail metric on support ticket volume. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get a data dictionary for the product team in before Friday. Turns out the flakiness was an experiment contaminated by overlapping assignment. That leaves a segment definition for activated accounts behind us."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weekly retention cohorts over six months is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Personally one primary metric per experiment feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "analytics/cohorts.sql got a few more lines. Yep, doing that. Retries only apply to failed jobs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a segment definition for activated accounts",
+   "statistical significance testing on the primary metric",
+   "weekly retention cohorts over six months",
+   "deduplication of the double-fired signup event",
+   "a sample size calculation for the pricing test",
+   "instrumentation on every onboarding step"
+  ],
+  "pending_tasks": [
+   "a data dictionary for the product team",
+   "a guardrail metric on support ticket volume",
+   "instrumenting the mobile funnel"
+  ],
+  "decisions": [
+   "a seven-day activation window",
+   "a 95% confidence threshold for experiment calls",
+   "one primary metric per experiment"
+  ],
+  "files": [
+   "tests/test_metrics.py",
+   "analytics/cohorts.sql",
+   "config/taxonomy.yaml"
+  ],
+  "errors": [
+   "peeking at results before the runtime completed",
+   "an experiment contaminated by overlapping assignment",
+   "survivorship bias in the retention calculation"
+  ]
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "id": "ho2_product_analytics_005",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a pricing change evaluation."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a pricing change evaluation."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, a seven-day activation window wins. The experiment assignment and exposure logging is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. Completed — instrumentation on every onboarding step. config/taxonomy.yaml got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Deduplication of the double-fired signup event went out this morning. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "analytics/experiments.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "✔ A holdout group excluded from all experiments A sample size calculation for the pricing test is live now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Counting monthly actives on a rolling 28-day window is the clear winner here. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Turned out analytics/segments.sql was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A qualitative follow-up with churned accounts is waiting on me. That leaves statistical significance testing on the primary metric behind us."
+  },
+  {
+   "role": "user",
+   "content": "Personally counting activation on first collaborative action feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that.\nRetries only apply to failed jobs.\n**Completed:** a funnel from signup through first value.\nTurns out the flakiness was an experiment contaminated by overlapping assignment."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Bug found: a sample ratio mismatch in the pricing experiment. Our pick is weekly rather than daily cohorts for readability."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "deduplication of the double-fired signup event",
+   "instrumentation on every onboarding step",
+   "statistical significance testing on the primary metric",
+   "the experiment assignment and exposure logging",
+   "a funnel from signup through first value",
+   "a sample size calculation for the pricing test",
+   "a holdout group excluded from all experiments"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts"
+  ],
+  "decisions": [
+   "a seven-day activation window",
+   "weekly rather than daily cohorts for readability",
+   "counting monthly actives on a rolling 28-day window",
+   "counting activation on first collaborative action"
+  ],
+  "files": [
+   "analytics/experiments.py",
+   "config/taxonomy.yaml",
+   "analytics/segments.sql"
+  ],
+  "errors": [
+   "a sample ratio mismatch in the pricing experiment",
+   "an experiment contaminated by overlapping assignment"
+  ]
+ }
+}

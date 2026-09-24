@@ -1,0 +1,170 @@
+{
+ "id": "ho2_frontend_react_001",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a settings surface back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a settings surface."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Tailwind for styling?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Check src/components/DataTable.tsx for the change. Retries only apply to failed jobs. Server-side pagination on the results table is live now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Found a race condition between two in-flight fetches during testing. Focus trapping in the modal component: done. Edits are in src/hooks/useMetrics.ts."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? We'll use Recharts for the visualisations."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. We'll use MSW for mocking the API in tests."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped optimistic updates on the toggle controls. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a settings surface?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in tests/dashboard.spec.ts. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Running into an infinite re-render from an unstable dependency array."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Pnpm as the package manager is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. I've wrapped the empty and loading states for every panel. Haven't gotten to replacing the date picker with a headless one."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Playwright for end-to-end tests?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on Zustand instead of Redux for local state."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "See src/routes/dashboard.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. I've wrapped form validation with inline error messages."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A virtualised list for the 10k-row view: done. Running into a CORS failure against the staging API. Managed to finish dark mode using CSS custom properties."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dark mode using CSS custom properties",
+   "focus trapping in the modal component",
+   "optimistic updates on the toggle controls",
+   "a virtualised list for the 10k-row view",
+   "server-side pagination on the results table",
+   "the empty and loading states for every panel",
+   "form validation with inline error messages"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one"
+  ],
+  "decisions": [
+   "Playwright for end-to-end tests",
+   "pnpm as the package manager",
+   "Recharts for the visualisations",
+   "MSW for mocking the API in tests",
+   "Zustand instead of Redux for local state",
+   "Tailwind for styling"
+  ],
+  "files": [
+   "src/hooks/useMetrics.ts",
+   "src/routes/dashboard.tsx",
+   "tests/dashboard.spec.ts",
+   "src/components/DataTable.tsx"
+  ],
+  "errors": [
+   "an infinite re-render from an unstable dependency array",
+   "a CORS failure against the staging API",
+   "a race condition between two in-flight fetches"
+  ]
+ }
+}

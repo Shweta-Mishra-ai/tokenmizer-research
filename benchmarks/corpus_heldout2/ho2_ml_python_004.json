@@ -1,0 +1,110 @@
+{
+ "id": "ho2_ml_python_004",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a demand forecasting pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a demand forecasting pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Personally a time-based split to avoid leakage feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a demand forecasting pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pager went off for a silent dtype coercion dropping precision again. Retraining automation on a weekly cadence keeps slipping. Decision made: XGBoost over a neural network for tabular data."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "requirements.txt got a few more lines. Resolved: the feature engineering pipeline with 42 features. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, Optuna for hyperparameter search wins. Next task: shadow deployment against live traffic."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: scikit-learn pipelines for preprocessing. We'll use sentence-transformers for the text embeddings. Managed to finish batch inference over the full customer base. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Personally MLflow for experiment tracking feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Reducing inference latency below 50ms is on deck. Completed — drift monitoring on the input distributions."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Root of the pain: train/serve skew from inconsistent scaling."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Root of the pain: non-determinism from an unseeded shuffle. Turned out src/evaluate.py was the culprit file. Once the build is green we can merge."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the feature engineering pipeline with 42 features",
+   "batch inference over the full customer base",
+   "drift monitoring on the input distributions"
+  ],
+  "pending_tasks": [
+   "reducing inference latency below 50ms",
+   "retraining automation on a weekly cadence",
+   "shadow deployment against live traffic"
+  ],
+  "decisions": [
+   "sentence-transformers for the text embeddings",
+   "scikit-learn pipelines for preprocessing",
+   "XGBoost over a neural network for tabular data",
+   "a time-based split to avoid leakage",
+   "MLflow for experiment tracking",
+   "Optuna for hyperparameter search"
+  ],
+  "files": [
+   "requirements.txt",
+   "src/evaluate.py"
+  ],
+  "errors": [
+   "non-determinism from an unseeded shuffle",
+   "a silent dtype coercion dropping precision",
+   "train/serve skew from inconsistent scaling"
+  ]
+ }
+}

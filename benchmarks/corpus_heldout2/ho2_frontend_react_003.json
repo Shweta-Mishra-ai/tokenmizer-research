@@ -1,0 +1,109 @@
+{
+ "id": "ho2_frontend_react_003",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an analytics dashboard."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an analytics dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, optimistic updates on the toggle controls finally works."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report the toast notification system is sorted. Haven't gotten to a bundle size budget in CI. That leaves keyboard navigation across the data grid behind us."
+  },
+  {
+   "role": "user",
+   "content": "Let's use Playwright for end-to-end tests. I'd rather have pnpm as the package manager."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Nothing failed on the last run. Good call, switching. We'll use MSW for mocking the API in tests."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Most of the afternoon went into src/App.tsx. See src/hooks/useMetrics.ts. All things considered, Zustand instead of Redux for local state wins."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Vitest over Jest for the unit suite is what we're using. Resolution: TypeScript in strict mode. Glad to report session persistence in localStorage is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Dark mode using CSS custom properties: done."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in src/api/client.ts."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "src/components/DataTable.tsx got a few more lines. After a couple of tries, the empty and loading states for every panel finally works. Happy to dig into this more."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the empty and loading states for every panel",
+   "dark mode using CSS custom properties",
+   "the toast notification system",
+   "optimistic updates on the toggle controls",
+   "session persistence in localStorage",
+   "keyboard navigation across the data grid"
+  ],
+  "pending_tasks": [
+   "a bundle size budget in CI"
+  ],
+  "decisions": [
+   "TypeScript in strict mode",
+   "MSW for mocking the API in tests",
+   "Vitest over Jest for the unit suite",
+   "Playwright for end-to-end tests",
+   "pnpm as the package manager",
+   "Zustand instead of Redux for local state"
+  ],
+  "files": [
+   "src/App.tsx",
+   "src/components/DataTable.tsx",
+   "src/hooks/useMetrics.ts",
+   "src/api/client.ts"
+  ],
+  "errors": []
+ }
+}

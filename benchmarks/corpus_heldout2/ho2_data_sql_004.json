@@ -1,0 +1,150 @@
+{
+ "id": "ho2_data_sql_004",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a query performance pass."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into dags/daily_refresh.py."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Surrogate keys across the dimension tables is no longer on my plate. That leaves incremental models for the daily aggregates behind us. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. That leaves backfilling six months of historical revenue behind us."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, Snowflake over BigQuery for the warehouse came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, Kafka for the event transport came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Someone should pick up documenting the grain of each fact table."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. The dashboards lit up because of the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "Personally an ELT rather than ETL pattern feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Airflow for orchestration is the clear winner here. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. sql/indexes.sql got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Glad to report the star schema for the orders fact table is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out profiles.yml was the culprit file. Someone should pick up consolidating the three customer definitions. Dbt for the transformation layer is the clear winner here. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves column-level lineage documentation behind us."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report a materialised view for the executive dashboard is sorted. Decisions like this usually need a design doc."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "column-level lineage documentation",
+   "the star schema for the orders fact table",
+   "incremental models for the daily aggregates",
+   "a materialised view for the executive dashboard",
+   "surrogate keys across the dimension tables"
+  ],
+  "pending_tasks": [
+   "documenting the grain of each fact table",
+   "consolidating the three customer definitions"
+  ],
+  "decisions": [
+   "Airflow for orchestration",
+   "an ELT rather than ETL pattern",
+   "dbt for the transformation layer",
+   "Kafka for the event transport",
+   "Snowflake over BigQuery for the warehouse"
+  ],
+  "files": [
+   "sql/indexes.sql",
+   "dags/daily_refresh.py",
+   "profiles.yml"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours"
+  ]
+ }
+}

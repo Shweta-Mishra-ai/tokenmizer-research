@@ -1,0 +1,135 @@
+{
+ "id": "ho2_ml_python_005",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a demand forecasting pipeline back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a demand forecasting pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. Error — NaN losses after the learning rate change."
+  },
+  {
+   "role": "user",
+   "content": "Stick with Evidently for drift reporting."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: MLflow for experiment tracking. Yep, doing that. ✔ Gradient boosting reaching 0.84 AUC"
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Next task: reducing inference latency below 50ms."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** SHAP explanations for the top features.\n[ ] documenting the model card\nPath: src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** a model registry entry for the release candidate."
+  },
+  {
+   "role": "user",
+   "content": "I want sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Resolution: ONNX export for the serving runtime. Delivered: batch inference over the full customer base. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug found: a CUDA out of memory error at batch size 256."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: Polars instead of pandas for the feature pipeline. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "* `notebooks/eda.ipynb`"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a demand forecasting pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Path: data/schema.json. ✔ Cross-validation across five folds"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-validation across five folds",
+   "SHAP explanations for the top features",
+   "batch inference over the full customer base",
+   "gradient boosting reaching 0.84 AUC",
+   "a model registry entry for the release candidate"
+  ],
+  "pending_tasks": [
+   "reducing inference latency below 50ms",
+   "documenting the model card"
+  ],
+  "decisions": [
+   "MLflow for experiment tracking",
+   "ONNX export for the serving runtime",
+   "sentence-transformers for the text embeddings",
+   "Polars instead of pandas for the feature pipeline",
+   "Evidently for drift reporting"
+  ],
+  "files": [
+   "data/schema.json",
+   "src/train.py",
+   "notebooks/eda.ipynb",
+   "Makefile"
+  ],
+  "errors": [
+   "NaN losses after the learning rate change",
+   "a CUDA out of memory error at batch size 256"
+  ]
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "id": "ho2_ml_python_002",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a document classifier."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a document classifier."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in tests/test_features.py. The feature engineering pipeline with 42 features is finished. A 90-day lookback window for features is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Managed to finish an offline evaluation against last quarter's data."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is sentence-transformers for the text embeddings. See Makefile. A stratified train/validation/test split is finished. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Batch inference over the full customer base went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Could we use quantile clipping on the numeric features?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Calibrating the output probabilities is on deck. Nothing failed on the last run. Managed to finish SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hyperparameter search over 200 trials is finished. We'll use MLflow for experiment tracking. Retries only apply to failed jobs. We keep getting non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "What about Polars instead of pandas for the feature pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. We'll use XGBoost over a neural network for tabular data. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Gradient boosting reaching 0.84 AUC: done."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "gradient boosting reaching 0.84 AUC",
+   "batch inference over the full customer base",
+   "hyperparameter search over 200 trials",
+   "a stratified train/validation/test split",
+   "the feature engineering pipeline with 42 features",
+   "an offline evaluation against last quarter's data",
+   "SHAP explanations for the top features"
+  ],
+  "pending_tasks": [
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "quantile clipping on the numeric features",
+   "Polars instead of pandas for the feature pipeline",
+   "sentence-transformers for the text embeddings",
+   "MLflow for experiment tracking",
+   "XGBoost over a neural network for tabular data",
+   "a 90-day lookback window for features"
+  ],
+  "files": [
+   "Makefile",
+   "tests/test_features.py"
+  ],
+  "errors": [
+   "non-determinism from an unseeded shuffle"
+  ]
+ }
+}

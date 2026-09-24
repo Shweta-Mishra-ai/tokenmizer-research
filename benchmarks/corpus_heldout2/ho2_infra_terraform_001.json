@@ -1,0 +1,111 @@
+{
+ "id": "ho2_infra_terraform_001",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a cost optimisation pass back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a cost optimisation pass."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. We landed on provider versions pinned to a minor range."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out terraform/vpc.tf was the culprit file. Happy to dig into this more. Turned out terraform/variables.tf was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Personally AWS as the single cloud provider feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboards lit up because of a destroy plan on the production database from a renamed resource. Between the options, separate accounts for production and staging came out ahead. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get removing the last hardcoded account IDs in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves VPC flow logs shipped to the log bucket behind us. A disaster recovery restore rehearsal keeps slipping. One state file per environment is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, Checkov for policy scanning wins. That leaves CloudWatch alarms on the error rate metric behind us. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out terraform/iam.tf was the culprit file. .github/workflows/plan.yml got a few more lines. Terraform over CloudFormation is the clear winner here. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Most of the afternoon went into modules/service/main.tf. Most of the afternoon went into environments/prod/terragrunt.hcl. After a couple of tries, an RDS instance with automated backups finally works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "CloudWatch alarms on the error rate metric",
+   "VPC flow logs shipped to the log bucket",
+   "an RDS instance with automated backups"
+  ],
+  "pending_tasks": [
+   "a disaster recovery restore rehearsal",
+   "removing the last hardcoded account IDs"
+  ],
+  "decisions": [
+   "provider versions pinned to a minor range",
+   "one state file per environment",
+   "AWS as the single cloud provider",
+   "separate accounts for production and staging",
+   "Terraform over CloudFormation",
+   "Checkov for policy scanning"
+  ],
+  "files": [
+   "terraform/variables.tf",
+   "modules/service/main.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/iam.tf",
+   "terraform/vpc.tf",
+   ".github/workflows/plan.yml"
+  ],
+  "errors": [
+   "a destroy plan on the production database from a renamed resource"
+  ]
+ }
+}

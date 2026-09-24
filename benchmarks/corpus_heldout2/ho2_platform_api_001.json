@@ -1,0 +1,100 @@
+{
+ "id": "ho2_platform_api_001",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a public API v2 design back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a public API v2 design."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in api/auth.py. Our pick is OAuth 2.0 client credentials for machine access. A rate limit tier for enterprise keys is on deck."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep getting an SDK deserialisation failure on a new nullable field. Let me check the docs first. Managed to finish per-key rate limits with headers exposing the budget."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have ISO 8601 timestamps in UTC."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. Managed to finish webhook signature verification."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a public API v2 design?"
+  },
+  {
+   "role": "assistant",
+   "content": "At-least-once webhook delivery with retries is finished. Check gateway/kong.yaml for the change. I put it in api/routes/webhooks.py."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped request/response logging with PII stripped."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on Kong as the API gateway. Edits are in sdk/python/client.py. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I still owe you field-level filtering on the large resources. I'd go with OpenAPI as the source of truth for SDK generation."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "at-least-once webhook delivery with retries",
+   "per-key rate limits with headers exposing the budget",
+   "request/response logging with PII stripped",
+   "webhook signature verification"
+  ],
+  "pending_tasks": [
+   "a rate limit tier for enterprise keys",
+   "field-level filtering on the large resources"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "Kong as the API gateway",
+   "ISO 8601 timestamps in UTC",
+   "OAuth 2.0 client credentials for machine access"
+  ],
+  "files": [
+   "api/auth.py",
+   "api/routes/webhooks.py",
+   "gateway/kong.yaml",
+   "sdk/python/client.py"
+  ],
+  "errors": [
+   "an SDK deserialisation failure on a new nullable field"
+  ]
+ }
+}

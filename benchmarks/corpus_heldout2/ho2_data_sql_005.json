@@ -1,0 +1,88 @@
+{
+ "id": "ho2_data_sql_005",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a warehouse migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a warehouse migration."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Known issue: a fan-out join inflating revenue by 3x. I'd like to get retiring the legacy reporting views in before Friday. Completed — deduplication on the raw event stream."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Path: profiles.yml."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me check the docs first. That leaves row count reconciliation against the source system behind us."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves backfilling six months of historical revenue behind us. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. All things considered, UTC everywhere for timestamps wins. Chosen: Parquet as the landing format. We are going with Great Expectations for data quality checks."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on dbt for the transformation layer. Edits are in dbt_project.yml. Retries only apply to failed jobs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "row count reconciliation against the source system",
+   "deduplication on the raw event stream",
+   "backfilling six months of historical revenue"
+  ],
+  "pending_tasks": [
+   "retiring the legacy reporting views"
+  ],
+  "decisions": [
+   "UTC everywhere for timestamps",
+   "Great Expectations for data quality checks",
+   "Parquet as the landing format",
+   "dbt for the transformation layer"
+  ],
+  "files": [
+   "profiles.yml",
+   "dbt_project.yml"
+  ],
+  "errors": [
+   "a fan-out join inflating revenue by 3x"
+  ]
+ }
+}

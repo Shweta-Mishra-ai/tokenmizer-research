@@ -1,0 +1,124 @@
+{
+ "id": "ho2_mobile_ios_002",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an offline-first notes client."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an offline-first notes client."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep getting a retain cycle in the sync completion handler. SwiftLint in the build phase is what we're using. Here's what I found. See App/Info.plist."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have Keychain for token storage rather than UserDefaults."
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in Sources/Sync/SyncEngine.swift. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. I put it in Package.swift."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Core Data persistence for the workout log: done. I put it in Tests/SyncTests.swift. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Found the widget timeline failing to refresh during testing."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped the SwiftUI onboarding sequence."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Crash reporting integration is finished."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I still owe you migrating the remaining UIKit screens."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on iOS 17 as the minimum deployment target. Managed to finish unit tests for the sync reducer."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Deep links into the workout detail screen is live now. Once the build is green we can merge."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "Core Data persistence for the workout log",
+   "unit tests for the sync reducer",
+   "the SwiftUI onboarding sequence",
+   "crash reporting integration",
+   "deep links into the workout detail screen"
+  ],
+  "pending_tasks": [
+   "migrating the remaining UIKit screens"
+  ],
+  "decisions": [
+   "iOS 17 as the minimum deployment target",
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftLint in the build phase"
+  ],
+  "files": [
+   "Sources/Sync/SyncEngine.swift",
+   "Package.swift",
+   "Tests/SyncTests.swift",
+   "App/Info.plist"
+  ],
+  "errors": [
+   "the widget timeline failing to refresh",
+   "a retain cycle in the sync completion handler"
+  ]
+ }
+}

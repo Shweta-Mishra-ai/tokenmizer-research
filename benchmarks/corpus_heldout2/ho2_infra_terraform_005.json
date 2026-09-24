@@ -1,0 +1,118 @@
+{
+ "id": "ho2_infra_terraform_005",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a disaster recovery setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a disaster recovery setup."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Remote state in S3 with DynamoDB locking is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. terraform/outputs.tf got a few more lines. Root of the pain: an apply failing on an IAM eventual consistency delay."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, a module for the standard service deployment finally works. Decisions like this usually need a design doc. Turns out the flakiness was an S3 bucket name collision across accounts."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "IAM roles scoped per service is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up policy-as-code checks in the plan stage. Retries only apply to failed jobs. That leaves encrypted EBS volumes across all instances behind us."
+  },
+  {
+   "role": "user",
+   "content": "Personally OIDC for CI authentication into AWS feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, the VPC with public and private subnets across three zones finally works. Turned out .github/workflows/plan.yml was the culprit file. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, Checkov for policy scanning came out ahead. Most of the afternoon went into terraform/variables.tf. Provider versions pinned to a minor range is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CloudWatch alarms on the error rate metric is no longer on my plate. We landed on Aurora Postgres over standard RDS."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Turned out terraform/iam.tf was the culprit file."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a module for the standard service deployment",
+   "remote state in S3 with DynamoDB locking",
+   "CloudWatch alarms on the error rate metric",
+   "encrypted EBS volumes across all instances",
+   "the VPC with public and private subnets across three zones",
+   "IAM roles scoped per service"
+  ],
+  "pending_tasks": [
+   "policy-as-code checks in the plan stage"
+  ],
+  "decisions": [
+   "OIDC for CI authentication into AWS",
+   "provider versions pinned to a minor range",
+   "Checkov for policy scanning",
+   "Aurora Postgres over standard RDS"
+  ],
+  "files": [
+   "terraform/outputs.tf",
+   ".github/workflows/plan.yml",
+   "terraform/iam.tf",
+   "terraform/variables.tf"
+  ],
+  "errors": [
+   "an S3 bucket name collision across accounts",
+   "an apply failing on an IAM eventual consistency delay"
+  ]
+ }
+}

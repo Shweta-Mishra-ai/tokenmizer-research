@@ -1,0 +1,133 @@
+{
+ "id": "ho2_debug_production_004",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an intermittent failure investigation back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an intermittent failure investigation."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Correlating the errors with the deploy timeline is no longer on my plate. Ruling out the cache layer as the cause is no longer on my plate. Check docs/postmortem.md for the change."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Glad to report instrumenting the slow query with timing spans is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Pager went off for a 30% error rate on the payment callback again."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd go with rolling back before investigating further. Reviewing the other call sites with the same pattern is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: src/handlers/checkout.py. Found silent data loss when the queue consumer crashed during testing."
+  },
+  {
+   "role": "user",
+   "content": "Could we use increasing the connection pool as a stopgap?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Adding structured logging around the suspect path is finished. Bisecting the regression to a single commit went out this morning. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an intermittent failure investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Tomorrow: an alert on the metric that would have caught it."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backfilling the corrupted rows is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboards lit up because of memory growing 200MB per hour until restart. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves a regression test covering the failure mode behind us."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "ruling out the cache layer as the cause",
+   "adding structured logging around the suspect path",
+   "instrumenting the slow query with timing spans",
+   "a regression test covering the failure mode",
+   "correlating the errors with the deploy timeline",
+   "bisecting the regression to a single commit"
+  ],
+  "pending_tasks": [
+   "reviewing the other call sites with the same pattern",
+   "an alert on the metric that would have caught it",
+   "backfilling the corrupted rows"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "increasing the connection pool as a stopgap"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "docs/postmortem.md"
+  ],
+  "errors": [
+   "memory growing 200MB per hour until restart",
+   "a 30% error rate on the payment callback",
+   "silent data loss when the queue consumer crashed"
+  ]
+ }
+}

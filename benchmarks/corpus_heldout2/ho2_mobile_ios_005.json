@@ -1,0 +1,138 @@
+{
+ "id": "ho2_mobile_ios_005",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a widget and live activity feature."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a widget and live activity feature."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: Sources/App/ContentView.swift. Planned: an iPad layout for the summary screen."
+  },
+  {
+   "role": "user",
+   "content": "Stick with SwiftLint in the build phase."
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "✔ Background sync with a URLSession task\n**Choice:** Keychain for token storage rather than UserDefaults.\nLet me check the docs first.\nChanged files: fastlane/Fastfile."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "* `Tests/SyncTests.swift` Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: async/await instead of Combine for networking.\nTouched: .swiftlint.yml.\n**Choice:** The Composable Architecture for state."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Resolved: the subscription purchase and restore flow."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Choice:** SwiftUI for all new screens.\n[ ] watchOS companion app\n**Bug:** the widget timeline failing to refresh.\nShould we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: Swift Package Manager for dependencies. Queued: reducing cold start below 400ms. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. [ ] an App Store privacy nutrition label review ✔ Core Data persistence for the workout log Delivered: dark mode across every screen."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. [done] a widget showing today's activity"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — the SwiftUI onboarding sequence."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a widget showing today's activity",
+   "dark mode across every screen",
+   "the SwiftUI onboarding sequence",
+   "Core Data persistence for the workout log",
+   "the subscription purchase and restore flow",
+   "background sync with a URLSession task"
+  ],
+  "pending_tasks": [
+   "reducing cold start below 400ms",
+   "an iPad layout for the summary screen",
+   "an App Store privacy nutrition label review",
+   "watchOS companion app"
+  ],
+  "decisions": [
+   "async/await instead of Combine for networking",
+   "Swift Package Manager for dependencies",
+   "The Composable Architecture for state",
+   "SwiftLint in the build phase",
+   "SwiftUI for all new screens",
+   "Keychain for token storage rather than UserDefaults"
+  ],
+  "files": [
+   ".swiftlint.yml",
+   "Tests/SyncTests.swift",
+   "Sources/App/ContentView.swift",
+   "fastlane/Fastfile"
+  ],
+  "errors": [
+   "the widget timeline failing to refresh"
+  ]
+ }
+}

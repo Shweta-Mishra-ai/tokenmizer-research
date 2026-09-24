@@ -1,0 +1,104 @@
+{
+ "id": "ho2_systems_rust_001",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a compression library back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a compression library."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards bincode for the wire encoding."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, thiserror for library errors and anyhow at the boundary wins."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Someone should pick up adding a tracing subscriber."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out tests/roundtrip.rs was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into src/lib.rs. I'd like to get profiling the allocation hot path in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up documenting the public API surface. Here's what I found. An async runtime built on tokio is no longer on my plate. After a couple of tries, the streaming parser over a bounded buffer finally works."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out Cargo.toml was the culprit file. If the tests fail, the pipeline blocks the merge. Turned out src/main.rs was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, SIMD acceleration on the checksum path finally works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an async runtime built on tokio",
+   "SIMD acceleration on the checksum path",
+   "the streaming parser over a bounded buffer"
+  ],
+  "pending_tasks": [
+   "documenting the public API surface",
+   "profiling the allocation hot path",
+   "adding a tracing subscriber"
+  ],
+  "decisions": [
+   "bincode for the wire encoding",
+   "thiserror for library errors and anyhow at the boundary"
+  ],
+  "files": [
+   "tests/roundtrip.rs",
+   "Cargo.toml",
+   "src/main.rs",
+   "src/lib.rs"
+  ],
+  "errors": []
+ }
+}

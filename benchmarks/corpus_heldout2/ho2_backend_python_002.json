@@ -1,0 +1,156 @@
+{
+ "id": "ho2_backend_python_002",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a Flask webhook receiver."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a Flask webhook receiver."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Users reported an IntegrityError on duplicate order submission. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have Python 3.12 as the runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Check api/main.py for the change. Input validation on the payment payload: done. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "SQLAlchemy 2.0 with the async engine is what we're using. Haven't gotten to moving the email sender behind an interface."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a Flask webhook receiver?"
+  },
+  {
+   "role": "assistant",
+   "content": "Connection pooling against Postgres is finished. Check migrations/env.py for the change."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Our pick is Postgres over MySQL for JSONB support. We need to do soft deletes on the tenant table next. I put it in core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to backfilling created_at on legacy rows. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have structlog for JSON log output."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. The User model with email and hashed_password columns is live now. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Found a deadlock between the invoice and ledger updates during testing."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Running into N+1 queries on the order list endpoint."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a Flask webhook receiver?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use Pydantic v2 for request validation. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on the order create path is finished. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Check api/models.py for the change. Managed to finish request ID middleware for structured logging. Pytest fixtures for a throwaway database is finished."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have Redis for refresh token storage."
+  },
+  {
+   "role": "assistant",
+   "content": "POST /api/orders and GET /api/orders/{id} is live now. Sure thing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "POST /api/orders and GET /api/orders/{id}",
+   "pytest fixtures for a throwaway database",
+   "input validation on the payment payload",
+   "request ID middleware for structured logging",
+   "idempotency keys on the order create path",
+   "the User model with email and hashed_password columns",
+   "connection pooling against Postgres"
+  ],
+  "pending_tasks": [
+   "moving the email sender behind an interface",
+   "soft deletes on the tenant table",
+   "backfilling created_at on legacy rows"
+  ],
+  "decisions": [
+   "Pydantic v2 for request validation",
+   "Python 3.12 as the runtime",
+   "SQLAlchemy 2.0 with the async engine",
+   "Redis for refresh token storage",
+   "Postgres over MySQL for JSONB support",
+   "structlog for JSON log output"
+  ],
+  "files": [
+   "migrations/env.py",
+   "api/models.py",
+   "api/main.py",
+   "core/config.py"
+  ],
+  "errors": [
+   "N+1 queries on the order list endpoint",
+   "a deadlock between the invoice and ledger updates",
+   "an IntegrityError on duplicate order submission"
+  ]
+ }
+}

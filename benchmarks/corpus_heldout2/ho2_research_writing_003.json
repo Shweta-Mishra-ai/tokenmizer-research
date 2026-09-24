@@ -1,0 +1,179 @@
+{
+ "id": "ho2_research_writing_003",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a technical design document."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a technical design document."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have releasing the corpus alongside the paper."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. The error budget is fine this month. A limitations section naming the sample size problem: done. Restructuring the argument around three claims is finished."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is reporting macro F1 rather than accuracy. Found an overclaim in the introduction the data does not support during testing."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: an ethics statement. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "The discussion section is on deck. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a technical design document?"
+  },
+  {
+   "role": "assistant",
+   "content": "The reproducibility statement with exact commands is finished. Figure one showing the system architecture: done."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a technical design document?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped the evaluation table with confidence intervals."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish peer feedback incorporated from two reviewers. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a technical design document?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is Zotero for reference management. Settling on targeting the workshop deadline rather than the main track."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Check Makefile for the change."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'd go with an explicit statement that the corpus is synthetic."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in paper/abstract.tex. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to a final proofread pass. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Edits are in notes/outline.md."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. See paper/main.tex."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The introduction cut from four pages to two: done. Our pick is naming the baselines by method rather than by vendor."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Found a missing statistical test on the headline comparison during testing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the reproducibility statement with exact commands",
+   "peer feedback incorporated from two reviewers",
+   "figure one showing the system architecture",
+   "a limitations section naming the sample size problem",
+   "restructuring the argument around three claims",
+   "the introduction cut from four pages to two",
+   "the evaluation table with confidence intervals"
+  ],
+  "pending_tasks": [
+   "a final proofread pass",
+   "an ethics statement",
+   "the discussion section"
+  ],
+  "decisions": [
+   "naming the baselines by method rather than by vendor",
+   "releasing the corpus alongside the paper",
+   "an explicit statement that the corpus is synthetic",
+   "reporting macro F1 rather than accuracy",
+   "Zotero for reference management",
+   "targeting the workshop deadline rather than the main track"
+  ],
+  "files": [
+   "paper/abstract.tex",
+   "Makefile",
+   "notes/outline.md",
+   "paper/main.tex"
+  ],
+  "errors": [
+   "an overclaim in the introduction the data does not support",
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

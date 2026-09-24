@@ -1,0 +1,152 @@
+{
+ "id": "ho2_devops_ci_002",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a CI pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a CI pipeline rebuild."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, dependency caching across pipeline runs finally works. After a couple of tries, parallel test execution across four shards finally works."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, coverage reporting posted to the pull request finally works."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": ".pre-commit-config.yaml got a few more lines. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards a required review from one code owner."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards ruff replacing flake8 and isort."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Decisions like this usually need a design doc. I'd like to get splitting the linting job from the test job in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pager went off for a permissions error pushing the release tag again. If the tests fail, the pipeline blocks the merge. We landed on test retries limited to two attempts. Someone should pick up pinning all third-party actions by digest."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report a matrix build over three Python versions is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Semantic versioning driven by commit messages is the clear winner here. Turned out Makefile was the culprit file. After a couple of tries, signed release artifacts finally works."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into scripts/run_tests.sh."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get a merge queue for the busy repositories in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report container image build with layer caching is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. All things considered, pytest-xdist for test parallelism wins."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually a rollback job for failed deploys has to get done too. The error budget is fine this month."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "coverage reporting posted to the pull request",
+   "parallel test execution across four shards",
+   "a matrix build over three Python versions",
+   "signed release artifacts",
+   "dependency caching across pipeline runs",
+   "container image build with layer caching"
+  ],
+  "pending_tasks": [
+   "splitting the linting job from the test job",
+   "a merge queue for the busy repositories",
+   "pinning all third-party actions by digest",
+   "a rollback job for failed deploys"
+  ],
+  "decisions": [
+   "a required review from one code owner",
+   "pytest-xdist for test parallelism",
+   "semantic versioning driven by commit messages",
+   "test retries limited to two attempts",
+   "ruff replacing flake8 and isort"
+  ],
+  "files": [
+   ".pre-commit-config.yaml",
+   "scripts/run_tests.sh",
+   "Makefile"
+  ],
+  "errors": [
+   "a permissions error pushing the release tag"
+  ]
+ }
+}

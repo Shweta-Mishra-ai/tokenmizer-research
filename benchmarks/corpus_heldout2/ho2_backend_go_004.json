@@ -1,0 +1,119 @@
+{
+ "id": "ho2_backend_go_004",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a job scheduler."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a job scheduler."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: buf.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — protobuf schema versioning."
+  },
+  {
+   "role": "user",
+   "content": "Stick with errgroup for concurrent fan-out."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. Known issue: context deadline exceeded on the upstream call. Next task: reducing allocations in the serialiser."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: moving the config to environment variables. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Bug:** connection churn exhausting ephemeral ports.\nResolution: testcontainers for integration tests.\n**Completed:** Prometheus metrics on the request path."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging?\n**Completed:** the retry policy with exponential backoff.\nCompleted — the gRPC service definition and generated stubs.\nPath: internal/handler/orders.go."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: internal/store/postgres.go. [done] a circuit breaker around the downstream call Path: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Stick with sqlc for type-safe database access."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: replacing the mutex with a sharded map.\n**Bug:** excessive allocations causing GC pressure.\nOnce the build is green we can merge."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a circuit breaker around the downstream call",
+   "Prometheus metrics on the request path",
+   "the gRPC service definition and generated stubs",
+   "the retry policy with exponential backoff",
+   "protobuf schema versioning"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "reducing allocations in the serialiser",
+   "replacing the mutex with a sharded map"
+  ],
+  "decisions": [
+   "testcontainers for integration tests",
+   "errgroup for concurrent fan-out",
+   "sqlc for type-safe database access"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "internal/handler/orders.go",
+   "buf.yaml",
+   "Makefile"
+  ],
+  "errors": [
+   "context deadline exceeded on the upstream call",
+   "excessive allocations causing GC pressure",
+   "connection churn exhausting ephemeral ports"
+  ]
+ }
+}

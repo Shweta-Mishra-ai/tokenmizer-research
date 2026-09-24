@@ -1,0 +1,106 @@
+{
+ "id": "ho2_backend_python_005",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a tenant provisioning API back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a tenant provisioning API."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: docker-compose.yml. We might revisit this later if needed. [ ] moving the email sender behind an interface We are going with Celery for the background worker."
+  },
+  {
+   "role": "user",
+   "content": "Stick with UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: requirements.txt. Resolved: pytest fixtures for a throwaway database. Decisions like this usually need a design doc. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "[ ] rate limiting on the auth routes [done] background retry for failed webhook deliveries We are going with SQLAlchemy 2.0 with the async engine."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `db/session.py`"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `core/config.py`"
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: pytest-asyncio for the async test suite. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — request ID middleware for structured logging."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "background retry for failed webhook deliveries",
+   "pytest fixtures for a throwaway database",
+   "request ID middleware for structured logging"
+  ],
+  "pending_tasks": [
+   "rate limiting on the auth routes",
+   "splitting the settings module per environment",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "UUIDv7 primary keys instead of integers",
+   "SQLAlchemy 2.0 with the async engine",
+   "Celery for the background worker",
+   "pytest-asyncio for the async test suite"
+  ],
+  "files": [
+   "db/session.py",
+   "core/config.py",
+   "requirements.txt",
+   "docker-compose.yml"
+  ],
+  "errors": []
+ }
+}

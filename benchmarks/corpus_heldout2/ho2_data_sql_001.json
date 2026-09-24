@@ -1,0 +1,98 @@
+{
+ "id": "ho2_data_sql_001",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a schema normalisation effort."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a schema normalisation effort."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up unit tests for the revenue macro. * `macros/revenue.sql`"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Found stale data from a silently failing incremental run during testing. Incremental models for the daily aggregates is finished. Edits are in sql/indexes.sql."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Defect: duplicate rows from a non-unique natural key. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report column-level lineage documentation is sorted. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The star schema for the orders fact table: done. Changed files: profiles.yml."
+  },
+  {
+   "role": "user",
+   "content": "I want an ELT rather than ETL pattern."
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped a covering index on the customer lookup. Yep, doing that. The dashboards lit up because of the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge.\n**Choice:** soft deletes with a valid_to column."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the star schema for the orders fact table",
+   "column-level lineage documentation",
+   "a covering index on the customer lookup",
+   "incremental models for the daily aggregates"
+  ],
+  "pending_tasks": [
+   "unit tests for the revenue macro"
+  ],
+  "decisions": [
+   "soft deletes with a valid_to column",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "profiles.yml",
+   "macros/revenue.sql",
+   "sql/indexes.sql"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours",
+   "duplicate rows from a non-unique natural key",
+   "stale data from a silently failing incremental run"
+  ]
+ }
+}

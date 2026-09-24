@@ -1,0 +1,127 @@
+{
+ "id": "ho2_frontend_react_002",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a checkout flow rewrite back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a checkout flow rewrite."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "src/hooks/useMetrics.ts got a few more lines. Glad to report dark mode using CSS custom properties is sorted. After a couple of tries, code splitting on the route boundaries finally works."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Form validation with inline error messages is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually migrating the remaining class components has to get done too. Here's what I found. Pager went off for stale closure state in the polling hook again. Most of the afternoon went into tests/dashboard.spec.ts."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report keyboard navigation across the data grid is sorted. Turned out src/api/client.ts was the culprit file. No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "The metrics grid with responsive breakpoints is no longer on my plate. Between the options, Vitest over Jest for the unit suite came out ahead. Turned out package.json was the culprit file. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up a bundle size budget in CI."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Someone should pick up offline support for the draft editor. A Storybook entry for each primitive keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. After a couple of tries, server-side pagination on the results table finally works."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, React 19 with the compiler enabled wins."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "The toast notification system is no longer on my plate. Retries only apply to failed jobs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "keyboard navigation across the data grid",
+   "the metrics grid with responsive breakpoints",
+   "server-side pagination on the results table",
+   "the toast notification system",
+   "dark mode using CSS custom properties",
+   "form validation with inline error messages",
+   "code splitting on the route boundaries"
+  ],
+  "pending_tasks": [
+   "offline support for the draft editor",
+   "a bundle size budget in CI",
+   "a Storybook entry for each primitive",
+   "migrating the remaining class components"
+  ],
+  "decisions": [
+   "Vitest over Jest for the unit suite",
+   "React 19 with the compiler enabled"
+  ],
+  "files": [
+   "src/hooks/useMetrics.ts",
+   "tests/dashboard.spec.ts",
+   "package.json",
+   "src/api/client.ts"
+  ],
+  "errors": [
+   "stale closure state in the polling hook"
+  ]
+ }
+}

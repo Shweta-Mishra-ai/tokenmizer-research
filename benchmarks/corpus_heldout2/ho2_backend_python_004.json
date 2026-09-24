@@ -1,0 +1,136 @@
+{
+ "id": "ho2_backend_python_004",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a document ingestion service."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a document ingestion service."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get backfilling created_at on legacy rows in before Friday. That leaves OpenAPI schema generation for the public routes behind us. [ ] a load test against the order path"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves background retry for failed webhook deliveries behind us."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Caching the catalogue lookup is waiting on me. See api/models.py. Glad to report a health check endpoint at /healthz is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, UUIDv7 primary keys instead of integers came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report pytest fixtures for a throwaway database is sorted. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: SQLAlchemy 2.0 with the async engine. Here's what I found. The dashboards lit up because of connection pool exhaustion under concurrent load."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out api/deps.py was the culprit file. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in api/orders.py."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on uvicorn behind gunicorn in production. Retries only apply to failed jobs. Pytest-asyncio for the async test suite is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. We'll use structlog for JSON log output. I've wrapped connection pooling against Postgres. Rate limiting on the auth routes is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Chosen: Alembic for schema migrations."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a health check endpoint at /healthz",
+   "connection pooling against Postgres",
+   "OpenAPI schema generation for the public routes",
+   "background retry for failed webhook deliveries",
+   "pytest fixtures for a throwaway database"
+  ],
+  "pending_tasks": [
+   "rate limiting on the auth routes",
+   "backfilling created_at on legacy rows",
+   "a load test against the order path",
+   "caching the catalogue lookup"
+  ],
+  "decisions": [
+   "SQLAlchemy 2.0 with the async engine",
+   "Alembic for schema migrations",
+   "uvicorn behind gunicorn in production",
+   "structlog for JSON log output",
+   "UUIDv7 primary keys instead of integers",
+   "pytest-asyncio for the async test suite"
+  ],
+  "files": [
+   "api/models.py",
+   "api/orders.py",
+   "api/deps.py"
+  ],
+  "errors": [
+   "connection pool exhaustion under concurrent load"
+  ]
+ }
+}

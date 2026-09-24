@@ -1,0 +1,100 @@
+{
+ "id": "ho2_product_analytics_003",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an onboarding redesign measurement."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an onboarding redesign measurement."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Statistical significance testing on the primary metric went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Instrumentation on every onboarding step went out this morning. There's peeking at results before the runtime completed in production. Once the build is green we can merge. Our pick is Amplitude for product analytics."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish weekly retention cohorts over six months. We'll use a two-week minimum experiment runtime. I put it in analytics/significance.py."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped a sample size calculation for the pricing test. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A holdout group excluded from all experiments is finished. Documentation of every metric definition: done."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "An automated experiment readout template is waiting on me. Reconciling the two conflicting active-user counts is waiting on me. We'll use counting activation on first collaborative action."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in notebooks/churn_drivers.ipynb. I've wrapped a segment definition for activated accounts. Here's what I found."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a segment definition for activated accounts",
+   "instrumentation on every onboarding step",
+   "a holdout group excluded from all experiments",
+   "weekly retention cohorts over six months",
+   "a sample size calculation for the pricing test",
+   "documentation of every metric definition",
+   "statistical significance testing on the primary metric"
+  ],
+  "pending_tasks": [
+   "an automated experiment readout template",
+   "reconciling the two conflicting active-user counts"
+  ],
+  "decisions": [
+   "counting activation on first collaborative action",
+   "a two-week minimum experiment runtime",
+   "Amplitude for product analytics"
+  ],
+  "files": [
+   "analytics/significance.py",
+   "notebooks/churn_drivers.ipynb"
+  ],
+  "errors": [
+   "peeking at results before the runtime completed"
+  ]
+ }
+}

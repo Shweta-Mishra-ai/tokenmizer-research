@@ -1,0 +1,136 @@
+{
+ "id": "ho2_mobile_ios_001",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a widget and live activity feature."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a widget and live activity feature."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "[done] dark mode across every screen Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Queued: an App Store privacy nutrition label review."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: Tests/SyncTests.swift. Changed files: .swiftlint.yml."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Choice:** The Composable Architecture for state.\nChanged files: Package.swift."
+  },
+  {
+   "role": "user",
+   "content": "Stick with Keychain for token storage rather than UserDefaults."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Touched: Sources/Store/WorkoutStore.swift. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs.\n**Completed:** unit tests for the sync reducer."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: Sources/Auth/Keychain.swift."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — VoiceOver labels across the main screens. Error — memory growth from uncancelled image tasks. Decisions like this usually need a design doc. Resolved: the HealthKit permission flow."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: the SwiftUI onboarding sequence. ✔ Keychain storage for the auth token Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered: a widget showing today's activity."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with iOS 17 as the minimum deployment target. Chosen: async/await instead of Combine for networking. * `Sources/Widgets/ActivityWidget.swift`"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a widget showing today's activity",
+   "the SwiftUI onboarding sequence",
+   "unit tests for the sync reducer",
+   "keychain storage for the auth token",
+   "the HealthKit permission flow",
+   "dark mode across every screen",
+   "VoiceOver labels across the main screens"
+  ],
+  "pending_tasks": [
+   "an App Store privacy nutrition label review"
+  ],
+  "decisions": [
+   "iOS 17 as the minimum deployment target",
+   "The Composable Architecture for state",
+   "Keychain for token storage rather than UserDefaults",
+   "async/await instead of Combine for networking"
+  ],
+  "files": [
+   ".swiftlint.yml",
+   "Package.swift",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Auth/Keychain.swift",
+   "Sources/Store/WorkoutStore.swift",
+   "Tests/SyncTests.swift"
+  ],
+  "errors": [
+   "memory growth from uncancelled image tasks"
+  ]
+ }
+}

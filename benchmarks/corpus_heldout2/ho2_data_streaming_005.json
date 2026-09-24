@@ -1,0 +1,108 @@
+{
+ "id": "ho2_data_streaming_005",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an event schema migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an event schema migration."
+  },
+  {
+   "role": "user",
+   "content": "Personally one topic per event type rather than a shared bus feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Checkpointing to durable storage every 30 seconds is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves the change data capture connector on the orders table behind us."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report backpressure handling in the consumer loop is sorted. Between the options, keying events by aggregate ID for ordering came out ahead. Eventually migrating the remaining consumers off the v1 schema has to get done too."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, exactly-once semantics on the aggregation job finally works. Turned out streams/consumer.py was the culprit file. Once the build is green we can merge. Turned out streams/aggregator.py was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards at-least-once delivery with idempotent consumers."
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up reducing end-to-end latency below one second. docker-compose.yml got a few more lines. Yep, doing that. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually a replay procedure for the last 24 hours has to get done too. Kafka over Kinesis for the event backbone is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves windowed aggregation over five-minute tumbling windows behind us. The topic layout with twelve partitions per stream is no longer on my plate. Decisions like this usually need a design doc."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the topic layout with twelve partitions per stream",
+   "windowed aggregation over five-minute tumbling windows",
+   "the change data capture connector on the orders table",
+   "backpressure handling in the consumer loop",
+   "exactly-once semantics on the aggregation job",
+   "checkpointing to durable storage every 30 seconds"
+  ],
+  "pending_tasks": [
+   "migrating the remaining consumers off the v1 schema",
+   "reducing end-to-end latency below one second",
+   "a replay procedure for the last 24 hours"
+  ],
+  "decisions": [
+   "one topic per event type rather than a shared bus",
+   "Kafka over Kinesis for the event backbone",
+   "keying events by aggregate ID for ordering",
+   "at-least-once delivery with idempotent consumers"
+  ],
+  "files": [
+   "streams/consumer.py",
+   "docker-compose.yml",
+   "streams/aggregator.py"
+  ],
+  "errors": []
+ }
+}

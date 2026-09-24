@@ -1,0 +1,106 @@
+{
+ "id": "ho2_ml_python_003",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an embedding search service back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an embedding search service."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up a feature store migration."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Baseline logistic regression at 0.71 AUC is no longer on my plate. Most of the afternoon went into src/train.py. src/features.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Personally Polars instead of pandas for the feature pipeline feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Retries only apply to failed jobs. All things considered, Optuna for hyperparameter search wins."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Root of the pain: non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makefile got a few more lines. A stratified train/validation/test split is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "Personally XGBoost over a neural network for tabular data feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves gradient boosting reaching 0.84 AUC behind us. We might revisit this later if needed. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Drift monitoring on the input distributions is no longer on my plate."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a stratified train/validation/test split",
+   "baseline logistic regression at 0.71 AUC",
+   "gradient boosting reaching 0.84 AUC",
+   "drift monitoring on the input distributions"
+  ],
+  "pending_tasks": [
+   "a feature store migration"
+  ],
+  "decisions": [
+   "XGBoost over a neural network for tabular data",
+   "Optuna for hyperparameter search",
+   "Polars instead of pandas for the feature pipeline"
+  ],
+  "files": [
+   "data/schema.json",
+   "Makefile",
+   "src/features.py",
+   "src/train.py"
+  ],
+  "errors": [
+   "non-determinism from an unseeded shuffle"
+  ]
+ }
+}

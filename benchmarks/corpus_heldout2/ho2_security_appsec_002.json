@@ -1,0 +1,121 @@
+{
+ "id": "ho2_security_appsec_002",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an authentication hardening pass back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an authentication hardening pass."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: .gitleaks.toml. Error — a SQL injection in the search filter."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: policy/egress.yaml. Chosen: Argon2id over bcrypt for new password hashes. Chosen: a 90-day key rotation schedule."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Defect: an SSRF in the webhook fetcher.\n**Choice:** Dependabot for dependency updates."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: terraform/iam.tf. Delivered: credential redaction on every log path. Let me check the docs first. Changed files: security/middleware.py."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc.\n**Choice:** gitleaks as a pre-commit hook."
+  },
+  {
+   "role": "user",
+   "content": "Let's use field-level encryption for PII columns."
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Next task: automated dependency updates. Next task: a security runbook for incident response. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — encrypted secrets at rest in the vault. Path: security/redaction.py. ✔ Dependency pinning with a lockfile We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: config/csp.json. Retries only apply to failed jobs. [done] least-privilege IAM roles for the workers"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "[done] signed container images in the registry"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "signed container images in the registry",
+   "encrypted secrets at rest in the vault",
+   "credential redaction on every log path",
+   "dependency pinning with a lockfile",
+   "least-privilege IAM roles for the workers"
+  ],
+  "pending_tasks": [
+   "automated dependency updates",
+   "a security runbook for incident response"
+  ],
+  "decisions": [
+   "Dependabot for dependency updates",
+   "Argon2id over bcrypt for new password hashes",
+   "gitleaks as a pre-commit hook",
+   "field-level encryption for PII columns",
+   "a 90-day key rotation schedule"
+  ],
+  "files": [
+   "security/middleware.py",
+   "security/redaction.py",
+   "terraform/iam.tf",
+   ".gitleaks.toml",
+   "config/csp.json",
+   "policy/egress.yaml"
+  ],
+  "errors": [
+   "an SSRF in the webhook fetcher",
+   "a SQL injection in the search filter"
+  ]
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "id": "ho2_security_appsec_005",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a penetration test remediation."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a penetration test remediation."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, mTLS between internal services wins."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "✔ Encrypted secrets at rest in the vault Turned out .github/workflows/security.yml was the culprit file. Between the options, Vault as the single secrets store came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards a 90-day key rotation schedule."
+  },
+  {
+   "role": "assistant",
+   "content": "security/redaction.py got a few more lines. Sure thing. Short-lived tokens with refresh rotation is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Most of the afternoon went into terraform/iam.tf. Path: api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "✔ Signed container images in the registry We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Argon2id over bcrypt for new password hashes?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. I'd like to get moving the remaining secrets out of environment files in before Friday. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Trivy for container image scanning?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Happy to dig into this more. Changed files: docs/threat-model.md."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: audit log retention policy. A security runbook for incident response is on deck. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a penetration test remediation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Managed to finish parameterised queries across the data layer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "parameterised queries across the data layer",
+   "encrypted secrets at rest in the vault",
+   "signed container images in the registry"
+  ],
+  "pending_tasks": [
+   "a security runbook for incident response",
+   "audit log retention policy",
+   "moving the remaining secrets out of environment files"
+  ],
+  "decisions": [
+   "mTLS between internal services",
+   "short-lived tokens with refresh rotation",
+   "a 90-day key rotation schedule",
+   "Vault as the single secrets store",
+   "Trivy for container image scanning",
+   "Argon2id over bcrypt for new password hashes"
+  ],
+  "files": [
+   "terraform/iam.tf",
+   ".github/workflows/security.yml",
+   "docs/threat-model.md",
+   "security/redaction.py",
+   "api/auth.py"
+  ],
+  "errors": []
+ }
+}

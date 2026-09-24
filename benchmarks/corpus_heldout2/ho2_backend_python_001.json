@@ -1,0 +1,119 @@
+{
+ "id": "ho2_backend_python_001",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a FastAPI orders service back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a FastAPI orders service."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failing: a 500 from an unhandled TimeoutError in the payment client. Changed files: api/deps.py. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: migrations/env.py.\n**Completed:** a health check endpoint at /healthz."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: structlog for JSON log output. Changed files: api/main.py."
+  },
+  {
+   "role": "user",
+   "content": "Stick with uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: pytest-asyncio for the async test suite. * `requirements.txt` Sure thing. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — pagination on the list endpoints. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: db/session.py."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Chosen: Alembic for schema migrations. Happy to dig into this more. Resolved: the Alembic baseline migration. Resolved: POST /api/orders and GET /api/orders/{id}."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "**TODO:** audit logging for admin actions.\nChosen: Redis for refresh token storage.\nDefect: a memory leak in the long-lived session object.\nRetries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** request ID middleware for structured logging."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "pagination on the list endpoints",
+   "request ID middleware for structured logging",
+   "POST /api/orders and GET /api/orders/{id}",
+   "a health check endpoint at /healthz",
+   "the Alembic baseline migration"
+  ],
+  "pending_tasks": [
+   "audit logging for admin actions"
+  ],
+  "decisions": [
+   "Redis for refresh token storage",
+   "pytest-asyncio for the async test suite",
+   "structlog for JSON log output",
+   "Alembic for schema migrations",
+   "uvicorn behind gunicorn in production"
+  ],
+  "files": [
+   "requirements.txt",
+   "api/deps.py",
+   "api/main.py",
+   "db/session.py",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "a memory leak in the long-lived session object",
+   "a 500 from an unhandled TimeoutError in the payment client"
+  ]
+ }
+}

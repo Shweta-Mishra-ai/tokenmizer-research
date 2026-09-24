@@ -1,0 +1,134 @@
+{
+ "id": "ho2_platform_api_002",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a webhook delivery system."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a webhook delivery system."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Root of the pain: rate limit headers reporting a stale budget. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. api/errors.py got a few more lines. Turned out tests/test_webhooks.py was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "openapi/v2.yaml got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get a conformance test suite for the SDKs in before Friday. Turned out gateway/kong.yaml was the culprit file. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. After a couple of tries, the OpenAPI specification for every public route finally works."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, webhook signature verification finally works."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves at-least-once webhook delivery with retries behind us. That leaves an API changelog published with each release behind us. Snake_case field naming throughout is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on Kong as the API gateway. We landed on cursor pagination rather than offset. All things considered, JSON only, no XML support wins."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out api/routes/webhooks.py was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually GraphQL as an alternative surface has to get done too. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get field-level filtering on the large resources in before Friday."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "webhook signature verification",
+   "at-least-once webhook delivery with retries",
+   "the OpenAPI specification for every public route",
+   "an API changelog published with each release"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "GraphQL as an alternative surface",
+   "a conformance test suite for the SDKs"
+  ],
+  "decisions": [
+   "cursor pagination rather than offset",
+   "snake_case field naming throughout",
+   "Kong as the API gateway",
+   "JSON only, no XML support"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "api/routes/webhooks.py",
+   "tests/test_webhooks.py",
+   "gateway/kong.yaml",
+   "api/errors.py"
+  ],
+  "errors": [
+   "rate limit headers reporting a stale budget"
+  ]
+ }
+}

@@ -1,0 +1,125 @@
+{
+ "id": "ho2_research_writing_001",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a grant proposal."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards Zotero for reference management."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. There's a figure rendering illegibly in greyscale print in production."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report the abstract rewritten to lead with the result is sorted. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "An appendix documenting the corpus construction: done. Retries only apply to failed jobs. Settling on an explicit statement that the corpus is synthetic."
+  },
+  {
+   "role": "user",
+   "content": "Could we use reporting macro F1 rather than accuracy?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. paper/references.bib got a few more lines. Chosen: a single-column layout for the preprint."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out data/results.json was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into paper/main.tex.\nLet me check the docs first.\n**Completed:** restructuring the argument around three claims.\nChanged files: paper/appendix.tex."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, reporting per-domain breakdowns in the appendix wins."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc.\n**Choice:** naming the baselines by method rather than by vendor."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report the reproducibility statement with exact commands is sorted. Haven't gotten to reconciling the two conflicting result tables. Decisions like this usually need a design doc."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an appendix documenting the corpus construction",
+   "the abstract rewritten to lead with the result",
+   "restructuring the argument around three claims",
+   "the reproducibility statement with exact commands"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "naming the baselines by method rather than by vendor",
+   "an explicit statement that the corpus is synthetic",
+   "Zotero for reference management",
+   "reporting macro F1 rather than accuracy",
+   "a single-column layout for the preprint",
+   "reporting per-domain breakdowns in the appendix"
+  ],
+  "files": [
+   "paper/appendix.tex",
+   "paper/references.bib",
+   "paper/main.tex",
+   "data/results.json"
+  ],
+  "errors": [
+   "a figure rendering illegibly in greyscale print"
+  ]
+ }
+}

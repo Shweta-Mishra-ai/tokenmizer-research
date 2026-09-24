@@ -1,0 +1,136 @@
+{
+ "id": "ho2_devops_kubernetes_002",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a cost reduction pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a cost reduction pass."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "**TODO:** consolidating the three ingress controllers."
+  },
+  {
+   "role": "user",
+   "content": "Personally Velero for cluster backups feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. Root of the pain: CrashLoopBackOff after the config map rename."
+  },
+  {
+   "role": "user",
+   "content": "Stick with Kustomize overlays per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. I put it in Dockerfile. Once the build is green we can merge. Reducing the image sizes on the worker pool is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. charts/api/values.yaml got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Let's use Trivy for image scanning in CI."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a cost reduction pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves a rolling deploy with surge and unavailable tuned behind us."
+  },
+  {
+   "role": "user",
+   "content": "Personally Karpenter instead of the cluster autoscaler feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. ArgoCD for GitOps delivery is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped horizontal pod autoscaling on CPU and request rate. Failing: PVC binding failures in the new availability zone. ✔ The Helm chart for the API deployment"
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, a blue-green strategy for the database proxy wins. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "See argocd/apps/api.yaml. Nothing failed on the last run. Users reported an ImagePullBackOff from an expired registry credential."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into scripts/rollout.sh.\nNo regressions so far.\n**Completed:** network policies isolating the payments namespace."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "network policies isolating the payments namespace",
+   "a rolling deploy with surge and unavailable tuned",
+   "horizontal pod autoscaling on CPU and request rate",
+   "the Helm chart for the API deployment"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers",
+   "reducing the image sizes on the worker pool"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "a blue-green strategy for the database proxy",
+   "ArgoCD for GitOps delivery",
+   "Karpenter instead of the cluster autoscaler",
+   "Kustomize overlays per environment",
+   "Trivy for image scanning in CI"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "charts/api/values.yaml",
+   "Dockerfile",
+   "argocd/apps/api.yaml"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename",
+   "PVC binding failures in the new availability zone",
+   "an ImagePullBackOff from an expired registry credential"
+  ]
+ }
+}

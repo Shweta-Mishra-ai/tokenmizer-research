@@ -158,7 +158,17 @@ def _seed(*parts) -> int:
     return zlib.crc32("|".join(map(str, parts)).encode())
 
 
-def build_session(domain_key: str, idx: int, register: str, rng: random.Random) -> dict:
+V1 = {
+    "completed": _COMPLETED, "pending": _PENDING,
+    "decision_assistant": _DECISION_ASSISTANT, "decision_user": _DECISION_USER,
+    "file": _FILE, "error": _ERROR, "distractors": _DISTRACTORS,
+    "user_prompts": _USER_PROMPTS, "openers": _OPENERS,
+    "acks": ["Makes sense, doing that.", "OK, will do.", "Fine by me."],
+}
+
+
+def build_session(domain_key: str, idx: int, register: str, rng: random.Random,
+                  T: dict = V1, prefix: str = "ho", label: str = "Held-out") -> dict:
     pack = DOMAINS[domain_key]
     project = rng.choice(pack["projects"])
 
@@ -169,7 +179,7 @@ def build_session(domain_key: str, idx: int, register: str, rng: random.Random) 
     errors = rng.sample(pack["errors"], min(rng.randint(0, 3), len(pack["errors"])))
     user_decision = {d: rng.random() < 0.35 for d in decisions}
 
-    opener_u, opener_a = rng.choice(_OPENERS)
+    opener_u, opener_a = rng.choice(T["openers"])
     messages = [
         {"role": "user", "content": opener_u.format(p=project)},
         {"role": "assistant", "content": opener_a.format(p=project)},
@@ -187,34 +197,33 @@ def build_session(domain_key: str, idx: int, register: str, rng: random.Random) 
         user_lines, parts = [], []
         for kind, fact in batch:
             if kind == "decision" and user_decision[fact]:
-                user_lines.append(_render(_DECISION_USER, register, rng, fact))
-                parts.append(rng.choice(["Makes sense, doing that.", "OK, will do.",
-                                         "Fine by me."]))
+                user_lines.append(_render(T["decision_user"], register, rng, fact))
+                parts.append(rng.choice(T["acks"]))
             elif kind == "decision":
-                parts.append(_render(_DECISION_ASSISTANT, register, rng, fact))
+                parts.append(_render(T["decision_assistant"], register, rng, fact))
             elif kind == "completed":
-                parts.append(_render(_COMPLETED, register, rng, fact))
+                parts.append(_render(T["completed"], register, rng, fact))
             elif kind == "pending":
-                parts.append(_render(_PENDING, register, rng, fact))
+                parts.append(_render(T["pending"], register, rng, fact))
             elif kind == "file":
-                parts.append(_render(_FILE, register, rng, fact))
+                parts.append(_render(T["file"], register, rng, fact))
             else:
-                parts.append(_render(_ERROR, register, rng, fact))
+                parts.append(_render(T["error"], register, rng, fact))
         if rng.random() < 0.5:
-            parts.insert(rng.randint(0, len(parts)), rng.choice(_DISTRACTORS))
+            parts.insert(rng.randint(0, len(parts)), rng.choice(T["distractors"]))
         # Markdown-style templates (checkbox, bullet) only read as intended
         # on their own line; everything else joins as prose.
         sep = "\n" if any(p.startswith(("- ", "✅", "❌", "**")) for p in parts) else " "
-        user = " ".join(user_lines) if user_lines else rng.choice(_USER_PROMPTS).format(p=project)
+        user = " ".join(user_lines) if user_lines else rng.choice(T["user_prompts"]).format(p=project)
         messages.append({"role": "user", "content": user})
         messages.append({"role": "assistant", "content": sep.join(parts)})
 
     return {
-        "id": f"ho_{domain_key.replace('/', '_')}_{idx:03d}",
+        "id": f"{prefix}_{domain_key.replace('/', '_')}_{idx:03d}",
         "origin": "synthetic",
         "domain": domain_key,
         "register": register,
-        "notes": ("Held-out session — templates disjoint from generate.py, with "
+        "notes": (f"{label} session — templates disjoint from generate.py, with "
                   f"distractor sentences. domain={domain_key!r}, register={register!r}."),
         "messages": messages,
         "ground_truth": {"completed_tasks": completed, "pending_tasks": pending,
@@ -222,7 +231,8 @@ def build_session(domain_key: str, idx: int, register: str, rng: random.Random) 
     }
 
 
-def generate(n: int, seed: int = 20260924) -> list[dict]:
+def generate(n: int, seed: int = 20260924, T: dict = V1, prefix: str = "ho",
+             label: str = "Held-out") -> list[dict]:
     domain_keys = list(DOMAINS)
     counters = {k: 0 for k in domain_keys}
     out = []
@@ -233,7 +243,8 @@ def generate(n: int, seed: int = 20260924) -> list[dict]:
         reg = REGISTERS[(i + i // len(domain_keys)) % len(REGISTERS)]
         counters[dk] += 1
         out.append(build_session(dk, counters[dk], reg,
-                                 random.Random(_seed(seed, dk, reg, counters[dk]))))
+                                 random.Random(_seed(seed, dk, reg, counters[dk])),
+                                 T=T, prefix=prefix, label=label))
     return out
 
 

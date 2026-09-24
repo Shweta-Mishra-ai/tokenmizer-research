@@ -1,0 +1,110 @@
+{
+ "id": "ho2_devops_ci_001",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a test infrastructure migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a test infrastructure migration."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a test infrastructure migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "See pyproject.toml. Quarantining the six flakiest tests: done."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Automated changelog generation on tag is live now. Publishing test timing history is waiting on me. Happy to dig into this more. We'll use GitHub Actions over the self-managed runner fleet."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have trunk-based development with short-lived branches."
+  },
+  {
+   "role": "assistant",
+   "content": "A concurrency group cancelling superseded runs went out this morning. Yep, doing that. Tomorrow: splitting the linting job from the test job."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to a merge queue for the busy repositories. Settling on OIDC federation instead of long-lived deploy keys. No regressions so far. Managed to finish artifact upload for the failing test logs."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. I still owe you pinning all third-party actions by digest."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a test infrastructure migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in conftest.py."
+  },
+  {
+   "role": "user",
+   "content": "Could we use release-please for version bumps?"
+  },
+  {
+   "role": "assistant",
+   "content": "See Makefile. Happy to dig into this more. Sure thing. Check .github/workflows/release.yml for the change."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me check the docs first. See scripts/run_tests.sh. Dependency caching across pipeline runs went out this morning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dependency caching across pipeline runs",
+   "quarantining the six flakiest tests",
+   "artifact upload for the failing test logs",
+   "automated changelog generation on tag",
+   "a concurrency group cancelling superseded runs"
+  ],
+  "pending_tasks": [
+   "splitting the linting job from the test job",
+   "pinning all third-party actions by digest",
+   "a merge queue for the busy repositories",
+   "publishing test timing history"
+  ],
+  "decisions": [
+   "release-please for version bumps",
+   "trunk-based development with short-lived branches",
+   "GitHub Actions over the self-managed runner fleet",
+   "OIDC federation instead of long-lived deploy keys"
+  ],
+  "files": [
+   "Makefile",
+   ".github/workflows/release.yml",
+   "scripts/run_tests.sh",
+   "conftest.py",
+   "pyproject.toml"
+  ],
+  "errors": []
+ }
+}

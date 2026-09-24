@@ -1,0 +1,113 @@
+{
+ "id": "ho2_research_writing_002",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a benchmark methodology writeup back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a benchmark methodology writeup."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered: peer feedback incorporated from two reviewers. [ ] permission to cite the internal deployment data No regressions so far. Changed files: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Failing: a mislabelled axis on the compression figure."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Resolution: including the negative result on implicit language."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: an appendix documenting the corpus construction."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "[done] the abstract rewritten to lead with the result"
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error — a missing statistical test on the headline comparison."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chosen: releasing the corpus alongside the paper. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: data/results.json. Chosen: bootstrap confidence intervals rather than t-tests."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: paper/references.bib."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the abstract rewritten to lead with the result",
+   "an appendix documenting the corpus construction",
+   "peer feedback incorporated from two reviewers"
+  ],
+  "pending_tasks": [
+   "permission to cite the internal deployment data"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "bootstrap confidence intervals rather than t-tests",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "Makefile",
+   "paper/references.bib",
+   "data/results.json"
+  ],
+  "errors": [
+   "a mislabelled axis on the compression figure",
+   "a missing statistical test on the headline comparison"
+  ]
+ }
+}

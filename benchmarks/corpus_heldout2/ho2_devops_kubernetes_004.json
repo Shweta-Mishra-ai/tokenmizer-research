@@ -1,0 +1,144 @@
+{
+ "id": "ho2_devops_kubernetes_004",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a multi-region rollout back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a multi-region rollout."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. See scripts/rollout.sh."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Check terraform/cluster.tf for the change."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Consolidating the three ingress controllers is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in k8s/hpa.yaml."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Readiness and liveness probes on every workload went out this morning. See k8s/ingress.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on cert-manager for TLS certificates. Prometheus and Grafana for metrics is what we're using. Check Dockerfile for the change."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Cluster autoscaler on the spot node group is finished. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use a blue-green strategy for the database proxy."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "A canary stage in the deploy pipeline is finished. Kustomize overlays per environment is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Istio for service mesh traffic policy?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. A rolling deploy with surge and unavailable tuned: done. Resource requests and limits for all containers is live now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Found an ImagePullBackOff from an expired registry credential during testing. The ingress with automatic certificate renewal is live now."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Check argocd/apps/api.yaml for the change."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the ingress with automatic certificate renewal",
+   "cluster autoscaler on the spot node group",
+   "a canary stage in the deploy pipeline",
+   "a rolling deploy with surge and unavailable tuned",
+   "resource requests and limits for all containers",
+   "readiness and liveness probes on every workload"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers"
+  ],
+  "decisions": [
+   "a blue-green strategy for the database proxy",
+   "cert-manager for TLS certificates",
+   "Prometheus and Grafana for metrics",
+   "Istio for service mesh traffic policy",
+   "Kustomize overlays per environment"
+  ],
+  "files": [
+   "terraform/cluster.tf",
+   "scripts/rollout.sh",
+   "Dockerfile",
+   "argocd/apps/api.yaml",
+   "k8s/hpa.yaml",
+   "k8s/ingress.yaml"
+  ],
+  "errors": [
+   "an ImagePullBackOff from an expired registry credential"
+  ]
+ }
+}

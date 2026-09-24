@@ -1,0 +1,114 @@
+{
+ "id": "ho2_platform_api_004",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a webhook delivery system back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a webhook delivery system."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — a deprecation header on the v1 routes."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: OpenAPI as the source of truth for SDK generation. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: sunsetting v1 after the six-month window. * `gateway/kong.yaml` The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: SDK generation for three languages. ✔ Request/response logging with PII stripped"
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chosen: RFC 7807 problem details for errors. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "* `tests/test_webhooks.py`\nCompleted — cursor-based pagination across all list endpoints.\n**Completed:** at-least-once webhook delivery with retries."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. ✔ Idempotency keys on all write operations"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "[ ] expanding the sandbox data set"
+  },
+  {
+   "role": "user",
+   "content": "I want a six-month deprecation window."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Yep, doing that. [done] the sandbox environment for partner testing"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the sandbox environment for partner testing",
+   "idempotency keys on all write operations",
+   "SDK generation for three languages",
+   "cursor-based pagination across all list endpoints",
+   "at-least-once webhook delivery with retries",
+   "a deprecation header on the v1 routes",
+   "request/response logging with PII stripped"
+  ],
+  "pending_tasks": [
+   "sunsetting v1 after the six-month window",
+   "expanding the sandbox data set"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "RFC 7807 problem details for errors",
+   "a six-month deprecation window"
+  ],
+  "files": [
+   "tests/test_webhooks.py",
+   "gateway/kong.yaml"
+  ],
+  "errors": []
+ }
+}

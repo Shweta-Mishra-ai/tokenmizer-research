@@ -1,0 +1,152 @@
+{
+ "id": "ho2_mobile_ios_003",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a subscription billing flow back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a subscription billing flow."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, the SwiftUI onboarding sequence finally works."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. App/Info.plist got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report Core Data persistence for the workout log is sorted. The error budget is fine this month. Turns out the flakiness was memory growth from uncancelled image tasks. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Personally Keychain for token storage rather than UserDefaults feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up a snapshot test suite for the components."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Most of the afternoon went into Sources/Sync/SyncEngine.swift."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. We landed on async/await instead of Combine for networking. That leaves a widget showing today's activity behind us."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Root of the pain: the widget timeline failing to refresh. After a couple of tries, crash reporting integration finally works. After a couple of tries, keychain storage for the auth token finally works."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Eventually localisation into three languages has to get done too."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into Package.swift. Tests/SyncTests.swift got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "SwiftLint in the build phase is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up migrating the remaining UIKit screens."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a widget showing today's activity",
+   "the SwiftUI onboarding sequence",
+   "crash reporting integration",
+   "keychain storage for the auth token",
+   "Core Data persistence for the workout log"
+  ],
+  "pending_tasks": [
+   "localisation into three languages",
+   "migrating the remaining UIKit screens",
+   "a snapshot test suite for the components"
+  ],
+  "decisions": [
+   "async/await instead of Combine for networking",
+   "Keychain for token storage rather than UserDefaults",
+   "iOS 17 as the minimum deployment target",
+   "SwiftLint in the build phase",
+   "Core Data over Realm for local storage"
+  ],
+  "files": [
+   "App/Info.plist",
+   "Tests/SyncTests.swift",
+   "Package.swift",
+   "Sources/Sync/SyncEngine.swift"
+  ],
+  "errors": [
+   "memory growth from uncancelled image tasks",
+   "the widget timeline failing to refresh"
+  ]
+ }
+}

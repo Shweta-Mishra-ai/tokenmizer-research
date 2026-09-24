@@ -1,0 +1,134 @@
+{
+ "id": "ho2_product_analytics_001",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an onboarding redesign measurement."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an onboarding redesign measurement."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards one primary metric per experiment."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reporting absolute lift alongside relative is the clear winner here. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "**TODO:** a guardrail metric on support ticket volume.\nThe error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use a 95% confidence threshold for experiment calls."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "[done] the experiment assignment and exposure logging\n**TODO:** a qualitative follow-up with churned accounts.\nNo regressions so far.\n[done] the event taxonomy covering fourteen product actions"
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error — the active user count differing 12% between two dashboards."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an onboarding redesign measurement?"
+  },
+  {
+   "role": "assistant",
+   "content": "[done] the dashboard tracking the three north star metrics The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an onboarding redesign measurement?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: analytics/significance.py. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Personally excluding internal accounts from every metric feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Reconciling the two conflicting active-user counts keeps slipping. We are going with weekly rather than daily cohorts for readability. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Choice:** Amplitude for product analytics.\n**TODO:** an automated experiment readout template.\nI put it in analytics/cohorts.sql."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? I put it in docs/metric_definitions.md."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the dashboard tracking the three north star metrics",
+   "the event taxonomy covering fourteen product actions",
+   "the experiment assignment and exposure logging"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting active-user counts",
+   "a guardrail metric on support ticket volume",
+   "a qualitative follow-up with churned accounts",
+   "an automated experiment readout template"
+  ],
+  "decisions": [
+   "reporting absolute lift alongside relative",
+   "excluding internal accounts from every metric",
+   "Amplitude for product analytics",
+   "a 95% confidence threshold for experiment calls",
+   "one primary metric per experiment",
+   "weekly rather than daily cohorts for readability"
+  ],
+  "files": [
+   "docs/metric_definitions.md",
+   "analytics/cohorts.sql",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "the active user count differing 12% between two dashboards"
+  ]
+ }
+}

@@ -1,0 +1,97 @@
+{
+ "id": "ho2_backend_go_001",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an event consumer."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an event consumer."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Replacing the mutex with a sharded map is on deck. Retries only apply to failed jobs. Tomorrow: a soak test over 24 hours."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Edits are in Makefile. Structured logging with request correlation is finished."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: reducing allocations in the serialiser. Check buf.yaml for the change."
+  },
+  {
+   "role": "user",
+   "content": "What about Go 1.23 as the toolchain?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is a monorepo layout with internal packages. Retries only apply to failed jobs. I put it in internal/worker/pool.go. Check internal/store/postgres.go for the change."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I still owe you profiling the p99 latency spike. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Protobuf schema versioning is live now. A circuit breaker around the downstream call is finished."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "protobuf schema versioning",
+   "structured logging with request correlation",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "a soak test over 24 hours",
+   "reducing allocations in the serialiser",
+   "replacing the mutex with a sharded map",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "a monorepo layout with internal packages",
+   "Go 1.23 as the toolchain"
+  ],
+  "files": [
+   "Makefile",
+   "buf.yaml",
+   "internal/worker/pool.go",
+   "internal/store/postgres.go"
+  ],
+  "errors": []
+ }
+}
