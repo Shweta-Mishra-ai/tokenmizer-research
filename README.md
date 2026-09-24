@@ -60,6 +60,20 @@ independently implemented strategies on one corpus, and unmoved by this
 fix since it targets vocabulary coverage, not the underlying
 architecture.
 
+### Since 0.5.4 (unreleased product `main`, re-measured 2026-09-24)
+
+Same benchmark, product `main` at `a184cf1`: macro F1 **60.0% → 61.3%**,
+a paired gain of **+1.25 points, 95% CI [+0.46, +2.12]**. The gain is
+real but small. Nearly all of it is in decisions (59% → 64% F1, now level
+with Graphiti/Mem0-style). Errors barely moved (44% → 46%, still 20 points
+behind), and implicit-register sessions are unchanged (27% → 29%). The
+tie with Graphiti/Mem0-style still holds. Two sessions regressed because
+of a new product error pattern that reads "failed" used as an adjective
+("retry for failed deliveries") as an error. Extraction is also ~50%
+slower. Full before/after analysis, including the root cause:
+[`benchmarks/results/REPORT_post_0.5.4.md`](benchmarks/results/REPORT_post_0.5.4.md).
+The paper still reports the released 0.5.4.
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See

@@ -44,7 +44,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from benchmarks.memorybench import corpus as corpus_mod
 from benchmarks.memorybench.metrics import score
-from benchmarks.memorybench.methods import ORDER, REGISTRY
+from benchmarks.memorybench.methods import ORDER, REGISTRY, tokenmizer_real
 from benchmarks.memorybench.methods.common import count_tokens
 
 CATEGORIES = corpus_mod.CATEGORIES
@@ -239,6 +239,7 @@ def build_report(sessions, records: list[SessionRecord], threshold: float,
         "threshold": threshold,
         "bootstrap_iterations": bootstrap_iters,
         "bootstrap_seed": seed,
+        "tokenmizer_product": tokenmizer_real.product_revision(),
         "methods": {m: REGISTRY[m][1] for m in methods_present},
         "results": method_summaries,
         "comparisons_vs_tokenmizer": comparisons,
