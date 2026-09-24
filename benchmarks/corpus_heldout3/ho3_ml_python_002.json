@@ -1,0 +1,128 @@
+{
+ "id": "ho3_ml_python_002",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a document classifier."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a document classifier now."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting a silent dtype coercion dropping precision in CI. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "Can we try AUC-PR as the primary metric given the imbalance?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Hitting NaN losses after the learning rate change in CI."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the model card is still open. Let's settle on MLflow for experiment tracking."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Class imbalance handling with focal loss has been merged. We ran into train/serve skew from inconsistent scaling. I'll summarise at the end. Have a look at src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "The plan is a 90-day lookback window for features. There were no failures in the nightly run. A stratified train/validation/test split is working now. I've got gradient boosting reaching 0.84 AUC up and running."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. I edited notebooks/eda.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at requirements.txt. Batch inference over the full customer base is sorted. The relevant code is in src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retraining automation on a weekly cadence still needs doing. The relevant code is in src/features.py."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at tests/test_features.py. I've got SHAP explanations for the top features up and running."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "gradient boosting reaching 0.84 AUC",
+   "SHAP explanations for the top features",
+   "class imbalance handling with focal loss",
+   "batch inference over the full customer base",
+   "a stratified train/validation/test split"
+  ],
+  "pending_tasks": [
+   "documenting the model card",
+   "retraining automation on a weekly cadence"
+  ],
+  "decisions": [
+   "a 90-day lookback window for features",
+   "MLflow for experiment tracking",
+   "AUC-PR as the primary metric given the imbalance"
+  ],
+  "files": [
+   "src/evaluate.py",
+   "notebooks/eda.ipynb",
+   "requirements.txt",
+   "src/features.py",
+   "tests/test_features.py",
+   "src/train.py"
+  ],
+  "errors": [
+   "NaN losses after the learning rate change",
+   "a silent dtype coercion dropping precision",
+   "train/serve skew from inconsistent scaling"
+  ]
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "id": "ho3_devops_kubernetes_001",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a zero-downtime deploy pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a zero-downtime deploy pipeline."
+  },
+  {
+   "role": "user",
+   "content": "What about a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of Dockerfile as well."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Moving the remaining cron jobs to Kubernetes is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "What about a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "charts/api/templates/deployment.yaml ended up with most of the changes. Good news: a canary stage in the deploy pipeline made it in before the freeze. Cert-manager for TLS certificates beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "What about a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: the Helm chart for the API deployment made it in before the freeze. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Nobody has touched per-namespace cost attribution yet."
+  },
+  {
+   "role": "user",
+   "content": "A blue-green strategy for the database proxy sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "The ingress with automatic certificate renewal? Taken care of. The root cause turned out to be PVC binding failures in the new availability zone. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "k8s/ingress.yaml ended up with most of the changes. Rewrote parts of terraform/cluster.tf as well."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: resource requests and limits for all containers made it in before the freeze. Consolidating the three ingress controllers is waiting for someone to pick it up. The error messages are now clearer. Good news: a rolling deploy with surge and unavailable tuned made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Rewrote parts of k8s/networkpolicy.yaml as well."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "resource requests and limits for all containers",
+   "the ingress with automatic certificate renewal",
+   "a rolling deploy with surge and unavailable tuned",
+   "the Helm chart for the API deployment",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes",
+   "consolidating the three ingress controllers",
+   "per-namespace cost attribution"
+  ],
+  "decisions": [
+   "cert-manager for TLS certificates",
+   "a blue-green strategy for the database proxy"
+  ],
+  "files": [
+   "k8s/ingress.yaml",
+   "k8s/networkpolicy.yaml",
+   "terraform/cluster.tf",
+   "Dockerfile",
+   "charts/api/templates/deployment.yaml"
+  ],
+  "errors": [
+   "PVC binding failures in the new availability zone"
+  ]
+ }
+}

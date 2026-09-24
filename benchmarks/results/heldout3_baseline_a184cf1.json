@@ -1,0 +1,771 @@
+{
+  "generated": "2026-09-24T07:42:35.819495+00:00",
+  "corpus": "80 sessions (80 synthetic, 0 real) \u00b7 1794 turns \u00b7 1387 labelled items \u00b7 16 domains \u00b7 registers: explicit, implicit, mixed, semi",
+  "threshold": 0.6,
+  "bootstrap_iterations": 2000,
+  "bootstrap_seed": 1729,
+  "tokenmizer_product": {
+    "version": "0.5.4",
+    "commit": "a184cf1dcbfe2d1a5059047bb1adc0c58cbf919e",
+    "dirty": false
+  },
+  "methods": {
+    "tokenmizer_v0.5.2": "Real product engine \u2014 GraphMemory + HybridExtractor heuristic pass (out of process).",
+    "graphiti_style": "Bi-temporal graph \u2014 every fact is kept and timestamped by turn; a later, lexically similar decision marks the earlier one superseded but never deletes it.",
+    "graphrag_style": "Entity/community graph \u2014 wide net on files and named-technology entities (its actual design target); tasks have no status concept in this strategy, so completion state is only weakly recovered.",
+    "mem0_style": "Flat fact store, whole transcript, last-write-wins dedup on lexically similar facts \u2014 no node types, no graph edges, no supersede tracking.",
+    "memgpt_style": "Core/archival paging \u2014 only the most recent ~40% of turns are in the always-visible core context; everything older requires an archival query this benchmark never issues, so it contributes nothing.",
+    "sliding_window_10": "Keep the last 10 raw messages verbatim, drop everything earlier.",
+    "naive_truncation": "Keep the last ~300 tokens of raw transcript verbatim, drop the rest.",
+    "naive_summary": "Concatenate the whole transcript and truncate to the first ~120 words."
+  },
+  "results": {
+    "tokenmizer_v0.5.2": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.7215189873417721,
+          "recall": 0.27941176470588236,
+          "f1": 0.40282685512367494,
+          "expected": 408,
+          "extracted": 158,
+          "tp": 114,
+          "spurious": 44
+        },
+        "pending_tasks": {
+          "precision": 0.14285714285714285,
+          "recall": 0.018604651162790697,
+          "f1": 0.03292181069958847,
+          "expected": 215,
+          "extracted": 28,
+          "tp": 4,
+          "spurious": 24
+        },
+        "decisions": {
+          "precision": 0.44761904761904764,
+          "recall": 0.14968152866242038,
+          "f1": 0.2243436754176611,
+          "expected": 314,
+          "extracted": 105,
+          "tp": 47,
+          "spurious": 58
+        },
+        "files": {
+          "precision": 0.9876923076923076,
+          "recall": 0.9756838905775076,
+          "f1": 0.981651376146789,
+          "expected": 329,
+          "extracted": 325,
+          "tp": 321,
+          "spurious": 4
+        },
+        "errors": {
+          "precision": 0.30120481927710846,
+          "recall": 0.2066115702479339,
+          "f1": 0.24509803921568626,
+          "expected": 121,
+          "extracted": 83,
+          "tp": 25,
+          "spurious": 58
+        }
+      },
+      "macro_f1": 0.3471,
+      "macro_f1_ci95": [
+        0.3213,
+        0.3729
+      ],
+      "avg_resume_tokens": 69.5,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 5.49,
+      "avg_extract_ms": 215.188,
+      "avg_node_count": 8.7,
+      "macro_f1_by_register": {
+        "explicit": 0.4745,
+        "implicit": 0.248,
+        "mixed": 0.3417,
+        "semi": 0.3242
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.3471
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.3755,
+        "backend/python": 0.4486,
+        "data/sql": 0.3495,
+        "data/streaming": 0.3749,
+        "debug/production": 0.3499,
+        "devops/ci": 0.3382,
+        "devops/kubernetes": 0.3382,
+        "frontend/react": 0.2964,
+        "infra/terraform": 0.2829,
+        "ml/python": 0.3464,
+        "mobile/ios": 0.3341,
+        "platform/api": 0.3227,
+        "product/analytics": 0.3071,
+        "research/writing": 0.3684,
+        "security/appsec": 0.2782,
+        "systems/rust": 0.4423
+      }
+    },
+    "graphiti_style": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.75,
+          "recall": 0.22794117647058823,
+          "f1": 0.34962406015037595,
+          "expected": 408,
+          "extracted": 124,
+          "tp": 93,
+          "spurious": 31
+        },
+        "pending_tasks": {
+          "precision": 0.19767441860465115,
+          "recall": 0.07906976744186046,
+          "f1": 0.11295681063122923,
+          "expected": 215,
+          "extracted": 86,
+          "tp": 17,
+          "spurious": 69
+        },
+        "decisions": {
+          "precision": 0.6923076923076923,
+          "recall": 0.17197452229299362,
+          "f1": 0.2755102040816326,
+          "expected": 314,
+          "extracted": 78,
+          "tp": 54,
+          "spurious": 24
+        },
+        "files": {
+          "precision": 0.9498327759197325,
+          "recall": 0.8632218844984803,
+          "f1": 0.9044585987261147,
+          "expected": 329,
+          "extracted": 299,
+          "tp": 284,
+          "spurious": 15
+        },
+        "errors": {
+          "precision": 0.37662337662337664,
+          "recall": 0.2396694214876033,
+          "f1": 0.29292929292929293,
+          "expected": 121,
+          "extracted": 77,
+          "tp": 29,
+          "spurious": 48
+        }
+      },
+      "macro_f1": 0.3461,
+      "macro_f1_ci95": [
+        0.3136,
+        0.3808
+      ],
+      "avg_resume_tokens": 68.5,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 5.76,
+      "avg_extract_ms": 0.97,
+      "avg_node_count": 8.3,
+      "macro_f1_by_register": {
+        "explicit": 0.5325,
+        "implicit": 0.1959,
+        "mixed": 0.3506,
+        "semi": 0.3053
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.3461
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.3229,
+        "backend/python": 0.4087,
+        "data/sql": 0.3557,
+        "data/streaming": 0.3387,
+        "debug/production": 0.4214,
+        "devops/ci": 0.3203,
+        "devops/kubernetes": 0.338,
+        "frontend/react": 0.2884,
+        "infra/terraform": 0.2876,
+        "ml/python": 0.3462,
+        "mobile/ios": 0.3928,
+        "platform/api": 0.3193,
+        "product/analytics": 0.3588,
+        "research/writing": 0.3163,
+        "security/appsec": 0.346,
+        "systems/rust": 0.3761
+      }
+    },
+    "graphrag_style": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 1.0,
+          "recall": 0.056372549019607844,
+          "f1": 0.10672853828306264,
+          "expected": 408,
+          "extracted": 23,
+          "tp": 23,
+          "spurious": 0
+        },
+        "pending_tasks": {
+          "precision": 0.37142857142857144,
+          "recall": 0.06046511627906977,
+          "f1": 0.104,
+          "expected": 215,
+          "extracted": 35,
+          "tp": 13,
+          "spurious": 22
+        },
+        "decisions": {
+          "precision": 0.7397260273972602,
+          "recall": 0.17197452229299362,
+          "f1": 0.27906976744186046,
+          "expected": 314,
+          "extracted": 73,
+          "tp": 54,
+          "spurious": 19
+        },
+        "files": {
+          "precision": 0.9498327759197325,
+          "recall": 0.8632218844984803,
+          "f1": 0.9044585987261147,
+          "expected": 329,
+          "extracted": 299,
+          "tp": 284,
+          "spurious": 15
+        },
+        "errors": {
+          "precision": 0.2,
+          "recall": 0.3140495867768595,
+          "f1": 0.24437299035369775,
+          "expected": 121,
+          "extracted": 190,
+          "tp": 38,
+          "spurious": 152
+        }
+      },
+      "macro_f1": 0.2968,
+      "macro_f1_ci95": [
+        0.2752,
+        0.3208
+      ],
+      "avg_resume_tokens": 61.3,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 5.98,
+      "avg_extract_ms": 0.515,
+      "avg_node_count": 7.8,
+      "macro_f1_by_register": {
+        "explicit": 0.3892,
+        "implicit": 0.1825,
+        "mixed": 0.3161,
+        "semi": 0.2993
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.2968
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.2741,
+        "backend/python": 0.3569,
+        "data/sql": 0.3327,
+        "data/streaming": 0.2813,
+        "debug/production": 0.3401,
+        "devops/ci": 0.3003,
+        "devops/kubernetes": 0.3006,
+        "frontend/react": 0.2567,
+        "infra/terraform": 0.2648,
+        "ml/python": 0.2928,
+        "mobile/ios": 0.2877,
+        "platform/api": 0.3041,
+        "product/analytics": 0.3268,
+        "research/writing": 0.2679,
+        "security/appsec": 0.2893,
+        "systems/rust": 0.2722
+      }
+    },
+    "mem0_style": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.75,
+          "recall": 0.22794117647058823,
+          "f1": 0.34962406015037595,
+          "expected": 408,
+          "extracted": 124,
+          "tp": 93,
+          "spurious": 31
+        },
+        "pending_tasks": {
+          "precision": 0.19767441860465115,
+          "recall": 0.07906976744186046,
+          "f1": 0.11295681063122923,
+          "expected": 215,
+          "extracted": 86,
+          "tp": 17,
+          "spurious": 69
+        },
+        "decisions": {
+          "precision": 0.6923076923076923,
+          "recall": 0.17197452229299362,
+          "f1": 0.2755102040816326,
+          "expected": 314,
+          "extracted": 78,
+          "tp": 54,
+          "spurious": 24
+        },
+        "files": {
+          "precision": 0.9498327759197325,
+          "recall": 0.8632218844984803,
+          "f1": 0.9044585987261147,
+          "expected": 329,
+          "extracted": 299,
+          "tp": 284,
+          "spurious": 15
+        },
+        "errors": {
+          "precision": 0.37662337662337664,
+          "recall": 0.2396694214876033,
+          "f1": 0.29292929292929293,
+          "expected": 121,
+          "extracted": 77,
+          "tp": 29,
+          "spurious": 48
+        }
+      },
+      "macro_f1": 0.3461,
+      "macro_f1_ci95": [
+        0.314,
+        0.379
+      ],
+      "avg_resume_tokens": 67.5,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 5.89,
+      "avg_extract_ms": 0.918,
+      "avg_node_count": 8.3,
+      "macro_f1_by_register": {
+        "explicit": 0.5325,
+        "implicit": 0.1959,
+        "mixed": 0.3506,
+        "semi": 0.3053
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.3461
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.3229,
+        "backend/python": 0.4087,
+        "data/sql": 0.3557,
+        "data/streaming": 0.3387,
+        "debug/production": 0.4214,
+        "devops/ci": 0.3203,
+        "devops/kubernetes": 0.338,
+        "frontend/react": 0.2884,
+        "infra/terraform": 0.2876,
+        "ml/python": 0.3462,
+        "mobile/ios": 0.3928,
+        "platform/api": 0.3193,
+        "product/analytics": 0.3588,
+        "research/writing": 0.3163,
+        "security/appsec": 0.346,
+        "systems/rust": 0.3761
+      }
+    },
+    "memgpt_style": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.7068965517241379,
+          "recall": 0.10049019607843138,
+          "f1": 0.17596566523605153,
+          "expected": 408,
+          "extracted": 58,
+          "tp": 41,
+          "spurious": 17
+        },
+        "pending_tasks": {
+          "precision": 0.23076923076923078,
+          "recall": 0.027906976744186046,
+          "f1": 0.049792531120331954,
+          "expected": 215,
+          "extracted": 26,
+          "tp": 6,
+          "spurious": 20
+        },
+        "decisions": {
+          "precision": 0.6363636363636364,
+          "recall": 0.06687898089171974,
+          "f1": 0.12103746397694524,
+          "expected": 314,
+          "extracted": 33,
+          "tp": 21,
+          "spurious": 12
+        },
+        "files": {
+          "precision": 0.946969696969697,
+          "recall": 0.3860182370820669,
+          "f1": 0.5484634386498299,
+          "expected": 329,
+          "extracted": 132,
+          "tp": 127,
+          "spurious": 7
+        },
+        "errors": {
+          "precision": 0.3157894736842105,
+          "recall": 0.09917355371900827,
+          "f1": 0.1509433962264151,
+          "expected": 121,
+          "extracted": 38,
+          "tp": 12,
+          "spurious": 26
+        }
+      },
+      "macro_f1": 0.1753,
+      "macro_f1_ci95": [
+        0.1533,
+        0.2
+      ],
+      "avg_resume_tokens": 31.9,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 16.32,
+      "avg_extract_ms": 0.357,
+      "avg_node_count": 3.6,
+      "macro_f1_by_register": {
+        "explicit": 0.2586,
+        "implicit": 0.1008,
+        "mixed": 0.2043,
+        "semi": 0.1377
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.1753
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.1539,
+        "backend/python": 0.27,
+        "data/sql": 0.1961,
+        "data/streaming": 0.1955,
+        "debug/production": 0.2497,
+        "devops/ci": 0.1867,
+        "devops/kubernetes": 0.1867,
+        "frontend/react": 0.1125,
+        "infra/terraform": 0.1521,
+        "ml/python": 0.1168,
+        "mobile/ios": 0.1486,
+        "platform/api": 0.1493,
+        "product/analytics": 0.1794,
+        "research/writing": 0.1381,
+        "security/appsec": 0.2049,
+        "systems/rust": 0.1651
+      }
+    },
+    "sliding_window_10": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.1623119556611243,
+          "recall": 0.5024509803921569,
+          "f1": 0.24536205864751642,
+          "expected": 408,
+          "extracted": 1263,
+          "tp": 205,
+          "spurious": 1058
+        },
+        "pending_tasks": {
+          "precision": 0.08234362628661916,
+          "recall": 0.48372093023255813,
+          "f1": 0.14073071718538566,
+          "expected": 215,
+          "extracted": 1263,
+          "tp": 104,
+          "spurious": 1159
+        },
+        "decisions": {
+          "precision": 0.12984956452889945,
+          "recall": 0.5159235668789809,
+          "f1": 0.20747983225433617,
+          "expected": 314,
+          "extracted": 1263,
+          "tp": 162,
+          "spurious": 1099
+        },
+        "files": {
+          "precision": 0.11480601741884403,
+          "recall": 0.44680851063829785,
+          "f1": 0.18267442558041874,
+          "expected": 329,
+          "extracted": 1263,
+          "tp": 147,
+          "spurious": 1118
+        },
+        "errors": {
+          "precision": 0.047505938242280284,
+          "recall": 0.49586776859504134,
+          "f1": 0.08670520231213873,
+          "expected": 121,
+          "extracted": 1263,
+          "tp": 60,
+          "spurious": 1203
+        }
+      },
+      "macro_f1": 0.1689,
+      "macro_f1_ci95": [
+        0.1635,
+        0.1739
+      ],
+      "avg_resume_tokens": 156.8,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 2.16,
+      "avg_extract_ms": 0.004,
+      "avg_node_count": 15.8,
+      "macro_f1_by_register": {
+        "explicit": 0.1715,
+        "implicit": 0.1652,
+        "mixed": 0.1669,
+        "semi": 0.172
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.1689
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.1775,
+        "backend/python": 0.1566,
+        "data/sql": 0.1546,
+        "data/streaming": 0.1809,
+        "debug/production": 0.1729,
+        "devops/ci": 0.1665,
+        "devops/kubernetes": 0.172,
+        "frontend/react": 0.1761,
+        "infra/terraform": 0.1594,
+        "ml/python": 0.1686,
+        "mobile/ios": 0.1477,
+        "platform/api": 0.176,
+        "product/analytics": 0.1757,
+        "research/writing": 0.1622,
+        "security/appsec": 0.1756,
+        "systems/rust": 0.1799
+      }
+    },
+    "naive_truncation": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.1567196221554315,
+          "recall": 0.8970588235294118,
+          "f1": 0.266824056708351,
+          "expected": 408,
+          "extracted": 2329,
+          "tp": 366,
+          "spurious": 1964
+        },
+        "pending_tasks": {
+          "precision": 0.0798626019750966,
+          "recall": 0.8651162790697674,
+          "f1": 0.14622641509433962,
+          "expected": 215,
+          "extracted": 2329,
+          "tp": 186,
+          "spurious": 2143
+        },
+        "decisions": {
+          "precision": 0.12322885358522971,
+          "recall": 0.9012738853503185,
+          "f1": 0.2168133738196136,
+          "expected": 314,
+          "extracted": 2329,
+          "tp": 283,
+          "spurious": 2042
+        },
+        "files": {
+          "precision": 0.12408759124087591,
+          "recall": 0.8875379939209727,
+          "f1": 0.21773362282606315,
+          "expected": 329,
+          "extracted": 2329,
+          "tp": 292,
+          "spurious": 2040
+        },
+        "errors": {
+          "precision": 0.046371833404894806,
+          "recall": 0.8925619834710744,
+          "f1": 0.08816326530612245,
+          "expected": 121,
+          "extracted": 2329,
+          "tp": 108,
+          "spurious": 2221
+        }
+      },
+      "macro_f1": 0.1853,
+      "macro_f1_ci95": [
+        0.1815,
+        0.189
+      ],
+      "avg_resume_tokens": 289.3,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 1.12,
+      "avg_extract_ms": 0.015,
+      "avg_node_count": 29.1,
+      "macro_f1_by_register": {
+        "explicit": 0.1957,
+        "implicit": 0.1802,
+        "mixed": 0.18,
+        "semi": 0.1851
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.1853
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.1856,
+        "backend/python": 0.1691,
+        "data/sql": 0.1769,
+        "data/streaming": 0.1975,
+        "debug/production": 0.1837,
+        "devops/ci": 0.1701,
+        "devops/kubernetes": 0.1882,
+        "frontend/react": 0.1891,
+        "infra/terraform": 0.181,
+        "ml/python": 0.1948,
+        "mobile/ios": 0.1821,
+        "platform/api": 0.1951,
+        "product/analytics": 0.1883,
+        "research/writing": 0.1843,
+        "security/appsec": 0.1978,
+        "systems/rust": 0.1804
+      }
+    },
+    "naive_summary": {
+      "sessions_scored": 80,
+      "micro_by_category": {
+        "completed_tasks": {
+          "precision": 0.1322314049586777,
+          "recall": 0.5098039215686274,
+          "f1": 0.209994952044422,
+          "expected": 408,
+          "extracted": 1573,
+          "tp": 208,
+          "spurious": 1365
+        },
+        "pending_tasks": {
+          "precision": 0.0743801652892562,
+          "recall": 0.5441860465116279,
+          "f1": 0.13087248322147654,
+          "expected": 215,
+          "extracted": 1573,
+          "tp": 117,
+          "spurious": 1456
+        },
+        "decisions": {
+          "precision": 0.10870947234583599,
+          "recall": 0.5414012738853503,
+          "f1": 0.18106283322537248,
+          "expected": 314,
+          "extracted": 1573,
+          "tp": 170,
+          "spurious": 1402
+        },
+        "files": {
+          "precision": 0.11633820724729815,
+          "recall": 0.5714285714285714,
+          "f1": 0.19331836788591045,
+          "expected": 329,
+          "extracted": 1573,
+          "tp": 188,
+          "spurious": 1390
+        },
+        "errors": {
+          "precision": 0.04132231404958678,
+          "recall": 0.5371900826446281,
+          "f1": 0.07674144037780402,
+          "expected": 121,
+          "extracted": 1573,
+          "tp": 65,
+          "spurious": 1508
+        }
+      },
+      "macro_f1": 0.1558,
+      "macro_f1_ci95": [
+        0.1509,
+        0.1609
+      ],
+      "avg_resume_tokens": 188.8,
+      "avg_total_tokens": 324.9,
+      "avg_compression_ratio": 1.73,
+      "avg_extract_ms": 0.042,
+      "avg_node_count": 19.7,
+      "macro_f1_by_register": {
+        "explicit": 0.1678,
+        "implicit": 0.1471,
+        "mixed": 0.1567,
+        "semi": 0.1517
+      },
+      "macro_f1_by_origin": {
+        "synthetic": 0.1558
+      },
+      "macro_f1_by_domain": {
+        "backend/go": 0.163,
+        "backend/python": 0.138,
+        "data/sql": 0.1449,
+        "data/streaming": 0.1612,
+        "debug/production": 0.1585,
+        "devops/ci": 0.148,
+        "devops/kubernetes": 0.1439,
+        "frontend/react": 0.1604,
+        "infra/terraform": 0.1655,
+        "ml/python": 0.1575,
+        "mobile/ios": 0.1623,
+        "platform/api": 0.1732,
+        "product/analytics": 0.144,
+        "research/writing": 0.1629,
+        "security/appsec": 0.1634,
+        "systems/rust": 0.1461
+      }
+    }
+  },
+  "comparisons_vs_tokenmizer": {
+    "tokenmizer_v0.5.2_vs_graphiti_style": {
+      "n": 80,
+      "mean_diff": 0.001,
+      "ci_lo": -0.0182,
+      "ci_hi": 0.0205,
+      "p_le_zero": 0.465
+    },
+    "tokenmizer_v0.5.2_vs_graphrag_style": {
+      "n": 80,
+      "mean_diff": 0.0503,
+      "ci_lo": 0.031,
+      "ci_hi": 0.0691,
+      "p_le_zero": 0.0
+    },
+    "tokenmizer_v0.5.2_vs_mem0_style": {
+      "n": 80,
+      "mean_diff": 0.001,
+      "ci_lo": -0.0175,
+      "ci_hi": 0.0201,
+      "p_le_zero": 0.4625
+    },
+    "tokenmizer_v0.5.2_vs_memgpt_style": {
+      "n": 80,
+      "mean_diff": 0.1717,
+      "ci_lo": 0.1504,
+      "ci_hi": 0.1943,
+      "p_le_zero": 0.0
+    },
+    "tokenmizer_v0.5.2_vs_sliding_window_10": {
+      "n": 80,
+      "mean_diff": 0.1782,
+      "ci_lo": 0.1502,
+      "ci_hi": 0.2052,
+      "p_le_zero": 0.0
+    },
+    "tokenmizer_v0.5.2_vs_naive_truncation": {
+      "n": 80,
+      "mean_diff": 0.1618,
+      "ci_lo": 0.1365,
+      "ci_hi": 0.1887,
+      "p_le_zero": 0.0
+    },
+    "tokenmizer_v0.5.2_vs_naive_summary": {
+      "n": 80,
+      "mean_diff": 0.1913,
+      "ci_lo": 0.1655,
+      "ci_hi": 0.2174,
+      "p_le_zero": 0.0
+    }
+  }
+}

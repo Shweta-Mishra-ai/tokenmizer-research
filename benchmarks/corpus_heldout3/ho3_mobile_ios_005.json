@@ -1,0 +1,148 @@
+{
+ "id": "ho3_mobile_ios_005",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a subscription billing flow."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a subscription billing flow."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on Keychain for token storage rather than UserDefaults. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "- .swiftlint.yml"
+  },
+  {
+   "role": "user",
+   "content": "What about a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end.\n**Shipped:** a widget showing today's activity."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `Package.swift`. Do we need more tests? Affected file: Sources/Auth/Keychain.swift. Edited: Sources/Widgets/ActivityWidget.swift."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on SwiftLint in the build phase."
+  },
+  {
+   "role": "user",
+   "content": "What about a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Edited: fastlane/Fastfile."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] the subscription purchase and restore flow"
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — migrating the remaining UIKit screens."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Finished — VoiceOver labels across the main screens."
+  },
+  {
+   "role": "user",
+   "content": "Choose a modular package layout per feature."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: Sources/Store/WorkoutStore.swift. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — Core Data persistence for the workout log."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: a snapshot test suite for the components."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] reducing cold start below 400ms"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "Core Data persistence for the workout log",
+   "VoiceOver labels across the main screens",
+   "a widget showing today's activity",
+   "the subscription purchase and restore flow"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "migrating the remaining UIKit screens",
+   "reducing cold start below 400ms"
+  ],
+  "decisions": [
+   "a modular package layout per feature",
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftLint in the build phase"
+  ],
+  "files": [
+   "Sources/Store/WorkoutStore.swift",
+   "Sources/Widgets/ActivityWidget.swift",
+   ".swiftlint.yml",
+   "Package.swift",
+   "Sources/Auth/Keychain.swift",
+   "fastlane/Fastfile"
+  ],
+  "errors": []
+ }
+}

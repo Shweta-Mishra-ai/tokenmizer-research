@@ -1,0 +1,146 @@
+{
+ "id": "ho3_product_analytics_004",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a churn driver investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a churn driver investigation."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Half the afternoon went to timezone mismatch splitting one day across two cohorts. Don't let extending the cohort window to twelve months slip through the cracks."
+  },
+  {
+   "role": "user",
+   "content": "Weekly rather than daily cohorts for readability sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. tests/test_metrics.py ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "What about a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "A data dictionary for the product team is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about a sample size calculation for the pricing test now. Failed jobs are retried twice. Documentation of every metric definition? Taken care of. analytics/funnel.sql ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "What about a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside analytics/experiments.py. Good news: a funnel from signup through first value made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Statistical significance testing on the primary metric? Taken care of. We may decide to change this later. Don't let sunsetting the legacy dashboard slip through the cracks. Rewrote parts of analytics/significance.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of notebooks/churn_drivers.ipynb as well."
+  },
+  {
+   "role": "user",
+   "content": "What about a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: weekly retention cohorts over six months made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "A two-week minimum experiment runtime beat the alternatives on every axis we care about. Rewrote parts of dashboards/north_star.json as well. A holdout group excluded from all experiments? Taken care of. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Amplitude for product analytics beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. What broke the release was the active user count differing 12% between two dashboards. We can stop worrying about the experiment assignment and exposure logging now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a sample size calculation for the pricing test",
+   "the experiment assignment and exposure logging",
+   "documentation of every metric definition",
+   "a holdout group excluded from all experiments",
+   "a funnel from signup through first value",
+   "statistical significance testing on the primary metric",
+   "weekly retention cohorts over six months"
+  ],
+  "pending_tasks": [
+   "sunsetting the legacy dashboard",
+   "a data dictionary for the product team",
+   "extending the cohort window to twelve months"
+  ],
+  "decisions": [
+   "a two-week minimum experiment runtime",
+   "Amplitude for product analytics",
+   "weekly rather than daily cohorts for readability"
+  ],
+  "files": [
+   "notebooks/churn_drivers.ipynb",
+   "dashboards/north_star.json",
+   "analytics/experiments.py",
+   "tests/test_metrics.py",
+   "analytics/funnel.sql",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "the active user count differing 12% between two dashboards",
+   "timezone mismatch splitting one day across two cohorts"
+  ]
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "id": "ho3_platform_api_001",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a webhook delivery system."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a webhook delivery system."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in api/routes/webhooks.py."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with HMAC-SHA256 for webhook signatures?"
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Request/response logging with PII stripped is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on all write operations was rolled out. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "I'd like cursor pagination rather than offset."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. The relevant code is in docs/api/changelog.md. Do we need more tests? I edited api/ratelimit.py."
+  },
+  {
+   "role": "user",
+   "content": "Can we try JSON only, no XML support?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited tests/test_webhooks.py. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "What about a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. At-least-once webhook delivery with retries has been merged. A rate limit tier for enterprise keys is on the backlog."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "The plan is Kong as the API gateway."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "idempotency keys on all write operations",
+   "request/response logging with PII stripped",
+   "at-least-once webhook delivery with retries"
+  ],
+  "pending_tasks": [
+   "a rate limit tier for enterprise keys"
+  ],
+  "decisions": [
+   "cursor pagination rather than offset",
+   "JSON only, no XML support",
+   "Kong as the API gateway",
+   "HMAC-SHA256 for webhook signatures"
+  ],
+  "files": [
+   "api/auth.py",
+   "docs/api/changelog.md",
+   "api/ratelimit.py",
+   "tests/test_webhooks.py",
+   "api/routes/webhooks.py"
+  ],
+  "errors": []
+ }
+}

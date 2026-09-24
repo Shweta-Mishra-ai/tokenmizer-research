@@ -1,0 +1,114 @@
+{
+ "id": "ho3_platform_api_003",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a partner integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a partner integration."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got at-least-once webhook delivery with retries up and running."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards JSON only, no XML support."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. We're going to use a six-month deprecation window."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in api/pagination.py."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the sandbox environment for partner testing up and running.\n- sdk/python/client.py"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "An API changelog published with each release went smoothly in the end. Changes are in openapi/v2.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "ISO 8601 timestamps in UTC is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with Kong as the API gateway. Most of the work happened inside api/ratelimit.py. Nobody has touched documenting the webhook replay procedure yet."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: tests/test_webhooks.py. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "docs/api/changelog.md ended up with most of the changes."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "at-least-once webhook delivery with retries",
+   "the sandbox environment for partner testing",
+   "an API changelog published with each release"
+  ],
+  "pending_tasks": [
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "ISO 8601 timestamps in UTC",
+   "Kong as the API gateway",
+   "a six-month deprecation window",
+   "JSON only, no XML support"
+  ],
+  "files": [
+   "api/ratelimit.py",
+   "tests/test_webhooks.py",
+   "docs/api/changelog.md",
+   "openapi/v2.yaml",
+   "api/pagination.py",
+   "sdk/python/client.py"
+  ],
+  "errors": []
+ }
+}

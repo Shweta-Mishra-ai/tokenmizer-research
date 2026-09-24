@@ -1,0 +1,108 @@
+{
+ "id": "ho3_research_writing_002",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a literature review."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a literature review."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. Edited: paper/evaluation.tex. Edited: paper/abstract.tex."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose reporting macro F1 rather than accuracy. Failed jobs are retried twice. Outstanding: reconciling the two conflicting result tables. Finished — the reproducibility statement with exact commands."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan.\n- notes/outline.md"
+  },
+  {
+   "role": "user",
+   "content": "Switch to a single-column layout for the preprint."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. I'll summarise at the end. Action item: a final proofread pass. Implemented figure one showing the system architecture."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with an explicit statement that the corpus is synthetic."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Incident: the page count exceeding the submission limit. Choice: framing the contribution as a measurement study. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** the introduction cut from four pages to two."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] an ethics statement"
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented a first pass at the methodology section."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "figure one showing the system architecture",
+   "the introduction cut from four pages to two",
+   "the reproducibility statement with exact commands",
+   "a first pass at the methodology section"
+  ],
+  "pending_tasks": [
+   "a final proofread pass",
+   "reconciling the two conflicting result tables",
+   "an ethics statement"
+  ],
+  "decisions": [
+   "a single-column layout for the preprint",
+   "reporting macro F1 rather than accuracy",
+   "an explicit statement that the corpus is synthetic",
+   "framing the contribution as a measurement study"
+  ],
+  "files": [
+   "notes/outline.md",
+   "paper/abstract.tex",
+   "paper/evaluation.tex"
+  ],
+  "errors": [
+   "the page count exceeding the submission limit"
+  ]
+ }
+}

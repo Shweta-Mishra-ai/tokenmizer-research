@@ -1,0 +1,148 @@
+{
+ "id": "ho3_backend_python_002",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an async task queue service now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. Hitting connection pool exhaustion under concurrent load in CI."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "We completed pytest fixtures for a throwaway database yesterday. Have a look at api/main.py. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited db/session.py."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use Celery for the background worker."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Customers are hitting a 500 from an unhandled TimeoutError in the payment client. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in api/models.py."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the Alembic baseline migration up and running."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in api/deps.py. Input validation on the payment payload has been merged."
+  },
+  {
+   "role": "user",
+   "content": "Can we try SQLAlchemy 2.0 with the async engine?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "A health check endpoint at /healthz was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use Alembic for schema migrations. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Audit logging for admin actions still needs doing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "input validation on the payment payload",
+   "the Alembic baseline migration",
+   "pytest fixtures for a throwaway database",
+   "a health check endpoint at /healthz"
+  ],
+  "pending_tasks": [
+   "audit logging for admin actions"
+  ],
+  "decisions": [
+   "SQLAlchemy 2.0 with the async engine",
+   "Celery for the background worker",
+   "Alembic for schema migrations"
+  ],
+  "files": [
+   "core/config.py",
+   "api/deps.py",
+   "api/models.py",
+   "api/main.py",
+   "db/session.py"
+  ],
+  "errors": [
+   "connection pool exhaustion under concurrent load",
+   "a 500 from an unhandled TimeoutError in the payment client"
+  ]
+ }
+}

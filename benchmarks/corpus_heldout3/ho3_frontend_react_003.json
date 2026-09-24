@@ -1,0 +1,109 @@
+{
+ "id": "ho3_frontend_react_003",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a data table component library."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a data table component library."
+  },
+  {
+   "role": "user",
+   "content": "Choose MSW for mocking the API in tests."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: a bundle size budget in CI. Action item: migrating the remaining class components. Once CI passes I'll merge. Code splitting on the route boundaries? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got keyboard navigation across the data grid up and running. Recharts for the visualisations beat the alternatives on every axis we care about. We're going to use Vite as the build tool."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in tailwind.config.js. Offline support for the draft editor is the obvious next step. Closed: dark mode using CSS custom properties."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting stale closure state in the polling hook in CI. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards pnpm as the package manager."
+  },
+  {
+   "role": "assistant",
+   "content": "We need an accessibility audit of the nav before launch. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Can we try Tailwind for styling?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "- src/hooks/useMetrics.ts\nHaving compared the options, Radix primitives for accessible components is the best fit."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dark mode using CSS custom properties",
+   "keyboard navigation across the data grid",
+   "code splitting on the route boundaries"
+  ],
+  "pending_tasks": [
+   "migrating the remaining class components",
+   "offline support for the draft editor",
+   "a bundle size budget in CI",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "Tailwind for styling",
+   "pnpm as the package manager",
+   "Radix primitives for accessible components",
+   "Vite as the build tool",
+   "Recharts for the visualisations",
+   "MSW for mocking the API in tests"
+  ],
+  "files": [
+   "tailwind.config.js",
+   "src/hooks/useMetrics.ts"
+  ],
+  "errors": [
+   "stale closure state in the polling hook"
+  ]
+ }
+}

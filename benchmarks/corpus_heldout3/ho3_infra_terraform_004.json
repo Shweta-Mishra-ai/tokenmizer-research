@@ -1,0 +1,119 @@
+{
+ "id": "ho3_infra_terraform_004",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a multi-account AWS layout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a multi-account AWS layout."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "We completed a module for the standard service deployment yesterday. Documenting the module interfaces still needs doing. We completed remote state in S3 with DynamoDB locking yesterday. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "What about a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got VPC flow logs shipped to the log bucket up and running. Hitting provider version drift between two engineers in CI. Still to do: removing the last hardcoded account IDs."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in modules/service/main.tf. Changes are in terraform/backend.tf. Have a look at environments/prod/terragrunt.hcl."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with Terraform over CloudFormation?"
+  },
+  {
+   "role": "assistant",
+   "content": "The NAT gateway consolidated to one per region is working now. Agreed. Let's settle on Aurora Postgres over standard RDS."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "A drift detection job on a daily schedule is still open."
+  },
+  {
+   "role": "user",
+   "content": "I'd like Checkov for policy scanning."
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use separate accounts for production and staging."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Provider versions pinned to a minor range is the pick."
+  },
+  {
+   "role": "user",
+   "content": "I'd like one state file per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at terraform/vpc.tf. Agreed."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VPC flow logs shipped to the log bucket",
+   "remote state in S3 with DynamoDB locking",
+   "a module for the standard service deployment",
+   "the NAT gateway consolidated to one per region"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces",
+   "removing the last hardcoded account IDs",
+   "a drift detection job on a daily schedule"
+  ],
+  "decisions": [
+   "Aurora Postgres over standard RDS",
+   "separate accounts for production and staging",
+   "provider versions pinned to a minor range",
+   "Terraform over CloudFormation",
+   "one state file per environment",
+   "Checkov for policy scanning"
+  ],
+  "files": [
+   "terraform/backend.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/vpc.tf",
+   "modules/service/main.tf"
+  ],
+  "errors": [
+   "provider version drift between two engineers"
+  ]
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "id": "ho3_platform_api_005",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a versioning strategy rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a versioning strategy rollout."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "We completed idempotency keys on all write operations yesterday. GraphQL as an alternative surface is still open."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited api/ratelimit.py."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with HMAC-SHA256 for webhook signatures?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. I've gone with cursor pagination rather than offset. Okay, doing it. Request/response logging with PII stripped is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Kong as the API gateway is the pick. Have a look at gateway/kong.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We completed an API changelog published with each release yesterday."
+  },
+  {
+   "role": "user",
+   "content": "What about a versioning strategy rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting rate limit headers reporting a stale budget in CI. We need field-level filtering on the large resources before launch. The error messages are now clearer. We completed per-key rate limits with headers exposing the budget yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Let's settle on JSON only, no XML support."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Webhook signature verification was rolled out. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "RFC 7807 problem details for errors is the pick. There is cursor pagination skipping rows during concurrent writes on the main branch. I plan to do expanding the sandbox data set next."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. I've got consistent error envelopes with machine-readable codes up and running. We ran into webhook deliveries duplicated after a consumer timeout."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an API changelog published with each release",
+   "request/response logging with PII stripped",
+   "per-key rate limits with headers exposing the budget",
+   "idempotency keys on all write operations",
+   "webhook signature verification",
+   "consistent error envelopes with machine-readable codes"
+  ],
+  "pending_tasks": [
+   "expanding the sandbox data set",
+   "GraphQL as an alternative surface",
+   "field-level filtering on the large resources"
+  ],
+  "decisions": [
+   "HMAC-SHA256 for webhook signatures",
+   "cursor pagination rather than offset",
+   "JSON only, no XML support",
+   "Kong as the API gateway",
+   "RFC 7807 problem details for errors"
+  ],
+  "files": [
+   "gateway/kong.yaml",
+   "api/ratelimit.py"
+  ],
+  "errors": [
+   "cursor pagination skipping rows during concurrent writes",
+   "rate limit headers reporting a stale budget",
+   "webhook deliveries duplicated after a consumer timeout"
+  ]
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "id": "ho3_devops_ci_001",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a CI pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a CI pipeline rebuild."
+  },
+  {
+   "role": "user",
+   "content": "What about a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need self-hosted runners for the GPU tests before launch."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Parallel test execution across four shards was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Quarantining the six flakiest tests was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need a merge queue for the busy repositories before launch."
+  },
+  {
+   "role": "user",
+   "content": "I'd like OIDC federation instead of long-lived deploy keys."
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. We completed artifact upload for the failing test logs yesterday. Sounds right, on it. A rollback job for failed deploys still needs doing."
+  },
+  {
+   "role": "user",
+   "content": "Can we try ruff replacing flake8 and isort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. Okay, doing it. A nightly job running the slow integration suite is working now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited conftest.py."
+  },
+  {
+   "role": "user",
+   "content": "Can we try trunk-based development with short-lived branches?"
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Changes are in Dockerfile. Coverage reporting posted to the pull request is working now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Deduplicating the three near-identical workflows still needs doing."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Dependency caching across pipeline runs has been merged."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Automated changelog generation on tag has been merged."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "artifact upload for the failing test logs",
+   "quarantining the six flakiest tests",
+   "automated changelog generation on tag",
+   "parallel test execution across four shards",
+   "coverage reporting posted to the pull request",
+   "dependency caching across pipeline runs",
+   "a nightly job running the slow integration suite"
+  ],
+  "pending_tasks": [
+   "deduplicating the three near-identical workflows",
+   "a merge queue for the busy repositories",
+   "self-hosted runners for the GPU tests",
+   "a rollback job for failed deploys"
+  ],
+  "decisions": [
+   "ruff replacing flake8 and isort",
+   "OIDC federation instead of long-lived deploy keys",
+   "trunk-based development with short-lived branches"
+  ],
+  "files": [
+   "Dockerfile",
+   "conftest.py"
+  ],
+  "errors": []
+ }
+}

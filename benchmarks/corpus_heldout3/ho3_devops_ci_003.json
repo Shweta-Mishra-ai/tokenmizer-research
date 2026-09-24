@@ -1,0 +1,129 @@
+{
+ "id": "ho3_devops_ci_003",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a CI pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a CI pipeline rebuild."
+  },
+  {
+   "role": "user",
+   "content": "What about a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Artifact upload for the failing test logs is working now. We completed a matrix build over three Python versions yesterday. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with GitHub Actions over the self-managed runner fleet?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use release-please for version bumps."
+  },
+  {
+   "role": "user",
+   "content": "Ruff replacing flake8 and isort sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. File: `conftest.py`."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Affected file: .github/dependabot.yml."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Quarantining the six flakiest tests? Taken care of. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. I've gone with semantic versioning driven by commit messages."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Implemented required status checks on the default branch."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: pyproject.toml. We may decide to change this later. I edited .github/workflows/ci.yml."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. Next task — a merge queue for the busy repositories."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "artifact upload for the failing test logs",
+   "required status checks on the default branch",
+   "quarantining the six flakiest tests",
+   "a matrix build over three Python versions"
+  ],
+  "pending_tasks": [
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "ruff replacing flake8 and isort",
+   "release-please for version bumps",
+   "GitHub Actions over the self-managed runner fleet",
+   "semantic versioning driven by commit messages"
+  ],
+  "files": [
+   ".github/workflows/ci.yml",
+   "pyproject.toml",
+   "conftest.py",
+   ".github/dependabot.yml"
+  ],
+  "errors": []
+ }
+}

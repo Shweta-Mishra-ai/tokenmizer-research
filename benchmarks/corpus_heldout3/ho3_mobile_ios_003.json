@@ -1,0 +1,143 @@
+{
+ "id": "ho3_mobile_ios_003",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a widget and live activity feature."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a widget and live activity feature."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: the SwiftUI onboarding sequence made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, Keychain for token storage rather than UserDefaults is the best fit."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards SwiftLint in the build phase."
+  },
+  {
+   "role": "assistant",
+   "content": "Async/await instead of Combine for networking beat the alternatives on every axis we care about. Good news: keychain storage for the auth token made it in before the freeze. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a widget and live activity feature?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of fastlane/Fastfile as well. We can stop worrying about a widget showing today's activity now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: unit tests for the sync reducer made it in before the freeze. The Composable Architecture for state is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "What about a widget and live activity feature?"
+  },
+  {
+   "role": "assistant",
+   "content": "An App Store privacy nutrition label review is the obvious next step. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "What about a widget and live activity feature?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Rewrote parts of Tests/SyncTests.swift as well. Rewrote parts of Sources/App/ContentView.swift as well. We can stop worrying about crash reporting integration now."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards XCTest with snapshot assertions."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Dark mode across every screen went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: VoiceOver labels across the main screens made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched a snapshot test suite for the components yet."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Fastlane for the release pipeline beat the alternatives on every axis we care about. Most of the work happened inside Sources/Store/WorkoutStore.swift."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "keychain storage for the auth token",
+   "unit tests for the sync reducer",
+   "VoiceOver labels across the main screens",
+   "a widget showing today's activity",
+   "crash reporting integration",
+   "dark mode across every screen",
+   "the SwiftUI onboarding sequence"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "an App Store privacy nutrition label review"
+  ],
+  "decisions": [
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftLint in the build phase",
+   "The Composable Architecture for state",
+   "XCTest with snapshot assertions",
+   "async/await instead of Combine for networking",
+   "fastlane for the release pipeline"
+  ],
+  "files": [
+   "fastlane/Fastfile",
+   "Tests/SyncTests.swift",
+   "Sources/Store/WorkoutStore.swift",
+   "Sources/App/ContentView.swift"
+  ],
+  "errors": []
+ }
+}

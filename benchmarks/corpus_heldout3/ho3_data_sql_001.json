@@ -1,0 +1,155 @@
+{
+ "id": "ho3_data_sql_001",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a reporting layer rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a reporting layer rebuild."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Result: a covering index on the customer lookup done. I plan to do a cost review of the warehouse spend next."
+  },
+  {
+   "role": "user",
+   "content": "What about a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed: timezone drift between the source and warehouse. Soft deletes with a valid_to column is the pick."
+  },
+  {
+   "role": "user",
+   "content": "What about a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Customers are hitting a null propagation bug in the margin calculation. models/staging/stg_events.sql ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented deduplication on the raw event stream."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in models/marts/dim_customer.sql. We completed row count reconciliation against the source system yesterday. Nothing is blocking us right now. An anomaly alert on the daily order count is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: scripts/backfill.py. I'll summarise at the end. Incremental materialisation on the large models is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. sql/indexes.sql ended up with most of the changes. Good news: surrogate keys across the dimension tables made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backfilling six months of historical revenue is working now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Snowflake over BigQuery for the warehouse is what we'll ship with. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with Great Expectations for data quality checks?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The star schema for the orders fact table was rolled out. Have a look at models/marts/fct_orders.sql. Have a look at macros/revenue.sql."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** column-level lineage documentation.\nI'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with hashed surrogate keys for stability."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. The error messages are now clearer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "surrogate keys across the dimension tables",
+   "the star schema for the orders fact table",
+   "column-level lineage documentation",
+   "a covering index on the customer lookup",
+   "row count reconciliation against the source system",
+   "deduplication on the raw event stream"
+  ],
+  "pending_tasks": [
+   "a cost review of the warehouse spend",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "incremental materialisation on the large models",
+   "Snowflake over BigQuery for the warehouse",
+   "soft deletes with a valid_to column",
+   "hashed surrogate keys for stability",
+   "Great Expectations for data quality checks"
+  ],
+  "files": [
+   "macros/revenue.sql",
+   "models/marts/fct_orders.sql",
+   "models/marts/dim_customer.sql",
+   "sql/indexes.sql",
+   "models/staging/stg_events.sql",
+   "scripts/backfill.py"
+  ],
+  "errors": [
+   "a null propagation bug in the margin calculation",
+   "timezone drift between the source and warehouse"
+  ]
+ }
+}

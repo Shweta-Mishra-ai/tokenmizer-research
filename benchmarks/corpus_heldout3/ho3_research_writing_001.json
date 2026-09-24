@@ -1,0 +1,146 @@
+{
+ "id": "ho3_research_writing_001",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an internal architecture RFC."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an internal architecture RFC now."
+  },
+  {
+   "role": "user",
+   "content": "What about an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "data/results.json ended up with most of the changes. A plain-language summary for the blog post still needs doing. I edited paper/evaluation.tex."
+  },
+  {
+   "role": "user",
+   "content": "What about an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: peer feedback incorporated from two reviewers. Incident: a broken citation key failing the LaTeX build. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The related work section covering twelve papers is working now. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "What about an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Targeting the workshop deadline rather than the main track is what we'll ship with. Implemented restructuring the argument around three claims. Releasing the corpus alongside the paper beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed: a stale results table from an earlier run. Result: an appendix documenting the corpus construction done. We may decide to change this later. Nobody has touched permission to cite the internal deployment data yet."
+  },
+  {
+   "role": "user",
+   "content": "Switch to reporting per-domain breakdowns in the appendix."
+  },
+  {
+   "role": "assistant",
+   "content": "The artifact submission package is the obvious next step. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "What about an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "The introduction cut from four pages to two is working now.\n**Issue:** a missing statistical test on the headline comparison.\nHere is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in paper/appendix.tex. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "paper/main.tex ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The reproducibility statement with exact commands is working now. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with including the negative result on implicit language."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Good news: the evaluation table with confidence intervals made it in before the freeze."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the evaluation table with confidence intervals",
+   "restructuring the argument around three claims",
+   "an appendix documenting the corpus construction",
+   "the related work section covering twelve papers",
+   "the introduction cut from four pages to two",
+   "peer feedback incorporated from two reviewers",
+   "the reproducibility statement with exact commands"
+  ],
+  "pending_tasks": [
+   "a plain-language summary for the blog post",
+   "the artifact submission package",
+   "permission to cite the internal deployment data"
+  ],
+  "decisions": [
+   "targeting the workshop deadline rather than the main track",
+   "including the negative result on implicit language",
+   "reporting per-domain breakdowns in the appendix",
+   "releasing the corpus alongside the paper"
+  ],
+  "files": [
+   "paper/appendix.tex",
+   "data/results.json",
+   "paper/main.tex",
+   "paper/evaluation.tex"
+  ],
+  "errors": [
+   "a missing statistical test on the headline comparison",
+   "a stale results table from an earlier run",
+   "a broken citation key failing the LaTeX build"
+  ]
+ }
+}

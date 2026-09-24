@@ -1,0 +1,136 @@
+{
+ "id": "ho3_research_writing_003",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a benchmark methodology writeup."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a benchmark methodology writeup."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. We're going to use naming the baselines by method rather than by vendor."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. The abstract rewritten to lead with the result is working now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do shortening to the eight-page limit next."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reporting macro F1 rather than accuracy is the pick. I plan to do an ethics statement next. I've got a first pass at the methodology section up and running."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in figures/architecture.py. The relevant code is in paper/abstract.tex. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "An appendix documenting the corpus construction is working now. Restructuring the argument around three claims is working now. The relevant code is in paper/references.bib."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the related work section covering twelve papers up and running. Do we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Customers are hitting a broken citation key failing the LaTeX build. We're going to use the ACL template over the generic LaTeX class."
+  },
+  {
+   "role": "user",
+   "content": "I'd like a single-column layout for the preprint."
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: the discussion section. Failed jobs are retried twice. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "What about a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with framing the contribution as a measurement study."
+  },
+  {
+   "role": "user",
+   "content": "I'd like Zotero for reference management."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. The build is green. I've got citations normalised to a single bibliography style up and running."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the abstract rewritten to lead with the result",
+   "the related work section covering twelve papers",
+   "a first pass at the methodology section",
+   "an appendix documenting the corpus construction",
+   "citations normalised to a single bibliography style",
+   "restructuring the argument around three claims"
+  ],
+  "pending_tasks": [
+   "the discussion section",
+   "shortening to the eight-page limit",
+   "an ethics statement"
+  ],
+  "decisions": [
+   "naming the baselines by method rather than by vendor",
+   "framing the contribution as a measurement study",
+   "the ACL template over the generic LaTeX class",
+   "a single-column layout for the preprint",
+   "reporting macro F1 rather than accuracy",
+   "Zotero for reference management"
+  ],
+  "files": [
+   "paper/abstract.tex",
+   "figures/architecture.py",
+   "paper/references.bib"
+  ],
+  "errors": [
+   "a broken citation key failing the LaTeX build"
+  ]
+ }
+}

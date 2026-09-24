@@ -1,0 +1,120 @@
+{
+ "id": "ho3_security_appsec_002",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a penetration test remediation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a penetration test remediation."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug report: a SQL injection in the search filter. * [x] CSP headers on all rendered responses Outstanding: a third-party penetration test. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Choose field-level encryption for PII columns."
+  },
+  {
+   "role": "assistant",
+   "content": "Result: credential redaction on every log path done. Finished — signed container images in the registry. The error messages are now clearer. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] MFA enforcement for admin accounts"
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. * [ ] automated dependency updates Next task — a threat model for the payments flow. * [x] an SBOM generated at build time"
+  },
+  {
+   "role": "user",
+   "content": "Switch to a deny-by-default egress policy."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with short-lived tokens with refresh rotation."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Choice: gitleaks as a pre-commit hook. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: least-privilege IAM roles for the workers. Do we need more tests? Affected file: policy/egress.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** an API key committed to the repository history.\n**Decided:** mTLS between internal services.\nFile: `api/auth.py`."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: input sanitisation on the file upload path."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an SBOM generated at build time",
+   "signed container images in the registry",
+   "least-privilege IAM roles for the workers",
+   "credential redaction on every log path",
+   "CSP headers on all rendered responses",
+   "input sanitisation on the file upload path"
+  ],
+  "pending_tasks": [
+   "automated dependency updates",
+   "a threat model for the payments flow",
+   "MFA enforcement for admin accounts",
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "mTLS between internal services",
+   "a deny-by-default egress policy",
+   "gitleaks as a pre-commit hook",
+   "short-lived tokens with refresh rotation",
+   "field-level encryption for PII columns"
+  ],
+  "files": [
+   "policy/egress.yaml",
+   "api/auth.py"
+  ],
+  "errors": [
+   "an API key committed to the repository history",
+   "a SQL injection in the search filter"
+  ]
+ }
+}

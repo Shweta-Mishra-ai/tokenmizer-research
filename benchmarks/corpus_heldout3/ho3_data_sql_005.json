@@ -1,0 +1,153 @@
+{
+ "id": "ho3_data_sql_005",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a schema normalisation effort."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a schema normalisation effort now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "- dbt_project.yml\nHere is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off.\nLet's settle on incremental materialisation on the large models.\nA covering index on the customer lookup is working now.\n**Shipped:** surrogate keys across the dimension tables."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Archiving events older than two years is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Row count reconciliation against the source system went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with Parquet as the landing format. Failed: duplicate rows from a non-unique natural key. Result: a materialised view for the executive dashboard done."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. The relevant code is in profiles.yml."
+  },
+  {
+   "role": "user",
+   "content": "What about a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with Airflow for orchestration. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside tests/schema.yml. Affected file: dags/daily_refresh.py. Nothing is blocking us right now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting a full table scan on the unpartitioned events table in CI. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Column-level lineage documentation is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of models/marts/dim_customer.sql as well.\n**Shipped:** freshness tests on every source table."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting a fan-out join inflating revenue by 3x in CI. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at scripts/backfill.py. Next task — unit tests for the revenue macro."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "freshness tests on every source table",
+   "a materialised view for the executive dashboard",
+   "column-level lineage documentation",
+   "surrogate keys across the dimension tables",
+   "row count reconciliation against the source system",
+   "a covering index on the customer lookup"
+  ],
+  "pending_tasks": [
+   "unit tests for the revenue macro",
+   "archiving events older than two years"
+  ],
+  "decisions": [
+   "Airflow for orchestration",
+   "Parquet as the landing format",
+   "incremental materialisation on the large models"
+  ],
+  "files": [
+   "dbt_project.yml",
+   "scripts/backfill.py",
+   "dags/daily_refresh.py",
+   "profiles.yml",
+   "tests/schema.yml",
+   "models/marts/dim_customer.sql"
+  ],
+  "errors": [
+   "duplicate rows from a non-unique natural key",
+   "a full table scan on the unpartitioned events table",
+   "a fan-out join inflating revenue by 3x"
+  ]
+ }
+}

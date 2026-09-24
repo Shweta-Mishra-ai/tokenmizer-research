@@ -1,0 +1,118 @@
+{
+ "id": "ho3_infra_terraform_002",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a multi-account AWS layout."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a multi-account AWS layout."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "TO DO: documenting the module interfaces. We need splitting the monolithic state file before launch. There were no failures in the nightly run. Closed: VPC flow logs shipped to the log bucket."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Aurora Postgres over standard RDS is the pick. Choice: Terraform over CloudFormation. There is a plan diff from an untracked manual console change on the main branch."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Affected file: environments/prod/terragrunt.hcl."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "A read replica in the secondary region went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. A disaster recovery restore rehearsal still needs doing. Everyone was happy with private subnets for every compute workload. Security groups restricted to named ports? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "A module for the standard service deployment has been merged."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. Tagging enforced through a provider default has been merged."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Errors: a destroy plan on the production database from a renamed resource."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "- terraform/rds.tf\nOnce CI passes I'll merge.\nEncrypted EBS volumes across all instances has been merged.\nRewrote parts of terraform/outputs.tf as well."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a read replica in the secondary region",
+   "encrypted EBS volumes across all instances",
+   "VPC flow logs shipped to the log bucket",
+   "tagging enforced through a provider default",
+   "a module for the standard service deployment",
+   "security groups restricted to named ports"
+  ],
+  "pending_tasks": [
+   "a disaster recovery restore rehearsal",
+   "documenting the module interfaces",
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "private subnets for every compute workload",
+   "Aurora Postgres over standard RDS",
+   "Terraform over CloudFormation"
+  ],
+  "files": [
+   "environments/prod/terragrunt.hcl",
+   "terraform/outputs.tf",
+   "terraform/rds.tf"
+  ],
+  "errors": [
+   "a destroy plan on the production database from a renamed resource",
+   "a plan diff from an untracked manual console change"
+  ]
+ }
+}

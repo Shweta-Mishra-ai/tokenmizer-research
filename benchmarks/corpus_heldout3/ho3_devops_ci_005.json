@@ -1,0 +1,151 @@
+{
+ "id": "ho3_devops_ci_005",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a release automation project."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a release automation project."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in .github/workflows/ci.yml."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Dependency caching across pipeline runs is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "A merge queue for the busy repositories is on the backlog. Trunk-based development with short-lived branches is the pick. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Cutting the pipeline below eight minutes is still open."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? We completed automated changelog generation on tag yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parallel test execution across four shards has been merged. I've gone with semantic versioning driven by commit messages. We completed container image build with layer caching yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do deduplicating the three near-identical workflows next. Signed release artifacts is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in pyproject.toml. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "What about a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in Dockerfile. A matrix build over three Python versions is sorted. Do we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need self-hosted runners for the GPU tests before launch."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with buildx with a remote cache backend."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with release-please for version bumps?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Pytest-xdist for test parallelism is the pick. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "A concurrency group cancelling superseded runs has been merged."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "automated changelog generation on tag",
+   "dependency caching across pipeline runs",
+   "parallel test execution across four shards",
+   "a matrix build over three Python versions",
+   "container image build with layer caching",
+   "a concurrency group cancelling superseded runs",
+   "signed release artifacts"
+  ],
+  "pending_tasks": [
+   "a merge queue for the busy repositories",
+   "deduplicating the three near-identical workflows",
+   "cutting the pipeline below eight minutes",
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "trunk-based development with short-lived branches",
+   "semantic versioning driven by commit messages",
+   "buildx with a remote cache backend",
+   "release-please for version bumps",
+   "pytest-xdist for test parallelism"
+  ],
+  "files": [
+   "Dockerfile",
+   ".github/workflows/ci.yml",
+   "pyproject.toml"
+  ],
+  "errors": []
+ }
+}

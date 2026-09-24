@@ -1,0 +1,147 @@
+{
+ "id": "ho3_security_appsec_005",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a secrets management migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a secrets management migration."
+  },
+  {
+   "role": "user",
+   "content": "What about a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at security/middleware.py. Do we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Don't let a security runbook for incident response slip through the cracks."
+  },
+  {
+   "role": "user",
+   "content": "I'd like Argon2id over bcrypt for new password hashes."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: a review of the CORS allowlist."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. * [ ] a threat model for the payments flow Rate limiting on the password reset endpoint? Taken care of. policy/egress.yaml ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: an SBOM generated at build time made it in before the freeze. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. The plan is a deny-by-default egress policy. We found an open redirect on the login return URL."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards Dependabot for dependency updates."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got rotation of the leaked deploy key up and running. Agreed. We can stop worrying about dependency pinning with a lockfile now."
+  },
+  {
+   "role": "user",
+   "content": "What about a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — input sanitisation on the file upload path. Result: signed container images in the registry done. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of security/redaction.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Choose mTLS between internal services."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. I edited SECURITY.md. Gitleaks as a pre-commit hook beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "What about a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The alerts this morning came from an SSRF in the webhook fetcher. * [ ] a third-party penetration test The error messages are now clearer. The root cause turned out to be session fixation after login."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "input sanitisation on the file upload path",
+   "rotation of the leaked deploy key",
+   "an SBOM generated at build time",
+   "rate limiting on the password reset endpoint",
+   "dependency pinning with a lockfile",
+   "signed container images in the registry"
+  ],
+  "pending_tasks": [
+   "a third-party penetration test",
+   "a security runbook for incident response",
+   "a review of the CORS allowlist",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "gitleaks as a pre-commit hook",
+   "Dependabot for dependency updates",
+   "Argon2id over bcrypt for new password hashes",
+   "mTLS between internal services",
+   "a deny-by-default egress policy"
+  ],
+  "files": [
+   "SECURITY.md",
+   "security/middleware.py",
+   "security/redaction.py",
+   "policy/egress.yaml"
+  ],
+  "errors": [
+   "an SSRF in the webhook fetcher",
+   "an open redirect on the login return URL",
+   "session fixation after login"
+  ]
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "id": "ho3_backend_go_004",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a metrics collector."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a metrics collector now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: moving the config to environment variables."
+  },
+  {
+   "role": "user",
+   "content": "What about a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: protobuf schema versioning done. Backlog: a soak test over 24 hours. Closed: a worker pool bounded at 32 goroutines."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "TO DO: vendoring the internal proto definitions.\n**Decided:** NATS for the message transport."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "TO DO: replacing the mutex with a sharded map.\n**Shipped:** context propagation through every handler.\n* [x] Prometheus metrics on the request path"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Chose OpenTelemetry for traces."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Implemented connection reuse in the HTTP client."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: buf.yaml. Implemented graceful shutdown on SIGTERM."
+  },
+  {
+   "role": "user",
+   "content": "What about a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: the gRPC service definition and generated stubs done. File: `Makefile`."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Regression: connection churn exhausting ephemeral ports. File: `proto/orders.proto`."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "graceful shutdown on SIGTERM",
+   "context propagation through every handler",
+   "the gRPC service definition and generated stubs",
+   "connection reuse in the HTTP client",
+   "Prometheus metrics on the request path",
+   "protobuf schema versioning",
+   "a worker pool bounded at 32 goroutines"
+  ],
+  "pending_tasks": [
+   "vendoring the internal proto definitions",
+   "a soak test over 24 hours",
+   "moving the config to environment variables",
+   "replacing the mutex with a sharded map"
+  ],
+  "decisions": [
+   "OpenTelemetry for traces",
+   "NATS for the message transport"
+  ],
+  "files": [
+   "proto/orders.proto",
+   "Makefile",
+   "buf.yaml"
+  ],
+  "errors": [
+   "connection churn exhausting ephemeral ports"
+  ]
+ }
+}

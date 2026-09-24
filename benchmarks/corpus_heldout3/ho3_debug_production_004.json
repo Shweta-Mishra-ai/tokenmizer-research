@@ -1,0 +1,105 @@
+{
+ "id": "ho3_debug_production_004",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a latency incident investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a latency incident investigation now."
+  },
+  {
+   "role": "user",
+   "content": "What about a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Incident: memory growing 200MB per hour until restart."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Errors: a thundering herd on cache expiry. We may decide to change this later. We can stop worrying about the hotfix reverting the connection pool change now."
+  },
+  {
+   "role": "user",
+   "content": "Switch to rolling back before investigating further."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. Bisecting the regression to a single commit has been merged. Documenting the failure mode in the runbook is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: an incident severity of SEV-2."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched backfilling the corrupted rows yet."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Implemented correlating the errors with the deploy timeline."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "An alert on the metric that would have caught it is the obvious next step. The relevant code is in src/handlers/checkout.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "correlating the errors with the deploy timeline",
+   "the hotfix reverting the connection pool change",
+   "bisecting the regression to a single commit"
+  ],
+  "pending_tasks": [
+   "documenting the failure mode in the runbook",
+   "backfilling the corrupted rows",
+   "an alert on the metric that would have caught it"
+  ],
+  "decisions": [
+   "rolling back before investigating further",
+   "an incident severity of SEV-2"
+  ],
+  "files": [
+   "logs/analysis.py",
+   "src/handlers/checkout.py"
+  ],
+  "errors": [
+   "memory growing 200MB per hour until restart",
+   "a thundering herd on cache expiry"
+  ]
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "id": "ho3_devops_ci_004",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a test infrastructure migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a test infrastructure migration."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. TO DO: deduplicating the three near-identical workflows."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge.\n- Makefile"
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: required status checks on the default branch."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off.\nChoice: test retries limited to two attempts.\n**Shipped:** dependency caching across pipeline runs.\nFailed: a rate limit from the container registry."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] quarantining the six flakiest tests\nNext task — a rollback job for failed deploys.\n**Issue:** cache corruption producing stale build artifacts."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `tox.ini`."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: self-hosted runners for the GPU tests.\n**Shipped:** signed release artifacts.\n* [x] automated changelog generation on tag"
+  },
+  {
+   "role": "user",
+   "content": "Choose buildx with a remote cache backend."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. Errors: a flaky test failing one run in twenty on the timing assertion."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** a concurrency group cancelling superseded runs.\n**Shipped:** a nightly job running the slow integration suite.\nLet me know if anything looks off."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a nightly job running the slow integration suite",
+   "automated changelog generation on tag",
+   "required status checks on the default branch",
+   "dependency caching across pipeline runs",
+   "a concurrency group cancelling superseded runs",
+   "signed release artifacts",
+   "quarantining the six flakiest tests"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "deduplicating the three near-identical workflows",
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "buildx with a remote cache backend",
+   "test retries limited to two attempts"
+  ],
+  "files": [
+   "tox.ini",
+   "Makefile"
+  ],
+  "errors": [
+   "cache corruption producing stale build artifacts",
+   "a flaky test failing one run in twenty on the timing assertion",
+   "a rate limit from the container registry"
+  ]
+ }
+}

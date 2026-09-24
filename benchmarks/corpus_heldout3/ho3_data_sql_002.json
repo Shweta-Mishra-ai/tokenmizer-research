@@ -1,0 +1,124 @@
+{
+ "id": "ho3_data_sql_002",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a query performance pass now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Outstanding: moving the nightly job to an hourly cadence."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer.\n**Issue:** a schema drift break when the source added a column."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. * [x] column-level lineage documentation"
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge.\nBacklog: retiring the legacy reporting views.\n- tests/schema.yml\n* [x] the star schema for the orders fact table"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: row count reconciliation against the source system.\n- scripts/backfill.py\nDo we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: an anomaly alert on the daily order count."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: Snowflake over BigQuery for the warehouse."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — partitioning the events table by month. Choice: Parquet as the landing format. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. Outstanding: documenting the grain of each fact table. Implemented deduplication on the raw event stream."
+  },
+  {
+   "role": "user",
+   "content": "What about a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: surrogate keys across the dimension tables. The build is green."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "surrogate keys across the dimension tables",
+   "partitioning the events table by month",
+   "the star schema for the orders fact table",
+   "column-level lineage documentation",
+   "deduplication on the raw event stream",
+   "row count reconciliation against the source system"
+  ],
+  "pending_tasks": [
+   "moving the nightly job to an hourly cadence",
+   "retiring the legacy reporting views",
+   "documenting the grain of each fact table",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "Parquet as the landing format",
+   "Snowflake over BigQuery for the warehouse"
+  ],
+  "files": [
+   "scripts/backfill.py",
+   "tests/schema.yml"
+  ],
+  "errors": [
+   "a schema drift break when the source added a column"
+  ]
+ }
+}

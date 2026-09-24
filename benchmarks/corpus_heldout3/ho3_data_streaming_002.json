@@ -1,0 +1,135 @@
+{
+ "id": "ho3_data_streaming_002",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a stream processing job."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a stream processing job now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside streams/consumer.py. Changes are in connect/debezium.json. Nothing is blocking us right now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — consumer group rebalancing tuned for slow consumers."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We ran into a schema incompatibility rejecting valid producers. Rewrote parts of schemas/order_placed.avsc as well."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose Kafka over Kinesis for the event backbone."
+  },
+  {
+   "role": "user",
+   "content": "Switch to protobuf for the internal service events."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: compaction on the entity state topics.\n**Decided:** a seven-day retention on the raw topics.\nSounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Closed: checkpointing to durable storage every 30 seconds."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "docker-compose.yml ended up with most of the changes. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need a replay procedure for the last 24 hours before launch. We found duplicate processing after an unclean rebalance. Consumer lag monitoring with alerting went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the dead letter topic with a replay tool up and running."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Partitioning by tenant rather than by hash is the obvious next step. Finished — the topic layout with twelve partitions per stream."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of config/kafka.yaml as well."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer lag monitoring with alerting",
+   "the dead letter topic with a replay tool",
+   "the topic layout with twelve partitions per stream",
+   "checkpointing to durable storage every 30 seconds",
+   "compaction on the entity state topics",
+   "consumer group rebalancing tuned for slow consumers"
+  ],
+  "pending_tasks": [
+   "partitioning by tenant rather than by hash",
+   "a replay procedure for the last 24 hours"
+  ],
+  "decisions": [
+   "Kafka over Kinesis for the event backbone",
+   "protobuf for the internal service events",
+   "a seven-day retention on the raw topics"
+  ],
+  "files": [
+   "connect/debezium.json",
+   "docker-compose.yml",
+   "streams/consumer.py",
+   "schemas/order_placed.avsc",
+   "config/kafka.yaml"
+  ],
+  "errors": [
+   "a schema incompatibility rejecting valid producers",
+   "duplicate processing after an unclean rebalance"
+  ]
+ }
+}

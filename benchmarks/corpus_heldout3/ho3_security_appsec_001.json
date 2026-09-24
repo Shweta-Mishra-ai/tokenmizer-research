@@ -1,0 +1,128 @@
+{
+ "id": "ho3_security_appsec_001",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a pre-launch security review."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a pre-launch security review now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "File: `security/middleware.py`. Finished — session invalidation on password change. I'll summarise at the end. * [x] credential redaction on every log path"
+  },
+  {
+   "role": "user",
+   "content": "I'd like Trivy for container image scanning."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. I edited .gitleaks.toml. Rewrote parts of policy/egress.yaml as well."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. I've got input sanitisation on the file upload path up and running."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with a 90-day key rotation schedule? I'd like field-level encryption for PII columns."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Good news: parameterised queries across the data layer made it in before the freeze. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Everyone was happy with gitleaks as a pre-commit hook. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "What about a pre-launch security review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need a review of the CORS allowlist before launch. Rate limiting on the password reset endpoint is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "We found an API key committed to the repository history."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented CSP headers on all rendered responses. Most of the work happened inside .github/workflows/security.yml. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use short-lived tokens with refresh rotation. terraform/iam.tf ended up with most of the changes. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "What about a pre-launch security review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about least-privilege IAM roles for the workers now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "input sanitisation on the file upload path",
+   "parameterised queries across the data layer",
+   "rate limiting on the password reset endpoint",
+   "session invalidation on password change",
+   "CSP headers on all rendered responses",
+   "least-privilege IAM roles for the workers",
+   "credential redaction on every log path"
+  ],
+  "pending_tasks": [
+   "a review of the CORS allowlist"
+  ],
+  "decisions": [
+   "Trivy for container image scanning",
+   "a 90-day key rotation schedule",
+   "field-level encryption for PII columns",
+   "short-lived tokens with refresh rotation",
+   "gitleaks as a pre-commit hook"
+  ],
+  "files": [
+   ".gitleaks.toml",
+   "terraform/iam.tf",
+   ".github/workflows/security.yml",
+   "policy/egress.yaml",
+   "security/middleware.py"
+  ],
+  "errors": [
+   "an API key committed to the repository history"
+  ]
+ }
+}

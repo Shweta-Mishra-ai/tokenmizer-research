@@ -1,0 +1,124 @@
+{
+ "id": "ho3_systems_rust_004",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a compression library."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a compression library."
+  },
+  {
+   "role": "user",
+   "content": "What about a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Changes are in src/codec/mod.rs."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "SIMD acceleration on the checksum path was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in fuzz/fuzz_targets/decode.rs."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at src/buffer.rs. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "What about a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in src/lib.rs."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the public API surface is still open. If this fails again we will revisit the design. The plan is Rust 2021 edition with MSRV 1.75. Fuzzing the input decoder with cargo-fuzz is working now."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with clap for argument parsing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with bincode for the wire encoding?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Serde with a custom binary format is the pick. The plan is parking_lot mutexes over the std ones. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Customers are hitting unbounded memory growth in the buffer pool. We completed property tests over the encoder round trip yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? A miri run over the concurrency tests is still open."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "fuzzing the input decoder with cargo-fuzz",
+   "property tests over the encoder round trip",
+   "SIMD acceleration on the checksum path"
+  ],
+  "pending_tasks": [
+   "documenting the public API surface",
+   "a miri run over the concurrency tests"
+  ],
+  "decisions": [
+   "clap for argument parsing",
+   "parking_lot mutexes over the std ones",
+   "bincode for the wire encoding",
+   "serde with a custom binary format",
+   "Rust 2021 edition with MSRV 1.75"
+  ],
+  "files": [
+   "fuzz/fuzz_targets/decode.rs",
+   "src/buffer.rs",
+   "src/lib.rs",
+   "src/codec/mod.rs"
+  ],
+  "errors": [
+   "unbounded memory growth in the buffer pool"
+  ]
+ }
+}

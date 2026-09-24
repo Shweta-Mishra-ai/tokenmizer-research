@@ -1,0 +1,114 @@
+{
+ "id": "ho3_devops_kubernetes_005",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a cost reduction pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a cost reduction pass."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched reducing the image sizes on the worker pool yet."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a cost reduction pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consolidating the three ingress controllers is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a cost reduction pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. terraform/cluster.tf ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside k8s/ingress.yaml. Rewrote parts of k8s/hpa.yaml as well."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of charts/api/templates/deployment.yaml as well. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: a canary stage in the deploy pipeline made it in before the freeze. Node affinity rules keeping the databases separate? Taken care of. The ingress with automatic certificate renewal went smoothly in the end. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Trivy for image scanning in CI is what we'll ship with. Most of the work happened inside .github/workflows/deploy.yml."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Loki for log aggregation beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Resource requests and limits for all containers went smoothly in the end. The secrets migration into the external secret store went smoothly in the end."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the secrets migration into the external secret store",
+   "a canary stage in the deploy pipeline",
+   "node affinity rules keeping the databases separate",
+   "resource requests and limits for all containers",
+   "the ingress with automatic certificate renewal"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers",
+   "reducing the image sizes on the worker pool"
+  ],
+  "decisions": [
+   "Loki for log aggregation",
+   "Trivy for image scanning in CI"
+  ],
+  "files": [
+   "charts/api/templates/deployment.yaml",
+   "terraform/cluster.tf",
+   "k8s/hpa.yaml",
+   "k8s/ingress.yaml",
+   ".github/workflows/deploy.yml"
+  ],
+  "errors": []
+ }
+}

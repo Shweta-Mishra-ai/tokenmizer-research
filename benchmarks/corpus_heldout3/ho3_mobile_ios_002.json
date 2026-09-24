@@ -1,0 +1,137 @@
+{
+ "id": "ho3_mobile_ios_002",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an accessibility overhaul."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an accessibility overhaul now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Changes are in Sources/Store/WorkoutStore.swift. Have a look at Sources/Auth/Keychain.swift. Have a look at Sources/App/ContentView.swift."
+  },
+  {
+   "role": "user",
+   "content": "Can we try SwiftUI for all new screens?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Sounds right, on it. The relevant code is in Sources/Widgets/ActivityWidget.swift."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got VoiceOver labels across the main screens up and running. Have a look at fastlane/Fastfile. I plan to do localisation into three languages next."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the subscription purchase and restore flow up and running. Changes are in Tests/SyncTests.swift."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We need an App Store privacy nutrition label review before launch. We're going to use async/await instead of Combine for networking."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got keychain storage for the auth token up and running. Do we need more tests? We found a duplicate record after an interrupted sync."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Unit tests for the sync reducer has been merged."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do a snapshot test suite for the components next. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do migrating the remaining UIKit screens next."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got dark mode across every screen up and running. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with XCTest with snapshot assertions. Failed jobs are retried twice. The plan is Keychain for token storage rather than UserDefaults."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VoiceOver labels across the main screens",
+   "keychain storage for the auth token",
+   "the subscription purchase and restore flow",
+   "unit tests for the sync reducer",
+   "dark mode across every screen"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "an App Store privacy nutrition label review",
+   "migrating the remaining UIKit screens",
+   "localisation into three languages"
+  ],
+  "decisions": [
+   "async/await instead of Combine for networking",
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftUI for all new screens",
+   "XCTest with snapshot assertions"
+  ],
+  "files": [
+   "Sources/App/ContentView.swift",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Auth/Keychain.swift",
+   "Sources/Store/WorkoutStore.swift",
+   "fastlane/Fastfile",
+   "Tests/SyncTests.swift"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync"
+  ]
+ }
+}

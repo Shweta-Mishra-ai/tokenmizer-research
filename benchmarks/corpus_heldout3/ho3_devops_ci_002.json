@@ -1,0 +1,118 @@
+{
+ "id": "ho3_devops_ci_002",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a flaky test investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a flaky test investigation."
+  },
+  {
+   "role": "user",
+   "content": "What about a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Uv for dependency installation beat the alternatives on every axis we care about. Most of the work happened inside conftest.py. Most of the work happened inside .github/workflows/release.yml."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makefile ended up with most of the changes. Parallel test execution across four shards went smoothly in the end. A merge queue for the busy repositories is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "What about a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. GitHub Actions over the self-managed runner fleet is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "What broke the release was an out of disk space failure on the runner."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched pinning all third-party actions by digest yet. Good news: a nightly job running the slow integration suite made it in before the freeze. A rollback job for failed deploys is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Quarantining the six flakiest tests? Taken care of. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "OIDC federation instead of long-lived deploy keys sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "What about a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Nobody has touched cutting the pipeline below eight minutes yet."
+  },
+  {
+   "role": "user",
+   "content": "Ruff replacing flake8 and isort sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "What broke the release was a flaky test failing one run in twenty on the timing assertion. Sounds right, on it. Most of the work happened inside .github/workflows/ci.yml. Failed jobs are retried twice."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "parallel test execution across four shards",
+   "quarantining the six flakiest tests",
+   "a nightly job running the slow integration suite"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "pinning all third-party actions by digest",
+   "cutting the pipeline below eight minutes",
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "ruff replacing flake8 and isort",
+   "GitHub Actions over the self-managed runner fleet",
+   "OIDC federation instead of long-lived deploy keys",
+   "uv for dependency installation"
+  ],
+  "files": [
+   ".github/workflows/release.yml",
+   "conftest.py",
+   "Makefile",
+   ".github/workflows/ci.yml"
+  ],
+  "errors": [
+   "a flaky test failing one run in twenty on the timing assertion",
+   "an out of disk space failure on the runner"
+  ]
+ }
+}

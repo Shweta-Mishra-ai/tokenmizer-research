@@ -1,0 +1,133 @@
+{
+ "id": "ho3_security_appsec_003",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a dependency audit."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a dependency audit now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use a 90-day key rotation schedule. Changes are in SECURITY.md. The relevant code is in security/redaction.py."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Input sanitisation on the file upload path is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. The relevant code is in api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "I'd like short-lived tokens with refresh rotation."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. We found session fixation after login. An SBOM generated at build time is working now."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Session invalidation on password change is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rotation of the leaked deploy key was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in policy/egress.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in config/csp.json."
+  },
+  {
+   "role": "user",
+   "content": "What about a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: a third-party penetration test. I'll summarise at the end. I've got encrypted secrets at rest in the vault up and running."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. I edited .gitleaks.toml."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Credential redaction on every log path is sorted. The error messages are now clearer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "input sanitisation on the file upload path",
+   "an SBOM generated at build time",
+   "encrypted secrets at rest in the vault",
+   "session invalidation on password change",
+   "credential redaction on every log path",
+   "rotation of the leaked deploy key"
+  ],
+  "pending_tasks": [
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "a 90-day key rotation schedule",
+   "short-lived tokens with refresh rotation"
+  ],
+  "files": [
+   "security/redaction.py",
+   "policy/egress.yaml",
+   ".gitleaks.toml",
+   "SECURITY.md",
+   "api/auth.py",
+   "config/csp.json"
+  ],
+  "errors": [
+   "session fixation after login"
+  ]
+ }
+}

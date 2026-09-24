@@ -1,0 +1,106 @@
+{
+ "id": "ho3_backend_go_002",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a file transfer service."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a file transfer service now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Having compared the options, Go 1.23 as the toolchain is the best fit."
+  },
+  {
+   "role": "user",
+   "content": "Golangci-lint in CI sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Don't let moving the config to environment variables slip through the cracks. Rewrote parts of Makefile as well."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Most of the work happened inside cmd/server/main.go."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Distributed tracing spans across services is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "What about a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Profiling the p99 latency spike is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "internal/handler/orders_test.go ended up with most of the changes. Good news: Prometheus metrics on the request path made it in before the freeze. Connection reuse in the HTTP client went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of internal/store/postgres.go as well."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: a worker pool bounded at 32 goroutines made it in before the freeze. Vendoring the internal proto definitions is the obvious next step. buf.yaml ended up with most of the changes."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection reuse in the HTTP client",
+   "Prometheus metrics on the request path",
+   "a worker pool bounded at 32 goroutines"
+  ],
+  "pending_tasks": [
+   "vendoring the internal proto definitions",
+   "moving the config to environment variables",
+   "profiling the p99 latency spike",
+   "distributed tracing spans across services"
+  ],
+  "decisions": [
+   "Go 1.23 as the toolchain",
+   "golangci-lint in CI"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "buf.yaml",
+   "Makefile",
+   "internal/handler/orders_test.go",
+   "cmd/server/main.go"
+  ],
+  "errors": []
+ }
+}

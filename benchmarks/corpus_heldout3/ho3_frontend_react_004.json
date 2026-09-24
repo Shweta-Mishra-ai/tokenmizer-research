@@ -1,0 +1,153 @@
+{
+ "id": "ho3_frontend_react_004",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an analytics dashboard."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an analytics dashboard now."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — replacing the date picker with a headless one. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with MSW for mocking the API in tests."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: code splitting on the route boundaries done. Bug report: a CORS failure against the staging API. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `src/store/session.ts`. Finished — a virtualised list for the 10k-row view. Errors: a hydration mismatch on the server-rendered header."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] session persistence in localStorage"
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. File: `src/hooks/useMetrics.ts`. Implemented dark mode using CSS custom properties. Agreed approach: TypeScript in strict mode."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on Radix primitives for accessible components. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: server-side pagination on the results table done."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: offline support for the draft editor.\nAffected file: src/routes/dashboard.tsx.\nNothing is blocking us right now.\n**Shipped:** keyboard navigation across the data grid."
+  },
+  {
+   "role": "user",
+   "content": "What about an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: an accessibility audit of the nav."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: Zustand instead of Redux for local state. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: error boundaries around each route."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** the empty and loading states for every panel."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "session persistence in localStorage",
+   "server-side pagination on the results table",
+   "code splitting on the route boundaries",
+   "the empty and loading states for every panel",
+   "keyboard navigation across the data grid",
+   "a virtualised list for the 10k-row view",
+   "dark mode using CSS custom properties"
+  ],
+  "pending_tasks": [
+   "error boundaries around each route",
+   "offline support for the draft editor",
+   "replacing the date picker with a headless one",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "Radix primitives for accessible components",
+   "TypeScript in strict mode",
+   "Zustand instead of Redux for local state",
+   "MSW for mocking the API in tests"
+  ],
+  "files": [
+   "src/store/session.ts",
+   "src/hooks/useMetrics.ts",
+   "src/routes/dashboard.tsx"
+  ],
+  "errors": [
+   "a CORS failure against the staging API",
+   "a hydration mismatch on the server-rendered header"
+  ]
+ }
+}

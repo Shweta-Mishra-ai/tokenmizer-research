@@ -1,0 +1,108 @@
+{
+ "id": "ho3_backend_python_001",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a FastAPI orders service."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a FastAPI orders service now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. * [ ] rate limiting on the auth routes Outstanding: splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] POST /api/orders and GET /api/orders/{id} Affected file: requirements.txt. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "- api/main.py\nDo we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "What about a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: api/deps.py. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Implemented OpenAPI schema generation for the public routes. Regression: a memory leak in the long-lived session object."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed: a deadlock between the invoice and ledger updates. Finished — background retry for failed webhook deliveries."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** Redis for refresh token storage.\n**Decided:** Celery for the background worker.\nFile: `migrations/env.py`.\nOnce CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "What about a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Regression: a 422 on login from a missing email validator. Affected file: tests/test_orders.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "POST /api/orders and GET /api/orders/{id}",
+   "OpenAPI schema generation for the public routes",
+   "background retry for failed webhook deliveries"
+  ],
+  "pending_tasks": [
+   "splitting the settings module per environment",
+   "rate limiting on the auth routes"
+  ],
+  "decisions": [
+   "Redis for refresh token storage",
+   "Celery for the background worker"
+  ],
+  "files": [
+   "api/deps.py",
+   "requirements.txt",
+   "api/main.py",
+   "tests/test_orders.py",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "a memory leak in the long-lived session object",
+   "a deadlock between the invoice and ledger updates",
+   "a 422 on login from a missing email validator"
+  ]
+ }
+}

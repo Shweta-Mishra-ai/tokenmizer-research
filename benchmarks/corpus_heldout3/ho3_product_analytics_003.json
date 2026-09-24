@@ -1,0 +1,134 @@
+{
+ "id": "ho3_product_analytics_003",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a pricing change evaluation."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a pricing change evaluation."
+  },
+  {
+   "role": "user",
+   "content": "What about a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We found a double-counted signup event inflating the funnel top."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Extending the cohort window to twelve months still needs doing."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Changes are in notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We ran into an experiment contaminated by overlapping assignment. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I've got a sample size calculation for the pricing test up and running. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. A segment definition for activated accounts is sorted."
+  },
+  {
+   "role": "user",
+   "content": "What about a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's settle on one primary metric per experiment. Changes are in analytics/segments.sql. Changes are in analytics/experiments.py."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The experiment assignment and exposure logging is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I edited analytics/significance.py. Deduplication of the double-fired signup event has been merged. A qualitative follow-up with churned accounts still needs doing."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. I edited docs/metric_definitions.md. I've got the event taxonomy covering fourteen product actions up and running. I edited dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "What about a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use excluding internal accounts from every metric."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a segment definition for activated accounts",
+   "the experiment assignment and exposure logging",
+   "deduplication of the double-fired signup event",
+   "the event taxonomy covering fourteen product actions",
+   "a sample size calculation for the pricing test"
+  ],
+  "pending_tasks": [
+   "extending the cohort window to twelve months",
+   "a qualitative follow-up with churned accounts"
+  ],
+  "decisions": [
+   "one primary metric per experiment",
+   "excluding internal accounts from every metric"
+  ],
+  "files": [
+   "docs/metric_definitions.md",
+   "analytics/segments.sql",
+   "analytics/experiments.py",
+   "notebooks/churn_drivers.ipynb",
+   "analytics/significance.py",
+   "dashboards/north_star.json"
+  ],
+  "errors": [
+   "a double-counted signup event inflating the funnel top",
+   "an experiment contaminated by overlapping assignment"
+  ]
+ }
+}

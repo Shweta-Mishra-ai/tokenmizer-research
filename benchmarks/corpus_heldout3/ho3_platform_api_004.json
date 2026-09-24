@@ -1,0 +1,129 @@
+{
+ "id": "ho3_platform_api_004",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a partner integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a partner integration."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — SDK generation for three languages.\n- api/ratelimit.py"
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Next task — a rate limit tier for enterprise keys."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Regression: cursor pagination skipping rows during concurrent writes. Affected file: api/errors.py. Errors: an SDK deserialisation failure on a new nullable field."
+  },
+  {
+   "role": "user",
+   "content": "What about a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "TO DO: sunsetting v1 after the six-month window.\n**Shipped:** at-least-once webhook delivery with retries."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: Kong as the API gateway. Errors: inconsistent 404 versus 403 on unauthorised resources. * [x] per-key rate limits with headers exposing the budget"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Agreed approach: exponential backoff with jitter for webhook retries."
+  },
+  {
+   "role": "user",
+   "content": "What about a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "- api/auth.py"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: documenting the webhook replay procedure. * [x] request/response logging with PII stripped We've decided on URL-based versioning over header negotiation."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: consistent error envelopes with machine-readable codes. * [x] the sandbox environment for partner testing Nothing is blocking us right now. Choice: HMAC-SHA256 for webhook signatures."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Edited: api/pagination.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consistent error envelopes with machine-readable codes",
+   "the sandbox environment for partner testing",
+   "SDK generation for three languages",
+   "at-least-once webhook delivery with retries",
+   "request/response logging with PII stripped",
+   "per-key rate limits with headers exposing the budget"
+  ],
+  "pending_tasks": [
+   "a rate limit tier for enterprise keys",
+   "sunsetting v1 after the six-month window",
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "HMAC-SHA256 for webhook signatures",
+   "Kong as the API gateway",
+   "URL-based versioning over header negotiation",
+   "exponential backoff with jitter for webhook retries"
+  ],
+  "files": [
+   "api/ratelimit.py",
+   "api/errors.py",
+   "api/pagination.py",
+   "api/auth.py"
+  ],
+  "errors": [
+   "cursor pagination skipping rows during concurrent writes",
+   "an SDK deserialisation failure on a new nullable field",
+   "inconsistent 404 versus 403 on unauthorised resources"
+  ]
+ }
+}
