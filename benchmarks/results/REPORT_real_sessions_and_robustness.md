@@ -183,3 +183,62 @@ repository.
 **Load was tested in-process with a fake provider.** That measures
 TokenMizer's own overhead and correctness under concurrency, not provider
 latency or a multi-worker deployment.
+
+---
+
+## Round 5 (product `5e376d5`): general constructions, speed, the LLM path
+
+**Protocol.** Held-out v3 (`heldout3.py`, a fourth disjoint template set)
+was committed with baselines in `1e15985`, *before* this round. v2's
+failures were then read item by item, which makes v2 this round's
+development set. (That commit's message says "a184cf1 33%->35%". The v3
+baseline at `a184cf1` is 35%; the "33%" is v2's figure.)
+
+**Results, macro F1:**
+
+| Corpus | `a184cf1` | `4260983` | `5e376d5` |
+|---|---:|---:|---:|
+| Main corpus (tuned) | 61% | 92% | 92% |
+| Held-out v1 | 40% | 79% | 80% |
+| Held-out v2 (development set this round) | 33% | 51% | **90%**, not a generalisation figure |
+| **Held-out v3 (never tuned against)** | **35%** | **59%** | **64%** |
+
+- **This round on v3:** +5.1 points [+3.7, +6.6]. 42 sessions better, 38
+  unchanged, none worse.
+- **The whole branch on v3:** 35% → 64%, +29.6 points [+26.2, +32.8]. 77 of
+  80 sessions better, none worse.
+- **By category, v3 before → after this round:**
+  - pending: 65 → 72
+  - decisions: 42 → 49
+  - errors: 58 → 65
+  - completed: 60 → 62
+  - files: 100
+- **Against the comparison methods on v3:** Graphiti-style and Mem0-style
+  score 35%, and they are regex reimplementations, not the vendor products.
+
+**Read the gap between v2 and v3.** v2 moved +39 points once its failures
+were read; v3, untouched, moved +5. That is the same overfitting signature
+as round 3. Also note that a few of this round's constructions are common
+English that v3 also uses: "leaning towards" (a v2 failure as "lean
+towards") and "root cause". v3 was written by the same author, so it is not
+a fully independent check.
+
+**Speed.** A keyword prefilter now skips the expensive subject-window
+patterns on messages that cannot match them. Output was identical with and
+without it on 530 sessions, and a test pins that. Extraction is now *faster
+than before the branch*:
+- median 15.3 → 13.5 ms per session
+- p95 23.9 → 19.7 ms
+- heuristic pass alone 10.5 → 8.3 ms
+
+**LLM path.** The extraction prompt used to drop content-block messages
+(the Anthropic format and multimodal content) entirely. It now includes
+them, adds a one-line summary of each tool edit and tool error, and tells
+the model the conversation may be in any language. This was verified with a
+fake model only; no real model could be run here.
+
+**Robustness.**
+- Regex scan: all 143 patterns are linear.
+- Fuzzing: 300 more iterations, 0 exceptions.
+- Product suite: 1648 tests. Internal eval unchanged at 97%.
+- Real session: no new noise after the fixes this round's audit prompted.
