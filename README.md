@@ -122,6 +122,16 @@ Rounds 5 and 6 (same report):
   message 500 re-extract the old history. On a real agent session the
   late-session median fell from 115 ms to 21 ms.
 
+Round 8 (same report) is a negative result for pattern matching:
+- New constructions for marker-free phrasing lifted the development sets
+  (v1 80% → 92%) and left both untouched sets **exactly unchanged**
+  (v3 64%; v4 58%, frozen before the round). Pattern matching has reached
+  its limit there; the route is the LLM extraction path, which needs an
+  API key.
+- Per-request cost late in a real agent session fell from 21 ms to 7.3 ms.
+- Fixed bugs listed under a "fixed" heading are now stored as resolved,
+  not open.
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
@@ -146,6 +156,7 @@ benchmarks/
   corpus_heldout/            80 held-out sessions, disjoint templates (v1)
   corpus_heldout2/           80 held-out sessions, a third template set (v2)
   corpus_heldout3/           80 held-out sessions, a fourth template set (v3)
+  corpus_heldout4/           80 held-out sessions, a fifth template set (v4)
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
   checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;

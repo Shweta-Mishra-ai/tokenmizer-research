@@ -403,3 +403,128 @@ Each fix has a test that fails without it. Path traversal, NUL bytes and
 - Two example file names mentioned in prose are listed as files.
 - Two bug *descriptions* are stored as errors. Both describe fixes made
   in the same session.
+
+---
+
+## Round 8 (product `5574d5c`, `45f94d1`, `e600678`): marker-free phrasing, per-request cost, real-session noise
+
+**Protocol.** Held-out v4 (`heldout4.py`, a fifth disjoint template set,
+as many implicit templates as the other registers) was committed with
+baselines in `80af74d`, *before* any product change in this round. The
+patterns were developed against the main corpus, held-out v1 and held-out
+v2 only. v3 and v4 were scored once, at the end.
+
+**Disclosure.** Held-out v4 was written by the same author as the fixes,
+and after v1's implicit failures had been listed. Some of its templates
+share *idioms* with v1's (for example, "behind us"). That makes it easier
+for this round's patterns to reach v4, not harder. It changes nothing
+here, since v4 did not move.
+
+### 1. Marker-free phrasing: better on the dev sets, no measurable change on the untouched sets
+
+| Corpus | Before (`e4c7071`) | After (`e600678`) |
+|---|---:|---:|
+| Held-out v1 (development) | 80% (implicit 52%) | 92% (implicit 89%) |
+| Held-out v2 (development) | 90% (implicit 88%) | 93% (implicit 96%) |
+| Main corpus (development) | 92% | 92% |
+| **Held-out v3 (untouched)** | **64%** (implicit 40%) | **64%**: +0.00 [+0.00, +0.00], 80 of 80 sessions unchanged |
+| **Held-out v4 (untouched, frozen before this round)** | **58%** (implicit 48%) | **58%**: +0.00 [+0.00, +0.00], 80 of 80 sessions unchanged |
+
+On v3 and v4, every category's extracted, true-positive and expected
+counts are identical before and after.
+
+**What this means.** The new constructions are real English, and each has
+a false-positive test beside it:
+- "no more worrying about X", "crossed X off", "leaves X behind us";
+- "with X sorted, …" and "once X was in, …";
+- "let's not forget about X", "parking X for now";
+- "…, the managed Postgres it is.";
+- "tracked X down to Y", "CI is unhappy — Y", "then Y again".
+
+They read the phrasings they were written for, and they cost nothing:
+precision is unchanged on every corpus, and the internal eval output is
+identical. But the independent phrasings of v3 and v4 ("came off the
+board", "nobody needs to think about X") use constructions none of them
+cover.
+
+That is the same overfitting signature as rounds 3 and 5, now measured on
+two independent sets at once. **Pattern matching has reached its limit on
+marker-free phrasing.** The remaining route is the LLM extraction path,
+which needs a model API key and is deferred until one is available.
+
+Two false positives on `main` were found and fixed along the way:
+- "Whatever it is, we'll find it" was stored as the decision "Use Whatever".
+- "The incident was resolved within an hour" was stored as the finished
+  task "within an hour".
+
+Two regex DoS bugs introduced in this round were caught before commit:
+- a decision pattern took 199 s on 17 KB of tabs;
+- a subject-trimming pattern took 25 s on 20 KB of spaces.
+
+Both are fixed. A new test runs every compiled pattern in both extraction
+modules directly on whitespace payloads, because the full-extraction test
+cannot reach a pattern that only ever receives short input.
+
+### 2. Per-request cost on long agent sessions
+
+The same real 914-message agent session, one message per request:
+
+| | `main` before round 7 | Round 7 (`e4c7071`) | Round 8 (`e600678`) |
+|---|---:|---:|---:|
+| Median per request, last 100 requests | 1.1 ms\* | 21 ms | **7.3 ms** |
+| Median per request, whole session | 0.6 ms\* | 15 ms | **5.5 ms** |
+
+\* `main` before round 7 skipped nearly every tool turn, so it did almost
+none of the work.
+
+- Hashing the whole history on every request was 79% of the remaining
+  cost. An exact hash cannot get below about 12 ms at 1.8 MB in Python:
+  JSON encoding and a hand-written canonical encoding were both measured.
+- A structured message now reuses its previous hash when a cheap
+  fingerprint matches the one at the same position last time. The
+  fingerprint is the message's role, block structure, and each block's
+  type, id, size and first and last characters.
+- The cache is positional, never a lookup by fingerprint, so a new
+  message can never take an old one's hash.
+- A history trimmed from the front is hashed in full. Plain-text messages
+  are always hashed.
+- The graph is the same: 29 nodes and 3 edges.
+- **Caveat.** An in-place edit of an old message that keeps every
+  block's length and ends unchanged would reuse a stale hash.
+
+The first request after a server start paid about 600 ms of one-time
+cost: about 200 ms to build the extractor and 330 ms to load the
+tokenizer. Startup now pays it, off the event loop. A failed warm-up is
+logged and does not stop the server.
+
+### 3. Real-session noise
+
+| | Round 7 | Round 8 |
+|---|---|---|
+| Files | 14, 2 of them example names from prose | 12, all real |
+| Errors | 9 open, 2 of them descriptions of already-fixed bugs | 8 open, all real; 6 fixed bugs stored as **resolved** |
+
+- **Fixed bugs listed as open.** A bullet list under "**Bugs fixed along
+  the way:**" was stored as open errors, telling the next session to fix
+  what was already fixed. Items under a heading that says they were fixed
+  are now resolved.
+- **Problem lists not read.** Items under "Known issues:" or "Still
+  broken:" were not read at all when they were bare noun phrases; they are
+  now. Under a generic "Issues:" or "Problems:" heading, an item must name
+  something wrong, because such lists also hold concerns. Questions and
+  "None" are skipped.
+- **Example file names.** Files given as examples of a kind ("Multi-dot
+  names (`vite.config.ts`)", "such as", "like", "e.g.") are no longer
+  files. "Updated two files (`a.py`, `b.py`)" still is.
+
+**Still open.**
+- "Dev pending recall dropped 3 items (85.2 → 83.9)" is stored as an
+  error. It was a real, temporary metric regression, so this is debatable
+  rather than wrong.
+- One v1 template ("X took longer than planned but it's behind us now")
+  needs the pronoun resolved, which patterns do not do.
+
+**No regression.**
+- Internal eval output identical (97%).
+- Suite 1682 → 1733 tests, all passing.
+- Every new behaviour has a test that fails without it.
