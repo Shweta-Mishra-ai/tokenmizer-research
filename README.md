@@ -107,6 +107,16 @@ On that real session, about 87% of stored facts are genuine, against about
 45% before (judged by hand). The labelled-corpus scores are unchanged. See
 [`benchmarks/results/REPORT_real_sessions_and_robustness.md`](benchmarks/results/REPORT_real_sessions_and_robustness.md).
 
+Rounds 5 and 6 (same report):
+- A fourth corpus, **held-out v3**, was frozen before round 5. On it, the
+  whole branch scores **35% → 64%** macro F1 (+29.6 points [+26.2, +32.8]).
+- The resume block is now packed item by item. At a 150-token budget it
+  keeps 73.5% of labelled facts, against 66.8% before, and open errors go
+  from 40% to 73%. Completed tasks lose 8 points at that budget, by
+  design.
+- Incremental extraction, the way the proxy runs it, now builds 706 of the
+  707 graph edges that whole-session extraction does, against 177 before.
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
@@ -130,6 +140,7 @@ benchmarks/
   corpus/                    100 labelled sessions (94 generated, 6 real)
   corpus_heldout/            80 held-out sessions, disjoint templates (v1)
   corpus_heldout2/           80 held-out sessions, a third template set (v2)
+  corpus_heldout3/           80 held-out sessions, a fourth template set (v3)
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
   checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;

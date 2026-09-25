@@ -242,3 +242,84 @@ fake model only; no real model could be run here.
 - Fuzzing: 300 more iterations, 0 exceptions.
 - Product suite: 1648 tests. Internal eval unchanged at 97%.
 - Real session: no new noise after the fixes this round's audit prompted.
+
+---
+
+## Round 6 (product `ddcd1a1`, CI fix `8e3df7a`): what survives a token budget, and graph links
+
+This round did not touch extraction. It changed two things downstream of it:
+- what the resume block keeps when the token budget is tight;
+- how the graph links facts that arrive in different extraction calls.
+
+**Labelled corpora: unchanged, as expected.** Macro F1 at `8e3df7a` is:
+main 92%, held-out v1 80%, held-out v2 90%, **held-out v3 64%**. Every
+category is identical to `5e376d5`. The resume block on v3 is 4 tokens
+larger (111 → 115). That is the packer filling budget that
+whole-section dropping used to leave empty. Timed back to back, both
+commits take about 282 ms per session in this benchmark, so there is no
+latency change. (The 231 ms in the round 5 table came from a faster
+machine state, so compare timings only within one run.)
+
+**Resume block: packed item by item.** Before this round, an over-budget
+block dropped *whole sections from the bottom*. The first thing lost was
+"Open issues", the section most important to a resume.
+- Items are now admitted in priority rounds: goal first, then errors,
+  conflicts and "avoid", then work in progress, then decisions, and so on.
+  Display order does not change.
+- The result is checked with one exact token count.
+- Home directories are shortened to `~`.
+- A decision's reason is kept only when it is short and adds something
+  beyond the label.
+- *Measured* (`benchmarks/memorybench/resume_budget.py`): the share of
+  each session's labelled facts that appear in its resume block,
+  averaged over all 340 sessions of the four corpora.
+  Extraction runs incrementally, two messages at a time.
+
+| Budget | `5e376d5` | `8e3df7a` | Per category, before → after |
+|---|---:|---:|---|
+| 150 tokens | 66.8% | **73.5%** | errors 40 → 73, pending 70 → 82, files 77 → 91, decisions 67 → 70, **completed 67 → 59** |
+| 250 or 400 (production default 400) | 77.1% | **79.8%** | pending 70 → 84; others unchanged |
+
+- **The loss is deliberate but real.** At 150 tokens, completed tasks lose
+  8 points, because the packer ranks finished work below open work,
+  errors and decisions. At 250 tokens and above, nothing is lost.
+- On these corpora the whole block fits in about 138 tokens, so the
+  250-token and 400-token results are identical. The 150-token row is the
+  one where packing decides anything.
+- Mean block size at 150 tokens rose from 114 to 126 tokens, because
+  budget that used to go unused is now filled.
+
+**Graph: relations across extraction calls.** The proxy extracts
+incrementally, a few messages at a time. Relations such as a task that
+implements a file, an error that blocks a task, or a fix for an error
+were only inferred between facts found *in the same call*. So a live
+session's graph was missing most of its edges.
+- Each call now links new nodes to the live goals, tasks, decisions,
+  files and open errors already in the graph.
+- *Measured* on all 340 sessions of the four corpora
+  (`benchmarks/memorybench/graph_edges.py`): whole-session extraction
+  forms 707 edges. Incremental extraction formed 183 of its own, and only
+  177 of those were among the 707. It now forms **706 of the 707**. The
+  missing link types were PART_OF (no task was ever part of the goal:
+  0 → 19) and RELATED_TO (47 → 393).
+- The per-request extraction cost was unchanged at 2.9 ms.
+
+**Retrieval.** query_eval recall@6 is 88% (82% at `a184cf1`). The two
+remaining misses need a paraphrase to be understood; that is beyond
+keyword or graph matching.
+
+**Caveats.**
+- The token counts above use tiktoken when it is installed. Otherwise
+  the product falls back to characters ÷ 4, which can be off by ±25% for
+  code or non-English text. The packer's final exact check uses the same
+  counter, so its guarantee is only as good as that counter.
+- "Facts present in the resume block" is a string-match measure on
+  synthetic corpora. It is not a test of whether a model then *acts* on
+  those facts correctly.
+
+**CI.** Windows CI failed on this round's first push. The failing test
+was one of mine, not the product: pytest copies each test id into the
+`PYTEST_CURRENT_TEST` environment variable, and a 50,000-character
+parametrised body exceeded Windows' 32,767-character limit. The fix
+(`8e3df7a`) gives those cases short ids. The longest test id in the
+suite is now 725 characters.
