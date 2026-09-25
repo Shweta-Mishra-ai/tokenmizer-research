@@ -1,0 +1,121 @@
+{
+ "id": "ho4_ml_python_002",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an embedding search service."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an embedding search service."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. I got class imbalance handling with focal loss over the line. Got hit by NaN losses after the learning rate change in staging. Details are in tests/test_features.py."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "AUC-PR as the primary metric given the imbalance won the vote. No incidents were reported this week. Got hit by non-determinism from an unseeded shuffle in staging."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated src/serve.py. Cross-validation across five folds has shipped. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be XGBoost over a neural network for tabular data."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. A fairness audit across customer segments is still owed to the client. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Details are in src/train.py."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an embedding search service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Production is showing train/serve skew from inconsistent scaling. I updated data/schema.json. A feature store migration is next up."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in Evidently for drift reporting. Nothing is waiting on anyone at the moment. Batch inference over the full customer base went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on ONNX export for the serving runtime. Ping me if anything seems wrong. Drift monitoring on the input distributions went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Shadow deployment against live traffic remains open. Details are in Makefile. A stratified train/validation/test split is finished and deployed."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a stratified train/validation/test split",
+   "cross-validation across five folds",
+   "class imbalance handling with focal loss",
+   "batch inference over the full customer base",
+   "drift monitoring on the input distributions"
+  ],
+  "pending_tasks": [
+   "a fairness audit across customer segments",
+   "a feature store migration",
+   "shadow deployment against live traffic"
+  ],
+  "decisions": [
+   "ONNX export for the serving runtime",
+   "AUC-PR as the primary metric given the imbalance",
+   "Evidently for drift reporting",
+   "XGBoost over a neural network for tabular data"
+  ],
+  "files": [
+   "tests/test_features.py",
+   "Makefile",
+   "data/schema.json",
+   "src/train.py",
+   "src/serve.py"
+  ],
+  "errors": [
+   "non-determinism from an unseeded shuffle",
+   "train/serve skew from inconsistent scaling",
+   "NaN losses after the learning rate change"
+  ]
+ }
+}

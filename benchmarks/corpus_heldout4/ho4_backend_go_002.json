@@ -1,0 +1,119 @@
+{
+ "id": "ho4_backend_go_002",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking an event consumer."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in go.mod. Should we add more coverage? proto/orders.proto grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "A worker pool bounded at 32 goroutines is behind us now. Nobody argued once they saw the numbers for buf for protobuf linting and generation. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. The gRPC service definition and generated stubs came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. The pager went off twice overnight because of a deadlock between the two mutexes. A monorepo layout with internal packages is what everything will be built on from here. The pager went off twice overnight because of connection churn exhausting ephemeral ports."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Graceful shutdown on SIGTERM came off the board this morning. Replacing the mutex with a sharded map keeps getting pushed to next sprint. Had to untangle Dockerfile first."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Benchmark tests on the hot encode path came off the board this morning. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. The bulk of the diff sits in buf.yaml. Had to untangle cmd/server/main.go first."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "internal/handler/orders_test.go grew by a couple hundred lines. Structured logging with request correlation is behind us now. Turns out the slowdown was a panic on malformed protobuf input all along."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reducing allocations in the serialiser keeps getting pushed to next sprint. Nothing is waiting on anyone at the moment."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "benchmark tests on the hot encode path",
+   "the gRPC service definition and generated stubs",
+   "structured logging with request correlation",
+   "graceful shutdown on SIGTERM",
+   "a worker pool bounded at 32 goroutines"
+  ],
+  "pending_tasks": [
+   "replacing the mutex with a sharded map",
+   "reducing allocations in the serialiser"
+  ],
+  "decisions": [
+   "buf for protobuf linting and generation",
+   "a monorepo layout with internal packages"
+  ],
+  "files": [
+   "Dockerfile",
+   "buf.yaml",
+   "proto/orders.proto",
+   "cmd/server/main.go",
+   "internal/handler/orders_test.go",
+   "go.mod"
+  ],
+  "errors": [
+   "connection churn exhausting ephemeral ports",
+   "a deadlock between the two mutexes",
+   "a panic on malformed protobuf input"
+  ]
+ }
+}

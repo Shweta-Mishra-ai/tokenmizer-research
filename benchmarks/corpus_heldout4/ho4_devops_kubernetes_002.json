@@ -1,0 +1,152 @@
+{
+ "id": "ho4_devops_kubernetes_002",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a zero-downtime deploy pipeline."
+  },
+  {
+   "role": "user",
+   "content": "ArgoCD for GitOps delivery feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Tightening the pod security admission profile keeps getting pushed to next sprint. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in k8s/networkpolicy.yaml. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: cluster autoscaler on the spot node group. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "How is a zero-downtime deploy pipeline going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about resource requests and limits for all containers anymore. I've locked in Trivy for image scanning in CI. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "How is a zero-downtime deploy pipeline going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Production is showing OOMKilled pods on the ingestion worker.\n- [X] a rolling deploy with surge and unavailable tuned\nPing me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Readiness and liveness probes on every workload has shipped. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use a blue-green strategy for the database proxy. Should we add more coverage? The secrets migration into the external secret store came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in .github/workflows/deploy.yml. Thanks to node affinity rules keeping the databases separate, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with external-secrets backed by Vault?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The ingress with automatic certificate renewal has shipped. Most of yesterday disappeared into a 502 during rolling deploys from missing readiness gates."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in charts/api/templates/deployment.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Reducing the image sizes on the worker pool keeps getting pushed to next sprint."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the remaining cron jobs to Kubernetes is still owed to the client."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the ingress with automatic certificate renewal",
+   "resource requests and limits for all containers",
+   "the secrets migration into the external secret store",
+   "cluster autoscaler on the spot node group",
+   "readiness and liveness probes on every workload",
+   "node affinity rules keeping the databases separate",
+   "a rolling deploy with surge and unavailable tuned"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes",
+   "reducing the image sizes on the worker pool",
+   "tightening the pod security admission profile"
+  ],
+  "decisions": [
+   "a blue-green strategy for the database proxy",
+   "external-secrets backed by Vault",
+   "Trivy for image scanning in CI",
+   "ArgoCD for GitOps delivery"
+  ],
+  "files": [
+   "k8s/networkpolicy.yaml",
+   ".github/workflows/deploy.yml",
+   "charts/api/templates/deployment.yaml"
+  ],
+  "errors": [
+   "OOMKilled pods on the ingestion worker",
+   "a 502 during rolling deploys from missing readiness gates"
+  ]
+ }
+}

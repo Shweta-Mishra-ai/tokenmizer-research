@@ -1,0 +1,125 @@
+{
+ "id": "ho4_research_writing_001",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an internal architecture RFC."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an internal architecture RFC."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Turns out the slowdown was a figure rendering illegibly in greyscale print all along. A single-column layout for the preprint is the direction we committed to. I updated paper/abstract.tex."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to releasing the corpus alongside the paper."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. After review I'll deploy. We have a limitations section naming the sample size problem now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to an appendix documenting the corpus construction, the on-call pages stopped. Had to untangle paper/evaluation.tex first."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. We'll run with framing the contribution as a measurement study."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The related work section covering twelve papers is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to targeting the workshop deadline rather than the main track."
+  },
+  {
+   "role": "assistant",
+   "content": "An ethics statement hasn't been started. Fine by me. Nobody argued once they saw the numbers for including the negative result on implicit language."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "The abstract rewritten to lead with the result came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "paper/references.bib grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Figure one showing the system architecture went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in bootstrap confidence intervals rather than t-tests."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a limitations section naming the sample size problem",
+   "figure one showing the system architecture",
+   "an appendix documenting the corpus construction",
+   "the abstract rewritten to lead with the result",
+   "the related work section covering twelve papers"
+  ],
+  "pending_tasks": [
+   "an ethics statement"
+  ],
+  "decisions": [
+   "targeting the workshop deadline rather than the main track",
+   "bootstrap confidence intervals rather than t-tests",
+   "framing the contribution as a measurement study",
+   "releasing the corpus alongside the paper",
+   "a single-column layout for the preprint",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "paper/evaluation.tex",
+   "paper/references.bib",
+   "paper/abstract.tex"
+  ],
+  "errors": [
+   "a figure rendering illegibly in greyscale print"
+  ]
+ }
+}

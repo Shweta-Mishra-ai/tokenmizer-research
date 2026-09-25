@@ -1,0 +1,149 @@
+{
+ "id": "ho4_backend_go_001",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a file transfer service."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a file transfer service."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in internal/handler/orders.go. Reducing allocations in the serialiser is next up. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be a monorepo layout with internal packages. Could sqlc for type-safe database access work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. The logs are easier to read now. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Could errgroup for concurrent fan-out work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "The gRPC service definition and generated stubs has shipped. I updated go.mod. Nothing is waiting on anyone at the moment. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Support tickets mention a goroutine leak on the cancelled request path. No incidents were reported this week. Table-driven tests for the parser has shipped. A worker pool bounded at 32 goroutines has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in proto/orders.proto. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in gRPC over REST for internal traffic."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. I updated internal/store/postgres.go. We keep seeing a deadlock between the two mutexes."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. I updated cmd/server/main.go."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with testcontainers for integration tests. I got benchmark tests on the hot encode path over the line."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Support tickets mention connection churn exhausting ephemeral ports. The logs are easier to read now. Profiling the p99 latency spike is still owed to the client. A circuit breaker around the downstream call is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in Dockerfile. Structured logging with request correlation has shipped. The team picked buf for protobuf linting and generation."
+  },
+  {
+   "role": "user",
+   "content": "How is a file transfer service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Connection reuse in the HTTP client is finished and deployed. After review I'll deploy."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a circuit breaker around the downstream call",
+   "connection reuse in the HTTP client",
+   "table-driven tests for the parser",
+   "a worker pool bounded at 32 goroutines",
+   "the gRPC service definition and generated stubs",
+   "benchmark tests on the hot encode path",
+   "structured logging with request correlation"
+  ],
+  "pending_tasks": [
+   "reducing allocations in the serialiser",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "errgroup for concurrent fan-out",
+   "gRPC over REST for internal traffic",
+   "a monorepo layout with internal packages",
+   "testcontainers for integration tests",
+   "sqlc for type-safe database access",
+   "buf for protobuf linting and generation"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "Dockerfile",
+   "cmd/server/main.go",
+   "proto/orders.proto",
+   "internal/handler/orders.go",
+   "go.mod"
+  ],
+  "errors": [
+   "a goroutine leak on the cancelled request path",
+   "connection churn exhausting ephemeral ports",
+   "a deadlock between the two mutexes"
+  ]
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "id": "ho4_mobile_ios_003",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a subscription billing flow."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Keychain storage for the auth token is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "How is a subscription billing flow going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somebody has to own migrating the remaining UIKit screens before Friday. The SwiftUI onboarding sequence came off the board this morning. IOS 17 as the minimum deployment target is what everything will be built on from here. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. VoiceOver labels across the main screens is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "SwiftUI for all new screens feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Core Data persistence for the workout log is behind us now. The Composable Architecture for state is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Without a snapshot test suite for the components the launch checklist stays red."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sources/Widgets/ActivityWidget.swift grew by a couple hundred lines. Should we add more coverage? SwiftLint in the build phase is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "How is a subscription billing flow going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Handling the offline conflict resolution case is the piece nobody has picked up. The bulk of the diff sits in Tests/SyncTests.swift."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Async/await instead of Combine for networking is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "A widget showing today's activity has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Fastlane for the release pipeline is the direction we committed to. Deep links into the workout detail screen is behind us now. CI is passing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VoiceOver labels across the main screens",
+   "keychain storage for the auth token",
+   "the SwiftUI onboarding sequence",
+   "a widget showing today's activity",
+   "Core Data persistence for the workout log",
+   "deep links into the workout detail screen"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "migrating the remaining UIKit screens",
+   "handling the offline conflict resolution case"
+  ],
+  "decisions": [
+   "SwiftUI for all new screens",
+   "The Composable Architecture for state",
+   "async/await instead of Combine for networking",
+   "fastlane for the release pipeline",
+   "iOS 17 as the minimum deployment target",
+   "SwiftLint in the build phase"
+  ],
+  "files": [
+   "Sources/Widgets/ActivityWidget.swift",
+   "Tests/SyncTests.swift"
+  ],
+  "errors": []
+ }
+}

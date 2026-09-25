@@ -1,0 +1,144 @@
+{
+ "id": "ho4_research_writing_002",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a grant proposal."
+  },
+  {
+   "role": "user",
+   "content": "Use targeting the workshop deadline rather than the main track please."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: naming the baselines by method rather than by vendor. Going forward: reporting macro F1 rather than accuracy."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: an ethics statement. Going forward: a single-column layout for the preprint."
+  },
+  {
+   "role": "user",
+   "content": "Use Zotero for reference management please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — the page count exceeding the submission limit.\n* paper/references.bib\n**Finished work:** the introduction cut from four pages to two."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Landed figure one showing the system architecture.\n**Pending:** a final proofread pass."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing.\n**Finished work:** an appendix documenting the corpus construction."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Complete: a limitations section naming the sample size problem."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — figures/architecture.py.\nLanded citations normalised to a single bibliography style.\n**Finished work:** the abstract rewritten to lead with the result."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Failing now: a numerical inconsistency between the abstract and table three."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `paper/main.tex`. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: releasing the corpus alongside the paper."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a limitations section naming the sample size problem",
+   "citations normalised to a single bibliography style",
+   "an appendix documenting the corpus construction",
+   "the abstract rewritten to lead with the result",
+   "the introduction cut from four pages to two",
+   "figure one showing the system architecture"
+  ],
+  "pending_tasks": [
+   "a final proofread pass",
+   "an ethics statement"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "reporting macro F1 rather than accuracy",
+   "naming the baselines by method rather than by vendor",
+   "a single-column layout for the preprint",
+   "Zotero for reference management",
+   "targeting the workshop deadline rather than the main track"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "paper/references.bib",
+   "paper/main.tex"
+  ],
+  "errors": [
+   "the page count exceeding the submission limit",
+   "a numerical inconsistency between the abstract and table three"
+  ]
+ }
+}

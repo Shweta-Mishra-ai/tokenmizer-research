@@ -1,0 +1,118 @@
+{
+ "id": "ho4_product_analytics_005",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a churn driver investigation."
+  },
+  {
+   "role": "user",
+   "content": "How is a churn driver investigation going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reconciling the two conflicting active-user counts remains open. File changed — docs/metric_definitions.md."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Got hit by timezone mismatch splitting one day across two cohorts in staging.\n- [X] deduplication of the double-fired signup event\nWrapped: a holdout group excluded from all experiments.\nNo incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `tests/test_metrics.py`. Flaky jobs get one automatic retry. Had to untangle notebooks/churn_drivers.ipynb first."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — a double-counted signup event inflating the funnel top."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sunsetting the legacy dashboard is still owed to the client. Path: `config/taxonomy.yaml`."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? Spotted a sample ratio mismatch in the pricing experiment today. Details are in analytics/cohorts.sql. Going forward: reporting absolute lift alongside relative."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back.\n- [X] a sample size calculation for the pricing test\nA guardrail metric on support ticket volume hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "How is a churn driver investigation going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: a seven-day activation window."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. A data dictionary for the product team remains open."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a sample size calculation for the pricing test",
+   "deduplication of the double-fired signup event",
+   "a holdout group excluded from all experiments"
+  ],
+  "pending_tasks": [
+   "a data dictionary for the product team",
+   "sunsetting the legacy dashboard",
+   "a guardrail metric on support ticket volume",
+   "reconciling the two conflicting active-user counts"
+  ],
+  "decisions": [
+   "reporting absolute lift alongside relative",
+   "a seven-day activation window"
+  ],
+  "files": [
+   "docs/metric_definitions.md",
+   "tests/test_metrics.py",
+   "analytics/cohorts.sql",
+   "notebooks/churn_drivers.ipynb",
+   "config/taxonomy.yaml"
+  ],
+  "errors": [
+   "a double-counted signup event inflating the funnel top",
+   "timezone mismatch splitting one day across two cohorts",
+   "a sample ratio mismatch in the pricing experiment"
+  ]
+ }
+}

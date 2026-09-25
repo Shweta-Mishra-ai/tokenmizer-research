@@ -1,0 +1,115 @@
+{
+ "id": "ho4_devops_kubernetes_003",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an autoscaling review."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed network policies isolating the payments namespace."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: ArgoCD for GitOps delivery.\n**Finished work:** horizontal pod autoscaling on CPU and request rate.\n- [X] the ingress with automatic certificate renewal"
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "**Finished work:** readiness and liveness probes on every workload.\n* k8s/networkpolicy.yaml\n- [X] node affinity rules keeping the databases separate"
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: k8s/hpa.yaml."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing.\n**Pending:** per-namespace cost attribution."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Wrapped: the secrets migration into the external secret store."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "* k8s/ingress.yaml\n- [ ] TODO consolidating the three ingress controllers"
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Todo — a chaos test on node eviction. Delivered — the Helm chart for the API deployment."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later.\n**Chosen:** external-secrets backed by Vault."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "horizontal pod autoscaling on CPU and request rate",
+   "the ingress with automatic certificate renewal",
+   "network policies isolating the payments namespace",
+   "readiness and liveness probes on every workload",
+   "node affinity rules keeping the databases separate",
+   "the Helm chart for the API deployment",
+   "the secrets migration into the external secret store"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers",
+   "a chaos test on node eviction",
+   "per-namespace cost attribution"
+  ],
+  "decisions": [
+   "ArgoCD for GitOps delivery",
+   "external-secrets backed by Vault"
+  ],
+  "files": [
+   "k8s/networkpolicy.yaml",
+   "k8s/hpa.yaml",
+   "k8s/ingress.yaml"
+  ],
+  "errors": []
+ }
+}

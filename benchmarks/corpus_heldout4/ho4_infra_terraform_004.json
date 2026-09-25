@@ -1,0 +1,114 @@
+{
+ "id": "ho4_infra_terraform_004",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a cost optimisation pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a cost optimisation pass now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in terraform/main.tf. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on provider versions pinned to a minor range."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have a module for the standard service deployment now. I've locked in Terraform over CloudFormation."
+  },
+  {
+   "role": "user",
+   "content": "How is a cost optimisation pass going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in modules/service/main.tf. The NAT gateway consolidated to one per region is up and working. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "How is a cost optimisation pass going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have an RDS instance with automated backups now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Support tickets mention provider version drift between two engineers. Splitting the monolithic state file is next up."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated terraform/vpc.tf."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tagging enforced through a provider default has shipped. The fix lives in terraform/variables.tf."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in terraform/outputs.tf. After review I'll deploy."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "tagging enforced through a provider default",
+   "the NAT gateway consolidated to one per region",
+   "an RDS instance with automated backups",
+   "a module for the standard service deployment"
+  ],
+  "pending_tasks": [
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "Terraform over CloudFormation",
+   "provider versions pinned to a minor range"
+  ],
+  "files": [
+   "terraform/vpc.tf",
+   "modules/service/main.tf",
+   "terraform/main.tf",
+   "terraform/outputs.tf",
+   "terraform/variables.tf"
+  ],
+  "errors": [
+   "provider version drift between two engineers"
+  ]
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "id": "ho4_mobile_ios_005",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a fitness tracking app."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a fitness tracking app now."
+  },
+  {
+   "role": "user",
+   "content": "Pick StoreKit 2 for subscriptions. Let's commit to Core Data over Realm for local storage."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Should we add more coverage? Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — Package.swift. Going forward: iOS 17 as the minimum deployment target. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] the HealthKit permission flow"
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to XCTest with snapshot assertions."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand.\n- [X] crash reporting integration\nSure, on it.\nWrapped: VoiceOver labels across the main screens."
+  },
+  {
+   "role": "user",
+   "content": "How is a fitness tracking app going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — the subscription purchase and restore flow.\n**Pending:** a snapshot test suite for the components.\nThe logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — migrating the remaining UIKit screens."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — dark mode across every screen. Failing now: a keychain access error after device restore. Touched file: App/Info.plist. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Going forward: Keychain for token storage rather than UserDefaults."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failing now: a retain cycle in the sync completion handler."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter.\n- [ ] TODO localisation into three languages\n* fastlane/Fastfile\nDelivered — Core Data persistence for the workout log."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failing now: main thread blocking during the Core Data import. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "* Sources/Sync/SyncEngine.swift"
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: handling the offline conflict resolution case."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VoiceOver labels across the main screens",
+   "the HealthKit permission flow",
+   "crash reporting integration",
+   "Core Data persistence for the workout log",
+   "the subscription purchase and restore flow",
+   "dark mode across every screen"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "migrating the remaining UIKit screens",
+   "handling the offline conflict resolution case",
+   "localisation into three languages"
+  ],
+  "decisions": [
+   "iOS 17 as the minimum deployment target",
+   "StoreKit 2 for subscriptions",
+   "Keychain for token storage rather than UserDefaults",
+   "Core Data over Realm for local storage",
+   "XCTest with snapshot assertions"
+  ],
+  "files": [
+   "fastlane/Fastfile",
+   "Sources/Sync/SyncEngine.swift",
+   "Package.swift",
+   "App/Info.plist"
+  ],
+  "errors": [
+   "a retain cycle in the sync completion handler",
+   "main thread blocking during the Core Data import",
+   "a keychain access error after device restore"
+  ]
+ }
+}

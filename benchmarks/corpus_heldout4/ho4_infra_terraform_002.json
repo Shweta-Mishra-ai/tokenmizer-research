@@ -1,0 +1,120 @@
+{
+ "id": "ho4_infra_terraform_002",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a compliance baseline rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a compliance baseline rollout now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — a cyclic dependency between the security group rules."
+  },
+  {
+   "role": "user",
+   "content": "OIDC for CI authentication into AWS feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: Aurora Postgres over standard RDS. Delivered — the NAT gateway consolidated to one per region. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "* terraform/rds.tf Security groups restricted to named ports has been live since Tuesday with no complaints. The bulk of the diff sits in terraform/backend.tf. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Spotted a plan diff from an untracked manual console change today. Had to untangle terraform/vpc.tf first."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — subnet exhaustion in the primary availability zone. Touched file: .github/workflows/plan.yml. The VPC with public and private subnets across three zones is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on a hub-and-spoke network topology. Consensus: one state file per environment. File changed — terraform/variables.tf."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on separate accounts for production and staging. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "How is a compliance baseline rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week.\n**Finished work:** VPC flow logs shipped to the log bucket.\nAn RDS instance with automated backups went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "How is a compliance baseline rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Splitting the monolithic state file hasn't been started. Flaky jobs get one automatic retry."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an RDS instance with automated backups",
+   "the NAT gateway consolidated to one per region",
+   "security groups restricted to named ports",
+   "the VPC with public and private subnets across three zones",
+   "VPC flow logs shipped to the log bucket"
+  ],
+  "pending_tasks": [
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "a hub-and-spoke network topology",
+   "OIDC for CI authentication into AWS",
+   "one state file per environment",
+   "separate accounts for production and staging",
+   "Aurora Postgres over standard RDS"
+  ],
+  "files": [
+   ".github/workflows/plan.yml",
+   "terraform/vpc.tf",
+   "terraform/variables.tf",
+   "terraform/backend.tf",
+   "terraform/rds.tf"
+  ],
+  "errors": [
+   "a plan diff from an untracked manual console change",
+   "subnet exhaustion in the primary availability zone",
+   "a cyclic dependency between the security group rules"
+  ]
+ }
+}

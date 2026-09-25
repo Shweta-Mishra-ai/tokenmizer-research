@@ -1,0 +1,138 @@
+{
+ "id": "ho4_frontend_react_003",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an analytics dashboard."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an analytics dashboard."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The toast notification system has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: vite.config.ts. File changed — src/store/session.ts."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — src/components/DataTable.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated src/api/client.ts. Consensus: Radix primitives for accessible components."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Memoising the chart data transform hasn't been started. Keyboard navigation across the data grid held up fine through the whole load test. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Code splitting on the route boundaries has shipped. Once the release settles, an accessibility audit of the nav is where attention goes. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Support tickets mention a race condition between two in-flight fetches. We're standardising on Tailwind for styling. The bulk of the diff sits in tests/dashboard.spec.ts."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about form validation with inline error messages anymore. Crash: layout shift on the chart container. Optimistic updates on the toggle controls is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated package.json. Support tickets mention a memory leak from an unsubscribed event listener."
+  },
+  {
+   "role": "user",
+   "content": "Use MSW for mocking the API in tests please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it.\n- [X] dark mode using CSS custom properties"
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "Server-side pagination on the results table came off the board this morning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "optimistic updates on the toggle controls",
+   "server-side pagination on the results table",
+   "form validation with inline error messages",
+   "code splitting on the route boundaries",
+   "keyboard navigation across the data grid",
+   "dark mode using CSS custom properties",
+   "the toast notification system"
+  ],
+  "pending_tasks": [
+   "memoising the chart data transform",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "Radix primitives for accessible components",
+   "MSW for mocking the API in tests",
+   "Tailwind for styling"
+  ],
+  "files": [
+   "src/api/client.ts",
+   "vite.config.ts",
+   "src/components/DataTable.tsx",
+   "src/store/session.ts",
+   "package.json",
+   "tests/dashboard.spec.ts"
+  ],
+  "errors": [
+   "a race condition between two in-flight fetches",
+   "layout shift on the chart container",
+   "a memory leak from an unsubscribed event listener"
+  ]
+ }
+}

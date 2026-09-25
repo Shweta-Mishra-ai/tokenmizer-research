@@ -1,0 +1,100 @@
+{
+ "id": "ho4_frontend_react_005",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a customer support console."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a customer support console now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Vite as the build tool won the vote. The fix lives in src/App.tsx. I updated src/hooks/useMetrics.ts. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a customer support console?"
+  },
+  {
+   "role": "assistant",
+   "content": "Form validation with inline error messages is up and working. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a customer support console?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have the toast notification system now. Dark mode using CSS custom properties went in this morning. Production is showing stale closure state in the polling hook. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Could Playwright for end-to-end tests work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with pnpm as the package manager. Production is showing a bundle regression from importing the whole icon set. Should we add more coverage? Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. The fix lives in package.json. Production is showing a CORS failure against the staging API. We haven't done replacing the date picker with a headless one yet."
+  },
+  {
+   "role": "user",
+   "content": "How is a customer support console going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have the empty and loading states for every panel now. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Memoising the chart data transform is next up. Ping me if anything seems wrong."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the toast notification system",
+   "dark mode using CSS custom properties",
+   "the empty and loading states for every panel",
+   "form validation with inline error messages"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one",
+   "memoising the chart data transform"
+  ],
+  "decisions": [
+   "Playwright for end-to-end tests",
+   "Vite as the build tool",
+   "pnpm as the package manager"
+  ],
+  "files": [
+   "package.json",
+   "src/App.tsx",
+   "src/hooks/useMetrics.ts"
+  ],
+  "errors": [
+   "a CORS failure against the staging API",
+   "a bundle regression from importing the whole icon set",
+   "stale closure state in the polling hook"
+  ]
+ }
+}

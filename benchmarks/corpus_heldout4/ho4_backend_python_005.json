@@ -1,0 +1,97 @@
+{
+ "id": "ho4_backend_python_005",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an async task queue service."
+  },
+  {
+   "role": "user",
+   "content": "How is an async task queue service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: UUIDv7 primary keys instead of integers. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter.\nPath: `api/models.py`.\n- [X] a health check endpoint at /healthz\nWrapped: background retry for failed webhook deliveries."
+  },
+  {
+   "role": "user",
+   "content": "Use Python 3.12 as the runtime please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use Redis for refresh token storage."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Chosen:** uvicorn behind gunicorn in production.\nComplete: the User model with email and hashed_password columns.\nIn the queue: backfilling created_at on legacy rows."
+  },
+  {
+   "role": "user",
+   "content": "How is an async task queue service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. We resolved to use SQLAlchemy 2.0 with the async engine."
+  },
+  {
+   "role": "user",
+   "content": "Use Postgres over MySQL for JSONB support please."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Landed connection pooling against Postgres. Touched file: api/deps.py. Ping me if anything seems wrong."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a health check endpoint at /healthz",
+   "the User model with email and hashed_password columns",
+   "connection pooling against Postgres",
+   "background retry for failed webhook deliveries"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows"
+  ],
+  "decisions": [
+   "SQLAlchemy 2.0 with the async engine",
+   "UUIDv7 primary keys instead of integers",
+   "Postgres over MySQL for JSONB support",
+   "Redis for refresh token storage",
+   "uvicorn behind gunicorn in production",
+   "Python 3.12 as the runtime"
+  ],
+  "files": [
+   "api/models.py",
+   "api/deps.py"
+  ],
+  "errors": []
+ }
+}

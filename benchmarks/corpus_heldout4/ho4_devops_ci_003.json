@@ -1,0 +1,136 @@
+{
+ "id": "ho4_devops_ci_003",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a release automation project."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a release automation project."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A concurrency group cancelling superseded runs came off the board this morning. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, splitting the linting job from the test job is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be test retries limited to two attempts."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. Nobody needs to think about coverage reporting posted to the pull request anymore."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with semantic versioning driven by commit messages?"
+  },
+  {
+   "role": "assistant",
+   "content": "OIDC federation instead of long-lived deploy keys is the direction we committed to. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. The bulk of the diff sits in Makefile. Cutting the pipeline below eight minutes is next up."
+  },
+  {
+   "role": "user",
+   "content": "Pytest-xdist for test parallelism feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Broken: cache corruption producing stale build artifacts. Thanks to dependency caching across pipeline runs, the on-call pages stopped. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Complete: quarantining the six flakiest tests. Trunk-based development with short-lived branches is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Left to do — a rollback job for failed deploys."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Codecov for coverage tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Automated changelog generation on tag came off the board this morning. The bulk of the diff sits in conftest.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with a flaky test failing one run in twenty on the timing assertion. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with test pollution from an unreset global singleton."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "quarantining the six flakiest tests",
+   "coverage reporting posted to the pull request",
+   "dependency caching across pipeline runs",
+   "a concurrency group cancelling superseded runs",
+   "automated changelog generation on tag"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "splitting the linting job from the test job",
+   "cutting the pipeline below eight minutes"
+  ],
+  "decisions": [
+   "semantic versioning driven by commit messages",
+   "OIDC federation instead of long-lived deploy keys",
+   "test retries limited to two attempts",
+   "trunk-based development with short-lived branches",
+   "pytest-xdist for test parallelism",
+   "Codecov for coverage tracking"
+  ],
+  "files": [
+   "Makefile",
+   "conftest.py"
+  ],
+  "errors": [
+   "cache corruption producing stale build artifacts",
+   "test pollution from an unreset global singleton",
+   "a flaky test failing one run in twenty on the timing assertion"
+  ]
+ }
+}

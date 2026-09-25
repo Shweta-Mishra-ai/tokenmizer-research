@@ -1,0 +1,146 @@
+{
+ "id": "ho4_debug_production_004",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a memory leak hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a memory leak hunt now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Finished work:** instrumenting the slow query with timing spans.\nDelivered — ruling out the cache layer as the cause."
+  },
+  {
+   "role": "user",
+   "content": "How is a memory leak hunt going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle src/handlers/checkout.py first."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "config/flags.yaml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crash: duplicate charges from a non-idempotent retry."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "A regression test covering the failure mode came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be a canary deploy for the fix."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: scripts/repro.py. Path: `src/pool.py`. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Pick rolling back before investigating further."
+  },
+  {
+   "role": "assistant",
+   "content": "Crash: a thundering herd on cache expiry. Makes sense, doing that. I got reproducing the failure in a staging environment over the line. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Increasing the connection pool as a stopgap feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Still open — a follow-up on the third-party client bug report. Complete: a timeline of the incident from the metrics."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "A permanent fix replacing the hotfix is next up. Most of yesterday disappeared into p99 latency rising from 200ms to 4 seconds. Bisecting the regression to a single commit is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Pick a blameless postmortem format."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The fix lives in src/client.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a timeline of the incident from the metrics",
+   "a regression test covering the failure mode",
+   "bisecting the regression to a single commit",
+   "instrumenting the slow query with timing spans",
+   "ruling out the cache layer as the cause",
+   "reproducing the failure in a staging environment"
+  ],
+  "pending_tasks": [
+   "a follow-up on the third-party client bug report",
+   "a permanent fix replacing the hotfix"
+  ],
+  "decisions": [
+   "a blameless postmortem format",
+   "a canary deploy for the fix",
+   "increasing the connection pool as a stopgap",
+   "sampling traces at 10% rather than 1%",
+   "rolling back before investigating further"
+  ],
+  "files": [
+   "src/pool.py",
+   "scripts/repro.py",
+   "config/flags.yaml",
+   "src/client.py",
+   "src/handlers/checkout.py"
+  ],
+  "errors": [
+   "a thundering herd on cache expiry",
+   "duplicate charges from a non-idempotent retry",
+   "p99 latency rising from 200ms to 4 seconds"
+  ]
+ }
+}

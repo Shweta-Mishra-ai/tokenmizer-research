@@ -1,0 +1,123 @@
+{
+ "id": "ho4_platform_api_004",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking an API gateway migration."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use a six-month deprecation window. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Todo — a rate limit tier for enterprise keys.\nWe resolved to use snake_case field naming throughout.\n**Finished work:** the OpenAPI specification for every public route."
+  },
+  {
+   "role": "user",
+   "content": "How is an API gateway migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] a deprecation header on the v1 routes\nWe resolved to use OpenAPI as the source of truth for SDK generation.\nFile changed — api/errors.py.\nCI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: a conformance test suite for the SDKs. Path: `gateway/kong.yaml`. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Todo — field-level filtering on the large resources."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Final call: JSON only, no XML support."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] request/response logging with PII stripped"
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to cursor pagination rather than offset."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use URL-based versioning over header negotiation."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "* api/auth.py Ping me if anything seems wrong."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "request/response logging with PII stripped",
+   "the OpenAPI specification for every public route",
+   "a deprecation header on the v1 routes"
+  ],
+  "pending_tasks": [
+   "a conformance test suite for the SDKs",
+   "field-level filtering on the large resources",
+   "a rate limit tier for enterprise keys"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "URL-based versioning over header negotiation",
+   "a six-month deprecation window",
+   "JSON only, no XML support",
+   "snake_case field naming throughout",
+   "cursor pagination rather than offset"
+  ],
+  "files": [
+   "api/errors.py",
+   "gateway/kong.yaml",
+   "api/auth.py"
+  ],
+  "errors": []
+ }
+}

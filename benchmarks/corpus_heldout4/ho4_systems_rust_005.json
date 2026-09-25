@@ -1,0 +1,108 @@
+{
+ "id": "ho4_systems_rust_005",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an HTTP proxy."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an HTTP proxy."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle src/codec/mod.rs first. Nobody argued once they saw the numbers for tokio over async-std for the runtime. The pager went off twice overnight because of a borrow checker conflict in the writer loop."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. After the spike, bincode for the wire encoding was the clear winner. Error types unified behind thiserror held up fine through the whole load test. Somebody has to own adding a tracing subscriber before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in benches/parse.rs."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Arc-swap for the hot config reload is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about an async runtime built on tokio anymore. Nobody needs to think about zero-copy deserialisation of the record header anymore. Had to untangle fuzz/fuzz_targets/decode.rs first."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the public API surface is the piece nobody has picked up."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in src/lib.rs. The trade-offs all pointed to parking_lot mutexes over the std ones. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Rayon for the parallel scan is the direction we committed to."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "error types unified behind thiserror",
+   "an async runtime built on tokio",
+   "zero-copy deserialisation of the record header"
+  ],
+  "pending_tasks": [
+   "adding a tracing subscriber",
+   "documenting the public API surface"
+  ],
+  "decisions": [
+   "tokio over async-std for the runtime",
+   "bincode for the wire encoding",
+   "parking_lot mutexes over the std ones",
+   "arc-swap for the hot config reload",
+   "rayon for the parallel scan"
+  ],
+  "files": [
+   "fuzz/fuzz_targets/decode.rs",
+   "src/lib.rs",
+   "src/codec/mod.rs",
+   "benches/parse.rs"
+  ],
+  "errors": [
+   "a borrow checker conflict in the writer loop"
+  ]
+ }
+}

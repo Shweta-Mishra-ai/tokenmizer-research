@@ -1,0 +1,114 @@
+{
+ "id": "ho4_data_streaming_001",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a stream processing job?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a stream processing job."
+  },
+  {
+   "role": "user",
+   "content": "A seven-day retention on the raw topics feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? Sure, on it. Nobody needs to think about windowed aggregation over five-minute tumbling windows anymore."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somebody has to own reducing end-to-end latency below one second before Friday."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Debezium for change data capture."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about the dead letter topic with a replay tool anymore. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consumer group rebalancing tuned for slow consumers has been live since Tuesday with no complaints. Flaky jobs get one automatic retry. After the spike, one topic per event type rather than a shared bus was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in streams/dlq.py. The bulk of the diff sits in schemas/order_placed.avsc. Thanks to checkpointing to durable storage every 30 seconds, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a stream processing job?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. We can't call this finished while tiered storage for the older segments is missing. docker-compose.yml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "How is a stream processing job going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Compaction on the entity state topics is behind us now. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Consumer lag monitoring with alerting came off the board this morning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer group rebalancing tuned for slow consumers",
+   "the dead letter topic with a replay tool",
+   "compaction on the entity state topics",
+   "checkpointing to durable storage every 30 seconds",
+   "consumer lag monitoring with alerting",
+   "windowed aggregation over five-minute tumbling windows"
+  ],
+  "pending_tasks": [
+   "reducing end-to-end latency below one second",
+   "tiered storage for the older segments"
+  ],
+  "decisions": [
+   "Debezium for change data capture",
+   "a seven-day retention on the raw topics",
+   "one topic per event type rather than a shared bus"
+  ],
+  "files": [
+   "docker-compose.yml",
+   "streams/dlq.py",
+   "schemas/order_placed.avsc"
+  ],
+  "errors": []
+ }
+}

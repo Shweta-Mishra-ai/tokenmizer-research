@@ -1,0 +1,144 @@
+{
+ "id": "ho4_security_appsec_004",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a penetration test remediation."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a penetration test remediation now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle policy/egress.yaml first."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to Semgrep in the pull request pipeline. .github/workflows/security.yml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "A deny-by-default egress policy is what everything will be built on from here. Nobody needs to think about least-privilege IAM roles for the workers anymore."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parameterised queries across the data layer has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Encrypted secrets at rest in the vault held up fine through the whole load test. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Dependabot for dependency updates feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle config/csp.json first. Nobody needs to think about signed container images in the registry anymore. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. MTLS between internal services is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "docs/threat-model.md grew by a couple hundred lines. The bulk of the diff sits in security/redaction.py."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Rotation of the leaked deploy key has been live since Tuesday with no complaints. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to a 90-day key rotation schedule."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. A review of the CORS allowlist is the piece nobody has picked up. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How is a penetration test remediation going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Nobody needs to think about an SBOM generated at build time anymore."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. The bulk of the diff sits in security/middleware.py. Without automated dependency updates the launch checklist stays red. A third-party penetration test is the piece nobody has picked up."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "least-privilege IAM roles for the workers",
+   "parameterised queries across the data layer",
+   "an SBOM generated at build time",
+   "rotation of the leaked deploy key",
+   "encrypted secrets at rest in the vault",
+   "signed container images in the registry"
+  ],
+  "pending_tasks": [
+   "a review of the CORS allowlist",
+   "automated dependency updates",
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "Dependabot for dependency updates",
+   "Semgrep in the pull request pipeline",
+   "a deny-by-default egress policy",
+   "mTLS between internal services",
+   "a 90-day key rotation schedule"
+  ],
+  "files": [
+   "policy/egress.yaml",
+   "security/redaction.py",
+   "docs/threat-model.md",
+   "security/middleware.py",
+   "config/csp.json",
+   ".github/workflows/security.yml"
+  ],
+  "errors": []
+ }
+}

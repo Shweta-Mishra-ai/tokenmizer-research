@@ -1,0 +1,88 @@
+{
+ "id": "ho4_frontend_react_004",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a checkout flow rewrite."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — package.json.\n**Chosen:** React 19 with the compiler enabled.\nLeft to do — replacing the date picker with a headless one."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: session persistence in localStorage.\n**Finished work:** keyboard navigation across the data grid."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Final call: Vite as the build tool.\n**Chosen:** Vitest over Jest for the unit suite."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — a virtualised list for the 10k-row view. Touched file: src/hooks/useMetrics.ts. We might revisit this next quarter. Path: `vite.config.ts`."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: error boundaries around each route. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [ ] TODO memoising the chart data transform"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "session persistence in localStorage",
+   "keyboard navigation across the data grid",
+   "a virtualised list for the 10k-row view"
+  ],
+  "pending_tasks": [
+   "error boundaries around each route",
+   "memoising the chart data transform",
+   "replacing the date picker with a headless one"
+  ],
+  "decisions": [
+   "Vite as the build tool",
+   "Vitest over Jest for the unit suite",
+   "React 19 with the compiler enabled"
+  ],
+  "files": [
+   "vite.config.ts",
+   "src/hooks/useMetrics.ts",
+   "package.json"
+  ],
+  "errors": []
+ }
+}

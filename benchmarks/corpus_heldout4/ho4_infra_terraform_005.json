@@ -1,0 +1,107 @@
+{
+ "id": "ho4_infra_terraform_005",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a multi-account AWS layout."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a multi-account AWS layout now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. The bulk of the diff sits in terraform/variables.tf. Somebody has to own removing the last hardcoded account IDs before Friday."
+  },
+  {
+   "role": "user",
+   "content": "How is a multi-account AWS layout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, documenting the module interfaces is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "An RDS instance with automated backups came off the board this morning. The trade-offs all pointed to Terragrunt for the DRY module wiring. Had to untangle terraform/backend.tf first."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A drift detection job on a daily schedule is the piece nobody has picked up. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to OIDC for CI authentication into AWS. IAM roles scoped per service came off the board this morning. Most of yesterday disappeared into provider version drift between two engineers."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Nobody needs to think about a module for the standard service deployment anymore."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somebody has to own splitting the monolithic state file before Friday. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Security groups restricted to named ports came off the board this morning. Most of yesterday disappeared into subnet exhaustion in the primary availability zone. Should we add more coverage?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a module for the standard service deployment",
+   "security groups restricted to named ports",
+   "IAM roles scoped per service",
+   "an RDS instance with automated backups"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces",
+   "splitting the monolithic state file",
+   "removing the last hardcoded account IDs",
+   "a drift detection job on a daily schedule"
+  ],
+  "decisions": [
+   "OIDC for CI authentication into AWS",
+   "Terragrunt for the DRY module wiring"
+  ],
+  "files": [
+   "terraform/variables.tf",
+   "terraform/backend.tf"
+  ],
+  "errors": [
+   "subnet exhaustion in the primary availability zone",
+   "provider version drift between two engineers"
+  ]
+ }
+}

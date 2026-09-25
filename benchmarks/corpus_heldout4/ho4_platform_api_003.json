@@ -1,0 +1,126 @@
+{
+ "id": "ho4_platform_api_003",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a webhook delivery system."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a webhook delivery system now."
+  },
+  {
+   "role": "user",
+   "content": "How is a webhook delivery system going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, documenting the webhook replay procedure is where attention goes. Webhook signature verification went in this morning. * api/auth.py"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Production is showing cursor pagination skipping rows during concurrent writes."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: docs/api/changelog.md."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with RFC 7807 problem details for errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: snake_case field naming throughout. The logs are easier to read now. After the spike, cursor pagination rather than offset was the clear winner. Known defect — webhook deliveries duplicated after a consumer timeout."
+  },
+  {
+   "role": "user",
+   "content": "How is a webhook delivery system going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of yesterday disappeared into a breaking change shipped in a minor version. SDK generation for three languages has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "* api/pagination.py The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sunsetting v1 after the six-month window is the piece nobody has picked up. Landed idempotency keys on all write operations."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in openapi/v2.yaml. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "Use a six-month deprecation window please."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. I'll post a recap later. See the diff in tests/test_webhooks.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "SDK generation for three languages",
+   "idempotency keys on all write operations",
+   "webhook signature verification"
+  ],
+  "pending_tasks": [
+   "documenting the webhook replay procedure",
+   "sunsetting v1 after the six-month window"
+  ],
+  "decisions": [
+   "cursor pagination rather than offset",
+   "a six-month deprecation window",
+   "RFC 7807 problem details for errors",
+   "snake_case field naming throughout"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "docs/api/changelog.md",
+   "api/auth.py",
+   "tests/test_webhooks.py",
+   "api/pagination.py"
+  ],
+  "errors": [
+   "webhook deliveries duplicated after a consumer timeout",
+   "a breaking change shipped in a minor version",
+   "cursor pagination skipping rows during concurrent writes"
+  ]
+ }
+}

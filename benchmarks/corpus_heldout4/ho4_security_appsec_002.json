@@ -1,0 +1,125 @@
+{
+ "id": "ho4_security_appsec_002",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a secrets management migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a secrets management migration now."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed least-privilege IAM roles for the workers. Here's where things stand. Still open — a security runbook for incident response."
+  },
+  {
+   "role": "user",
+   "content": "Use mTLS between internal services please."
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: .github/workflows/security.yml. Touched file: terraform/iam.tf."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to OIDC for single sign-on."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed CSP headers on all rendered responses. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Failing now: session fixation after login. Todo — automated dependency updates. If this breaks later we can roll back. Touched file: security/redaction.py."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Broken: a SQL injection in the search filter."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "- [ ] TODO audit log retention policy\nGoing forward: a 90-day key rotation schedule.\n**Finished work:** credential redaction on every log path."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Broken: a path traversal in the file download handler."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: SECURITY.md."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "credential redaction on every log path",
+   "least-privilege IAM roles for the workers",
+   "CSP headers on all rendered responses"
+  ],
+  "pending_tasks": [
+   "a security runbook for incident response",
+   "audit log retention policy",
+   "automated dependency updates"
+  ],
+  "decisions": [
+   "a 90-day key rotation schedule",
+   "mTLS between internal services",
+   "OIDC for single sign-on"
+  ],
+  "files": [
+   "SECURITY.md",
+   ".github/workflows/security.yml",
+   "terraform/iam.tf",
+   "security/redaction.py"
+  ],
+  "errors": [
+   "a path traversal in the file download handler",
+   "session fixation after login",
+   "a SQL injection in the search filter"
+  ]
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "id": "ho4_security_appsec_005",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a secrets management migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a secrets management migration."
+  },
+  {
+   "role": "user",
+   "content": "Vault as the single secrets store feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in terraform/iam.tf. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed an SBOM generated at build time."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. .github/workflows/security.yml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Dependency pinning with a lockfile is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated SECURITY.md."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Going forward: Trivy for container image scanning."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of yesterday disappeared into an API key committed to the repository history."
+  },
+  {
+   "role": "user",
+   "content": "How is a secrets management migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got credential redaction on every log path over the line. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. MTLS between internal services is the direction we committed to. A threat model for the payments flow keeps getting pushed to next sprint."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with Semgrep in the pull request pipeline. Path: `security/redaction.py`. Moving the remaining secrets out of environment files is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to Argon2id over bcrypt for new password hashes."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. After review I'll deploy."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "credential redaction on every log path",
+   "an SBOM generated at build time",
+   "dependency pinning with a lockfile"
+  ],
+  "pending_tasks": [
+   "moving the remaining secrets out of environment files",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "Argon2id over bcrypt for new password hashes",
+   "mTLS between internal services",
+   "Trivy for container image scanning",
+   "Semgrep in the pull request pipeline",
+   "Vault as the single secrets store"
+  ],
+  "files": [
+   "security/redaction.py",
+   "SECURITY.md",
+   "terraform/iam.tf",
+   ".github/workflows/security.yml"
+  ],
+  "errors": [
+   "an API key committed to the repository history"
+  ]
+ }
+}

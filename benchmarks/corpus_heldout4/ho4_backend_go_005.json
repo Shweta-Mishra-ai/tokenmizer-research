@@ -1,0 +1,88 @@
+{
+ "id": "ho4_backend_go_005",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a gRPC gateway service."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a gRPC gateway service."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Context propagation through every handler went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in proto/orders.proto."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A worker pool bounded at 32 goroutines is up and working. Details are in Dockerfile. The fix lives in Makefile."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with a monorepo layout with internal packages?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in internal/handler/orders.go. Makes sense, doing that. If this breaks later we can roll back. See the diff in internal/worker/pool.go."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "We haven't done profiling the p99 latency spike yet. Graceful shutdown on SIGTERM went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. We're standardising on errgroup for concurrent fan-out. Go 1.23 as the toolchain won the vote."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "context propagation through every handler",
+   "a worker pool bounded at 32 goroutines",
+   "graceful shutdown on SIGTERM"
+  ],
+  "pending_tasks": [
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "Go 1.23 as the toolchain",
+   "errgroup for concurrent fan-out",
+   "a monorepo layout with internal packages"
+  ],
+  "files": [
+   "internal/worker/pool.go",
+   "internal/handler/orders.go",
+   "Dockerfile",
+   "proto/orders.proto",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

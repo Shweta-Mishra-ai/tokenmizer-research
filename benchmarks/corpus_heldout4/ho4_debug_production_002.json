@@ -1,0 +1,141 @@
+{
+ "id": "ho4_debug_production_002",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a latency incident investigation."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "A regression test covering the failure mode has shipped. A follow-up on the third-party client bug report remains open."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be a blameless postmortem format."
+  },
+  {
+   "role": "assistant",
+   "content": "Instrumenting the slow query with timing spans has shipped. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. An alert on the metric that would have caught it is waiting on us."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in keeping the extra logging for two weeks. We're standardising on an incident severity of SEV-2."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The hotfix reverting the connection pool change has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bisecting the regression to a single commit is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in config/flags.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Rolling back before investigating further won the vote."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. I've locked in paging on error rate rather than absolute count."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Confirming the hypothesis with a targeted experiment went in this morning. Correlating the errors with the deploy timeline is finished and deployed. The postmortem document with action items is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Treating the third-party timeout as the root cause won the vote."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "correlating the errors with the deploy timeline",
+   "the hotfix reverting the connection pool change",
+   "bisecting the regression to a single commit",
+   "the postmortem document with action items",
+   "instrumenting the slow query with timing spans",
+   "a regression test covering the failure mode",
+   "confirming the hypothesis with a targeted experiment"
+  ],
+  "pending_tasks": [
+   "a follow-up on the third-party client bug report",
+   "an alert on the metric that would have caught it"
+  ],
+  "decisions": [
+   "keeping the extra logging for two weeks",
+   "an incident severity of SEV-2",
+   "rolling back before investigating further",
+   "treating the third-party timeout as the root cause",
+   "a blameless postmortem format",
+   "paging on error rate rather than absolute count"
+  ],
+  "files": [
+   "config/flags.yaml",
+   "tests/test_regression.py"
+  ],
+  "errors": []
+ }
+}

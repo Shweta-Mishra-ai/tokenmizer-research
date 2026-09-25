@@ -1,0 +1,144 @@
+{
+ "id": "ho4_research_writing_004",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a grant proposal now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Nobody needs to think about a limitations section naming the sample size problem anymore."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Citations normalised to a single bibliography style held up fine through the whole load test. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to an explicit statement that the corpus is synthetic. Without the artifact submission package the launch checklist stays red. The dashboard lit up red with a missing statistical test on the headline comparison."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in paper/evaluation.tex. An appendix documenting the corpus construction is behind us now. Somebody has to own the discussion section before Friday. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of yesterday disappeared into a figure rendering illegibly in greyscale print."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the slowdown was the page count exceeding the submission limit all along."
+  },
+  {
+   "role": "user",
+   "content": "How is a grant proposal going?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Thanks to the introduction cut from four pages to two, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "A single-column layout for the preprint feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Nobody needs to think about a first pass at the methodology section anymore. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle paper/main.tex first."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to releasing the corpus alongside the paper."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to bootstrap confidence intervals rather than t-tests."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about the reproducibility statement with exact commands anymore. I'll post a recap later. A final proofread pass is the piece nobody has picked up. Had to untangle paper/abstract.tex first."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a limitations section naming the sample size problem",
+   "the reproducibility statement with exact commands",
+   "an appendix documenting the corpus construction",
+   "a first pass at the methodology section",
+   "citations normalised to a single bibliography style",
+   "the introduction cut from four pages to two"
+  ],
+  "pending_tasks": [
+   "the artifact submission package",
+   "a final proofread pass",
+   "the discussion section"
+  ],
+  "decisions": [
+   "bootstrap confidence intervals rather than t-tests",
+   "a single-column layout for the preprint",
+   "an explicit statement that the corpus is synthetic",
+   "releasing the corpus alongside the paper"
+  ],
+  "files": [
+   "paper/abstract.tex",
+   "paper/main.tex",
+   "paper/evaluation.tex"
+  ],
+  "errors": [
+   "the page count exceeding the submission limit",
+   "a missing statistical test on the headline comparison",
+   "a figure rendering illegibly in greyscale print"
+  ]
+ }
+}

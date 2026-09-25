@@ -1,0 +1,132 @@
+{
+ "id": "ho4_mobile_ios_004",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a subscription billing flow."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a subscription billing flow."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with SwiftLint in the build phase?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How is a subscription billing flow going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crash reporting integration held up fine through the whole load test. An iPad layout for the summary screen is next up. Turns out the slowdown was a duplicate record after an interrupted sync all along."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Dark mode across every screen is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Landed a widget showing today's activity."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, localisation into three languages is where attention goes. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: the SwiftUI onboarding sequence."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "StoreKit 2 for subscriptions is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "How is a subscription billing flow going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: unit tests for the sync reducer."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "After the spike, Core Data over Realm for local storage was the clear winner. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — Sources/Widgets/ActivityWidget.swift. If this breaks later we can roll back. File changed — Package.swift. After the spike, Keychain for token storage rather than UserDefaults was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A snapshot test suite for the components is waiting on us."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the SwiftUI onboarding sequence",
+   "crash reporting integration",
+   "dark mode across every screen",
+   "unit tests for the sync reducer",
+   "a widget showing today's activity"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "an iPad layout for the summary screen",
+   "localisation into three languages"
+  ],
+  "decisions": [
+   "Keychain for token storage rather than UserDefaults",
+   "SwiftLint in the build phase",
+   "Core Data over Realm for local storage",
+   "StoreKit 2 for subscriptions"
+  ],
+  "files": [
+   "Package.swift",
+   "Sources/Widgets/ActivityWidget.swift"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync"
+  ]
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "id": "ho4_ml_python_003",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a recommendation ranker."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a recommendation ranker now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to the feature engineering pipeline with 42 features, the on-call pages stopped. The bulk of the diff sits in configs/model.yaml. The bulk of the diff sits in data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "How is a recommendation ranker going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Baseline logistic regression at 0.71 AUC held up fine through the whole load test. The bulk of the diff sits in requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a recommendation ranker?"
+  },
+  {
+   "role": "assistant",
+   "content": "Cross-validation across five folds came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Evidently for drift reporting."
+  },
+  {
+   "role": "assistant",
+   "content": "An offline evaluation against last quarter's data is behind us now. Sure, on it. Sentence-transformers for the text embeddings is what everything will be built on from here. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "How is a recommendation ranker going?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in src/evaluate.py. Somebody has to own a feature store migration before Friday. Here's where things stand. A model registry entry for the release candidate has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to a 90-day lookback window for features."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a recommendation ranker?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to class imbalance handling with focal loss, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Without retraining automation on a weekly cadence the launch checklist stays red."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "Scikit-learn pipelines for preprocessing feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Nothing is waiting on anyone at the moment. ONNX export for the serving runtime is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "How is a recommendation ranker going?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. src/serve.py grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Without an online A/B test against the current model the launch checklist stays red. The bulk of the diff sits in Makefile."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-validation across five folds",
+   "class imbalance handling with focal loss",
+   "an offline evaluation against last quarter's data",
+   "a model registry entry for the release candidate",
+   "the feature engineering pipeline with 42 features",
+   "baseline logistic regression at 0.71 AUC"
+  ],
+  "pending_tasks": [
+   "an online A/B test against the current model",
+   "retraining automation on a weekly cadence",
+   "a feature store migration"
+  ],
+  "decisions": [
+   "sentence-transformers for the text embeddings",
+   "Optuna for hyperparameter search",
+   "a 90-day lookback window for features",
+   "Evidently for drift reporting",
+   "ONNX export for the serving runtime",
+   "scikit-learn pipelines for preprocessing"
+  ],
+  "files": [
+   "requirements.txt",
+   "data/schema.json",
+   "Makefile",
+   "src/evaluate.py",
+   "src/serve.py",
+   "configs/model.yaml"
+  ],
+  "errors": []
+ }
+}

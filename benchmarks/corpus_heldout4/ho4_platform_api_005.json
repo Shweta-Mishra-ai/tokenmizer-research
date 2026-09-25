@@ -1,0 +1,100 @@
+{
+ "id": "ho4_platform_api_005",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a partner integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a partner integration."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Per-key rate limits with headers exposing the budget went in this morning. A usage dashboard for API consumers hasn't been started. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have request/response logging with PII stripped now. The sandbox environment for partner testing has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Field-level filtering on the large resources is still owed to the client. Production is showing an SDK deserialisation failure on a new nullable field. The fix lives in sdk/python/client.py."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in api/pagination.py. We're standardising on cursor pagination rather than offset. A rate limit tier for enterprise keys is next up."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. See the diff in api/errors.py."
+  },
+  {
+   "role": "user",
+   "content": "How is a partner integration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Expanding the sandbox data set is still owed to the client. An API changelog published with each release went in this morning. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in HMAC-SHA256 for webhook signatures. SDK generation for three languages is up and working."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an API changelog published with each release",
+   "request/response logging with PII stripped",
+   "SDK generation for three languages",
+   "the sandbox environment for partner testing",
+   "per-key rate limits with headers exposing the budget"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "a rate limit tier for enterprise keys",
+   "a usage dashboard for API consumers",
+   "expanding the sandbox data set"
+  ],
+  "decisions": [
+   "HMAC-SHA256 for webhook signatures",
+   "cursor pagination rather than offset"
+  ],
+  "files": [
+   "sdk/python/client.py",
+   "api/pagination.py",
+   "api/errors.py"
+  ],
+  "errors": [
+   "an SDK deserialisation failure on a new nullable field"
+  ]
+ }
+}

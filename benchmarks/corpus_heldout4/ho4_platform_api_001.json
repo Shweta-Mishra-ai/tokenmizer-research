@@ -1,0 +1,126 @@
+{
+ "id": "ho4_platform_api_001",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a versioning strategy rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a versioning strategy rollout."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. I've locked in exponential backoff with jitter for webhook retries."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Request/response logging with PII stripped went in this morning. Support tickets mention a 500 leaking a stack trace to API consumers."
+  },
+  {
+   "role": "user",
+   "content": "How is a versioning strategy rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. I updated openapi/v2.yaml. Production is showing rate limit headers reporting a stale budget."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on all write operations is up and working."
+  },
+  {
+   "role": "user",
+   "content": "How is a versioning strategy rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "An API changelog published with each release went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with OpenAPI as the source of truth for SDK generation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consistent error envelopes with machine-readable codes is finished and deployed. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. The team picked ISO 8601 timestamps in UTC."
+  },
+  {
+   "role": "user",
+   "content": "How is a versioning strategy rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got at-least-once webhook delivery with retries over the line. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "A rate limit tier for enterprise keys is still owed to the client. Sunsetting v1 after the six-month window is next up. I got the OpenAPI specification for every public route over the line. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "How is a versioning strategy rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "A usage dashboard for API consumers is next up. Field-level filtering on the large resources remains open. The fix lives in docs/api/changelog.md."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an API changelog published with each release",
+   "request/response logging with PII stripped",
+   "at-least-once webhook delivery with retries",
+   "consistent error envelopes with machine-readable codes",
+   "the OpenAPI specification for every public route",
+   "idempotency keys on all write operations"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "a rate limit tier for enterprise keys",
+   "a usage dashboard for API consumers",
+   "sunsetting v1 after the six-month window"
+  ],
+  "decisions": [
+   "OpenAPI as the source of truth for SDK generation",
+   "ISO 8601 timestamps in UTC",
+   "exponential backoff with jitter for webhook retries"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "docs/api/changelog.md"
+  ],
+  "errors": [
+   "rate limit headers reporting a stale budget",
+   "a 500 leaking a stack trace to API consumers"
+  ]
+ }
+}

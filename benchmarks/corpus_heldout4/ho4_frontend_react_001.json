@@ -1,0 +1,115 @@
+{
+ "id": "ho4_frontend_react_001",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a checkout flow rewrite."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in package.json. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? I got session persistence in localStorage over the line."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in src/store/session.ts. Error boundaries around each route hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in src/components/DataTable.tsx. A bundle size budget in CI remains open. Should we add more coverage? The toast notification system went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be Recharts for the visualisations."
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in src/hooks/useMetrics.ts. Sure, on it. CI is passing. The fix lives in tests/dashboard.spec.ts."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Memoising the chart data transform hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Radix primitives for accessible components won the vote."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Server-side pagination on the results table is finished and deployed. The fix lives in vite.config.ts."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in Vite as the build tool. If this breaks later we can roll back."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "server-side pagination on the results table",
+   "the toast notification system",
+   "session persistence in localStorage"
+  ],
+  "pending_tasks": [
+   "error boundaries around each route",
+   "memoising the chart data transform",
+   "a bundle size budget in CI"
+  ],
+  "decisions": [
+   "Recharts for the visualisations",
+   "Vite as the build tool",
+   "Radix primitives for accessible components"
+  ],
+  "files": [
+   "src/components/DataTable.tsx",
+   "tests/dashboard.spec.ts",
+   "src/store/session.ts",
+   "package.json",
+   "src/hooks/useMetrics.ts",
+   "vite.config.ts"
+  ],
+  "errors": []
+ }
+}

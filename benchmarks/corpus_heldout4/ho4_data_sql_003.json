@@ -1,0 +1,109 @@
+{
+ "id": "ho4_data_sql_003",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a data quality initiative."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a data quality initiative now."
+  },
+  {
+   "role": "user",
+   "content": "Could Snowflake over BigQuery for the warehouse work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. See the diff in models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consolidating the three customer definitions is waiting on us. Details are in tests/schema.yml. Spotted a full table scan on the unpartitioned events table today."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the grain of each fact table is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "How is a data quality initiative going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backfilling six months of historical revenue is up and working. Nothing is waiting on anyone at the moment. Row count reconciliation against the source system is up and working."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A medallion bronze/silver/gold layout won the vote. Production is showing the nightly job timing out after 6 hours. We keep seeing a null propagation bug in the margin calculation."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in dbt_project.yml."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A covering index on the customer lookup is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We have partitioning the events table by month now. The slowly changing dimension on customer tier is finished and deployed. We have freshness tests on every source table now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "partitioning the events table by month",
+   "the slowly changing dimension on customer tier",
+   "freshness tests on every source table",
+   "a covering index on the customer lookup",
+   "row count reconciliation against the source system"
+  ],
+  "pending_tasks": [
+   "documenting the grain of each fact table",
+   "consolidating the three customer definitions"
+  ],
+  "decisions": [
+   "Snowflake over BigQuery for the warehouse",
+   "a medallion bronze/silver/gold layout"
+  ],
+  "files": [
+   "dbt_project.yml",
+   "tests/schema.yml",
+   "models/marts/fct_orders.sql"
+  ],
+  "errors": [
+   "a null propagation bug in the margin calculation",
+   "a full table scan on the unpartitioned events table",
+   "the nightly job timing out after 6 hours"
+  ]
+ }
+}

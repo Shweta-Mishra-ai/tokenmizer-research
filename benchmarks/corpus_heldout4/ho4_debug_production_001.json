@@ -1,0 +1,91 @@
+{
+ "id": "ho4_debug_production_001",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a performance regression hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a performance regression hunt now."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Left to do — an alert on the metric that would have caught it. Path: `logs/analysis.py`. In the queue: backfilling the corrupted rows."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — a load test reproducing the traffic pattern. File changed — src/pool.py. Final call: a blameless postmortem format. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed the postmortem document with action items. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "* scripts/repro.py Failing now: memory growing 200MB per hour until restart. Wrapped: ruling out the cache layer as the cause."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? Consensus: reverting to the previous library version."
+  },
+  {
+   "role": "user",
+   "content": "Use rolling back before investigating further please."
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — src/handlers/checkout.py. Makes sense, doing that. Delivered — capturing a heap profile during the spike."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the postmortem document with action items",
+   "capturing a heap profile during the spike",
+   "ruling out the cache layer as the cause"
+  ],
+  "pending_tasks": [
+   "a load test reproducing the traffic pattern",
+   "backfilling the corrupted rows",
+   "an alert on the metric that would have caught it"
+  ],
+  "decisions": [
+   "a blameless postmortem format",
+   "reverting to the previous library version",
+   "rolling back before investigating further"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "scripts/repro.py",
+   "logs/analysis.py",
+   "src/pool.py"
+  ],
+  "errors": [
+   "memory growing 200MB per hour until restart"
+  ]
+ }
+}

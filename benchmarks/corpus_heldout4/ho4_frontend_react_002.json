@@ -1,0 +1,115 @@
+{
+ "id": "ho4_frontend_react_002",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a data table component library."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a data table component library."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in package.json."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "After the spike, TanStack Query for server state was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle vite.config.ts first. Somebody has to own offline support for the draft editor before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to the empty and loading states for every panel, the on-call pages stopped. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Thanks to server-side pagination on the results table, the on-call pages stopped. Most of yesterday disappeared into a hydration mismatch on the server-rendered header."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle src/store/session.ts first. src/App.tsx grew by a couple hundred lines. Nothing is waiting on anyone at the moment. The dashboard lit up red with layout shift on the chart container."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to TypeScript in strict mode."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Nobody needs to think about the metrics grid with responsive breakpoints anymore."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "tests/dashboard.spec.ts grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Error boundaries around each route keeps getting pushed to next sprint."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the empty and loading states for every panel",
+   "the metrics grid with responsive breakpoints",
+   "server-side pagination on the results table"
+  ],
+  "pending_tasks": [
+   "error boundaries around each route",
+   "offline support for the draft editor"
+  ],
+  "decisions": [
+   "TanStack Query for server state",
+   "TypeScript in strict mode"
+  ],
+  "files": [
+   "src/store/session.ts",
+   "src/App.tsx",
+   "vite.config.ts",
+   "tests/dashboard.spec.ts",
+   "package.json"
+  ],
+  "errors": [
+   "layout shift on the chart container",
+   "a hydration mismatch on the server-rendered header"
+  ]
+ }
+}

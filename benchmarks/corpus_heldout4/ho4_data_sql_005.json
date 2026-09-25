@@ -1,0 +1,97 @@
+{
+ "id": "ho4_data_sql_005",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a schema normalisation effort."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a schema normalisation effort now."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be an ELT rather than ETL pattern."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Nothing is waiting on anyone at the moment. Deduplication on the raw event stream has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about a materialised view for the executive dashboard anymore. Nothing is waiting on anyone at the moment. See the diff in dags/daily_refresh.py. We'll run with dbt for the transformation layer."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Todo — consolidating the three customer definitions."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Once the release settles, an anomaly alert on the daily order count is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `scripts/backfill.py`. Ping me if anything seems wrong. The dashboard lit up red with a fan-out join inflating revenue by 3x."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in sql/indexes.sql."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Freshness tests on every source table held up fine through the whole load test. Nobody needs to think about backfilling six months of historical revenue anymore."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "deduplication on the raw event stream",
+   "freshness tests on every source table",
+   "a materialised view for the executive dashboard",
+   "backfilling six months of historical revenue"
+  ],
+  "pending_tasks": [
+   "an anomaly alert on the daily order count",
+   "consolidating the three customer definitions"
+  ],
+  "decisions": [
+   "dbt for the transformation layer",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "dags/daily_refresh.py",
+   "scripts/backfill.py",
+   "sql/indexes.sql"
+  ],
+  "errors": [
+   "a fan-out join inflating revenue by 3x"
+  ]
+ }
+}

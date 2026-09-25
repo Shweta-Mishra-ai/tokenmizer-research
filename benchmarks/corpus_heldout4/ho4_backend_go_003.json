@@ -1,0 +1,119 @@
+{
+ "id": "ho4_backend_go_003",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a file transfer service."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to gRPC over REST for internal traffic."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How is a file transfer service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with context deadline exceeded on the upstream call. Protobuf schema versioning went in this morning. Had to untangle buf.yaml first."
+  },
+  {
+   "role": "user",
+   "content": "How is a file transfer service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the slowdown was a data race on the shared counter all along. Still open — replacing the mutex with a sharded map. Support tickets mention a deadlock between the two mutexes."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to sqlc for type-safe database access."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The trade-offs all pointed to zerolog for logging. The team picked golangci-lint in CI."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Table-driven tests for the parser went in this morning. Context propagation through every handler came off the board this morning. internal/handler/orders.go grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Graceful shutdown on SIGTERM is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: go.mod. A monorepo layout with internal packages is what everything will be built on from here. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about structured logging with request correlation anymore. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "A soak test over 24 hours is the piece nobody has picked up. Nothing is waiting on anyone at the moment."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "structured logging with request correlation",
+   "table-driven tests for the parser",
+   "graceful shutdown on SIGTERM",
+   "context propagation through every handler",
+   "protobuf schema versioning"
+  ],
+  "pending_tasks": [
+   "replacing the mutex with a sharded map",
+   "a soak test over 24 hours"
+  ],
+  "decisions": [
+   "zerolog for logging",
+   "golangci-lint in CI",
+   "sqlc for type-safe database access",
+   "gRPC over REST for internal traffic",
+   "a monorepo layout with internal packages"
+  ],
+  "files": [
+   "buf.yaml",
+   "go.mod",
+   "internal/handler/orders.go"
+  ],
+  "errors": [
+   "a deadlock between the two mutexes",
+   "a data race on the shared counter",
+   "context deadline exceeded on the upstream call"
+  ]
+ }
+}

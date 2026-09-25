@@ -1,0 +1,133 @@
+{
+ "id": "ho4_devops_kubernetes_005",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an autoscaling review."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle argocd/apps/api.yaml first."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Istio for service mesh traffic policy is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "How is an autoscaling review going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can't call this finished while per-namespace cost attribution is missing. Node affinity rules keeping the databases separate came off the board this morning. If this breaks later we can roll back. scripts/rollout.sh grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Kustomize overlays per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Without a runbook for the failover procedure the launch checklist stays red. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "How is an autoscaling review going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. A rolling deploy with surge and unavailable tuned is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Karpenter instead of the cluster autoscaler."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "charts/api/values.yaml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Trivy for image scanning in CI feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. The bulk of the diff sits in Dockerfile. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Cluster autoscaler on the spot node group is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The Helm chart for the API deployment is behind us now. Had to untangle terraform/cluster.tf first."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Horizontal pod autoscaling on CPU and request rate is behind us now. Thanks to a canary stage in the deploy pipeline, the on-call pages stopped."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "horizontal pod autoscaling on CPU and request rate",
+   "a canary stage in the deploy pipeline",
+   "the Helm chart for the API deployment",
+   "a rolling deploy with surge and unavailable tuned",
+   "cluster autoscaler on the spot node group",
+   "node affinity rules keeping the databases separate"
+  ],
+  "pending_tasks": [
+   "per-namespace cost attribution",
+   "a runbook for the failover procedure"
+  ],
+  "decisions": [
+   "Karpenter instead of the cluster autoscaler",
+   "Istio for service mesh traffic policy",
+   "Trivy for image scanning in CI",
+   "Kustomize overlays per environment"
+  ],
+  "files": [
+   "argocd/apps/api.yaml",
+   "terraform/cluster.tf",
+   "charts/api/values.yaml",
+   "scripts/rollout.sh",
+   "Dockerfile"
+  ],
+  "errors": []
+ }
+}

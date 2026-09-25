@@ -1,0 +1,104 @@
+{
+ "id": "ho4_devops_kubernetes_001",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a zero-downtime deploy pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, tightening the pod security admission profile is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in scripts/rollout.sh. If this breaks later we can roll back. After the spike, Velero for cluster backups was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to the ingress with automatic certificate renewal, the on-call pages stopped. Resource requests and limits for all containers has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about node affinity rules keeping the databases separate anymore."
+  },
+  {
+   "role": "user",
+   "content": "Spot instances for the batch workloads feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "External-secrets backed by Vault is the direction we committed to. Horizontal pod autoscaling on CPU and request rate came off the board this morning. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in terraform/cluster.tf."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to a canary stage in the deploy pipeline, the on-call pages stopped. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a zero-downtime deploy pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "A rolling deploy with surge and unavailable tuned held up fine through the whole load test."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "resource requests and limits for all containers",
+   "a rolling deploy with surge and unavailable tuned",
+   "node affinity rules keeping the databases separate",
+   "horizontal pod autoscaling on CPU and request rate",
+   "a canary stage in the deploy pipeline",
+   "the ingress with automatic certificate renewal"
+  ],
+  "pending_tasks": [
+   "tightening the pod security admission profile"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "spot instances for the batch workloads",
+   "external-secrets backed by Vault"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "terraform/cluster.tf"
+  ],
+  "errors": []
+ }
+}

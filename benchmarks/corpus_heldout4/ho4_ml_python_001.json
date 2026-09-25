@@ -1,0 +1,146 @@
+{
+ "id": "ho4_ml_python_001",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a fraud detection model."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Complete: cross-validation across five folds. Still open — calibrating the output probabilities."
+  },
+  {
+   "role": "user",
+   "content": "How is a fraud detection model going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Touched file: src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: a fairness audit across customer segments.\n**Finished work:** a model registry entry for the release candidate."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — a feature store migration."
+  },
+  {
+   "role": "user",
+   "content": "Pick MLflow for experiment tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Use sentence-transformers for the text embeddings please."
+  },
+  {
+   "role": "assistant",
+   "content": "Todo — reducing inference latency below 50ms.\nSure, on it.\n**Fault:** target leakage from a post-outcome feature."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] batch inference over the full customer base"
+  },
+  {
+   "role": "user",
+   "content": "Use a 90-day lookback window for features please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later.\nPath: `Makefile`.\n- [X] drift monitoring on the input distributions\nFine by me."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use Polars instead of pandas for the feature pipeline.\n- [X] baseline logistic regression at 0.71 AUC\n**Finished work:** hyperparameter search over 200 trials."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed a stratified train/validation/test split."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use AUC-PR as the primary metric given the imbalance. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: src/features.py. Consensus: Optuna for hyperparameter search. If this breaks later we can roll back."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "baseline logistic regression at 0.71 AUC",
+   "a stratified train/validation/test split",
+   "hyperparameter search over 200 trials",
+   "a model registry entry for the release candidate",
+   "drift monitoring on the input distributions",
+   "cross-validation across five folds",
+   "batch inference over the full customer base"
+  ],
+  "pending_tasks": [
+   "reducing inference latency below 50ms",
+   "a feature store migration",
+   "a fairness audit across customer segments",
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "a 90-day lookback window for features",
+   "Optuna for hyperparameter search",
+   "AUC-PR as the primary metric given the imbalance",
+   "sentence-transformers for the text embeddings",
+   "MLflow for experiment tracking",
+   "Polars instead of pandas for the feature pipeline"
+  ],
+  "files": [
+   "src/evaluate.py",
+   "src/features.py",
+   "Makefile"
+  ],
+  "errors": [
+   "target leakage from a post-outcome feature"
+  ]
+ }
+}

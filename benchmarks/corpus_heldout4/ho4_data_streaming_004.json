@@ -1,0 +1,165 @@
+{
+ "id": "ho4_data_streaming_004",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume an event schema migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming an event schema migration now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in config/kafka.yaml. Spotted duplicate processing after an unclean rebalance today. Partitioning by tenant rather than by hash is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "How is an event schema migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "A cost review of the broker cluster remains open. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team picked a separate cluster for the analytics workloads. An automated schema compatibility check in CI is still owed to the client. Nothing is waiting on anyone at the moment. I've locked in keying events by aggregate ID for ordering."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. See the diff in tests/test_aggregator.py."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Got hit by partition skew putting 60% of traffic on one consumer in staging. Backpressure handling in the consumer loop went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with protobuf for the internal service events. Consumer group rebalancing tuned for slow consumers went in this morning. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "How is an event schema migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Consumer lag monitoring with alerting is up and working."
+  },
+  {
+   "role": "user",
+   "content": "How is an event schema migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in streams/dlq.py. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "How is an event schema migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep seeing offset commit failures under broker restart. The topic layout with twelve partitions per stream is finished and deployed. Documenting the ordering guarantees is next up. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Compaction on the entity state topics has shipped. I updated scripts/replay.py."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be backward-compatible schema evolution only."
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on Flink for the stateful stream processing. The logs are easier to read now. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Could Kafka over Kinesis for the event backbone work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in connect/debezium.json."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer lag monitoring with alerting",
+   "consumer group rebalancing tuned for slow consumers",
+   "backpressure handling in the consumer loop",
+   "the topic layout with twelve partitions per stream",
+   "compaction on the entity state topics"
+  ],
+  "pending_tasks": [
+   "partitioning by tenant rather than by hash",
+   "documenting the ordering guarantees",
+   "a cost review of the broker cluster",
+   "an automated schema compatibility check in CI"
+  ],
+  "decisions": [
+   "a separate cluster for the analytics workloads",
+   "keying events by aggregate ID for ordering",
+   "Kafka over Kinesis for the event backbone",
+   "protobuf for the internal service events",
+   "Flink for the stateful stream processing",
+   "backward-compatible schema evolution only"
+  ],
+  "files": [
+   "docker-compose.yml",
+   "tests/test_aggregator.py",
+   "streams/dlq.py",
+   "scripts/replay.py",
+   "config/kafka.yaml",
+   "connect/debezium.json"
+  ],
+  "errors": [
+   "duplicate processing after an unclean rebalance",
+   "offset commit failures under broker restart",
+   "partition skew putting 60% of traffic on one consumer"
+  ]
+ }
+}

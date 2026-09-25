@@ -1,0 +1,126 @@
+{
+ "id": "ho4_systems_rust_001",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a storage engine prototype?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a storage engine prototype."
+  },
+  {
+   "role": "user",
+   "content": "How is a storage engine prototype going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Zero-copy deserialisation of the record header came off the board this morning. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to cargo-deny for licence and advisory checks."
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with integer overflow in the length calculation. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Criterion benchmarks on the parse loop came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Bincode for the wire encoding is what everything will be built on from here. The bulk of the diff sits in src/buffer.rs."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to clap for argument parsing."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "How is a storage engine prototype going?"
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to an arena allocator for the parse nodes. Had to untangle Cargo.lock first. I'll post a recap later. Nobody needs to think about a lock-free ring buffer for the writer anymore."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Without documenting the public API surface the launch checklist stays red."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for rayon for the parallel scan. src/parser.rs grew by a couple hundred lines. The trade-offs all pointed to parking_lot mutexes over the std ones. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "src/main.rs grew by a couple hundred lines. Most of yesterday disappeared into stack overflow on deeply nested input."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle src/lib.rs first."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "zero-copy deserialisation of the record header",
+   "criterion benchmarks on the parse loop",
+   "a lock-free ring buffer for the writer"
+  ],
+  "pending_tasks": [
+   "documenting the public API surface"
+  ],
+  "decisions": [
+   "cargo-deny for licence and advisory checks",
+   "rayon for the parallel scan",
+   "an arena allocator for the parse nodes",
+   "clap for argument parsing",
+   "bincode for the wire encoding",
+   "parking_lot mutexes over the std ones"
+  ],
+  "files": [
+   "src/buffer.rs",
+   "src/main.rs",
+   "src/parser.rs",
+   "src/lib.rs",
+   "Cargo.lock"
+  ],
+  "errors": [
+   "integer overflow in the length calculation",
+   "stack overflow on deeply nested input"
+  ]
+ }
+}

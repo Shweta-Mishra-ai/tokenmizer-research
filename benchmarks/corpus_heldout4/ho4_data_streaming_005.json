@@ -1,0 +1,166 @@
+{
+ "id": "ho4_data_streaming_005",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a real-time aggregation service."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a real-time aggregation service."
+  },
+  {
+   "role": "user",
+   "content": "How is a real-time aggregation service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the slowdown was consumer lag growing unbounded during the nightly spike all along."
+  },
+  {
+   "role": "user",
+   "content": "How is a real-time aggregation service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. The dashboard lit up red with out-of-order events breaking the windowed aggregate."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Kafka over Kinesis for the event backbone is what everything will be built on from here. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? The dashboard lit up red with a poison message halting the consumer group."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to the change data capture connector on the orders table, the on-call pages stopped. Flaky jobs get one automatic retry. Had to untangle schemas/order_placed.avsc first."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle scripts/replay.py first. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle tests/test_aggregator.py first. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Debezium for change data capture feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "How is a real-time aggregation service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. We can't call this finished while an automated schema compatibility check in CI is missing."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "A cost review of the broker cluster keeps getting pushed to next sprint. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, a replay procedure for the last 24 hours is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in connect/debezium.json. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "After the spike, a seven-day retention on the raw topics was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "How is a real-time aggregation service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Thanks to windowed aggregation over five-minute tumbling windows, the on-call pages stopped. Without tiered storage for the older segments the launch checklist stays red."
+  },
+  {
+   "role": "user",
+   "content": "How is a real-time aggregation service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Exactly-once semantics on the aggregation job held up fine through the whole load test. Should we add more coverage?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the change data capture connector on the orders table",
+   "windowed aggregation over five-minute tumbling windows",
+   "exactly-once semantics on the aggregation job"
+  ],
+  "pending_tasks": [
+   "a replay procedure for the last 24 hours",
+   "tiered storage for the older segments",
+   "an automated schema compatibility check in CI",
+   "a cost review of the broker cluster"
+  ],
+  "decisions": [
+   "Debezium for change data capture",
+   "a seven-day retention on the raw topics",
+   "Kafka over Kinesis for the event backbone"
+  ],
+  "files": [
+   "tests/test_aggregator.py",
+   "scripts/replay.py",
+   "schemas/order_placed.avsc",
+   "connect/debezium.json"
+  ],
+  "errors": [
+   "consumer lag growing unbounded during the nightly spike",
+   "a poison message halting the consumer group",
+   "out-of-order events breaking the windowed aggregate"
+  ]
+ }
+}

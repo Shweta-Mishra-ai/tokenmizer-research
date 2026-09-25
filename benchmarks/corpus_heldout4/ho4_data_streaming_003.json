@@ -1,0 +1,108 @@
+{
+ "id": "ho4_data_streaming_003",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a change data capture setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a change data capture setup now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Wrapped: a schema registry entry for every event type."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — a poison message halting the consumer group.\nStill open — migrating the remaining consumers off the v1 schema.\n- [ ] TODO a cost review of the broker cluster"
+  },
+  {
+   "role": "user",
+   "content": "How is a change data capture setup going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed checkpointing to durable storage every 30 seconds."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing.\n**Finished work:** the change data capture connector on the orders table."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: backpressure handling in the consumer loop. File changed — streams/dlq.py. No incidents were reported this week. Todo — tiered storage for the older segments."
+  },
+  {
+   "role": "user",
+   "content": "Pick keying events by aggregate ID for ordering."
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: protobuf for the internal service events. Makes sense, doing that. * docker-compose.yml"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Going forward: a separate cluster for the analytics workloads. Path: `streams/windowing.py`."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: windowed aggregation over five-minute tumbling windows."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "windowed aggregation over five-minute tumbling windows",
+   "checkpointing to durable storage every 30 seconds",
+   "a schema registry entry for every event type",
+   "the change data capture connector on the orders table",
+   "backpressure handling in the consumer loop"
+  ],
+  "pending_tasks": [
+   "a cost review of the broker cluster",
+   "migrating the remaining consumers off the v1 schema",
+   "tiered storage for the older segments"
+  ],
+  "decisions": [
+   "protobuf for the internal service events",
+   "keying events by aggregate ID for ordering",
+   "a separate cluster for the analytics workloads"
+  ],
+  "files": [
+   "streams/windowing.py",
+   "streams/dlq.py",
+   "docker-compose.yml"
+  ],
+  "errors": [
+   "a poison message halting the consumer group"
+  ]
+ }
+}
