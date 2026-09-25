@@ -1,0 +1,129 @@
+{
+ "id": "ho4_mobile_ios_002",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a fitness tracking app."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a fitness tracking app now."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in Sources/Auth/Keychain.swift. Production is showing a duplicate record after an interrupted sync. The subscription purchase and restore flow has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Could The Composable Architecture for state work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep seeing main thread blocking during the Core Data import. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in Sources/Store/WorkoutStore.swift. See the diff in Tests/SyncTests.swift. VoiceOver labels across the main screens is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Unit tests for the sync reducer is up and working. We'll run with StoreKit 2 for subscriptions."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "XCTest with snapshot assertions won the vote."
+  },
+  {
+   "role": "user",
+   "content": "How is a fitness tracking app going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in .swiftlint.yml. Deep links into the workout detail screen went in this morning. SwiftLint in the build phase won the vote."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Production is showing the widget timeline failing to refresh."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a fitness tracking app?"
+  },
+  {
+   "role": "assistant",
+   "content": "We haven't done reducing cold start below 400ms yet."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with async/await instead of Combine for networking. We're standardising on Keychain for token storage rather than UserDefaults. We might revisit this next quarter. Dark mode across every screen is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Crash reporting integration is up and working."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "deep links into the workout detail screen",
+   "unit tests for the sync reducer",
+   "crash reporting integration",
+   "the subscription purchase and restore flow",
+   "dark mode across every screen",
+   "VoiceOver labels across the main screens"
+  ],
+  "pending_tasks": [
+   "reducing cold start below 400ms"
+  ],
+  "decisions": [
+   "Keychain for token storage rather than UserDefaults",
+   "XCTest with snapshot assertions",
+   "The Composable Architecture for state",
+   "StoreKit 2 for subscriptions",
+   "async/await instead of Combine for networking",
+   "SwiftLint in the build phase"
+  ],
+  "files": [
+   "Tests/SyncTests.swift",
+   ".swiftlint.yml",
+   "Sources/Auth/Keychain.swift",
+   "Sources/Store/WorkoutStore.swift"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync",
+   "main thread blocking during the Core Data import",
+   "the widget timeline failing to refresh"
+  ]
+ }
+}

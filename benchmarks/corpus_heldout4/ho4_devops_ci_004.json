@@ -1,0 +1,128 @@
+{
+ "id": "ho4_devops_ci_004",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a CI pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a CI pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — dependency caching across pipeline runs."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: artifact upload for the failing test logs. Going forward: uv for dependency installation. No incidents were reported this week. Broken: a race between the parallel shards writing the same fixture."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Path: `Dockerfile`. Still open — self-hosted runners for the GPU tests."
+  },
+  {
+   "role": "user",
+   "content": "Use GitHub Actions over the self-managed runner fleet please."
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Consensus: trunk-based development with short-lived branches. Complete: coverage reporting posted to the pull request. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Complete: quarantining the six flakiest tests."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "* scripts/run_tests.sh Final call: ruff replacing flake8 and isort. Path: `pyproject.toml`."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong.\n**Fault:** test pollution from an unreset global singleton."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — an out of disk space failure on the runner."
+  },
+  {
+   "role": "user",
+   "content": "Use test retries limited to two attempts please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. No incidents were reported this week. Path: `.pre-commit-config.yaml`."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: .github/dependabot.yml.\n**Chosen:** semantic versioning driven by commit messages.\nNothing is waiting on anyone at the moment."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dependency caching across pipeline runs",
+   "quarantining the six flakiest tests",
+   "coverage reporting posted to the pull request",
+   "artifact upload for the failing test logs"
+  ],
+  "pending_tasks": [
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "trunk-based development with short-lived branches",
+   "GitHub Actions over the self-managed runner fleet",
+   "ruff replacing flake8 and isort",
+   "semantic versioning driven by commit messages",
+   "uv for dependency installation",
+   "test retries limited to two attempts"
+  ],
+  "files": [
+   "scripts/run_tests.sh",
+   ".pre-commit-config.yaml",
+   ".github/dependabot.yml",
+   "Dockerfile",
+   "pyproject.toml"
+  ],
+  "errors": [
+   "test pollution from an unreset global singleton",
+   "an out of disk space failure on the runner",
+   "a race between the parallel shards writing the same fixture"
+  ]
+ }
+}

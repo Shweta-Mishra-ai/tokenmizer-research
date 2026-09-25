@@ -1,0 +1,95 @@
+{
+ "id": "ho4_ml_python_004",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a churn prediction model."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a churn prediction model."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "A stratified train/validation/test split is up and working. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "How is a churn prediction model going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Calibrating the output probabilities remains open. Ping me if anything seems wrong. Path: `tests/test_features.py`."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retraining automation on a weekly cadence hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Batch inference over the full customer base held up fine through the whole load test. Without documenting the model card the launch checklist stays red. I've locked in a 90-day lookback window for features."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "After the spike, XGBoost over a neural network for tabular data was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Hyperparameter search over 200 trials is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Pick Evidently for drift reporting."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in src/serve.py. Makes sense, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a stratified train/validation/test split",
+   "hyperparameter search over 200 trials",
+   "batch inference over the full customer base"
+  ],
+  "pending_tasks": [
+   "retraining automation on a weekly cadence",
+   "documenting the model card",
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "Evidently for drift reporting",
+   "a 90-day lookback window for features",
+   "XGBoost over a neural network for tabular data"
+  ],
+  "files": [
+   "tests/test_features.py",
+   "src/serve.py"
+  ],
+  "errors": []
+ }
+}

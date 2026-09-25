@@ -1,0 +1,135 @@
+{
+ "id": "ho4_platform_api_002",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a webhook delivery system."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, expanding the sandbox data set is where attention goes. The trade-offs all pointed to exponential backoff with jitter for webhook retries."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a webhook delivery system?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, a conformance test suite for the SDKs is where attention goes. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle tests/test_webhooks.py first. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Somebody has to own GraphQL as an alternative surface before Friday. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about SDK generation for three languages anymore."
+  },
+  {
+   "role": "user",
+   "content": "How is a webhook delivery system going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Had to untangle gateway/kong.yaml first. Had to untangle api/ratelimit.py first. Nobody needs to think about the sandbox environment for partner testing anymore."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. openapi/v2.yaml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to OpenAPI as the source of truth for SDK generation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. api/routes/webhooks.py grew by a couple hundred lines. The pager went off twice overnight because of webhook deliveries duplicated after a consumer timeout."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for URL-based versioning over header negotiation."
+  },
+  {
+   "role": "user",
+   "content": "ISO 8601 timestamps in UTC feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with a breaking change shipped in a minor version. Somebody has to own field-level filtering on the large resources before Friday. Flaky jobs get one automatic retry. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about idempotency keys on all write operations anymore. Here's where things stand."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "SDK generation for three languages",
+   "the sandbox environment for partner testing",
+   "idempotency keys on all write operations"
+  ],
+  "pending_tasks": [
+   "GraphQL as an alternative surface",
+   "a conformance test suite for the SDKs",
+   "field-level filtering on the large resources",
+   "expanding the sandbox data set"
+  ],
+  "decisions": [
+   "URL-based versioning over header negotiation",
+   "OpenAPI as the source of truth for SDK generation",
+   "ISO 8601 timestamps in UTC",
+   "exponential backoff with jitter for webhook retries"
+  ],
+  "files": [
+   "gateway/kong.yaml",
+   "tests/test_webhooks.py",
+   "api/ratelimit.py",
+   "openapi/v2.yaml",
+   "api/routes/webhooks.py"
+  ],
+  "errors": [
+   "webhook deliveries duplicated after a consumer timeout",
+   "a breaking change shipped in a minor version"
+  ]
+ }
+}

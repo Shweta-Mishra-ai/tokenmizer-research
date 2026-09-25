@@ -1,0 +1,117 @@
+{
+ "id": "ho4_backend_python_004",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a tenant provisioning API."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a tenant provisioning API now."
+  },
+  {
+   "role": "user",
+   "content": "Redis for refresh token storage feels like the right fit here. Let's commit to UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. Fine by me. Nothing is waiting on anyone at the moment. I updated requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "tests/test_orders.py grew by a couple hundred lines. The User model with email and hashed_password columns is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Alembic for schema migrations."
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: soft deletes on the tenant table. Fine by me. The Alembic baseline migration held up fine through the whole load test."
+  },
+  {
+   "role": "user",
+   "content": "Pick uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in migrations/env.py. Connection pooling against Postgres went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to pytest-asyncio for the async test suite. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. See the diff in docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in api/deps.py. Should we add more coverage? Most of yesterday disappeared into a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with flaky tests from shared database state."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the User model with email and hashed_password columns",
+   "the Alembic baseline migration",
+   "connection pooling against Postgres"
+  ],
+  "pending_tasks": [
+   "soft deletes on the tenant table"
+  ],
+  "decisions": [
+   "uvicorn behind gunicorn in production",
+   "UUIDv7 primary keys instead of integers",
+   "Alembic for schema migrations",
+   "pytest-asyncio for the async test suite",
+   "Redis for refresh token storage"
+  ],
+  "files": [
+   "tests/test_orders.py",
+   "api/deps.py",
+   "requirements.txt",
+   "docker-compose.yml",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "flaky tests from shared database state",
+   "a deadlock between the invoice and ledger updates"
+  ]
+ }
+}

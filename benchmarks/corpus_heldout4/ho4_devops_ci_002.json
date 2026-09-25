@@ -1,0 +1,126 @@
+{
+ "id": "ho4_devops_ci_002",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a flaky test investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a flaky test investigation."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. We can't call this finished while deduplicating the three near-identical workflows is missing. Once the release settles, pinning all third-party actions by digest is where attention goes. Had to untangle .github/dependabot.yml first."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in Makefile. Thanks to required status checks on the default branch, the on-call pages stopped. Quarantining the six flakiest tests came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Buildx with a remote cache backend is the direction we committed to. .github/workflows/ci.yml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Coverage reporting posted to the pull request has been live since Tuesday with no complaints. The trade-offs all pointed to ruff replacing flake8 and isort. Semantic versioning driven by commit messages is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "How is a flaky test investigation going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Splitting the linting job from the test job keeps getting pushed to next sprint."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "We can't call this finished while cutting the pipeline below eight minutes is missing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Artifact upload for the failing test logs is behind us now. The trade-offs all pointed to Codecov for coverage tracking."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Thanks to automated changelog generation on tag, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parallel test execution across four shards held up fine through the whole load test. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to a required review from one code owner."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "automated changelog generation on tag",
+   "coverage reporting posted to the pull request",
+   "parallel test execution across four shards",
+   "required status checks on the default branch",
+   "artifact upload for the failing test logs",
+   "quarantining the six flakiest tests"
+  ],
+  "pending_tasks": [
+   "splitting the linting job from the test job",
+   "pinning all third-party actions by digest",
+   "cutting the pipeline below eight minutes",
+   "deduplicating the three near-identical workflows"
+  ],
+  "decisions": [
+   "ruff replacing flake8 and isort",
+   "Codecov for coverage tracking",
+   "semantic versioning driven by commit messages",
+   "a required review from one code owner",
+   "buildx with a remote cache backend"
+  ],
+  "files": [
+   "Makefile",
+   ".github/dependabot.yml",
+   ".github/workflows/ci.yml"
+  ],
+  "errors": []
+ }
+}

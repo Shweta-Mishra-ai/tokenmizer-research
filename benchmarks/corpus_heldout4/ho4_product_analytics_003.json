@@ -1,0 +1,146 @@
+{
+ "id": "ho4_product_analytics_003",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a retention cohort study."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a retention cohort study."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in analytics/funnel.sql. Got hit by a double-counted signup event inflating the funnel top in staging."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "Weekly retention cohorts over six months went in this morning. Got hit by survivorship bias in the retention calculation in staging. The fix lives in dashboards/north_star.json."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. A two-week minimum experiment runtime won the vote. The team picked counting activation on first collaborative action. I got a segment definition for activated accounts over the line."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have the event taxonomy covering fourteen product actions now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Extending the cohort window to twelve months is waiting on us. See the diff in notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Spotted the active user count differing 12% between two dashboards today."
+  },
+  {
+   "role": "user",
+   "content": "How is a retention cohort study going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated config/taxonomy.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back. We'll run with a 95% confidence threshold for experiment calls."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with Amplitude for product analytics?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "How is a retention cohort study going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. A holdout group excluded from all experiments has shipped. The team picked excluding internal accounts from every metric. An automated experiment readout template is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in one primary metric per experiment. Should we add more coverage? I got statistical significance testing on the primary metric over the line."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Instrumentation on every onboarding step went in this morning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a segment definition for activated accounts",
+   "a holdout group excluded from all experiments",
+   "instrumentation on every onboarding step",
+   "weekly retention cohorts over six months",
+   "the event taxonomy covering fourteen product actions",
+   "statistical significance testing on the primary metric"
+  ],
+  "pending_tasks": [
+   "extending the cohort window to twelve months",
+   "an automated experiment readout template"
+  ],
+  "decisions": [
+   "counting activation on first collaborative action",
+   "a 95% confidence threshold for experiment calls",
+   "Amplitude for product analytics",
+   "one primary metric per experiment",
+   "a two-week minimum experiment runtime",
+   "excluding internal accounts from every metric"
+  ],
+  "files": [
+   "analytics/funnel.sql",
+   "dashboards/north_star.json",
+   "config/taxonomy.yaml",
+   "notebooks/churn_drivers.ipynb"
+  ],
+  "errors": [
+   "survivorship bias in the retention calculation",
+   "a double-counted signup event inflating the funnel top",
+   "the active user count differing 12% between two dashboards"
+  ]
+ }
+}

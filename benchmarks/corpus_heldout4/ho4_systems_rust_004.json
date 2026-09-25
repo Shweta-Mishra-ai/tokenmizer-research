@@ -1,0 +1,123 @@
+{
+ "id": "ho4_systems_rust_004",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a WASM plugin runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a WASM plugin runtime."
+  },
+  {
+   "role": "user",
+   "content": "Could Rust 2021 edition with MSRV 1.75 work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Details are in Cargo.toml."
+  },
+  {
+   "role": "user",
+   "content": "How is a WASM plugin runtime going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We haven't done a miri run over the concurrency tests yet."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Fuzzing the input decoder with cargo-fuzz has shipped. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Property tests over the encoder round trip has shipped."
+  },
+  {
+   "role": "user",
+   "content": "How is a WASM plugin runtime going?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Clap for argument parsing won the vote."
+  },
+  {
+   "role": "user",
+   "content": "How is a WASM plugin runtime going?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in Cargo.lock. Reducing the binary size below 2MB remains open. Details are in src/lib.rs."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with parking_lot mutexes over the std ones. No incidents were reported this week. A compatibility shim for the old format hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be bincode for the wire encoding."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "How is a WASM plugin runtime going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got SIMD acceleration on the checksum path over the line. I've locked in a workspace layout with three crates."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error types unified behind thiserror is finished and deployed."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "property tests over the encoder round trip",
+   "SIMD acceleration on the checksum path",
+   "error types unified behind thiserror",
+   "fuzzing the input decoder with cargo-fuzz"
+  ],
+  "pending_tasks": [
+   "a miri run over the concurrency tests",
+   "reducing the binary size below 2MB",
+   "a compatibility shim for the old format"
+  ],
+  "decisions": [
+   "bincode for the wire encoding",
+   "parking_lot mutexes over the std ones",
+   "clap for argument parsing",
+   "a workspace layout with three crates",
+   "Rust 2021 edition with MSRV 1.75"
+  ],
+  "files": [
+   "Cargo.lock",
+   "Cargo.toml",
+   "src/lib.rs"
+  ],
+  "errors": []
+ }
+}

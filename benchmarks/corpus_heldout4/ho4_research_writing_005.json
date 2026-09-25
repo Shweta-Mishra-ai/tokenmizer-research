@@ -1,0 +1,146 @@
+{
+ "id": "ho4_research_writing_005",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a grant proposal."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "The evaluation table with confidence intervals has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still open — reconciling the two conflicting result tables. File changed — figures/architecture.py. Final call: bootstrap confidence intervals rather than t-tests."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "**Chosen:** framing the contribution as a measurement study.\nHere's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to the ACL template over the generic LaTeX class."
+  },
+  {
+   "role": "assistant",
+   "content": "The abstract rewritten to lead with the result has been live since Tuesday with no complaints. Most of yesterday disappeared into a figure rendering illegibly in greyscale print. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Figure one showing the system architecture is up and working.\n**Finished work:** a first pass at the methodology section."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: data/results.json. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep seeing the page count exceeding the submission limit."
+  },
+  {
+   "role": "user",
+   "content": "How is a grant proposal going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Targeting the workshop deadline rather than the main track won the vote. A plain-language summary for the blog post is still owed to the client. Still open — a final proofread pass."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a grant proposal?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: a single-column layout for the preprint. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] citations normalised to a single bibliography style"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] peer feedback incorporated from two reviewers\nAfter review I'll deploy.\nThe trade-offs all pointed to reporting per-domain breakdowns in the appendix."
+  },
+  {
+   "role": "user",
+   "content": "How is a grant proposal going?"
+  },
+  {
+   "role": "assistant",
+   "content": "A limitations section naming the sample size problem held up fine through the whole load test. The artifact submission package keeps getting pushed to next sprint."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the evaluation table with confidence intervals",
+   "figure one showing the system architecture",
+   "a first pass at the methodology section",
+   "the abstract rewritten to lead with the result",
+   "peer feedback incorporated from two reviewers",
+   "a limitations section naming the sample size problem",
+   "citations normalised to a single bibliography style"
+  ],
+  "pending_tasks": [
+   "a plain-language summary for the blog post",
+   "the artifact submission package",
+   "reconciling the two conflicting result tables",
+   "a final proofread pass"
+  ],
+  "decisions": [
+   "bootstrap confidence intervals rather than t-tests",
+   "the ACL template over the generic LaTeX class",
+   "targeting the workshop deadline rather than the main track",
+   "reporting per-domain breakdowns in the appendix",
+   "a single-column layout for the preprint",
+   "framing the contribution as a measurement study"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "data/results.json"
+  ],
+  "errors": [
+   "a figure rendering illegibly in greyscale print",
+   "the page count exceeding the submission limit"
+  ]
+ }
+}

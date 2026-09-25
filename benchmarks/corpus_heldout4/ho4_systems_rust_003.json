@@ -1,0 +1,142 @@
+{
+ "id": "ho4_systems_rust_003",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a compression library."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back. Path: `src/main.rs`."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — Cargo.lock."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed SIMD acceleration on the checksum path.\n* src/parser.rs\nNothing is waiting on anyone at the moment.\n**Finished work:** the streaming parser over a bounded buffer."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Touched file: src/buffer.rs."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to tokio over async-std for the runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — src/codec/mod.rs."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — profiling the allocation hot path. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Pick parking_lot mutexes over the std ones."
+  },
+  {
+   "role": "assistant",
+   "content": "**Fault:** stack overflow on deeply nested input.\nSure, on it.\nKnown defect — unbounded memory growth in the buffer pool.\nNothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: arc-swap for the hot config reload."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — tests/roundtrip.rs. I'll post a recap later. Final call: cargo-deny for licence and advisory checks."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Landed an async runtime built on tokio."
+  },
+  {
+   "role": "user",
+   "content": "Pick bincode for the wire encoding."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the streaming parser over a bounded buffer",
+   "SIMD acceleration on the checksum path",
+   "an async runtime built on tokio"
+  ],
+  "pending_tasks": [
+   "profiling the allocation hot path"
+  ],
+  "decisions": [
+   "tokio over async-std for the runtime",
+   "parking_lot mutexes over the std ones",
+   "cargo-deny for licence and advisory checks",
+   "bincode for the wire encoding",
+   "arc-swap for the hot config reload"
+  ],
+  "files": [
+   "src/parser.rs",
+   "tests/roundtrip.rs",
+   "src/codec/mod.rs",
+   "Cargo.lock",
+   "src/main.rs",
+   "src/buffer.rs"
+  ],
+  "errors": [
+   "unbounded memory growth in the buffer pool",
+   "stack overflow on deeply nested input"
+  ]
+ }
+}

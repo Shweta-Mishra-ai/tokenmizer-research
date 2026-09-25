@@ -1,0 +1,144 @@
+{
+ "id": "ho4_security_appsec_001",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a secrets management migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a secrets management migration."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with Argon2id over bcrypt for new password hashes? What if we went with Semgrep in the pull request pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. Makes sense, doing that. MFA enforcement for admin accounts hasn't been started."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "* policy/egress.yaml Thanks to an SBOM generated at build time, the on-call pages stopped. Had to untangle .gitleaks.toml first."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle docs/threat-model.md first. CSP headers on all rendered responses is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The trade-offs all pointed to a 90-day key rotation schedule."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Dependabot for dependency updates."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle config/csp.json first. Encrypted secrets at rest in the vault is behind us now. Nobody argued once they saw the numbers for Trivy for container image scanning."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — rate limiting on the password reset endpoint."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "A third-party penetration test is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "How is a secrets management migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "After the spike, gitleaks as a pre-commit hook was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with a path traversal in the file download handler. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Crash: a SQL injection in the search filter."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back. Credential redaction on every log path is up and working."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "CSP headers on all rendered responses",
+   "encrypted secrets at rest in the vault",
+   "credential redaction on every log path",
+   "rate limiting on the password reset endpoint",
+   "an SBOM generated at build time"
+  ],
+  "pending_tasks": [
+   "MFA enforcement for admin accounts",
+   "a third-party penetration test"
+  ],
+  "decisions": [
+   "gitleaks as a pre-commit hook",
+   "Semgrep in the pull request pipeline",
+   "Dependabot for dependency updates",
+   "Argon2id over bcrypt for new password hashes",
+   "a 90-day key rotation schedule",
+   "Trivy for container image scanning"
+  ],
+  "files": [
+   "config/csp.json",
+   "policy/egress.yaml",
+   ".gitleaks.toml",
+   "docs/threat-model.md"
+  ],
+  "errors": [
+   "a path traversal in the file download handler",
+   "a SQL injection in the search filter"
+  ]
+ }
+}

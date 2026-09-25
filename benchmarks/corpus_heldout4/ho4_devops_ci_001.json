@@ -1,0 +1,136 @@
+{
+ "id": "ho4_devops_ci_001",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a build time reduction pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a build time reduction pass."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I updated .pre-commit-config.yaml. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in .github/workflows/ci.yml."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got dependency caching across pipeline runs over the line. I got quarantining the six flakiest tests over the line."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be uv for dependency installation."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. See the diff in Dockerfile. Cutting the pipeline below eight minutes is waiting on us."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team picked trunk-based development with short-lived branches. I got a concurrency group cancelling superseded runs over the line."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with release-please for version bumps?"
+  },
+  {
+   "role": "assistant",
+   "content": "A matrix build over three Python versions is finished and deployed. Coverage reporting posted to the pull request went in this morning. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "GitHub Actions over the self-managed runner fleet won the vote. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "We haven't done self-hosted runners for the GPU tests yet. Details are in tox.ini. I updated conftest.py. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on ruff replacing flake8 and isort. After review I'll deploy. We have parallel test execution across four shards now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I updated pyproject.toml."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We haven't done deduplicating the three near-identical workflows yet. Flaky jobs get one automatic retry."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a concurrency group cancelling superseded runs",
+   "a matrix build over three Python versions",
+   "dependency caching across pipeline runs",
+   "quarantining the six flakiest tests",
+   "parallel test execution across four shards",
+   "coverage reporting posted to the pull request"
+  ],
+  "pending_tasks": [
+   "deduplicating the three near-identical workflows",
+   "cutting the pipeline below eight minutes",
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "release-please for version bumps",
+   "uv for dependency installation",
+   "trunk-based development with short-lived branches",
+   "ruff replacing flake8 and isort",
+   "GitHub Actions over the self-managed runner fleet"
+  ],
+  "files": [
+   "conftest.py",
+   "tox.ini",
+   "pyproject.toml",
+   "Dockerfile",
+   ".github/workflows/ci.yml",
+   ".pre-commit-config.yaml"
+  ],
+  "errors": []
+ }
+}

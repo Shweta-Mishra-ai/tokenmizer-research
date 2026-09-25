@@ -1,0 +1,133 @@
+{
+ "id": "ho4_debug_production_003",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a data corruption postmortem."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a data corruption postmortem."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. runbooks/latency.md grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Without a load test reproducing the traffic pattern the launch checklist stays red. After the spike, reverting to the previous library version was the clear winner."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for increasing the connection pool as a stopgap."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. docs/postmortem.md grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to a blameless postmortem format."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The bulk of the diff sits in src/handlers/checkout.py."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about correlating the errors with the deploy timeline anymore. Flaky jobs get one automatic retry. Once the release settles, a follow-up on the third-party client bug report is where attention goes."
+  },
+  {
+   "role": "user",
+   "content": "How is a data corruption postmortem going?"
+  },
+  {
+   "role": "assistant",
+   "content": "config/flags.yaml grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to a canary deploy for the fix."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about reproducing the failure in a staging environment anymore. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "scripts/repro.py grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to a feature flag to disable the suspect path."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. src/pool.py grew by a couple hundred lines. The trade-offs all pointed to paging on error rate rather than absolute count."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bisecting the regression to a single commit has been live since Tuesday with no complaints."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "correlating the errors with the deploy timeline",
+   "reproducing the failure in a staging environment",
+   "bisecting the regression to a single commit"
+  ],
+  "pending_tasks": [
+   "a load test reproducing the traffic pattern",
+   "a follow-up on the third-party client bug report"
+  ],
+  "decisions": [
+   "reverting to the previous library version",
+   "a canary deploy for the fix",
+   "a feature flag to disable the suspect path",
+   "a blameless postmortem format",
+   "increasing the connection pool as a stopgap",
+   "paging on error rate rather than absolute count"
+  ],
+  "files": [
+   "src/pool.py",
+   "docs/postmortem.md",
+   "runbooks/latency.md",
+   "src/handlers/checkout.py",
+   "scripts/repro.py",
+   "config/flags.yaml"
+  ],
+  "errors": []
+ }
+}

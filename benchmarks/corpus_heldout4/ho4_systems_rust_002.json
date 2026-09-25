@@ -1,0 +1,135 @@
+{
+ "id": "ho4_systems_rust_002",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a packet inspector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a packet inspector."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on serde with a custom binary format."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a packet inspector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, profiling the allocation hot path is where attention goes. Adding a tracing subscriber keeps getting pushed to next sprint."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We have SIMD acceleration on the checksum path now. The fix lives in Cargo.lock. Flaky jobs get one automatic retry. Memory-mapped reads for the index file has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Parking_lot mutexes over the std ones feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. The fix lives in Cargo.toml. No incidents were reported this week. Delivered — fuzzing the input decoder with cargo-fuzz."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `src/codec/mod.rs`. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thiserror for library errors and anyhow at the boundary is the direction we committed to. We have a lock-free ring buffer for the writer now. If this breaks later we can roll back. A compatibility shim for the old format is still owed to the client."
+  },
+  {
+   "role": "user",
+   "content": "How is a packet inspector going?"
+  },
+  {
+   "role": "assistant",
+   "content": "* benches/parse.rs"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for rayon for the parallel scan."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "A no_std core module is up and working."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with an arena allocator for the parse nodes?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Got hit by a borrow checker conflict in the writer loop in staging. No incidents were reported this week."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "fuzzing the input decoder with cargo-fuzz",
+   "a lock-free ring buffer for the writer",
+   "a no_std core module",
+   "memory-mapped reads for the index file",
+   "SIMD acceleration on the checksum path"
+  ],
+  "pending_tasks": [
+   "a compatibility shim for the old format",
+   "adding a tracing subscriber",
+   "profiling the allocation hot path"
+  ],
+  "decisions": [
+   "thiserror for library errors and anyhow at the boundary",
+   "an arena allocator for the parse nodes",
+   "rayon for the parallel scan",
+   "parking_lot mutexes over the std ones",
+   "serde with a custom binary format"
+  ],
+  "files": [
+   "Cargo.toml",
+   "benches/parse.rs",
+   "src/codec/mod.rs",
+   "Cargo.lock"
+  ],
+  "errors": [
+   "a borrow checker conflict in the writer loop"
+  ]
+ }
+}

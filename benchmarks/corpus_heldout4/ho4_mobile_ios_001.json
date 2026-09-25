@@ -1,0 +1,116 @@
+{
+ "id": "ho4_mobile_ios_001",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a payments SDK integration."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — localisation into three languages. Flaky jobs get one automatic retry. Final call: SwiftLint in the build phase."
+  },
+  {
+   "role": "user",
+   "content": "How is a payments SDK integration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Chosen:** StoreKit 2 for subscriptions.\n**Fault:** the widget timeline failing to refresh.\n**Pending:** an App Store privacy nutrition label review.\nAfter review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] crash reporting integration\nNo incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed the HealthKit permission flow. Path: `Sources/Widgets/ActivityWidget.swift`."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] VoiceOver labels across the main screens"
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "* Package.swift"
+  },
+  {
+   "role": "user",
+   "content": "How is a payments SDK integration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: Sources/Auth/Keychain.swift.\n**Finished work:** dark mode across every screen.\nStill open — watchOS companion app.\nShould we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: unit tests for the sync reducer. We might revisit this next quarter."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "unit tests for the sync reducer",
+   "VoiceOver labels across the main screens",
+   "the HealthKit permission flow",
+   "dark mode across every screen",
+   "crash reporting integration"
+  ],
+  "pending_tasks": [
+   "an App Store privacy nutrition label review",
+   "localisation into three languages",
+   "watchOS companion app"
+  ],
+  "decisions": [
+   "iOS 17 as the minimum deployment target",
+   "SwiftLint in the build phase",
+   "StoreKit 2 for subscriptions"
+  ],
+  "files": [
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Auth/Keychain.swift",
+   "Package.swift"
+  ],
+  "errors": [
+   "the widget timeline failing to refresh"
+  ]
+ }
+}

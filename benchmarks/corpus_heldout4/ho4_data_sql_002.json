@@ -1,0 +1,135 @@
+{
+ "id": "ho4_data_sql_002",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a warehouse migration."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed the slowly changing dimension on customer tier. Landed row count reconciliation against the source system. Here's where things stand. Complete: partitioning the events table by month."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Complete: a materialised view for the executive dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `profiles.yml`.\nPing me if anything seems wrong.\nGoing forward: Great Expectations for data quality checks.\n**Pending:** a cost review of the warehouse spend."
+  },
+  {
+   "role": "user",
+   "content": "How is a warehouse migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Landed backfilling six months of historical revenue."
+  },
+  {
+   "role": "user",
+   "content": "Use incremental materialisation on the large models please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "How is a warehouse migration going?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Left to do — documenting the grain of each fact table."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "* dbt_project.yml Here's where things stand. File changed — scripts/backfill.py. Left to do — consolidating the three customer definitions."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a warehouse migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. File changed — models/staging/stg_events.sql. Touched file: models/marts/dim_customer.sql."
+  },
+  {
+   "role": "user",
+   "content": "Pick Kafka for the event transport."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] surrogate keys across the dimension tables\nNothing is waiting on anyone at the moment.\nFinal call: Snowflake over BigQuery for the warehouse."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — models/marts/fct_orders.sql."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "backfilling six months of historical revenue",
+   "row count reconciliation against the source system",
+   "a materialised view for the executive dashboard",
+   "surrogate keys across the dimension tables",
+   "partitioning the events table by month",
+   "the slowly changing dimension on customer tier"
+  ],
+  "pending_tasks": [
+   "documenting the grain of each fact table",
+   "a cost review of the warehouse spend",
+   "consolidating the three customer definitions"
+  ],
+  "decisions": [
+   "Snowflake over BigQuery for the warehouse",
+   "Kafka for the event transport",
+   "Great Expectations for data quality checks",
+   "incremental materialisation on the large models"
+  ],
+  "files": [
+   "scripts/backfill.py",
+   "dbt_project.yml",
+   "models/marts/fct_orders.sql",
+   "profiles.yml",
+   "models/marts/dim_customer.sql",
+   "models/staging/stg_events.sql"
+  ],
+  "errors": []
+ }
+}

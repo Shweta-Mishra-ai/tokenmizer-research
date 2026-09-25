@@ -1,0 +1,132 @@
+{
+ "id": "ho4_product_analytics_002",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a retention cohort study."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: a sample size calculation for the pricing test. Delivered — weekly retention cohorts over six months."
+  },
+  {
+   "role": "user",
+   "content": "How is a retention cohort study going?"
+  },
+  {
+   "role": "assistant",
+   "content": "* analytics/funnel.sql"
+  },
+  {
+   "role": "user",
+   "content": "Pick an experiment registry with pre-registered hypotheses."
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "* config/taxonomy.yaml"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `docs/metric_definitions.md`. We might revisit this next quarter."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — a holdout group excluded from all experiments. Path: `analytics/experiments.py`. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: analytics/segments.sql."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: `notebooks/churn_drivers.ipynb`. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Chosen:** weekly rather than daily cohorts for readability.\n**Chosen:** counting activation on first collaborative action.\n**Finished work:** a segment definition for activated accounts."
+  },
+  {
+   "role": "user",
+   "content": "How is a retention cohort study going?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Pending:** extending the cohort window to twelve months.\nCI is passing."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: deduplication of the double-fired signup event. No incidents were reported this week. Final call: Amplitude for product analytics."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "weekly retention cohorts over six months",
+   "a sample size calculation for the pricing test",
+   "deduplication of the double-fired signup event",
+   "a segment definition for activated accounts",
+   "a holdout group excluded from all experiments"
+  ],
+  "pending_tasks": [
+   "extending the cohort window to twelve months"
+  ],
+  "decisions": [
+   "counting activation on first collaborative action",
+   "an experiment registry with pre-registered hypotheses",
+   "Amplitude for product analytics",
+   "weekly rather than daily cohorts for readability"
+  ],
+  "files": [
+   "analytics/funnel.sql",
+   "config/taxonomy.yaml",
+   "analytics/experiments.py",
+   "analytics/segments.sql",
+   "notebooks/churn_drivers.ipynb",
+   "docs/metric_definitions.md"
+  ],
+  "errors": []
+ }
+}

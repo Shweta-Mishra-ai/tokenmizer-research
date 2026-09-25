@@ -1,0 +1,107 @@
+{
+ "id": "ho4_data_sql_001",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a data quality initiative."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a data quality initiative now."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in models/marts/dim_customer.sql."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Support tickets mention duplicate rows from a non-unique natural key."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Backfilling six months of historical revenue is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "Dbt for the transformation layer won the vote. If this breaks later we can roll back. The bulk of the diff sits in profiles.yml. File changed — scripts/backfill.py."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Freshness tests on every source table came off the board this morning. The bulk of the diff sits in models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Once the release settles, moving the nightly job to an hourly cadence is where attention goes. File changed — dags/daily_refresh.py."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "* sql/indexes.sql Landed a covering index on the customer lookup. No incidents were reported this week."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later.\nDeduplication on the raw event stream is up and working.\n**Chosen:** Parquet as the landing format."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a covering index on the customer lookup",
+   "deduplication on the raw event stream",
+   "freshness tests on every source table",
+   "backfilling six months of historical revenue"
+  ],
+  "pending_tasks": [
+   "moving the nightly job to an hourly cadence"
+  ],
+  "decisions": [
+   "dbt for the transformation layer",
+   "Parquet as the landing format"
+  ],
+  "files": [
+   "dags/daily_refresh.py",
+   "sql/indexes.sql",
+   "models/marts/fct_orders.sql",
+   "profiles.yml",
+   "models/marts/dim_customer.sql",
+   "scripts/backfill.py"
+  ],
+  "errors": [
+   "duplicate rows from a non-unique natural key"
+  ]
+ }
+}

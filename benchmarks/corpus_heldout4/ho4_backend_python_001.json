@@ -1,0 +1,154 @@
+{
+ "id": "ho4_backend_python_001",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a FastAPI orders service."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "**Finished work:** a health check endpoint at /healthz."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Known defect — a memory leak in the long-lived session object."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing.\nGoing forward: uvicorn behind gunicorn in production.\n**Finished work:** pytest fixtures for a throwaway database."
+  },
+  {
+   "role": "user",
+   "content": "How is a FastAPI orders service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Fault:** a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed the User model with email and hashed_password columns. File changed — requirements.txt. Still open — moving the email sender behind an interface."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy.\nTouched file: core/config.py.\nBroken: connection pool exhaustion under concurrent load.\n**Chosen:** Pydantic v2 for request validation."
+  },
+  {
+   "role": "user",
+   "content": "How is a FastAPI orders service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. * api/models.py"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later.\nWrapped: connection pooling against Postgres.\n- [ ] TODO soft deletes on the tenant table"
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — input validation on the payment payload. We resolved to use Celery for the background worker. Ping me if anything seems wrong."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Final call: Postgres over MySQL for JSONB support. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still open — caching the catalogue lookup."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — docker-compose.yml. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a FastAPI orders service?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] background retry for failed webhook deliveries\nIn the queue: backfilling created_at on legacy rows."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "connection pooling against Postgres",
+   "a health check endpoint at /healthz",
+   "the User model with email and hashed_password columns",
+   "input validation on the payment payload",
+   "background retry for failed webhook deliveries",
+   "pytest fixtures for a throwaway database"
+  ],
+  "pending_tasks": [
+   "moving the email sender behind an interface",
+   "soft deletes on the tenant table",
+   "caching the catalogue lookup",
+   "backfilling created_at on legacy rows"
+  ],
+  "decisions": [
+   "Pydantic v2 for request validation",
+   "Celery for the background worker",
+   "Postgres over MySQL for JSONB support",
+   "uvicorn behind gunicorn in production"
+  ],
+  "files": [
+   "api/models.py",
+   "core/config.py",
+   "docker-compose.yml",
+   "requirements.txt"
+  ],
+  "errors": [
+   "a deadlock between the invoice and ledger updates",
+   "a memory leak in the long-lived session object",
+   "connection pool exhaustion under concurrent load"
+  ]
+ }
+}

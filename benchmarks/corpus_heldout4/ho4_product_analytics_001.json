@@ -1,0 +1,97 @@
+{
+ "id": "ho4_product_analytics_001",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a pricing change evaluation."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in analytics/cohorts.sql. The dashboard tracking the three north star metrics came off the board this morning. We have a sample size calculation for the pricing test now. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "I got weekly retention cohorts over six months over the line. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Todo — an automated experiment readout template. A qualitative follow-up with churned accounts is next up. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing.\n**Fault:** timezone mismatch splitting one day across two cohorts."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle dashboards/north_star.json first. Outage: a sample ratio mismatch in the pricing experiment. I've locked in reporting absolute lift alongside relative. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We resolved to use one primary metric per experiment. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? docs/metric_definitions.md grew by a couple hundred lines."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "weekly retention cohorts over six months",
+   "a sample size calculation for the pricing test",
+   "the dashboard tracking the three north star metrics"
+  ],
+  "pending_tasks": [
+   "an automated experiment readout template",
+   "a qualitative follow-up with churned accounts"
+  ],
+  "decisions": [
+   "reporting absolute lift alongside relative",
+   "one primary metric per experiment"
+  ],
+  "files": [
+   "analytics/cohorts.sql",
+   "dashboards/north_star.json",
+   "docs/metric_definitions.md"
+  ],
+  "errors": [
+   "timezone mismatch splitting one day across two cohorts",
+   "a sample ratio mismatch in the pricing experiment"
+  ]
+ }
+}

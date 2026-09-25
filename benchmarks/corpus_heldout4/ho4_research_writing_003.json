@@ -1,0 +1,131 @@
+{
+ "id": "ho4_research_writing_003",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a benchmark methodology writeup."
+  },
+  {
+   "role": "user",
+   "content": "Could framing the contribution as a measurement study work for us?"
+  },
+  {
+   "role": "assistant",
+   "content": "Got hit by a broken citation key failing the LaTeX build in staging. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Shortening to the eight-page limit is still owed to the client. A first pass at the methodology section has shipped. Citations normalised to a single bibliography style is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a benchmark methodology writeup?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated paper/related_work.tex. A final proofread pass remains open."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with Zotero for reference management?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. Makes sense, doing that. We have peer feedback incorporated from two reviewers now. The fix lives in paper/main.tex."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got an appendix documenting the corpus construction over the line. The related work section covering twelve papers went in this morning. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Reconciling the two conflicting result tables is next up."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Restructuring the argument around three claims is finished and deployed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "A plain-language summary for the blog post is waiting on us. I've locked in reporting per-domain breakdowns in the appendix. Spotted a stale results table from an earlier run today."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be reporting macro F1 rather than accuracy."
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in figures/architecture.py. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with the ACL template over the generic LaTeX class?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. I got figure one showing the system architecture over the line. The team picked including the negative result on implicit language."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the related work section covering twelve papers",
+   "figure one showing the system architecture",
+   "an appendix documenting the corpus construction",
+   "restructuring the argument around three claims",
+   "peer feedback incorporated from two reviewers",
+   "citations normalised to a single bibliography style",
+   "a first pass at the methodology section"
+  ],
+  "pending_tasks": [
+   "a plain-language summary for the blog post",
+   "reconciling the two conflicting result tables",
+   "shortening to the eight-page limit",
+   "a final proofread pass"
+  ],
+  "decisions": [
+   "Zotero for reference management",
+   "reporting macro F1 rather than accuracy",
+   "framing the contribution as a measurement study",
+   "the ACL template over the generic LaTeX class",
+   "reporting per-domain breakdowns in the appendix",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "paper/related_work.tex",
+   "paper/main.tex"
+  ],
+  "errors": [
+   "a stale results table from an earlier run",
+   "a broken citation key failing the LaTeX build"
+  ]
+ }
+}

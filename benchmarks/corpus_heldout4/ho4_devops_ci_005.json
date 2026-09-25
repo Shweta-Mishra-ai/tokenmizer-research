@@ -1,0 +1,126 @@
+{
+ "id": "ho4_devops_ci_005",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a CI pipeline rebuild."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "I got parallel test execution across four shards over the line. Dependency caching across pipeline runs is up and working."
+  },
+  {
+   "role": "user",
+   "content": "How is a CI pipeline rebuild going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. We have container image build with layer caching now. Quarantining the six flakiest tests went in this morning. We have a matrix build over three Python versions now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Got hit by a flaky test failing one run in twenty on the timing assertion in staging. Publishing test timing history is next up."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Test retries limited to two attempts won the vote. I updated pyproject.toml."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I updated .github/workflows/ci.yml."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I got a nightly job running the slow integration suite over the line."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Signed release artifacts has shipped."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. Cutting the pipeline below eight minutes is next up."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Deduplicating the three near-identical workflows hasn't been started. CI is passing."
+  },
+  {
+   "role": "user",
+   "content": "How is a CI pipeline rebuild going?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in buildx with a remote cache backend. I updated Makefile. If this breaks later we can roll back. We haven't done a rollback job for failed deploys yet."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "container image build with layer caching",
+   "a matrix build over three Python versions",
+   "a nightly job running the slow integration suite",
+   "quarantining the six flakiest tests",
+   "signed release artifacts",
+   "parallel test execution across four shards",
+   "dependency caching across pipeline runs"
+  ],
+  "pending_tasks": [
+   "a rollback job for failed deploys",
+   "cutting the pipeline below eight minutes",
+   "publishing test timing history",
+   "deduplicating the three near-identical workflows"
+  ],
+  "decisions": [
+   "test retries limited to two attempts",
+   "buildx with a remote cache backend"
+  ],
+  "files": [
+   "pyproject.toml",
+   ".github/workflows/ci.yml",
+   "Makefile"
+  ],
+  "errors": [
+   "a flaky test failing one run in twenty on the timing assertion"
+  ]
+ }
+}

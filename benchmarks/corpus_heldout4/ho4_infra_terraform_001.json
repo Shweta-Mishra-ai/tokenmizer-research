@@ -1,0 +1,139 @@
+{
+ "id": "ho4_infra_terraform_001",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a cost optimisation pass."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Nobody needs to think about the NAT gateway consolidated to one per region anymore. The pager went off twice overnight because of a plan diff from an untracked manual console change. The pager went off twice overnight because of an apply failing on an IAM eventual consistency delay."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to IAM roles scoped per service, the on-call pages stopped. Tagging enforced through a provider default came off the board this morning. Ping me if anything seems wrong. The bulk of the diff sits in terraform/vpc.tf."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "CloudWatch alarms on the error rate metric is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. The dashboard lit up red with an S3 bucket name collision across accounts."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The VPC with public and private subnets across three zones has been live since Tuesday with no complaints. Somebody has to own a drift detection job on a daily schedule before Friday. No incidents were reported this week. Had to untangle terraform/iam.tf first."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Separate accounts for production and staging is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Policy-as-code checks in the plan stage keeps getting pushed to next sprint."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "A module for the standard service deployment is behind us now. Terragrunt for the DRY module wiring is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "Private subnets for every compute workload feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Had to untangle .github/workflows/plan.yml first. The bulk of the diff sits in modules/service/main.tf. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a cost optimisation pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "An RDS instance with automated backups has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "AWS as the single cloud provider feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "terraform/outputs.tf grew by a couple hundred lines. Sure, on it. The bulk of the diff sits in terraform/variables.tf. I'll post a recap later."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the VPC with public and private subnets across three zones",
+   "tagging enforced through a provider default",
+   "IAM roles scoped per service",
+   "CloudWatch alarms on the error rate metric",
+   "a module for the standard service deployment",
+   "the NAT gateway consolidated to one per region",
+   "an RDS instance with automated backups"
+  ],
+  "pending_tasks": [
+   "a drift detection job on a daily schedule",
+   "policy-as-code checks in the plan stage"
+  ],
+  "decisions": [
+   "private subnets for every compute workload",
+   "separate accounts for production and staging",
+   "AWS as the single cloud provider",
+   "Terragrunt for the DRY module wiring"
+  ],
+  "files": [
+   "terraform/variables.tf",
+   "modules/service/main.tf",
+   ".github/workflows/plan.yml",
+   "terraform/outputs.tf",
+   "terraform/iam.tf",
+   "terraform/vpc.tf"
+  ],
+  "errors": [
+   "an S3 bucket name collision across accounts",
+   "an apply failing on an IAM eventual consistency delay",
+   "a plan diff from an untracked manual console change"
+  ]
+ }
+}

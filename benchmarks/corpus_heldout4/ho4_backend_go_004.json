@@ -1,0 +1,153 @@
+{
+ "id": "ho4_backend_go_004",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking an event consumer."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched file: proto/orders.proto."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — internal/handler/orders_test.go. Should we add more coverage?"
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "In the queue: moving the config to environment variables."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — the retry policy with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outage: connection churn exhausting ephemeral ports.\n**Finished work:** a circuit breaker around the downstream call.\nThe logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Let's commit to Go 1.23 as the toolchain."
+  },
+  {
+   "role": "assistant",
+   "content": "Final call: a monorepo layout with internal packages. Wrapped: benchmark tests on the hot encode path. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. Wrapped: a worker pool bounded at 32 goroutines."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "**Pending:** vendoring the internal proto definitions."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered — table-driven tests for the parser. CI is passing. * Makefile Final call: pgx as the Postgres driver."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: errgroup for concurrent fan-out. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more coverage? Path: `go.mod`. We resolved to use OpenTelemetry for traces."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: connection reuse in the HTTP client. File changed — internal/worker/pool.go."
+  },
+  {
+   "role": "user",
+   "content": "Pick testcontainers for integration tests."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "benchmark tests on the hot encode path",
+   "table-driven tests for the parser",
+   "a worker pool bounded at 32 goroutines",
+   "the retry policy with exponential backoff",
+   "connection reuse in the HTTP client",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "vendoring the internal proto definitions"
+  ],
+  "decisions": [
+   "a monorepo layout with internal packages",
+   "OpenTelemetry for traces",
+   "pgx as the Postgres driver",
+   "testcontainers for integration tests",
+   "Go 1.23 as the toolchain",
+   "errgroup for concurrent fan-out"
+  ],
+  "files": [
+   "Makefile",
+   "internal/worker/pool.go",
+   "go.mod",
+   "internal/handler/orders_test.go",
+   "proto/orders.proto"
+  ],
+  "errors": [
+   "connection churn exhausting ephemeral ports"
+  ]
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "ho4_data_sql_004",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a reporting layer rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a reporting layer rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "How is a reporting layer rebuild going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the slowdown was a schema drift break when the source added a column all along."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Thanks to the star schema for the orders fact table, the on-call pages stopped. Turns out the slowdown was a full table scan on the unpartitioned events table all along."
+  },
+  {
+   "role": "user",
+   "content": "Airflow for orchestration feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "A covering index on the customer lookup is behind us now. Sure, on it. Retiring the legacy reporting views is the piece nobody has picked up."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Kafka for the event transport is what everything will be built on from here. We can't call this finished while documenting the grain of each fact table is missing. The bulk of the diff sits in macros/revenue.sql."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is waiting on anyone at the moment. Most of yesterday disappeared into the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Deduplication on the raw event stream is behind us now. We might revisit this next quarter. Without unit tests for the revenue macro the launch checklist stays red. Had to untangle models/staging/stg_events.sql first."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consolidating the three customer definitions is the piece nobody has picked up. Ping me if anything seems wrong. Thanks to incremental models for the daily aggregates, the on-call pages stopped. Row count reconciliation against the source system came off the board this morning."
+  },
+  {
+   "role": "user",
+   "content": "How is a reporting layer rebuild going?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is passing. The bulk of the diff sits in models/marts/fct_orders.sql."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody needs to think about a materialised view for the executive dashboard anymore."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. An ELT rather than ETL pattern is the direction we committed to."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a reporting layer rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. The slowly changing dimension on customer tier came off the board this morning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the slowly changing dimension on customer tier",
+   "incremental models for the daily aggregates",
+   "deduplication on the raw event stream",
+   "a materialised view for the executive dashboard",
+   "a covering index on the customer lookup",
+   "the star schema for the orders fact table",
+   "row count reconciliation against the source system"
+  ],
+  "pending_tasks": [
+   "consolidating the three customer definitions",
+   "unit tests for the revenue macro",
+   "retiring the legacy reporting views",
+   "documenting the grain of each fact table"
+  ],
+  "decisions": [
+   "Airflow for orchestration",
+   "Kafka for the event transport",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "models/marts/fct_orders.sql",
+   "models/staging/stg_events.sql",
+   "macros/revenue.sql"
+  ],
+  "errors": [
+   "a schema drift break when the source added a column",
+   "a full table scan on the unpartitioned events table",
+   "the nightly job timing out after 6 hours"
+  ]
+ }
+}

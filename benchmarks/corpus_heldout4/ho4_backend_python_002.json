@@ -1,0 +1,126 @@
+{
+ "id": "ho4_backend_python_002",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking an async task queue service."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be SQLAlchemy 2.0 with the async engine."
+  },
+  {
+   "role": "assistant",
+   "content": "A load test against the order path remains open. Sure, on it. The fix lives in core/config.py."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll post a recap later. I got pytest fixtures for a throwaway database over the line."
+  },
+  {
+   "role": "user",
+   "content": "How is an async task queue service going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on the order create path went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "POST /api/orders and GET /api/orders/{id} is finished and deployed. Flaky jobs get one automatic retry."
+  },
+  {
+   "role": "user",
+   "content": "My preference would be Celery for the background worker."
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in api/models.py. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in db/session.py. After review I'll deploy."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Soft deletes on the tenant table is still owed to the client. After review I'll deploy. Python 3.12 as the runtime won the vote. We keep seeing a 500 from an unhandled TimeoutError in the payment client."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're standardising on Redis for refresh token storage. See the diff in requirements.txt. Support tickets mention N+1 queries on the order list endpoint."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. I got input validation on the payment payload over the line."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "idempotency keys on the order create path",
+   "input validation on the payment payload",
+   "pytest fixtures for a throwaway database",
+   "POST /api/orders and GET /api/orders/{id}"
+  ],
+  "pending_tasks": [
+   "soft deletes on the tenant table",
+   "a load test against the order path"
+  ],
+  "decisions": [
+   "Celery for the background worker",
+   "Python 3.12 as the runtime",
+   "SQLAlchemy 2.0 with the async engine",
+   "Redis for refresh token storage"
+  ],
+  "files": [
+   "api/models.py",
+   "db/session.py",
+   "docker-compose.yml",
+   "requirements.txt",
+   "core/config.py"
+  ],
+  "errors": [
+   "a 500 from an unhandled TimeoutError in the payment client",
+   "N+1 queries on the order list endpoint"
+  ]
+ }
+}

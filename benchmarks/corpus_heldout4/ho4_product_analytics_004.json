@@ -1,0 +1,132 @@
+{
+ "id": "ho4_product_analytics_004",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a retention cohort study."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a retention cohort study."
+  },
+  {
+   "role": "user",
+   "content": "How is a retention cohort study going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle analytics/funnel.sql first."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "A segment definition for activated accounts held up fine through the whole load test. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Reporting absolute lift alongside relative feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Counting monthly actives on a rolling 28-day window feels like the right fit here."
+  },
+  {
+   "role": "assistant",
+   "content": "Instrumentation on every onboarding step held up fine through the whole load test. Makes sense, doing that. Weekly rather than daily cohorts for readability is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Weekly retention cohorts over six months held up fine through the whole load test. Once the release settles, reconciling the two conflicting active-user counts is where attention goes. Here's where things stand."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboard lit up red with a broken event after the client release stopped firing it."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody argued once they saw the numbers for a two-week minimum experiment runtime. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "The bulk of the diff sits in analytics/cohorts.sql. Most of yesterday disappeared into a double-counted signup event inflating the funnel top."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Without an automated experiment readout template the launch checklist stays red."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a retention cohort study?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. One primary metric per experiment is what everything will be built on from here."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Thanks to the event taxonomy covering fourteen product actions, the on-call pages stopped."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "instrumentation on every onboarding step",
+   "weekly retention cohorts over six months",
+   "the event taxonomy covering fourteen product actions",
+   "a segment definition for activated accounts"
+  ],
+  "pending_tasks": [
+   "reconciling the two conflicting active-user counts",
+   "an automated experiment readout template"
+  ],
+  "decisions": [
+   "a two-week minimum experiment runtime",
+   "weekly rather than daily cohorts for readability",
+   "counting monthly actives on a rolling 28-day window",
+   "reporting absolute lift alongside relative",
+   "one primary metric per experiment"
+  ],
+  "files": [
+   "analytics/cohorts.sql",
+   "analytics/funnel.sql"
+  ],
+  "errors": [
+   "a double-counted signup event inflating the funnel top",
+   "a broken event after the client release stopped firing it"
+  ]
+ }
+}

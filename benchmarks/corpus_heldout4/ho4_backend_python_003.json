@@ -1,0 +1,168 @@
+{
+ "id": "ho4_backend_python_003",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "implicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a tenant provisioning API."
+  },
+  {
+   "role": "user",
+   "content": "How is a tenant provisioning API going?"
+  },
+  {
+   "role": "assistant",
+   "content": "migrations/env.py grew by a couple hundred lines. The dashboard lit up red with a memory leak in the long-lived session object. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "How is a tenant provisioning API going?"
+  },
+  {
+   "role": "assistant",
+   "content": "api/main.py grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to untangle docker-compose.yml first."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Pytest fixtures for a throwaway database is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Background retry for failed webhook deliveries has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to pytest-asyncio for the async test suite."
+  },
+  {
+   "role": "assistant",
+   "content": "Somebody has to own backfilling created_at on legacy rows before Friday. Sure, on it."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back. db/session.py grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of yesterday disappeared into flaky tests from shared database state. Turns out the slowdown was an IntegrityError on duplicate order submission all along."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "core/config.py grew by a couple hundred lines. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Thanks to pagination on the list endpoints, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "api/orders.py grew by a couple hundred lines."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Without splitting the settings module per environment the launch checklist stays red. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Thanks to the User model with email and hashed_password columns, the on-call pages stopped."
+  },
+  {
+   "role": "user",
+   "content": "I keep coming back to Celery for the background worker."
+  },
+  {
+   "role": "assistant",
+   "content": "A health check endpoint at /healthz came off the board this morning. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Request ID middleware for structured logging held up fine through the whole load test."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a health check endpoint at /healthz",
+   "background retry for failed webhook deliveries",
+   "pagination on the list endpoints",
+   "pytest fixtures for a throwaway database",
+   "request ID middleware for structured logging",
+   "the User model with email and hashed_password columns"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows",
+   "splitting the settings module per environment"
+  ],
+  "decisions": [
+   "Celery for the background worker",
+   "pytest-asyncio for the async test suite"
+  ],
+  "files": [
+   "core/config.py",
+   "db/session.py",
+   "api/orders.py",
+   "api/main.py",
+   "docker-compose.yml",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "an IntegrityError on duplicate order submission",
+   "a memory leak in the long-lived session object",
+   "flaky tests from shared database state"
+  ]
+ }
+}

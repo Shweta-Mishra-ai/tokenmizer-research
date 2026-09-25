@@ -1,0 +1,123 @@
+{
+ "id": "ho4_infra_terraform_003",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a compliance baseline rollout."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do — policy-as-code checks in the plan stage. Touched file: terraform/backend.tf."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — terraform/iam.tf. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "How is a compliance baseline rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Chosen:** Terraform over CloudFormation."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "- [X] IAM roles scoped per service\n* environments/prod/terragrunt.hcl\nDelivered — a module for the standard service deployment."
+  },
+  {
+   "role": "user",
+   "content": "How is a compliance baseline rollout going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: S3 lifecycle rules moving logs to Glacier after 90 days."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "* terraform/outputs.tf"
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: Aurora Postgres over standard RDS. If this breaks later we can roll back."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — terraform/vpc.tf. Left to do — moving the legacy resources under Terraform. Final call: separate accounts for production and staging."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "**Finished work:** a read replica in the secondary region."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for a compliance baseline rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Going forward: OIDC for CI authentication into AWS."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a read replica in the secondary region",
+   "IAM roles scoped per service",
+   "a module for the standard service deployment"
+  ],
+  "pending_tasks": [
+   "policy-as-code checks in the plan stage",
+   "moving the legacy resources under Terraform"
+  ],
+  "decisions": [
+   "separate accounts for production and staging",
+   "OIDC for CI authentication into AWS",
+   "Aurora Postgres over standard RDS",
+   "S3 lifecycle rules moving logs to Glacier after 90 days",
+   "Terraform over CloudFormation"
+  ],
+  "files": [
+   "terraform/outputs.tf",
+   "terraform/vpc.tf",
+   "terraform/backend.tf",
+   "terraform/iam.tf",
+   "environments/prod/terragrunt.hcl"
+  ],
+  "errors": []
+ }
+}

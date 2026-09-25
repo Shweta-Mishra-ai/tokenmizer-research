@@ -1,0 +1,133 @@
+{
+ "id": "ho4_data_streaming_002",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "mixed",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a change data capture setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a change data capture setup."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "After review I'll deploy. Crash: offset commit failures under broker restart."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Consumer lag monitoring with alerting has been live since Tuesday with no complaints."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this breaks later we can roll back.\n**Chosen:** Debezium for change data capture."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've locked in one topic per event type rather than a shared bus."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this next quarter. Landed the topic layout with twelve partitions per stream."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with protobuf for the internal service events. CI is passing. Left to do — an automated schema compatibility check in CI."
+  },
+  {
+   "role": "user",
+   "content": "How is a change data capture setup going?"
+  },
+  {
+   "role": "assistant",
+   "content": "Checkpointing to durable storage every 30 seconds has been live since Tuesday with no complaints. A cost review of the broker cluster keeps getting pushed to next sprint. Nobody needs to think about backpressure handling in the consumer loop anymore."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Flaky jobs get one automatic retry. Exactly-once semantics on the aggregation job is behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "File changed — streams/consumer.py. Nobody needs to think about the change data capture connector on the orders table anymore. The bulk of the diff sits in schemas/order_placed.avsc."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "The logs are easier to read now. We can't call this finished while partitioning by tenant rather than by hash is missing."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. Outage: partition skew putting 60% of traffic on one consumer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the change data capture connector on the orders table",
+   "exactly-once semantics on the aggregation job",
+   "checkpointing to durable storage every 30 seconds",
+   "consumer lag monitoring with alerting",
+   "backpressure handling in the consumer loop",
+   "the topic layout with twelve partitions per stream"
+  ],
+  "pending_tasks": [
+   "an automated schema compatibility check in CI",
+   "partitioning by tenant rather than by hash",
+   "a cost review of the broker cluster"
+  ],
+  "decisions": [
+   "protobuf for the internal service events",
+   "one topic per event type rather than a shared bus",
+   "Debezium for change data capture"
+  ],
+  "files": [
+   "schemas/order_placed.avsc",
+   "streams/consumer.py"
+  ],
+  "errors": [
+   "partition skew putting 60% of traffic on one consumer",
+   "offset commit failures under broker restart"
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "id": "ho4_devops_kubernetes_004",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "semi",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming an autoscaling review now."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "See the diff in terraform/cluster.tf."
+  },
+  {
+   "role": "user",
+   "content": "How is an autoscaling review going?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll run with Prometheus and Grafana for metrics."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We keep seeing a 502 during rolling deploys from missing readiness gates."
+  },
+  {
+   "role": "user",
+   "content": "What if we went with Velero for cluster backups?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ping me if anything seems wrong. A chaos test on node eviction is still owed to the client. The fix lives in argocd/apps/api.yaml. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Next steps for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "A canary stage in the deploy pipeline is up and working. After review I'll deploy. Readiness and liveness probes on every workload went in this morning."
+  },
+  {
+   "role": "user",
+   "content": "What landed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Details are in charts/api/templates/deployment.yaml. The Helm chart for the API deployment is up and working."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pod disruption budgets for the stateful services is finished and deployed. I'll post a recap later."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Cluster autoscaler on the spot node group has shipped. Nothing is waiting on anyone at the moment. I updated k8s/ingress.yaml. Horizontal pod autoscaling on CPU and request rate is up and working."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the Helm chart for the API deployment",
+   "horizontal pod autoscaling on CPU and request rate",
+   "cluster autoscaler on the spot node group",
+   "a canary stage in the deploy pipeline",
+   "pod disruption budgets for the stateful services",
+   "readiness and liveness probes on every workload"
+  ],
+  "pending_tasks": [
+   "a chaos test on node eviction"
+  ],
+  "decisions": [
+   "Prometheus and Grafana for metrics",
+   "Velero for cluster backups"
+  ],
+  "files": [
+   "argocd/apps/api.yaml",
+   "terraform/cluster.tf",
+   "k8s/ingress.yaml",
+   "charts/api/templates/deployment.yaml"
+  ],
+  "errors": [
+   "a 502 during rolling deploys from missing readiness gates"
+  ]
+ }
+}

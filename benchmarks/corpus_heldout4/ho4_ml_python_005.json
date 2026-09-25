@@ -1,0 +1,107 @@
+{
+ "id": "ho4_ml_python_005",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you take a demand forecasting pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yes, taking a demand forecasting pipeline."
+  },
+  {
+   "role": "user",
+   "content": "How is a demand forecasting pipeline going?"
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Complete: SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "Use Optuna for hyperparameter search please."
+  },
+  {
+   "role": "assistant",
+   "content": "No incidents were reported this week. Fine by me. * data/schema.json"
+  },
+  {
+   "role": "user",
+   "content": "Use a time-based split to avoid leakage please."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, on it.\n- [X] an offline evaluation against last quarter's data\nStill open — calibrating the output probabilities."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Complete: a stratified train/validation/test split. Delivered — baseline logistic regression at 0.71 AUC. Nothing is waiting on anyone at the moment. Outage: target leakage from a post-outcome feature."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Landed batch inference over the full customer base. The logs are easier to read now."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Wrapped: class imbalance handling with focal loss."
+  },
+  {
+   "role": "user",
+   "content": "Status please."
+  },
+  {
+   "role": "assistant",
+   "content": "Consensus: AUC-PR as the primary metric given the imbalance. Touched file: requirements.txt. Nothing is waiting on anyone at the moment."
+  },
+  {
+   "role": "user",
+   "content": "Where are we?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's where things stand. Delivered — hyperparameter search over 200 trials."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "class imbalance handling with focal loss",
+   "baseline logistic regression at 0.71 AUC",
+   "SHAP explanations for the top features",
+   "a stratified train/validation/test split",
+   "batch inference over the full customer base",
+   "an offline evaluation against last quarter's data",
+   "hyperparameter search over 200 trials"
+  ],
+  "pending_tasks": [
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "Optuna for hyperparameter search",
+   "AUC-PR as the primary metric given the imbalance",
+   "a time-based split to avoid leakage"
+  ],
+  "files": [
+   "requirements.txt",
+   "data/schema.json"
+  ],
+  "errors": [
+   "target leakage from a post-outcome feature"
+  ]
+ }
+}
