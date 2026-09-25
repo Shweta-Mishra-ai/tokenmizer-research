@@ -1,0 +1,179 @@
+{
+ "id": "ho3_debug_production_001",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with an outage root cause analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on an outage root cause analysis."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. Next task — a follow-up on the third-party client bug report."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed: a 30% error rate on the payment callback. Finished — correlating the errors with the deploy timeline."
+  },
+  {
+   "role": "user",
+   "content": "What about an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] cleaning up the temporary debug logging There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: treating the third-party timeout as the root cause. Result: adding structured logging around the suspect path done."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: src/pool.py. Incident: a cascading failure from the retry storm."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan.\n- docs/postmortem.md"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: reverting to the previous library version. Choice: a blameless postmortem format."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** instrumenting the slow query with timing spans.\nThe error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "What about an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "TO DO: a permanent fix replacing the hotfix. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "What about an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: logs/analysis.py. Finished — the postmortem document with action items."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Affected file: config/flags.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. * [x] confirming the hypothesis with a targeted experiment"
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: backfilling the corrupted rows."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now.\n- scripts/repro.py"
+  },
+  {
+   "role": "user",
+   "content": "Choose an incident severity of SEV-2."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. Closed: capturing a heap profile during the spike."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Affected file: src/handlers/checkout.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "confirming the hypothesis with a targeted experiment",
+   "correlating the errors with the deploy timeline",
+   "instrumenting the slow query with timing spans",
+   "capturing a heap profile during the spike",
+   "adding structured logging around the suspect path",
+   "the postmortem document with action items"
+  ],
+  "pending_tasks": [
+   "a permanent fix replacing the hotfix",
+   "a follow-up on the third-party client bug report",
+   "cleaning up the temporary debug logging",
+   "backfilling the corrupted rows"
+  ],
+  "decisions": [
+   "treating the third-party timeout as the root cause",
+   "an incident severity of SEV-2",
+   "a blameless postmortem format",
+   "reverting to the previous library version"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "src/pool.py",
+   "src/handlers/checkout.py",
+   "docs/postmortem.md",
+   "logs/analysis.py",
+   "config/flags.yaml"
+  ],
+  "errors": [
+   "a cascading failure from the retry storm",
+   "a 30% error rate on the payment callback"
+  ]
+ }
+}

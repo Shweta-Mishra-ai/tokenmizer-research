@@ -1,0 +1,136 @@
+{
+ "id": "ho2_security_appsec_003",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an authentication hardening pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an authentication hardening pass."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. Encrypted secrets at rest in the vault is finished. Automated dependency updates is on deck. Least-privilege IAM roles for the workers is finished."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Running into an open redirect on the login return URL. See SECURITY.md. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Session invalidation on password change is finished."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to a review of the CORS allowlist."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Settling on gitleaks as a pre-commit hook. I'd go with Argon2id over bcrypt for new password hashes. See security/redaction.py."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped CSP headers on all rendered responses. Input sanitisation on the file upload path went out this morning. Edits are in .github/workflows/security.yml."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in config/csp.json."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is a 90-day key rotation schedule. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "See api/auth.py."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an authentication hardening pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rate limiting on the password reset endpoint: done."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. We'll use Vault as the single secrets store. I've wrapped signed container images in the registry."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "rate limiting on the password reset endpoint",
+   "CSP headers on all rendered responses",
+   "encrypted secrets at rest in the vault",
+   "session invalidation on password change",
+   "input sanitisation on the file upload path",
+   "signed container images in the registry",
+   "least-privilege IAM roles for the workers"
+  ],
+  "pending_tasks": [
+   "a review of the CORS allowlist",
+   "automated dependency updates"
+  ],
+  "decisions": [
+   "gitleaks as a pre-commit hook",
+   "Vault as the single secrets store",
+   "a 90-day key rotation schedule",
+   "Argon2id over bcrypt for new password hashes"
+  ],
+  "files": [
+   "security/redaction.py",
+   "config/csp.json",
+   ".github/workflows/security.yml",
+   "api/auth.py",
+   "SECURITY.md"
+  ],
+  "errors": [
+   "an open redirect on the login return URL"
+  ]
+ }
+}

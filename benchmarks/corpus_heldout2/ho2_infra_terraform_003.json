@@ -1,0 +1,98 @@
+{
+ "id": "ho2_infra_terraform_003",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a state migration back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a state migration."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: encrypted EBS volumes across all instances."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — tagging enforced through a provider default.\nDecisions like this usually need a design doc.\n**Completed:** the VPC with public and private subnets across three zones."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: terraform/rds.tf. [done] an RDS instance with automated backups"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: a drift detection job on a daily schedule. Still open: splitting the monolithic state file. * `environments/prod/terragrunt.hcl`"
+  },
+  {
+   "role": "user",
+   "content": "I want one state file per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "[ ] a cost anomaly alert Happy to dig into this more. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with private subnets for every compute workload. Planned: a disaster recovery restore rehearsal."
+  },
+  {
+   "role": "user",
+   "content": "Let's use a hub-and-spoke network topology."
+  },
+  {
+   "role": "assistant",
+   "content": "✔ The NAT gateway consolidated to one per region Good call, switching. Let me check the docs first."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the NAT gateway consolidated to one per region",
+   "the VPC with public and private subnets across three zones",
+   "encrypted EBS volumes across all instances",
+   "tagging enforced through a provider default",
+   "an RDS instance with automated backups"
+  ],
+  "pending_tasks": [
+   "a cost anomaly alert",
+   "a drift detection job on a daily schedule",
+   "splitting the monolithic state file",
+   "a disaster recovery restore rehearsal"
+  ],
+  "decisions": [
+   "a hub-and-spoke network topology",
+   "private subnets for every compute workload",
+   "one state file per environment"
+  ],
+  "files": [
+   "environments/prod/terragrunt.hcl",
+   "terraform/rds.tf"
+  ],
+  "errors": []
+ }
+}

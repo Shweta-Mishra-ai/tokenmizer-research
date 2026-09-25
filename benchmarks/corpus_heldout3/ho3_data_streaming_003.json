@@ -1,0 +1,128 @@
+{
+ "id": "ho3_data_streaming_003",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a Kafka pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a Kafka pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: partitioning by tenant rather than by hash."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented checkpointing to durable storage every 30 seconds. Result: consumer lag monitoring with alerting done."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a Kafka pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: Kafka over Kinesis for the event backbone. Edited: streams/aggregator.py. There were no failures in the nightly run. Edited: schemas/order_placed.avsc."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: at-least-once delivery with idempotent consumers. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: streams/dlq.py."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented consumer group rebalancing tuned for slow consumers. File: `docker-compose.yml`. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later.\nClosed: exactly-once semantics on the aggregation job.\nClosed: an integration test spinning up a real broker.\n**Issue:** silent message loss from an auto-commit race."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Regression: offset commit failures under broker restart. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** one topic per event type rather than a shared bus.\n- connect/debezium.json"
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green.\nFinished — the change data capture connector on the orders table.\n**Issue:** consumer lag growing unbounded during the nightly spike.\nClosed: compaction on the entity state topics."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consumer lag monitoring with alerting",
+   "consumer group rebalancing tuned for slow consumers",
+   "the change data capture connector on the orders table",
+   "exactly-once semantics on the aggregation job",
+   "compaction on the entity state topics",
+   "checkpointing to durable storage every 30 seconds",
+   "an integration test spinning up a real broker"
+  ],
+  "pending_tasks": [
+   "partitioning by tenant rather than by hash"
+  ],
+  "decisions": [
+   "at-least-once delivery with idempotent consumers",
+   "one topic per event type rather than a shared bus",
+   "Kafka over Kinesis for the event backbone"
+  ],
+  "files": [
+   "schemas/order_placed.avsc",
+   "docker-compose.yml",
+   "streams/aggregator.py",
+   "connect/debezium.json",
+   "streams/dlq.py"
+  ],
+  "errors": [
+   "offset commit failures under broker restart",
+   "silent message loss from an auto-commit race",
+   "consumer lag growing unbounded during the nightly spike"
+  ]
+ }
+}

@@ -1,0 +1,154 @@
+{
+ "id": "ho3_security_appsec_004",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a pre-launch security review."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a pre-launch security review now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. A 90-day key rotation schedule is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Everyone was happy with OIDC for single sign-on. Nobody has touched a threat model for the payments flow yet."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched audit log retention policy yet."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a pre-launch security review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about CSP headers on all rendered responses now."
+  },
+  {
+   "role": "user",
+   "content": "What about a pre-launch security review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of docs/threat-model.md as well. .github/workflows/security.yml ended up with most of the changes. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "A security runbook for incident response is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside .gitleaks.toml. MFA enforcement for admin accounts is the obvious next step. Once CI passes I'll merge. MTLS between internal services is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Encrypted secrets at rest in the vault went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about least-privilege IAM roles for the workers now. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, Semgrep in the pull request pipeline is the best fit. Field-level encryption for PII columns is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside policy/egress.yaml. Most of the work happened inside SECURITY.md."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about rate limiting on the password reset endpoint now. What broke the release was an SSRF in the webhook fetcher. Session invalidation on password change went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Trivy for container image scanning beat the alternatives on every axis we care about."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "least-privilege IAM roles for the workers",
+   "rate limiting on the password reset endpoint",
+   "CSP headers on all rendered responses",
+   "session invalidation on password change",
+   "encrypted secrets at rest in the vault"
+  ],
+  "pending_tasks": [
+   "audit log retention policy",
+   "a security runbook for incident response",
+   "MFA enforcement for admin accounts",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "a 90-day key rotation schedule",
+   "Trivy for container image scanning",
+   "field-level encryption for PII columns",
+   "mTLS between internal services",
+   "Semgrep in the pull request pipeline",
+   "OIDC for single sign-on"
+  ],
+  "files": [
+   "docs/threat-model.md",
+   ".gitleaks.toml",
+   "SECURITY.md",
+   "policy/egress.yaml",
+   ".github/workflows/security.yml"
+  ],
+  "errors": [
+   "an SSRF in the webhook fetcher"
+  ]
+ }
+}

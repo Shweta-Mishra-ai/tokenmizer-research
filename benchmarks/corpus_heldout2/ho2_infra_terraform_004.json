@@ -1,0 +1,134 @@
+{
+ "id": "ho2_infra_terraform_004",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a state migration back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a state migration."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "There's a plan diff from an untracked manual console change in production. Edits are in terraform/main.tf. See terraform/outputs.tf."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "VPC flow logs shipped to the log bucket went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. An RDS instance with automated backups went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "The VPC with public and private subnets across three zones went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Encrypted EBS volumes across all instances went out this morning. We keep getting a state lock left behind by a cancelled apply. Managed to finish a module for the standard service deployment."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Provider versions pinned to a minor range is what we're using. I put it in .github/workflows/plan.yml. I still owe you a disaster recovery restore rehearsal. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. We keep getting an S3 bucket name collision across accounts."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: documenting the module interfaces."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "A read replica in the secondary region is finished."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. I've wrapped security groups restricted to named ports."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. We'll use Checkov for policy scanning."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the VPC with public and private subnets across three zones",
+   "security groups restricted to named ports",
+   "a module for the standard service deployment",
+   "VPC flow logs shipped to the log bucket",
+   "an RDS instance with automated backups",
+   "encrypted EBS volumes across all instances",
+   "a read replica in the secondary region"
+  ],
+  "pending_tasks": [
+   "a disaster recovery restore rehearsal",
+   "documenting the module interfaces"
+  ],
+  "decisions": [
+   "Checkov for policy scanning",
+   "provider versions pinned to a minor range"
+  ],
+  "files": [
+   "terraform/main.tf",
+   ".github/workflows/plan.yml",
+   "terraform/outputs.tf"
+  ],
+  "errors": [
+   "a state lock left behind by a cancelled apply",
+   "an S3 bucket name collision across accounts",
+   "a plan diff from an untracked manual console change"
+  ]
+ }
+}

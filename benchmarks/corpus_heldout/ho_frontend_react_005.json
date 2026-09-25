@@ -1,0 +1,80 @@
+{
+ "id": "ho_frontend_react_005",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an internal admin panel."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an internal admin panel now."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "I picked Vitest over Jest for the unit suite. Up next is offline support for the draft editor. Let's standardise on Radix primitives for accessible components."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Look at src/hooks/useMetrics.ts for the details. Form validation with inline error messages works now. I touched vite.config.ts as well."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with Vite as the build tool. Most of the edits went into src/store/session.ts. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Just merged the toast notification system."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at tests/dashboard.spec.ts for the details. I've finished session persistence in localStorage. A Storybook entry for each primitive hasn't been done yet."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "form validation with inline error messages",
+   "the toast notification system",
+   "session persistence in localStorage"
+  ],
+  "pending_tasks": [
+   "offline support for the draft editor",
+   "a Storybook entry for each primitive"
+  ],
+  "decisions": [
+   "Radix primitives for accessible components",
+   "Vite as the build tool",
+   "Vitest over Jest for the unit suite"
+  ],
+  "files": [
+   "tests/dashboard.spec.ts",
+   "src/hooks/useMetrics.ts",
+   "vite.config.ts",
+   "src/store/session.ts"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "id": "ho2_devops_kubernetes_005",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a cluster upgrade to 1.31 back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a cluster upgrade to 1.31."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. Root of the pain: CrashLoopBackOff after the config map rename."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into argocd/apps/api.yaml. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually reducing the image sizes on the worker pool has to get done too. That leaves the Helm chart for the API deployment behind us."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Readiness and liveness probes on every workload is no longer on my plate. We landed on Trivy for image scanning in CI."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Root of the pain: OOMKilled pods on the ingestion worker."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The dashboards lit up because of an ImagePullBackOff from an expired registry credential. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? That leaves a rolling deploy with surge and unavailable tuned behind us. Someone should pick up consolidating the three ingress controllers."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "scripts/rollout.sh got a few more lines. That leaves pod disruption budgets for the stateful services behind us. We landed on Velero for cluster backups."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "pod disruption budgets for the stateful services",
+   "readiness and liveness probes on every workload",
+   "a rolling deploy with surge and unavailable tuned",
+   "the Helm chart for the API deployment"
+  ],
+  "pending_tasks": [
+   "consolidating the three ingress controllers",
+   "reducing the image sizes on the worker pool"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "Trivy for image scanning in CI"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "argocd/apps/api.yaml"
+  ],
+  "errors": [
+   "an ImagePullBackOff from an expired registry credential",
+   "OOMKilled pods on the ingestion worker",
+   "CrashLoopBackOff after the config map rename"
+  ]
+ }
+}

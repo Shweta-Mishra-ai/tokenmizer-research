@@ -1,0 +1,129 @@
+{
+ "id": "ho_platform_api_002",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up an API gateway migration."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "An API changelog published with each release took longer than planned but it's behind us now. Rather than overthinking it, OpenAPI as the source of truth for SDK generation it is. Rather than overthinking it, a six-month deprecation window it is."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the end HMAC-SHA256 for webhook signatures was simpler than the alternatives. At some point a conformance test suite for the SDKs has to happen too. Had to open up api/ratelimit.py again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an API gateway migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in api/routes/webhooks.py, near the top. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Kong as the API gateway seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Makes sense, doing that. Field-level filtering on the large resources can wait until after the demo."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? The fix lives in api/pagination.py, near the top. No more worrying about idempotency keys on all write operations, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once SDK generation for three languages was in, the flaky tests stopped. Let's not forget about documenting the webhook replay procedure. Everything looked green, then a breaking change shipped in a minor version again."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Parking GraphQL as an alternative surface for now, it's not urgent."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Cursor pagination rather than offset ended up being the pragmatic option. Had to open up sdk/python/client.py again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? No more worrying about the sandbox environment for partner testing, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up openapi/v2.yaml again for a small tweak. Worth noting: nothing here changes the public API. The team agreed JSON only, no XML support is the way forward."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an API changelog published with each release",
+   "idempotency keys on all write operations",
+   "SDK generation for three languages",
+   "the sandbox environment for partner testing"
+  ],
+  "pending_tasks": [
+   "field-level filtering on the large resources",
+   "GraphQL as an alternative surface",
+   "documenting the webhook replay procedure",
+   "a conformance test suite for the SDKs"
+  ],
+  "decisions": [
+   "HMAC-SHA256 for webhook signatures",
+   "Kong as the API gateway",
+   "OpenAPI as the source of truth for SDK generation",
+   "JSON only, no XML support",
+   "cursor pagination rather than offset",
+   "a six-month deprecation window"
+  ],
+  "files": [
+   "openapi/v2.yaml",
+   "api/pagination.py",
+   "api/ratelimit.py",
+   "sdk/python/client.py",
+   "api/routes/webhooks.py"
+  ],
+  "errors": [
+   "a breaking change shipped in a minor version"
+  ]
+ }
+}

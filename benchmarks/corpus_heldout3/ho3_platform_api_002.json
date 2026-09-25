@@ -1,0 +1,119 @@
+{
+ "id": "ho3_platform_api_002",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an SDK release."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an SDK release now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "At-least-once webhook delivery with retries? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside openapi/v2.yaml. Consistent error envelopes with machine-readable codes? Taken care of. A six-month deprecation window is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "A deprecation header on the v1 routes went smoothly in the end. Let me know if anything looks off. Documenting the webhook replay procedure is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an SDK release?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about the OpenAPI specification for every public route now. Rewrote parts of api/auth.py as well. What broke the release was cursor pagination skipping rows during concurrent writes."
+  },
+  {
+   "role": "user",
+   "content": "What about an SDK release?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, URL-based versioning over header negotiation is the best fit. If this fails again we will revisit the design. We can stop worrying about idempotency keys on all write operations now. We can stop worrying about request/response logging with PII stripped now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, OAuth 2.0 client credentials for machine access is the best fit. api/routes/webhooks.py ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, cursor pagination rather than offset is the best fit. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards ISO 8601 timestamps in UTC."
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, HMAC-SHA256 for webhook signatures is the best fit. The error messages are now clearer. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: webhook signature verification made it in before the freeze."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "webhook signature verification",
+   "at-least-once webhook delivery with retries",
+   "the OpenAPI specification for every public route",
+   "idempotency keys on all write operations",
+   "consistent error envelopes with machine-readable codes",
+   "request/response logging with PII stripped",
+   "a deprecation header on the v1 routes"
+  ],
+  "pending_tasks": [
+   "documenting the webhook replay procedure"
+  ],
+  "decisions": [
+   "ISO 8601 timestamps in UTC",
+   "HMAC-SHA256 for webhook signatures",
+   "OAuth 2.0 client credentials for machine access",
+   "URL-based versioning over header negotiation",
+   "cursor pagination rather than offset",
+   "a six-month deprecation window"
+  ],
+  "files": [
+   "api/auth.py",
+   "openapi/v2.yaml",
+   "api/routes/webhooks.py"
+  ],
+  "errors": [
+   "cursor pagination skipping rows during concurrent writes"
+  ]
+ }
+}

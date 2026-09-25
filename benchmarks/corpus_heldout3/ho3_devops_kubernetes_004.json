@@ -1,0 +1,110 @@
+{
+ "id": "ho3_devops_kubernetes_004",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an autoscaling review now."
+  },
+  {
+   "role": "user",
+   "content": "What about an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got a rolling deploy with surge and unavailable tuned up and running. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in terraform/cluster.tf. I've got horizontal pod autoscaling on CPU and request rate up and running. I've gone with spot instances for the batch workloads."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got the Helm chart for the API deployment up and running. Have a look at Dockerfile. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We completed cluster autoscaler on the spot node group yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The plan is Prometheus and Grafana for metrics. Customers are hitting PVC binding failures in the new availability zone."
+  },
+  {
+   "role": "user",
+   "content": "I'd like Loki for log aggregation."
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in k8s/networkpolicy.yaml. Agreed. The plan is Kustomize overlays per environment."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Network policies isolating the payments namespace is sorted. I plan to do an upgrade rehearsal in staging next. I edited argocd/apps/api.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "External-secrets backed by Vault is the pick. The relevant code is in charts/api/templates/deployment.yaml."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the Helm chart for the API deployment",
+   "a rolling deploy with surge and unavailable tuned",
+   "cluster autoscaler on the spot node group",
+   "network policies isolating the payments namespace",
+   "horizontal pod autoscaling on CPU and request rate"
+  ],
+  "pending_tasks": [
+   "an upgrade rehearsal in staging"
+  ],
+  "decisions": [
+   "Prometheus and Grafana for metrics",
+   "spot instances for the batch workloads",
+   "Loki for log aggregation",
+   "Kustomize overlays per environment",
+   "external-secrets backed by Vault"
+  ],
+  "files": [
+   "terraform/cluster.tf",
+   "argocd/apps/api.yaml",
+   "k8s/networkpolicy.yaml",
+   "charts/api/templates/deployment.yaml",
+   "Dockerfile"
+  ],
+  "errors": [
+   "PVC binding failures in the new availability zone"
+  ]
+ }
+}

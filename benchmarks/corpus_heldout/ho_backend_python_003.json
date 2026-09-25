@@ -1,0 +1,128 @@
+{
+ "id": "ho_backend_python_003",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a tenant provisioning API please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a tenant provisioning API."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Had to open up db/session.py again for a small tweak. No more worrying about background retry for failed webhook deliveries, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in api/deps.py, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Status on a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pydantic v2 for request validation ended up being the pragmatic option. Ended up rewriting half of docker-compose.yml along the way."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Redis for refresh token storage is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up tests/test_orders.py again for a small tweak. Ended up rewriting half of requirements.txt along the way. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Rate limiting on the auth routes can wait until after the demo."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed UUIDv7 primary keys instead of integers is the way forward. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "My gut says structlog for JSON log output is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Had to open up api/orders.py again for a small tweak. We could also consider caching, but it's not needed yet. Alembic for schema migrations ended up being the pragmatic option."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Tracked the flakiness down to N+1 queries on the order list endpoint. Once POST /api/orders and GET /api/orders/{id} was in, the flaky tests stopped. In the end Postgres over MySQL for JSONB support was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once OpenAPI schema generation for the public routes was in, the flaky tests stopped. The on-call page last night was a 422 on login from a missing email validator. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a tenant provisioning API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking caching the catalogue lookup for now, it's not urgent. The error handling path is covered by the existing tests."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "POST /api/orders and GET /api/orders/{id}",
+   "background retry for failed webhook deliveries",
+   "OpenAPI schema generation for the public routes"
+  ],
+  "pending_tasks": [
+   "caching the catalogue lookup",
+   "rate limiting on the auth routes"
+  ],
+  "decisions": [
+   "UUIDv7 primary keys instead of integers",
+   "Alembic for schema migrations",
+   "structlog for JSON log output",
+   "Redis for refresh token storage",
+   "Postgres over MySQL for JSONB support",
+   "Pydantic v2 for request validation"
+  ],
+  "files": [
+   "docker-compose.yml",
+   "api/orders.py",
+   "api/deps.py",
+   "db/session.py",
+   "tests/test_orders.py",
+   "requirements.txt"
+  ],
+  "errors": [
+   "N+1 queries on the order list endpoint",
+   "a 422 on login from a missing email validator"
+  ]
+ }
+}

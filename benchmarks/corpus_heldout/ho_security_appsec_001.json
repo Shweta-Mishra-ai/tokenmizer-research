@@ -1,0 +1,126 @@
+{
+ "id": "ho_security_appsec_001",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a compliance readiness review."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a compliance readiness review now."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once rotation of the leaked deploy key was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "My gut says a 90-day key rotation schedule is the safer bet. I'd prefer Semgrep in the pull request pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, a deny-by-default egress policy it is. Fine by me. Let me know if you want me to keep going. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Let's do mTLS between internal services."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Makes sense, doing that. The build broke with an XSS in the comment renderer. Just merged encrypted secrets at rest in the vault."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compliance readiness review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up SECURITY.md again for a small tweak. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up terraform/iam.tf again for a small tweak. Open item: a third-party penetration test."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Automated dependency updates hasn't been done yet.\nThe change is in security/redaction.py.\n**Done:** CSP headers on all rendered responses.\nThe retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, Vault as the single secrets store it is."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of api/auth.py along the way."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end gitleaks as a pre-commit hook was simpler than the alternatives. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Up next is a security runbook for incident response. Let me know if you want me to keep going."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "encrypted secrets at rest in the vault",
+   "rotation of the leaked deploy key",
+   "CSP headers on all rendered responses"
+  ],
+  "pending_tasks": [
+   "a third-party penetration test",
+   "automated dependency updates",
+   "a security runbook for incident response"
+  ],
+  "decisions": [
+   "a deny-by-default egress policy",
+   "mTLS between internal services",
+   "Vault as the single secrets store",
+   "a 90-day key rotation schedule",
+   "gitleaks as a pre-commit hook",
+   "Semgrep in the pull request pipeline"
+  ],
+  "files": [
+   "security/redaction.py",
+   "terraform/iam.tf",
+   "SECURITY.md",
+   "api/auth.py"
+  ],
+  "errors": [
+   "an XSS in the comment renderer"
+  ]
+ }
+}

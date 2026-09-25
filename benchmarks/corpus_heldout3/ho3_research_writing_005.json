@@ -1,0 +1,101 @@
+{
+ "id": "ho3_research_writing_005",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a conference paper draft."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a conference paper draft now."
+  },
+  {
+   "role": "user",
+   "content": "Can we try reporting per-domain breakdowns in the appendix?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: the ACL template over the generic LaTeX class. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: a plain-language summary for the blog post."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a conference paper draft?"
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: targeting the workshop deadline rather than the main track. Have a look at paper/main.tex. We completed the abstract rewritten to lead with the result yesterday."
+  },
+  {
+   "role": "user",
+   "content": "What about a conference paper draft?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: the artifact submission package. Peer feedback incorporated from two reviewers? Taken care of. Bootstrap confidence intervals rather than t-tests is the pick."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: paper/abstract.tex. I'll summarise at the end. We've decided on naming the baselines by method rather than by vendor."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. The discussion section is the obvious next step. A final proofread pass is the obvious next step. Changes are in notes/outline.md."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a conference paper draft?"
+  },
+  {
+   "role": "assistant",
+   "content": "The plan is Zotero for reference management. Restructuring the argument around three claims? Taken care of. paper/related_work.tex ended up with most of the changes. Do we need more tests?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the abstract rewritten to lead with the result",
+   "restructuring the argument around three claims",
+   "peer feedback incorporated from two reviewers"
+  ],
+  "pending_tasks": [
+   "the artifact submission package",
+   "a plain-language summary for the blog post",
+   "the discussion section",
+   "a final proofread pass"
+  ],
+  "decisions": [
+   "Zotero for reference management",
+   "bootstrap confidence intervals rather than t-tests",
+   "targeting the workshop deadline rather than the main track",
+   "reporting per-domain breakdowns in the appendix",
+   "naming the baselines by method rather than by vendor",
+   "the ACL template over the generic LaTeX class"
+  ],
+  "files": [
+   "paper/abstract.tex",
+   "paper/main.tex",
+   "paper/related_work.tex",
+   "notes/outline.md"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "id": "ho3_product_analytics_005",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an experiment platform rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an experiment platform rollout now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "- analytics/funnel.sql\nWe've decided on median rather than mean for the latency metrics."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's settle on Amplitude for product analytics."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: the event taxonomy covering fourteen product actions made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What about an experiment platform rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "analytics/cohorts.sql ended up with most of the changes. Everyone was happy with counting activation on first collaborative action."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about the experiment assignment and exposure logging now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] a sample size calculation for the pricing test Good news: a segment definition for activated accounts made it in before the freeze. Reporting absolute lift alongside relative is the pick."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with a two-week minimum experiment runtime?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: reconciling the two conflicting active-user counts. We can stop worrying about statistical significance testing on the primary metric now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: an automated experiment readout template. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "- analytics/experiments.py\nWeekly retention cohorts over six months is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an experiment platform rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] documentation of every metric definition"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "statistical significance testing on the primary metric",
+   "weekly retention cohorts over six months",
+   "the event taxonomy covering fourteen product actions",
+   "documentation of every metric definition",
+   "a sample size calculation for the pricing test",
+   "the experiment assignment and exposure logging",
+   "a segment definition for activated accounts"
+  ],
+  "pending_tasks": [
+   "an automated experiment readout template",
+   "reconciling the two conflicting active-user counts"
+  ],
+  "decisions": [
+   "Amplitude for product analytics",
+   "median rather than mean for the latency metrics",
+   "a two-week minimum experiment runtime",
+   "reporting absolute lift alongside relative",
+   "counting activation on first collaborative action"
+  ],
+  "files": [
+   "analytics/experiments.py",
+   "analytics/funnel.sql",
+   "analytics/cohorts.sql"
+  ],
+  "errors": []
+ }
+}

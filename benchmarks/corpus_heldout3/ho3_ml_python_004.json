@@ -1,0 +1,115 @@
+{
+ "id": "ho3_ml_python_004",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a fraud detection model."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a fraud detection model now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, AUC-PR as the primary metric given the imbalance is the best fit. Gradient boosting reaching 0.84 AUC was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Choose ONNX export for the serving runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "A 90-day lookback window for features is the pick. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] calibrating the output probabilities"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `Makefile`. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: reducing inference latency below 50ms.\n**Decided:** Optuna for hyperparameter search.\nWe completed class imbalance handling with focal loss yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: documenting the model card."
+  },
+  {
+   "role": "user",
+   "content": "What about a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "What about a fraud detection model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Baseline logistic regression at 0.71 AUC? Taken care of. The relevant code is in tests/test_features.py."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with scikit-learn pipelines for preprocessing."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. src/train.py ended up with most of the changes."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "class imbalance handling with focal loss",
+   "baseline logistic regression at 0.71 AUC",
+   "gradient boosting reaching 0.84 AUC"
+  ],
+  "pending_tasks": [
+   "calibrating the output probabilities",
+   "documenting the model card",
+   "reducing inference latency below 50ms"
+  ],
+  "decisions": [
+   "scikit-learn pipelines for preprocessing",
+   "Optuna for hyperparameter search",
+   "ONNX export for the serving runtime",
+   "a 90-day lookback window for features",
+   "AUC-PR as the primary metric given the imbalance"
+  ],
+  "files": [
+   "tests/test_features.py",
+   "src/train.py",
+   "data/schema.json",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

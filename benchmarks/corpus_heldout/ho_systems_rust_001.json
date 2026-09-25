@@ -1,0 +1,153 @@
+{
+ "id": "ho_systems_rust_001",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a packet inspector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a packet inspector."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up src/codec/mod.rs again for a small tweak. Everything looked green, then a segfault in the FFI boundary on aarch64 again. Before release, somebody needs to look at removing the remaining unsafe blocks. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "With criterion benchmarks on the parse loop sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The on-call page last night was integer overflow in the length calculation. With property tests over the encoder round trip sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Parking documenting the public API surface for now, it's not urgent. Rather than overthinking it, arc-swap for the hot config reload it is."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — unbounded memory growth in the buffer pool. In the end cargo-deny for licence and advisory checks was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in Cargo.lock, near the top."
+  },
+  {
+   "role": "user",
+   "content": "My gut says thiserror for library errors and anyhow at the boundary is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end clap for argument parsing was simpler than the alternatives. We could also consider caching, but it's not needed yet."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. An arena allocator for the parse nodes ended up being the pragmatic option."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a packet inspector?"
+  },
+  {
+   "role": "assistant",
+   "content": "With an async runtime built on tokio sorted, the rest should go quicker. Once SIMD acceleration on the checksum path was in, the flaky tests stopped. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. With memory-mapped reads for the index file sorted, the rest should go quicker. Before release, somebody needs to look at a compatibility shim for the old format."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. At some point a miri run over the concurrency tests has to happen too."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "A no_std core module took longer than planned but it's behind us now. No errors on the last run."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an async runtime built on tokio",
+   "SIMD acceleration on the checksum path",
+   "a no_std core module",
+   "memory-mapped reads for the index file",
+   "criterion benchmarks on the parse loop",
+   "property tests over the encoder round trip"
+  ],
+  "pending_tasks": [
+   "a compatibility shim for the old format",
+   "a miri run over the concurrency tests",
+   "documenting the public API surface",
+   "removing the remaining unsafe blocks"
+  ],
+  "decisions": [
+   "cargo-deny for licence and advisory checks",
+   "an arena allocator for the parse nodes",
+   "thiserror for library errors and anyhow at the boundary",
+   "clap for argument parsing",
+   "arc-swap for the hot config reload"
+  ],
+  "files": [
+   "Cargo.lock",
+   "src/codec/mod.rs"
+  ],
+  "errors": [
+   "a segfault in the FFI boundary on aarch64",
+   "integer overflow in the length calculation",
+   "unbounded memory growth in the buffer pool"
+  ]
+ }
+}

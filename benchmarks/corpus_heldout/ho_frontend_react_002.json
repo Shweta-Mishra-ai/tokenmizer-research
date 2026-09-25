@@ -1,0 +1,133 @@
+{
+ "id": "ho_frontend_react_002",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a checkout flow rewrite."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a checkout flow rewrite now."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Zustand instead of Redux for local state seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Had to open up vite.config.ts again for a small tweak. Let's not forget about an accessibility audit of the nav."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. The on-call page last night was a hydration mismatch on the server-rendered header."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in tests/dashboard.spec.ts, near the top."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about a bundle size budget in CI. No more worrying about dark mode using CSS custom properties, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, Playwright for end-to-end tests it is. Crossed the empty and loading states for every panel off the list this morning. If the migration fails, we roll back automatically. The team agreed Radix primitives for accessible components is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Replacing the date picker with a headless one can wait until after the demo. The fix lives in src/hooks/useMetrics.ts, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — a race condition between two in-flight fetches. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. The fix lives in src/store/session.ts, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "With optimistic updates on the toggle controls sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Migrating the remaining class components can wait until after the demo."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "optimistic updates on the toggle controls",
+   "dark mode using CSS custom properties",
+   "the empty and loading states for every panel"
+  ],
+  "pending_tasks": [
+   "a bundle size budget in CI",
+   "an accessibility audit of the nav",
+   "replacing the date picker with a headless one",
+   "migrating the remaining class components"
+  ],
+  "decisions": [
+   "Zustand instead of Redux for local state",
+   "Playwright for end-to-end tests",
+   "Radix primitives for accessible components"
+  ],
+  "files": [
+   "tests/dashboard.spec.ts",
+   "src/store/session.ts",
+   "src/hooks/useMetrics.ts",
+   "vite.config.ts"
+  ],
+  "errors": [
+   "a hydration mismatch on the server-rendered header",
+   "a race condition between two in-flight fetches"
+  ]
+ }
+}

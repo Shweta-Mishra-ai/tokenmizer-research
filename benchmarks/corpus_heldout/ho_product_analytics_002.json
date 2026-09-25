@@ -1,0 +1,128 @@
+{
+ "id": "ho_product_analytics_002",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an onboarding redesign measurement."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an onboarding redesign measurement now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Merged: the dashboard tracking the three north star metrics."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an onboarding redesign measurement?"
+  },
+  {
+   "role": "assistant",
+   "content": "Blocker: survivorship bias in the retention calculation.\n- `analytics/segments.sql`\nProblem: timezone mismatch splitting one day across two cohorts."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: a sample size calculation for the pricing test. Final choice: counting activation on first collaborative action. We could also consider caching, but it's not needed yet. Status: a holdout group excluded from all experiments — complete."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] statistical significance testing on the primary metric\nTests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Error:** a broken event after the client release stopped firing it.\nFiles changed: tests/test_metrics.py."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand. Merged: weekly retention cohorts over six months. Modified: notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Merged: the experiment assignment and exposure logging. Final choice: an experiment registry with pre-registered hypotheses."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm.\n**Done:** documentation of every metric definition."
+  },
+  {
+   "role": "user",
+   "content": "Status on an onboarding redesign measurement?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: analytics/significance.py."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `config/taxonomy.yaml`.\n- [ ] a guardrail metric on support ticket volume\nFinal choice: excluding internal accounts from every metric."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "statistical significance testing on the primary metric",
+   "a sample size calculation for the pricing test",
+   "documentation of every metric definition",
+   "the dashboard tracking the three north star metrics",
+   "the experiment assignment and exposure logging",
+   "a holdout group excluded from all experiments",
+   "weekly retention cohorts over six months"
+  ],
+  "pending_tasks": [
+   "a guardrail metric on support ticket volume"
+  ],
+  "decisions": [
+   "counting activation on first collaborative action",
+   "an experiment registry with pre-registered hypotheses",
+   "excluding internal accounts from every metric"
+  ],
+  "files": [
+   "config/taxonomy.yaml",
+   "analytics/segments.sql",
+   "tests/test_metrics.py",
+   "notebooks/churn_drivers.ipynb",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "survivorship bias in the retention calculation",
+   "a broken event after the client release stopped firing it",
+   "timezone mismatch splitting one day across two cohorts"
+  ]
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "id": "ho_data_sql_001",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a data quality initiative please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a data quality initiative."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Opting for dbt for the transformation layer. We could also consider caching, but it's not needed yet. A cost review of the warehouse spend can wait until after the demo."
+  },
+  {
+   "role": "user",
+   "content": "Status on a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of models/staging/stg_events.sql along the way."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up sql/indexes.sql again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backfilling six months of historical revenue took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of models/marts/fct_orders.sql along the way."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Archiving events older than two years can wait until after the demo. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "I've added freshness tests on every source table."
+  },
+  {
+   "role": "user",
+   "content": "Status on a data quality initiative?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up tests/schema.yml again for a small tweak. Here's a quick summary of where things stand. Most of the edits went into models/marts/dim_customer.sql."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Incremental models for the daily aggregates took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. Merged: the star schema for the orders fact table. No more worrying about column-level lineage documentation, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. The team agreed Kafka for the event transport is the way forward. Sticking with Parquet as the landing format. I've added a materialised view for the executive dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Honestly incremental materialisation on the large models seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Honestly Snowflake over BigQuery for the warehouse seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Edited `dags/daily_refresh.py`."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "column-level lineage documentation",
+   "backfilling six months of historical revenue",
+   "a materialised view for the executive dashboard",
+   "incremental models for the daily aggregates",
+   "freshness tests on every source table",
+   "the star schema for the orders fact table"
+  ],
+  "pending_tasks": [
+   "a cost review of the warehouse spend",
+   "archiving events older than two years"
+  ],
+  "decisions": [
+   "dbt for the transformation layer",
+   "Kafka for the event transport",
+   "Snowflake over BigQuery for the warehouse",
+   "Parquet as the landing format",
+   "incremental materialisation on the large models"
+  ],
+  "files": [
+   "models/marts/dim_customer.sql",
+   "models/marts/fct_orders.sql",
+   "tests/schema.yml",
+   "sql/indexes.sql",
+   "models/staging/stg_events.sql",
+   "dags/daily_refresh.py"
+  ],
+  "errors": []
+ }
+}

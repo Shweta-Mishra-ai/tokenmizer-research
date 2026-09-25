@@ -1,0 +1,144 @@
+{
+ "id": "ho_data_sql_004",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a schema normalisation effort."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "At some point unit tests for the revenue macro has to happen too. Let me know if you want me to keep going. The on-call page last night was stale data from a silently failing incremental run. Once partitioning the events table by month was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Once surrogate keys across the dimension tables was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "With row count reconciliation against the source system sorted, the rest should go quicker. The fix lives in scripts/backfill.py, near the top. The fix lives in macros/revenue.sql, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, dbt for the transformation layer it is."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in models/marts/fct_orders.sql, near the top. Had to open up dbt_project.yml again for a small tweak. A covering index on the customer lookup took longer than planned but it's behind us now. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. In the end Parquet as the landing format was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of models/staging/stg_events.sql along the way."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once column-level lineage documentation was in, the flaky tests stopped. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Status on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Crossed deduplication on the raw event stream off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once incremental models for the daily aggregates was in, the flaky tests stopped. Everything looked green, then a null propagation bug in the margin calculation again."
+  },
+  {
+   "role": "user",
+   "content": "Status on a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Before release, somebody needs to look at documenting the grain of each fact table."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a schema normalisation effort?"
+  },
+  {
+   "role": "assistant",
+   "content": "Everything looked green, then duplicate rows from a non-unique natural key again."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "row count reconciliation against the source system",
+   "partitioning the events table by month",
+   "a covering index on the customer lookup",
+   "deduplication on the raw event stream",
+   "column-level lineage documentation",
+   "incremental models for the daily aggregates",
+   "surrogate keys across the dimension tables"
+  ],
+  "pending_tasks": [
+   "unit tests for the revenue macro",
+   "documenting the grain of each fact table"
+  ],
+  "decisions": [
+   "Parquet as the landing format",
+   "dbt for the transformation layer"
+  ],
+  "files": [
+   "models/marts/fct_orders.sql",
+   "macros/revenue.sql",
+   "models/staging/stg_events.sql",
+   "dbt_project.yml",
+   "scripts/backfill.py"
+  ],
+  "errors": [
+   "stale data from a silently failing incremental run",
+   "duplicate rows from a non-unique natural key",
+   "a null propagation bug in the margin calculation"
+  ]
+ }
+}

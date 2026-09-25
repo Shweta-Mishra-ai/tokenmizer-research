@@ -1,0 +1,135 @@
+{
+ "id": "ho3_data_streaming_001",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a Kafka pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a Kafka pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of scripts/replay.py as well. Most of the work happened inside schemas/order_placed.avsc."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of streams/aggregator.py as well. Nobody has touched an automated schema compatibility check in CI yet. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Compaction on the entity state topics? Taken care of. The alerts this morning came from silent message loss from an auto-commit race."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nobody has touched tiered storage for the older segments yet."
+  },
+  {
+   "role": "user",
+   "content": "What about a Kafka pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "The root cause turned out to be out-of-order events breaking the windowed aggregate. connect/debezium.json ended up with most of the changes. Backward-compatible schema evolution only beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Reducing end-to-end latency below one second is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of streams/consumer.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about consumer lag monitoring with alerting now. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "A separate cluster for the analytics workloads sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the ordering guarantees is the obvious next step. We may decide to change this later. Good news: an integration test spinning up a real broker made it in before the freeze. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Flink for the stateful stream processing is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "What broke the release was a schema incompatibility rejecting valid producers."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an integration test spinning up a real broker",
+   "consumer lag monitoring with alerting",
+   "compaction on the entity state topics"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees",
+   "reducing end-to-end latency below one second",
+   "an automated schema compatibility check in CI",
+   "tiered storage for the older segments"
+  ],
+  "decisions": [
+   "Flink for the stateful stream processing",
+   "backward-compatible schema evolution only",
+   "a separate cluster for the analytics workloads"
+  ],
+  "files": [
+   "streams/consumer.py",
+   "connect/debezium.json",
+   "scripts/replay.py",
+   "schemas/order_placed.avsc",
+   "streams/aggregator.py"
+  ],
+  "errors": [
+   "out-of-order events breaking the windowed aggregate",
+   "silent message loss from an auto-commit race",
+   "a schema incompatibility rejecting valid producers"
+  ]
+ }
+}

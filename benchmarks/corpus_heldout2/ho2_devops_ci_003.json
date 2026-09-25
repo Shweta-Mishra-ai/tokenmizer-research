@@ -1,0 +1,110 @@
+{
+ "id": "ho2_devops_ci_003",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a test infrastructure migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a test infrastructure migration."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: conftest.py."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use test retries limited to two attempts. Edits are in .github/dependabot.yml. I put it in scripts/run_tests.sh. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Pinning all third-party actions by digest is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into Makefile. Running into the pipeline timing out after 60 minutes."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a test infrastructure migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. I'd go with uv for dependency installation. After a couple of tries, required status checks on the default branch finally works. Defect: a permissions error pushing the release tag."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a test infrastructure migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: self-hosted runners for the GPU tests. Automated changelog generation on tag is finished."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, quarantining the six flakiest tests finally works. We landed on a required review from one code owner. Resolved: container image build with layer caching."
+  },
+  {
+   "role": "user",
+   "content": "What about buildx with a remote cache backend?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that.\nHere's what I found.\n**Choice:** release-please for version bumps."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "container image build with layer caching",
+   "quarantining the six flakiest tests",
+   "required status checks on the default branch",
+   "automated changelog generation on tag"
+  ],
+  "pending_tasks": [
+   "pinning all third-party actions by digest",
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "release-please for version bumps",
+   "test retries limited to two attempts",
+   "buildx with a remote cache backend",
+   "a required review from one code owner",
+   "uv for dependency installation"
+  ],
+  "files": [
+   ".github/dependabot.yml",
+   "Makefile",
+   "scripts/run_tests.sh",
+   "conftest.py"
+  ],
+  "errors": [
+   "the pipeline timing out after 60 minutes",
+   "a permissions error pushing the release tag"
+  ]
+ }
+}

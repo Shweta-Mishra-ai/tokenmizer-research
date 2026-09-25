@@ -1,0 +1,120 @@
+{
+ "id": "ho_mobile_ios_002",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an offline-first notes client."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an offline-first notes client now."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with SwiftUI for all new screens. I'll explain the reasoning below. The change is in Sources/Store/WorkoutStore.swift."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with StoreKit 2 for subscriptions. I've finished dark mode across every screen. Most of the edits went into Sources/Auth/Keychain.swift."
+  },
+  {
+   "role": "user",
+   "content": "Status on an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Opting for XCTest with snapshot assertions."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Look at App/Info.plist for the details. The SwiftUI onboarding sequence is now in place. We'll go with Core Data over Realm for local storage."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed a duplicate record after an interrupted sync in staging. Up next is an iPad layout for the summary screen. Seeing a keychain access error after device restore in the logs."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at fastlane/Fastfile for the details. I touched Sources/Sync/SyncEngine.swift as well. If the migration fails, we roll back automatically. I've added unit tests for the sync reducer."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into Tests/SyncTests.swift. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How about fastlane for the release pipeline?"
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. I've finished VoiceOver labels across the main screens. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "A snapshot test suite for the components is still outstanding."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VoiceOver labels across the main screens",
+   "unit tests for the sync reducer",
+   "the SwiftUI onboarding sequence",
+   "dark mode across every screen"
+  ],
+  "pending_tasks": [
+   "an iPad layout for the summary screen",
+   "a snapshot test suite for the components"
+  ],
+  "decisions": [
+   "StoreKit 2 for subscriptions",
+   "SwiftUI for all new screens",
+   "XCTest with snapshot assertions",
+   "fastlane for the release pipeline",
+   "Core Data over Realm for local storage"
+  ],
+  "files": [
+   "fastlane/Fastfile",
+   "Tests/SyncTests.swift",
+   "App/Info.plist",
+   "Sources/Sync/SyncEngine.swift",
+   "Sources/Store/WorkoutStore.swift",
+   "Sources/Auth/Keychain.swift"
+  ],
+  "errors": [
+   "a keychain access error after device restore",
+   "a duplicate record after an interrupted sync"
+  ]
+ }
+}

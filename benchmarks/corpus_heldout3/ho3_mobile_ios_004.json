@@ -1,0 +1,125 @@
+{
+ "id": "ho3_mobile_ios_004",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with an accessibility overhaul."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on an accessibility overhaul."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: a widget showing today's activity.\n- App/Info.plist"
+  },
+  {
+   "role": "user",
+   "content": "Fastlane for the release pipeline sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: a snapshot test suite for the components. Agreed. An iPad layout for the summary screen is on the backlog."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "Chose The Composable Architecture for state. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: keychain storage for the auth token made it in before the freeze. Result: crash reporting integration done. I've got Core Data persistence for the workout log up and running."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of Tests/SyncTests.swift as well. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: an App Store privacy nutrition label review. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Customers are hitting a duplicate record after an interrupted sync."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "Unit tests for the sync reducer was rolled out. I'll summarise at the end. * [x] the HealthKit permission flow"
+  },
+  {
+   "role": "user",
+   "content": "Plan for an accessibility overhaul?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. Most of the work happened inside fastlane/Fastfile."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "keychain storage for the auth token",
+   "the HealthKit permission flow",
+   "a widget showing today's activity",
+   "crash reporting integration",
+   "Core Data persistence for the workout log",
+   "unit tests for the sync reducer"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "an iPad layout for the summary screen",
+   "an App Store privacy nutrition label review"
+  ],
+  "decisions": [
+   "fastlane for the release pipeline",
+   "iOS 17 as the minimum deployment target",
+   "The Composable Architecture for state"
+  ],
+  "files": [
+   "App/Info.plist",
+   "fastlane/Fastfile",
+   "Tests/SyncTests.swift"
+  ],
+  "errors": [
+   "a duplicate record after an interrupted sync"
+  ]
+ }
+}

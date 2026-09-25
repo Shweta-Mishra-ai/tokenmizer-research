@@ -1,0 +1,129 @@
+{
+ "id": "ho2_platform_api_003",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a partner integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a partner integration."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is exponential backoff with jitter for webhook retries.\n**Completed:** consistent error envelopes with machine-readable codes.\nLet me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Idempotency keys on all write operations: done. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. The OpenAPI specification for every public route is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "api/errors.py got a few more lines. Nothing failed on the last run. Most of the afternoon went into api/ratelimit.py. I put it in gateway/kong.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: a rate limit tier for enterprise keys. Check api/routes/webhooks.py for the change."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a partner integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, cursor pagination rather than offset came out ahead. Still open: field-level filtering on the large resources. An API changelog published with each release: done. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is JSON only, no XML support.\nTouched: docs/api/changelog.md.\n**Choice:** RFC 7807 problem details for errors."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped webhook signature verification. That leaves per-key rate limits with headers exposing the budget behind us. URL-based versioning over header negotiation is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `tests/test_webhooks.py` The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "✔ At-least-once webhook delivery with retries A usage dashboard for API consumers is waiting on me."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "idempotency keys on all write operations",
+   "webhook signature verification",
+   "an API changelog published with each release",
+   "the OpenAPI specification for every public route",
+   "per-key rate limits with headers exposing the budget",
+   "at-least-once webhook delivery with retries",
+   "consistent error envelopes with machine-readable codes"
+  ],
+  "pending_tasks": [
+   "a usage dashboard for API consumers",
+   "field-level filtering on the large resources",
+   "a rate limit tier for enterprise keys"
+  ],
+  "decisions": [
+   "URL-based versioning over header negotiation",
+   "RFC 7807 problem details for errors",
+   "JSON only, no XML support",
+   "exponential backoff with jitter for webhook retries",
+   "cursor pagination rather than offset"
+  ],
+  "files": [
+   "api/routes/webhooks.py",
+   "tests/test_webhooks.py",
+   "gateway/kong.yaml",
+   "api/errors.py",
+   "docs/api/changelog.md",
+   "api/ratelimit.py"
+  ],
+  "errors": []
+ }
+}

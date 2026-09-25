@@ -1,0 +1,91 @@
+{
+ "id": "ho_backend_go_002",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a job scheduler."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a job scheduler now."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — a goroutine leak on the cancelled request path. A worker pool bounded at 32 goroutines took longer than planned but it's behind us now. Tests pass locally; CI will confirm."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of Dockerfile along the way. The team agreed OpenTelemetry for traces is the way forward. Ended up rewriting half of internal/store/postgres.go along the way."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "With the retry policy with exponential backoff sorted, the rest should go quicker. Moving the config to environment variables can wait until after the demo. The error handling path is covered by the existing tests. Once a circuit breaker around the downstream call was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "A fuzz test on the decoder can wait until after the demo. Tracked the flakiness down to excessive allocations causing GC pressure."
+  },
+  {
+   "role": "user",
+   "content": "My gut says a monorepo layout with internal packages is the safer bet. My gut says gRPC over REST for internal traffic is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm. Fine by me. At some point distributed tracing spans across services has to happen too. Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Before release, somebody needs to look at profiling the p99 latency spike. The error handling path is covered by the existing tests."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the retry policy with exponential backoff",
+   "a worker pool bounded at 32 goroutines",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "distributed tracing spans across services",
+   "a fuzz test on the decoder",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "OpenTelemetry for traces",
+   "a monorepo layout with internal packages",
+   "gRPC over REST for internal traffic"
+  ],
+  "files": [
+   "internal/store/postgres.go",
+   "Dockerfile"
+  ],
+  "errors": [
+   "a goroutine leak on the cancelled request path",
+   "excessive allocations causing GC pressure"
+  ]
+ }
+}

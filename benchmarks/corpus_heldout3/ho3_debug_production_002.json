@@ -1,0 +1,105 @@
+{
+ "id": "ho3_debug_production_002",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a memory leak hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a memory leak hunt."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "A regression test covering the failure mode is working now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. We need documenting the failure mode in the runbook before launch."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "We're going to use a canary deploy for the fix. Keeping the extra logging for two weeks is the pick."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "We found a 30% error rate on the payment callback."
+  },
+  {
+   "role": "user",
+   "content": "What about a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited src/pool.py. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in logs/analysis.py. Let me know if anything looks off. I edited src/handlers/checkout.py."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ruling out the cache layer as the cause was rolled out. We completed instrumenting the slow query with timing spans yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Confirming the hypothesis with a targeted experiment was rolled out. We need a permanent fix replacing the hotfix before launch. The error messages are now clearer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "confirming the hypothesis with a targeted experiment",
+   "instrumenting the slow query with timing spans",
+   "a regression test covering the failure mode",
+   "ruling out the cache layer as the cause"
+  ],
+  "pending_tasks": [
+   "documenting the failure mode in the runbook",
+   "a permanent fix replacing the hotfix"
+  ],
+  "decisions": [
+   "keeping the extra logging for two weeks",
+   "a canary deploy for the fix"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "src/pool.py",
+   "logs/analysis.py"
+  ],
+  "errors": [
+   "a 30% error rate on the payment callback"
+  ]
+ }
+}

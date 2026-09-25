@@ -1,0 +1,113 @@
+{
+ "id": "ho2_devops_ci_005",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a test infrastructure migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a test infrastructure migration."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Dependency caching across pipeline runs went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on trunk-based development with short-lived branches. There's a permissions error pushing the release tag in production. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Test retries limited to two attempts is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in .pre-commit-config.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in Makefile. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "A concurrency group cancelling superseded runs: done."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to a merge queue for the busy repositories. A required review from one code owner is what we're using. The error budget is fine this month. I've wrapped coverage reporting posted to the pull request."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to self-hosted runners for the GPU tests. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "What about uv for dependency installation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "coverage reporting posted to the pull request",
+   "dependency caching across pipeline runs",
+   "a concurrency group cancelling superseded runs"
+  ],
+  "pending_tasks": [
+   "self-hosted runners for the GPU tests",
+   "a merge queue for the busy repositories"
+  ],
+  "decisions": [
+   "trunk-based development with short-lived branches",
+   "uv for dependency installation",
+   "a required review from one code owner",
+   "test retries limited to two attempts"
+  ],
+  "files": [
+   ".pre-commit-config.yaml",
+   "Makefile"
+  ],
+  "errors": [
+   "a permissions error pushing the release tag"
+  ]
+ }
+}

@@ -1,0 +1,164 @@
+{
+ "id": "ho3_debug_production_005",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a latency incident investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a latency incident investigation now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — a load test reproducing the traffic pattern."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] cleaning up the temporary debug logging"
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: scripts/repro.py. * [ ] documenting the failure mode in the runbook Implemented reproducing the failure in a staging environment."
+  },
+  {
+   "role": "user",
+   "content": "Switch to py-spy for the production profiling."
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with a canary deploy for the fix."
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] correlating the errors with the deploy timeline Okay, doing it. File: `src/pool.py`."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — adding structured logging around the suspect path.\n- runbooks/latency.md"
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: confirming the hypothesis with a targeted experiment."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Affected file: logs/analysis.py."
+  },
+  {
+   "role": "user",
+   "content": "What about a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on increasing the connection pool as a stopgap. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** the hotfix reverting the connection pool change.\nHere is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "What about a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Chose a blameless postmortem format."
+  },
+  {
+   "role": "user",
+   "content": "What about a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug report: connection pool exhaustion under the checkout load. Bug report: a cascading failure from the retry storm."
+  },
+  {
+   "role": "user",
+   "content": "What about a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** a thundering herd on cache expiry.\nBacklog: a follow-up on the third-party client bug report.\nWe've decided on sampling traces at 10% rather than 1%."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "- src/client.py\n* [x] the postmortem document with action items\nThe build is green."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the hotfix reverting the connection pool change",
+   "correlating the errors with the deploy timeline",
+   "confirming the hypothesis with a targeted experiment",
+   "adding structured logging around the suspect path",
+   "reproducing the failure in a staging environment",
+   "the postmortem document with action items"
+  ],
+  "pending_tasks": [
+   "a load test reproducing the traffic pattern",
+   "documenting the failure mode in the runbook",
+   "a follow-up on the third-party client bug report",
+   "cleaning up the temporary debug logging"
+  ],
+  "decisions": [
+   "py-spy for the production profiling",
+   "sampling traces at 10% rather than 1%",
+   "a canary deploy for the fix",
+   "a blameless postmortem format",
+   "increasing the connection pool as a stopgap"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "runbooks/latency.md",
+   "src/pool.py",
+   "src/client.py",
+   "logs/analysis.py"
+  ],
+  "errors": [
+   "a thundering herd on cache expiry",
+   "a cascading failure from the retry storm",
+   "connection pool exhaustion under the checkout load"
+  ]
+ }
+}

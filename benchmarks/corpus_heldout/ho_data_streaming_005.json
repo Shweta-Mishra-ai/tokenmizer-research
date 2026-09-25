@@ -1,0 +1,114 @@
+{
+ "id": "ho_data_streaming_005",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a stream processing job please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a stream processing job."
+  },
+  {
+   "role": "user",
+   "content": "My gut says backward-compatible schema evolution only is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Status on a stream processing job?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about a cost review of the broker cluster."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up config/kafka.yaml again for a small tweak. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The fix lives in schemas/order_placed.avsc, near the top. No more worrying about compaction on the entity state topics, that part's handled. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "My gut says protobuf for the internal service events is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Honestly a seven-day retention on the raw topics seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. With a schema registry entry for every event type sorted, the rest should go quicker. The on-call page last night was consumer lag growing unbounded during the nightly spike."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tracked the flakiness down to a schema incompatibility rejecting valid producers."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up connect/debezium.json again for a small tweak. Crossed windowed aggregation over five-minute tumbling windows off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Exactly-once semantics on the aggregation job took longer than planned but it's behind us now. Worth noting: nothing here changes the public API."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "compaction on the entity state topics",
+   "windowed aggregation over five-minute tumbling windows",
+   "a schema registry entry for every event type",
+   "exactly-once semantics on the aggregation job"
+  ],
+  "pending_tasks": [
+   "a cost review of the broker cluster"
+  ],
+  "decisions": [
+   "a seven-day retention on the raw topics",
+   "protobuf for the internal service events",
+   "backward-compatible schema evolution only"
+  ],
+  "files": [
+   "schemas/order_placed.avsc",
+   "config/kafka.yaml",
+   "connect/debezium.json"
+  ],
+  "errors": [
+   "a schema incompatibility rejecting valid producers",
+   "consumer lag growing unbounded during the nightly spike"
+  ]
+ }
+}

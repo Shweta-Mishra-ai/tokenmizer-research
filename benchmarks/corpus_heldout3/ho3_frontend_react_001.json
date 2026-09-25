@@ -1,0 +1,140 @@
+{
+ "id": "ho3_frontend_react_001",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up an analytics dashboard."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up an analytics dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "A virtualised list for the 10k-row view is working now. Offline support for the draft editor is on the backlog. We completed dark mode using CSS custom properties yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We completed focus trapping in the modal component yesterday. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with Tailwind for styling?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. I edited package.json."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an analytics dashboard?"
+  },
+  {
+   "role": "assistant",
+   "content": "The empty and loading states for every panel is working now. If this fails again we will revisit the design. Still to do: memoising the chart data transform."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We ran into a memory leak from an unsubscribed event listener. I've got code splitting on the route boundaries up and running."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at src/store/session.ts. Let me know if anything looks off. We found stale closure state in the polling hook. Changes are in vite.config.ts."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Form validation with inline error messages was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Migrating the remaining class components still needs doing. Let's settle on Radix primitives for accessible components. We completed server-side pagination on the results table yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. I've gone with Playwright for end-to-end tests."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited src/App.tsx. I'll summarise at the end. There is a race condition between two in-flight fetches on the main branch. I plan to do an accessibility audit of the nav next."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in tailwind.config.js. I've gone with Zustand instead of Redux for local state."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "server-side pagination on the results table",
+   "form validation with inline error messages",
+   "code splitting on the route boundaries",
+   "the empty and loading states for every panel",
+   "dark mode using CSS custom properties",
+   "a virtualised list for the 10k-row view",
+   "focus trapping in the modal component"
+  ],
+  "pending_tasks": [
+   "migrating the remaining class components",
+   "an accessibility audit of the nav",
+   "offline support for the draft editor",
+   "memoising the chart data transform"
+  ],
+  "decisions": [
+   "Radix primitives for accessible components",
+   "Tailwind for styling",
+   "Zustand instead of Redux for local state",
+   "Playwright for end-to-end tests"
+  ],
+  "files": [
+   "vite.config.ts",
+   "tailwind.config.js",
+   "src/App.tsx",
+   "src/store/session.ts",
+   "package.json"
+  ],
+  "errors": [
+   "a race condition between two in-flight fetches",
+   "a memory leak from an unsubscribed event listener",
+   "stale closure state in the polling hook"
+  ]
+ }
+}

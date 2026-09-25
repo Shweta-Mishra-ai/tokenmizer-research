@@ -1,0 +1,116 @@
+{
+ "id": "ho_research_writing_001",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an internal architecture RFC."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an internal architecture RFC now."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into notes/outline.md. The change is in data/results.json. New file: Makefile. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about a final proofread pass. Most of the edits went into paper/evaluation.tex. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Status on an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with framing the contribution as a measurement study."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ An overclaim in the introduction the data does not support."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: a first pass at the methodology section. In the end an explicit statement that the corpus is synthetic was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged the introduction cut from four pages to two. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Error:** a mislabelled axis on the compression figure.\nWe decided on reporting per-domain breakdowns in the appendix.\nWorth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about shortening to the eight-page limit. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I've added peer feedback incorporated from two reviewers. The build broke with a numerical inconsistency between the abstract and table three."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a first pass at the methodology section",
+   "peer feedback incorporated from two reviewers",
+   "the introduction cut from four pages to two"
+  ],
+  "pending_tasks": [
+   "a final proofread pass",
+   "shortening to the eight-page limit"
+  ],
+  "decisions": [
+   "reporting per-domain breakdowns in the appendix",
+   "an explicit statement that the corpus is synthetic",
+   "framing the contribution as a measurement study"
+  ],
+  "files": [
+   "notes/outline.md",
+   "paper/evaluation.tex",
+   "data/results.json",
+   "Makefile"
+  ],
+  "errors": [
+   "an overclaim in the introduction the data does not support",
+   "a mislabelled axis on the compression figure",
+   "a numerical inconsistency between the abstract and table three"
+  ]
+ }
+}

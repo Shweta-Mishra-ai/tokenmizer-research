@@ -1,0 +1,119 @@
+{
+ "id": "ho_devops_ci_003",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a monorepo pipeline split please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a monorepo pipeline split."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of conftest.py along the way. Had to open up Dockerfile again for a small tweak. Next I'll pick up a rollback job for failed deploys."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a monorepo pipeline split?"
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about dependency caching across pipeline runs, that part's handled. The build broke with cache corruption producing stale build artifacts. Parallel test execution across four shards works now."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I picked release-please for version bumps."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] signed release artifacts\nThe team agreed ruff replacing flake8 and isort is the way forward.\nI've finished coverage reporting posted to the pull request."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Ended up rewriting half of .pre-commit-config.yaml along the way."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Final choice: buildx with a remote cache backend. Once a concurrency group cancelling superseded runs was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. Container image build with layer caching is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking a merge queue for the busy repositories for now, it's not urgent. Tests pass locally; CI will confirm. We decided on a required review from one code owner. Next I'll pick up cutting the pipeline below eight minutes."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: automated changelog generation on tag."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "container image build with layer caching",
+   "parallel test execution across four shards",
+   "automated changelog generation on tag",
+   "coverage reporting posted to the pull request",
+   "signed release artifacts",
+   "a concurrency group cancelling superseded runs",
+   "dependency caching across pipeline runs"
+  ],
+  "pending_tasks": [
+   "cutting the pipeline below eight minutes",
+   "a merge queue for the busy repositories",
+   "a rollback job for failed deploys"
+  ],
+  "decisions": [
+   "buildx with a remote cache backend",
+   "ruff replacing flake8 and isort",
+   "a required review from one code owner",
+   "release-please for version bumps"
+  ],
+  "files": [
+   ".pre-commit-config.yaml",
+   "Dockerfile",
+   "conftest.py"
+  ],
+  "errors": [
+   "cache corruption producing stale build artifacts"
+  ]
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "id": "ho2_product_analytics_002",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an activation funnel analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an activation funnel analysis."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `analytics/significance.py`\nDelivered: weekly retention cohorts over six months.\n**Choice:** counting activation on first collaborative action."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: a qualitative follow-up with churned accounts. Decisions like this usually need a design doc. ✔ Statistical significance testing on the primary metric Resolved: a holdout group excluded from all experiments."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision made: one primary metric per experiment.\nTouched: notebooks/churn_drivers.ipynb.\n**Completed:** documentation of every metric definition."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an activation funnel analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: analytics/cohorts.sql."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "statistical significance testing on the primary metric",
+   "a holdout group excluded from all experiments",
+   "documentation of every metric definition",
+   "weekly retention cohorts over six months"
+  ],
+  "pending_tasks": [
+   "a qualitative follow-up with churned accounts"
+  ],
+  "decisions": [
+   "one primary metric per experiment",
+   "counting activation on first collaborative action"
+  ],
+  "files": [
+   "analytics/significance.py",
+   "analytics/cohorts.sql",
+   "notebooks/churn_drivers.ipynb"
+  ],
+  "errors": []
+ }
+}

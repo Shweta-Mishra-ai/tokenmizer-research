@@ -1,0 +1,153 @@
+{
+ "id": "ho_product_analytics_005",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a pricing change evaluation."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about deduplication of the double-fired signup event, that part's handled. Failure: a sample ratio mismatch in the pricing experiment. No more worrying about statistical significance testing on the primary metric, that part's handled. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: config/taxonomy.yaml. I've added the experiment assignment and exposure logging."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "We still have to do a qualitative follow-up with churned accounts. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Status on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: analytics/significance.py."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "In the end weekly rather than daily cohorts for readability was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: a holdout group excluded from all experiments. Final choice: Amplitude for product analytics."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Once a funnel from signup through first value was in, the flaky tests stopped. Had to open up dashboards/north_star.json again for a small tweak. Let's not forget about extending the cohort window to twelve months."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** a 95% confidence threshold for experiment calls."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on median rather than mean for the latency metrics.\n**Next steps:** sunsetting the legacy dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: a data dictionary for the product team."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into notebooks/churn_drivers.ipynb."
+  },
+  {
+   "role": "user",
+   "content": "Decision: an experiment registry with pre-registered hypotheses."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Status on a pricing change evaluation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, excluding internal accounts from every metric it is. The error handling path is covered by the existing tests."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a holdout group excluded from all experiments",
+   "statistical significance testing on the primary metric",
+   "deduplication of the double-fired signup event",
+   "a funnel from signup through first value",
+   "the experiment assignment and exposure logging"
+  ],
+  "pending_tasks": [
+   "extending the cohort window to twelve months",
+   "sunsetting the legacy dashboard",
+   "a qualitative follow-up with churned accounts",
+   "a data dictionary for the product team"
+  ],
+  "decisions": [
+   "weekly rather than daily cohorts for readability",
+   "excluding internal accounts from every metric",
+   "a 95% confidence threshold for experiment calls",
+   "Amplitude for product analytics",
+   "median rather than mean for the latency metrics",
+   "an experiment registry with pre-registered hypotheses"
+  ],
+  "files": [
+   "config/taxonomy.yaml",
+   "dashboards/north_star.json",
+   "notebooks/churn_drivers.ipynb",
+   "analytics/significance.py"
+  ],
+  "errors": [
+   "a sample ratio mismatch in the pricing experiment"
+  ]
+ }
+}

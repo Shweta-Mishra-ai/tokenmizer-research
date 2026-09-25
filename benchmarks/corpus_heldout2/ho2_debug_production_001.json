@@ -1,0 +1,79 @@
+{
+ "id": "ho2_debug_production_001",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a latency incident investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a latency incident investigation."
+  },
+  {
+   "role": "user",
+   "content": "Stick with a feature flag to disable the suspect path."
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** the hotfix reverting the connection pool change.\nResolution: reverting to the previous library version.\nGood call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task: reviewing the other call sites with the same pattern. We are going with paging on error rate rather than absolute count. [ ] a follow-up on the third-party client bug report"
+  },
+  {
+   "role": "user",
+   "content": "Let's use increasing the connection pool as a stopgap."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: runbooks/latency.md. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: scripts/repro.py. [done] the postmortem document with action items [done] instrumenting the slow query with timing spans"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the postmortem document with action items",
+   "instrumenting the slow query with timing spans",
+   "the hotfix reverting the connection pool change"
+  ],
+  "pending_tasks": [
+   "a follow-up on the third-party client bug report",
+   "reviewing the other call sites with the same pattern"
+  ],
+  "decisions": [
+   "increasing the connection pool as a stopgap",
+   "a feature flag to disable the suspect path",
+   "reverting to the previous library version",
+   "paging on error rate rather than absolute count"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "runbooks/latency.md"
+  ],
+  "errors": []
+ }
+}

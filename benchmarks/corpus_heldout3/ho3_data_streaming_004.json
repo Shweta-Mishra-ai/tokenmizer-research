@@ -1,0 +1,110 @@
+{
+ "id": "ho3_data_streaming_004",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a Kafka pipeline rebuild."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a Kafka pipeline rebuild now."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at streams/aggregator.py. Checkpointing to durable storage every 30 seconds was rolled out. We found a schema incompatibility rejecting valid producers. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "An integration test spinning up a real broker is sorted. I edited streams/dlq.py."
+  },
+  {
+   "role": "user",
+   "content": "Can we try a separate cluster for the analytics workloads?"
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. A schema registry entry for every event type is working now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I edited config/kafka.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Backward-compatible schema evolution only is the pick. Let me know if anything looks off. There is duplicate processing after an unclean rebalance on the main branch. The relevant code is in docker-compose.yml."
+  },
+  {
+   "role": "user",
+   "content": "What about a Kafka pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got compaction on the entity state topics up and running. Have a look at scripts/replay.py."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Migrating the remaining consumers off the v1 schema still needs doing. Still to do: documenting the ordering guarantees."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a Kafka pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "We completed exactly-once semantics on the aggregation job yesterday. The relevant code is in streams/windowing.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "an integration test spinning up a real broker",
+   "compaction on the entity state topics",
+   "a schema registry entry for every event type",
+   "exactly-once semantics on the aggregation job",
+   "checkpointing to durable storage every 30 seconds"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees",
+   "migrating the remaining consumers off the v1 schema"
+  ],
+  "decisions": [
+   "a separate cluster for the analytics workloads",
+   "backward-compatible schema evolution only"
+  ],
+  "files": [
+   "streams/dlq.py",
+   "streams/aggregator.py",
+   "streams/windowing.py",
+   "docker-compose.yml",
+   "scripts/replay.py",
+   "config/kafka.yaml"
+  ],
+  "errors": [
+   "a schema incompatibility rejecting valid producers",
+   "duplicate processing after an unclean rebalance"
+  ]
+ }
+}

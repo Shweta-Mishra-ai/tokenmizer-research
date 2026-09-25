@@ -1,0 +1,126 @@
+{
+ "id": "ho2_mobile_ios_004",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an offline-first notes client."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an offline-first notes client."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to an iPad layout for the summary screen."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: .swiftlint.yml."
+  },
+  {
+   "role": "user",
+   "content": "Could we use StoreKit 2 for subscriptions?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Managed to finish deep links into the workout detail screen. Next task: an App Store privacy nutrition label review."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Check Sources/Widgets/ActivityWidget.swift for the change. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Core Data persistence for the workout log is live now. I've wrapped background sync with a URLSession task. Resolution: a modular package layout per feature."
+  },
+  {
+   "role": "user",
+   "content": "Personally The Composable Architecture for state feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Failing: a crash from a missing NSMotionUsageDescription key. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fastlane for the release pipeline is the clear winner here."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: reducing cold start below 400ms."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: a snapshot test suite for the components. We might revisit this later if needed. Settling on XCTest with snapshot assertions."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: Sources/App/ContentView.swift. Tests/SyncTests.swift got a few more lines. No regressions so far."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "background sync with a URLSession task",
+   "deep links into the workout detail screen",
+   "Core Data persistence for the workout log"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "an iPad layout for the summary screen",
+   "an App Store privacy nutrition label review",
+   "reducing cold start below 400ms"
+  ],
+  "decisions": [
+   "a modular package layout per feature",
+   "fastlane for the release pipeline",
+   "The Composable Architecture for state",
+   "StoreKit 2 for subscriptions",
+   "XCTest with snapshot assertions"
+  ],
+  "files": [
+   "Tests/SyncTests.swift",
+   "Sources/App/ContentView.swift",
+   ".swiftlint.yml",
+   "Sources/Widgets/ActivityWidget.swift"
+  ],
+  "errors": [
+   "a crash from a missing NSMotionUsageDescription key"
+  ]
+ }
+}

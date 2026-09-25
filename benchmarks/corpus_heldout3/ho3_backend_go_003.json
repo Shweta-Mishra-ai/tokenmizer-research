@@ -1,0 +1,115 @@
+{
+ "id": "ho3_backend_go_003",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a file transfer service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a file transfer service."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Implemented graceful shutdown on SIGTERM."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "A fuzz test on the decoder is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a file transfer service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — a soak test over 24 hours.\n**Issue:** nil pointer dereference in the retry handler.\ninternal/handler/orders_test.go ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Can we try sqlc for type-safe database access?"
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the config to environment variables is the obvious next step. Sounds right, on it. There were no failures in the nightly run. The retry policy with exponential backoff? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. The relevant code is in proto/orders.proto."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: connection reuse in the HTTP client. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Errors: a panic on malformed protobuf input."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with buf for protobuf linting and generation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: buf.yaml. A circuit breaker around the downstream call is working now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "graceful shutdown on SIGTERM",
+   "the retry policy with exponential backoff",
+   "connection reuse in the HTTP client",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "a soak test over 24 hours",
+   "a fuzz test on the decoder"
+  ],
+  "decisions": [
+   "sqlc for type-safe database access",
+   "buf for protobuf linting and generation"
+  ],
+  "files": [
+   "buf.yaml",
+   "internal/handler/orders_test.go",
+   "proto/orders.proto"
+  ],
+  "errors": [
+   "a panic on malformed protobuf input",
+   "nil pointer dereference in the retry handler"
+  ]
+ }
+}

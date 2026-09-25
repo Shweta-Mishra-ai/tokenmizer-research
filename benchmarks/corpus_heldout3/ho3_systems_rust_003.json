@@ -1,0 +1,158 @@
+{
+ "id": "ho3_systems_rust_003",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a packet inspector."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a packet inspector."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — SIMD acceleration on the checksum path. File: `src/codec/mod.rs`. Nothing is blocking us right now. Chose an arena allocator for the parse nodes."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on thiserror for library errors and anyhow at the boundary. Finished — zero-copy deserialisation of the record header."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented property tests over the encoder round trip. Agreed approach: clap for argument parsing. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** a segfault in the FFI boundary on aarch64.\nWe may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `Cargo.toml`."
+  },
+  {
+   "role": "user",
+   "content": "Switch to serde with a custom binary format."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. * [x] error types unified behind thiserror Finished — fuzzing the input decoder with cargo-fuzz."
+  },
+  {
+   "role": "user",
+   "content": "Switch to tokio over async-std for the runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. Once CI passes I'll merge. Errors: a panic on slice index out of bounds. Backlog: a miri run over the concurrency tests."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "- Cargo.lock"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a packet inspector?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `src/main.rs`."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "- benches/parse.rs\nAction item: publishing the crate to crates.io."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — profiling the allocation hot path. Errors: a deadlock from lock ordering in the flush path. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: documenting the public API surface.\n**Shipped:** the streaming parser over a bounded buffer."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "- src/lib.rs\n* [x] a no_std core module"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "property tests over the encoder round trip",
+   "a no_std core module",
+   "fuzzing the input decoder with cargo-fuzz",
+   "the streaming parser over a bounded buffer",
+   "SIMD acceleration on the checksum path",
+   "error types unified behind thiserror",
+   "zero-copy deserialisation of the record header"
+  ],
+  "pending_tasks": [
+   "publishing the crate to crates.io",
+   "profiling the allocation hot path",
+   "a miri run over the concurrency tests",
+   "documenting the public API surface"
+  ],
+  "decisions": [
+   "clap for argument parsing",
+   "thiserror for library errors and anyhow at the boundary",
+   "an arena allocator for the parse nodes",
+   "serde with a custom binary format",
+   "tokio over async-std for the runtime"
+  ],
+  "files": [
+   "Cargo.toml",
+   "benches/parse.rs",
+   "src/main.rs",
+   "Cargo.lock",
+   "src/codec/mod.rs",
+   "src/lib.rs"
+  ],
+  "errors": [
+   "a panic on slice index out of bounds",
+   "a segfault in the FFI boundary on aarch64",
+   "a deadlock from lock ordering in the flush path"
+  ]
+ }
+}

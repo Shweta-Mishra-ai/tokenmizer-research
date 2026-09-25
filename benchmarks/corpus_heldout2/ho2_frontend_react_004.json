@@ -1,0 +1,147 @@
+{
+ "id": "ho2_frontend_react_004",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a data table component library."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a data table component library."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — dark mode using CSS custom properties. Planned: memoising the chart data transform. If the tests fail, the pipeline blocks the merge. [done] a virtualised list for the 10k-row view"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a data table component library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: src/api/client.ts. [ ] migrating the remaining class components"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: session persistence in localStorage."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: src/hooks/useMetrics.ts."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Queued: a Storybook entry for each primitive. ✔ Code splitting on the route boundaries Completed — server-side pagination on the results table. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Bug found: a CORS failure against the staging API. Chosen: pnpm as the package manager."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `src/App.tsx` Path: src/routes/dashboard.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: Playwright for end-to-end tests."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: tailwind.config.js. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a data table component library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failing: a race condition between two in-flight fetches. ✔ Optimistic updates on the toggle controls No regressions so far."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `tests/dashboard.spec.ts` Error — a memory leak from an unsubscribed event listener. Chosen: MSW for mocking the API in tests."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** the metrics grid with responsive breakpoints."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dark mode using CSS custom properties",
+   "code splitting on the route boundaries",
+   "optimistic updates on the toggle controls",
+   "a virtualised list for the 10k-row view",
+   "session persistence in localStorage",
+   "server-side pagination on the results table",
+   "the metrics grid with responsive breakpoints"
+  ],
+  "pending_tasks": [
+   "a Storybook entry for each primitive",
+   "migrating the remaining class components",
+   "memoising the chart data transform"
+  ],
+  "decisions": [
+   "Playwright for end-to-end tests",
+   "MSW for mocking the API in tests",
+   "pnpm as the package manager"
+  ],
+  "files": [
+   "tests/dashboard.spec.ts",
+   "src/App.tsx",
+   "tailwind.config.js",
+   "src/hooks/useMetrics.ts",
+   "src/routes/dashboard.tsx",
+   "src/api/client.ts"
+  ],
+  "errors": [
+   "a CORS failure against the staging API",
+   "a memory leak from an unsubscribed event listener",
+   "a race condition between two in-flight fetches"
+  ]
+ }
+}

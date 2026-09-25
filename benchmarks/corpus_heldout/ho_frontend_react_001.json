@@ -1,0 +1,118 @@
+{
+ "id": "ho_frontend_react_001",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a settings surface?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a settings surface."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into tests/dashboard.spec.ts. Should we decide on naming later? I've finished dark mode using CSS custom properties. I'll tackle a bundle size budget in CI tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Let's do Vitest over Jest for the unit suite."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. I've added the toast notification system."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. The metrics grid with responsive breakpoints landed in the last commit. Seeing an infinite re-render from an unstable dependency array in the logs."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "I touched package.json as well. We hit stale closure state in the polling hook. Should we decide on naming later? The change is in src/components/DataTable.tsx."
+  },
+  {
+   "role": "user",
+   "content": "Status on a settings surface?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at vite.config.ts for the details."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build broke with a race condition between two in-flight fetches. I touched src/App.tsx as well. An accessibility audit of the nav is still outstanding."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "A virtualised list for the 10k-row view is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on TypeScript in strict mode. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. I've finished focus trapping in the modal component."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "focus trapping in the modal component",
+   "the toast notification system",
+   "dark mode using CSS custom properties",
+   "the metrics grid with responsive breakpoints",
+   "a virtualised list for the 10k-row view"
+  ],
+  "pending_tasks": [
+   "an accessibility audit of the nav",
+   "a bundle size budget in CI"
+  ],
+  "decisions": [
+   "TypeScript in strict mode",
+   "Vitest over Jest for the unit suite"
+  ],
+  "files": [
+   "src/App.tsx",
+   "package.json",
+   "vite.config.ts",
+   "tests/dashboard.spec.ts",
+   "src/components/DataTable.tsx"
+  ],
+  "errors": [
+   "a race condition between two in-flight fetches",
+   "an infinite re-render from an unstable dependency array",
+   "stale closure state in the polling hook"
+  ]
+ }
+}

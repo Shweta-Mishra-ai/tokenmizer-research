@@ -1,0 +1,125 @@
+{
+ "id": "ho_devops_kubernetes_002",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a cluster upgrade to 1.31 please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a cluster upgrade to 1.31."
+  },
+  {
+   "role": "user",
+   "content": "Status on a cluster upgrade to 1.31?"
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: reducing the image sizes on the worker pool. Final choice: Prometheus and Grafana for metrics."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Opting for cert-manager for TLS certificates. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Next I'll pick up consolidating the three ingress controllers. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. We'll go with a blue-green strategy for the database proxy."
+  },
+  {
+   "role": "user",
+   "content": "Go with Loki for log aggregation."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Worth noting: nothing here changes the public API. Modified: scripts/rollout.sh. Crossed the secrets migration into the external secret store off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer Trivy for image scanning in CI."
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: charts/api/templates/deployment.yaml. Fine by me. Changes made: node affinity rules keeping the databases separate."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] resource requests and limits for all containers"
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched argocd/apps/api.yaml as well. Final choice: Karpenter instead of the cluster autoscaler."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** a rolling deploy with surge and unavailable tuned."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Everything looked green, then CrashLoopBackOff after the config map rename again. We could also consider caching, but it's not needed yet."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "node affinity rules keeping the databases separate",
+   "a rolling deploy with surge and unavailable tuned",
+   "the secrets migration into the external secret store",
+   "resource requests and limits for all containers"
+  ],
+  "pending_tasks": [
+   "reducing the image sizes on the worker pool",
+   "consolidating the three ingress controllers"
+  ],
+  "decisions": [
+   "Trivy for image scanning in CI",
+   "a blue-green strategy for the database proxy",
+   "Loki for log aggregation",
+   "Prometheus and Grafana for metrics",
+   "Karpenter instead of the cluster autoscaler",
+   "cert-manager for TLS certificates"
+  ],
+  "files": [
+   "argocd/apps/api.yaml",
+   "charts/api/templates/deployment.yaml",
+   "scripts/rollout.sh"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename"
+  ]
+ }
+}

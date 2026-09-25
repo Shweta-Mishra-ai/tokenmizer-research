@@ -1,0 +1,118 @@
+{
+ "id": "ho3_debug_production_003",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a memory leak hunt."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a memory leak hunt."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Adding structured logging around the suspect path? Taken care of. Nothing is blocking us right now. The alerts this morning came from memory growing 200MB per hour until restart."
+  },
+  {
+   "role": "user",
+   "content": "What about a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside src/client.py."
+  },
+  {
+   "role": "user",
+   "content": "A blameless postmortem format sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. scripts/repro.py ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards a canary deploy for the fix."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. Ruling out the cache layer as the cause went smoothly in the end. Rewrote parts of config/flags.yaml as well. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Keeping the extra logging for two weeks beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: bisecting the regression to a single commit made it in before the freeze. Sampling traces at 10% rather than 1% is what we'll ship with. A timeline of the incident from the metrics went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside runbooks/latency.md. The alerts this morning came from silent data loss when the queue consumer crashed. Having compared the options, treating the third-party timeout as the root cause is the best fit. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "What about a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backfilling the corrupted rows is the obvious next step. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a memory leak hunt?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, increasing the connection pool as a stopgap is the best fit."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "ruling out the cache layer as the cause",
+   "bisecting the regression to a single commit",
+   "adding structured logging around the suspect path",
+   "a timeline of the incident from the metrics"
+  ],
+  "pending_tasks": [
+   "backfilling the corrupted rows"
+  ],
+  "decisions": [
+   "keeping the extra logging for two weeks",
+   "a canary deploy for the fix",
+   "a blameless postmortem format",
+   "sampling traces at 10% rather than 1%",
+   "increasing the connection pool as a stopgap",
+   "treating the third-party timeout as the root cause"
+  ],
+  "files": [
+   "scripts/repro.py",
+   "config/flags.yaml",
+   "runbooks/latency.md",
+   "src/client.py"
+  ],
+  "errors": [
+   "silent data loss when the queue consumer crashed",
+   "memory growing 200MB per hour until restart"
+  ]
+ }
+}

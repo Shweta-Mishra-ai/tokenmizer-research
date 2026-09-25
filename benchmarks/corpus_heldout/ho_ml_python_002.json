@@ -1,0 +1,118 @@
+{
+ "id": "ho_ml_python_002",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a churn prediction model please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a churn prediction model."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer sentence-transformers for the text embeddings."
+  },
+  {
+   "role": "assistant",
+   "content": "A model registry entry for the release candidate is now in place. OK, will do. The change is in configs/model.yaml. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "An offline evaluation against last quarter's data landed in the last commit. Worth noting: nothing here changes the public API. Seeing NaN losses after the learning rate change in the logs."
+  },
+  {
+   "role": "user",
+   "content": "Let's do MLflow for experiment tracking."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Drift monitoring on the input distributions is done and tested."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into requirements.txt. I touched src/features.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added gradient boosting reaching 0.84 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "The feature engineering pipeline with 42 features is done and tested. I've added cross-validation across five folds. Let me know if you want me to keep going. We'll go with AUC-PR as the primary metric given the imbalance."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "SHAP explanations for the top features landed in the last commit. I touched data/schema.json as well."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer a 90-day lookback window for features."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. I'll tackle a feature store migration tomorrow."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-validation across five folds",
+   "drift monitoring on the input distributions",
+   "SHAP explanations for the top features",
+   "the feature engineering pipeline with 42 features",
+   "gradient boosting reaching 0.84 AUC",
+   "an offline evaluation against last quarter's data",
+   "a model registry entry for the release candidate"
+  ],
+  "pending_tasks": [
+   "a feature store migration"
+  ],
+  "decisions": [
+   "MLflow for experiment tracking",
+   "AUC-PR as the primary metric given the imbalance",
+   "sentence-transformers for the text embeddings",
+   "a 90-day lookback window for features"
+  ],
+  "files": [
+   "data/schema.json",
+   "configs/model.yaml",
+   "src/features.py",
+   "requirements.txt"
+  ],
+  "errors": [
+   "NaN losses after the learning rate change"
+  ]
+ }
+}

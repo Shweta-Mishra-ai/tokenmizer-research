@@ -1,0 +1,156 @@
+{
+ "id": "ho3_backend_python_003",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a document ingestion service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a document ingestion service."
+  },
+  {
+   "role": "user",
+   "content": "What about a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Python 3.12 as the runtime beat the alternatives on every axis we care about. Everyone was happy with Redis for refresh token storage."
+  },
+  {
+   "role": "user",
+   "content": "What about a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Rewrote parts of api/deps.py as well. Moving the email sender behind an interface is the obvious next step. Idempotency keys on the order create path? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The alerts this morning came from a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "Celery for the background worker sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: background retry for failed webhook deliveries made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Splitting the settings module per environment is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards pytest-asyncio for the async test suite."
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a document ingestion service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside tests/test_orders.py. Good news: OpenAPI schema generation for the public routes made it in before the freeze. docker-compose.yml ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Soft deletes on the tenant table is the obvious next step. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We may decide to change this later. Good news: request ID middleware for structured logging made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Nobody has touched audit logging for admin actions yet. api/orders.py ended up with most of the changes. db/session.py ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "SQLAlchemy 2.0 with the async engine sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. POST /api/orders and GET /api/orders/{id}? Taken care of. Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "The User model with email and hashed_password columns went smoothly in the end. Everyone was happy with UUIDv7 primary keys instead of integers. Connection pooling against Postgres went smoothly in the end."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "OpenAPI schema generation for the public routes",
+   "POST /api/orders and GET /api/orders/{id}",
+   "idempotency keys on the order create path",
+   "the User model with email and hashed_password columns",
+   "connection pooling against Postgres",
+   "request ID middleware for structured logging",
+   "background retry for failed webhook deliveries"
+  ],
+  "pending_tasks": [
+   "splitting the settings module per environment",
+   "soft deletes on the tenant table",
+   "audit logging for admin actions",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "UUIDv7 primary keys instead of integers",
+   "Python 3.12 as the runtime",
+   "pytest-asyncio for the async test suite",
+   "Celery for the background worker",
+   "SQLAlchemy 2.0 with the async engine",
+   "Redis for refresh token storage"
+  ],
+  "files": [
+   "docker-compose.yml",
+   "api/deps.py",
+   "tests/test_orders.py",
+   "db/session.py",
+   "api/orders.py"
+  ],
+  "errors": [
+   "a deadlock between the invoice and ledger updates"
+  ]
+ }
+}

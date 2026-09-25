@@ -1,0 +1,137 @@
+{
+ "id": "ho2_systems_rust_002",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a storage engine prototype."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a storage engine prototype."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** criterion benchmarks on the parse loop.\nRetries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "benches/parse.rs got a few more lines. Most of the afternoon went into fuzz/fuzz_targets/decode.rs. We might revisit this later if needed. Managed to finish property tests over the encoder round trip."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have parking_lot mutexes over the std ones."
+  },
+  {
+   "role": "assistant",
+   "content": "I've wrapped a lock-free ring buffer for the writer. Good call, switching. I put it in src/codec/mod.rs."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Path: tests/roundtrip.rs."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get adding a tracing subscriber in before Friday."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a storage engine prototype?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error — stack overflow on deeply nested input. Path: src/buffer.rs. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "What about tokio over async-std for the runtime?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered: a no_std core module. Cargo-deny for licence and advisory checks is the clear winner here. Good call, switching. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fuzzing the input decoder with cargo-fuzz is finished. Haven't gotten to profiling the allocation hot path. Happy to dig into this more. Completed — cross-compilation for aarch64."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Defect: a borrow checker conflict in the writer loop."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Delivered: SIMD acceleration on the checksum path."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Found a deadlock from lock ordering in the flush path during testing."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a no_std core module",
+   "criterion benchmarks on the parse loop",
+   "property tests over the encoder round trip",
+   "SIMD acceleration on the checksum path",
+   "a lock-free ring buffer for the writer",
+   "fuzzing the input decoder with cargo-fuzz",
+   "cross-compilation for aarch64"
+  ],
+  "pending_tasks": [
+   "profiling the allocation hot path",
+   "adding a tracing subscriber"
+  ],
+  "decisions": [
+   "parking_lot mutexes over the std ones",
+   "tokio over async-std for the runtime",
+   "cargo-deny for licence and advisory checks"
+  ],
+  "files": [
+   "fuzz/fuzz_targets/decode.rs",
+   "src/codec/mod.rs",
+   "benches/parse.rs",
+   "src/buffer.rs",
+   "tests/roundtrip.rs"
+  ],
+  "errors": [
+   "stack overflow on deeply nested input",
+   "a deadlock from lock ordering in the flush path",
+   "a borrow checker conflict in the writer loop"
+  ]
+ }
+}

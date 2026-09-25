@@ -1,0 +1,161 @@
+{
+ "id": "ho3_backend_python_005",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on an async task queue service."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "- api/models.py\nFile: `db/session.py`.\nChose bcrypt for password hashing."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** a health check endpoint at /healthz.\nChoice: SQLAlchemy 2.0 with the async engine.\nAction item: splitting the settings module per environment."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Chose Alembic for schema migrations."
+  },
+  {
+   "role": "user",
+   "content": "Choose structlog for JSON log output."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** Postgres over MySQL for JSONB support."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Finished — POST /api/orders and GET /api/orders/{id}. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: caching the catalogue lookup."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: backfilling created_at on legacy rows."
+  },
+  {
+   "role": "user",
+   "content": "What about an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "- migrations/env.py"
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Regression: a deadlock between the invoice and ledger updates."
+  },
+  {
+   "role": "user",
+   "content": "What about an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] pagination on the list endpoints"
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `requirements.txt`. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Regression: a 500 from an unhandled TimeoutError in the payment client. Implemented pytest fixtures for a throwaway database. Result: the User model with email and hashed_password columns done."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** flaky tests from shared database state.\nHere is the updated plan."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a health check endpoint at /healthz",
+   "the User model with email and hashed_password columns",
+   "pytest fixtures for a throwaway database",
+   "pagination on the list endpoints",
+   "POST /api/orders and GET /api/orders/{id}"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows",
+   "splitting the settings module per environment",
+   "caching the catalogue lookup"
+  ],
+  "decisions": [
+   "Postgres over MySQL for JSONB support",
+   "SQLAlchemy 2.0 with the async engine",
+   "structlog for JSON log output",
+   "Alembic for schema migrations",
+   "bcrypt for password hashing"
+  ],
+  "files": [
+   "requirements.txt",
+   "db/session.py",
+   "api/models.py",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "flaky tests from shared database state",
+   "a 500 from an unhandled TimeoutError in the payment client",
+   "a deadlock between the invoice and ledger updates"
+  ]
+ }
+}

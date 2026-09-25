@@ -1,0 +1,124 @@
+{
+ "id": "ho2_data_sql_003",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a query performance pass."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Haven't gotten to moving the nightly job to an hourly cadence. I've wrapped row count reconciliation against the source system. I put it in dbt_project.yml."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish incremental models for the daily aggregates. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Could we use hashed surrogate keys for stability?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. Haven't gotten to a cost review of the warehouse spend. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Partitioning the events table by month is live now. Retries only apply to failed jobs. I'd go with incremental materialisation on the large models."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Haven't gotten to an anomaly alert on the daily order count."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Check models/staging/stg_events.sql for the change."
+  },
+  {
+   "role": "user",
+   "content": "What about Kafka for the event transport?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. The error budget is fine this month. Haven't gotten to consolidating the three customer definitions."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in models/marts/dim_customer.sql."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Users reported the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish the slowly changing dimension on customer tier. Should we add more logging?"
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "incremental models for the daily aggregates",
+   "row count reconciliation against the source system",
+   "the slowly changing dimension on customer tier",
+   "partitioning the events table by month"
+  ],
+  "pending_tasks": [
+   "a cost review of the warehouse spend",
+   "an anomaly alert on the daily order count",
+   "consolidating the three customer definitions",
+   "moving the nightly job to an hourly cadence"
+  ],
+  "decisions": [
+   "hashed surrogate keys for stability",
+   "Kafka for the event transport",
+   "incremental materialisation on the large models"
+  ],
+  "files": [
+   "dbt_project.yml",
+   "models/staging/stg_events.sql",
+   "models/marts/dim_customer.sql"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours"
+  ]
+ }
+}

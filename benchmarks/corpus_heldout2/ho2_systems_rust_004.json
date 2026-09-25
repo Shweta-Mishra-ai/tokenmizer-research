@@ -1,0 +1,127 @@
+{
+ "id": "ho2_systems_rust_004",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an HTTP proxy."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an HTTP proxy."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have Rust 2021 edition with MSRV 1.75."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Criterion benchmarks on the parse loop is live now. Let me check the docs first. Removing the remaining unsafe blocks is on deck."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in src/lib.rs. The error budget is fine this month. An async runtime built on tokio: done."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Found a use-after-free found by miri in the unsafe block during testing. I put it in tests/roundtrip.rs."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on bincode for the wire encoding. Happy to dig into this more."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: reducing the binary size below 2MB. I put it in Cargo.toml."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in src/buffer.rs."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? SIMD acceleration on the checksum path is finished. Tomorrow: a compatibility shim for the old format."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Fuzzing the input decoder with cargo-fuzz went out this morning. We might revisit this later if needed. Tomorrow: profiling the allocation hot path."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Check src/parser.rs for the change. We'll use a workspace layout with three crates. See src/codec/mod.rs."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "fuzzing the input decoder with cargo-fuzz",
+   "SIMD acceleration on the checksum path",
+   "criterion benchmarks on the parse loop",
+   "an async runtime built on tokio"
+  ],
+  "pending_tasks": [
+   "profiling the allocation hot path",
+   "a compatibility shim for the old format",
+   "reducing the binary size below 2MB",
+   "removing the remaining unsafe blocks"
+  ],
+  "decisions": [
+   "bincode for the wire encoding",
+   "a workspace layout with three crates",
+   "Rust 2021 edition with MSRV 1.75"
+  ],
+  "files": [
+   "src/lib.rs",
+   "src/codec/mod.rs",
+   "tests/roundtrip.rs",
+   "src/parser.rs",
+   "src/buffer.rs",
+   "Cargo.toml"
+  ],
+  "errors": [
+   "a use-after-free found by miri in the unsafe block"
+  ]
+ }
+}

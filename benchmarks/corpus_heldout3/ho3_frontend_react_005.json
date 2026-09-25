@@ -1,0 +1,118 @@
+{
+ "id": "ho3_frontend_react_005",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a checkout flow rewrite."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a checkout flow rewrite."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. I edited tests/dashboard.spec.ts."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited src/components/DataTable.tsx. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "What about a checkout flow rewrite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's settle on Tailwind for styling. I'll summarise at the end. Keyboard navigation across the data grid has been merged. The empty and loading states for every panel is working now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. The metrics grid with responsive breakpoints was rolled out. The plan is TypeScript in strict mode."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Hitting a hydration mismatch on the server-rendered header in CI."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with Vite as the build tool?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. I've got code splitting on the route boundaries up and running."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with Vitest over Jest for the unit suite?"
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Optimistic updates on the toggle controls is sorted. Do we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "I'd like React 19 with the compiler enabled."
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Okay, doing it. Replacing the date picker with a headless one is still open."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "A virtualised list for the 10k-row view has been merged. The plan is TanStack Query for server state. Server-side pagination on the results table was rolled out."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the metrics grid with responsive breakpoints",
+   "keyboard navigation across the data grid",
+   "the empty and loading states for every panel",
+   "optimistic updates on the toggle controls",
+   "a virtualised list for the 10k-row view",
+   "code splitting on the route boundaries",
+   "server-side pagination on the results table"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one"
+  ],
+  "decisions": [
+   "React 19 with the compiler enabled",
+   "Tailwind for styling",
+   "Vite as the build tool",
+   "Vitest over Jest for the unit suite",
+   "TypeScript in strict mode",
+   "TanStack Query for server state"
+  ],
+  "files": [
+   "tests/dashboard.spec.ts",
+   "src/components/DataTable.tsx"
+  ],
+  "errors": [
+   "a hydration mismatch on the server-rendered header"
+  ]
+ }
+}

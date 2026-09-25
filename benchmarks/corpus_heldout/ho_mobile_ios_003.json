@@ -1,0 +1,111 @@
+{
+ "id": "ho_mobile_ios_003",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up an offline-first notes client."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the subscription purchase and restore flow was in, the flaky tests stopped."
+  },
+  {
+   "role": "user",
+   "content": "Status on an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of fastlane/Fastfile along the way. Ended up rewriting half of Sources/App/ContentView.swift along the way. Had to open up App/Info.plist again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Status on an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of Sources/Auth/Keychain.swift along the way. With Core Data persistence for the workout log sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Migrating the remaining UIKit screens can wait until after the demo. No more worrying about the SwiftUI onboarding sequence, that part's handled. Crossed deep links into the workout detail screen off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. In the end SwiftLint in the build phase was simpler than the alternatives. Had to open up Sources/Sync/SyncEngine.swift again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once crash reporting integration was in, the flaky tests stopped. The team agreed SwiftUI for all new screens is the way forward. The on-call page last night was a keychain access error after device restore."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. In the end Core Data over Realm for local storage was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Status on an offline-first notes client?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of Package.swift along the way. Tests pass locally; CI will confirm. No more worrying about dark mode across every screen, that part's handled. Tracked the flakiness down to a layout constraint conflict on the smallest device."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "deep links into the workout detail screen",
+   "the subscription purchase and restore flow",
+   "Core Data persistence for the workout log",
+   "dark mode across every screen",
+   "the SwiftUI onboarding sequence",
+   "crash reporting integration"
+  ],
+  "pending_tasks": [
+   "migrating the remaining UIKit screens"
+  ],
+  "decisions": [
+   "SwiftUI for all new screens",
+   "SwiftLint in the build phase",
+   "Core Data over Realm for local storage"
+  ],
+  "files": [
+   "Package.swift",
+   "fastlane/Fastfile",
+   "Sources/App/ContentView.swift",
+   "App/Info.plist",
+   "Sources/Sync/SyncEngine.swift",
+   "Sources/Auth/Keychain.swift"
+  ],
+  "errors": [
+   "a keychain access error after device restore",
+   "a layout constraint conflict on the smallest device"
+  ]
+ }
+}

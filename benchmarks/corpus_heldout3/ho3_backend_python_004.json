@@ -1,0 +1,150 @@
+{
+ "id": "ho3_backend_python_004",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a document ingestion service."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a document ingestion service."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of migrations/env.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: connection pooling against Postgres. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. Bcrypt for password hashing beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. The alerts this morning came from a 422 on login from a missing email validator."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Everyone was happy with uvicorn behind gunicorn in production."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "File: `api/deps.py`.\nFailed jobs are retried twice.\n- db/session.py\nInput validation on the payment payload was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Good news: pytest fixtures for a throwaway database made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I edited requirements.txt."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Have a look at api/orders.py."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got pagination on the list endpoints up and running."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need caching the catalogue lookup before launch.\nThere were no failures in the nightly run.\n- api/main.py\nWe've decided on UUIDv7 primary keys instead of integers."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: background retry for failed webhook deliveries made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Agreed approach: Celery for the background worker."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "input validation on the payment payload",
+   "background retry for failed webhook deliveries",
+   "connection pooling against Postgres",
+   "pytest fixtures for a throwaway database",
+   "pagination on the list endpoints"
+  ],
+  "pending_tasks": [
+   "caching the catalogue lookup"
+  ],
+  "decisions": [
+   "Celery for the background worker",
+   "UUIDv7 primary keys instead of integers",
+   "bcrypt for password hashing",
+   "uvicorn behind gunicorn in production"
+  ],
+  "files": [
+   "db/session.py",
+   "api/main.py",
+   "api/orders.py",
+   "requirements.txt",
+   "api/deps.py",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "a 422 on login from a missing email validator"
+  ]
+ }
+}

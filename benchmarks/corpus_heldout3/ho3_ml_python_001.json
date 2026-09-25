@@ -1,0 +1,119 @@
+{
+ "id": "ho3_ml_python_001",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a churn prediction model."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a churn prediction model."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: src/train.py.\nFile: `src/serve.py`.\n**Shipped:** SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** Optuna for hyperparameter search.\n* [ ] an online A/B test against the current model"
+  },
+  {
+   "role": "user",
+   "content": "Plan for a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Regression: NaN losses after the learning rate change. Closed: a stratified train/validation/test split."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: documenting the model card.\n**Issue:** a silent dtype coercion dropping precision."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "- notebooks/eda.ipynb"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: src/features.py. TO DO: a fairness audit across customer segments. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: shadow deployment against live traffic. Let me know if anything looks off. Result: baseline logistic regression at 0.71 AUC done. Affected file: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Choice: AUC-PR as the primary metric given the imbalance."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with XGBoost over a neural network for tabular data."
+  },
+  {
+   "role": "assistant",
+   "content": "Result: the feature engineering pipeline with 42 features done. Okay, doing it."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a stratified train/validation/test split",
+   "baseline logistic regression at 0.71 AUC",
+   "SHAP explanations for the top features",
+   "the feature engineering pipeline with 42 features"
+  ],
+  "pending_tasks": [
+   "documenting the model card",
+   "an online A/B test against the current model",
+   "a fairness audit across customer segments",
+   "shadow deployment against live traffic"
+  ],
+  "decisions": [
+   "Optuna for hyperparameter search",
+   "AUC-PR as the primary metric given the imbalance",
+   "XGBoost over a neural network for tabular data"
+  ],
+  "files": [
+   "Makefile",
+   "src/serve.py",
+   "notebooks/eda.ipynb",
+   "src/features.py",
+   "src/train.py"
+  ],
+  "errors": [
+   "NaN losses after the learning rate change",
+   "a silent dtype coercion dropping precision"
+  ]
+ }
+}

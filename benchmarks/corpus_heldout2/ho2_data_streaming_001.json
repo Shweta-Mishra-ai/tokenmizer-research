@@ -1,0 +1,100 @@
+{
+ "id": "ho2_data_streaming_001",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a stream processing job."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a stream processing job."
+  },
+  {
+   "role": "user",
+   "content": "Personally a separate cluster for the analytics workloads feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Someone should pick up documenting the ordering guarantees. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Personally Avro with a schema registry for the payloads feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. We landed on Flink for the stateful stream processing. Good call, switching. Most of the afternoon went into streams/dlq.py."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a stream processing job?"
+  },
+  {
+   "role": "assistant",
+   "content": "That leaves the dead letter topic with a replay tool behind us. Most of the afternoon went into tests/test_aggregator.py."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, backpressure handling in the consumer loop finally works. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Personally Kafka over Kinesis for the event backbone feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually a replay procedure for the last 24 hours has to get done too. The error budget is fine this month. Good call, switching. All things considered, a seven-day retention on the raw topics wins."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out streams/aggregator.py was the culprit file. Glad to report exactly-once semantics on the aggregation job is sorted. No regressions so far. Most of the afternoon went into streams/consumer.py."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a stream processing job?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get migrating the remaining consumers off the v1 schema in before Friday. Turned out docker-compose.yml was the culprit file."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the dead letter topic with a replay tool",
+   "backpressure handling in the consumer loop",
+   "exactly-once semantics on the aggregation job"
+  ],
+  "pending_tasks": [
+   "documenting the ordering guarantees",
+   "migrating the remaining consumers off the v1 schema",
+   "a replay procedure for the last 24 hours"
+  ],
+  "decisions": [
+   "a separate cluster for the analytics workloads",
+   "Avro with a schema registry for the payloads",
+   "Kafka over Kinesis for the event backbone",
+   "a seven-day retention on the raw topics",
+   "Flink for the stateful stream processing"
+  ],
+  "files": [
+   "streams/aggregator.py",
+   "streams/consumer.py",
+   "tests/test_aggregator.py",
+   "docker-compose.yml",
+   "streams/dlq.py"
+  ],
+  "errors": []
+ }
+}

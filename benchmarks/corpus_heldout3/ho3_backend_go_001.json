@@ -1,0 +1,136 @@
+{
+ "id": "ho3_backend_go_001",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a rate limiting proxy."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a rate limiting proxy."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with a monorepo layout with internal packages. Changes are in proto/orders.proto."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We found a panic on malformed protobuf input."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll summarise at the end. A circuit breaker around the downstream call was rolled out."
+  },
+  {
+   "role": "user",
+   "content": "Can we try zerolog for logging?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes are in internal/worker/pool.go. Okay, doing it. Let me know if anything looks off. I edited buf.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at Dockerfile."
+  },
+  {
+   "role": "user",
+   "content": "What about a rate limiting proxy?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry policy with exponential backoff was rolled out. A fuzz test on the decoder still needs doing."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. The plan is Go 1.23 as the toolchain. Have a look at internal/handler/orders_test.go."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: reducing allocations in the serialiser."
+  },
+  {
+   "role": "user",
+   "content": "I'd like OpenTelemetry for traces."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. Do we need more tests?"
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I edited cmd/server/main.go. There is a data race on the shared counter on the main branch. The build is green. The plan is buf for protobuf linting and generation."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do profiling the p99 latency spike next. I'll summarise at the end. Protobuf schema versioning is sorted."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "protobuf schema versioning",
+   "the retry policy with exponential backoff",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "reducing allocations in the serialiser",
+   "a fuzz test on the decoder",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "Go 1.23 as the toolchain",
+   "OpenTelemetry for traces",
+   "buf for protobuf linting and generation",
+   "zerolog for logging",
+   "a monorepo layout with internal packages"
+  ],
+  "files": [
+   "internal/handler/orders_test.go",
+   "proto/orders.proto",
+   "Dockerfile",
+   "internal/worker/pool.go",
+   "cmd/server/main.go",
+   "buf.yaml"
+  ],
+  "errors": [
+   "a data race on the shared counter",
+   "a panic on malformed protobuf input"
+  ]
+ }
+}

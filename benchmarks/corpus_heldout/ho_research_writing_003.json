@@ -1,0 +1,107 @@
+{
+ "id": "ho_research_writing_003",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a literature review please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a literature review."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Up next is an ethics statement."
+  },
+  {
+   "role": "user",
+   "content": "Status on a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Restructuring the argument around three claims is now in place. I touched Makefile as well. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added citations normalised to a single bibliography style. The build broke with a mislabelled axis on the compression figure."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The related work section covering twelve papers is done and tested. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "I've finished peer feedback incorporated from two reviewers. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into paper/evaluation.tex."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "The reproducibility statement with exact commands landed in the last commit. Let me know if you want me to keep going. I'll tackle permission to cite the internal deployment data tomorrow. The introduction cut from four pages to two is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with reporting per-domain breakdowns in the appendix. An appendix documenting the corpus construction landed in the last commit. We'll go with releasing the corpus alongside the paper."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "restructuring the argument around three claims",
+   "peer feedback incorporated from two reviewers",
+   "the related work section covering twelve papers",
+   "an appendix documenting the corpus construction",
+   "citations normalised to a single bibliography style",
+   "the introduction cut from four pages to two",
+   "the reproducibility statement with exact commands"
+  ],
+  "pending_tasks": [
+   "permission to cite the internal deployment data",
+   "an ethics statement"
+  ],
+  "decisions": [
+   "releasing the corpus alongside the paper",
+   "reporting per-domain breakdowns in the appendix"
+  ],
+  "files": [
+   "Makefile",
+   "paper/evaluation.tex"
+  ],
+  "errors": [
+   "a mislabelled axis on the compression figure"
+  ]
+ }
+}

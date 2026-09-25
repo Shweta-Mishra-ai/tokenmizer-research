@@ -1,0 +1,116 @@
+{
+ "id": "ho3_data_sql_004",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a query performance pass now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. What broke the release was the nightly job timing out after 6 hours."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Don't let an anomaly alert on the daily order count slip through the cracks. We can stop worrying about the star schema for the orders fact table now."
+  },
+  {
+   "role": "user",
+   "content": "What about a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "The alerts this morning came from timezone drift between the source and warehouse."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: a covering index on the customer lookup made it in before the freeze. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Unit tests for the revenue macro is the obvious next step. Rewrote parts of scripts/backfill.py as well. Incremental materialisation on the large models is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside profiles.yml. Having compared the options, dbt for the transformation layer is the best fit. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Column-level lineage documentation went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Half the afternoon went to stale data from a silently failing incremental run. Here is the updated plan. Having compared the options, UTC everywhere for timestamps is the best fit."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: deduplication on the raw event stream made it in before the freeze. Having compared the options, hashed surrogate keys for stability is the best fit."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "deduplication on the raw event stream",
+   "the star schema for the orders fact table",
+   "column-level lineage documentation",
+   "a covering index on the customer lookup"
+  ],
+  "pending_tasks": [
+   "unit tests for the revenue macro",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "incremental materialisation on the large models",
+   "UTC everywhere for timestamps",
+   "dbt for the transformation layer",
+   "hashed surrogate keys for stability"
+  ],
+  "files": [
+   "scripts/backfill.py",
+   "profiles.yml"
+  ],
+  "errors": [
+   "stale data from a silently failing incremental run",
+   "the nightly job timing out after 6 hours",
+   "timezone drift between the source and warehouse"
+  ]
+ }
+}

@@ -1,0 +1,136 @@
+{
+ "id": "ho3_systems_rust_002",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a compression library."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a compression library."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed approach: arc-swap for the hot config reload. Most of the work happened inside src/main.rs. Nothing is blocking us right now. Changes are in src/buffer.rs."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: documenting the public API surface. The error messages are now clearer."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. We can stop worrying about zero-copy deserialisation of the record header now."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Good news: fuzzing the input decoder with cargo-fuzz made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "What about a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Agreed approach: serde with a custom binary format."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got a lock-free ring buffer for the writer up and running. The error messages are now clearer. Cargo.lock ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** the streaming parser over a bounded buffer.\nGood news: SIMD acceleration on the checksum path made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: thiserror for library errors and anyhow at the boundary. src/parser.rs ended up with most of the changes. Nobody has touched profiling the allocation hot path yet."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Don't let adding a tracing subscriber slip through the cracks."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `src/lib.rs`.\nDo we need more tests?\n**Shipped:** cross-compilation for aarch64.\nReducing the binary size below 2MB is on the backlog."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Memory-mapped reads for the index file? Taken care of. src/codec/mod.rs ended up with most of the changes."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "SIMD acceleration on the checksum path",
+   "the streaming parser over a bounded buffer",
+   "memory-mapped reads for the index file",
+   "zero-copy deserialisation of the record header",
+   "fuzzing the input decoder with cargo-fuzz",
+   "a lock-free ring buffer for the writer",
+   "cross-compilation for aarch64"
+  ],
+  "pending_tasks": [
+   "profiling the allocation hot path",
+   "reducing the binary size below 2MB",
+   "adding a tracing subscriber",
+   "documenting the public API surface"
+  ],
+  "decisions": [
+   "arc-swap for the hot config reload",
+   "serde with a custom binary format",
+   "thiserror for library errors and anyhow at the boundary"
+  ],
+  "files": [
+   "src/parser.rs",
+   "Cargo.lock",
+   "src/main.rs",
+   "src/lib.rs",
+   "src/codec/mod.rs",
+   "src/buffer.rs"
+  ],
+  "errors": []
+ }
+}

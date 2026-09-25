@@ -1,0 +1,117 @@
+{
+ "id": "ho_systems_rust_005",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a compression library please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a compression library."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's not forget about reducing the binary size below 2MB. Had to open up Cargo.toml again for a small tweak. The fix lives in Cargo.lock, near the top."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Fuzzing the input decoder with cargo-fuzz took longer than planned but it's behind us now. The error handling path is covered by the existing tests. No more worrying about an async runtime built on tokio, that part's handled. Let's not forget about publishing the crate to crates.io."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Had to open up benches/parse.rs again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Honestly a workspace layout with three crates seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of src/main.rs along the way. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking profiling the allocation hot path for now, it's not urgent. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end bincode for the wire encoding was simpler than the alternatives. CI is unhappy — integer overflow in the length calculation. In the end an arena allocator for the parse nodes was simpler than the alternatives."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "With criterion benchmarks on the parse loop sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, tokio over async-std for the runtime it is. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Status on a compression library?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking documenting the public API surface for now, it's not urgent."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "criterion benchmarks on the parse loop",
+   "an async runtime built on tokio",
+   "fuzzing the input decoder with cargo-fuzz"
+  ],
+  "pending_tasks": [
+   "publishing the crate to crates.io",
+   "documenting the public API surface",
+   "reducing the binary size below 2MB",
+   "profiling the allocation hot path"
+  ],
+  "decisions": [
+   "a workspace layout with three crates",
+   "tokio over async-std for the runtime",
+   "bincode for the wire encoding",
+   "an arena allocator for the parse nodes"
+  ],
+  "files": [
+   "benches/parse.rs",
+   "Cargo.toml",
+   "src/main.rs",
+   "Cargo.lock"
+  ],
+  "errors": [
+   "integer overflow in the length calculation"
+  ]
+ }
+}

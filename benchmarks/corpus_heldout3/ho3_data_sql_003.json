@@ -1,0 +1,154 @@
+{
+ "id": "ho3_data_sql_003",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up an event pipeline redesign."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up an event pipeline redesign."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? We completed the slowly changing dimension on customer tier yesterday."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in dags/daily_refresh.py."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an event pipeline redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Have a look at macros/revenue.sql. The relevant code is in profiles.yml."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an event pipeline redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "The plan is Parquet as the landing format. A materialised view for the executive dashboard has been merged. Here is the updated plan. Kafka for the event transport is the pick."
+  },
+  {
+   "role": "user",
+   "content": "Should we go with dbt for the transformation layer?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've gone with an ELT rather than ETL pattern. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "What about an event pipeline redesign?"
+  },
+  {
+   "role": "assistant",
+   "content": "We ran into duplicate rows from a non-unique natural key."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I plan to do archiving events older than two years next. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still to do: documenting the grain of each fact table. There were no failures in the nightly run. I edited tests/schema.yml. Customers are hitting timezone drift between the source and warehouse."
+  },
+  {
+   "role": "user",
+   "content": "I'd like incremental materialisation on the large models."
+  },
+  {
+   "role": "assistant",
+   "content": "We completed freshness tests on every source table yesterday. Agreed. Hitting the nightly job timing out after 6 hours in CI."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Surrogate keys across the dimension tables has been merged."
+  },
+  {
+   "role": "user",
+   "content": "I'd like hashed surrogate keys for stability."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The relevant code is in models/staging/stg_events.sql. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Have a look at models/marts/fct_orders.sql."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "surrogate keys across the dimension tables",
+   "the slowly changing dimension on customer tier",
+   "a materialised view for the executive dashboard",
+   "freshness tests on every source table"
+  ],
+  "pending_tasks": [
+   "documenting the grain of each fact table",
+   "archiving events older than two years"
+  ],
+  "decisions": [
+   "Parquet as the landing format",
+   "incremental materialisation on the large models",
+   "dbt for the transformation layer",
+   "Kafka for the event transport",
+   "hashed surrogate keys for stability",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "macros/revenue.sql",
+   "models/staging/stg_events.sql",
+   "models/marts/fct_orders.sql",
+   "dags/daily_refresh.py",
+   "profiles.yml",
+   "tests/schema.yml"
+  ],
+  "errors": [
+   "the nightly job timing out after 6 hours",
+   "timezone drift between the source and warehouse",
+   "duplicate rows from a non-unique natural key"
+  ]
+ }
+}

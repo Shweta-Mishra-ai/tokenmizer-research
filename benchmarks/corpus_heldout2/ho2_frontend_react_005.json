@@ -1,0 +1,154 @@
+{
+ "id": "ho2_frontend_react_005",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an analytics dashboard."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an analytics dashboard."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. I put it in src/hooks/useMetrics.ts."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Code splitting on the route boundaries is live now. The error budget is fine this month. Our pick is pnpm as the package manager."
+  },
+  {
+   "role": "user",
+   "content": "Could we use Recharts for the visualisations?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in src/App.tsx. Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd go with TanStack Query for server state."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "We need to do memoising the chart data transform next. Should we add more logging? Tomorrow: replacing the date picker with a headless one."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Session persistence in localStorage went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The toast notification system: done."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Managed to finish focus trapping in the modal component. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. A virtualised list for the 10k-row view went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "There's a hydration mismatch on the server-rendered header in production. Managed to finish optimistic updates on the toggle controls."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We keep getting a memory leak from an unsubscribed event listener. The metrics grid with responsive breakpoints is live now. We might revisit this later if needed. Users reported a CORS failure against the staging API."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have React 19 with the compiler enabled."
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Good call, switching. Settling on TypeScript in strict mode. Check src/api/client.ts for the change."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. I put it in package.json."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the metrics grid with responsive breakpoints",
+   "a virtualised list for the 10k-row view",
+   "the toast notification system",
+   "optimistic updates on the toggle controls",
+   "focus trapping in the modal component",
+   "session persistence in localStorage",
+   "code splitting on the route boundaries"
+  ],
+  "pending_tasks": [
+   "replacing the date picker with a headless one",
+   "memoising the chart data transform"
+  ],
+  "decisions": [
+   "Recharts for the visualisations",
+   "TypeScript in strict mode",
+   "React 19 with the compiler enabled",
+   "TanStack Query for server state",
+   "pnpm as the package manager"
+  ],
+  "files": [
+   "package.json",
+   "src/hooks/useMetrics.ts",
+   "src/api/client.ts",
+   "src/App.tsx"
+  ],
+  "errors": [
+   "a hydration mismatch on the server-rendered header",
+   "a CORS failure against the staging API",
+   "a memory leak from an unsubscribed event listener"
+  ]
+ }
+}

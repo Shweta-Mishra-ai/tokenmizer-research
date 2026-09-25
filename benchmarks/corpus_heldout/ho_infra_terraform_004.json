@@ -1,0 +1,108 @@
+{
+ "id": "ho_infra_terraform_004",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a multi-account AWS layout."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in terraform/backend.tf. We'll go with Terragrunt for the DRY module wiring."
+  },
+  {
+   "role": "user",
+   "content": "How about provider versions pinned to a minor range?"
+  },
+  {
+   "role": "assistant",
+   "content": "CloudWatch alarms on the error rate metric is now in place. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at terraform/vpc.tf for the details."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a multi-account AWS layout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Splitting the monolithic state file hasn't been done yet. Should we decide on naming later? Security groups restricted to named ports is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "The build broke with a state lock left behind by a cancelled apply. I've added IAM roles scoped per service. No errors on the last run. Look at environments/prod/terragrunt.hcl for the details."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "We still have to do documenting the module interfaces. I picked one state file per environment. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed a destroy plan on the production database from a renamed resource in staging. The error handling path is covered by the existing tests. Look at modules/service/main.tf for the details."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in terraform/iam.tf."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "IAM roles scoped per service",
+   "security groups restricted to named ports",
+   "CloudWatch alarms on the error rate metric"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces",
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "Terragrunt for the DRY module wiring",
+   "provider versions pinned to a minor range",
+   "one state file per environment"
+  ],
+  "files": [
+   "terraform/iam.tf",
+   "modules/service/main.tf",
+   "terraform/vpc.tf",
+   "terraform/backend.tf",
+   "environments/prod/terragrunt.hcl"
+  ],
+  "errors": [
+   "a state lock left behind by a cancelled apply",
+   "a destroy plan on the production database from a renamed resource"
+  ]
+ }
+}

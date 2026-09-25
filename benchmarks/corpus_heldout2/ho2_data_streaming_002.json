@@ -1,0 +1,110 @@
+{
+ "id": "ho2_data_streaming_002",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an event schema migration back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an event schema migration."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Choice:** Flink for the stateful stream processing.\nRetries only apply to failed jobs.\nBetween the options, consumer offsets committed after processing came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Error — silent message loss from an auto-commit race."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out scripts/replay.py was the culprit file. There's consumer lag growing unbounded during the nightly spike in production. Nothing failed on the last run. We landed on a separate cluster for the analytics workloads."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on Debezium for change data capture. I'd go with one topic per event type rather than a shared bus. Managed to finish exactly-once semantics on the aggregation job. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still open: migrating the remaining consumers off the v1 schema. Turns out the flakiness was duplicate processing after an unclean rebalance. I've wrapped a schema registry entry for every event type."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: an integration test spinning up a real broker."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Partitioning by tenant rather than by hash is waiting on me. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Still open: an automated schema compatibility check in CI. Path: schemas/order_placed.avsc. Let me check the docs first. Decision made: Kafka over Kinesis for the event backbone."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "exactly-once semantics on the aggregation job",
+   "a schema registry entry for every event type",
+   "an integration test spinning up a real broker"
+  ],
+  "pending_tasks": [
+   "migrating the remaining consumers off the v1 schema",
+   "an automated schema compatibility check in CI",
+   "partitioning by tenant rather than by hash"
+  ],
+  "decisions": [
+   "Flink for the stateful stream processing",
+   "consumer offsets committed after processing",
+   "Debezium for change data capture",
+   "a separate cluster for the analytics workloads",
+   "Kafka over Kinesis for the event backbone",
+   "one topic per event type rather than a shared bus"
+  ],
+  "files": [
+   "scripts/replay.py",
+   "schemas/order_placed.avsc"
+  ],
+  "errors": [
+   "silent message loss from an auto-commit race",
+   "duplicate processing after an unclean rebalance",
+   "consumer lag growing unbounded during the nightly spike"
+  ]
+ }
+}

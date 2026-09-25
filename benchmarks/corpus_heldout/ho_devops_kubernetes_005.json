@@ -1,0 +1,150 @@
+{
+ "id": "ho_devops_kubernetes_005",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a production cluster migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a production cluster migration now."
+  },
+  {
+   "role": "user",
+   "content": "My gut says Trivy for image scanning in CI is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Everything looked green, then certificate renewal failing the ACME HTTP challenge again."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a production cluster migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Had to open up k8s/ingress.yaml again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "The ingress with automatic certificate renewal took longer than planned but it's behind us now. Had to open up charts/api/templates/deployment.yaml again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "A chaos test on node eviction can wait until after the demo. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Honestly cert-manager for TLS certificates seems like less hassle."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Had to open up k8s/networkpolicy.yaml again for a small tweak. A canary stage in the deploy pipeline took longer than planned but it's behind us now."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a production cluster migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up terraform/cluster.tf again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Status on a production cluster migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of scripts/rollout.sh along the way. Ended up rewriting half of .github/workflows/deploy.yml along the way."
+  },
+  {
+   "role": "user",
+   "content": "Status on a production cluster migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Velero for cluster backups ended up being the pragmatic option."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Istio for service mesh traffic policy ended up being the pragmatic option."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "The team agreed spot instances for the batch workloads is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "My gut says external-secrets backed by Vault is the safer bet."
+  },
+  {
+   "role": "assistant",
+   "content": "Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Once node affinity rules keeping the databases separate was in, the flaky tests stopped."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the ingress with automatic certificate renewal",
+   "node affinity rules keeping the databases separate",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "a chaos test on node eviction"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "Istio for service mesh traffic policy",
+   "Trivy for image scanning in CI",
+   "spot instances for the batch workloads",
+   "cert-manager for TLS certificates",
+   "external-secrets backed by Vault"
+  ],
+  "files": [
+   ".github/workflows/deploy.yml",
+   "terraform/cluster.tf",
+   "scripts/rollout.sh",
+   "k8s/ingress.yaml",
+   "charts/api/templates/deployment.yaml",
+   "k8s/networkpolicy.yaml"
+  ],
+  "errors": [
+   "certificate renewal failing the ACME HTTP challenge"
+  ]
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "id": "ho2_ml_python_001",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a recommendation ranker."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a recommendation ranker."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: gradient boosting reaching 0.84 AUC.\nRetries only apply to failed jobs.\nTouched: src/train.py.\n**TODO:** calibrating the output probabilities."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** cross-validation across five folds."
+  },
+  {
+   "role": "user",
+   "content": "Stick with a 90-day lookback window for features."
+  },
+  {
+   "role": "assistant",
+   "content": "✔ SHAP explanations for the top features Should we add more logging? Yep, doing that. Decision made: ONNX export for the serving runtime."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "✔ Class imbalance handling with focal loss No regressions so far. Completed — the feature engineering pipeline with 42 features. Error — non-determinism from an unseeded shuffle."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: requirements.txt. Retries only apply to failed jobs. Touched: tests/test_features.py. * `src/serve.py`"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "**Completed:** batch inference over the full customer base.\nPath: src/evaluate.py."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Error — a silent dtype coercion dropping precision."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "batch inference over the full customer base",
+   "SHAP explanations for the top features",
+   "gradient boosting reaching 0.84 AUC",
+   "cross-validation across five folds",
+   "the feature engineering pipeline with 42 features",
+   "class imbalance handling with focal loss"
+  ],
+  "pending_tasks": [
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "ONNX export for the serving runtime",
+   "a 90-day lookback window for features"
+  ],
+  "files": [
+   "requirements.txt",
+   "src/serve.py",
+   "src/train.py",
+   "tests/test_features.py",
+   "src/evaluate.py"
+  ],
+  "errors": [
+   "a silent dtype coercion dropping precision",
+   "non-determinism from an unseeded shuffle"
+  ]
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "id": "ho2_devops_kubernetes_003",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a cluster upgrade to 1.31 back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a cluster upgrade to 1.31."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug found: a 502 during rolling deploys from missing readiness gates. Bug found: an ImagePullBackOff from an expired registry credential. We are going with Karpenter instead of the cluster autoscaler."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: charts/api/templates/deployment.yaml. Resolved: pod disruption budgets for the stateful services. Touched: .github/workflows/deploy.yml."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Changed files: Dockerfile. We are going with Istio for service mesh traffic policy. Resolution: Loki for log aggregation."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: node affinity rules keeping the databases separate."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with spot instances for the batch workloads. [done] horizontal pod autoscaling on CPU and request rate ✔ Readiness and liveness probes on every workload"
+  },
+  {
+   "role": "user",
+   "content": "Let's use Velero for cluster backups."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: charts/api/values.yaml. Next task: per-namespace cost attribution. We might revisit this later if needed. Delivered: a canary stage in the deploy pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Bug found: PVC binding failures in the new availability zone. Here's what I found."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "node affinity rules keeping the databases separate",
+   "a canary stage in the deploy pipeline",
+   "horizontal pod autoscaling on CPU and request rate",
+   "readiness and liveness probes on every workload",
+   "pod disruption budgets for the stateful services"
+  ],
+  "pending_tasks": [
+   "per-namespace cost attribution"
+  ],
+  "decisions": [
+   "Karpenter instead of the cluster autoscaler",
+   "Velero for cluster backups",
+   "Loki for log aggregation",
+   "Istio for service mesh traffic policy",
+   "spot instances for the batch workloads"
+  ],
+  "files": [
+   "charts/api/templates/deployment.yaml",
+   "Dockerfile",
+   "charts/api/values.yaml",
+   ".github/workflows/deploy.yml"
+  ],
+  "errors": [
+   "an ImagePullBackOff from an expired registry credential",
+   "a 502 during rolling deploys from missing readiness gates",
+   "PVC binding failures in the new availability zone"
+  ]
+ }
+}

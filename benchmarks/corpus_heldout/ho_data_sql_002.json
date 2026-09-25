@@ -1,0 +1,136 @@
+{
+ "id": "ho_data_sql_002",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a query performance pass."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] incremental models for the daily aggregates\nThe retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Status on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "- `tests/schema.yml`\n✅ A covering index on the customer lookup.\nStatus: surrogate keys across the dimension tables — complete."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below.\n**Decision:** soft deletes with a valid_to column."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Failure: stale data from a silently failing incremental run."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "**Error:** timezone drift between the source and warehouse.\nLeft to do: moving the nightly job to an hourly cadence.\nStatus: the star schema for the orders fact table — complete.\nThe error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Decision: dbt for the transformation layer."
+  },
+  {
+   "role": "assistant",
+   "content": "Status: a materialised view for the executive dashboard — complete. Fine by me."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "✅ Row count reconciliation against the source system.\nApproach: Great Expectations for data quality checks."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Open item: retiring the legacy reporting views. Changes made: the slowly changing dimension on customer tier."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Blocker: a schema drift break when the source added a column. Left to do: an anomaly alert on the daily order count."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `profiles.yml`. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: a cost review of the warehouse spend."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "incremental models for the daily aggregates",
+   "the star schema for the orders fact table",
+   "surrogate keys across the dimension tables",
+   "a materialised view for the executive dashboard",
+   "row count reconciliation against the source system",
+   "a covering index on the customer lookup",
+   "the slowly changing dimension on customer tier"
+  ],
+  "pending_tasks": [
+   "retiring the legacy reporting views",
+   "moving the nightly job to an hourly cadence",
+   "a cost review of the warehouse spend",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "dbt for the transformation layer",
+   "soft deletes with a valid_to column",
+   "Great Expectations for data quality checks"
+  ],
+  "files": [
+   "tests/schema.yml",
+   "profiles.yml"
+  ],
+  "errors": [
+   "a schema drift break when the source added a column",
+   "stale data from a silently failing incremental run",
+   "timezone drift between the source and warehouse"
+  ]
+ }
+}

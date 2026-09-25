@@ -1,0 +1,121 @@
+{
+ "id": "ho_ml_python_001",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a churn prediction model please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a churn prediction model."
+  },
+  {
+   "role": "user",
+   "content": "Decision: ONNX export for the serving runtime."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "- `tests/test_features.py`"
+  },
+  {
+   "role": "user",
+   "content": "Go with scikit-learn pipelines for preprocessing."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: the feature engineering pipeline with 42 features."
+  },
+  {
+   "role": "user",
+   "content": "Status on a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: src/serve.py. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] an offline evaluation against last quarter's data"
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Open item: reducing inference latency below 50ms. Files changed: src/evaluate.py. Status: cross-validation across five folds — complete."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: notebooks/eda.ipynb. Modified: src/features.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "cross-validation across five folds",
+   "SHAP explanations for the top features",
+   "the feature engineering pipeline with 42 features",
+   "an offline evaluation against last quarter's data"
+  ],
+  "pending_tasks": [
+   "reducing inference latency below 50ms"
+  ],
+  "decisions": [
+   "Optuna for hyperparameter search",
+   "scikit-learn pipelines for preprocessing",
+   "ONNX export for the serving runtime"
+  ],
+  "files": [
+   "src/evaluate.py",
+   "src/features.py",
+   "tests/test_features.py",
+   "notebooks/eda.ipynb",
+   "src/serve.py"
+  ],
+  "errors": []
+ }
+}

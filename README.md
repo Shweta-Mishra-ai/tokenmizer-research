@@ -60,6 +60,68 @@ independently implemented strategies on one corpus, and unmoved by this
 fix since it targets vocabulary coverage, not the underlying
 architecture.
 
+### Since 0.5.4 (unreleased product `main`, re-measured 2026-09-24)
+
+Same benchmark, product `main` at `a184cf1`: macro F1 **60.0% → 61.3%**,
+a paired gain of **+1.25 points, 95% CI [+0.46, +2.12]**. The gain is
+real but small. Nearly all of it is in decisions (59% → 64% F1, now level
+with Graphiti/Mem0-style). Errors barely moved (44% → 46%, still 20 points
+behind), and implicit-register sessions are unchanged (27% → 29%). The
+tie with Graphiti/Mem0-style still holds. Two sessions regressed because
+of a new product error pattern that reads "failed" used as an adjective
+("retry for failed deliveries") as an error. Extraction is also ~50%
+slower. Full before/after analysis, including the root cause:
+[`benchmarks/results/REPORT_post_0.5.4.md`](benchmarks/results/REPORT_post_0.5.4.md).
+The paper still reports the released 0.5.4.
+
+### Extraction rounds on unreleased `main` (2026-09-25)
+
+Two rounds of extraction work on the product branch, measured on three
+corpora. Of these, **only held-out v2 was never tuned against**:
+
+| Corpus | Before (`a184cf1`) | After (`b6a5422`) |
+|---|---:|---:|
+| Main corpus (n=100). Tuned against it. | 61% | 92% |
+| Held-out v1 (n=80). Contaminated by round 3. | 40% | 79% |
+| **Held-out v2 (n=80). Never tuned against.** | **33%** | **51%** |
+
+The honest gain is **+17.4 points [+14.6, +20.4]** on phrasing the fixes
+never saw. It came with precision up in every category, extraction about 22%
+slower (15 → 19 ms median per session), and resume blocks about 47% larger.
+Pending-task recall (19%) and errors (45% F1) on held-out v2 remain weak,
+and pattern matching has a ceiling on implicit phrasing. The comparison
+methods are regex reimplementations, not the vendor products, so none of
+this is a claim against Mem0 or Zep. Full protocol and numbers:
+[`benchmarks/results/REPORT_extraction_rounds.md`](benchmarks/results/REPORT_extraction_rounds.md).
+
+A follow-up round tested the product on what the corpora cannot contain: a
+real 914-message agent session, a fuzzer, a scan of all 134 regexes, and a
+concurrent load test of the HTTP endpoint. It found and fixed several
+problems:
+- Agent tool calls were never read.
+- Tool-only turns were silently skipped as duplicates.
+- One message of padded whitespace took 10 seconds (a proxy DoS).
+- One legal JSON character crashed extraction.
+
+On that real session, about 87% of stored facts are genuine, against about
+45% before (judged by hand). The labelled-corpus scores are unchanged. See
+[`benchmarks/results/REPORT_real_sessions_and_robustness.md`](benchmarks/results/REPORT_real_sessions_and_robustness.md).
+
+Rounds 5 and 6 (same report):
+- A fourth corpus, **held-out v3**, was frozen before round 5. On it, the
+  whole branch scores **35% → 64%** macro F1 (+29.6 points [+26.2, +32.8]).
+- The resume block is now packed item by item. At a 150-token budget it
+  keeps 73.5% of labelled facts, against 66.8% before, and open errors go
+  from 40% to 73%. Completed tasks lose 8 points at that budget, by
+  design.
+- Incremental extraction, the way the proxy runs it, now builds 675 of the
+  676 graph edges that whole-session extraction does, against 177 of 707
+  before. Files are now matched at word starts, which removed 31 links,
+  nearly all of them false.
+- A pre-existing cap on remembered messages made every request past
+  message 500 re-extract the old history. On a real agent session the
+  late-session median fell from 115 ms to 21 ms.
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
@@ -81,6 +143,9 @@ benchmarks/
                               scorer, synthetic-session generator, and all
                               eight method implementations
   corpus/                    100 labelled sessions (94 generated, 6 real)
+  corpus_heldout/            80 held-out sessions, disjoint templates (v1)
+  corpus_heldout2/           80 held-out sessions, a third template set (v2)
+  corpus_heldout3/           80 held-out sessions, a fourth template set (v3)
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
   checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;

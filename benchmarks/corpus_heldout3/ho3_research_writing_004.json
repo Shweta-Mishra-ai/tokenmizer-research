@@ -1,0 +1,107 @@
+{
+ "id": "ho3_research_writing_004",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a grant proposal."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a grant proposal."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The related work section covering twelve papers? Taken care of. Most of the work happened inside notes/outline.md."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "A final proofread pass is waiting for someone to pick it up. Don't let shortening to the eight-page limit slip through the cracks. Do we need more tests? data/results.json ended up with most of the changes."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about figure one showing the system architecture now. Reconciling the two conflicting result tables is the obvious next step. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards the ACL template over the generic LaTeX class."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Restructuring the argument around three claims? Taken care of. Don't let an ethics statement slip through the cracks."
+  },
+  {
+   "role": "user",
+   "content": "An explicit statement that the corpus is synthetic sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Including the negative result on implicit language beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Framing the contribution as a measurement study sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makefile ended up with most of the changes. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "paper/abstract.tex ended up with most of the changes. Nothing is blocking us right now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the related work section covering twelve papers",
+   "figure one showing the system architecture",
+   "restructuring the argument around three claims"
+  ],
+  "pending_tasks": [
+   "a final proofread pass",
+   "shortening to the eight-page limit",
+   "an ethics statement",
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "including the negative result on implicit language",
+   "the ACL template over the generic LaTeX class",
+   "an explicit statement that the corpus is synthetic",
+   "framing the contribution as a measurement study"
+  ],
+  "files": [
+   "paper/abstract.tex",
+   "data/results.json",
+   "notes/outline.md",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

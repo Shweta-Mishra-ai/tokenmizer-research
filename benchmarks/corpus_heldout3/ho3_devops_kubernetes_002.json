@@ -1,0 +1,133 @@
+{
+ "id": "ho3_devops_kubernetes_002",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with an autoscaling review."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on an autoscaling review."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on Kustomize overlays per environment. There were no failures in the nightly run."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. The plan is Velero for cluster backups."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "File: `Dockerfile`. Node affinity rules keeping the databases separate has been merged. We can stop worrying about readiness and liveness probes on every workload now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "A rolling deploy with surge and unavailable tuned? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed: an ImagePullBackOff from an expired registry credential."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Resource requests and limits for all containers went smoothly in the end. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've got a canary stage in the deploy pipeline up and running."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an autoscaling review?"
+  },
+  {
+   "role": "assistant",
+   "content": "We completed the ingress with automatic certificate renewal yesterday. Don't let a runbook for the failover procedure slip through the cracks. Nothing is blocking us right now."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The secrets migration into the external secret store has been merged. We ran into a 502 during rolling deploys from missing readiness gates."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "k8s/hpa.yaml ended up with most of the changes. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards spot instances for the batch workloads."
+  },
+  {
+   "role": "assistant",
+   "content": "Sounds right, on it. Failed: node pressure evictions during the nightly batch."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the secrets migration into the external secret store",
+   "resource requests and limits for all containers",
+   "readiness and liveness probes on every workload",
+   "node affinity rules keeping the databases separate",
+   "a rolling deploy with surge and unavailable tuned",
+   "the ingress with automatic certificate renewal",
+   "a canary stage in the deploy pipeline"
+  ],
+  "pending_tasks": [
+   "a runbook for the failover procedure"
+  ],
+  "decisions": [
+   "Velero for cluster backups",
+   "Kustomize overlays per environment",
+   "spot instances for the batch workloads"
+  ],
+  "files": [
+   "Dockerfile",
+   "k8s/hpa.yaml"
+  ],
+  "errors": [
+   "a 502 during rolling deploys from missing readiness gates",
+   "node pressure evictions during the nightly batch",
+   "an ImagePullBackOff from an expired registry credential"
+  ]
+ }
+}

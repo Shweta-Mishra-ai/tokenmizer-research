@@ -1,0 +1,125 @@
+{
+ "id": "ho2_debug_production_002",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing an outage root cause analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with an outage root cause analysis."
+  },
+  {
+   "role": "user",
+   "content": "Could we use sampling traces at 10% rather than 1%?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "A load test reproducing the traffic pattern is waiting on me. Managed to finish capturing a heap profile during the spike. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. We'll use keeping the extra logging for two weeks."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in tests/test_regression.py. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have py-spy for the production profiling."
+  },
+  {
+   "role": "assistant",
+   "content": "We need to do backfilling the corrupted rows next. No regressions so far. Good call, switching. A follow-up on the third-party client bug report is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in src/handlers/checkout.py. A timeline of the incident from the metrics went out this morning."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "A canary deploy for the fix is what we're using. A regression test covering the failure mode went out this morning. I put it in monitoring/alerts.yaml. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in src/pool.py."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use reverting to the previous library version. Check scripts/repro.py for the change."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Cleaning up the temporary debug logging is waiting on me. Here's what I found."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "capturing a heap profile during the spike",
+   "a timeline of the incident from the metrics",
+   "a regression test covering the failure mode"
+  ],
+  "pending_tasks": [
+   "a follow-up on the third-party client bug report",
+   "cleaning up the temporary debug logging",
+   "backfilling the corrupted rows",
+   "a load test reproducing the traffic pattern"
+  ],
+  "decisions": [
+   "keeping the extra logging for two weeks",
+   "a canary deploy for the fix",
+   "reverting to the previous library version",
+   "sampling traces at 10% rather than 1%",
+   "py-spy for the production profiling"
+  ],
+  "files": [
+   "tests/test_regression.py",
+   "scripts/repro.py",
+   "src/handlers/checkout.py",
+   "monitoring/alerts.yaml",
+   "src/pool.py"
+  ],
+  "errors": []
+ }
+}

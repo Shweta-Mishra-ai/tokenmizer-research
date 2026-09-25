@@ -1,0 +1,107 @@
+{
+ "id": "ho3_infra_terraform_001",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a disaster recovery setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a disaster recovery setup now."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about IAM roles scoped per service now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. terraform/iam.tf ended up with most of the changes. Having compared the options, Checkov for policy scanning is the best fit."
+  },
+  {
+   "role": "user",
+   "content": "What about a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "OIDC for CI authentication into AWS is what we'll ship with. We can stop worrying about encrypted EBS volumes across all instances now. Rewrote parts of modules/service/main.tf as well."
+  },
+  {
+   "role": "user",
+   "content": "AWS as the single cloud provider sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: the VPC with public and private subnets across three zones made it in before the freeze. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "Separate accounts for production and staging sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: security groups restricted to named ports made it in before the freeze. Here is the updated plan. Agreed."
+  },
+  {
+   "role": "user",
+   "content": "What about a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "A module for the standard service deployment went smoothly in the end. The error messages are now clearer. Good news: VPC flow logs shipped to the log bucket made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Terraform over CloudFormation is what we'll ship with. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "Terragrunt for the DRY module wiring sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "A drift detection job on a daily schedule is the obvious next step. Agreed. Failed jobs are retried twice."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the VPC with public and private subnets across three zones",
+   "encrypted EBS volumes across all instances",
+   "VPC flow logs shipped to the log bucket",
+   "a module for the standard service deployment",
+   "security groups restricted to named ports",
+   "IAM roles scoped per service"
+  ],
+  "pending_tasks": [
+   "a drift detection job on a daily schedule"
+  ],
+  "decisions": [
+   "AWS as the single cloud provider",
+   "Terraform over CloudFormation",
+   "OIDC for CI authentication into AWS",
+   "separate accounts for production and staging",
+   "Terragrunt for the DRY module wiring",
+   "Checkov for policy scanning"
+  ],
+  "files": [
+   "modules/service/main.tf",
+   "terraform/iam.tf"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "id": "ho2_data_sql_002",
+ "origin": "synthetic",
+ "domain": "data/sql",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a query performance pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a query performance pass."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month.\n**Completed:** surrogate keys across the dimension tables.\nWe are going with Parquet as the landing format.\n* `profiles.yml`"
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `models/marts/dim_customer.sql`"
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolution: a medallion bronze/silver/gold layout."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a query performance pass?"
+  },
+  {
+   "role": "assistant",
+   "content": "Error — a full table scan on the unpartitioned events table."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `dbt_project.yml` Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Planned: an anomaly alert on the daily order count. Decision made: an ELT rather than ETL pattern. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: dags/daily_refresh.py."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Completed — backfilling six months of historical revenue."
+  },
+  {
+   "role": "user",
+   "content": "I want Kafka for the event transport. I want soft deletes with a valid_to column."
+  },
+  {
+   "role": "assistant",
+   "content": "**Bug:** a fan-out join inflating revenue by 3x.\nSure thing.\nGood call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Path: macros/revenue.sql."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Planned: retiring the legacy reporting views."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Resolved: freshness tests on every source table."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "freshness tests on every source table",
+   "backfilling six months of historical revenue",
+   "surrogate keys across the dimension tables"
+  ],
+  "pending_tasks": [
+   "retiring the legacy reporting views",
+   "an anomaly alert on the daily order count"
+  ],
+  "decisions": [
+   "soft deletes with a valid_to column",
+   "Kafka for the event transport",
+   "Parquet as the landing format",
+   "a medallion bronze/silver/gold layout",
+   "an ELT rather than ETL pattern"
+  ],
+  "files": [
+   "dbt_project.yml",
+   "macros/revenue.sql",
+   "models/marts/dim_customer.sql",
+   "profiles.yml",
+   "dags/daily_refresh.py"
+  ],
+  "errors": [
+   "a fan-out join inflating revenue by 3x",
+   "a full table scan on the unpartitioned events table"
+  ]
+ }
+}

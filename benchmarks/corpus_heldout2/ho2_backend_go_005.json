@@ -1,0 +1,133 @@
+{
+ "id": "ho2_backend_go_005",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an event consumer back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an event consumer."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Haven't gotten to reducing allocations in the serialiser. Check internal/worker/pool.go for the change. Edits are in go.mod."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Connection reuse in the HTTP client: done."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "Settling on buf for protobuf linting and generation. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "The gRPC service definition and generated stubs went out this morning. We'll use testcontainers for integration tests. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Context propagation through every handler: done."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: profiling the p99 latency spike."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd go with pgx as the Postgres driver. Haven't gotten to moving the config to environment variables."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in proto/orders.proto. Managed to finish a worker pool bounded at 32 goroutines. Managed to finish the retry policy with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "What about NATS for the message transport?"
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use errgroup for concurrent fan-out."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Edits are in cmd/server/main.go. Once the build is green we can merge."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the gRPC service definition and generated stubs",
+   "a worker pool bounded at 32 goroutines",
+   "the retry policy with exponential backoff",
+   "context propagation through every handler",
+   "connection reuse in the HTTP client"
+  ],
+  "pending_tasks": [
+   "moving the config to environment variables",
+   "reducing allocations in the serialiser",
+   "profiling the p99 latency spike"
+  ],
+  "decisions": [
+   "testcontainers for integration tests",
+   "pgx as the Postgres driver",
+   "buf for protobuf linting and generation",
+   "errgroup for concurrent fan-out",
+   "NATS for the message transport"
+  ],
+  "files": [
+   "cmd/server/main.go",
+   "proto/orders.proto",
+   "go.mod",
+   "internal/worker/pool.go"
+  ],
+  "errors": []
+ }
+}

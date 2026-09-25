@@ -1,0 +1,156 @@
+{
+ "id": "ho2_infra_terraform_002",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a cost optimisation pass."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a cost optimisation pass."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with Terraform over CloudFormation."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in terraform/iam.tf. Once the build is green we can merge."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Documenting the module interfaces is waiting on me. * `terraform/outputs.tf` Most of the afternoon went into terraform/backend.tf."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. Eventually a drift detection job on a daily schedule has to get done too."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging?\n**Choice:** AWS as the single cloud provider."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "I'd go with provider versions pinned to a minor range. Planned: splitting the monolithic state file. I put it in terraform/main.tf. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, remote state in S3 with DynamoDB locking finally works. Resolution: private subnets for every compute workload."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "[done] encrypted EBS volumes across all instances"
+  },
+  {
+   "role": "user",
+   "content": "Let's use S3 lifecycle rules moving logs to Glacier after 90 days."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "A read replica in the secondary region went out this morning. Delivered: tagging enforced through a provider default."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into terraform/vpc.tf. Delivered: a module for the standard service deployment. Bug found: a destroy plan on the production database from a renamed resource."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Aurora Postgres over standard RDS is the clear winner here. That leaves VPC flow logs shipped to the log bucket behind us. Path: environments/prod/terragrunt.hcl."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "**TODO:** moving the legacy resources under Terraform."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VPC flow logs shipped to the log bucket",
+   "a read replica in the secondary region",
+   "a module for the standard service deployment",
+   "tagging enforced through a provider default",
+   "remote state in S3 with DynamoDB locking",
+   "encrypted EBS volumes across all instances"
+  ],
+  "pending_tasks": [
+   "moving the legacy resources under Terraform",
+   "a drift detection job on a daily schedule",
+   "documenting the module interfaces",
+   "splitting the monolithic state file"
+  ],
+  "decisions": [
+   "Terraform over CloudFormation",
+   "provider versions pinned to a minor range",
+   "AWS as the single cloud provider",
+   "S3 lifecycle rules moving logs to Glacier after 90 days",
+   "Aurora Postgres over standard RDS",
+   "private subnets for every compute workload"
+  ],
+  "files": [
+   "terraform/main.tf",
+   "terraform/outputs.tf",
+   "terraform/iam.tf",
+   "terraform/vpc.tf",
+   "environments/prod/terragrunt.hcl",
+   "terraform/backend.tf"
+  ],
+  "errors": [
+   "a destroy plan on the production database from a renamed resource"
+  ]
+ }
+}

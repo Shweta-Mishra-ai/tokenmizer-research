@@ -1,0 +1,143 @@
+{
+ "id": "ho2_devops_kubernetes_001",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a multi-region rollout back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a multi-region rollout."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards external-secrets backed by Vault."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "If the tests fail, the pipeline blocks the merge. After a couple of tries, pod disruption budgets for the stateful services finally works. Loki for log aggregation is the clear winner here. That leaves node affinity rules keeping the databases separate behind us."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out charts/api/templates/deployment.yaml was the culprit file. If the tests fail, the pipeline blocks the merge. Root of the pain: node pressure evictions during the nightly batch."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up reducing the image sizes on the worker pool. Retries only apply to failed jobs. That leaves cluster autoscaler on the spot node group behind us."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out charts/api/values.yaml was the culprit file. Should we add more logging?"
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Turned out k8s/hpa.yaml was the culprit file. Root of the pain: a 502 during rolling deploys from missing readiness gates."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get tightening the pod security admission profile in before Friday. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Eventually per-namespace cost attribution has to get done too."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into scripts/rollout.sh. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. Someone should pick up moving the remaining cron jobs to Kubernetes. All things considered, Prometheus and Grafana for metrics wins."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we add more logging? Root of the pain: OOMKilled pods on the ingestion worker."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out Dockerfile was the culprit file."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "pod disruption budgets for the stateful services",
+   "node affinity rules keeping the databases separate",
+   "cluster autoscaler on the spot node group"
+  ],
+  "pending_tasks": [
+   "moving the remaining cron jobs to Kubernetes",
+   "per-namespace cost attribution",
+   "tightening the pod security admission profile",
+   "reducing the image sizes on the worker pool"
+  ],
+  "decisions": [
+   "Prometheus and Grafana for metrics",
+   "Loki for log aggregation",
+   "external-secrets backed by Vault"
+  ],
+  "files": [
+   "Dockerfile",
+   "scripts/rollout.sh",
+   "charts/api/values.yaml",
+   "charts/api/templates/deployment.yaml",
+   "k8s/hpa.yaml"
+  ],
+  "errors": [
+   "node pressure evictions during the nightly batch",
+   "a 502 during rolling deploys from missing readiness gates",
+   "OOMKilled pods on the ingestion worker"
+  ]
+ }
+}

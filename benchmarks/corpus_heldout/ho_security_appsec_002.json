@@ -1,0 +1,126 @@
+{
+ "id": "ho_security_appsec_002",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a dependency audit."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a dependency audit now."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Remaining: automated dependency updates."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: session invalidation on password change."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Blocker: an XSS in the comment renderer. Open item: a review of the CORS allowlist. That should be it for this part. Final choice: Semgrep in the pull request pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: .github/workflows/security.yml.\n**Done:** least-privilege IAM roles for the workers.\nThe error handling path is covered by the existing tests.\nFinal choice: a 90-day key rotation schedule."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "New file: docs/threat-model.md. Here's a quick summary of where things stand."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: a threat model for the payments flow.\n**Decision:** Trivy for container image scanning.\nThe error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: encrypted secrets at rest in the vault.\n**Done:** rate limiting on the password reset endpoint.\nWe decided on a deny-by-default egress policy."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] input sanitisation on the file upload path"
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Remaining: a third-party penetration test."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a dependency audit?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: signed container images in the registry. We could also consider caching, but it's not needed yet."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "least-privilege IAM roles for the workers",
+   "session invalidation on password change",
+   "rate limiting on the password reset endpoint",
+   "encrypted secrets at rest in the vault",
+   "signed container images in the registry",
+   "input sanitisation on the file upload path"
+  ],
+  "pending_tasks": [
+   "a third-party penetration test",
+   "a review of the CORS allowlist",
+   "automated dependency updates",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "a deny-by-default egress policy",
+   "Trivy for container image scanning",
+   "Semgrep in the pull request pipeline",
+   "a 90-day key rotation schedule"
+  ],
+  "files": [
+   "docs/threat-model.md",
+   ".github/workflows/security.yml"
+  ],
+  "errors": [
+   "an XSS in the comment renderer"
+  ]
+ }
+}

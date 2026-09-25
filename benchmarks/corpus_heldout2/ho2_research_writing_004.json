@@ -1,0 +1,134 @@
+{
+ "id": "ho2_research_writing_004",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an internal architecture RFC."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an internal architecture RFC."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out paper/references.bib was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'd like to get the artifact submission package in before Friday. That leaves the reproducibility statement with exact commands behind us."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards including the negative result on implicit language."
+  },
+  {
+   "role": "assistant",
+   "content": "Yep, doing that. Turned out paper/related_work.tex was the culprit file. Here's what I found. Pager went off for the page count exceeding the submission limit again."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an internal architecture RFC?"
+  },
+  {
+   "role": "assistant",
+   "content": "figures/architecture.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on an explicit statement that the corpus is synthetic. Shortening to the eight-page limit keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report the evaluation table with confidence intervals is sorted. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reconciling the two conflicting result tables keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out notes/outline.md was the culprit file."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "All things considered, reporting per-domain breakdowns in the appendix wins. Citations normalised to a single bibliography style is no longer on my plate. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out data/results.json was the culprit file. The error budget is fine this month."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "A plain-language summary for the blog post keeps slipping. We might revisit this later if needed. Restructuring the argument around three claims is no longer on my plate."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the evaluation table with confidence intervals",
+   "citations normalised to a single bibliography style",
+   "the reproducibility statement with exact commands",
+   "restructuring the argument around three claims"
+  ],
+  "pending_tasks": [
+   "shortening to the eight-page limit",
+   "reconciling the two conflicting result tables",
+   "a plain-language summary for the blog post",
+   "the artifact submission package"
+  ],
+  "decisions": [
+   "reporting per-domain breakdowns in the appendix",
+   "an explicit statement that the corpus is synthetic",
+   "including the negative result on implicit language"
+  ],
+  "files": [
+   "figures/architecture.py",
+   "data/results.json",
+   "paper/related_work.tex",
+   "paper/references.bib",
+   "notes/outline.md"
+  ],
+  "errors": [
+   "the page count exceeding the submission limit"
+  ]
+ }
+}

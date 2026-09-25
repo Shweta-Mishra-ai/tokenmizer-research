@@ -1,0 +1,138 @@
+{
+ "id": "ho3_product_analytics_002",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a churn driver investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a churn driver investigation."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on weekly rather than daily cohorts for readability. We may decide to change this later. Finished — a funnel from signup through first value."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [x] the event taxonomy covering fourteen product actions\nEdited: analytics/experiments.py.\n**Shipped:** documentation of every metric definition."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: an automated experiment readout template.\nOnce CI passes I'll merge.\n- dashboards/north_star.json\n- analytics/cohorts.sql"
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Errors: a double-counted signup event inflating the funnel top. Choice: median rather than mean for the latency metrics."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: a sample size calculation for the pricing test done. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "What about a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: sunsetting the legacy dashboard.\n- notebooks/churn_drivers.ipynb"
+  },
+  {
+   "role": "user",
+   "content": "Switch to a 95% confidence threshold for experiment calls."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it. Chose a seven-day activation window."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Result: deduplication of the double-fired signup event done. Outstanding: a guardrail metric on support ticket volume."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** the active user count differing 12% between two dashboards."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Choice: a two-week minimum experiment runtime."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: a qualitative follow-up with churned accounts. We may decide to change this later. Bug report: a broken event after the client release stopped firing it."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a funnel from signup through first value",
+   "the event taxonomy covering fourteen product actions",
+   "deduplication of the double-fired signup event",
+   "a sample size calculation for the pricing test",
+   "documentation of every metric definition"
+  ],
+  "pending_tasks": [
+   "an automated experiment readout template",
+   "sunsetting the legacy dashboard",
+   "a guardrail metric on support ticket volume",
+   "a qualitative follow-up with churned accounts"
+  ],
+  "decisions": [
+   "median rather than mean for the latency metrics",
+   "a two-week minimum experiment runtime",
+   "a seven-day activation window",
+   "weekly rather than daily cohorts for readability",
+   "a 95% confidence threshold for experiment calls"
+  ],
+  "files": [
+   "analytics/experiments.py",
+   "analytics/cohorts.sql",
+   "notebooks/churn_drivers.ipynb",
+   "dashboards/north_star.json"
+  ],
+  "errors": [
+   "a broken event after the client release stopped firing it",
+   "the active user count differing 12% between two dashboards",
+   "a double-counted signup event inflating the funnel top"
+  ]
+ }
+}

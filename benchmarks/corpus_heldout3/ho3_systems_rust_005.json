@@ -1,0 +1,99 @@
+{
+ "id": "ho3_systems_rust_005",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a packet inspector."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a packet inspector."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "An arena allocator for the parse nodes beat the alternatives on every axis we care about. Zero-copy deserialisation of the record header? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Most of the work happened inside src/parser.rs."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "A lock-free ring buffer for the writer went smoothly in the end. If this fails again we will revisit the design. Adding a tracing subscriber is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Criterion benchmarks on the parse loop went smoothly in the end. We can stop worrying about an async runtime built on tokio now. Clap for argument parsing is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Parking_lot mutexes over the std ones is what we'll ship with. There were no failures in the nightly run. Good news: a no_std core module made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: cross-compilation for aarch64 made it in before the freeze. The root cause turned out to be integer overflow in the length calculation."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: SIMD acceleration on the checksum path made it in before the freeze. Most of the work happened inside tests/roundtrip.rs. The error messages are now clearer."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "SIMD acceleration on the checksum path",
+   "cross-compilation for aarch64",
+   "criterion benchmarks on the parse loop",
+   "a lock-free ring buffer for the writer",
+   "zero-copy deserialisation of the record header",
+   "a no_std core module",
+   "an async runtime built on tokio"
+  ],
+  "pending_tasks": [
+   "adding a tracing subscriber"
+  ],
+  "decisions": [
+   "parking_lot mutexes over the std ones",
+   "an arena allocator for the parse nodes",
+   "clap for argument parsing"
+  ],
+  "files": [
+   "tests/roundtrip.rs",
+   "src/parser.rs"
+  ],
+  "errors": [
+   "integer overflow in the length calculation"
+  ]
+ }
+}

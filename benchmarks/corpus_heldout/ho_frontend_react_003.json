@@ -1,0 +1,152 @@
+{
+ "id": "ho_frontend_react_003",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a customer support console please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a customer support console."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a customer support console?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Had to open up tests/dashboard.spec.ts again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Please use TanStack Query for server state."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `src/api/client.ts`.\n✅ Session persistence in localStorage."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Approach: Zustand instead of Redux for local state."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end pnpm as the package manager was simpler than the alternatives. Just merged focus trapping in the modal component. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — a CORS failure against the staging API. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Status on a customer support console?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of src/hooks/useMetrics.ts along the way. Server-side pagination on the results table is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: a bundle size budget in CI. That should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "How about Vitest over Jest for the unit suite?"
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Sticking with Tailwind for styling."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** Recharts for the visualisations.\nMerged: dark mode using CSS custom properties.\nWith the metrics grid with responsive breakpoints sorted, the rest should go quicker."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Most of the edits went into tailwind.config.js."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: an accessibility audit of the nav."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: offline support for the draft editor."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "dark mode using CSS custom properties",
+   "the metrics grid with responsive breakpoints",
+   "server-side pagination on the results table",
+   "session persistence in localStorage",
+   "focus trapping in the modal component"
+  ],
+  "pending_tasks": [
+   "offline support for the draft editor",
+   "a bundle size budget in CI",
+   "an accessibility audit of the nav"
+  ],
+  "decisions": [
+   "Recharts for the visualisations",
+   "Vitest over Jest for the unit suite",
+   "Zustand instead of Redux for local state",
+   "pnpm as the package manager",
+   "Tailwind for styling",
+   "TanStack Query for server state"
+  ],
+  "files": [
+   "src/hooks/useMetrics.ts",
+   "tests/dashboard.spec.ts",
+   "tailwind.config.js",
+   "src/api/client.ts"
+  ],
+  "errors": [
+   "a CORS failure against the staging API"
+  ]
+ }
+}

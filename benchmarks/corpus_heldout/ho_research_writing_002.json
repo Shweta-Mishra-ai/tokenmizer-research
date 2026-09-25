@@ -1,0 +1,114 @@
+{
+ "id": "ho_research_writing_002",
+ "origin": "synthetic",
+ "domain": "research/writing",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a literature review."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a literature review now."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Status: a first pass at the methodology section — complete."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: the ACL template over the generic LaTeX class. Decision: bootstrap confidence intervals rather than t-tests. Status: the related work section covering twelve papers — complete."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "New file: paper/references.bib. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? Edited `data/results.json`."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run.\n- [x] the evaluation table with confidence intervals\nFollow-up: the discussion section."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. New file: paper/abstract.tex."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] the introduction cut from four pages to two"
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: an explicit statement that the corpus is synthetic.\nFiles changed: paper/related_work.tex.\n**Next steps:** reconciling the two conflicting result tables."
+  },
+  {
+   "role": "user",
+   "content": "Status on a literature review?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: targeting the workshop deadline rather than the main track."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the evaluation table with confidence intervals",
+   "the related work section covering twelve papers",
+   "the introduction cut from four pages to two",
+   "a first pass at the methodology section"
+  ],
+  "pending_tasks": [
+   "the discussion section",
+   "reconciling the two conflicting result tables"
+  ],
+  "decisions": [
+   "bootstrap confidence intervals rather than t-tests",
+   "an explicit statement that the corpus is synthetic",
+   "targeting the workshop deadline rather than the main track",
+   "the ACL template over the generic LaTeX class"
+  ],
+  "files": [
+   "data/results.json",
+   "paper/related_work.tex",
+   "paper/references.bib",
+   "paper/abstract.tex"
+  ],
+  "errors": []
+ }
+}

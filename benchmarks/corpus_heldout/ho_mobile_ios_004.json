@@ -1,0 +1,117 @@
+{
+ "id": "ho_mobile_ios_004",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a subscription billing flow."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a subscription billing flow now."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer Keychain for token storage rather than UserDefaults."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Files changed: fastlane/Fastfile. SwiftLint in the build phase ended up being the pragmatic option. If the migration fails, we roll back automatically."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of Sources/Sync/SyncEngine.swift along the way."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up Sources/App/ContentView.swift again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Status on a subscription billing flow?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll go with The Composable Architecture for state. The error handling path is covered by the existing tests. The on-call page last night was a keychain access error after device restore. The on-call page last night was a layout constraint conflict on the smallest device."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] VoiceOver labels across the main screens\nI'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm. No more worrying about deep links into the workout detail screen, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Let's do fastlane for the release pipeline."
+  },
+  {
+   "role": "assistant",
+   "content": "Noticed main thread blocking during the Core Data import in staging. Fine by me. Follow-up: reducing cold start below 400ms."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. Crossed background sync with a URLSession task off the list this morning. I touched Sources/Auth/Keychain.swift as well."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Rather than overthinking it, StoreKit 2 for subscriptions it is. Worth noting: nothing here changes the public API."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "VoiceOver labels across the main screens",
+   "deep links into the workout detail screen",
+   "background sync with a URLSession task"
+  ],
+  "pending_tasks": [
+   "reducing cold start below 400ms"
+  ],
+  "decisions": [
+   "fastlane for the release pipeline",
+   "The Composable Architecture for state",
+   "SwiftLint in the build phase",
+   "StoreKit 2 for subscriptions",
+   "Keychain for token storage rather than UserDefaults"
+  ],
+  "files": [
+   "Sources/App/ContentView.swift",
+   "Sources/Sync/SyncEngine.swift",
+   "Sources/Auth/Keychain.swift",
+   "fastlane/Fastfile"
+  ],
+  "errors": [
+   "a layout constraint conflict on the smallest device",
+   "main thread blocking during the Core Data import",
+   "a keychain access error after device restore"
+  ]
+ }
+}

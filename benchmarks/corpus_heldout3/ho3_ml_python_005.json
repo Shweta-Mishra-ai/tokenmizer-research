@@ -1,0 +1,163 @@
+{
+ "id": "ho3_ml_python_005",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a document classifier."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a document classifier."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. Result: drift monitoring on the input distributions done."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: gradient boosting reaching 0.84 AUC."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on a time-based split to avoid leakage. Regression: train/serve skew from inconsistent scaling. Here is the updated plan. Bug report: a silent dtype coercion dropping precision."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Chose MLflow for experiment tracking. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? We've decided on quantile clipping on the numeric features."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? File: `src/features.py`. Implemented SHAP explanations for the top features."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "- tests/test_features.py\n* [ ] reducing inference latency below 50ms\nFinished — the feature engineering pipeline with 42 features."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Errors: inference timeouts on the long-document path."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — an online A/B test against the current model. Result: cross-validation across five folds done."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Agreed approach: Optuna for hyperparameter search."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Result: a model registry entry for the release candidate done."
+  },
+  {
+   "role": "user",
+   "content": "What about a document classifier?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: data/schema.json."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: documenting the model card. Result: hyperparameter search over 200 trials done. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: Makefile. Failed jobs are retried twice. File: `src/serve.py`."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "drift monitoring on the input distributions",
+   "SHAP explanations for the top features",
+   "hyperparameter search over 200 trials",
+   "the feature engineering pipeline with 42 features",
+   "gradient boosting reaching 0.84 AUC",
+   "a model registry entry for the release candidate",
+   "cross-validation across five folds"
+  ],
+  "pending_tasks": [
+   "an online A/B test against the current model",
+   "documenting the model card",
+   "reducing inference latency below 50ms"
+  ],
+  "decisions": [
+   "MLflow for experiment tracking",
+   "quantile clipping on the numeric features",
+   "a time-based split to avoid leakage",
+   "Optuna for hyperparameter search"
+  ],
+  "files": [
+   "Makefile",
+   "src/serve.py",
+   "data/schema.json",
+   "tests/test_features.py",
+   "src/features.py"
+  ],
+  "errors": [
+   "inference timeouts on the long-document path",
+   "a silent dtype coercion dropping precision",
+   "train/serve skew from inconsistent scaling"
+  ]
+ }
+}

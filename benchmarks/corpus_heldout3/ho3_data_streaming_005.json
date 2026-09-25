@@ -1,0 +1,117 @@
+{
+ "id": "ho3_data_streaming_005",
+ "origin": "synthetic",
+ "domain": "data/streaming",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an event schema migration."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an event schema migration now."
+  },
+  {
+   "role": "user",
+   "content": "What about an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "The root cause turned out to be a poison message halting the consumer group."
+  },
+  {
+   "role": "user",
+   "content": "What about an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Migrating the remaining consumers off the v1 schema is waiting for someone to pick it up."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an event schema migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "streams/windowing.py ended up with most of the changes. Let me know if anything looks off."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Good news: the change data capture connector on the orders table made it in before the freeze. The topic layout with twelve partitions per stream went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Partitioning by tenant rather than by hash is waiting for someone to pick it up. Failed jobs are retried twice. The alerts this morning came from offset commit failures under broker restart. Tiered storage for the older segments is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "There were no failures in the nightly run. Don't let an automated schema compatibility check in CI slip through the cracks. Rewrote parts of schemas/order_placed.avsc as well. Consumer lag monitoring with alerting? Taken care of."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: the dead letter topic with a replay tool made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Debezium for change data capture is what we'll ship with. Having compared the options, consumer offsets committed after processing is the best fit. We can stop worrying about exactly-once semantics on the aggregation job now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about a schema registry entry for every event type now."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the dead letter topic with a replay tool",
+   "the topic layout with twelve partitions per stream",
+   "consumer lag monitoring with alerting",
+   "exactly-once semantics on the aggregation job",
+   "a schema registry entry for every event type",
+   "the change data capture connector on the orders table"
+  ],
+  "pending_tasks": [
+   "tiered storage for the older segments",
+   "an automated schema compatibility check in CI",
+   "partitioning by tenant rather than by hash",
+   "migrating the remaining consumers off the v1 schema"
+  ],
+  "decisions": [
+   "consumer offsets committed after processing",
+   "Debezium for change data capture"
+  ],
+  "files": [
+   "schemas/order_placed.avsc",
+   "streams/windowing.py"
+  ],
+  "errors": [
+   "a poison message halting the consumer group",
+   "offset commit failures under broker restart"
+  ]
+ }
+}

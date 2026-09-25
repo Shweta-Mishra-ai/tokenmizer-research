@@ -1,0 +1,129 @@
+{
+ "id": "ho_infra_terraform_003",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a compliance baseline rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a compliance baseline rollout now."
+  },
+  {
+   "role": "user",
+   "content": "Decision: S3 lifecycle rules moving logs to Glacier after 90 days."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do. Let me know if you want me to keep going. Failure: a destroy plan on the production database from a renamed resource. Failure: a state lock left behind by a cancelled apply."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: terraform/backend.tf. I'll explain the reasoning below. Status: tagging enforced through a provider default — complete."
+  },
+  {
+   "role": "user",
+   "content": "Decision: Terragrunt for the DRY module wiring."
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: .github/workflows/plan.yml.\nMakes sense, doing that.\n- [ ] a cost anomaly alert"
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part.\n**Next steps:** a drift detection job on a daily schedule."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: environments/prod/terragrunt.hcl.\n**Done:** the NAT gateway consolidated to one per region."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** security groups restricted to named ports."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: documenting the module interfaces. Left to do: moving the legacy resources under Terraform. Status: remote state in S3 with DynamoDB locking — complete. The retry wrapper handles failed requests with exponential backoff."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Problem: a cyclic dependency between the security group rules. Status: a module for the standard service deployment — complete. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Decision: provider versions pinned to a minor range."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited `terraform/vpc.tf`. I'll explain the reasoning below. Merged: IAM roles scoped per service."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "tagging enforced through a provider default",
+   "remote state in S3 with DynamoDB locking",
+   "the NAT gateway consolidated to one per region",
+   "IAM roles scoped per service",
+   "security groups restricted to named ports",
+   "a module for the standard service deployment"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces",
+   "moving the legacy resources under Terraform",
+   "a cost anomaly alert",
+   "a drift detection job on a daily schedule"
+  ],
+  "decisions": [
+   "provider versions pinned to a minor range",
+   "S3 lifecycle rules moving logs to Glacier after 90 days",
+   "Terragrunt for the DRY module wiring"
+  ],
+  "files": [
+   "environments/prod/terragrunt.hcl",
+   "terraform/vpc.tf",
+   ".github/workflows/plan.yml",
+   "terraform/backend.tf"
+  ],
+  "errors": [
+   "a cyclic dependency between the security group rules",
+   "a state lock left behind by a cancelled apply",
+   "a destroy plan on the production database from a renamed resource"
+  ]
+ }
+}

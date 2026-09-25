@@ -35,6 +35,24 @@ def _resolve_version() -> str:
 VERSION = _resolve_version()
 
 
+def product_revision() -> dict:
+    """The product checkout actually measured. `__version__` alone is not
+    enough: unreleased commits on main keep the last release's version
+    string, so two different engines can both report "0.5.4"."""
+    try:
+        commit = subprocess.run(
+            ["git", "-C", str(PRODUCT_REPO), "rev-parse", "HEAD"],
+            capture_output=True, text=True, timeout=10,
+        ).stdout.strip() or "unknown"
+        dirty = bool(subprocess.run(
+            ["git", "-C", str(PRODUCT_REPO), "status", "--porcelain", "--", "tokenmizer"],
+            capture_output=True, text=True, timeout=10,
+        ).stdout.strip())
+    except (OSError, subprocess.SubprocessError):
+        commit, dirty = "unknown", False
+    return {"version": VERSION, "commit": commit, "dirty": dirty}
+
+
 def available() -> bool:
     return _WORKER.exists() and (PRODUCT_REPO / "tokenmizer" / "__init__.py").exists()
 

@@ -1,0 +1,88 @@
+{
+ "id": "ho2_devops_ci_004",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "explicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "I need help finishing a flaky test investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to help with a flaky test investigation."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "We are going with trunk-based development with short-lived branches. Touched: conftest.py."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Delivered: a nightly job running the slow integration suite."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Planned: self-hosted runners for the GPU tests. Path: .github/dependabot.yml. Delivered: container image build with layer caching."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a flaky test investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "* `.github/workflows/release.yml` [done] automated changelog generation on tag"
+  },
+  {
+   "role": "user",
+   "content": "I want semantic versioning driven by commit messages."
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. Yep, doing that. Chosen: Codecov for coverage tracking. Resolved: required status checks on the default branch."
+  },
+  {
+   "role": "user",
+   "content": "Let's use a required review from one code owner."
+  },
+  {
+   "role": "assistant",
+   "content": "Retries only apply to failed jobs. Yep, doing that."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "container image build with layer caching",
+   "a nightly job running the slow integration suite",
+   "automated changelog generation on tag",
+   "required status checks on the default branch"
+  ],
+  "pending_tasks": [
+   "self-hosted runners for the GPU tests"
+  ],
+  "decisions": [
+   "trunk-based development with short-lived branches",
+   "semantic versioning driven by commit messages",
+   "a required review from one code owner",
+   "Codecov for coverage tracking"
+  ],
+  "files": [
+   ".github/workflows/release.yml",
+   ".github/dependabot.yml",
+   "conftest.py"
+  ],
+  "errors": []
+ }
+}

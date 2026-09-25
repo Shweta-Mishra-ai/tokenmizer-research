@@ -1,0 +1,118 @@
+{
+ "id": "ho_mobile_ios_001",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a fitness tracking app?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a fitness tracking app."
+  },
+  {
+   "role": "user",
+   "content": "Go with SwiftUI for all new screens."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Status on a fitness tracking app?"
+  },
+  {
+   "role": "assistant",
+   "content": "- [x] Core Data persistence for the workout log\n- `Sources/Widgets/ActivityWidget.swift`"
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Remaining: watchOS companion app."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Blocker: a layout constraint conflict on the smallest device. Follow-up: migrating the remaining UIKit screens. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decision:** SwiftLint in the build phase.\nThe retry wrapper handles failed requests with exponential backoff.\n**Decision:** fastlane for the release pipeline."
+  },
+  {
+   "role": "user",
+   "content": "Decision: XCTest with snapshot assertions."
+  },
+  {
+   "role": "assistant",
+   "content": "**Done:** a widget showing today's activity.\nStatus: unit tests for the sync reducer — complete.\nMakes sense, doing that.\nWorth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "Go with StoreKit 2 for subscriptions."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, will do.\nEdited `Sources/App/ContentView.swift`.\n❌ A duplicate record after an interrupted sync."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "If the migration fails, we roll back automatically. Files changed: Sources/Sync/SyncEngine.swift."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ Memory growth from uncancelled image tasks.\n✅ Deep links into the workout detail screen.\nThe error handling path is covered by the existing tests."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "unit tests for the sync reducer",
+   "Core Data persistence for the workout log",
+   "deep links into the workout detail screen",
+   "a widget showing today's activity"
+  ],
+  "pending_tasks": [
+   "watchOS companion app",
+   "migrating the remaining UIKit screens"
+  ],
+  "decisions": [
+   "StoreKit 2 for subscriptions",
+   "XCTest with snapshot assertions",
+   "SwiftLint in the build phase",
+   "fastlane for the release pipeline",
+   "SwiftUI for all new screens"
+  ],
+  "files": [
+   "Sources/App/ContentView.swift",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Sources/Sync/SyncEngine.swift"
+  ],
+  "errors": [
+   "a layout constraint conflict on the smallest device",
+   "a duplicate record after an interrupted sync",
+   "memory growth from uncancelled image tasks"
+  ]
+ }
+}

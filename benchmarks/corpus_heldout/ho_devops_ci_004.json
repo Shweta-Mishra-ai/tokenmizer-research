@@ -1,0 +1,117 @@
+{
+ "id": "ho_devops_ci_004",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a release automation project please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a release automation project."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: test retries limited to two attempts. Files changed: .pre-commit-config.yaml. Tests pass locally; CI will confirm. Changes made: automated changelog generation on tag."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "- `.github/workflows/ci.yml`"
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API.\n✅ A matrix build over three Python versions."
+  },
+  {
+   "role": "user",
+   "content": "Go with uv for dependency installation."
+  },
+  {
+   "role": "assistant",
+   "content": "❌ The pipeline timing out after 60 minutes.\n- [x] quarantining the six flakiest tests\nFine by me.\nThat should be it for this part."
+  },
+  {
+   "role": "user",
+   "content": "Status on a release automation project?"
+  },
+  {
+   "role": "assistant",
+   "content": "Left to do: deduplicating the three near-identical workflows. Merged: coverage reporting posted to the pull request."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Exception: a permissions error pushing the release tag."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Files changed: .github/dependabot.yml. Remaining: pinning all third-party actions by digest. Files changed: Makefile."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: splitting the linting job from the test job. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Decision: pytest-xdist for test parallelism. The retry wrapper handles failed requests with exponential backoff."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "automated changelog generation on tag",
+   "coverage reporting posted to the pull request",
+   "quarantining the six flakiest tests",
+   "a matrix build over three Python versions"
+  ],
+  "pending_tasks": [
+   "pinning all third-party actions by digest",
+   "splitting the linting job from the test job",
+   "deduplicating the three near-identical workflows"
+  ],
+  "decisions": [
+   "pytest-xdist for test parallelism",
+   "test retries limited to two attempts",
+   "uv for dependency installation"
+  ],
+  "files": [
+   ".pre-commit-config.yaml",
+   ".github/dependabot.yml",
+   "Makefile",
+   ".github/workflows/ci.yml"
+  ],
+  "errors": [
+   "the pipeline timing out after 60 minutes",
+   "a permissions error pushing the release tag"
+  ]
+ }
+}

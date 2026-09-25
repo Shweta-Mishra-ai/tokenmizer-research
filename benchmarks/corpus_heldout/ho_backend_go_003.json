@@ -1,0 +1,149 @@
+{
+ "id": "ho_backend_go_003",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a metrics collector please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a metrics collector."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Parking a soak test over 24 hours for now, it's not urgent. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Reducing allocations in the serialiser hasn't been done yet. At some point profiling the p99 latency spike has to happen too."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of internal/store/postgres.go along the way. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Context propagation through every handler is now in place. Most of the edits went into go.mod. Had to open up internal/handler/orders_test.go again for a small tweak."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Everything looked green, then connection churn exhausting ephemeral ports again. Getting a deadlock between the two mutexes on every run."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Final choice: Go 1.23 as the toolchain. I've added graceful shutdown on SIGTERM. No more worrying about a circuit breaker around the downstream call, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Structured logging with request correlation works now. No more worrying about benchmark tests on the hot encode path, that part's handled."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "That should be it for this part. The team agreed errgroup for concurrent fan-out is the way forward."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in proto/orders.proto.\nShould we decide on naming later?\n**Next steps:** a fuzz test on the decoder."
+  },
+  {
+   "role": "user",
+   "content": "Let's do sqlc for type-safe database access."
+  },
+  {
+   "role": "assistant",
+   "content": "Approach: OpenTelemetry for traces. OK, will do."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's a quick summary of where things stand.\nCrossed protobuf schema versioning off the list this morning.\n❌ A goroutine leak on the cancelled request path."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer buf for protobuf linting and generation."
+  },
+  {
+   "role": "assistant",
+   "content": "No more worrying about the retry policy with exponential backoff, that part's handled. Opting for a monorepo layout with internal packages. Makes sense, doing that. I'll explain the reasoning below."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "structured logging with request correlation",
+   "benchmark tests on the hot encode path",
+   "graceful shutdown on SIGTERM",
+   "context propagation through every handler",
+   "protobuf schema versioning",
+   "the retry policy with exponential backoff",
+   "a circuit breaker around the downstream call"
+  ],
+  "pending_tasks": [
+   "profiling the p99 latency spike",
+   "reducing allocations in the serialiser",
+   "a fuzz test on the decoder",
+   "a soak test over 24 hours"
+  ],
+  "decisions": [
+   "a monorepo layout with internal packages",
+   "buf for protobuf linting and generation",
+   "sqlc for type-safe database access",
+   "errgroup for concurrent fan-out",
+   "Go 1.23 as the toolchain",
+   "OpenTelemetry for traces"
+  ],
+  "files": [
+   "go.mod",
+   "internal/handler/orders_test.go",
+   "internal/store/postgres.go",
+   "proto/orders.proto"
+  ],
+  "errors": [
+   "a deadlock between the two mutexes",
+   "connection churn exhausting ephemeral ports",
+   "a goroutine leak on the cancelled request path"
+  ]
+ }
+}

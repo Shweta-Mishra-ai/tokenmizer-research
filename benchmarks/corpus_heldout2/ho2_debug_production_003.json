@@ -1,0 +1,136 @@
+{
+ "id": "ho2_debug_production_003",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue an outage root cause analysis."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing an outage root cause analysis."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up documenting the failure mode in the runbook. If the tests fail, the pipeline blocks the merge."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an outage root cause analysis?"
+  },
+  {
+   "role": "assistant",
+   "content": "logs/analysis.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, a regression test covering the failure mode finally works. Someone should pick up a follow-up on the third-party client bug report. Most of the afternoon went into src/client.py."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, reproducing the failure in a staging environment finally works. Glad to report confirming the hypothesis with a targeted experiment is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Instrumenting the slow query with timing spans is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "No regressions so far. Between the options, rolling back before investigating further came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "tests/test_regression.py got a few more lines. I'd like to get cleaning up the temporary debug logging in before Friday. The error budget is fine this month. Most of the afternoon went into config/flags.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once the build is green we can merge. A feature flag to disable the suspect path is the clear winner here. That leaves bisecting the regression to a single commit behind us."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Paging on error rate rather than absolute count is the clear winner here. Correlating the errors with the deploy timeline is no longer on my plate. src/handlers/checkout.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Most of the afternoon went into runbooks/latency.md."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing failed on the last run. Pager went off for duplicate charges from a non-idempotent retry again."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "confirming the hypothesis with a targeted experiment",
+   "bisecting the regression to a single commit",
+   "instrumenting the slow query with timing spans",
+   "a regression test covering the failure mode",
+   "reproducing the failure in a staging environment",
+   "correlating the errors with the deploy timeline"
+  ],
+  "pending_tasks": [
+   "documenting the failure mode in the runbook",
+   "a follow-up on the third-party client bug report",
+   "cleaning up the temporary debug logging"
+  ],
+  "decisions": [
+   "a feature flag to disable the suspect path",
+   "paging on error rate rather than absolute count",
+   "rolling back before investigating further"
+  ],
+  "files": [
+   "tests/test_regression.py",
+   "src/client.py",
+   "logs/analysis.py",
+   "config/flags.yaml",
+   "runbooks/latency.md",
+   "src/handlers/checkout.py"
+  ],
+  "errors": [
+   "duplicate charges from a non-idempotent retry"
+  ]
+ }
+}

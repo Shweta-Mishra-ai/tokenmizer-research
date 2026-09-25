@@ -1,0 +1,97 @@
+{
+ "id": "ho3_frontend_react_002",
+ "origin": "synthetic",
+ "domain": "frontend/react",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up an internal admin panel."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up an internal admin panel."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "TypeScript in strict mode is what we'll ship with. React 19 with the compiler enabled beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "What about an internal admin panel?"
+  },
+  {
+   "role": "assistant",
+   "content": "A Storybook entry for each primitive is the obvious next step."
+  },
+  {
+   "role": "user",
+   "content": "Pnpm as the package manager sounds like the better deal to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. Radix primitives for accessible components beat the alternatives on every axis we care about."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of package.json as well. If this fails again we will revisit the design. The alerts this morning came from an infinite re-render from an unstable dependency array. Focus trapping in the modal component went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an internal admin panel?"
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. We can stop worrying about optimistic updates on the toggle controls now."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Everyone was happy with Recharts for the visualisations."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of src/api/client.ts as well. The toast notification system? Taken care of."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the toast notification system",
+   "optimistic updates on the toggle controls",
+   "focus trapping in the modal component"
+  ],
+  "pending_tasks": [
+   "a Storybook entry for each primitive"
+  ],
+  "decisions": [
+   "TypeScript in strict mode",
+   "Recharts for the visualisations",
+   "React 19 with the compiler enabled",
+   "Radix primitives for accessible components",
+   "pnpm as the package manager"
+  ],
+  "files": [
+   "package.json",
+   "src/api/client.ts"
+  ],
+  "errors": [
+   "an infinite re-render from an unstable dependency array"
+  ]
+ }
+}

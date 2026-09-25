@@ -1,0 +1,78 @@
+{
+ "id": "ho3_backend_go_005",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to an event consumer."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on an event consumer now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "I edited go.mod."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Connection reuse in the HTTP client was rolled out. I edited proto/orders.proto."
+  },
+  {
+   "role": "user",
+   "content": "Plan for an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "We found context deadline exceeded on the upstream call."
+  },
+  {
+   "role": "user",
+   "content": "What about an event consumer?"
+  },
+  {
+   "role": "assistant",
+   "content": "The gRPC service definition and generated stubs is working now. I've got graceful shutdown on SIGTERM up and running."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Errgroup for concurrent fan-out is the pick. We're going to use buf for protobuf linting and generation. Still to do: reducing allocations in the serialiser."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "graceful shutdown on SIGTERM",
+   "connection reuse in the HTTP client",
+   "the gRPC service definition and generated stubs"
+  ],
+  "pending_tasks": [
+   "reducing allocations in the serialiser"
+  ],
+  "decisions": [
+   "errgroup for concurrent fan-out",
+   "buf for protobuf linting and generation"
+  ],
+  "files": [
+   "proto/orders.proto",
+   "go.mod"
+  ],
+  "errors": [
+   "context deadline exceeded on the upstream call"
+  ]
+ }
+}

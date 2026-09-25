@@ -1,0 +1,117 @@
+{
+ "id": "ho_devops_ci_005",
+ "origin": "synthetic",
+ "domain": "devops/ci",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a CI pipeline rebuild please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a CI pipeline rebuild."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Publishing test timing history hasn't been done yet. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "I touched .github/workflows/ci.yml as well. I touched scripts/run_tests.sh as well."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "We could also consider caching, but it's not needed yet. We still have to do deduplicating the three near-identical workflows."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "We hit a race between the parallel shards writing the same fixture. We'll go with ruff replacing flake8 and isort. Here's a quick summary of where things stand. Coverage reporting posted to the pull request landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged signed release artifacts. Container image build with layer caching works now. Up next is splitting the linting job from the test job."
+  },
+  {
+   "role": "user",
+   "content": "Status on a CI pipeline rebuild?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next I'll pick up cutting the pipeline below eight minutes. I've added quarantining the six flakiest tests. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "I've added required status checks on the default branch. No errors on the last run."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the edits went into Makefile. Just merged a matrix build over three Python versions."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with OIDC federation instead of long-lived deploy keys."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "coverage reporting posted to the pull request",
+   "quarantining the six flakiest tests",
+   "signed release artifacts",
+   "required status checks on the default branch",
+   "container image build with layer caching",
+   "a matrix build over three Python versions"
+  ],
+  "pending_tasks": [
+   "publishing test timing history",
+   "cutting the pipeline below eight minutes",
+   "deduplicating the three near-identical workflows",
+   "splitting the linting job from the test job"
+  ],
+  "decisions": [
+   "OIDC federation instead of long-lived deploy keys",
+   "ruff replacing flake8 and isort"
+  ],
+  "files": [
+   "Makefile",
+   "scripts/run_tests.sh",
+   ".github/workflows/ci.yml"
+  ],
+  "errors": [
+   "a race between the parallel shards writing the same fixture"
+  ]
+ }
+}

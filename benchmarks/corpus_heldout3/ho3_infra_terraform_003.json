@@ -1,0 +1,125 @@
+{
+ "id": "ho3_infra_terraform_003",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a disaster recovery setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a disaster recovery setup."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Affected file: terraform/main.tf."
+  },
+  {
+   "role": "user",
+   "content": "What about a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Outstanding: documenting the module interfaces."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: tagging enforced through a provider default."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** a read replica in the secondary region."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if anything looks off. We've decided on separate accounts for production and staging. File: `modules/service/main.tf`."
+  },
+  {
+   "role": "user",
+   "content": "Choose provider versions pinned to a minor range."
+  },
+  {
+   "role": "assistant",
+   "content": "- .github/workflows/plan.yml\nWe may decide to change this later.\nFinished — a module for the standard service deployment.\nAgreed."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead with one state file per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: terraform/outputs.tf. Once CI passes I'll merge. Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. File: `terraform/backend.tf`. Regression: subnet exhaustion in the primary availability zone. Finished — security groups restricted to named ports."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** OIDC for CI authentication into AWS."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Failed jobs are retried twice. Closed: CloudWatch alarms on the error rate metric."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a module for the standard service deployment",
+   "a read replica in the secondary region",
+   "CloudWatch alarms on the error rate metric",
+   "security groups restricted to named ports",
+   "tagging enforced through a provider default"
+  ],
+  "pending_tasks": [
+   "documenting the module interfaces"
+  ],
+  "decisions": [
+   "provider versions pinned to a minor range",
+   "OIDC for CI authentication into AWS",
+   "separate accounts for production and staging",
+   "one state file per environment"
+  ],
+  "files": [
+   ".github/workflows/plan.yml",
+   "terraform/main.tf",
+   "terraform/outputs.tf",
+   "terraform/backend.tf",
+   "modules/service/main.tf"
+  ],
+  "errors": [
+   "subnet exhaustion in the primary availability zone"
+  ]
+ }
+}

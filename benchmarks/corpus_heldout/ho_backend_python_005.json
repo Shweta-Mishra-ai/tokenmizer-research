@@ -1,0 +1,90 @@
+{
+ "id": "ho_backend_python_005",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "explicit",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on an async task queue service."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at an async task queue service now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Changes made: POST /api/orders and GET /api/orders/{id}.\n- [x] background retry for failed webhook deliveries\nApproach: Alembic for schema migrations."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: soft deletes on the tenant table.\n- [x] a health check endpoint at /healthz\nFollow-up: rate limiting on the auth routes."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Follow-up: caching the catalogue lookup. Status: pagination on the list endpoints — complete."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. Merged: connection pooling against Postgres."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tests pass locally; CI will confirm.\n- [x] request ID middleware for structured logging\n✅ Idempotency keys on the order create path.\nApproach: Celery for the background worker."
+  },
+  {
+   "role": "user",
+   "content": "Status on an async task queue service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Modified: migrations/env.py. New file: db/session.py."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "pagination on the list endpoints",
+   "idempotency keys on the order create path",
+   "POST /api/orders and GET /api/orders/{id}",
+   "background retry for failed webhook deliveries",
+   "connection pooling against Postgres",
+   "a health check endpoint at /healthz",
+   "request ID middleware for structured logging"
+  ],
+  "pending_tasks": [
+   "caching the catalogue lookup",
+   "soft deletes on the tenant table",
+   "rate limiting on the auth routes"
+  ],
+  "decisions": [
+   "Alembic for schema migrations",
+   "Celery for the background worker"
+  ],
+  "files": [
+   "migrations/env.py",
+   "db/session.py"
+  ],
+  "errors": []
+ }
+}

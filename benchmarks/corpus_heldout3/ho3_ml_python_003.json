@@ -1,0 +1,136 @@
+{
+ "id": "ho3_ml_python_003",
+ "origin": "synthetic",
+ "domain": "ml/python",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a churn prediction model."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a churn prediction model."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Polars instead of pandas for the feature pipeline is what we'll ship with. Everyone was happy with scikit-learn pipelines for preprocessing. Rewrote parts of data/schema.json as well."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Once CI passes I'll merge. AUC-PR as the primary metric given the imbalance is what we'll ship with."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside notebooks/eda.ipynb. Calibrating the output probabilities is the obvious next step. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of requirements.txt as well. The build is green. Everyone was happy with a 90-day lookback window for features. Rewrote parts of src/features.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Gradient boosting reaching 0.84 AUC went smoothly in the end. Shadow deployment against live traffic is waiting for someone to pick it up. We can stop worrying about baseline logistic regression at 0.71 AUC now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. Don't let a fairness audit across customer segments slip through the cracks."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside src/evaluate.py. Failed jobs are retried twice."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "What broke the release was NaN losses after the learning rate change. I'll summarise at the end."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a churn prediction model?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makefile ended up with most of the changes. The feature engineering pipeline with 42 features went smoothly in the end. The build is green."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards quantile clipping on the numeric features."
+  },
+  {
+   "role": "assistant",
+   "content": "Agreed. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "A feature store migration is waiting for someone to pick it up."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "baseline logistic regression at 0.71 AUC",
+   "the feature engineering pipeline with 42 features",
+   "gradient boosting reaching 0.84 AUC"
+  ],
+  "pending_tasks": [
+   "shadow deployment against live traffic",
+   "a feature store migration",
+   "a fairness audit across customer segments",
+   "calibrating the output probabilities"
+  ],
+  "decisions": [
+   "quantile clipping on the numeric features",
+   "a 90-day lookback window for features",
+   "AUC-PR as the primary metric given the imbalance",
+   "Polars instead of pandas for the feature pipeline",
+   "scikit-learn pipelines for preprocessing"
+  ],
+  "files": [
+   "Makefile",
+   "src/features.py",
+   "requirements.txt",
+   "data/schema.json",
+   "src/evaluate.py",
+   "notebooks/eda.ipynb"
+  ],
+  "errors": [
+   "NaN losses after the learning rate change"
+  ]
+ }
+}

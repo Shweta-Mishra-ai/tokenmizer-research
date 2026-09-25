@@ -1,0 +1,112 @@
+{
+ "id": "ho2_backend_go_003",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "mixed",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a metrics collector back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a metrics collector."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "We landed on zerolog for logging."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "Our pick is buf for protobuf linting and generation. Decisions like this usually need a design doc."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Prometheus metrics on the request path is no longer on my plate. Here's what I found."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tomorrow: a fuzz test on the decoder. Glad to report structured logging with request correlation is sorted."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "A soak test over 24 hours is waiting on me."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the afternoon went into Makefile. I've wrapped protobuf schema versioning."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a metrics collector?"
+  },
+  {
+   "role": "assistant",
+   "content": "Between the options, golangci-lint in CI came out ahead."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards OpenTelemetry for traces."
+  },
+  {
+   "role": "assistant",
+   "content": "Touched: internal/worker/pool.go. Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "I put it in internal/handler/orders.go. Let me check the docs first."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "protobuf schema versioning",
+   "Prometheus metrics on the request path",
+   "structured logging with request correlation"
+  ],
+  "pending_tasks": [
+   "a soak test over 24 hours",
+   "a fuzz test on the decoder"
+  ],
+  "decisions": [
+   "golangci-lint in CI",
+   "zerolog for logging",
+   "OpenTelemetry for traces",
+   "buf for protobuf linting and generation"
+  ],
+  "files": [
+   "internal/handler/orders.go",
+   "Makefile",
+   "internal/worker/pool.go"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,125 @@
+{
+ "id": "ho3_mobile_ios_001",
+ "origin": "synthetic",
+ "domain": "mobile/ios",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Help me with a payments SDK integration."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, working on a payments SDK integration."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "Closed: dark mode across every screen."
+  },
+  {
+   "role": "user",
+   "content": "What about a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "* [ ] an iPad layout for the summary screen"
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Edited: App/Info.plist. Implemented unit tests for the sync reducer. File: `fastlane/Fastfile`."
+  },
+  {
+   "role": "user",
+   "content": "What about a payments SDK integration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Next task — watchOS companion app. Finished — a widget showing today's activity. File: `Sources/Widgets/ActivityWidget.swift`."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "File: `Tests/SyncTests.swift`."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Incident: a retain cycle in the sync completion handler. Finished — keychain storage for the auth token."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. Action item: migrating the remaining UIKit screens."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Action item: a snapshot test suite for the components. Once CI passes I'll merge."
+  },
+  {
+   "role": "user",
+   "content": "Issues?"
+  },
+  {
+   "role": "assistant",
+   "content": "The build is green. Edited: .swiftlint.yml. Agreed approach: iOS 17 as the minimum deployment target."
+  },
+  {
+   "role": "user",
+   "content": "Any errors?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer.\n**Decided:** Swift Package Manager for dependencies."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "a widget showing today's activity",
+   "keychain storage for the auth token",
+   "dark mode across every screen",
+   "unit tests for the sync reducer"
+  ],
+  "pending_tasks": [
+   "a snapshot test suite for the components",
+   "migrating the remaining UIKit screens",
+   "an iPad layout for the summary screen",
+   "watchOS companion app"
+  ],
+  "decisions": [
+   "Swift Package Manager for dependencies",
+   "iOS 17 as the minimum deployment target"
+  ],
+  "files": [
+   "App/Info.plist",
+   "Sources/Widgets/ActivityWidget.swift",
+   "Tests/SyncTests.swift",
+   ".swiftlint.yml",
+   "fastlane/Fastfile"
+  ],
+  "errors": [
+   "a retain cycle in the sync completion handler"
+  ]
+ }
+}

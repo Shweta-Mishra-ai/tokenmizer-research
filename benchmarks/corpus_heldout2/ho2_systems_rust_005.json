@@ -1,0 +1,97 @@
+{
+ "id": "ho2_systems_rust_005",
+ "origin": "synthetic",
+ "domain": "systems/rust",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking a compression library back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on a compression library."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards arc-swap for the hot config reload."
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out src/buffer.rs was the culprit file. Publishing the crate to crates.io keeps slipping. Root of the pain: a borrow checker conflict in the writer loop."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards a workspace layout with three crates."
+  },
+  {
+   "role": "assistant",
+   "content": "The error budget is fine this month. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report an async runtime built on tokio is sorted. Retries only apply to failed jobs."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report cross-compilation for aarch64 is sorted. Let me check the docs first. That leaves fuzzing the input decoder with cargo-fuzz behind us."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, criterion benchmarks on the parse loop finally works."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Glad to report property tests over the encoder round trip is sorted. Root of the pain: a use-after-free found by miri in the unsafe block. Turned out benches/parse.rs was the culprit file."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "fuzzing the input decoder with cargo-fuzz",
+   "an async runtime built on tokio",
+   "property tests over the encoder round trip",
+   "cross-compilation for aarch64",
+   "criterion benchmarks on the parse loop"
+  ],
+  "pending_tasks": [
+   "publishing the crate to crates.io"
+  ],
+  "decisions": [
+   "arc-swap for the hot config reload",
+   "a workspace layout with three crates"
+  ],
+  "files": [
+   "benches/parse.rs",
+   "src/buffer.rs"
+  ],
+  "errors": [
+   "a borrow checker conflict in the writer loop",
+   "a use-after-free found by miri in the unsafe block"
+  ]
+ }
+}

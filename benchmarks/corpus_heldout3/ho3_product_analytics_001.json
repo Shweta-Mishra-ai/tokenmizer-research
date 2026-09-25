@@ -1,0 +1,89 @@
+{
+ "id": "ho3_product_analytics_001",
+ "origin": "synthetic",
+ "domain": "product/analytics",
+ "register": "mixed",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Back to a churn driver investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Back on a churn driver investigation now."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside analytics/experiments.py. We can stop worrying about deduplication of the double-fired signup event now. If this fails again we will revisit the design."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Do we need more tests? Chose Amplitude for product analytics. Edited: analytics/significance.py."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "The error messages are now clearer. The alerts this morning came from a sample ratio mismatch in the pricing experiment. We need a guardrail metric on support ticket volume before launch."
+  },
+  {
+   "role": "user",
+   "content": "What about a churn driver investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Statistical significance testing on the primary metric has been merged. Nobody has touched instrumenting the mobile funnel yet. Chose counting monthly actives on a rolling 28-day window."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of tests/test_metrics.py as well."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Here is the updated plan. Good news: weekly retention cohorts over six months made it in before the freeze. Affected file: analytics/funnel.sql."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "statistical significance testing on the primary metric",
+   "weekly retention cohorts over six months",
+   "deduplication of the double-fired signup event"
+  ],
+  "pending_tasks": [
+   "instrumenting the mobile funnel",
+   "a guardrail metric on support ticket volume"
+  ],
+  "decisions": [
+   "counting monthly actives on a rolling 28-day window",
+   "Amplitude for product analytics"
+  ],
+  "files": [
+   "analytics/experiments.py",
+   "analytics/funnel.sql",
+   "analytics/significance.py",
+   "tests/test_metrics.py"
+  ],
+  "errors": [
+   "a sample ratio mismatch in the pricing experiment"
+  ]
+ }
+}

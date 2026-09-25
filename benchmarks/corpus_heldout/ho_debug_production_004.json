@@ -1,0 +1,115 @@
+{
+ "id": "ho_debug_production_004",
+ "origin": "synthetic",
+ "domain": "debug/production",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Today we're on a latency incident investigation."
+  },
+  {
+   "role": "assistant",
+   "content": "Got it, looking at a latency incident investigation now."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of scripts/repro.py along the way."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Adding structured logging around the suspect path is done and tested. I'll tackle backfilling the corrupted rows tomorrow. Most of the edits went into tests/test_regression.py."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Ended up rewriting half of src/handlers/checkout.py along the way. Worth noting: nothing here changes the public API."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged confirming the hypothesis with a targeted experiment. A blameless postmortem format ended up being the pragmatic option. The retry wrapper handles failed requests with exponential backoff. Crossed the hotfix reverting the connection pool change off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Had to open up logs/analysis.py again for a small tweak. The error handling path is covered by the existing tests."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Look at runbooks/latency.md for the details. Crossed capturing a heap profile during the spike off the list this morning."
+  },
+  {
+   "role": "user",
+   "content": "How about rolling back before investigating further?"
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Status on a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Just merged the postmortem document with action items. Ended up rewriting half of src/client.py along the way."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a latency incident investigation?"
+  },
+  {
+   "role": "assistant",
+   "content": "Merged: a timeline of the incident from the metrics."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "adding structured logging around the suspect path",
+   "a timeline of the incident from the metrics",
+   "the postmortem document with action items",
+   "capturing a heap profile during the spike",
+   "the hotfix reverting the connection pool change",
+   "confirming the hypothesis with a targeted experiment"
+  ],
+  "pending_tasks": [
+   "backfilling the corrupted rows"
+  ],
+  "decisions": [
+   "a blameless postmortem format",
+   "rolling back before investigating further"
+  ],
+  "files": [
+   "src/handlers/checkout.py",
+   "scripts/repro.py",
+   "logs/analysis.py",
+   "tests/test_regression.py",
+   "src/client.py",
+   "runbooks/latency.md"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,116 @@
+{
+ "id": "ho3_infra_terraform_005",
+ "origin": "synthetic",
+ "domain": "infra/terraform",
+ "register": "implicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a disaster recovery setup."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a disaster recovery setup."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Having compared the options, a hub-and-spoke network topology is the best fit. We may decide to change this later."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Good news: CloudWatch alarms on the error rate metric made it in before the freeze."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "Nothing is blocking us right now. What broke the release was a plan diff from an untracked manual console change. Having compared the options, Terraform over CloudFormation is the best fit."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards one state file per environment."
+  },
+  {
+   "role": "assistant",
+   "content": "Provider versions pinned to a minor range is what we'll ship with. Separate accounts for production and staging beat the alternatives on every axis we care about. Agreed. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Rewrote parts of modules/service/main.tf as well. Here is the updated plan."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a disaster recovery setup?"
+  },
+  {
+   "role": "assistant",
+   "content": "We can stop worrying about encrypted EBS volumes across all instances now. Good news: the VPC with public and private subnets across three zones made it in before the freeze. There were no failures in the nightly run. Nobody has touched removing the last hardcoded account IDs yet."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Moving the legacy resources under Terraform is the obvious next step. The build is green. A module for the standard service deployment went smoothly in the end."
+  },
+  {
+   "role": "user",
+   "content": "I'm leaning towards Checkov for policy scanning."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Most of the work happened inside terraform/main.tf."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "the VPC with public and private subnets across three zones",
+   "CloudWatch alarms on the error rate metric",
+   "a module for the standard service deployment",
+   "encrypted EBS volumes across all instances"
+  ],
+  "pending_tasks": [
+   "moving the legacy resources under Terraform",
+   "removing the last hardcoded account IDs"
+  ],
+  "decisions": [
+   "separate accounts for production and staging",
+   "Terraform over CloudFormation",
+   "provider versions pinned to a minor range",
+   "a hub-and-spoke network topology",
+   "one state file per environment",
+   "Checkov for policy scanning"
+  ],
+  "files": [
+   "modules/service/main.tf",
+   "terraform/main.tf"
+  ],
+  "errors": [
+   "a plan diff from an untracked manual console change"
+  ]
+ }
+}

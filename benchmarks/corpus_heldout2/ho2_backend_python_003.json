@@ -1,0 +1,108 @@
+{
+ "id": "ho2_backend_python_003",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "implicit",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's continue a Django billing API."
+  },
+  {
+   "role": "assistant",
+   "content": "Continuing a Django billing API."
+  },
+  {
+   "role": "user",
+   "content": "I lean towards Postgres over MySQL for JSONB support."
+  },
+  {
+   "role": "assistant",
+   "content": "Sure thing."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. Turned out tests/test_orders.py was the culprit file. Turned out requirements.txt was the culprit file. Root of the pain: N+1 queries on the order list endpoint."
+  },
+  {
+   "role": "user",
+   "content": "Recap please."
+  },
+  {
+   "role": "assistant",
+   "content": "Turns out the flakiness was a deadlock between the invoice and ledger updates. Most of the afternoon went into db/session.py. The error budget is fine this month. Rate limiting on the auth routes keeps slipping."
+  },
+  {
+   "role": "user",
+   "content": "Personally Alembic for schema migrations feels right to me."
+  },
+  {
+   "role": "assistant",
+   "content": "Good call, switching. Let me check the docs first."
+  },
+  {
+   "role": "user",
+   "content": "Carry on."
+  },
+  {
+   "role": "assistant",
+   "content": "core/config.py got a few more lines."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "Someone should pick up moving the email sender behind an interface. Most of the afternoon went into api/orders.py. POST /api/orders and GET /api/orders/{id} is no longer on my plate."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "After a couple of tries, the User model with email and hashed_password columns finally works."
+  },
+  {
+   "role": "user",
+   "content": "Next?"
+  },
+  {
+   "role": "assistant",
+   "content": "Turned out api/deps.py was the culprit file. After a couple of tries, pytest fixtures for a throwaway database finally works."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "pytest fixtures for a throwaway database",
+   "the User model with email and hashed_password columns",
+   "POST /api/orders and GET /api/orders/{id}"
+  ],
+  "pending_tasks": [
+   "rate limiting on the auth routes",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "Postgres over MySQL for JSONB support",
+   "Alembic for schema migrations"
+  ],
+  "files": [
+   "api/deps.py",
+   "tests/test_orders.py",
+   "core/config.py",
+   "api/orders.py",
+   "db/session.py",
+   "requirements.txt"
+  ],
+  "errors": [
+   "a deadlock between the invoice and ledger updates",
+   "N+1 queries on the order list endpoint"
+  ]
+ }
+}

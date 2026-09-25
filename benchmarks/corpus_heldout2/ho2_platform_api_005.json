@@ -1,0 +1,117 @@
+{
+ "id": "ho2_platform_api_005",
+ "origin": "synthetic",
+ "domain": "platform/api",
+ "register": "semi",
+ "notes": "Held-out v2 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Picking an SDK release back up."
+  },
+  {
+   "role": "assistant",
+   "content": "OK, back on an SDK release."
+  },
+  {
+   "role": "user",
+   "content": "How are we doing?"
+  },
+  {
+   "role": "assistant",
+   "content": "We'll use HMAC-SHA256 for webhook signatures."
+  },
+  {
+   "role": "user",
+   "content": "I'd rather have Kong as the API gateway."
+  },
+  {
+   "role": "assistant",
+   "content": "GraphQL as an alternative surface is on deck. Good call, switching. I put it in api/pagination.py. Nothing failed on the last run."
+  },
+  {
+   "role": "user",
+   "content": "What changed?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. A deprecation header on the v1 routes is live now."
+  },
+  {
+   "role": "user",
+   "content": "What about snake_case field naming throughout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Decisions like this usually need a design doc. Good call, switching."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an SDK release?"
+  },
+  {
+   "role": "assistant",
+   "content": "Here's what I found. I put it in docs/api/changelog.md. ISO 8601 timestamps in UTC is what we're using."
+  },
+  {
+   "role": "user",
+   "content": "Blockers?"
+  },
+  {
+   "role": "assistant",
+   "content": "We might revisit this later if needed. I put it in openapi/v2.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Where did we land on an SDK release?"
+  },
+  {
+   "role": "assistant",
+   "content": "URL-based versioning over header negotiation is what we're using. We might revisit this later if needed."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "Happy to dig into this more. There's a breaking change shipped in a minor version in production. Managed to finish consistent error envelopes with machine-readable codes. I've wrapped SDK generation for three languages."
+  },
+  {
+   "role": "user",
+   "content": "Anything broken?"
+  },
+  {
+   "role": "assistant",
+   "content": "See gateway/kong.yaml. I put it in sdk/python/client.py. Edits are in api/routes/webhooks.py. No regressions so far."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "consistent error envelopes with machine-readable codes",
+   "SDK generation for three languages",
+   "a deprecation header on the v1 routes"
+  ],
+  "pending_tasks": [
+   "GraphQL as an alternative surface"
+  ],
+  "decisions": [
+   "Kong as the API gateway",
+   "HMAC-SHA256 for webhook signatures",
+   "URL-based versioning over header negotiation",
+   "ISO 8601 timestamps in UTC",
+   "snake_case field naming throughout"
+  ],
+  "files": [
+   "sdk/python/client.py",
+   "gateway/kong.yaml",
+   "api/routes/webhooks.py",
+   "api/pagination.py",
+   "openapi/v2.yaml",
+   "docs/api/changelog.md"
+  ],
+  "errors": [
+   "a breaking change shipped in a minor version"
+  ]
+ }
+}

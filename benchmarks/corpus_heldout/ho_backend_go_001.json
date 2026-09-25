@@ -1,0 +1,117 @@
+{
+ "id": "ho_backend_go_001",
+ "origin": "synthetic",
+ "domain": "backend/go",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a gRPC gateway service please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a gRPC gateway service."
+  },
+  {
+   "role": "user",
+   "content": "Status on a gRPC gateway service?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. Opting for pgx as the Postgres driver."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "No errors on the last run. We'll go with errgroup for concurrent fan-out. Structured logging with request correlation is now in place."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. Opting for a monorepo layout with internal packages."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Should we decide on naming later? I touched go.mod as well. I'll tackle a fuzz test on the decoder tomorrow. Most of the edits went into internal/store/postgres.go."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "The retry wrapper handles failed requests with exponential backoff. Sticking with OpenTelemetry for traces."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "The change is in internal/handler/orders.go. A circuit breaker around the downstream call landed in the last commit. Just merged Prometheus metrics on the request path."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I touched Makefile as well."
+  },
+  {
+   "role": "user",
+   "content": "Status on a gRPC gateway service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Table-driven tests for the parser works now. The change is in internal/worker/pool.go. Look at proto/orders.proto for the details."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a gRPC gateway service?"
+  },
+  {
+   "role": "assistant",
+   "content": "Opting for buf for protobuf linting and generation. I've finished context propagation through every handler."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "Prometheus metrics on the request path",
+   "structured logging with request correlation",
+   "table-driven tests for the parser",
+   "a circuit breaker around the downstream call",
+   "context propagation through every handler"
+  ],
+  "pending_tasks": [
+   "a fuzz test on the decoder"
+  ],
+  "decisions": [
+   "a monorepo layout with internal packages",
+   "errgroup for concurrent fan-out",
+   "pgx as the Postgres driver",
+   "OpenTelemetry for traces",
+   "buf for protobuf linting and generation"
+  ],
+  "files": [
+   "internal/worker/pool.go",
+   "go.mod",
+   "internal/handler/orders.go",
+   "proto/orders.proto",
+   "internal/store/postgres.go",
+   "Makefile"
+  ],
+  "errors": []
+ }
+}

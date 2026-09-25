@@ -1,0 +1,145 @@
+{
+ "id": "ho3_devops_kubernetes_003",
+ "origin": "synthetic",
+ "domain": "devops/kubernetes",
+ "register": "explicit",
+ "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Let's pick up a multi-region rollout."
+  },
+  {
+   "role": "assistant",
+   "content": "Picking up a multi-region rollout."
+  },
+  {
+   "role": "user",
+   "content": "Switch to Karpenter instead of the cluster autoscaler."
+  },
+  {
+   "role": "assistant",
+   "content": "Okay, doing it.\n- scripts/rollout.sh\nEdited: k8s/networkpolicy.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Decided:** Velero for cluster backups."
+  },
+  {
+   "role": "user",
+   "content": "What about a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: charts/api/templates/deployment.yaml."
+  },
+  {
+   "role": "user",
+   "content": "Keep going."
+  },
+  {
+   "role": "assistant",
+   "content": "Implemented the ingress with automatic certificate renewal. Closed: readiness and liveness probes on every workload."
+  },
+  {
+   "role": "user",
+   "content": "Switch to spot instances for the batch workloads."
+  },
+  {
+   "role": "assistant",
+   "content": "Affected file: .github/workflows/deploy.yml. Sounds right, on it. Regression: CrashLoopBackOff after the config map rename."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: per-namespace cost attribution. Edited: k8s/ingress.yaml."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Issue:** OOMKilled pods on the ingestion worker.\nTO DO: consolidating the three ingress controllers."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "If this fails again we will revisit the design. Bug report: PVC binding failures in the new availability zone. Choice: Loki for log aggregation."
+  },
+  {
+   "role": "user",
+   "content": "Progress?"
+  },
+  {
+   "role": "assistant",
+   "content": "**Shipped:** horizontal pod autoscaling on CPU and request rate."
+  },
+  {
+   "role": "user",
+   "content": "What's done?"
+  },
+  {
+   "role": "assistant",
+   "content": "Outstanding: tightening the pod security admission profile. Nothing is blocking us right now."
+  },
+  {
+   "role": "user",
+   "content": "Plan for a multi-region rollout?"
+  },
+  {
+   "role": "assistant",
+   "content": "Backlog: an upgrade rehearsal in staging."
+  },
+  {
+   "role": "user",
+   "content": "Update me."
+  },
+  {
+   "role": "assistant",
+   "content": "We've decided on cert-manager for TLS certificates."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "horizontal pod autoscaling on CPU and request rate",
+   "readiness and liveness probes on every workload",
+   "the ingress with automatic certificate renewal"
+  ],
+  "pending_tasks": [
+   "tightening the pod security admission profile",
+   "an upgrade rehearsal in staging",
+   "per-namespace cost attribution",
+   "consolidating the three ingress controllers"
+  ],
+  "decisions": [
+   "Loki for log aggregation",
+   "Karpenter instead of the cluster autoscaler",
+   "Velero for cluster backups",
+   "spot instances for the batch workloads",
+   "cert-manager for TLS certificates"
+  ],
+  "files": [
+   "scripts/rollout.sh",
+   "k8s/ingress.yaml",
+   ".github/workflows/deploy.yml",
+   "k8s/networkpolicy.yaml",
+   "charts/api/templates/deployment.yaml"
+  ],
+  "errors": [
+   "CrashLoopBackOff after the config map rename",
+   "OOMKilled pods on the ingestion worker",
+   "PVC binding failures in the new availability zone"
+  ]
+ }
+}

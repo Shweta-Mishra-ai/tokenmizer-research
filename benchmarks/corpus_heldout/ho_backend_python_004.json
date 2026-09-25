@@ -1,0 +1,105 @@
+{
+ "id": "ho_backend_python_004",
+ "origin": "synthetic",
+ "domain": "backend/python",
+ "register": "mixed",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Can you help with a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sure, picking up a Django billing API."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "✅ Request ID middleware for structured logging."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at migrations/env.py for the details."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Tracked the flakiness down to a 422 on login from a missing email validator."
+  },
+  {
+   "role": "user",
+   "content": "What's the plan for a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "I'll tackle backfilling created_at on legacy rows tomorrow."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "The error handling path is covered by the existing tests. Rather than overthinking it, pytest-asyncio for the async test suite it is. The change is in db/session.py."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "Caching the catalogue lookup is still outstanding. Crossed idempotency keys on the order create path off the list this morning. Moving the email sender behind an interface can wait until after the demo. Let me know if you want me to keep going."
+  },
+  {
+   "role": "user",
+   "content": "Status on a Django billing API?"
+  },
+  {
+   "role": "assistant",
+   "content": "CI is unhappy — a memory leak in the long-lived session object. I'll explain the reasoning below."
+  },
+  {
+   "role": "user",
+   "content": "Summarise the last hour."
+  },
+  {
+   "role": "assistant",
+   "content": "In the end uvicorn behind gunicorn in production was simpler than the alternatives. Status: OpenAPI schema generation for the public routes — complete."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "idempotency keys on the order create path",
+   "OpenAPI schema generation for the public routes",
+   "request ID middleware for structured logging"
+  ],
+  "pending_tasks": [
+   "backfilling created_at on legacy rows",
+   "caching the catalogue lookup",
+   "moving the email sender behind an interface"
+  ],
+  "decisions": [
+   "uvicorn behind gunicorn in production",
+   "pytest-asyncio for the async test suite"
+  ],
+  "files": [
+   "db/session.py",
+   "migrations/env.py"
+  ],
+  "errors": [
+   "a 422 on login from a missing email validator",
+   "a memory leak in the long-lived session object"
+  ]
+ }
+}

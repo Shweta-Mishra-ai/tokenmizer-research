@@ -1,0 +1,134 @@
+{
+ "id": "ho_security_appsec_003",
+ "origin": "synthetic",
+ "domain": "security/appsec",
+ "register": "semi",
+ "notes": "Held-out session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+ "messages": [
+  {
+   "role": "user",
+   "content": "Resume a secrets management migration please."
+  },
+  {
+   "role": "assistant",
+   "content": "Resuming a secrets management migration."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "An SBOM generated at build time is done and tested. If the migration fails, we roll back automatically. Least-privilege IAM roles for the workers works now."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Look at .gitleaks.toml for the details."
+  },
+  {
+   "role": "user",
+   "content": "Status on a secrets management migration?"
+  },
+  {
+   "role": "assistant",
+   "content": "Sticking with Trivy for container image scanning. We could also consider caching, but it's not needed yet."
+  },
+  {
+   "role": "user",
+   "content": "Any surprises?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let's standardise on short-lived tokens with refresh rotation."
+  },
+  {
+   "role": "user",
+   "content": "Where do things stand?"
+  },
+  {
+   "role": "assistant",
+   "content": "Let me know if you want me to keep going. I touched SECURITY.md as well. Next I'll pick up a third-party penetration test. A review of the CORS allowlist hasn't been done yet."
+  },
+  {
+   "role": "user",
+   "content": "I'd prefer a deny-by-default egress policy."
+  },
+  {
+   "role": "assistant",
+   "content": "Makes sense, doing that."
+  },
+  {
+   "role": "user",
+   "content": "Continue."
+  },
+  {
+   "role": "assistant",
+   "content": "Input sanitisation on the file upload path landed in the last commit. I picked Vault as the single secrets store. A threat model for the payments flow is still outstanding."
+  },
+  {
+   "role": "user",
+   "content": "Anything I should know?"
+  },
+  {
+   "role": "assistant",
+   "content": "Worth noting: nothing here changes the public API. I picked field-level encryption for PII columns. We'll go with Argon2id over bcrypt for new password hashes."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "Signed container images in the registry works now. We still have to do moving the remaining secrets out of environment files."
+  },
+  {
+   "role": "user",
+   "content": "What's still open?"
+  },
+  {
+   "role": "assistant",
+   "content": "Rotation of the leaked deploy key landed in the last commit."
+  },
+  {
+   "role": "user",
+   "content": "Go ahead."
+  },
+  {
+   "role": "assistant",
+   "content": "I'll explain the reasoning below. I've added encrypted secrets at rest in the vault."
+  }
+ ],
+ "ground_truth": {
+  "completed_tasks": [
+   "rotation of the leaked deploy key",
+   "encrypted secrets at rest in the vault",
+   "least-privilege IAM roles for the workers",
+   "signed container images in the registry",
+   "an SBOM generated at build time",
+   "input sanitisation on the file upload path"
+  ],
+  "pending_tasks": [
+   "a third-party penetration test",
+   "a review of the CORS allowlist",
+   "moving the remaining secrets out of environment files",
+   "a threat model for the payments flow"
+  ],
+  "decisions": [
+   "Argon2id over bcrypt for new password hashes",
+   "Vault as the single secrets store",
+   "short-lived tokens with refresh rotation",
+   "Trivy for container image scanning",
+   "a deny-by-default egress policy",
+   "field-level encryption for PII columns"
+  ],
+  "files": [
+   ".gitleaks.toml",
+   "SECURITY.md"
+  ],
+  "errors": []
+ }
+}
