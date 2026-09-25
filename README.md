@@ -114,8 +114,13 @@ Rounds 5 and 6 (same report):
   keeps 73.5% of labelled facts, against 66.8% before, and open errors go
   from 40% to 73%. Completed tasks lose 8 points at that budget, by
   design.
-- Incremental extraction, the way the proxy runs it, now builds 706 of the
-  707 graph edges that whole-session extraction does, against 177 before.
+- Incremental extraction, the way the proxy runs it, now builds 675 of the
+  676 graph edges that whole-session extraction does, against 177 of 707
+  before. Files are now matched at word starts, which removed 31 links,
+  nearly all of them false.
+- A pre-existing cap on remembered messages made every request past
+  message 500 re-extract the old history. On a real agent session the
+  late-session median fell from 115 ms to 21 ms.
 
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model

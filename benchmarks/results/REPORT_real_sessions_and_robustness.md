@@ -301,7 +301,8 @@ session's graph was missing most of its edges.
   forms 707 edges. Incremental extraction formed 183 of its own, and only
   177 of those were among the 707. It now forms **706 of the 707**. The
   missing link types were PART_OF (no task was ever part of the goal:
-  0 → 19) and RELATED_TO (47 → 393).
+  0 → 19) and RELATED_TO (47 → 393). Round 7 below removes 31 substring
+  links, most of them false; after that it is 675 of 676.
 - The per-request extraction cost was unchanged at 2.9 ms.
 
 **Retrieval.** query_eval recall@6 is 88% (82% at `a184cf1`). The two
@@ -323,3 +324,68 @@ was one of mine, not the product: pytest copies each test id into the
 parametrised body exceeded Windows' 32,767-character limit. The fix
 (`8e3df7a`) gives those cases short ids. The longest test id in the
 suite is now 725 characters.
+
+---
+
+## Round 7 (product `f83387a`, `54d78c5`): long sessions, false links, false tasks
+
+This was a review of the whole PR before merging, done by re-running the
+real 914-message session one message per request, the way the proxy
+calls it.
+
+**The processed-message set re-extracted old history on every request.**
+- The set is capped by keeping the hashes of the most recent 500
+  messages, so every older message looked new again on every later
+  request. At message 914, each request re-extracted 414 old messages.
+- The bug is on `main`, but there it only fired on plain-text chats over
+  500 messages: `main`'s text-only hash gave every tool turn the same
+  hash, so the set stayed small. Hashing tool turns properly (round 4)
+  exposed it on every long agent session.
+- *Fix.* A marker entry records that the set was trimmed. It is persisted
+  with the hashes, so there is no schema change. Messages older than the
+  oldest one still recognised count as processed. Each message is also
+  hashed once per call, not up to three times.
+- *Measured* on the real session, one message per request:
+
+| | `main` | Round 6 | Round 7 |
+|---|---:|---:|---:|
+| Median per request, last 100 requests | 1.1 ms | 115 ms | **21 ms** |
+| Median per request, whole session | 0.6 ms | 14 ms | 15 ms |
+
+- `main` is cheaper only because it skipped nearly every tool turn
+  (round 4). What remains is hashing the whole history, about 1.8 MB, on
+  every request, plus actually extracting the tool turns.
+- A faster hash (tool ids plus a content signature) was tried and gave
+  only 17 → 10 ms, at a small collision risk, so it was not adopted.
+
+**Files were linked by substring.**
+- `api.py` was linked to "the rapid rollout", `app.py` to "the happy
+  path", and an error in `data.py` to `lib/a.py`.
+- A file now links only when its name starts a word. Common inflections
+  still count ("backfilling", "the parser", "PostgreSQL", "orders").
+- On the 340 sessions, 31 links are removed. Nearly all were false:
+  "wr**app**ed", "O**Auth**", "proto**buf**", "do**main**", "**lib**rary".
+  Three are debatable: `train` in "retraining", `mod` in "module" and
+  `env` in "environment".
+- Incremental extraction shares **675 of the 676** links that
+  whole-session extraction forms.
+
+**Two false task patterns found on the real session.**
+- "My edit adding X didn't apply" was stored as work in progress.
+- "A test set written by someone other than me" was stored as finished
+  work.
+- A label cut inside a code span kept an unmatched backtick.
+- The first version of the passive-agent fix also rejected "Fixed by
+  adding a timeout", which cost 8 points of completed-task recall on the
+  internal eval. CI's eval step is the gate that caught it. "by" plus a
+  gerund (the method) is now kept.
+
+**No regression.** The internal eval output is identical (97%). All four
+external corpora are identical category by category (v3 64%). The resume
+budget figures are unchanged (73.5% of facts at 150 tokens). The real
+session now stores 29 nodes instead of 31, the two false tasks gone.
+
+**Still open on the real session.**
+- Two example file names mentioned in prose are listed as files.
+- Two bug *descriptions* are stored as errors. Both describe fixes made
+  in the same session.
