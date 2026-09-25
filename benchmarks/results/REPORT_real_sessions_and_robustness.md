@@ -385,6 +385,20 @@ external corpora are identical category by category (v3 64%). The resume
 budget figures are unchanged (73.5% of facts at 150 tokens). The real
 session now stores 29 nodes instead of 31, the two false tasks gone.
 
+**HTTP boundary (product `f9574fa`).** Checking a coverage bot's report
+on the PR found one real gap: the file-attachment path. Following it
+turned up four inputs that returned a 5xx; all four are now fixed:
+
+| Input | Before | After |
+|---|---|---|
+| Lone surrogate in `session_id` | 503 "ownership state unavailable" | 422 naming the field |
+| Any 422 whose echoed input holds a lone surrogate | 500 while rendering | 422 |
+| Hindi or emoji session id on the Obsidian export | 500 (Latin-1 header) | 200, safe file name |
+| Lone surrogate in an attached file | exception before any extractor ran | processed |
+
+Each fix has a test that fails without it. Path traversal, NUL bytes and
+5,000-character ids on every graph route returned no 5xx before or after.
+
 **Still open on the real session.**
 - Two example file names mentioned in prose are listed as files.
 - Two bug *descriptions* are stored as errors. Both describe fixes made
