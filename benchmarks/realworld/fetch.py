@@ -47,12 +47,53 @@ def list_keys(prefix: str) -> list[str]:
         token = m.group(1)
 
 
+OPENHANDS = "lite/20241025_OpenHands-CodeAct-2.1-sonnet-20241022/"
+
+
+def fetch_openhands(out: Path) -> None:
+    """OpenHands stores each trajectory as trajs/<instance>.json and the
+    submitted patch in the evaluation logs as logs/<instance>/patch.diff."""
+    dest = out / "openhands_codeact21"
+    (dest / "patches").mkdir(parents=True, exist_ok=True)
+    keys: list[str] = []
+    token = None
+    while True:
+        url = f"{BUCKET}?list-type=2&prefix={urllib.parse.quote(OPENHANDS + 'trajs/')}"
+        if token:
+            url += "&continuation-token=" + urllib.parse.quote(token)
+        body = _curl(url)
+        keys += [k for k in re.findall(r"<Key>([^<]+)</Key>", body) if k.endswith(".json")]
+        m = re.search(r"<NextContinuationToken>([^<]+)</NextContinuationToken>", body)
+        if not m:
+            break
+        token = m.group(1)
+
+    def one(key: str) -> None:
+        inst = Path(key).stem
+        if not (dest / f"{inst}.json").exists():
+            _curl(BUCKET + urllib.parse.quote(key), dest / f"{inst}.json")
+        if not (dest / "patches" / f"{inst}.diff").exists():
+            try:
+                _curl(BUCKET + urllib.parse.quote(f"{OPENHANDS}logs/{inst}/patch.diff"),
+                      dest / "patches" / f"{inst}.diff")
+            except subprocess.CalledProcessError:
+                pass   # no evaluation log: the instance has no submitted patch
+    with ThreadPoolExecutor(8) as pool:
+        list(pool.map(one, keys))
+    print(f"openhands_codeact21: {len(keys)} trajectories in {dest}")
+
+
 def main() -> None:
     import argparse
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", required=True)
     ap.add_argument("--system", action="append", choices=sorted(SYSTEMS))
+    ap.add_argument("--openhands", action="store_true",
+                    help="fetch the OpenHands CodeAct 2.1 trajectories and patches instead")
     args = ap.parse_args()
+    if args.openhands:
+        fetch_openhands(Path(args.out))
+        return
     for name in args.system or sorted(SYSTEMS):
         dest = Path(args.out) / name
         dest.mkdir(parents=True, exist_ok=True)

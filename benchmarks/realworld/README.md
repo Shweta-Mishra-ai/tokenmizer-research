@@ -25,6 +25,34 @@ repositories, and about 101 M characters of message history.
 - `swe_trajectories.py` converts them into sessions in the benchmark's JSON
   format.
 
+## Fifth system: OpenHands (added before any method was run on it)
+
+| System | Model | Sessions | Format |
+|---|---|---:|---|
+| `20241025_OpenHands-CodeAct-2.1-sonnet-20241022` | Claude 3.5 Sonnet (2024-10-22) | 300 | OpenAI function calling (`tool_calls`, `role: "tool"`) |
+
+- **Why it was added.** It is a second agent framework and a second message
+  format. It is what TokenMizer's proxy receives from a function-calling
+  agent, and it exercises the tool-call reading path the SWE-agent systems
+  never reach.
+- **Converter:** `openhands_trajectories.py`. Fetch it with
+  `fetch.py --openhands`.
+- **Ground truth:**
+  - Errors use the same rules. The interpreter tag OpenHands appends to the
+    last output line (`[Python Interpreter: …]`) is stripped first.
+  - Files come from `logs/<instance>/patch.diff`, **with build artifacts
+    removed**. OpenHands patches include command side effects: 1,096
+    compiled `.mo` files in one patch, Sphinx `_build/` trees, SQLite
+    databases. The filter (`is_artifact`) is fixed here, before measurement.
+- **Secondary metrics, added at the same time and reported for every
+  system:**
+  - edited-file recall with the same artifact filter. For the SWE-agent
+    systems this is *post hoc*: the filter would remove 327 of their 3,098
+    ground-truth files, and their primary metric stays as frozen above;
+  - per-session (macro) file recall, because a few patches create hundreds
+    of files and would otherwise dominate the pooled ratio.
+- The same dev/test split applies.
+
 ## Dev / test split (added before any full measurement)
 
 Product bugs found on this data will be fixed. To keep the reported results

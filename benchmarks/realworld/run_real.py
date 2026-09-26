@@ -22,6 +22,7 @@ from benchmarks.memorybench.corpus import Session
 from benchmarks.memorybench.methods import ORDER, REGISTRY, tokenmizer_real
 from benchmarks.memorybench.methods.common import count_tokens
 from benchmarks.memorybench.metrics import covers
+from benchmarks.realworld.openhands_trajectories import is_artifact
 
 THRESHOLD = 0.6
 
@@ -87,12 +88,16 @@ def score_session(result, session: Session, kinds: dict) -> dict:
     def resume_has_err(g):
         return any(covers(line, g, THRESHOLD) for line in resume_lines) or g in resume
 
+    files_clean = [g for g in files_gt if not is_artifact(g)]
     runtime = [g for g in errs_gt if kinds.get(g) == "runtime"]
     lint = [g for g in errs_gt if kinds.get(g) == "lint"]
     return {
         "files_gt": len(files_gt),
         "files_hit": sum(any(path_match(f, g) for f in ext_files) for g in files_gt),
         "files_extracted": len(ext_files),
+        # Secondary (post hoc for the SWE-agent systems): build artifacts removed.
+        "files_clean_gt": len(files_clean),
+        "files_clean_hit": sum(any(path_match(f, g) for f in ext_files) for g in files_clean),
         "runtime_gt": len(runtime), "runtime_hit": sum(err_hit(g) for g in runtime),
         "lint_gt": len(lint), "lint_hit": sum(err_hit(g) for g in lint),
         "errors_extracted": len(ext_errs),
@@ -133,6 +138,17 @@ def summarise(rows: list[dict]) -> dict:
                           ("resume_runtime_error_coverage", "resume_runtime_hit", "runtime_gt")):
         p, lo, hi = _ratio_ci(rows, num, den)
         out[key] = {"value": p, "ci95": [lo, hi]}
+    p, lo, hi = _ratio_ci(rows, "files_clean_hit", "files_clean_gt")
+    out["edited_file_recall_no_artifacts"] = {"value": p, "ci95": [lo, hi]}
+    # Per-session (macro) file recall: a session whose patch created a
+    # thousand files would otherwise dominate the pooled ratio.
+    per = [r["files_hit"] / r["files_gt"] for r in rows if r["files_gt"]]
+    rng = random.Random(1729)
+    boots = sorted(statistics.mean(per[rng.randrange(len(per))] for _ in per)
+                   for _ in range(2000)) if per else []
+    out["edited_file_recall_macro"] = {
+        "value": statistics.mean(per) if per else float("nan"),
+        "ci95": [boots[50], boots[1949]] if boots else [float("nan")] * 2}
     out["resume_tokens_mean"] = statistics.mean(r["resume_tokens"] for r in rows)
     out["compression_median"] = statistics.median(
         r["session_tokens"] / max(r["resume_tokens"], 1) for r in rows)
