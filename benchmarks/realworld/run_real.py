@@ -149,6 +149,8 @@ def summarise(rows: list[dict]) -> dict:
     out["edited_file_recall_macro"] = {
         "value": statistics.mean(per) if per else float("nan"),
         "ci95": [boots[50], boots[1949]] if boots else [float("nan")] * 2}
+    per_resume = [r["resume_files_hit"] / r["files_gt"] for r in rows if r["files_gt"]]
+    out["resume_file_coverage_macro"] = statistics.mean(per_resume) if per_resume else float("nan")
     out["resume_tokens_mean"] = statistics.mean(r["resume_tokens"] for r in rows)
     out["compression_median"] = statistics.median(
         r["session_tokens"] / max(r["resume_tokens"], 1) for r in rows)
