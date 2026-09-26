@@ -62,85 +62,34 @@ Manuscript received June 4, 2026; revised August 13 and September 26, 2026.}%
 
 % ================================================================
 \begin{abstract}
-Large language model (LLM) deployments for long-horizon tasks
-face a fundamental constraint: context windows are finite while
-productive work sessions are not.
-When session history exceeds the Maximum Effective Context
-Window (MECW), critical structured information---architectural
-decisions, task status transitions, file modification histories,
-and resolved errors---is silently discarded.
-Existing mitigations (truncation, summarization, retrieval
-augmentation) treat history as flat text, destroying the typed,
-relational structure that makes sessions resumable.
-
-We present \textbf{TokenMizer}, an open-source proxy system
-that models LLM session history as a typed knowledge graph
-(14 node types, 8 edge types) populated by a hybrid extraction
-pipeline, serialized by a three-tier checkpoint system into
-compact resume blocks, and supported by an 8-layer compression
-pipeline and a semantic response cache.
-
-We evaluate TokenMizer 0.5.4 --- the released product, run
-unmodified and out-of-process against a real checkout --- on a
-controlled \textbf{100-session, 8-method} benchmark: 100 labelled
-sessions (94 constructed for this study, 6 real, spanning 23
-application domains) scored against TokenMizer and seven other
-memory methods under one shared, asymmetric coverage-based
-scorer, with \textbf{bootstrap 95\% confidence intervals}
-(3{,}000 resamples) on every reported comparison.
-Four of the seven comparison methods are deterministic
-reimplementations of one structural property each of MemGPT,
-Mem0, Graphiti/Zep, and GraphRAG, run with no language-model
-call; this is a methodologically load-bearing distinction we
-state precisely in Section~\ref{sec:threats} and repeat at
-every point the comparison is reported.
-
-TokenMizer scores $60\%$ macro F1 ($95\%$ CI $[55\%,65\%]$),
-significantly higher than the GraphRAG-style ($44\%$),
-MemGPT-style ($35\%$), and all three naive baselines
-($17$--$20\%$) reimplementations, and \emph{statistically
-indistinguishable} from the Graphiti-style ($59\%$) and
-Mem0-style ($60\%$) reimplementations (paired bootstrap $95\%$
-CI on the difference crosses zero for both; TokenMizer's point
-estimate matches Mem0-style's exactly).
-TokenMizer's resume block (100 tokens) is smaller than
-Graphiti-style's and Mem0-style's (118--120) but larger than
-MemGPT-style's (60), which reaches that size by seeing under
-half the conversation rather than by encoding it more
-efficiently.
-Its two weakest categories, both in absolute terms and relative
-to the two comparison methods it otherwise ties, are decision
-extraction ($59\%$ F1, against $65\%$ for Graphiti/Mem0-style)
-and error extraction ($44\%$ F1, against $66\%$).
-Every pattern-matching method tested, TokenMizer included,
-degrades to $19$--$27\%$ macro F1 on sessions that state facts
-indirectly rather than with explicit lexical markers---a
-shared ceiling of regex-based extraction that this study is,
-to our knowledge, the first to quantify across multiple
-independently-implemented memory strategies on one corpus.
-
-A second evaluation removes the synthetic corpus and the
-hand-written labels. It uses \textbf{1{,}467 public agent
-sessions}, about 31\,M tokens from five SWE-bench submissions
-(SWE-agent with four models, and OpenHands with function
-calling). Ground truth is automatic: the files the submitted
-patch changed, and the errors in tool output. The protocol was
-pre-registered and the sessions split by issue. Defects were
-located on the development half only, and the 716-session test
-half was scored once before and once after they were fixed.
-On test, runtime-error recall rose from $63\%$ to $92\%$
-($96\%$ in the production, one-message-per-call condition), and
-error precision against the automatic labels from $16\%$ to
-$31\%$. The share of runtime errors present in the 400-token
-resume block rose from $20\%$ to $50\%$. These three paired gains all
-exclude zero, and they hold for every model and both
-frameworks. The resulting resume carries more errors and edited
-files than a ten-message sliding window, at $4\%$ of its size.
-
-TokenMizer is released as open-source software (MIT licence).
-The 100-session corpus, all eight method implementations, the
-scoring harness, and raw per-session results are released
-alongside this manuscript for independent verification.
+When a long LLM session exceeds its effective context window, the
+structure that makes it resumable is lost: decisions, task status,
+edited files and errors. Truncation, summarization and retrieval
+treat history as flat text. We present \textbf{TokenMizer}, an
+open-source proxy that models a session as a typed knowledge graph
+(14 node types, 8 edge types) and serializes it into compact resume
+blocks.
+On a controlled 100-session benchmark, TokenMizer 0.5.4 scores
+$60\%$ macro F1 ($95\%$ CI $[55,65]$). That is significantly above
+GraphRAG-style ($44\%$), MemGPT-style ($35\%$) and naive baselines
+($17$--$20\%$), and tied with Graphiti-style ($59\%$) and Mem0-style
+($60\%$). All four are deterministic reimplementations of one
+structural property each, not the vendor products.
+On \textbf{1{,}467 public SWE-bench agent sessions} (SWE-agent with
+four models, and OpenHands), ground truth is
+automatic: the files the submitted patch changed, and the errors in
+tool output. The protocol was pre-registered, and defects were
+located on a development split only. On the 716-session held-out
+split, fixing them raised runtime-error recall from $63\%$ to $92\%$
+($96\%$ in production, one message per call) and error precision
+from $16\%$ to $31\%$. The share of runtime errors in the 400-token
+resume rose from $20\%$ to $50\%$. All three paired gains exclude
+zero, and each gain holds on every model. The resume then carries
+more errors and edited files than a ten-message sliding window, at
+$4\%$ of its size.
+Every pattern-matching method degrades to $19$--$27\%$ on text that
+states facts indirectly. Code, corpora and per-session results are
+released.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -1443,10 +1392,16 @@ cause: it collapsed errors within one extraction call, which
 costs most when the whole session is a single call. We have not
 isolated the cause of the smaller gap that remains after the
 fixes.
-In that condition, the median per-request extraction cost fell
-from 13.5\,ms to 10.2\,ms, and p99 from 304\,ms to 273\,ms. These
-runs shared four CPUs with other benchmark processes, so
-absolute times are inflated. LATENCY_NOTE
+
+\textbf{Cost.} Per-request extraction cost was measured
+separately, on an otherwise idle 4-vCPU machine. We used 100
+test sessions (5{,}381 requests) and ran the two commits
+alternately, twice each. The fixes leave it essentially
+unchanged: the median is 12.2 and 12.1\,ms before, against 11.7
+and 11.4\,ms after; p95 is 46\,ms against 50\,ms; p99 is
+272--279\,ms for both. The full-split incremental runs above
+shared their CPUs with other benchmark processes, and their
+timings are not used.
 
 \textbf{No run failed.} All 716 test sessions completed under
 both commits and both conditions, with no exception and no

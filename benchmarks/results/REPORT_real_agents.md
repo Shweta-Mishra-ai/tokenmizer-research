@@ -187,7 +187,19 @@ conditions, with no exception and no timeout.
   batch, before and after the fixes. Before the fixes, one cause is
   defect 1 below, which collapsed errors within one extraction call. The
   cause of the smaller gap that remains afterwards is not isolated.
-- **Latency.** LATENCY_NOTE
+- **Latency.** The per-request table above comes from the full-split
+  runs. Those shared four CPUs with other benchmark processes, so it is
+  not used. A separate measurement was made on an otherwise idle 4-vCPU
+  machine: 100 test sessions (5,381 requests), the two commits run
+  alternately, twice each (`benchmarks/results/realworld/latency_quiet.json`).
+
+  | Commit | Median | p95 | p99 |
+  |---|---:|---:|---:|
+  | `50a2952` (run 1 / run 2) | 12.2 / 12.1 ms | 45.7 / 46.1 ms | 276.5 / 272.0 ms |
+  | `aae16f8` (run 1 / run 2) | 11.7 / 11.4 ms | 49.5 / 50.1 ms | 272.0 / 279.3 ms |
+
+  The fixes leave per-request cost essentially unchanged. The median is
+  about 5% lower and p95 about 8% higher.
 
 ## What the dev split exposed (all fixed in PR #71)
 
@@ -274,9 +286,9 @@ It is not part of the test numbers above.
   environment, the product's own resume budget also uses its
   characters ÷ 4 fallback (the tiktoken encoding cannot be downloaded
   here).
-- **Latency.** The incremental runs were measured with four benchmark
-  processes sharing four CPUs, so absolute per-request times are inflated;
-  only the before/after ratio under equal load is meaningful.
+- **Latency.** Per-request times come from the separate idle-machine
+  measurement. The full-split runs shared CPUs and their times are not
+  used.
 - **Comparison methods.** The Graphiti-, Mem0-, MemGPT- and GraphRAG-style
   methods are deterministic regex reimplementations of one structural
   property each, not the vendor products (see the paper's Threats to
