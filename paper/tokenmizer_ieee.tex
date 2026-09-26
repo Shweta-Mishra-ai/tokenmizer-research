@@ -6,7 +6,9 @@
 %  Single-version manuscript. Evaluates TokenMizer 0.5.4 (the
 %  released product, https://github.com/Shweta-Mishra-ai/tokenmizer)
 %  against seven other memory methods on a 100-session labelled
-%  corpus. All values in this manuscript are measured against the
+%  corpus, and a later product commit on 1,467 public SWE-bench
+%  agent sessions with automatic ground truth and a held-out split.
+%  All values in this manuscript are measured against the
 %  corpus and code released at
 %  https://github.com/Shweta-Mishra-ai/tokenmizer-research.
 %  No estimated results are presented.
@@ -51,7 +53,7 @@ Product: \url{https://github.com/Shweta-Mishra-ai/tokenmizer} (evaluated
 at release 0.5.4).
 Benchmark suite, corpus, and reproduction code for this manuscript:
 \url{https://github.com/Shweta-Mishra-ai/tokenmizer-research}.
-Manuscript received June 4, 2026; revised August 13, 2026.}%
+Manuscript received June 4, 2026; revised August 13 and September 26, 2026.}%
 }
 
 % ================================================================
@@ -60,67 +62,34 @@ Manuscript received June 4, 2026; revised August 13, 2026.}%
 
 % ================================================================
 \begin{abstract}
-Large language model (LLM) deployments for long-horizon tasks
-face a fundamental constraint: context windows are finite while
-productive work sessions are not.
-When session history exceeds the Maximum Effective Context
-Window (MECW), critical structured information---architectural
-decisions, task status transitions, file modification histories,
-and resolved errors---is silently discarded.
-Existing mitigations (truncation, summarization, retrieval
-augmentation) treat history as flat text, destroying the typed,
-relational structure that makes sessions resumable.
-
-We present \textbf{TokenMizer}, an open-source proxy system
-that models LLM session history as a typed knowledge graph
-(14 node types, 8 edge types) populated by a hybrid extraction
-pipeline, serialized by a three-tier checkpoint system into
-compact resume blocks, and supported by an 8-layer compression
-pipeline and a semantic response cache.
-
-We evaluate TokenMizer 0.5.4 --- the released product, run
-unmodified and out-of-process against a real checkout --- on a
-controlled \textbf{100-session, 8-method} benchmark: 100 labelled
-sessions (94 constructed for this study, 6 real, spanning 23
-application domains) scored against TokenMizer and seven other
-memory methods under one shared, asymmetric coverage-based
-scorer, with \textbf{bootstrap 95\% confidence intervals}
-(3{,}000 resamples) on every reported comparison.
-Four of the seven comparison methods are deterministic
-reimplementations of one structural property each of MemGPT,
-Mem0, Graphiti/Zep, and GraphRAG, run with no language-model
-call; this is a methodologically load-bearing distinction we
-state precisely in Section~\ref{sec:threats} and repeat at
-every point the comparison is reported.
-
-TokenMizer scores $60\%$ macro F1 ($95\%$ CI $[55\%,65\%]$),
-significantly higher than the GraphRAG-style ($44\%$),
-MemGPT-style ($35\%$), and all three naive baselines
-($17$--$20\%$) reimplementations, and \emph{statistically
-indistinguishable} from the Graphiti-style ($59\%$) and
-Mem0-style ($60\%$) reimplementations (paired bootstrap $95\%$
-CI on the difference crosses zero for both; TokenMizer's point
-estimate matches Mem0-style's exactly).
-TokenMizer's resume block (100 tokens) is smaller than
-Graphiti-style's and Mem0-style's (118--120) but larger than
-MemGPT-style's (60), which reaches that size by seeing under
-half the conversation rather than by encoding it more
-efficiently.
-Its two weakest categories, both in absolute terms and relative
-to the two comparison methods it otherwise ties, are decision
-extraction ($59\%$ F1, against $65\%$ for Graphiti/Mem0-style)
-and error extraction ($44\%$ F1, against $66\%$).
-Every pattern-matching method tested, TokenMizer included,
-degrades to $19$--$27\%$ macro F1 on sessions that state facts
-indirectly rather than with explicit lexical markers---a
-shared ceiling of regex-based extraction that this study is,
-to our knowledge, the first to quantify across multiple
-independently-implemented memory strategies on one corpus.
-
-TokenMizer is released as open-source software (MIT licence).
-The 100-session corpus, all eight method implementations, the
-scoring harness, and raw per-session results are released
-alongside this manuscript for independent verification.
+When a long LLM session exceeds its effective context window, the
+structure that makes it resumable is lost: decisions, task status,
+edited files and errors. Truncation, summarization and retrieval
+treat history as flat text. We present \textbf{TokenMizer}, an
+open-source proxy that models a session as a typed knowledge graph
+(14 node types, 8 edge types) and serializes it into compact resume
+blocks.
+On a controlled 100-session benchmark, TokenMizer 0.5.4 scores
+$60\%$ macro F1 ($95\%$ CI $[55,65]$). That is significantly above
+GraphRAG-style ($44\%$), MemGPT-style ($35\%$) and naive baselines
+($17$--$20\%$), and tied with Graphiti-style ($59\%$) and Mem0-style
+($60\%$). All four are deterministic reimplementations of one
+structural property each, not the vendor products.
+On \textbf{1{,}467 public SWE-bench agent sessions} (SWE-agent with
+four models, and OpenHands), ground truth is
+automatic: the files the submitted patch changed, and the errors in
+tool output. The protocol was pre-registered, and defects were
+located on a development split only. On the 716-session held-out
+split, fixing them raised runtime-error recall from $63\%$ to $92\%$
+($96\%$ in production, one message per call) and error precision
+from $16\%$ to $31\%$. The share of runtime errors in the 400-token
+resume rose from $20\%$ to $50\%$. All three paired gains exclude
+zero, and each gain holds on every model. The resume then carries
+more errors and edited files than a ten-message sliding window, at
+$4\%$ of its size.
+Every pattern-matching method degrades to $19$--$27\%$ on text that
+states facts indirectly. Code, corpora and per-session results are
+released.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -216,6 +185,11 @@ compact resume block.
   pattern-matching's central failure mode, and a released
   corpus, harness, and raw results for independent reproduction
   (Section~\ref{sec:extended}).
+\item A \textbf{pre-registered evaluation on 1{,}467 real agent
+  sessions}, with automatic ground truth from submitted patches
+  and tool output, and a held-out split by issue. It reports the
+  defects that real traffic exposed and the paired before/after
+  effect of fixing them (Section~\ref{sec:real}).
 \end{enumerate}
 
 % ================================================================
@@ -1136,6 +1110,329 @@ evidence about the underlying extraction algorithm's
 asymptotic cost.
 
 % ================================================================
+\section{Evaluation on Real Agent Sessions}
+\label{sec:real}
+% ================================================================
+
+The benchmark of Section~\ref{sec:extended} is controlled but
+mostly synthetic, and its labels were written by the same author
+as the extractor. Its two most likely failure modes as evidence
+are that the corpus is easier than real traffic and that the
+extractor was tuned to its phrasing. This section removes both.
+It uses public, real agent sessions, with ground truth that no
+one wrote by hand, and a pre-registered protocol with a
+held-out split. The product evaluated here is a later commit
+than the release in Section~\ref{sec:extended}. Both commits
+are identified below.
+
+\subsection{Data}
+\label{sec:real-data}
+
+We use the complete trajectories of five public submissions to
+SWE-bench Lite~\cite{swebench}, released in the SWE-bench
+\texttt{experiments} repository. Each trajectory is the message
+history an agent sent to its model while resolving a real GitHub
+issue, and each comes with the patch the agent submitted.
+Four systems run SWE-agent~\cite{sweagent} with text commands,
+using GPT-4, GPT-4o, Claude~3~Opus and Claude~3.5~Sonnet. The
+fifth is OpenHands CodeAct~2.1~\cite{openhands} with Claude~3.5
+Sonnet, using OpenAI-style function calling (\texttt{tool\_calls}
+and \texttt{tool} messages). That is the format the TokenMizer
+proxy receives from function-calling agents.
+The data totals 1{,}467 sessions on 300 distinct issues from
+12 Python repositories. The median session has 36--83 messages,
+depending on the system; the longest has 199. There are about
+31\,M tokens in total (characters$/4$).
+
+\subsection{Ground Truth Without Hand Labels}
+\label{sec:real-gt}
+
+Two categories have an objective source in this data.
+\textbf{Edited files} are the paths changed by the submitted
+patch. For OpenHands, build artifacts left by the agent's
+commands are removed by a rule fixed before measurement: one
+patch contains 1{,}096 compiled \texttt{.mo} files, others
+contain Sphinx build trees and SQLite databases.
+\textbf{Errors} are read from tool observations only, never from
+the agent's own prose. There are two kinds. A \emph{runtime}
+error is the last line of a Python traceback. A \emph{lint}
+error is a linter error that SWE-agent reports for a proposed
+edit. Twelve randomly sampled error labels were checked against
+their source observation, and all twelve were genuine.
+Completed tasks, pending tasks and decisions have no objective
+label in this data and are not scored.
+
+\subsection{Protocol}
+\label{sec:real-protocol}
+
+The converter, the metrics and the threats to validity were
+committed before any method was run on the data. Each later
+addition (the fifth system, the split) was committed before the
+measurement it governs.
+Sessions are split by issue with
+$\mathrm{crc32}(\textit{instance\_id}) \bmod 2$, so every
+system's attempt at an issue falls on the same side. That gives
+751 \emph{dev} and 716 \emph{test} sessions.
+Product defects were located on dev only. Test was never
+inspected session by session. It was scored once at the product
+commit before any fix (\texttt{50a2952}, version string 0.5.4)
+and once after (\texttt{aae16f8}), and those two runs are the
+numbers reported here.
+The test split holds 1{,}941 edited files, 881 runtime errors
+and 837 lint errors.
+
+The metrics are:
+\begin{itemize}
+\item \textbf{edited-file recall}: a ground-truth path counts as
+  recalled when an extracted path ends with it at a \texttt{/}
+  boundary, or the reverse, after the checkout directory is
+  removed;
+\item \textbf{error recall}: the share of ground-truth errors
+  covered by some extracted error (Definition~\ref{def:coverage},
+  $\theta=0.6$);
+\item \textbf{error precision}: the share of extracted errors
+  that cover some ground-truth error;
+\item \textbf{resume coverage}: the share of ground-truth files
+  and runtime errors that appear in the resume text a method
+  would hand to the model. TokenMizer's block is produced with a
+  400-token budget.
+\end{itemize}
+Error precision is a lower bound on true precision. An error the
+agent reports in words, or one quoted in the issue text, is real
+but has no traceback, and counts as spurious.
+Ratios are pooled over sessions, with 95\% intervals from a
+session-level bootstrap (2{,}000 resamples). Before/after
+differences use a paired bootstrap, which scores the same
+resampled sessions under both commits.
+
+TokenMizer runs in two conditions. In \emph{batch}, the whole
+session is extracted at once, as every other method is. In
+\emph{incremental}, the session is extracted one message per
+call, which is how the proxy runs in production.
+
+\subsection{Defects Found on the Dev Split}
+\label{sec:real-defects}
+
+Running the product on real traffic exposed defects that the
+labelled corpora had not. All were fixed, and each has a
+regression test built from the construction that triggered it.
+\begin{enumerate}
+\item \textbf{Different errors of one class were collapsed.} The
+  extractor kept one label per exception class for a whole call.
+  As a result, ``ValueError: Imaginary coordinates are not
+  permitted'' was replaced by a later, unrelated
+  \texttt{ValueError}.
+\item \textbf{Traceback messages were truncated} at the first dot
+  or comma, and qualified exception names lost their module path.
+\item \textbf{Framework text was read as failure.} ``E'' followed
+  by capitals was matched as an errno name, so SWE-agent's
+  instruction ``YOU CAN ONLY \textbf{EN}TER ONE COMMAND AT A
+  TIME'' became an error in every session of that framework.
+  Instruction boilerplate, negated mentions (``without
+  encountering any errors''), descriptions of code behaviour
+  (``modify it to raise a ValueError when \ldots'') and
+  docstrings in line-numbered file views were also misread.
+\item \textbf{Directory listings became files.} One recursive
+  listing produced 906 file nodes. The graph's node cap then
+  pruned the files the agent had actually edited: on OpenHands
+  dev sessions, per-session file recall was 79\% before the fix.
+\item \textbf{Resume ordering.} Open errors and files entered the
+  resume block oldest first, because nodes of one type shared an
+  importance score and ties fell back to insertion order.
+\item \textbf{A pattern introduced during this work was quadratic}
+  on long runs of spaces (4--8\,s on one line). Fuzzing found it
+  before release.
+\end{enumerate}
+Two further commits, made after the test split had been scored, stop
+code attributes whose last part is a file extension
+(\texttt{self.db}, \texttt{np.sum(\ldots)}) and the \texttt{a/} and
+\texttt{b/} prefixes of diff headers from being stored as files.
+To keep the test split single-use, they were checked on dev only: 3.4\%
+fewer file labels, with file recall, error recall and error precision
+all unchanged. They are not part of the test numbers below.
+
+\subsection{Results}
+\label{sec:real-results}
+
+Table~\ref{tab:real-main} compares every method on the test
+split, and Table~\ref{tab:real-paired} gives TokenMizer's paired
+before/after differences in both conditions.
+
+\begin{table*}[t]
+  \centering
+  \caption{Real agent sessions, test split (716 sessions, batch
+  condition). Values are pooled percentages with 95\% session
+  bootstrap intervals. Error precision is a lower bound (see
+  text). Resume columns give the share of ground-truth items
+  present in the method's resume text; resume size is not
+  equalised across methods.}
+  \label{tab:real-main}
+  \renewcommand{\arraystretch}{1.15}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}lrrrrrrr@{}}
+    \toprule
+    & \multicolumn{4}{c}{\textbf{Extraction}} & \multicolumn{3}{c}{\textbf{Resume}} \\
+    \cmidrule(lr){2-5}\cmidrule(l){6-8}
+    \textbf{Method} & \textbf{Files} & \textbf{Runtime err.} &
+    \textbf{Lint err.} & \textbf{Err.\ precision} &
+    \textbf{Files} & \textbf{Runtime err.} & \textbf{Tokens} \\
+    \midrule
+    \rowcolor{rowours}
+    \textbf{TokenMizer (after fixes)} & 77.5 [69.4, 85.0] & \textbf{91.9} [90.1, 93.7] & 95.7 [94.0, 97.2] & \textbf{30.9} [28.8, 33.1] & \textbf{67.4} & \textbf{50.3} & 222 \\
+    TokenMizer (before fixes) & 75.3 [68.4, 81.7] & 63.1 [59.2, 66.7] & 95.6 [93.8, 97.1] & 16.2 [15.0, 17.5] & 51.3 & 20.4 & 226 \\
+    Graphiti-style   & 75.7 [68.4, 82.9] & 12.3 [9.7, 15.2]  & 9.3 [5.9, 13.4]   & 1.2 [0.9, 1.4] & 33.1 & 5.0  & 310 \\
+    Mem0-style       & 75.7 [68.4, 82.9] & 12.1 [9.6, 15.0]  & 8.7 [5.3, 12.7]   & 1.1 [0.9, 1.4] & 33.1 & 5.6  & 306 \\
+    GraphRAG-style   & 75.7 [68.4, 82.9] & 6.2 [4.5, 8.1]    & 22.3 [14.6, 30.7] & 1.0 [0.8, 1.2] & 37.2 & 3.3  & 245 \\
+    MemGPT-style     & 58.4 [51.8, 65.4] & 4.5 [3.1, 6.0]    & 4.7 [2.4, 7.4]    & 2.1 [1.5, 2.8] & 48.3 & 5.2  & 184 \\
+    Sliding window (10) & 0.0 & 37.9 [33.5, 42.3] & 39.3 [31.5, 47.4] & 2.5 [1.9, 3.1] & 57.6 & 35.2 & 5{,}910 \\
+    Naive summary    & 0.0 & 7.7 [5.9, 9.7] & 1.0 [0.2, 1.9] & 1.9 [1.5, 2.4] & 8.7 & 9.0 & 219 \\
+    Naive truncation & 0.0 & 2.7 [1.5, 4.2] & 0.2 [0.0, 0.6] & 0.5 [0.3, 0.8] & 19.4 & 2.7 & 147 \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\begin{table}[t]
+  \centering
+  \caption{TokenMizer before and after the fixes, test split,
+  paired bootstrap (716 sessions). $\Delta$ in percentage points
+  with 95\% interval. Incremental is the production condition.}
+  \label{tab:real-paired}
+  \renewcommand{\arraystretch}{1.15}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}lrr@{}}
+    \toprule
+    \textbf{Metric} & \textbf{Batch $\Delta$} & \textbf{Incremental $\Delta$} \\
+    \midrule
+    \rowcolor{rowgood}
+    Runtime-error recall  & $+28.8$ [$+25.3$, $+32.6$] & $+23.3$ [$+20.1$, $+26.9$] \\
+    \rowcolor{rowgood}
+    Error precision       & $+14.7$ [$+13.3$, $+16.0$] & $+15.0$ [$+13.7$, $+16.2$] \\
+    \rowcolor{rowgood}
+    Resume: runtime err.  & $+29.9$ [$+24.4$, $+35.3$] & $+26.4$ [$+22.7$, $+30.4$] \\
+    \rowcolor{rowgood}
+    Resume: files         & $+16.1$ [$+12.1$, $+20.2$] & $+3.1$ [$+1.9$, $+4.5$] \\
+    \rowcolor{rowgood}
+    File recall, no artifacts & $+3.7$ [$+2.0$, $+5.5$] & $+1.8$ [$+0.6$, $+3.1$] \\
+    File recall           & $+2.2$ [$-0.6$, $+4.6$] & $+0.5$ [$-2.0$, $+2.6$] \\
+    Lint-error recall     & $+0.1$ [$-0.3$, $+0.5$] & $+0.1$ [$0.0$, $+0.4$] \\
+    \midrule
+    \multicolumn{3}{@{}l}{\emph{Level after fixes (batch / incremental)}} \\
+    Runtime-error recall  & 91.9\% & 95.7\% \\
+    Resume: runtime err.  & 50.3\% & 52.3\% \\
+    Resume: files         & 67.4\% & 73.9\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig_real_per_system}
+  \caption{Runtime errors extracted (left) and present in the
+    400-token resume block (right), per agent system, test split,
+    before and after the fixes. SA = SWE-agent, OH = OpenHands;
+    C3 Opus = Claude~3 Opus; C3.5\,S. = Claude~3.5 Sonnet. The gain
+    holds for every model and both frameworks.}
+  \label{fig:real-per-system}
+\end{figure*}
+
+\textbf{Errors.} Before the fixes, TokenMizer recalled 63\% of
+runtime errors on test. After them, it recalls 92\% in batch and
+96\% in the production condition. Both paired gains exclude zero
+by a wide margin, and they hold for all five systems
+(Fig.~\ref{fig:real-per-system}): after the fixes, recall lies
+between 90\% and 94\% for every model and both frameworks.
+Precision against the automatic ground truth nearly doubled,
+from 16\% to 31\%. The share of runtime errors that reach the
+resume block rose from 20\% to 50\%.
+The structural reimplementations recall 5--12\% of runtime
+errors. Their shared error rule keeps the text after the word
+``Error'' up to the first full stop, so a traceback line such as
+``ValueError: invalid literal \ldots'' loses its exception class
+and is often cut short. This gap reflects that rule, not the
+memory strategy each method reimplements. Lint errors were already recalled at 96\% before the
+fixes and are unchanged.
+
+\textbf{Files.} Pooled file recall rose by 2.2 points in batch,
+but the interval crosses zero. With build artifacts removed, the
+gain is 3.7 points and excludes zero. A handful of patches that
+create hundreds of files dominate the pooled ratio. Per session,
+recall rose from 89\% to 94\% in batch, and on OpenHands from
+78\% to 96\%, where directory listings had pushed the edited
+files out of the graph. The gain is not uniform: 13 test sessions lost 39 recalled files while 51 gained 81. Test sessions are not read, so the cause was traced on dev, where 9 sessions lost 25 files. The agent never names any of those 25 files in its own messages. They are \texttt{setup.py} and \texttt{tox.ini} changed by the environment's setup, a test directory copied wholesale with \texttt{cp -r}, and a file inside a virtual environment. The old version \emph{recalled} them only because it stored every name in a directory listing as a file, which is defect~4. We count them as losses and do not exclude them.
+Files are the category where the fix matters most for the resume
+itself: the share of edited files present in the resume block
+rose from 51\% to 67\% in batch.
+
+\textbf{Against the naive baselines.} The only method that keeps
+more runtime errors in view than TokenMizer did before the fixes
+is the sliding window. Its resume is the last ten messages
+verbatim: 5{,}910 tokens on average, 27 times TokenMizer's 222
+(Fig.~\ref{fig:real-methods}). After the fixes, TokenMizer's
+resume carries more runtime errors (50\% against 35\%) and more
+edited files (67\% against 58\%) than the sliding window, at 4\%
+of its size.
+The median session compresses 64-fold into TokenMizer's resume.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_real_methods}
+  \caption{Runtime errors present in each method's resume against
+    mean resume size, test split. TokenMizer after the fixes
+    carries more errors than a ten-message sliding window at
+    4\% of its size.}
+  \label{fig:real-methods}
+\end{figure}
+
+\textbf{Production condition.} Extracting one message per call
+recalls more than extracting the whole session at once, both
+before (72\% against 63\% runtime-error recall) and after (96\%
+against 92\%) the fixes. Before the fixes, defect~1 is one
+cause: it collapsed errors within one extraction call, which
+costs most when the whole session is a single call. We have not
+isolated the cause of the smaller gap that remains after the
+fixes.
+
+\textbf{Cost.} Per-request extraction cost was measured
+separately, on an otherwise idle 4-vCPU machine. We used 100
+test sessions (5{,}381 requests) and ran the two commits
+alternately, twice each. The fixes leave it essentially
+unchanged: the median is 12.2 and 12.1\,ms before, against 11.7
+and 11.4\,ms after; p95 is 46\,ms against 50\,ms; p99 is
+272--279\,ms for both. The full-split incremental runs above
+shared their CPUs with other benchmark processes, and their
+timings are not used.
+
+\textbf{No run failed.} All 716 test sessions completed under
+both commits and both conditions, with no exception and no
+timeout.
+
+\subsection{Threats Specific to This Evaluation}
+\label{sec:real-threats}
+
+\textbf{Coverage.} There are two agent frameworks and one
+programming language. Other agents, other languages and
+non-coding sessions are not covered.
+\textbf{Ground truth.} Error precision is a lower bound, for the
+reasons given in Section~\ref{sec:real-protocol}. The traceback
+rule requires an Error, Exception or Warning suffix, so
+exceptions such as Django's \texttt{ImproperlyConfigured} are
+absent from the ground truth. The rule was frozen before
+measurement and is not changed after the fact.
+\textbf{Ceiling.} Of 29 missed files examined on the dev split,
+23 are never named anywhere in the conversation; the agent
+created them through scripts. No memory method can recall them,
+and pooled recall includes them.
+\textbf{Comparison methods.} As in Section~\ref{sec:extended},
+the four structural methods are regex reimplementations, not the
+vendor products. Their error rules were not adapted to
+tracebacks, so their error recall here says little about the
+named systems.
+\textbf{Resume size.} TokenMizer's budget is fixed at 400 tokens.
+The other methods' resumes are not equalised with it; the sizes
+are reported beside every coverage figure.
+
+% ================================================================
 \section{Discussion}
 \label{sec:discussion}
 % ================================================================
@@ -1216,7 +1513,10 @@ in its session; Section~\ref{sec:extended-corpus}), but grounded
 synthetic text is not equivalent to the lexical and structural
 variety of real developer transcripts. The 6-session real split
 (Section~\ref{sec:extended}, ``Corpus Origin'') is too small
-to bound this gap quantitatively.
+to bound this gap quantitatively for the categories that
+benchmark scores. Section~\ref{sec:real} bounds it for files and
+errors on real traffic, with automatic labels; it cannot score
+tasks or decisions, which have no objective label in that data.
 
 \textbf{Statistical validity.} All results use one match
 threshold ($\theta=0.6$, Definition~\ref{def:coverage}) and one
@@ -1270,6 +1570,19 @@ ceiling of roughly 20\% macro F1 on text that states facts
 indirectly, unmoved by that fix since it addresses vocabulary
 coverage rather than the underlying pattern-matching strategy.
 
+On 1{,}467 real agent sessions with automatic ground truth
+(Section~\ref{sec:real}), real traffic exposed defects that the
+labelled corpora had not. Fixing them, with defects located on a
+development split only, raised runtime-error recall on the
+held-out split from $63\%$ to $92\%$ and more than doubled the share of
+runtime errors that reach the resume block, for every model and
+both agent frameworks. We take two lessons from this for work on
+session memory. The first is that a memory system should be
+measured on the traffic it will receive, not only on labelled
+corpora. The second is that such traffic supplies objective
+labels for part of what matters, namely edited files and
+observed failures.
+
 Two directions follow directly from these results.
 \textbf{First}, evaluating the product's existing LLM
 extraction path (Section~\ref{sec:llm-extractor}) against the
@@ -1294,6 +1607,12 @@ every number in Section~\ref{sec:extended} are released at
 \url{https://github.com/Shweta-Mishra-ai/tokenmizer-research}.
 The corpus generator (\texttt{benchmarks/memorybench/generate.py})
 is seeded and produces byte-identical output on re-run.
+The real-agent evaluation (Section~\ref{sec:real}) is
+reproducible from public data. \texttt{benchmarks/realworld/}
+contains the fetch script, the converters, the frozen protocol
+and the runner. The raw per-session results for both product
+commits and both conditions are in
+\texttt{benchmarks/results/realworld/}.
 The TokenMizer product itself is released separately at
 \url{https://github.com/Shweta-Mishra-ai/tokenmizer} under the
 MIT licence; this manuscript evaluates release 0.5.4.
@@ -1364,6 +1683,16 @@ Embeddings Using Siamese BERT-Networks,'' in
 J.~Yang \emph{et al.}, ``SWE-agent: Agent-Computer Interfaces
 Enable Automated Software Engineering,'' in \emph{Proc.\
 NeurIPS}, 2024.
+
+\bibitem{swebench}
+C.~E.~Jimenez, J.~Yang, A.~Wettig, S.~Yao, K.~Pei, O.~Press, and
+K.~Narasimhan, ``SWE-bench: Can Language Models Resolve
+Real-World GitHub Issues?'' in \emph{Proc.\ ICLR}, 2024.
+
+\bibitem{openhands}
+X.~Wang \emph{et al.}, ``OpenHands: An Open Platform for AI
+Software Developers as Generalist Agents,'' in \emph{Proc.\
+ICLR}, 2025.
 
 \bibitem{copilot}
 GitHub, ``GitHub Copilot,''

@@ -16,11 +16,44 @@ Shweta Mishra, 2026.
 [`paper/tokenmizer_ieee.pdf`](paper/tokenmizer_ieee.pdf) ·
 [LaTeX source](paper/tokenmizer_ieee.tex)
 
-The manuscript is a single, current-state evaluation: it reports one
-controlled 100-session, 8-method comparison of the released TokenMizer
-0.5.4 product against deterministic reimplementations of MemGPT, Mem0,
-Graphiti/Zep, and GraphRAG plus three naive baselines, with bootstrap
-confidence intervals on every reported comparison.
+The manuscript reports two evaluations:
+- a controlled 100-session, 8-method comparison of the released
+  TokenMizer 0.5.4 against deterministic reimplementations of MemGPT,
+  Mem0, Graphiti/Zep and GraphRAG plus three naive baselines;
+- a pre-registered evaluation on **1,467 real agent sessions** from public
+  SWE-bench trajectories, with automatic ground truth and a held-out
+  split by issue (Section "Evaluation on Real Agent Sessions").
+
+Every comparison carries a bootstrap confidence interval.
+
+### Real agent sessions (n = 1,467; 716 held out)
+
+The data is five public SWE-bench Lite submissions: SWE-agent with GPT-4,
+GPT-4o, Claude 3 Opus and Claude 3.5 Sonnet, and OpenHands with function
+calling. That is about 31 M tokens of real agent traffic. Ground truth is
+automatic:
+- the files are the ones the submitted patch changed;
+- the errors are the tracebacks and linter errors in tool output.
+
+Defects were located on the dev half only. The test half was scored once
+before and once after they were fixed.
+
+![Runtime errors extracted and present in the resume, per agent system](paper/figures/fig_real_per_system.png)
+
+| Test split, 716 sessions | Before | After | Paired Δ [95% CI] |
+|---|---:|---:|---|
+| Runtime-error recall | 63.1% | **91.9%** | +28.8 [+25.3, +32.6] |
+| Runtime-error recall, production (one message per call) | 72.4% | **95.7%** | +23.3 [+20.1, +26.9] |
+| Error precision vs automatic labels (lower bound) | 16.2% | **30.9%** | +14.7 [+13.3, +16.0] |
+| Runtime errors present in the 400-token resume | 20.4% | **50.3%** | +29.9 [+24.4, +35.3] |
+| Edited files present in the resume | 51.3% | **67.4%** | +16.1 [+12.1, +20.2] |
+| Edited-file recall | 75.3% | 77.5% | +2.2 [−0.6, +4.6] |
+
+The comparison methods recall 5–12% of runtime errors. After the fixes,
+TokenMizer's 222-token resume carries more errors and edited files than a
+ten-message sliding window of 5,910 tokens. The full tables, the defects
+found, and the threats to validity are in
+[`benchmarks/results/REPORT_real_agents.md`](benchmarks/results/REPORT_real_agents.md).
 
 ### Headline results (n = 100, TokenMizer 0.5.4)
 
@@ -157,8 +190,13 @@ benchmarks/
   corpus_heldout2/           80 held-out sessions, a third template set (v2)
   corpus_heldout3/           80 held-out sessions, a fourth template set (v3)
   corpus_heldout4/           80 held-out sessions, a fifth template set (v4)
+  realworld/                 Real-agent benchmark: fetch script, converters
+                              for SWE-agent and OpenHands trajectories, the
+                              frozen protocol (README.md), runner, tables
   results/                   Raw results (JSON/CSV), REPORT_n100.md,
                               interactive dashboard.html
+  results/realworld/         Per-session results of the real-agent test
+                              split, both product commits, both conditions
   checkpoint_accuracy/       Earlier 21-session benchmark, kept for history;
                               not covered by the current manuscript
 ```
@@ -178,6 +216,12 @@ python -m benchmarks.memorybench.run --json out.json --csv out.csv
 # Regenerate the 94-session synthetic corpus (seeded, deterministic)
 python -m benchmarks.memorybench.generate -n 86
 
+# Real-agent benchmark: fetch public trajectories (~280 MB, not committed),
+# convert, score the held-out split, and print the report's tables
+python -m benchmarks.realworld.fetch --help
+python -m benchmarks.realworld.run_real --data DIR --split test --json out.json
+python -m benchmarks.realworld.tables --base BASE.json --fix FIX.json
+
 # Run the earlier 21-session benchmark (kept for history, not covered by the paper)
 python3 benchmarks/checkpoint_accuracy/runner_v2.py
 ```
@@ -194,6 +238,7 @@ class (`texlive-publishers` on Debian/Ubuntu):
 ```bash
 pip install matplotlib numpy
 python3 paper/figures/generate_figures.py
+python3 paper/figures/generate_real_figures.py
 cd paper && pdflatex tokenmizer_ieee.tex && pdflatex tokenmizer_ieee.tex
 ```
 

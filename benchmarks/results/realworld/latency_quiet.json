@@ -1,0 +1,56 @@
+{
+ "machine": "4 vCPU, otherwise idle; runs sequential, alternating",
+ "split": "test",
+ "sessions": 100,
+ "sample_seed": 1729,
+ "runs": [
+  {
+   "order": "base",
+   "commit": "50a2952b7fee62459479a36ee2f7fe83c3b67c03",
+   "failures": {
+    "tokenmizer_v0.5.2": 0
+   },
+   "requests": 5381,
+   "per_call_ms_median": 12.196472000141512,
+   "per_call_ms_p95": 45.69257399998605,
+   "per_call_ms_p99": 276.49380000002566,
+   "sessions": 100
+  },
+  {
+   "order": "aae",
+   "commit": "aae16f8cfe50ff0f45dbf1eb78ce6b4cbe58720c",
+   "failures": {
+    "tokenmizer_v0.5.2": 0
+   },
+   "requests": 5381,
+   "per_call_ms_median": 11.65538499935792,
+   "per_call_ms_p95": 49.46943300001294,
+   "per_call_ms_p99": 271.9680979998884,
+   "sessions": 100
+  },
+  {
+   "order": "base2",
+   "commit": "50a2952b7fee62459479a36ee2f7fe83c3b67c03",
+   "failures": {
+    "tokenmizer_v0.5.2": 0
+   },
+   "requests": 5381,
+   "per_call_ms_median": 12.115672999243543,
+   "per_call_ms_p95": 46.07772500003193,
+   "per_call_ms_p99": 271.97121900007915,
+   "sessions": 100
+  },
+  {
+   "order": "aae2",
+   "commit": "aae16f8cfe50ff0f45dbf1eb78ce6b4cbe58720c",
+   "failures": {
+    "tokenmizer_v0.5.2": 0
+   },
+   "requests": 5381,
+   "per_call_ms_median": 11.40077200034284,
+   "per_call_ms_p95": 50.05755699949077,
+   "per_call_ms_p99": 279.3002490006984,
+   "sessions": 100
+  }
+ ]
+}
