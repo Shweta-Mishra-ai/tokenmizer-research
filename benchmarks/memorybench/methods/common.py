@@ -47,6 +47,7 @@ class MethodResult:
     resume_tokens: int = 0
     extract_ms: float = 0.0
     node_count: int = 0
+    per_call_ms: list = field(default_factory=list)   # incremental runs only
 
     def as_categories(self) -> dict:
         return {

@@ -34,10 +34,18 @@ def main() -> int:
 
     from tokenmizer.graph_memory.graph import GraphMemory, NodeStatus, NodeType
 
+    per_call_ms: list[float] = []
     t0 = time.monotonic()
     with tempfile.TemporaryDirectory() as d:
         g = GraphMemory(session_id, storage_dir=d)
-        g.extract_from_messages(messages, incremental=False)
+        if req.get("incremental"):
+            # One new message per call, the way the proxy runs in production.
+            for k in range(1, len(messages) + 1):
+                t = time.monotonic()
+                g.extract_from_messages(messages[:k])
+                per_call_ms.append((time.monotonic() - t) * 1000)
+        else:
+            g.extract_from_messages(messages, incremental=False)
         nodes = [n for n in g._nodes.values() if not n._evicted]
     elapsed_ms = (time.monotonic() - t0) * 1000
 
@@ -57,6 +65,7 @@ def main() -> int:
     }
     out = {cat: [n.label for n in nodes if sel(n)] for cat, sel in selectors.items()}
     out["extract_ms"] = elapsed_ms
+    out["per_call_ms"] = per_call_ms
     out["resume_text"] = resume_text
     out["resume_chars"] = len(resume_text)
 

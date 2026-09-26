@@ -25,6 +25,23 @@ repositories, and about 101 M characters of message history.
 - `swe_trajectories.py` converts them into sessions in the benchmark's JSON
   format.
 
+## Dev / test split (added before any full measurement)
+
+Product bugs found on this data will be fixed. To keep the reported results
+honest, the sessions are split by **issue**, never by system, so a GitHub
+issue and all four systems' attempts at it land on the same side:
+
+- `split(instance) = "test" if crc32(instance_id) % 2 else "dev"`
+
+Rules:
+- **dev** is used for finding and fixing bugs.
+- **test** is never inspected session by session. It is scored once at the
+  product commit before any fix (`50a2952`) and once after, and those are the
+  reported numbers.
+- Disclosure: before this split was fixed, a 5-session smoke test of the
+  runner was run on random `sweagent_gpt4o` sessions. Only aggregate numbers
+  were read.
+
 ## Ground truth (automatic; no hand labels)
 
 - **files**: the paths changed by the patch the agent finally submitted

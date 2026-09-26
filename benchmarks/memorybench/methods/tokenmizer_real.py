@@ -57,8 +57,12 @@ def available() -> bool:
     return _WORKER.exists() and (PRODUCT_REPO / "tokenmizer" / "__init__.py").exists()
 
 
-def extract(session) -> MethodResult:
-    payload = json.dumps({"session_id": session.id, "messages": session.messages})
+def extract(session, incremental: bool = False, timeout: int = 60) -> MethodResult:
+    """Run the product on one session. `incremental=True` feeds the history
+    one message per call, the way the proxy sees it in production; the
+    default extracts the whole session at once."""
+    payload = json.dumps({"session_id": session.id, "messages": session.messages,
+                          "incremental": incremental})
     env = dict(os.environ)
     env["PYTHONPATH"] = str(PRODUCT_REPO)
     env.pop("PYTHONSTARTUP", None)
@@ -66,7 +70,7 @@ def extract(session) -> MethodResult:
     proc = subprocess.run(
         [sys.executable, str(_WORKER)],
         input=payload, capture_output=True, text=True, env=env,
-        cwd=str(PRODUCT_REPO), timeout=60,
+        cwd=str(PRODUCT_REPO), timeout=timeout,
     )
     if proc.returncode != 0:
         raise RuntimeError(
@@ -85,6 +89,7 @@ def extract(session) -> MethodResult:
         resume_text=resume_text,
         resume_tokens=count_tokens(resume_text) if resume_text else 0,
         extract_ms=out.get("extract_ms", 0.0),
+        per_call_ms=out.get("per_call_ms", []),
         node_count=sum(len(out[c]) for c in
                         ("completed_tasks", "pending_tasks", "decisions", "files", "errors")),
     )
