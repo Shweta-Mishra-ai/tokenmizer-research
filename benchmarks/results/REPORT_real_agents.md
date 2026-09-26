@@ -223,6 +223,29 @@ triggered it, and each test fails on `50a2952`.
    space runs: 4–8 s on one fuzzed line. Fuzzing found it before merge. The
    linearity test now carries the reproducing payload.
 
+## After the test split was scored
+
+Product commit `4344abf` was made after the test runs, from dev sessions
+only. It stops the following from being stored as files:
+- code attributes whose last part is a file extension (`self.db`,
+  `np.sum(weights)`, `instance._state.db`);
+- `django.db` in "from django.db.models import Q";
+- the `a/` and `b/` prefixes of diff headers.
+
+It also adds bare dotfiles (`.env`, `.gitignore`), and makes the
+validator use the extractor's list of extensionless file names. The old
+copy had drifted and silently dropped `Pipfile`, `Podfile` and others.
+
+To keep the test split single-use, the commit was checked on dev only
+(751 sessions):
+- 386 fewer file labels (−3.4%);
+- no session lost a recalled file;
+- file recall, runtime- and lint-error recall and error precision all
+  unchanged;
+- edited files present in the resume +0.3 points [+0.1, +0.8].
+
+It is not part of the test numbers above.
+
 ## Threats to validity
 
 - **Frameworks and language.** There are two agent frameworks and one

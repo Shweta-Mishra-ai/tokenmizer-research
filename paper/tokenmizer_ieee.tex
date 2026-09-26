@@ -1294,6 +1294,13 @@ regression test built from the construction that triggered it.
   on long runs of spaces (4--8\,s on one line). Fuzzing found it
   before release.
 \end{enumerate}
+A further commit, made after the test split had been scored, stops
+code attributes whose last part is a file extension
+(\texttt{self.db}, \texttt{np.sum(\ldots)}) and the \texttt{a/} and
+\texttt{b/} prefixes of diff headers from being stored as files.
+To keep the test split single-use, it was checked on dev only: 3.4\%
+fewer file labels, with file recall, error recall and error precision
+all unchanged. It is not part of the test numbers below.
 
 \subsection{Results}
 \label{sec:real-results}
