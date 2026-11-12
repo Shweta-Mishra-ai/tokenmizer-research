@@ -7,6 +7,16 @@ metadata.yaml). No credentials are needed. They are not committed here:
 four systems are about 400 MB of raw JSON.
 
     python -m benchmarks.realworld.fetch --out DATA_DIR
+
+As of 2026-11-12 the bucket refuses LISTING (S3 AccessDenied) while every
+object still downloads. The listing step above therefore fails; fetch the
+sessions a committed result file names instead, by their known keys:
+
+    python -m benchmarks.realworld.fetch --out DATA_DIR \
+        --sessions-from benchmarks/results/realworld/test_fix.json
+
+That file names all 716 test-split sessions (five systems). Then convert
+them as before (swe_trajectories / openhands_trajectories).
 """
 from __future__ import annotations
 
@@ -83,6 +93,44 @@ def fetch_openhands(out: Path) -> None:
     print(f"openhands_codeact21: {len(keys)} trajectories in {dest}")
 
 
+def fetch_sessions(out: Path, results_json: Path) -> None:
+    """Download the trajectories a run_real result file names, by key.
+
+    Needs no bucket listing: a session id is `<system>__<instance>`, and
+    each system's objects sit at a known prefix.
+    """
+    import json
+
+    data = json.loads(results_json.read_text())
+    ids = sorted({r["session_id"] for rows in data["rows"].values() for r in rows})
+
+    def one(sid: str) -> bool:
+        system, instance = sid.split("__", 1)
+        if system == "openhands_codeact21":
+            dest = out / system
+            (dest / "patches").mkdir(parents=True, exist_ok=True)
+            pairs = [(f"{OPENHANDS}trajs/{instance}.json", dest / f"{instance}.json"),
+                     (f"{OPENHANDS}logs/{instance}/patch.diff",
+                      dest / "patches" / f"{instance}.diff")]
+        else:
+            dest = out / system
+            dest.mkdir(parents=True, exist_ok=True)
+            pairs = [(f"{SYSTEMS[system]}{instance}.traj", dest / f"{instance}.traj")]
+        ok = True
+        for key, path in pairs:
+            if path.exists():
+                continue
+            try:
+                _curl(BUCKET + urllib.parse.quote(key), path)
+            except subprocess.CalledProcessError:
+                ok = ok and key.endswith("patch.diff")   # a patch can be absent
+        return ok
+
+    with ThreadPoolExecutor(8) as pool:
+        got = sum(pool.map(one, ids))
+    print(f"{got} of {len(ids)} sessions in {out}")
+
+
 def main() -> None:
     import argparse
     ap = argparse.ArgumentParser(description=__doc__)
@@ -90,7 +138,13 @@ def main() -> None:
     ap.add_argument("--system", action="append", choices=sorted(SYSTEMS))
     ap.add_argument("--openhands", action="store_true",
                     help="fetch the OpenHands CodeAct 2.1 trajectories and patches instead")
+    ap.add_argument("--sessions-from", type=Path,
+                    help="fetch exactly the sessions this run_real result JSON names, "
+                         "without listing the bucket")
     args = ap.parse_args()
+    if args.sessions_from:
+        fetch_sessions(Path(args.out), args.sessions_from)
+        return
     if args.openhands:
         fetch_openhands(Path(args.out))
         return

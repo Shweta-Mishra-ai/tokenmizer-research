@@ -22,6 +22,13 @@ repositories, and about 101 M characters of message history.
 
 - `fetch.py` downloads the raw trajectories. They are not committed
   (about 280 MB).
+  - **Since 2026-11-12 the bucket refuses listing** (S3 `AccessDenied`),
+    while every object still downloads. The listing-based modes therefore
+    fail.
+  - `fetch.py --sessions-from benchmarks/results/realworld/test_fix.json`
+    downloads exactly the sessions a result file names, by their keys:
+    all 716 test-split sessions, from all five systems, in about 30 s.
+  - That download was checked byte-identical to a direct one.
 - `swe_trajectories.py` converts them into sessions in the benchmark's JSON
   format.
 

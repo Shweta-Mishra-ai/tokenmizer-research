@@ -165,6 +165,39 @@ Round 8 (same report) is a negative result for pattern matching:
 - Fixed bugs listed under a "fixed" heading are now stored as resolved,
   not open.
 
+### Long sessions, and a re-measurement of `main` (2026-11-12)
+
+Product `main` (`6b26679`) against the audit branch's final commit
+(`943b7cd`). Full protocol and numbers:
+[`benchmarks/results/REPORT_long_sessions.md`](benchmarks/results/REPORT_long_sessions.md).
+
+**Labelled corpora are flat.**
+- n=100: 92.4%.
+- Held-out v1 and v2: 92.3% and 93.0%.
+- Held-out v3: 64.3% → 64.2%. One session changed, explained in the report.
+- Held-out v4: 58.3% → 58.5%.
+
+On v3 and v4 the best comparison method reaches 35% and 25%.
+
+**On the 716 real agent sessions**, in production mode (one message per call):
+- error precision: +1.8 points [+1.0, +2.6];
+- runtime errors in the resume: +2.8 [+1.4, +4.3];
+- recall: unchanged.
+
+**A long-session soak (new, in the product repository) found six defects
+that no corpus could contain.**
+- At 120 turns the graph kept 23 of 50 planted facts.
+- At 1,000 turns, with 19.7 MB of history and a 4 MB tool output, it now keeps all 50. It recalls all 50 into the request that asks, keeps all 50 across a restart, and leaks 0 of 80 facts across 8 concurrent sessions.
+- The round-6 fix for re-extracting old history past message 500 still failed whenever an old message repeated a recent one: a repeated "ok", or the same tool output. One request at 300 turns took 12.2 s and now takes 0.25 s.
+- A cold start on a real 6.5 MB agent session took 57 s on `main` and now takes 1.5 s.
+
+**Found and not fixed:**
+- A decision's scope is not part of its identity. The billing service's choice is "superseded" by the ledger service's.
+- A change of mind ("switch to X instead") is often not extracted.
+
+The S3 bucket of the real-agent study now refuses listing, so
+`fetch.py --sessions-from` downloads the sessions by key.
+
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model
 call — they are not the vendor products. See
@@ -217,8 +250,9 @@ python -m benchmarks.memorybench.run --json out.json --csv out.csv
 python -m benchmarks.memorybench.generate -n 86
 
 # Real-agent benchmark: fetch public trajectories (~280 MB, not committed),
-# convert, score the held-out split, and print the report's tables
-python -m benchmarks.realworld.fetch --help
+# convert, score the held-out split, and print the report's tables.
+# The bucket refuses listing since 2026-11; fetch the test split by key:
+python -m benchmarks.realworld.fetch --out DIR --sessions-from benchmarks/results/realworld/test_fix.json
 python -m benchmarks.realworld.run_real --data DIR --split test --json out.json
 python -m benchmarks.realworld.tables --base BASE.json --fix FIX.json
 
