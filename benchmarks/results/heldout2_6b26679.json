@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T14:28:37.417422+00:00",
+  "generated": "2026-11-14T08:34:33.194086+00:00",
   "corpus": "80 sessions (80 synthetic, 0 real) \u00b7 1708 turns \u00b7 1339 labelled items \u00b7 16 domains \u00b7 registers: explicit, implicit, mixed, semi",
   "threshold": 0.6,
   "bootstrap_iterations": 2000,
@@ -77,7 +77,7 @@
       "avg_resume_tokens": 156.8,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 2.05,
-      "avg_extract_ms": 518.242,
+      "avg_extract_ms": 232.915,
       "avg_node_count": 15.9,
       "macro_f1_by_register": {
         "explicit": 0.9058,
@@ -164,7 +164,7 @@
       "avg_resume_tokens": 61.0,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 6.69,
-      "avg_extract_ms": 0.839,
+      "avg_extract_ms": 0.607,
       "avg_node_count": 7.1,
       "macro_f1_by_register": {
         "explicit": 0.5817,
@@ -248,10 +248,10 @@
         0.2996,
         0.3713
       ],
-      "avg_resume_tokens": 62.1,
+      "avg_resume_tokens": 62.3,
       "avg_total_tokens": 318.7,
-      "avg_compression_ratio": 6.08,
-      "avg_extract_ms": 0.584,
+      "avg_compression_ratio": 6.06,
+      "avg_extract_ms": 0.493,
       "avg_node_count": 7.9,
       "macro_f1_by_register": {
         "explicit": 0.5285,
@@ -338,7 +338,7 @@
       "avg_resume_tokens": 59.9,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 6.88,
-      "avg_extract_ms": 1.626,
+      "avg_extract_ms": 0.581,
       "avg_node_count": 7.1,
       "macro_f1_by_register": {
         "explicit": 0.5817,
@@ -425,7 +425,7 @@
       "avg_resume_tokens": 31.1,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 16.36,
-      "avg_extract_ms": 0.66,
+      "avg_extract_ms": 0.326,
       "avg_node_count": 3.3,
       "macro_f1_by_register": {
         "explicit": 0.3618,
@@ -512,7 +512,7 @@
       "avg_resume_tokens": 159.0,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 2.1,
-      "avg_extract_ms": 0.004,
+      "avg_extract_ms": 0.003,
       "avg_node_count": 15.8,
       "macro_f1_by_register": {
         "explicit": 0.1905,
@@ -599,7 +599,7 @@
       "avg_resume_tokens": 284.6,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 1.11,
-      "avg_extract_ms": 0.012,
+      "avg_extract_ms": 0.01,
       "avg_node_count": 28.1,
       "macro_f1_by_register": {
         "explicit": 0.2033,
@@ -686,7 +686,7 @@
       "avg_resume_tokens": 189.5,
       "avg_total_tokens": 318.7,
       "avg_compression_ratio": 1.69,
-      "avg_extract_ms": 0.092,
+      "avg_extract_ms": 0.022,
       "avg_node_count": 19.2,
       "macro_f1_by_register": {
         "explicit": 0.1808,

@@ -165,38 +165,34 @@ Round 8 (same report) is a negative result for pattern matching:
 - Fixed bugs listed under a "fixed" heading are now stored as resolved,
   not open.
 
-### Long sessions, and a re-measurement of `main` (2026-11-12)
+### Current version, every benchmark re-run (2026-11-14)
 
-Product `main` (`6b26679`) against the audit branch's final commit
-(`943b7cd`). Full protocol and numbers:
-[`benchmarks/results/REPORT_long_sessions.md`](benchmarks/results/REPORT_long_sessions.md).
+Product `main` (`6b26679`) against the audit branch's final code
+(`9fba905` / `2a7679f`). Every number below comes from a run made that day.
+Full protocol and numbers:
+[`benchmarks/results/REPORT_2026-11-14.md`](benchmarks/results/REPORT_2026-11-14.md).
 
-**Labelled corpora are flat.**
+**Labelled corpora.**
 - n=100: 92.4%.
-- Held-out v1 and v2: 92.3% and 93.0%.
-- Held-out v3: 64.3% → 64.2%. One session changed, explained in the report.
-- Held-out v4: 58.3% → 58.5%.
+- Held-out v1 and v2: 92.3% and 93.2%.
+- Held-out v3: 64.3% → **64.6%** (+0.32 [+0.01, +0.69]).
+- Held-out v4: 58.3% → **59.2%** (+0.86 [+0.36, +1.48]).
 
-On v3 and v4 the best comparison method reaches 35% and 25%.
+The gains are in decisions, on sets never tuned against. The best comparison method reaches 35% and 25% on v3 and v4.
 
-**On the 716 real agent sessions**, in production mode (one message per call):
+**716 real agent sessions, production mode:**
 - error precision: +1.8 points [+1.0, +2.6];
 - runtime errors in the resume: +2.8 [+1.4, +4.3];
-- recall: unchanged.
+- recall unchanged.
 
-**A long-session soak (new, in the product repository) found six defects
-that no corpus could contain.**
-- At 120 turns the graph kept 23 of 50 planted facts.
-- At 1,000 turns, with 19.7 MB of history and a 4 MB tool output, it now keeps all 50. It recalls all 50 into the request that asks, keeps all 50 across a restart, and leaks 0 of 80 facts across 8 concurrent sessions.
-- The round-6 fix for re-extracting old history past message 500 still failed whenever an old message repeated a recent one: a repeated "ok", or the same tool output. One request at 300 turns took 12.2 s and now takes 0.25 s.
-- A cold start on a real 6.5 MB agent session took 57 s on `main` and now takes 1.5 s.
+**Long sessions** (the soak benchmark in the product repository, 50 planted facts):
+- `main` keeps 22 of 50 at 120 turns. The current version keeps all 50 in the graph, recalled and after a restart, at 120 turns and at 1,000 turns (19.7 MB of history, a 4 MB tool output).
+- `main` does not finish 1,000 turns in an hour.
+- 8 concurrent sessions leak 0 of 80 facts into each other.
 
-**Found and not fixed:**
-- A decision's scope is not part of its identity. The billing service's choice is "superseded" by the ledger service's.
-- A change of mind ("switch to X instead") is often not extracted.
+**Cold start** on a 15 MB history: 6.3 s instead of 63.8 s.
 
-The S3 bucket of the real-agent study now refuses listing, so
-`fetch.py --sessions-from` downloads the sessions by key.
+**Still open:** v3 and v4 remain limited by pattern matching on implicit phrasing; the local LLM extraction path is unmeasured here.
 
 Four of the seven comparison methods reproduce one structural property
 of a published system, deterministically and with no language-model

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T14:28:38.700506+00:00",
+  "generated": "2026-11-14T08:34:33.755562+00:00",
   "corpus": "80 sessions (80 synthetic, 0 real) \u00b7 1764 turns \u00b7 1387 labelled items \u00b7 16 domains \u00b7 registers: explicit, implicit, mixed, semi",
   "threshold": 0.6,
   "bootstrap_iterations": 2000,
@@ -77,7 +77,7 @@
       "avg_resume_tokens": 155.2,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 2.41,
-      "avg_extract_ms": 517.858,
+      "avg_extract_ms": 230.967,
       "avg_node_count": 16.3,
       "macro_f1_by_register": {
         "explicit": 0.9108,
@@ -164,7 +164,7 @@
       "avg_resume_tokens": 55.9,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 7.97,
-      "avg_extract_ms": 1.143,
+      "avg_extract_ms": 0.74,
       "avg_node_count": 7.2,
       "macro_f1_by_register": {
         "explicit": 0.3495,
@@ -248,10 +248,10 @@
         0.2452,
         0.2931
       ],
-      "avg_resume_tokens": 57.2,
+      "avg_resume_tokens": 57.3,
       "avg_total_tokens": 369.1,
-      "avg_compression_ratio": 7.65,
-      "avg_extract_ms": 0.842,
+      "avg_compression_ratio": 7.64,
+      "avg_extract_ms": 0.372,
       "avg_node_count": 7.0,
       "macro_f1_by_register": {
         "explicit": 0.3492,
@@ -338,7 +338,7 @@
       "avg_resume_tokens": 54.9,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 8.2,
-      "avg_extract_ms": 2.082,
+      "avg_extract_ms": 0.67,
       "avg_node_count": 7.2,
       "macro_f1_by_register": {
         "explicit": 0.3495,
@@ -425,7 +425,7 @@
       "avg_resume_tokens": 28.4,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 18.3,
-      "avg_extract_ms": 0.657,
+      "avg_extract_ms": 0.341,
       "avg_node_count": 3.2,
       "macro_f1_by_register": {
         "explicit": 0.1944,
@@ -512,7 +512,7 @@
       "avg_resume_tokens": 178.8,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 2.15,
-      "avg_extract_ms": 0.004,
+      "avg_extract_ms": 0.003,
       "avg_node_count": 15.9,
       "macro_f1_by_register": {
         "explicit": 0.1684,
@@ -599,7 +599,7 @@
       "avg_resume_tokens": 290.9,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 1.27,
-      "avg_extract_ms": 0.012,
+      "avg_extract_ms": 0.011,
       "avg_node_count": 26.1,
       "macro_f1_by_register": {
         "explicit": 0.1894,
@@ -686,7 +686,7 @@
       "avg_resume_tokens": 189.1,
       "avg_total_tokens": 369.1,
       "avg_compression_ratio": 1.96,
-      "avg_extract_ms": 0.035,
+      "avg_extract_ms": 0.028,
       "avg_node_count": 17.6,
       "macro_f1_by_register": {
         "explicit": 0.1602,

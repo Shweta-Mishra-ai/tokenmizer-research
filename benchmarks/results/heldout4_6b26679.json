@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T14:28:38.397752+00:00",
+  "generated": "2026-11-14T08:34:32.334535+00:00",
   "corpus": "80 sessions (80 synthetic, 0 real) \u00b7 1770 turns \u00b7 1364 labelled items \u00b7 16 domains \u00b7 registers: explicit, implicit, mixed, semi",
   "threshold": 0.6,
   "bootstrap_iterations": 2000,
@@ -77,7 +77,7 @@
       "avg_resume_tokens": 102.6,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 3.8,
-      "avg_extract_ms": 521.266,
+      "avg_extract_ms": 221.108,
       "avg_node_count": 11.3,
       "macro_f1_by_register": {
         "explicit": 0.6679,
@@ -164,7 +164,7 @@
       "avg_resume_tokens": 55.4,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 7.31,
-      "avg_extract_ms": 0.889,
+      "avg_extract_ms": 0.632,
       "avg_node_count": 7.3,
       "macro_f1_by_register": {
         "explicit": 0.3916,
@@ -251,7 +251,7 @@
       "avg_resume_tokens": 48.0,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 8.22,
-      "avg_extract_ms": 0.941,
+      "avg_extract_ms": 0.398,
       "avg_node_count": 6.3,
       "macro_f1_by_register": {
         "explicit": 0.3313,
@@ -338,7 +338,7 @@
       "avg_resume_tokens": 54.1,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 7.53,
-      "avg_extract_ms": 1.256,
+      "avg_extract_ms": 0.601,
       "avg_node_count": 7.2,
       "macro_f1_by_register": {
         "explicit": 0.392,
@@ -425,7 +425,7 @@
       "avg_resume_tokens": 25.5,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 20.43,
-      "avg_extract_ms": 0.661,
+      "avg_extract_ms": 0.439,
       "avg_node_count": 3.2,
       "macro_f1_by_register": {
         "explicit": 0.2292,
@@ -512,7 +512,7 @@
       "avg_resume_tokens": 163.6,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 2.13,
-      "avg_extract_ms": 0.006,
+      "avg_extract_ms": 0.004,
       "avg_node_count": 15.7,
       "macro_f1_by_register": {
         "explicit": 0.1734,
@@ -599,7 +599,7 @@
       "avg_resume_tokens": 287.8,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 1.18,
-      "avg_extract_ms": 0.113,
+      "avg_extract_ms": 0.06,
       "avg_node_count": 27.5,
       "macro_f1_by_register": {
         "explicit": 0.1896,
@@ -686,7 +686,7 @@
       "avg_resume_tokens": 190.9,
       "avg_total_tokens": 340.9,
       "avg_compression_ratio": 1.79,
-      "avg_extract_ms": 0.035,
+      "avg_extract_ms": 0.025,
       "avg_node_count": 18.9,
       "macro_f1_by_register": {
         "explicit": 0.1625,
