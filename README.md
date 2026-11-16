@@ -165,6 +165,27 @@ Round 8 (same report) is a negative result for pattern matching:
 - Fixed bugs listed under a "fixed" heading are now stored as resolved,
   not open.
 
+### Full re-run with at least 100 sessions per experiment, and a load test (2026-11-16)
+
+Product `main` (`6b26679`) against the audit branch at `7fc0e0a`. Full protocol and numbers:
+[`benchmarks/results/REPORT_2026-11-16.md`](benchmarks/results/REPORT_2026-11-16.md).
+
+**Two new held-out sets of 200 sessions each**, frozen before any run:
+- v3x: 64.3% → **64.7%** (+0.39 [+0.19, +0.62]), 13 sessions better and 0 worse.
+- v4x: 60.1% → **60.9%** (+0.78 [+0.55, +1.05]), 48 better and 0 worse.
+
+The gains are in decisions. The best comparison method reaches 34% and 27% on these sets.
+
+**716 real agent sessions, production mode:** error precision +1.8 [+1.0, +2.6], runtime errors in the resume +2.8 [+1.4, +4.3], recall unchanged. Two full runs are now identical in every session.
+
+**Fixed this round:**
+- With several workers, 23 of 48 sessions were answered from an outdated copy of their memory. It is now 48 of 48.
+- The resume depended on the machine's clock, differing in 18 of 716 real sessions between two runs. It is now 0.
+
+**Load test:** the real server with 1 and 4 workers, 2,400 requests, every one checked. No failure, no leak between sessions, and no 5xx on malformed input.
+
+**Long sessions:** 50 of 50 planted facts at 120 and 1,000 turns; 0 of 80 leaked between 8 concurrent sessions.
+
 ### Current version, every benchmark re-run (2026-11-14)
 
 Product `main` (`6b26679`) against the audit branch's final code

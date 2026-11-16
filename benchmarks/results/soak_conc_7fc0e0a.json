@@ -1,0 +1,12 @@
+{
+  "sessions": 8,
+  "turns_each": 200,
+  "requests": 1600,
+  "run_seconds": 188.3,
+  "latency_ms_p50": 701.9,
+  "latency_ms_p95": 2318.9,
+  "own_recall": "80/80",
+  "own_missed": [],
+  "cross_session_leaks": "0/80",
+  "leak_examples": []
+}

@@ -1,0 +1,27 @@
+{
+  "workers": 1,
+  "sessions": 32,
+  "turns_each": 30,
+  "requests_ok": 960,
+  "requests_expected": 960,
+  "wall_seconds": 20.9,
+  "throughput_rps": 46.0,
+  "latency_ms": {
+    "p50": 666.8,
+    "p95": 931.8,
+    "p99": 1096.1,
+    "mean": 677.5
+  },
+  "server_rss_mb": {
+    "start": 101.9,
+    "end": 225.1
+  },
+  "upstream_requests": 996,
+  "response_failures": [],
+  "response_failure_count": 0,
+  "upstream_violations": [],
+  "upstream_violation_count": 0,
+  "hostile_5xx": [],
+  "alive_after": true,
+  "latest_decision_recalled": "32/32"
+}

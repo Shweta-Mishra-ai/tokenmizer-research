@@ -1,0 +1,106 @@
+{
+  "turns": 1000,
+  "requests": 1000,
+  "run_seconds": 330.7,
+  "history_mb_at_end": 19.7,
+  "upstream_mb_last_request": 0.216,
+  "giant_turn": 750,
+  "giant_mb": 4.0,
+  "latency_ms": {
+    "first10pct_p50": 65.7,
+    "last10pct_p50": 631.1,
+    "last10pct_p95": 1140.0,
+    "max": 1663.2,
+    "max_at_turn": 750
+  },
+  "rss_mb": {
+    "start": 109.1,
+    "end": 330.8,
+    "samples": [
+      [
+        0,
+        117.3
+      ],
+      [
+        100,
+        159.9
+      ],
+      [
+        200,
+        164.2
+      ],
+      [
+        300,
+        202.7
+      ],
+      [
+        400,
+        207.5
+      ],
+      [
+        500,
+        242.7
+      ],
+      [
+        600,
+        264.0
+      ],
+      [
+        700,
+        278.0
+      ],
+      [
+        800,
+        322.5
+      ],
+      [
+        900,
+        342.6
+      ]
+    ]
+  },
+  "graph_nodes": 500,
+  "storage_mb": 45.32,
+  "facts": {
+    "decision": {
+      "n": 10,
+      "graph": 10,
+      "recall": 10,
+      "restart": 10
+    },
+    "error": {
+      "n": 10,
+      "graph": 10,
+      "recall": 10,
+      "restart": 10
+    },
+    "pending": {
+      "n": 10,
+      "graph": 10,
+      "recall": 10,
+      "restart": 10
+    },
+    "file": {
+      "n": 10,
+      "graph": 10,
+      "recall": 10,
+      "restart": 10
+    },
+    "done": {
+      "n": 10,
+      "graph": 10,
+      "recall": 10,
+      "restart": 10
+    }
+  },
+  "facts_total": {
+    "n": 50,
+    "graph": 50,
+    "recall": 50,
+    "restart": 50
+  },
+  "lost_in_graph": [],
+  "not_recalled": [],
+  "tail_altered_at": [],
+  "tail_altered_count": 0
+}
