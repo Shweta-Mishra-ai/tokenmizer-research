@@ -1,0 +1,125 @@
+{
+  "id": "ho3x_data_sql_006",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a data quality initiative."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a data quality initiative now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — a covering index on the customer lookup. We've decided on hashed surrogate keys for stability."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "- macros/revenue.sql\nNext task — moving the nightly job to an hourly cadence.\nNext task — archiving events older than two years."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: timezone drift between the source and warehouse."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Parquet as the landing format."
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: a medallion bronze/silver/gold layout. Closed: deduplication on the raw event stream. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Implemented freshness tests on every source table."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `sql/indexes.sql`. Affected file: dbt_project.yml. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Great Expectations for data quality checks."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Closed: incremental models for the daily aggregates."
+    },
+    {
+      "role": "user",
+      "content": "What about a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice.\n- scripts/backfill.py"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Affected file: profiles.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication on the raw event stream",
+      "freshness tests on every source table",
+      "incremental models for the daily aggregates",
+      "a covering index on the customer lookup"
+    ],
+    "pending_tasks": [
+      "archiving events older than two years",
+      "moving the nightly job to an hourly cadence"
+    ],
+    "decisions": [
+      "Parquet as the landing format",
+      "Great Expectations for data quality checks",
+      "hashed surrogate keys for stability",
+      "a medallion bronze/silver/gold layout"
+    ],
+    "files": [
+      "profiles.yml",
+      "macros/revenue.sql",
+      "scripts/backfill.py",
+      "sql/indexes.sql",
+      "dbt_project.yml"
+    ],
+    "errors": [
+      "timezone drift between the source and warehouse"
+    ]
+  }
+}

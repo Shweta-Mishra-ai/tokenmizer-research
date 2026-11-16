@@ -1,0 +1,123 @@
+{
+  "id": "ho4x_research_writing_005",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a literature review."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: paper/related_work.tex."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A limitations section naming the sample size problem is behind us now. Targeting the workshop deadline rather than the main track won the vote."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. * paper/appendix.tex"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Figure one showing the system architecture has been live since Tuesday with no complaints. I got citations normalised to a single bibliography style over the line. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed the abstract rewritten to lead with the result. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "How is a literature review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: the discussion section."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Zotero for reference management?"
+    },
+    {
+      "role": "assistant",
+      "content": "The reproducibility statement with exact commands is behind us now. Fine by me. Reconciling the two conflicting result tables is next up."
+    },
+    {
+      "role": "user",
+      "content": "How is a literature review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Details are in paper/references.bib."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to including the negative result on implicit language."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. We resolved to use reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked framing the contribution as a measurement study."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "figure one showing the system architecture",
+      "the reproducibility statement with exact commands",
+      "a limitations section naming the sample size problem",
+      "citations normalised to a single bibliography style",
+      "the abstract rewritten to lead with the result"
+    ],
+    "pending_tasks": [
+      "the discussion section",
+      "reconciling the two conflicting result tables"
+    ],
+    "decisions": [
+      "framing the contribution as a measurement study",
+      "reporting per-domain breakdowns in the appendix",
+      "Zotero for reference management",
+      "including the negative result on implicit language",
+      "targeting the workshop deadline rather than the main track"
+    ],
+    "files": [
+      "paper/references.bib",
+      "paper/related_work.tex",
+      "paper/appendix.tex"
+    ],
+    "errors": []
+  }
+}

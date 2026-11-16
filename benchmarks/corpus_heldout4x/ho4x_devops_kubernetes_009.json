@@ -1,0 +1,144 @@
+{
+  "id": "ho4x_devops_kubernetes_009",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a cost reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "k8s/networkpolicy.yaml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while moving the remaining cron jobs to Kubernetes is missing."
+    },
+    {
+      "role": "user",
+      "content": "How is a cost reduction pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "An upgrade rehearsal in staging keeps getting pushed to next sprint. A canary stage in the deploy pipeline has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Istio for service mesh traffic policy feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Makes sense, doing that. Had to untangle scripts/rollout.sh first."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Trivy for image scanning in CI."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Tightening the pod security admission profile is the piece nobody has picked up. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "How is a cost reduction pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle .github/workflows/deploy.yml first. No incidents were reported this week. k8s/hpa.yaml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was node pressure evictions during the nightly batch all along. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Loki for log aggregation is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Dockerfile grew by a couple hundred lines. Once the release settles, reducing the image sizes on the worker pool is where attention goes. Turns out the slowdown was CrashLoopBackOff after the config map rename all along."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. A rolling deploy with surge and unavailable tuned held up fine through the whole load test. Most of yesterday disappeared into an ImagePullBackOff from an expired registry credential."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle argocd/apps/api.yaml first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "a rolling deploy with surge and unavailable tuned",
+      "a canary stage in the deploy pipeline"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "an upgrade rehearsal in staging",
+      "reducing the image sizes on the worker pool",
+      "moving the remaining cron jobs to Kubernetes"
+    ],
+    "decisions": [
+      "Trivy for image scanning in CI",
+      "Loki for log aggregation",
+      "Istio for service mesh traffic policy"
+    ],
+    "files": [
+      "k8s/networkpolicy.yaml",
+      "k8s/hpa.yaml",
+      "scripts/rollout.sh",
+      ".github/workflows/deploy.yml",
+      "argocd/apps/api.yaml",
+      "Dockerfile"
+    ],
+    "errors": [
+      "node pressure evictions during the nightly batch",
+      "an ImagePullBackOff from an expired registry credential",
+      "CrashLoopBackOff after the config map rename"
+    ]
+  }
+}

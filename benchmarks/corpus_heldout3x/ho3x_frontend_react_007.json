@@ -1,0 +1,126 @@
+{
+  "id": "ho3x_frontend_react_007",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a customer support console."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a customer support console now."
+    },
+    {
+      "role": "user",
+      "content": "What about a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "The empty and loading states for every panel went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There is a race condition between two in-flight fetches on the main branch. Most of the work happened inside src/hooks/useMetrics.ts. Nothing is blocking us right now. Closed: dark mode using CSS custom properties."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with MSW for mocking the API in tests? Switch to React 19 with the compiler enabled."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. TO DO: replacing the date picker with a headless one."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in tailwind.config.js. Next task — offline support for the draft editor. Error boundaries around each route is still open."
+    },
+    {
+      "role": "user",
+      "content": "Playwright for end-to-end tests sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Good news: code splitting on the route boundaries made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: a hydration mismatch on the server-rendered header. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Vitest over Jest for the unit suite. I'm leaning towards TanStack Query for server state."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Sounds right, on it. Form validation with inline error messages went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a CORS failure against the staging API."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "form validation with inline error messages",
+      "code splitting on the route boundaries",
+      "the empty and loading states for every panel",
+      "dark mode using CSS custom properties"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "error boundaries around each route",
+      "replacing the date picker with a headless one"
+    ],
+    "decisions": [
+      "Playwright for end-to-end tests",
+      "TanStack Query for server state",
+      "React 19 with the compiler enabled",
+      "Vitest over Jest for the unit suite",
+      "MSW for mocking the API in tests"
+    ],
+    "files": [
+      "tailwind.config.js",
+      "src/hooks/useMetrics.ts"
+    ],
+    "errors": [
+      "a CORS failure against the staging API",
+      "a hydration mismatch on the server-rendered header",
+      "a race condition between two in-flight fetches"
+    ]
+  }
+}

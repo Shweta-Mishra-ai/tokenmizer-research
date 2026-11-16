@@ -1,0 +1,99 @@
+{
+  "id": "ho3x_research_writing_009",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a technical design document."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a technical design document."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with an explicit statement that the corpus is synthetic?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run.\nA final proofread pass is waiting for someone to pick it up.\n- paper/references.bib"
+    },
+    {
+      "role": "user",
+      "content": "I'd like reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. figures/architecture.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The evaluation table with confidence intervals is working now. Affected file: paper/evaluation.tex. The related work section covering twelve papers has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got peer feedback incorporated from two reviewers up and running. Failed jobs are retried twice. Outstanding: a plain-language summary for the blog post."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "Citations normalised to a single bibliography style is sorted. Let me know if anything looks off. Have a look at data/results.json. Choice: Zotero for reference management."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: paper/appendix.tex.\n- paper/abstract.tex\nOnce CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "citations normalised to a single bibliography style",
+      "the evaluation table with confidence intervals",
+      "peer feedback incorporated from two reviewers",
+      "the related work section covering twelve papers"
+    ],
+    "pending_tasks": [
+      "a final proofread pass",
+      "a plain-language summary for the blog post"
+    ],
+    "decisions": [
+      "reporting per-domain breakdowns in the appendix",
+      "an explicit statement that the corpus is synthetic",
+      "Zotero for reference management"
+    ],
+    "files": [
+      "paper/appendix.tex",
+      "paper/references.bib",
+      "paper/evaluation.tex",
+      "data/results.json",
+      "paper/abstract.tex",
+      "figures/architecture.py"
+    ],
+    "errors": []
+  }
+}

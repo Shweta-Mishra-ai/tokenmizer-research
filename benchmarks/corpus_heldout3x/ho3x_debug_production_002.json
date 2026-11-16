@@ -1,0 +1,170 @@
+{
+  "id": "ho3x_debug_production_002",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an intermittent failure investigation."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got adding structured logging around the suspect path up and running. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited tests/test_regression.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. The plan is an incident severity of SEV-2."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed a regression test covering the failure mode yesterday. We completed correlating the errors with the deploy timeline yesterday."
+    },
+    {
+      "role": "user",
+      "content": "What about an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the failure mode in the runbook is still open. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling the corrupted rows is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in config/flags.yaml. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "An alert on the metric that would have caught it still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do a follow-up on the third-party client bug report next."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at monitoring/alerts.yaml. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at logs/analysis.py. We found a 30% error rate on the payment callback. I've gone with rolling back before investigating further. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in src/handlers/checkout.py. We completed confirming the hypothesis with a targeted experiment yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in docs/postmortem.md. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found memory growing 200MB per hour until restart. Instrumenting the slow query with timing spans is working now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is a blameless postmortem format. Once CI passes I'll merge. Customers are hitting a cascading failure from the retry storm."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "correlating the errors with the deploy timeline",
+      "adding structured logging around the suspect path",
+      "instrumenting the slow query with timing spans",
+      "a regression test covering the failure mode",
+      "confirming the hypothesis with a targeted experiment"
+    ],
+    "pending_tasks": [
+      "backfilling the corrupted rows",
+      "an alert on the metric that would have caught it",
+      "documenting the failure mode in the runbook",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "a blameless postmortem format",
+      "rolling back before investigating further",
+      "an incident severity of SEV-2"
+    ],
+    "files": [
+      "monitoring/alerts.yaml",
+      "tests/test_regression.py",
+      "src/handlers/checkout.py",
+      "docs/postmortem.md",
+      "logs/analysis.py",
+      "config/flags.yaml"
+    ],
+    "errors": [
+      "a 30% error rate on the payment callback",
+      "a cascading failure from the retry storm",
+      "memory growing 200MB per hour until restart"
+    ]
+  }
+}

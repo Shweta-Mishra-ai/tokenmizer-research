@@ -1,0 +1,109 @@
+{
+  "id": "ho4x_debug_production_005",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a performance regression hunt."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: sampling traces at 10% rather than 1%.\n- [ ] TODO a load test reproducing the traffic pattern\n**Chosen:** an incident severity of SEV-2."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the hotfix reverting the connection pool change.\nLanded correlating the errors with the deploy timeline."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to increasing the connection pool as a stopgap."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Landed capturing a heap profile during the spike. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: silent data loss when the queue consumer crashed."
+    },
+    {
+      "role": "user",
+      "content": "How is a performance regression hunt going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: scripts/repro.py. Going forward: keeping the extra logging for two weeks. Left to do — a follow-up on the third-party client bug report."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/pool.py The logs are easier to read now. Going forward: reverting to the previous library version."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Outage: a 30% error rate on the payment callback. We resolved to use a feature flag to disable the suspect path."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: a thundering herd on cache expiry."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "capturing a heap profile during the spike",
+      "correlating the errors with the deploy timeline",
+      "the hotfix reverting the connection pool change"
+    ],
+    "pending_tasks": [
+      "a follow-up on the third-party client bug report",
+      "a load test reproducing the traffic pattern"
+    ],
+    "decisions": [
+      "reverting to the previous library version",
+      "increasing the connection pool as a stopgap",
+      "sampling traces at 10% rather than 1%",
+      "an incident severity of SEV-2",
+      "keeping the extra logging for two weeks",
+      "a feature flag to disable the suspect path"
+    ],
+    "files": [
+      "src/pool.py",
+      "scripts/repro.py"
+    ],
+    "errors": [
+      "silent data loss when the queue consumer crashed",
+      "a 30% error rate on the payment callback",
+      "a thundering herd on cache expiry"
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "ho3x_ml_python_003",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a churn prediction model."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Class imbalance handling with focal loss? Taken care of. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to inference timeouts on the long-document path. Everyone was happy with quantile clipping on the numeric features."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "An online A/B test against the current model is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. tests/test_features.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Drift monitoring on the input distributions went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from non-determinism from an unseeded shuffle. Here is the updated plan. notebooks/eda.ipynb ended up with most of the changes. src/features.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards sentence-transformers for the text embeddings."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Rewrote parts of src/serve.py as well. If this fails again we will revisit the design. XGBoost over a neural network for tabular data is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "ONNX export for the serving runtime sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about an offline evaluation against last quarter's data now. Batch inference over the full customer base went smoothly in the end. The error messages are now clearer. SHAP explanations for the top features went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched reducing inference latency below 50ms yet."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a fairness audit across customer segments yet."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to target leakage from a post-outcome feature. AUC-PR as the primary metric given the imbalance is what we'll ship with. Most of the work happened inside Makefile."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Evidently for drift reporting is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: a model registry entry for the release candidate made it in before the freeze. configs/model.yaml ended up with most of the changes. We may decide to change this later. Baseline logistic regression at 0.71 AUC went smoothly in the end."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an offline evaluation against last quarter's data",
+      "drift monitoring on the input distributions",
+      "SHAP explanations for the top features",
+      "a model registry entry for the release candidate",
+      "class imbalance handling with focal loss",
+      "baseline logistic regression at 0.71 AUC",
+      "batch inference over the full customer base"
+    ],
+    "pending_tasks": [
+      "a fairness audit across customer segments",
+      "an online A/B test against the current model",
+      "reducing inference latency below 50ms"
+    ],
+    "decisions": [
+      "Evidently for drift reporting",
+      "quantile clipping on the numeric features",
+      "XGBoost over a neural network for tabular data",
+      "ONNX export for the serving runtime",
+      "sentence-transformers for the text embeddings",
+      "AUC-PR as the primary metric given the imbalance"
+    ],
+    "files": [
+      "tests/test_features.py",
+      "configs/model.yaml",
+      "src/serve.py",
+      "Makefile",
+      "src/features.py",
+      "notebooks/eda.ipynb"
+    ],
+    "errors": [
+      "target leakage from a post-outcome feature",
+      "inference timeouts on the long-document path",
+      "non-determinism from an unseeded shuffle"
+    ]
+  }
+}

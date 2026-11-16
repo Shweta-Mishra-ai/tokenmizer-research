@@ -1,0 +1,147 @@
+{
+  "id": "ho3x_systems_rust_010",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a packet inspector."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a packet inspector now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: an async runtime built on tokio. Removing the remaining unsafe blocks is on the backlog. Most of the work happened inside Cargo.toml."
+    },
+    {
+      "role": "user",
+      "content": "What about a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Edited: src/main.rs."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Arc-swap for the hot config reload beat the alternatives on every axis we care about. Failed: a use-after-free found by miri in the unsafe block."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Zero-copy deserialisation of the record header is working now. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "What about a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** bincode for the wire encoding."
+    },
+    {
+      "role": "user",
+      "content": "Serde with a custom binary format sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: fuzz/fuzz_targets/decode.rs. Failed: a deadlock from lock ordering in the flush path."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: a panic on slice index out of bounds. Agreed approach: parking_lot mutexes over the std ones. src/buffer.rs ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/lib.rs`. If this fails again we will revisit the design. * [x] a lock-free ring buffer for the writer"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched reducing the binary size below 2MB yet. Criterion benchmarks on the parse loop went smoothly in the end. I edited Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "SIMD acceleration on the checksum path was rolled out. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Memory-mapped reads for the index file is sorted. A compatibility shim for the old format still needs doing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an async runtime built on tokio",
+      "a lock-free ring buffer for the writer",
+      "zero-copy deserialisation of the record header",
+      "criterion benchmarks on the parse loop",
+      "SIMD acceleration on the checksum path",
+      "memory-mapped reads for the index file"
+    ],
+    "pending_tasks": [
+      "removing the remaining unsafe blocks",
+      "a compatibility shim for the old format",
+      "reducing the binary size below 2MB"
+    ],
+    "decisions": [
+      "serde with a custom binary format",
+      "parking_lot mutexes over the std ones",
+      "arc-swap for the hot config reload",
+      "bincode for the wire encoding"
+    ],
+    "files": [
+      "fuzz/fuzz_targets/decode.rs",
+      "src/buffer.rs",
+      "Cargo.toml",
+      "src/lib.rs",
+      "Cargo.lock",
+      "src/main.rs"
+    ],
+    "errors": [
+      "a deadlock from lock ordering in the flush path",
+      "a use-after-free found by miri in the unsafe block",
+      "a panic on slice index out of bounds"
+    ]
+  }
+}

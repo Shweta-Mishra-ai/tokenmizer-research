@@ -1,0 +1,141 @@
+{
+  "id": "ho3x_backend_python_010",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a tenant provisioning API."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a tenant provisioning API."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the Alembic baseline migration yesterday. Changes are in docker-compose.yml. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? I edited api/main.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited migrations/env.py."
+    },
+    {
+      "role": "user",
+      "content": "What about a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got connection pooling against Postgres up and running. We're going to use Postgres over MySQL for JSONB support. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed OpenAPI schema generation for the public routes yesterday."
+    },
+    {
+      "role": "user",
+      "content": "What about a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got the User model with email and hashed_password columns up and running. I've got a health check endpoint at /healthz up and running."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with Celery for the background worker. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Have a look at tests/test_orders.py."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited db/session.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "POST /api/orders and GET /api/orders/{id} was rolled out. Audit logging for admin actions is still open."
+    },
+    {
+      "role": "user",
+      "content": "Can we try pytest-asyncio for the async test suite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Pytest fixtures for a throwaway database is working now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "OpenAPI schema generation for the public routes",
+      "pytest fixtures for a throwaway database",
+      "connection pooling against Postgres",
+      "the User model with email and hashed_password columns",
+      "POST /api/orders and GET /api/orders/{id}",
+      "the Alembic baseline migration",
+      "a health check endpoint at /healthz"
+    ],
+    "pending_tasks": [
+      "audit logging for admin actions"
+    ],
+    "decisions": [
+      "Postgres over MySQL for JSONB support",
+      "pytest-asyncio for the async test suite",
+      "Celery for the background worker"
+    ],
+    "files": [
+      "docker-compose.yml",
+      "migrations/env.py",
+      "requirements.txt",
+      "db/session.py",
+      "api/main.py",
+      "tests/test_orders.py"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "id": "ho3x_mobile_ios_009",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an offline-first notes client."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an offline-first notes client."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Bug report: memory growth from uncancelled image tasks."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `Sources/Store/WorkoutStore.swift`. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests?\n**Shipped:** Core Data persistence for the workout log."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: a layout constraint conflict on the smallest device. Outstanding: a snapshot test suite for the components. * [x] unit tests for the sync reducer"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Action item: localisation into three languages. Edited: Sources/Sync/SyncEngine.swift."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: watchOS companion app. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Swift Package Manager for dependencies."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: Sources/Auth/Keychain.swift. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Tests/SyncTests.swift. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — keychain storage for the auth token."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on iOS 17 as the minimum deployment target."
+    },
+    {
+      "role": "user",
+      "content": "What about an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green.\n**Shipped:** the SwiftUI onboarding sequence."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the subscription purchase and restore flow."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** The Composable Architecture for state.\nDo we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: Sources/App/ContentView.swift. Regression: a keychain access error after device restore. Choice: fastlane for the release pipeline."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "unit tests for the sync reducer",
+      "Core Data persistence for the workout log",
+      "the SwiftUI onboarding sequence",
+      "the subscription purchase and restore flow",
+      "keychain storage for the auth token"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components",
+      "localisation into three languages",
+      "watchOS companion app"
+    ],
+    "decisions": [
+      "Swift Package Manager for dependencies",
+      "fastlane for the release pipeline",
+      "The Composable Architecture for state",
+      "iOS 17 as the minimum deployment target"
+    ],
+    "files": [
+      "Sources/Store/WorkoutStore.swift",
+      "Sources/Auth/Keychain.swift",
+      "Sources/Sync/SyncEngine.swift",
+      "Sources/App/ContentView.swift",
+      "Tests/SyncTests.swift"
+    ],
+    "errors": [
+      "a layout constraint conflict on the smallest device",
+      "memory growth from uncancelled image tasks",
+      "a keychain access error after device restore"
+    ]
+  }
+}

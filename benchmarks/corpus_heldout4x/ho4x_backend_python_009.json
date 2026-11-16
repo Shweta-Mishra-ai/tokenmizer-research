@@ -1,0 +1,143 @@
+{
+  "id": "ho4x_backend_python_009",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a tenant provisioning API."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a tenant provisioning API now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: a health check endpoint at /healthz.\nFlaky jobs get one automatic retry.\n**Chosen:** bcrypt for password hashing.\nLanded the User model with email and hashed_password columns."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: core/config.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** uvicorn behind gunicorn in production."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: an IntegrityError on duplicate order submission. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — flaky tests from shared database state."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] the Alembic baseline migration\nGoing forward: structlog for JSON log output."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: input validation on the payment payload."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "* api/main.py"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** request ID middleware for structured logging.\n* api/orders.py\nCI is passing.\nFile changed — api/models.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: Alembic for schema migrations. File changed — requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "How is a tenant provisioning API going?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO audit logging for admin actions"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a tenant provisioning API?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Landed pytest fixtures for a throwaway database."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a health check endpoint at /healthz",
+      "pytest fixtures for a throwaway database",
+      "the User model with email and hashed_password columns",
+      "the Alembic baseline migration",
+      "input validation on the payment payload",
+      "request ID middleware for structured logging"
+    ],
+    "pending_tasks": [
+      "audit logging for admin actions"
+    ],
+    "decisions": [
+      "bcrypt for password hashing",
+      "structlog for JSON log output",
+      "Alembic for schema migrations",
+      "uvicorn behind gunicorn in production"
+    ],
+    "files": [
+      "api/orders.py",
+      "api/models.py",
+      "requirements.txt",
+      "api/main.py",
+      "core/config.py"
+    ],
+    "errors": [
+      "an IntegrityError on duplicate order submission",
+      "flaky tests from shared database state"
+    ]
+  }
+}

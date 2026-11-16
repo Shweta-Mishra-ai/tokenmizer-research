@@ -1,0 +1,124 @@
+{
+  "id": "ho3x_backend_python_011",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a document ingestion service."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a document ingestion service now."
+    },
+    {
+      "role": "user",
+      "content": "What about a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about connection pooling against Postgres now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Soft deletes on the tenant table is the obvious next step. Everyone was happy with uvicorn behind gunicorn in production."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from a 422 on login from a missing email validator. Everyone was happy with UUIDv7 primary keys instead of integers."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. We can stop worrying about POST /api/orders and GET /api/orders/{id} now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Request ID middleware for structured logging went smoothly in the end. We can stop worrying about idempotency keys on the order create path now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "migrations/env.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Pytest fixtures for a throwaway database? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of api/models.py as well. Most of the work happened inside api/main.py. Rewrote parts of api/deps.py as well. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What about a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "api/orders.py ended up with most of the changes. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "What about a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside db/session.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "idempotency keys on the order create path",
+      "pytest fixtures for a throwaway database",
+      "connection pooling against Postgres",
+      "request ID middleware for structured logging",
+      "POST /api/orders and GET /api/orders/{id}"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table"
+    ],
+    "decisions": [
+      "uvicorn behind gunicorn in production",
+      "UUIDv7 primary keys instead of integers"
+    ],
+    "files": [
+      "db/session.py",
+      "api/deps.py",
+      "api/models.py",
+      "migrations/env.py",
+      "api/orders.py",
+      "api/main.py"
+    ],
+    "errors": [
+      "a 422 on login from a missing email validator"
+    ]
+  }
+}

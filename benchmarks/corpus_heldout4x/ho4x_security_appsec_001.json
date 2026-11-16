@@ -1,0 +1,126 @@
+{
+  "id": "ho4x_security_appsec_001",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a penetration test remediation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand.\nVault as the single secrets store is what everything will be built on from here.\n- [X] rate limiting on the password reset endpoint"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "* api/auth.py File changed — docs/threat-model.md."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle .gitleaks.toml first. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in policy/egress.yaml. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about rotation of the leaked deploy key anymore. I'll post a recap later. I got least-privilege IAM roles for the workers over the line."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO a security runbook for incident response\nThe logs are easier to read now.\nWe have session invalidation on password change now.\nAfter the spike, Semgrep in the pull request pipeline was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: security/redaction.py.\nAutomated dependency updates remains open.\nThe logs are easier to read now.\n- [ ] TODO moving the remaining secrets out of environment files"
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We have dependency pinning with a lockfile now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Nobody argued once they saw the numbers for Trivy for container image scanning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. The team picked a deny-by-default egress policy. Delivered — an SBOM generated at build time."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rotation of the leaked deploy key",
+      "session invalidation on password change",
+      "an SBOM generated at build time",
+      "least-privilege IAM roles for the workers",
+      "dependency pinning with a lockfile",
+      "rate limiting on the password reset endpoint"
+    ],
+    "pending_tasks": [
+      "moving the remaining secrets out of environment files",
+      "automated dependency updates",
+      "a security runbook for incident response"
+    ],
+    "decisions": [
+      "a deny-by-default egress policy",
+      "Semgrep in the pull request pipeline",
+      "Trivy for container image scanning",
+      "Vault as the single secrets store"
+    ],
+    "files": [
+      "security/redaction.py",
+      "docs/threat-model.md",
+      "api/auth.py",
+      "policy/egress.yaml",
+      ".gitleaks.toml"
+    ],
+    "errors": []
+  }
+}

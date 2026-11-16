@@ -1,0 +1,153 @@
+{
+  "id": "ho3x_debug_production_012",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a latency incident investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a latency incident investigation now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: treating the third-party timeout as the root cause. Good news: instrumenting the slow query with timing spans made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about confirming the hypothesis with a targeted experiment now. Edited: tests/test_regression.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is rolling back before investigating further. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a canary deploy for the fix?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of docs/postmortem.md as well. Sounds right, on it. Reviewing the other call sites with the same pattern is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? The relevant code is in runbooks/latency.md."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: backfilling the corrupted rows."
+    },
+    {
+      "role": "user",
+      "content": "What about a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the hotfix reverting the connection pool change made it in before the freeze. A timeline of the incident from the metrics? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: scripts/repro.py. Chose a feature flag to disable the suspect path. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Keeping the extra logging for two weeks beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. There is connection pool exhaustion under the checkout load on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was duplicate charges from a non-idempotent retry."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: a cascading failure from the retry storm."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A load test reproducing the traffic pattern is waiting for someone to pick it up. Changes are in src/handlers/checkout.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the hotfix reverting the connection pool change",
+      "a timeline of the incident from the metrics",
+      "confirming the hypothesis with a targeted experiment",
+      "instrumenting the slow query with timing spans"
+    ],
+    "pending_tasks": [
+      "reviewing the other call sites with the same pattern",
+      "a load test reproducing the traffic pattern",
+      "backfilling the corrupted rows"
+    ],
+    "decisions": [
+      "treating the third-party timeout as the root cause",
+      "a canary deploy for the fix",
+      "rolling back before investigating further",
+      "keeping the extra logging for two weeks",
+      "a feature flag to disable the suspect path"
+    ],
+    "files": [
+      "runbooks/latency.md",
+      "scripts/repro.py",
+      "tests/test_regression.py",
+      "src/handlers/checkout.py",
+      "docs/postmortem.md"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "connection pool exhaustion under the checkout load",
+      "duplicate charges from a non-idempotent retry"
+    ]
+  }
+}

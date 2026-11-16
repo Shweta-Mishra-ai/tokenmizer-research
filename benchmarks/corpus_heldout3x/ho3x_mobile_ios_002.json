@@ -1,0 +1,119 @@
+{
+  "id": "ho3x_mobile_ios_002",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a fitness tracking app."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a fitness tracking app now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. I edited .swiftlint.yml."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. We completed crash reporting integration yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Core Data persistence for the workout log is working now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on async/await instead of Combine for networking."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Still to do: an App Store privacy nutrition label review."
+    },
+    {
+      "role": "user",
+      "content": "I'd like iOS 17 as the minimum deployment target."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in Sources/Widgets/ActivityWidget.swift. The relevant code is in Sources/App/ContentView.swift."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Background sync with a URLSession task has been merged. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited Sources/Auth/Keychain.swift."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited Package.swift."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "crash reporting integration",
+      "Core Data persistence for the workout log",
+      "background sync with a URLSession task"
+    ],
+    "pending_tasks": [
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "iOS 17 as the minimum deployment target",
+      "async/await instead of Combine for networking"
+    ],
+    "files": [
+      ".swiftlint.yml",
+      "Sources/Widgets/ActivityWidget.swift",
+      "Package.swift",
+      "Sources/Auth/Keychain.swift",
+      "Sources/App/ContentView.swift"
+    ],
+    "errors": []
+  }
+}

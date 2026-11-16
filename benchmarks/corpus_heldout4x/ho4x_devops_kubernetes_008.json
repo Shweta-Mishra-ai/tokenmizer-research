@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_devops_kubernetes_008",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a cost reduction pass now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with cert-manager for TLS certificates?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A canary stage in the deploy pipeline went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in Karpenter instead of the cluster autoscaler. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Horizontal pod autoscaling on CPU and request rate has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Could Velero for cluster backups work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Production is showing node pressure evictions during the nightly batch. The fix lives in scripts/rollout.sh."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Kustomize overlays per environment."
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing PVC binding failures in the new availability zone. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Per-namespace cost attribution hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A rolling deploy with surge and unavailable tuned went in this morning. The Helm chart for the API deployment has shipped. I got resource requests and limits for all containers over the line."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Trivy for image scanning in CI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing the image sizes on the worker pool is next up. I'll post a recap later. We keep seeing an ImagePullBackOff from an expired registry credential. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a canary stage in the deploy pipeline",
+      "a rolling deploy with surge and unavailable tuned",
+      "resource requests and limits for all containers",
+      "the Helm chart for the API deployment",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "reducing the image sizes on the worker pool",
+      "per-namespace cost attribution"
+    ],
+    "decisions": [
+      "Kustomize overlays per environment",
+      "cert-manager for TLS certificates",
+      "Prometheus and Grafana for metrics",
+      "Trivy for image scanning in CI",
+      "Velero for cluster backups",
+      "Karpenter instead of the cluster autoscaler"
+    ],
+    "files": [
+      "scripts/rollout.sh",
+      "k8s/ingress.yaml"
+    ],
+    "errors": [
+      "PVC binding failures in the new availability zone",
+      "node pressure evictions during the nightly batch",
+      "an ImagePullBackOff from an expired registry credential"
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "ho3x_infra_terraform_002",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a compliance baseline rollout now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "- .github/workflows/plan.yml\nDo we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Splitting the monolithic state file is waiting for someone to pick it up. File: `terraform/backend.tf`. Choice: Aurora Postgres over standard RDS."
+    },
+    {
+      "role": "user",
+      "content": "I'd like AWS as the single cloud provider."
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a plan diff from an untracked manual console change. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with one state file per environment. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Changes are in terraform/vpc.tf. Most of the work happened inside terraform/rds.tf."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "- terraform/outputs.tf"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "There is provider version drift between two engineers on the main branch. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about CloudWatch alarms on the error rate metric now. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "OIDC for CI authentication into AWS beat the alternatives on every axis we care about. Finished — tagging enforced through a provider default."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, private subnets for every compute workload is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: a drift detection job on a daily schedule. Security groups restricted to named ports went smoothly in the end. Provider versions pinned to a minor range is the pick."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "security groups restricted to named ports",
+      "CloudWatch alarms on the error rate metric",
+      "tagging enforced through a provider default"
+    ],
+    "pending_tasks": [
+      "splitting the monolithic state file",
+      "a drift detection job on a daily schedule"
+    ],
+    "decisions": [
+      "OIDC for CI authentication into AWS",
+      "AWS as the single cloud provider",
+      "Aurora Postgres over standard RDS",
+      "one state file per environment",
+      "private subnets for every compute workload",
+      "provider versions pinned to a minor range"
+    ],
+    "files": [
+      ".github/workflows/plan.yml",
+      "terraform/vpc.tf",
+      "terraform/rds.tf",
+      "terraform/backend.tf",
+      "terraform/outputs.tf"
+    ],
+    "errors": [
+      "a plan diff from an untracked manual console change",
+      "provider version drift between two engineers"
+    ]
+  }
+}

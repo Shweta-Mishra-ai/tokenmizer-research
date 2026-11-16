@@ -1,0 +1,99 @@
+{
+  "id": "ho3x_data_streaming_008",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Can we try one topic per event type rather than a shared bus?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Have a look at schemas/order_placed.avsc. Compaction on the entity state topics is sorted. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What about a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consumer lag monitoring with alerting has been merged. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Kafka over Kinesis for the event backbone?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Changes are in config/kafka.yaml. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got backpressure handling in the consumer loop up and running. We're going to use Avro with a schema registry for the payloads. We ran into partition skew putting 60% of traffic on one consumer. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I edited scripts/replay.py. Let's settle on a seven-day retention on the raw topics. Tiered storage for the older segments is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "There is consumer lag growing unbounded during the nightly spike on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: an automated schema compatibility check in CI."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "consumer lag monitoring with alerting",
+      "backpressure handling in the consumer loop",
+      "compaction on the entity state topics"
+    ],
+    "pending_tasks": [
+      "an automated schema compatibility check in CI",
+      "tiered storage for the older segments"
+    ],
+    "decisions": [
+      "a seven-day retention on the raw topics",
+      "Avro with a schema registry for the payloads",
+      "Kafka over Kinesis for the event backbone",
+      "one topic per event type rather than a shared bus"
+    ],
+    "files": [
+      "schemas/order_placed.avsc",
+      "scripts/replay.py",
+      "config/kafka.yaml"
+    ],
+    "errors": [
+      "partition skew putting 60% of traffic on one consumer",
+      "consumer lag growing unbounded during the nightly spike"
+    ]
+  }
+}

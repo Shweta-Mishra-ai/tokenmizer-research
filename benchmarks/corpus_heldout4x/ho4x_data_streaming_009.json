@@ -1,0 +1,144 @@
+{
+  "id": "ho4x_data_streaming_009",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a change data capture setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a change data capture setup."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about the change data capture connector on the orders table anymore. Consumer lag monitoring with alerting held up fine through the whole load test. Nobody needs to think about compaction on the entity state topics anymore."
+    },
+    {
+      "role": "user",
+      "content": "How is a change data capture setup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own tiered storage for the older segments before Friday."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own a replay procedure for the last 24 hours before Friday. Turns out the slowdown was a poison message halting the consumer group all along."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The dead letter topic with a replay tool came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to one topic per event type rather than a shared bus."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a change data capture setup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Somebody has to own partitioning by tenant rather than by hash before Friday."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, Avro with a schema registry for the payloads was the clear winner. The bulk of the diff sits in scripts/replay.py. Had to untangle config/kafka.yaml first."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Debezium for change data capture."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Kafka over Kinesis for the event backbone is the direction we committed to. Most of yesterday disappeared into partition skew putting 60% of traffic on one consumer. Backward-compatible schema evolution only is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "streams/dlq.py grew by a couple hundred lines. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to consumer offsets committed after processing."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Had to untangle schemas/order_placed.avsc first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "compaction on the entity state topics",
+      "consumer lag monitoring with alerting",
+      "the dead letter topic with a replay tool",
+      "the change data capture connector on the orders table"
+    ],
+    "pending_tasks": [
+      "a replay procedure for the last 24 hours",
+      "partitioning by tenant rather than by hash",
+      "tiered storage for the older segments"
+    ],
+    "decisions": [
+      "Kafka over Kinesis for the event backbone",
+      "backward-compatible schema evolution only",
+      "one topic per event type rather than a shared bus",
+      "Avro with a schema registry for the payloads",
+      "Debezium for change data capture",
+      "consumer offsets committed after processing"
+    ],
+    "files": [
+      "config/kafka.yaml",
+      "streams/dlq.py",
+      "schemas/order_placed.avsc",
+      "scripts/replay.py"
+    ],
+    "errors": [
+      "partition skew putting 60% of traffic on one consumer",
+      "a poison message halting the consumer group"
+    ]
+  }
+}

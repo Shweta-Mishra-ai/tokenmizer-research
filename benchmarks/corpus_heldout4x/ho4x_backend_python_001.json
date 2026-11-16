@@ -1,0 +1,143 @@
+{
+  "id": "ho4x_backend_python_001",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an async task queue service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an async task queue service."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing.\nConsensus: bcrypt for password hashing.\nFailing now: a 422 on login from a missing email validator.\n**Finished work:** pytest fixtures for a throwaway database."
+    },
+    {
+      "role": "user",
+      "content": "Use Postgres over MySQL for JSONB support please."
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: a 500 from an unhandled TimeoutError in the payment client. We might revisit this next quarter. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "* requirements.txt"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: Redis for refresh token storage."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** splitting the settings module per environment."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to structlog for JSON log output."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed idempotency keys on the order create path. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a deadlock between the invoice and ledger updates. Touched file: tests/test_orders.py. If this breaks later we can roll back. Wrapped: the User model with email and hashed_password columns."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: UUIDv7 primary keys instead of integers. File changed — migrations/env.py."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an async task queue service?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Wrapped: the Alembic baseline migration."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed a health check endpoint at /healthz. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — pagination on the list endpoints. Ping me if anything seems wrong."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "idempotency keys on the order create path",
+      "the User model with email and hashed_password columns",
+      "pagination on the list endpoints",
+      "the Alembic baseline migration",
+      "pytest fixtures for a throwaway database",
+      "a health check endpoint at /healthz"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment"
+    ],
+    "decisions": [
+      "Postgres over MySQL for JSONB support",
+      "bcrypt for password hashing",
+      "structlog for JSON log output",
+      "Redis for refresh token storage",
+      "UUIDv7 primary keys instead of integers"
+    ],
+    "files": [
+      "requirements.txt",
+      "tests/test_orders.py",
+      "migrations/env.py"
+    ],
+    "errors": [
+      "a 422 on login from a missing email validator",
+      "a deadlock between the invoice and ledger updates",
+      "a 500 from an unhandled TimeoutError in the payment client"
+    ]
+  }
+}

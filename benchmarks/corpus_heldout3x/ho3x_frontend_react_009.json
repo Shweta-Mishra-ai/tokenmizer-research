@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_frontend_react_009",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an analytics dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Hitting an infinite re-render from an unstable dependency array in CI. The plan is Vite as the build tool."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Code splitting on the route boundaries was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Hitting stale closure state in the polling hook in CI. Changes are in src/App.tsx. Dark mode using CSS custom properties has been merged."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need migrating the remaining class components before launch. I'll summarise at the end. Keyboard navigation across the data grid is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Vitest over Jest for the unit suite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Changes are in src/store/session.ts. I edited package.json."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do offline support for the draft editor next. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting layout shift on the chart container in CI. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? I edited src/routes/dashboard.tsx."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "code splitting on the route boundaries",
+      "keyboard navigation across the data grid",
+      "dark mode using CSS custom properties"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "Vitest over Jest for the unit suite",
+      "Vite as the build tool"
+    ],
+    "files": [
+      "package.json",
+      "src/App.tsx",
+      "src/routes/dashboard.tsx",
+      "src/store/session.ts"
+    ],
+    "errors": [
+      "an infinite re-render from an unstable dependency array",
+      "layout shift on the chart container",
+      "stale closure state in the polling hook"
+    ]
+  }
+}

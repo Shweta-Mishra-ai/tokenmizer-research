@@ -1,0 +1,120 @@
+{
+  "id": "ho4x_ml_python_012",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a document classifier."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a document classifier now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: target leakage from a post-outcome feature. Going forward: Optuna for hyperparameter search. Final call: scikit-learn pipelines for preprocessing. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "Could Evidently for drift reporting work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle requirements.txt first. Fine by me. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to quantile clipping on the numeric features."
+    },
+    {
+      "role": "assistant",
+      "content": "Batch inference over the full customer base has been live since Tuesday with no complaints. Nothing is waiting on anyone at the moment. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a document classifier going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Class imbalance handling with focal loss is behind us now. Drift monitoring on the input distributions came off the board this morning. File changed — src/serve.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: AUC-PR as the primary metric given the imbalance. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in src/train.py. The pager went off twice overnight because of inference timeouts on the long-document path. Path: `tests/test_features.py`."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO reducing inference latency below 50ms"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: gradient boosting reaching 0.84 AUC. An offline evaluation against last quarter's data is finished and deployed. Spotted NaN losses after the learning rate change today."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an offline evaluation against last quarter's data",
+      "gradient boosting reaching 0.84 AUC",
+      "drift monitoring on the input distributions",
+      "batch inference over the full customer base",
+      "class imbalance handling with focal loss"
+    ],
+    "pending_tasks": [
+      "reducing inference latency below 50ms"
+    ],
+    "decisions": [
+      "quantile clipping on the numeric features",
+      "AUC-PR as the primary metric given the imbalance",
+      "Optuna for hyperparameter search",
+      "scikit-learn pipelines for preprocessing",
+      "Evidently for drift reporting"
+    ],
+    "files": [
+      "notebooks/eda.ipynb",
+      "src/train.py",
+      "tests/test_features.py",
+      "requirements.txt",
+      "src/serve.py"
+    ],
+    "errors": [
+      "target leakage from a post-outcome feature",
+      "inference timeouts on the long-document path",
+      "NaN losses after the learning rate change"
+    ]
+  }
+}

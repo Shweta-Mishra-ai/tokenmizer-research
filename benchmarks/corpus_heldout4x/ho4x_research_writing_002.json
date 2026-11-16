@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_research_writing_002",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a literature review."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a literature review now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `paper/abstract.tex`. Here's where things stand. Consensus: framing the contribution as a measurement study. * paper/references.bib"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO the artifact submission package\nStill open — a final proofread pass.\nFinal call: including the negative result on implicit language."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `paper/evaluation.tex`. * paper/main.tex Still open — the discussion section."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed the evaluation table with confidence intervals. Here's where things stand. Going forward: a single-column layout for the preprint."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `Makefile`. Complete: the related work section covering twelve papers."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — citations normalised to a single bibliography style."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — paper/appendix.tex. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "citations normalised to a single bibliography style",
+      "the evaluation table with confidence intervals",
+      "the related work section covering twelve papers"
+    ],
+    "pending_tasks": [
+      "the discussion section",
+      "a final proofread pass",
+      "the artifact submission package"
+    ],
+    "decisions": [
+      "framing the contribution as a measurement study",
+      "including the negative result on implicit language",
+      "a single-column layout for the preprint"
+    ],
+    "files": [
+      "paper/appendix.tex",
+      "paper/evaluation.tex",
+      "Makefile",
+      "paper/abstract.tex",
+      "paper/references.bib",
+      "paper/main.tex"
+    ],
+    "errors": []
+  }
+}

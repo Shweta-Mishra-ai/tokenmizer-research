@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_systems_rust_003",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an HTTP proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an HTTP proxy now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — SIMD acceleration on the checksum path. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Use rayon for the parallel scan please."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "* Cargo.toml We resolved to use an arena allocator for the parse nodes. Delivered — the streaming parser over a bounded buffer. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** cargo-deny for licence and advisory checks.\nDelivered — a no_std core module.\nDelivered — fuzzing the input decoder with cargo-fuzz."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: bincode for the wire encoding."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed property tests over the encoder round trip."
+    },
+    {
+      "role": "user",
+      "content": "How is an HTTP proxy going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand.\n**Fault:** a borrow checker conflict in the writer loop.\n- [X] criterion benchmarks on the parse loop\nOutage: a deadlock from lock ordering in the flush path."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: a compatibility shim for the old format. File changed — src/lib.rs. Wrapped: an async runtime built on tokio. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use Rust 2021 edition with MSRV 1.75."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: Cargo.lock."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SIMD acceleration on the checksum path",
+      "criterion benchmarks on the parse loop",
+      "the streaming parser over a bounded buffer",
+      "property tests over the encoder round trip",
+      "an async runtime built on tokio",
+      "fuzzing the input decoder with cargo-fuzz",
+      "a no_std core module"
+    ],
+    "pending_tasks": [
+      "a compatibility shim for the old format"
+    ],
+    "decisions": [
+      "Rust 2021 edition with MSRV 1.75",
+      "cargo-deny for licence and advisory checks",
+      "rayon for the parallel scan",
+      "tokio over async-std for the runtime",
+      "bincode for the wire encoding",
+      "an arena allocator for the parse nodes"
+    ],
+    "files": [
+      "Cargo.lock",
+      "Cargo.toml",
+      "src/lib.rs"
+    ],
+    "errors": [
+      "a deadlock from lock ordering in the flush path",
+      "a borrow checker conflict in the writer loop"
+    ]
+  }
+}

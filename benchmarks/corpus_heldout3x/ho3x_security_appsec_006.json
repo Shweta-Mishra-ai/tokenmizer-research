@@ -1,0 +1,80 @@
+{
+  "id": "ho3x_security_appsec_006",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a penetration test remediation now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] a third-party penetration test Finished — input sanitisation on the file upload path. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: CSP headers on all rendered responses.\nNothing is blocking us right now.\nEdited: .gitleaks.toml.\n**Shipped:** least-privilege IAM roles for the workers."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: gitleaks as a pre-commit hook. Result: rate limiting on the password reset endpoint done. Finished — signed container images in the registry."
+    },
+    {
+      "role": "user",
+      "content": "Choose Trivy for container image scanning."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Agreed. Next task — audit log retention policy."
+    },
+    {
+      "role": "user",
+      "content": "Choose OIDC for single sign-on."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed.\n- config/csp.json"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rate limiting on the password reset endpoint",
+      "signed container images in the registry",
+      "input sanitisation on the file upload path",
+      "CSP headers on all rendered responses",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "a third-party penetration test",
+      "audit log retention policy"
+    ],
+    "decisions": [
+      "OIDC for single sign-on",
+      "gitleaks as a pre-commit hook",
+      "Trivy for container image scanning"
+    ],
+    "files": [
+      "config/csp.json",
+      ".gitleaks.toml"
+    ],
+    "errors": []
+  }
+}

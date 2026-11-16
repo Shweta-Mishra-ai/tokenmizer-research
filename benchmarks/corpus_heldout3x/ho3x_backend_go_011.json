@@ -1,0 +1,130 @@
+{
+  "id": "ho3x_backend_go_011",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a rate limiting proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a rate limiting proxy."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at internal/handler/orders_test.go."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Action item: moving the config to environment variables."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Graceful shutdown on SIGTERM? Taken care of. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** protobuf schema versioning.\nClosed: Prometheus metrics on the request path.\nLet me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Golangci-lint in CI sounds like the better deal to me. Buf for protobuf linting and generation sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: proto/orders.proto. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of go.mod as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The gRPC service definition and generated stubs has been merged. Closed: context propagation through every handler."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] distributed tracing spans across services"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Table-driven tests for the parser went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in internal/handler/orders.go."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the gRPC service definition and generated stubs",
+      "table-driven tests for the parser",
+      "graceful shutdown on SIGTERM",
+      "context propagation through every handler",
+      "protobuf schema versioning",
+      "Prometheus metrics on the request path"
+    ],
+    "pending_tasks": [
+      "moving the config to environment variables",
+      "distributed tracing spans across services"
+    ],
+    "decisions": [
+      "buf for protobuf linting and generation",
+      "golangci-lint in CI"
+    ],
+    "files": [
+      "internal/handler/orders.go",
+      "go.mod",
+      "internal/handler/orders_test.go",
+      "proto/orders.proto"
+    ],
+    "errors": []
+  }
+}

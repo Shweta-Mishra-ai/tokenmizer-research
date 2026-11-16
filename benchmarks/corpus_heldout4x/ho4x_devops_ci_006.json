@@ -1,0 +1,162 @@
+{
+  "id": "ho4x_devops_ci_006",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a release automation project."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a release automation project."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Release-please for version bumps is what everything will be built on from here. The pager went off twice overnight because of an out of disk space failure on the runner."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": ".github/dependabot.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "How is a release automation project going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dockerfile grew by a couple hundred lines. Ruff replacing flake8 and isort is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, buildx with a remote cache backend was the clear winner. The logs are easier to read now. The trade-offs all pointed to pytest-xdist for test parallelism."
+    },
+    {
+      "role": "user",
+      "content": "How is a release automation project going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Quarantining the six flakiest tests held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Artifact upload for the failing test logs came off the board this morning. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "conftest.py grew by a couple hundred lines. Parallel test execution across four shards held up fine through the whole load test. A nightly job running the slow integration suite is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Coverage reporting posted to the pull request came off the board this morning. After review I'll deploy. Required status checks on the default branch has been live since Tuesday with no complaints. .pre-commit-config.yaml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while deduplicating the three near-identical workflows is missing."
+    },
+    {
+      "role": "user",
+      "content": "How is a release automation project going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to a required review from one code owner."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to trunk-based development with short-lived branches."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into test pollution from an unreset global singleton. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Dependency caching across pipeline runs is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was the pipeline timing out after 60 minutes all along."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "coverage reporting posted to the pull request",
+      "parallel test execution across four shards",
+      "quarantining the six flakiest tests",
+      "dependency caching across pipeline runs",
+      "required status checks on the default branch",
+      "a nightly job running the slow integration suite",
+      "artifact upload for the failing test logs"
+    ],
+    "pending_tasks": [
+      "deduplicating the three near-identical workflows"
+    ],
+    "decisions": [
+      "ruff replacing flake8 and isort",
+      "trunk-based development with short-lived branches",
+      "release-please for version bumps",
+      "buildx with a remote cache backend",
+      "a required review from one code owner",
+      "pytest-xdist for test parallelism"
+    ],
+    "files": [
+      "Dockerfile",
+      "conftest.py",
+      ".pre-commit-config.yaml",
+      ".github/dependabot.yml"
+    ],
+    "errors": [
+      "the pipeline timing out after 60 minutes",
+      "test pollution from an unreset global singleton",
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

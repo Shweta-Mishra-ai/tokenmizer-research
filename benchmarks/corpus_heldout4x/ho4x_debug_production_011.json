@@ -1,0 +1,146 @@
+{
+  "id": "ho4x_debug_production_011",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a performance regression hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a performance regression hunt now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about adding structured logging around the suspect path anymore. Nobody argued once they saw the numbers for increasing the connection pool as a stopgap. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Confirming the hypothesis with a targeted experiment held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in src/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. The bulk of the diff sits in runbooks/latency.md. Without documenting the failure mode in the runbook the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. A load test reproducing the traffic pattern keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to reverting to the previous library version."
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of connection pool exhaustion under the checkout load. Correlating the errors with the deploy timeline is behind us now. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Treating the third-party timeout as the root cause feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. I'll post a recap later. config/flags.yaml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Py-spy for the production profiling is what everything will be built on from here. Nobody needs to think about a regression test covering the failure mode anymore."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to sampling traces at 10% rather than 1%. Nobody needs to think about bisecting the regression to a single commit anymore."
+    },
+    {
+      "role": "user",
+      "content": "How is a performance regression hunt going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Cleaning up the temporary debug logging keeps getting pushed to next sprint. A canary deploy for the fix is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, a follow-up on the third-party client bug report is where attention goes. Thanks to ruling out the cache layer as the cause, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is a performance regression hunt going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of a cascading failure from the retry storm."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "ruling out the cache layer as the cause",
+      "adding structured logging around the suspect path",
+      "confirming the hypothesis with a targeted experiment",
+      "correlating the errors with the deploy timeline",
+      "bisecting the regression to a single commit",
+      "a regression test covering the failure mode"
+    ],
+    "pending_tasks": [
+      "cleaning up the temporary debug logging",
+      "a load test reproducing the traffic pattern",
+      "documenting the failure mode in the runbook",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "a canary deploy for the fix",
+      "sampling traces at 10% rather than 1%",
+      "py-spy for the production profiling",
+      "treating the third-party timeout as the root cause",
+      "increasing the connection pool as a stopgap",
+      "reverting to the previous library version"
+    ],
+    "files": [
+      "config/flags.yaml",
+      "src/client.py",
+      "runbooks/latency.md"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "connection pool exhaustion under the checkout load"
+    ]
+  }
+}

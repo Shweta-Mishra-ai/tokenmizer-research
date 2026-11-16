@@ -1,0 +1,124 @@
+{
+  "id": "ho4x_ml_python_001",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a fraud detection model."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a fraud detection model now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. File changed — src/serve.py."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Polars instead of pandas for the feature pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Use Evidently for drift reporting please."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Complete: drift monitoring on the input distributions. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** gradient boosting reaching 0.84 AUC.\nPath: `Makefile`."
+    },
+    {
+      "role": "user",
+      "content": "How is a fraud detection model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: cross-validation across five folds. Delivered — baseline logistic regression at 0.71 AUC."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "* tests/test_features.py No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — SHAP explanations for the top features. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: NaN losses after the learning rate change.\n- [ ] TODO calibrating the output probabilities"
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Fault:** the evaluation set overlapping the training window."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — hyperparameter search over 200 trials. Outage: inference timeouts on the long-document path."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "gradient boosting reaching 0.84 AUC",
+      "baseline logistic regression at 0.71 AUC",
+      "hyperparameter search over 200 trials",
+      "cross-validation across five folds",
+      "drift monitoring on the input distributions",
+      "SHAP explanations for the top features"
+    ],
+    "pending_tasks": [
+      "calibrating the output probabilities"
+    ],
+    "decisions": [
+      "Evidently for drift reporting",
+      "Polars instead of pandas for the feature pipeline"
+    ],
+    "files": [
+      "Makefile",
+      "src/serve.py",
+      "tests/test_features.py"
+    ],
+    "errors": [
+      "NaN losses after the learning rate change",
+      "inference timeouts on the long-document path",
+      "the evaluation set overlapping the training window"
+    ]
+  }
+}

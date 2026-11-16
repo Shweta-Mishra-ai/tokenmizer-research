@@ -1,0 +1,149 @@
+{
+  "id": "ho3x_mobile_ios_010",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a subscription billing flow."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a subscription billing flow."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deep links into the workout detail screen has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We completed Core Data persistence for the workout log yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the subscription purchase and restore flow yesterday. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: migrating the remaining UIKit screens."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on SwiftUI for all new screens."
+    },
+    {
+      "role": "user",
+      "content": "What about a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Sources/App/ContentView.swift. Let me know if anything looks off. Core Data over Realm for local storage is the pick."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Package.swift. We completed a widget showing today's activity yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Crash reporting integration was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. The plan is Keychain for token storage rather than UserDefaults. I plan to do localisation into three languages next. Changes are in Sources/Sync/SyncEngine.swift."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do an App Store privacy nutrition label review next."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the HealthKit permission flow yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. We completed VoiceOver labels across the main screens yesterday."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Swift Package Manager for dependencies."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "Core Data persistence for the workout log",
+      "the HealthKit permission flow",
+      "the subscription purchase and restore flow",
+      "a widget showing today's activity",
+      "VoiceOver labels across the main screens",
+      "deep links into the workout detail screen",
+      "crash reporting integration"
+    ],
+    "pending_tasks": [
+      "localisation into three languages",
+      "migrating the remaining UIKit screens",
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "SwiftUI for all new screens",
+      "Keychain for token storage rather than UserDefaults",
+      "Core Data over Realm for local storage",
+      "Swift Package Manager for dependencies"
+    ],
+    "files": [
+      "Sources/App/ContentView.swift",
+      "Sources/Sync/SyncEngine.swift",
+      "Package.swift"
+    ],
+    "errors": []
+  }
+}

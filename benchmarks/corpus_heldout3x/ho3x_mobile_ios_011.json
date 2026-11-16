@@ -1,0 +1,125 @@
+{
+  "id": "ho3x_mobile_ios_011",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a fitness tracking app."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a fitness tracking app."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards SwiftUI for all new screens. I'm leaning towards Keychain for token storage rather than UserDefaults."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Sounds right, on it. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "SwiftLint in the build phase sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Crash reporting integration? Taken care of. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside Sources/Widgets/ActivityWidget.swift."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Unit tests for the sync reducer went smoothly in the end. Sources/Sync/SyncEngine.swift ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to main thread blocking during the Core Data import. Once CI passes I'll merge. Fastlane for the release pipeline is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Tests/SyncTests.swift ended up with most of the changes. The subscription purchase and restore flow? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let an iPad layout for the summary screen slip through the cracks. Core Data over Realm for local storage beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dark mode across every screen? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the SwiftUI onboarding sequence made it in before the freeze. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What about a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from a layout constraint conflict on the smallest device."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "crash reporting integration",
+      "the subscription purchase and restore flow",
+      "unit tests for the sync reducer",
+      "the SwiftUI onboarding sequence",
+      "dark mode across every screen"
+    ],
+    "pending_tasks": [
+      "an iPad layout for the summary screen"
+    ],
+    "decisions": [
+      "fastlane for the release pipeline",
+      "SwiftLint in the build phase",
+      "Keychain for token storage rather than UserDefaults",
+      "Core Data over Realm for local storage",
+      "SwiftUI for all new screens"
+    ],
+    "files": [
+      "Sources/Widgets/ActivityWidget.swift",
+      "Tests/SyncTests.swift",
+      "Sources/Sync/SyncEngine.swift"
+    ],
+    "errors": [
+      "a layout constraint conflict on the smallest device",
+      "main thread blocking during the Core Data import"
+    ]
+  }
+}

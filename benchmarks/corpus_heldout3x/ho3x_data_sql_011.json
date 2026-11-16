@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_data_sql_011",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an event pipeline redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an event pipeline redesign."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed freshness tests on every source table yesterday. Moving the nightly job to an hourly cadence is still open. I edited models/staging/stg_events.sql."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Kafka for the event transport?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in tests/schema.yml. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on Parquet as the landing format."
+    },
+    {
+      "role": "user",
+      "content": "Can we try an ELT rather than ETL pattern?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a medallion bronze/silver/gold layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. A materialised view for the executive dashboard was rolled out. The slowly changing dimension on customer tier is working now."
+    },
+    {
+      "role": "user",
+      "content": "Can we try hashed surrogate keys for stability?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Can we try soft deletes with a valid_to column?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Sounds right, on it. The relevant code is in models/marts/fct_orders.sql. Backfilling six months of historical revenue is sorted."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "backfilling six months of historical revenue",
+      "the slowly changing dimension on customer tier",
+      "a materialised view for the executive dashboard",
+      "freshness tests on every source table"
+    ],
+    "pending_tasks": [
+      "moving the nightly job to an hourly cadence"
+    ],
+    "decisions": [
+      "a medallion bronze/silver/gold layout",
+      "hashed surrogate keys for stability",
+      "Kafka for the event transport",
+      "soft deletes with a valid_to column",
+      "an ELT rather than ETL pattern",
+      "Parquet as the landing format"
+    ],
+    "files": [
+      "models/staging/stg_events.sql",
+      "tests/schema.yml",
+      "models/marts/fct_orders.sql"
+    ],
+    "errors": []
+  }
+}

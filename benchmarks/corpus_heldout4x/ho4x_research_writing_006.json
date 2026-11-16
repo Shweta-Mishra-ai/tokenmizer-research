@@ -1,0 +1,115 @@
+{
+  "id": "ho4x_research_writing_006",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an internal architecture RFC."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an internal architecture RFC now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Wrapped: a first pass at the methodology section."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** peer feedback incorporated from two reviewers.\nComplete: the introduction cut from four pages to two.\nWe might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: the ACL template over the generic LaTeX class."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — a plain-language summary for the blog post. Touched file: notes/outline.md. * data/results.json Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Touched file: paper/related_work.tex."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — paper/main.tex. Left to do — permission to cite the internal deployment data. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** citations normalised to a single bibliography style.\nIn the queue: the artifact submission package.\n- [X] an appendix documenting the corpus construction"
+    },
+    {
+      "role": "user",
+      "content": "Use targeting the workshop deadline rather than the main track please."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: paper/abstract.tex."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an appendix documenting the corpus construction",
+      "peer feedback incorporated from two reviewers",
+      "the introduction cut from four pages to two",
+      "a first pass at the methodology section",
+      "citations normalised to a single bibliography style"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post",
+      "permission to cite the internal deployment data",
+      "the artifact submission package"
+    ],
+    "decisions": [
+      "the ACL template over the generic LaTeX class",
+      "targeting the workshop deadline rather than the main track"
+    ],
+    "files": [
+      "paper/abstract.tex",
+      "notes/outline.md",
+      "paper/main.tex",
+      "data/results.json",
+      "paper/related_work.tex"
+    ],
+    "errors": []
+  }
+}

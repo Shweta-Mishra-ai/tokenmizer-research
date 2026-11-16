@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_security_appsec_011",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an authentication hardening pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an authentication hardening pass."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at terraform/iam.tf. I edited .github/workflows/security.yml. A review of the CORS allowlist still needs doing. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on Semgrep in the pull request pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed parameterised queries across the data layer yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Can we try short-lived tokens with refresh rotation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Signed container images in the registry was rolled out. I'll summarise at the end. Have a look at api/auth.py."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Changes are in docs/threat-model.md."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed dependency pinning with a lockfile yesterday. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. We completed input sanitisation on the file upload path yesterday. There is session fixation after login on the main branch. Encrypted secrets at rest in the vault has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in security/middleware.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dependency pinning with a lockfile",
+      "signed container images in the registry",
+      "parameterised queries across the data layer",
+      "input sanitisation on the file upload path",
+      "encrypted secrets at rest in the vault"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist"
+    ],
+    "decisions": [
+      "short-lived tokens with refresh rotation",
+      "Semgrep in the pull request pipeline"
+    ],
+    "files": [
+      ".github/workflows/security.yml",
+      "terraform/iam.tf",
+      "docs/threat-model.md",
+      "security/middleware.py",
+      "api/auth.py"
+    ],
+    "errors": [
+      "session fixation after login"
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "ho4x_backend_go_010",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a rate limiting proxy."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with a data race on the shared counter. We might revisit this next quarter. Had to untangle cmd/server/main.go first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Golangci-lint in CI is the direction we committed to. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the mutex with a sharded map keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. The gRPC service definition and generated stubs is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Context propagation through every handler has been live since Tuesday with no complaints. Here's where things stand. internal/handler/orders_test.go grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Buf for protobuf linting and generation feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "internal/store/postgres.go grew by a couple hundred lines. OpenTelemetry for traces is what everything will be built on from here. Turns out the slowdown was connection churn exhausting ephemeral ports all along."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to NATS for the message transport."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to gRPC over REST for internal traffic. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, testcontainers for integration tests was the clear winner. Should we add more coverage? Benchmark tests on the hot encode path came off the board this morning. The dashboard lit up red with excessive allocations causing GC pressure."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the gRPC service definition and generated stubs",
+      "benchmark tests on the hot encode path",
+      "context propagation through every handler"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map"
+    ],
+    "decisions": [
+      "testcontainers for integration tests",
+      "buf for protobuf linting and generation",
+      "OpenTelemetry for traces",
+      "NATS for the message transport",
+      "gRPC over REST for internal traffic",
+      "golangci-lint in CI"
+    ],
+    "files": [
+      "internal/store/postgres.go",
+      "Makefile",
+      "internal/handler/orders_test.go",
+      "cmd/server/main.go"
+    ],
+    "errors": [
+      "a data race on the shared counter",
+      "excessive allocations causing GC pressure",
+      "connection churn exhausting ephemeral ports"
+    ]
+  }
+}

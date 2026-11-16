@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_research_writing_001",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a grant proposal."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a grant proposal."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found a stale results table from an earlier run. Zotero for reference management is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in Makefile. Closed: a first pass at the methodology section. Edited: notes/outline.md."
+    },
+    {
+      "role": "user",
+      "content": "What about a grant proposal?"
+    },
+    {
+      "role": "assistant",
+      "content": "The introduction cut from four pages to two was rolled out. The root cause turned out to be a mislabelled axis on the compression figure."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Citations normalised to a single bibliography style is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Affected file: paper/abstract.tex. A plain-language summary for the blog post is the obvious next step. Agreed approach: the ACL template over the generic LaTeX class."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: paper/main.tex. Choice: reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a grant proposal?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. I've gone with an explicit statement that the corpus is synthetic. The alerts this morning came from a figure rendering illegibly in greyscale print."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — the evaluation table with confidence intervals."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in data/results.json."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a first pass at the methodology section",
+      "the evaluation table with confidence intervals",
+      "citations normalised to a single bibliography style",
+      "the introduction cut from four pages to two"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post"
+    ],
+    "decisions": [
+      "reporting per-domain breakdowns in the appendix",
+      "Zotero for reference management",
+      "an explicit statement that the corpus is synthetic",
+      "the ACL template over the generic LaTeX class"
+    ],
+    "files": [
+      "notes/outline.md",
+      "paper/main.tex",
+      "paper/abstract.tex",
+      "Makefile",
+      "data/results.json"
+    ],
+    "errors": [
+      "a figure rendering illegibly in greyscale print",
+      "a stale results table from an earlier run",
+      "a mislabelled axis on the compression figure"
+    ]
+  }
+}

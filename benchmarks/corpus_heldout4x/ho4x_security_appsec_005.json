@@ -1,0 +1,131 @@
+{
+  "id": "ho4x_security_appsec_005",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a secrets management migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a secrets management migration now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Input sanitisation on the file upload path came off the board this morning. Final call: Trivy for container image scanning."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about encrypted secrets at rest in the vault anymore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a secrets management migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Argon2id over bcrypt for new password hashes.\nCI is passing.\nI got an SBOM generated at build time over the line."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Parameterised queries across the data layer came off the board this morning. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** rotation of the leaked deploy key.\nFlaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Could a 90-day key rotation schedule work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without MFA enforcement for admin accounts the launch checklist stays red. Fine by me. Final call: Semgrep in the pull request pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a secrets management migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got rate limiting on the password reset endpoint over the line."
+    },
+    {
+      "role": "user",
+      "content": "How is a secrets management migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle SECURITY.md first. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "OIDC for single sign-on feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO audit log retention policy"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in config/csp.json. I'll post a recap later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "parameterised queries across the data layer",
+      "an SBOM generated at build time",
+      "rate limiting on the password reset endpoint",
+      "input sanitisation on the file upload path",
+      "rotation of the leaked deploy key",
+      "encrypted secrets at rest in the vault"
+    ],
+    "pending_tasks": [
+      "audit log retention policy",
+      "MFA enforcement for admin accounts"
+    ],
+    "decisions": [
+      "Trivy for container image scanning",
+      "a 90-day key rotation schedule",
+      "Semgrep in the pull request pipeline",
+      "OIDC for single sign-on",
+      "Argon2id over bcrypt for new password hashes"
+    ],
+    "files": [
+      "SECURITY.md",
+      "config/csp.json"
+    ],
+    "errors": []
+  }
+}

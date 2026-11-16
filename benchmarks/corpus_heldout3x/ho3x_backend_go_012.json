@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_backend_go_012",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a rate limiting proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a rate limiting proxy."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: internal/store/postgres.go. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: a worker pool bounded at 32 goroutines."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: connection churn exhausting ephemeral ports. Choice: errgroup for concurrent fan-out. File: `Dockerfile`."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on golangci-lint in CI. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: vendoring the internal proto definitions."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the gRPC service definition and generated stubs. File: `internal/worker/pool.go`. Errors: a deadlock between the two mutexes."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] moving the config to environment variables I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Action item: a fuzz test on the decoder. Finished — the retry policy with exponential backoff."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a worker pool bounded at 32 goroutines",
+      "the gRPC service definition and generated stubs",
+      "the retry policy with exponential backoff"
+    ],
+    "pending_tasks": [
+      "a fuzz test on the decoder",
+      "vendoring the internal proto definitions",
+      "moving the config to environment variables"
+    ],
+    "decisions": [
+      "golangci-lint in CI",
+      "errgroup for concurrent fan-out"
+    ],
+    "files": [
+      "internal/worker/pool.go",
+      "Dockerfile",
+      "internal/store/postgres.go"
+    ],
+    "errors": [
+      "a deadlock between the two mutexes",
+      "connection churn exhausting ephemeral ports"
+    ]
+  }
+}

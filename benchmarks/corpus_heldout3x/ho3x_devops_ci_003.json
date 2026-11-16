@@ -1,0 +1,125 @@
+{
+  "id": "ho3x_devops_ci_003",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a test infrastructure migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a test infrastructure migration."
+    },
+    {
+      "role": "user",
+      "content": "What about a test infrastructure migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `Dockerfile`.\nOnce CI passes I'll merge.\n**Shipped:** coverage reporting posted to the pull request."
+    },
+    {
+      "role": "user",
+      "content": "Uv for dependency installation sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Quarantining the six flakiest tests is sorted. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Nobody has touched publishing test timing history yet."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with a required review from one code owner."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Parallel test execution across four shards is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "- .github/dependabot.yml"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in Makefile. * [ ] a rollback job for failed deploys Release-please for version bumps beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a test infrastructure migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "- .pre-commit-config.yaml\nI've got container image build with layer caching up and running.\nThe build is green.\nWe completed automated changelog generation on tag yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. I plan to do self-hosted runners for the GPU tests next."
+    },
+    {
+      "role": "user",
+      "content": "What about a test infrastructure migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — pinning all third-party actions by digest."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. A concurrency group cancelling superseded runs? Taken care of."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "container image build with layer caching",
+      "quarantining the six flakiest tests",
+      "automated changelog generation on tag",
+      "a concurrency group cancelling superseded runs",
+      "coverage reporting posted to the pull request",
+      "parallel test execution across four shards"
+    ],
+    "pending_tasks": [
+      "publishing test timing history",
+      "pinning all third-party actions by digest",
+      "self-hosted runners for the GPU tests",
+      "a rollback job for failed deploys"
+    ],
+    "decisions": [
+      "uv for dependency installation",
+      "a required review from one code owner",
+      "release-please for version bumps"
+    ],
+    "files": [
+      ".github/dependabot.yml",
+      "Dockerfile",
+      ".pre-commit-config.yaml",
+      "Makefile"
+    ],
+    "errors": []
+  }
+}

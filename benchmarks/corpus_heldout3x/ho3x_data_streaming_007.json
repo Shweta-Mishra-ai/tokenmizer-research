@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_data_streaming_007",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a dead letter queue redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a dead letter queue redesign."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: docker-compose.yml.\nResult: a schema registry entry for every event type done.\n**Decided:** a separate cluster for the analytics workloads."
+    },
+    {
+      "role": "user",
+      "content": "Switch to backward-compatible schema evolution only."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: duplicate processing after an unclean rebalance. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Switch to at-least-once delivery with idempotent consumers."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. We may decide to change this later. Closed: windowed aggregation over five-minute tumbling windows."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — consumer lag monitoring with alerting. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Choose Flink for the stateful stream processing."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. The error messages are now clearer. * [ ] a cost review of the broker cluster"
+    },
+    {
+      "role": "user",
+      "content": "Choose Debezium for change data capture."
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: consumer lag growing unbounded during the nightly spike. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: config/kafka.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: migrating the remaining consumers off the v1 schema. Failed jobs are retried twice."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a schema registry entry for every event type",
+      "windowed aggregation over five-minute tumbling windows",
+      "consumer lag monitoring with alerting"
+    ],
+    "pending_tasks": [
+      "migrating the remaining consumers off the v1 schema",
+      "a cost review of the broker cluster"
+    ],
+    "decisions": [
+      "backward-compatible schema evolution only",
+      "a separate cluster for the analytics workloads",
+      "Debezium for change data capture",
+      "Flink for the stateful stream processing",
+      "at-least-once delivery with idempotent consumers"
+    ],
+    "files": [
+      "config/kafka.yaml",
+      "docker-compose.yml"
+    ],
+    "errors": [
+      "duplicate processing after an unclean rebalance",
+      "consumer lag growing unbounded during the nightly spike"
+    ]
+  }
+}

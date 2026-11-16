@@ -1,0 +1,147 @@
+{
+  "id": "ho4x_mobile_ios_009",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an offline-first notes client."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter.\n**Chosen:** SwiftUI for all new screens.\nLeft to do — localisation into three languages."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: async/await instead of Combine for networking."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — Sources/Widgets/ActivityWidget.swift. Left to do — reducing cold start below 400ms."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Left to do — an App Store privacy nutrition label review. Landed the subscription purchase and restore flow. Going forward: Core Data over Realm for local storage."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — fastlane/Fastfile."
+    },
+    {
+      "role": "user",
+      "content": "Pick Swift Package Manager for dependencies."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Delivered — deep links into the workout detail screen. Delivered — a widget showing today's activity. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed keychain storage for the auth token.\nWrapped: Core Data persistence for the workout log.\n**Fault:** a keychain access error after device restore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: fastlane for the release pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: a crash from a missing NSMotionUsageDescription key."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: crash reporting integration."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: unit tests for the sync reducer. Touched file: Sources/App/ContentView.swift. Path: `.swiftlint.yml`."
+    },
+    {
+      "role": "user",
+      "content": "Use Keychain for token storage rather than UserDefaults please."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "unit tests for the sync reducer",
+      "crash reporting integration",
+      "the subscription purchase and restore flow",
+      "keychain storage for the auth token",
+      "a widget showing today's activity",
+      "deep links into the workout detail screen",
+      "Core Data persistence for the workout log"
+    ],
+    "pending_tasks": [
+      "an App Store privacy nutrition label review",
+      "reducing cold start below 400ms",
+      "localisation into three languages"
+    ],
+    "decisions": [
+      "Keychain for token storage rather than UserDefaults",
+      "Core Data over Realm for local storage",
+      "fastlane for the release pipeline",
+      "SwiftUI for all new screens",
+      "Swift Package Manager for dependencies",
+      "async/await instead of Combine for networking"
+    ],
+    "files": [
+      "Sources/App/ContentView.swift",
+      "Sources/Widgets/ActivityWidget.swift",
+      "fastlane/Fastfile",
+      ".swiftlint.yml"
+    ],
+    "errors": [
+      "a crash from a missing NSMotionUsageDescription key",
+      "a keychain access error after device restore"
+    ]
+  }
+}

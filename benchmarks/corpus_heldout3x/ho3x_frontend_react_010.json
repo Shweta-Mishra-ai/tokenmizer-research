@@ -1,0 +1,124 @@
+{
+  "id": "ho3x_frontend_react_010",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a checkout flow rewrite."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Vite as the build tool. We can stop worrying about dark mode using CSS custom properties now. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with MSW for mocking the API in tests. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched replacing the date picker with a headless one yet. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/routes/dashboard.tsx ended up with most of the changes. Most of the work happened inside src/App.tsx."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Vitest over Jest for the unit suite."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, pnpm as the package manager is the best fit. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "What about a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Memoising the chart data transform is waiting for someone to pick it up. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with React 19 with the compiler enabled."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/components/DataTable.tsx ended up with most of the changes. We can stop worrying about the toast notification system now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Form validation with inline error messages went smoothly in the end. Half the afternoon went to stale closure state in the polling hook. TanStack Query for server state is what we'll ship with."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the toast notification system",
+      "dark mode using CSS custom properties",
+      "form validation with inline error messages"
+    ],
+    "pending_tasks": [
+      "replacing the date picker with a headless one",
+      "memoising the chart data transform"
+    ],
+    "decisions": [
+      "Vitest over Jest for the unit suite",
+      "TanStack Query for server state",
+      "pnpm as the package manager",
+      "Vite as the build tool",
+      "React 19 with the compiler enabled",
+      "MSW for mocking the API in tests"
+    ],
+    "files": [
+      "src/App.tsx",
+      "src/components/DataTable.tsx",
+      "src/routes/dashboard.tsx"
+    ],
+    "errors": [
+      "stale closure state in the polling hook"
+    ]
+  }
+}

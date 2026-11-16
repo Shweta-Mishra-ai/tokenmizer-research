@@ -1,0 +1,159 @@
+{
+  "id": "ho3x_debug_production_010",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an outage root cause analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an outage root cause analysis now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Adding structured logging around the suspect path is working now."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a blameless postmortem format?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. A timeline of the incident from the metrics was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a canary deploy for the fix?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Customers are hitting a 30% error rate on the payment callback. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ruling out the cache layer as the cause has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need documenting the failure mode in the runbook before launch. I plan to do cleaning up the temporary debug logging next. We found duplicate charges from a non-idempotent retry."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on treating the third-party timeout as the root cause. There is p99 latency rising from 200ms to 4 seconds on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Can we try py-spy for the production profiling?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in scripts/repro.py. Do we need more tests? Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A follow-up on the third-party client bug report is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. I edited monitoring/alerts.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed capturing a heap profile during the spike yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. I've got the postmortem document with action items up and running."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reproducing the failure in a staging environment is sorted."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "adding structured logging around the suspect path",
+      "ruling out the cache layer as the cause",
+      "the postmortem document with action items",
+      "capturing a heap profile during the spike",
+      "reproducing the failure in a staging environment",
+      "a timeline of the incident from the metrics"
+    ],
+    "pending_tasks": [
+      "documenting the failure mode in the runbook",
+      "cleaning up the temporary debug logging",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "treating the third-party timeout as the root cause",
+      "a blameless postmortem format",
+      "py-spy for the production profiling",
+      "a canary deploy for the fix"
+    ],
+    "files": [
+      "scripts/repro.py",
+      "monitoring/alerts.yaml"
+    ],
+    "errors": [
+      "a 30% error rate on the payment callback",
+      "duplicate charges from a non-idempotent retry",
+      "p99 latency rising from 200ms to 4 seconds"
+    ]
+  }
+}

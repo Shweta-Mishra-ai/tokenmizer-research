@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_backend_python_007",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a document ingestion service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a document ingestion service."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Pydantic v2 for request validation is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Celery for the background worker sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of db/session.py as well. Sounds right, on it. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Rewrote parts of tests/test_orders.py as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Nobody has touched backfilling created_at on legacy rows yet. The Alembic baseline migration went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: connection pooling against Postgres made it in before the freeze. If this fails again we will revisit the design. Rewrote parts of docker-compose.yml as well. What broke the release was a memory leak in the long-lived session object."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Alembic for schema migrations is the best fit. Pytest-asyncio for the async test suite is what we'll ship with. Here is the updated plan. Request ID middleware for structured logging? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about idempotency keys on the order create path now. Rewrote parts of api/orders.py as well. Let me know if anything looks off. Caching the catalogue lookup is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A load test against the order path is the obvious next step."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "connection pooling against Postgres",
+      "idempotency keys on the order create path",
+      "the Alembic baseline migration"
+    ],
+    "pending_tasks": [
+      "a load test against the order path",
+      "caching the catalogue lookup",
+      "backfilling created_at on legacy rows"
+    ],
+    "decisions": [
+      "pytest-asyncio for the async test suite",
+      "Alembic for schema migrations",
+      "Celery for the background worker",
+      "Pydantic v2 for request validation"
+    ],
+    "files": [
+      "db/session.py",
+      "api/orders.py",
+      "tests/test_orders.py",
+      "docker-compose.yml"
+    ],
+    "errors": [
+      "a memory leak in the long-lived session object"
+    ]
+  }
+}

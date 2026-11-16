@@ -1,0 +1,109 @@
+{
+  "id": "ho4x_backend_python_012",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a Django billing API."
+    },
+    {
+      "role": "user",
+      "content": "Could Postgres over MySQL for JSONB support work for us? I keep coming back to Celery for the background worker. Could UUIDv7 primary keys instead of integers work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Fine by me. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a Django billing API going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. We haven't done audit logging for admin actions yet. We have OpenAPI schema generation for the public routes now. We keep seeing connection pool exhaustion under concurrent load."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Background retry for failed webhook deliveries has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: pagination on the list endpoints."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. api/main.py grew by a couple hundred lines. We have pytest fixtures for a throwaway database now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. After the spike, SQLAlchemy 2.0 with the async engine was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Python 3.12 as the runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tests/test_orders.py. Thanks to request ID middleware for structured logging, the on-call pages stopped. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\n**Finished work:** idempotency keys on the order create path.\n* api/models.py"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "background retry for failed webhook deliveries",
+      "OpenAPI schema generation for the public routes",
+      "idempotency keys on the order create path",
+      "pagination on the list endpoints",
+      "pytest fixtures for a throwaway database"
+    ],
+    "pending_tasks": [
+      "audit logging for admin actions"
+    ],
+    "decisions": [
+      "Celery for the background worker",
+      "SQLAlchemy 2.0 with the async engine",
+      "Python 3.12 as the runtime",
+      "UUIDv7 primary keys instead of integers",
+      "Postgres over MySQL for JSONB support"
+    ],
+    "files": [
+      "api/main.py",
+      "tests/test_orders.py",
+      "api/models.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under concurrent load"
+    ]
+  }
+}

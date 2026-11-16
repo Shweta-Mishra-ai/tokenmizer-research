@@ -1,0 +1,121 @@
+{
+  "id": "ho4x_infra_terraform_012",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a compliance baseline rollout."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The VPC with public and private subnets across three zones is up and working. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Security groups restricted to named ports is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. See the diff in terraform/iam.tf. We'll run with private subnets for every compute workload."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Checkov for policy scanning."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "IAM roles scoped per service is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "A hub-and-spoke network topology won the vote. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done splitting the monolithic state file yet."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypted EBS volumes across all instances is finished and deployed. Support tickets mention an apply failing on an IAM eventual consistency delay."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in terraform/vpc.tf. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A read replica in the secondary region has shipped. After review I'll deploy."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the VPC with public and private subnets across three zones",
+      "a read replica in the secondary region",
+      "encrypted EBS volumes across all instances",
+      "IAM roles scoped per service",
+      "security groups restricted to named ports"
+    ],
+    "pending_tasks": [
+      "splitting the monolithic state file"
+    ],
+    "decisions": [
+      "a hub-and-spoke network topology",
+      "private subnets for every compute workload",
+      "Checkov for policy scanning"
+    ],
+    "files": [
+      "terraform/iam.tf",
+      "terraform/vpc.tf"
+    ],
+    "errors": [
+      "an apply failing on an IAM eventual consistency delay"
+    ]
+  }
+}

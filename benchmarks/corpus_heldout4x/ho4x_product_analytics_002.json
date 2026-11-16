@@ -1,0 +1,124 @@
+{
+  "id": "ho4x_product_analytics_002",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a retention cohort study."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Path: `analytics/segments.sql`."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — a guardrail metric on support ticket volume."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — documentation of every metric definition. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Left to do — a data dictionary for the product team."
+    },
+    {
+      "role": "user",
+      "content": "Pick reporting absolute lift alongside relative."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Path: `analytics/funnel.sql`."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: timezone mismatch splitting one day across two cohorts. Consensus: one primary metric per experiment."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — a funnel from signup through first value.\n- [X] a holdout group excluded from all experiments"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "* tests/test_metrics.py * analytics/significance.py * analytics/experiments.py We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — deduplication of the double-fired signup event. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: median rather than mean for the latency metrics."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication of the double-fired signup event",
+      "documentation of every metric definition",
+      "a funnel from signup through first value",
+      "a holdout group excluded from all experiments"
+    ],
+    "pending_tasks": [
+      "a data dictionary for the product team",
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "reporting absolute lift alongside relative",
+      "median rather than mean for the latency metrics",
+      "one primary metric per experiment"
+    ],
+    "files": [
+      "analytics/segments.sql",
+      "analytics/experiments.py",
+      "analytics/funnel.sql",
+      "tests/test_metrics.py",
+      "analytics/significance.py"
+    ],
+    "errors": [
+      "timezone mismatch splitting one day across two cohorts"
+    ]
+  }
+}

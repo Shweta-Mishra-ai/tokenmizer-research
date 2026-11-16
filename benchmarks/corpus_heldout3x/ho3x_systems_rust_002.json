@@ -1,0 +1,156 @@
+{
+  "id": "ho3x_systems_rust_002",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an HTTP proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an HTTP proxy now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — adding a tracing subscriber."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — an async runtime built on tokio. Rewrote parts of src/main.rs as well. Clap for argument parsing is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Rust 2021 edition with MSRV 1.75."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Serde with a custom binary format is the pick. Implemented a no_std core module."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a borrow checker conflict in the writer loop. Let me know if anything looks off. Errors: unbounded memory growth in the buffer pool. Affected file: Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] a lock-free ring buffer for the writer Changes are in benches/parse.rs."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with tokio over async-std for the runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Rewrote parts of tests/roundtrip.rs as well."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Backlog: reducing the binary size below 2MB."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Zero-copy deserialisation of the record header is working now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: error types unified behind thiserror made it in before the freeze. Let's settle on bincode for the wire encoding."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Affected file: src/parser.rs."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the streaming parser over a bounded buffer made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented fuzzing the input decoder with cargo-fuzz. File: `Cargo.toml`. Everyone was happy with rayon for the parallel scan."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "zero-copy deserialisation of the record header",
+      "a lock-free ring buffer for the writer",
+      "error types unified behind thiserror",
+      "an async runtime built on tokio",
+      "the streaming parser over a bounded buffer",
+      "a no_std core module",
+      "fuzzing the input decoder with cargo-fuzz"
+    ],
+    "pending_tasks": [
+      "reducing the binary size below 2MB",
+      "adding a tracing subscriber"
+    ],
+    "decisions": [
+      "bincode for the wire encoding",
+      "Rust 2021 edition with MSRV 1.75",
+      "clap for argument parsing",
+      "serde with a custom binary format",
+      "tokio over async-std for the runtime",
+      "rayon for the parallel scan"
+    ],
+    "files": [
+      "benches/parse.rs",
+      "src/main.rs",
+      "Cargo.lock",
+      "src/parser.rs",
+      "Cargo.toml",
+      "tests/roundtrip.rs"
+    ],
+    "errors": [
+      "a borrow checker conflict in the writer loop",
+      "unbounded memory growth in the buffer pool"
+    ]
+  }
+}

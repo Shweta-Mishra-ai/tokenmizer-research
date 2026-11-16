@@ -1,0 +1,132 @@
+{
+  "id": "ho3x_ml_python_007",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a fraud detection model."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a fraud detection model."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. notebooks/eda.ipynb ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. An online A/B test against the current model is waiting for someone to pick it up. Don't let a fairness audit across customer segments slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A stratified train/validation/test split? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Calibrating the output probabilities is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards a time-based split to avoid leakage."
+    },
+    {
+      "role": "assistant",
+      "content": "A model registry entry for the release candidate? Taken care of. There were no failures in the nightly run. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/features.py ended up with most of the changes. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. requirements.txt ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "An offline evaluation against last quarter's data? Taken care of. Don't let documenting the model card slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. We can stop worrying about hyperparameter search over 200 trials now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Scikit-learn pipelines for preprocessing is what we'll ship with. What broke the release was inference timeouts on the long-document path. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What about a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from NaN losses after the learning rate change."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "a stratified train/validation/test split",
+      "a model registry entry for the release candidate",
+      "an offline evaluation against last quarter's data"
+    ],
+    "pending_tasks": [
+      "an online A/B test against the current model",
+      "calibrating the output probabilities",
+      "documenting the model card",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "a time-based split to avoid leakage",
+      "scikit-learn pipelines for preprocessing"
+    ],
+    "files": [
+      "requirements.txt",
+      "notebooks/eda.ipynb",
+      "src/features.py"
+    ],
+    "errors": [
+      "NaN losses after the learning rate change",
+      "inference timeouts on the long-document path"
+    ]
+  }
+}

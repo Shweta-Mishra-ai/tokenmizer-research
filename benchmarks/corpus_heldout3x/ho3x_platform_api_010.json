@@ -1,0 +1,152 @@
+{
+  "id": "ho3x_platform_api_010",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a public API v2 design."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a public API v2 design now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "sdk/python/client.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. A conformance test suite for the SDKs is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A deprecation header on the v1 routes? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. The sandbox environment for partner testing? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What about a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Exponential backoff with jitter for webhook retries beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about SDK generation for three languages now. The OpenAPI specification for every public route? Taken care of. I'll summarise at the end. Most of the work happened inside api/auth.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with OAuth 2.0 client credentials for machine access. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. We can stop worrying about at-least-once webhook delivery with retries now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards HMAC-SHA256 for webhook signatures."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Most of the work happened inside api/errors.py. Idempotency keys on all write operations went smoothly in the end. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Cursor pagination rather than offset sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched expanding the sandbox data set yet. The build is green. An API changelog published with each release? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "openapi/v2.yaml ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "OpenAPI as the source of truth for SDK generation sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Everyone was happy with Kong as the API gateway. Rewrote parts of api/ratelimit.py as well."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "at-least-once webhook delivery with retries",
+      "SDK generation for three languages",
+      "the sandbox environment for partner testing",
+      "a deprecation header on the v1 routes",
+      "an API changelog published with each release",
+      "idempotency keys on all write operations",
+      "the OpenAPI specification for every public route"
+    ],
+    "pending_tasks": [
+      "a conformance test suite for the SDKs",
+      "expanding the sandbox data set"
+    ],
+    "decisions": [
+      "exponential backoff with jitter for webhook retries",
+      "cursor pagination rather than offset",
+      "HMAC-SHA256 for webhook signatures",
+      "OpenAPI as the source of truth for SDK generation",
+      "Kong as the API gateway",
+      "OAuth 2.0 client credentials for machine access"
+    ],
+    "files": [
+      "api/errors.py",
+      "openapi/v2.yaml",
+      "api/ratelimit.py",
+      "sdk/python/client.py",
+      "api/auth.py"
+    ],
+    "errors": []
+  }
+}

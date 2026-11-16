@@ -1,0 +1,164 @@
+{
+  "id": "ho3x_research_writing_005",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a technical design document."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a technical design document."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was a figure rendering illegibly in greyscale print. Do we need more tests? We've decided on including the negative result on implicit language."
+    },
+    {
+      "role": "user",
+      "content": "What about a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Having compared the options, an explicit statement that the corpus is synthetic is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Failed: an overclaim in the introduction the data does not support."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched the discussion section yet. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A final proofread pass is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Affected file: paper/abstract.tex. Most of the work happened inside paper/related_work.tex. We can stop worrying about the abstract rewritten to lead with the result now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "An ethics statement still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Result: citations normalised to a single bibliography style done. I've got the reproducibility statement with exact commands up and running."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Restructuring the argument around three claims? Taken care of.\nChoice: framing the contribution as a measurement study.\n- paper/appendix.tex"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Peer feedback incorporated from two reviewers was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got the introduction cut from four pages to two up and running. Customers are hitting a stale results table from an earlier run. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `paper/evaluation.tex`. Chose Zotero for reference management. Let me know if anything looks off. Edited: notes/outline.md."
+    },
+    {
+      "role": "user",
+      "content": "Choose reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: reconciling the two conflicting result tables."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the reproducibility statement with exact commands",
+      "citations normalised to a single bibliography style",
+      "restructuring the argument around three claims",
+      "the introduction cut from four pages to two",
+      "the abstract rewritten to lead with the result",
+      "peer feedback incorporated from two reviewers"
+    ],
+    "pending_tasks": [
+      "the discussion section",
+      "a final proofread pass",
+      "reconciling the two conflicting result tables",
+      "an ethics statement"
+    ],
+    "decisions": [
+      "reporting per-domain breakdowns in the appendix",
+      "including the negative result on implicit language",
+      "framing the contribution as a measurement study",
+      "an explicit statement that the corpus is synthetic",
+      "Zotero for reference management"
+    ],
+    "files": [
+      "notes/outline.md",
+      "paper/appendix.tex",
+      "paper/abstract.tex",
+      "paper/related_work.tex",
+      "paper/evaluation.tex"
+    ],
+    "errors": [
+      "an overclaim in the introduction the data does not support",
+      "a stale results table from an earlier run",
+      "a figure rendering illegibly in greyscale print"
+    ]
+  }
+}

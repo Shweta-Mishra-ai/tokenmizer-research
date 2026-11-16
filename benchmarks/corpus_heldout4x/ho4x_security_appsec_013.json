@@ -1,0 +1,109 @@
+{
+  "id": "ho4x_security_appsec_013",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a penetration test remediation now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: CSP headers on all rendered responses. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "How is a penetration test remediation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated terraform/iam.tf. Still open — audit log retention policy. Here's where things stand. We have least-privilege IAM roles for the workers now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: .gitleaks.toml. I got rate limiting on the password reset endpoint over the line. A review of the CORS allowlist is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked Dependabot for dependency updates."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. In the queue: automated dependency updates. Wrapped: input sanitisation on the file upload path."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Dependency pinning with a lockfile came off the board this morning. Credential redaction on every log path came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Semgrep in the pull request pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Got hit by an open redirect on the login return URL in staging."
+    },
+    {
+      "role": "user",
+      "content": "Could mTLS between internal services work for us? Use Trivy for container image scanning please."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Sure, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rate limiting on the password reset endpoint",
+      "credential redaction on every log path",
+      "input sanitisation on the file upload path",
+      "dependency pinning with a lockfile",
+      "CSP headers on all rendered responses",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "audit log retention policy",
+      "a review of the CORS allowlist",
+      "automated dependency updates"
+    ],
+    "decisions": [
+      "Trivy for container image scanning",
+      "Dependabot for dependency updates",
+      "Semgrep in the pull request pipeline",
+      "mTLS between internal services"
+    ],
+    "files": [
+      "terraform/iam.tf",
+      ".gitleaks.toml"
+    ],
+    "errors": [
+      "an open redirect on the login return URL"
+    ]
+  }
+}

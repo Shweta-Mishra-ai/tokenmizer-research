@@ -1,0 +1,123 @@
+{
+  "id": "ho3x_infra_terraform_012",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a cost optimisation pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a cost optimisation pass."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a module for the standard service deployment up and running."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need removing the last hardcoded account IDs before launch. Let me know if anything looks off. Changes are in terraform/backend.tf."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Remote state in S3 with DynamoDB locking is sorted. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "VPC flow logs shipped to the log bucket was rolled out. The VPC with public and private subnets across three zones was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the legacy resources under Terraform still needs doing. Have a look at terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Checkov for policy scanning?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "An RDS instance with automated backups is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on one state file per environment. Have a look at terraform/vpc.tf. CloudWatch alarms on the error rate metric has been merged. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is Aurora Postgres over standard RDS."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a cost optimisation pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed encrypted EBS volumes across all instances yesterday."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "CloudWatch alarms on the error rate metric",
+      "remote state in S3 with DynamoDB locking",
+      "VPC flow logs shipped to the log bucket",
+      "the VPC with public and private subnets across three zones",
+      "encrypted EBS volumes across all instances",
+      "an RDS instance with automated backups",
+      "a module for the standard service deployment"
+    ],
+    "pending_tasks": [
+      "removing the last hardcoded account IDs",
+      "moving the legacy resources under Terraform"
+    ],
+    "decisions": [
+      "Aurora Postgres over standard RDS",
+      "one state file per environment",
+      "Checkov for policy scanning"
+    ],
+    "files": [
+      "terraform/backend.tf",
+      "terraform/iam.tf",
+      "terraform/vpc.tf"
+    ],
+    "errors": []
+  }
+}

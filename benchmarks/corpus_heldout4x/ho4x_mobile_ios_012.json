@@ -1,0 +1,123 @@
+{
+  "id": "ho4x_mobile_ios_012",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a payments SDK integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a payments SDK integration."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: SwiftLint in the build phase. Nobody argued once they saw the numbers for The Composable Architecture for state."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — Sources/Sync/SyncEngine.swift."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in Tests/SyncTests.swift. Deep links into the workout detail screen held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: SwiftUI for all new screens. Delivered — crash reporting integration."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in Sources/App/ContentView.swift. I got dark mode across every screen over the line."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Path: `Sources/Auth/Keychain.swift`. Touched file: .swiftlint.yml."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A snapshot test suite for the components is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the SwiftUI onboarding sequence."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. VoiceOver labels across the main screens is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in Sources/Store/WorkoutStore.swift."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the SwiftUI onboarding sequence",
+      "VoiceOver labels across the main screens",
+      "crash reporting integration",
+      "deep links into the workout detail screen",
+      "dark mode across every screen"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components"
+    ],
+    "decisions": [
+      "SwiftLint in the build phase",
+      "The Composable Architecture for state",
+      "SwiftUI for all new screens"
+    ],
+    "files": [
+      "Sources/Sync/SyncEngine.swift",
+      "Sources/Store/WorkoutStore.swift",
+      "Sources/App/ContentView.swift",
+      ".swiftlint.yml",
+      "Sources/Auth/Keychain.swift",
+      "Tests/SyncTests.swift"
+    ],
+    "errors": []
+  }
+}

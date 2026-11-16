@@ -1,0 +1,133 @@
+{
+  "id": "ho4x_data_sql_005",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a schema normalisation effort?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a schema normalisation effort."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Partitioning the events table by month is finished and deployed. Support tickets mention a null propagation bug in the margin calculation."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated tests/schema.yml. Archiving events older than two years is the piece nobody has picked up. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A materialised view for the executive dashboard has shipped. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, moving the nightly job to an hourly cadence is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Still open — consolidating the three customer definitions."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated profiles.yml. Path: `models/marts/fct_orders.sql`."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed backfilling six months of historical revenue. Landed a covering index on the customer lookup. Should we add more coverage? Row count reconciliation against the source system is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in macros/revenue.sql."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** an anomaly alert on the daily order count."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Great Expectations for data quality checks is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Snowflake over BigQuery for the warehouse."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "row count reconciliation against the source system",
+      "partitioning the events table by month",
+      "a materialised view for the executive dashboard",
+      "a covering index on the customer lookup",
+      "backfilling six months of historical revenue"
+    ],
+    "pending_tasks": [
+      "archiving events older than two years",
+      "moving the nightly job to an hourly cadence",
+      "an anomaly alert on the daily order count",
+      "consolidating the three customer definitions"
+    ],
+    "decisions": [
+      "Snowflake over BigQuery for the warehouse",
+      "Great Expectations for data quality checks"
+    ],
+    "files": [
+      "profiles.yml",
+      "tests/schema.yml",
+      "macros/revenue.sql",
+      "models/marts/fct_orders.sql"
+    ],
+    "errors": [
+      "a null propagation bug in the margin calculation"
+    ]
+  }
+}

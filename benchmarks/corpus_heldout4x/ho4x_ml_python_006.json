@@ -1,0 +1,90 @@
+{
+  "id": "ho4x_ml_python_006",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an embedding search service."
+    },
+    {
+      "role": "user",
+      "content": "How is an embedding search service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in AUC-PR as the primary metric given the imbalance. CI is passing. Calibrating the output probabilities is next up. I updated tests/test_features.py."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hyperparameter search over 200 trials went in this morning. We keep seeing NaN losses after the learning rate change. The feature engineering pipeline with 42 features is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in src/serve.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing inference timeouts on the long-document path. Scikit-learn pipelines for preprocessing won the vote. The team picked Optuna for hyperparameter search."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. An offline evaluation against last quarter's data went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Support tickets mention train/serve skew from inconsistent scaling. An online A/B test against the current model hasn't been started."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "an offline evaluation against last quarter's data",
+      "the feature engineering pipeline with 42 features"
+    ],
+    "pending_tasks": [
+      "an online A/B test against the current model",
+      "calibrating the output probabilities"
+    ],
+    "decisions": [
+      "AUC-PR as the primary metric given the imbalance",
+      "Optuna for hyperparameter search",
+      "scikit-learn pipelines for preprocessing"
+    ],
+    "files": [
+      "tests/test_features.py",
+      "src/serve.py"
+    ],
+    "errors": [
+      "train/serve skew from inconsistent scaling",
+      "inference timeouts on the long-document path",
+      "NaN losses after the learning rate change"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "ho3x_backend_python_001",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a FastAPI orders service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a FastAPI orders service."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Agreed approach: Alembic for schema migrations."
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: core/config.py. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** POST /api/orders and GET /api/orders/{id}.\nFinished — a health check endpoint at /healthz.\n- api/models.py"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] rate limiting on the auth routes If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: a 500 from an unhandled TimeoutError in the payment client."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: a 422 on login from a missing email validator.\n**Shipped:** OpenAPI schema generation for the public routes."
+    },
+    {
+      "role": "user",
+      "content": "Choose Python 3.12 as the runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "- api/deps.py\nResult: request ID middleware for structured logging done.\nSounds right, on it.\nIf this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later.\n- requirements.txt\nFile: `docker-compose.yml`."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? * [x] connection pooling against Postgres"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "POST /api/orders and GET /api/orders/{id}",
+      "request ID middleware for structured logging",
+      "OpenAPI schema generation for the public routes",
+      "connection pooling against Postgres",
+      "a health check endpoint at /healthz"
+    ],
+    "pending_tasks": [
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "Alembic for schema migrations",
+      "Python 3.12 as the runtime"
+    ],
+    "files": [
+      "core/config.py",
+      "docker-compose.yml",
+      "requirements.txt",
+      "api/deps.py",
+      "api/models.py"
+    ],
+    "errors": [
+      "a 500 from an unhandled TimeoutError in the payment client",
+      "a 422 on login from a missing email validator"
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "ho3x_data_sql_004",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a data quality initiative."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a data quality initiative."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Freshness tests on every source table? Taken care of. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the nightly job to an hourly cadence is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Hashed surrogate keys for stability beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Don't let an anomaly alert on the daily order count slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about incremental models for the daily aggregates now. Most of the work happened inside dags/daily_refresh.py. The build is green. scripts/backfill.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "macros/revenue.sql ended up with most of the changes. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about row count reconciliation against the source system now. Deduplication on the raw event stream? Taken care of. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Snowflake over BigQuery for the warehouse."
+    },
+    {
+      "role": "assistant",
+      "content": "Unit tests for the revenue macro is the obvious next step. models/staging/stg_events.sql ended up with most of the changes. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of models/marts/dim_customer.sql as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about a materialised view for the executive dashboard now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a materialised view for the executive dashboard",
+      "row count reconciliation against the source system",
+      "incremental models for the daily aggregates",
+      "freshness tests on every source table",
+      "deduplication on the raw event stream"
+    ],
+    "pending_tasks": [
+      "moving the nightly job to an hourly cadence",
+      "an anomaly alert on the daily order count",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "Snowflake over BigQuery for the warehouse",
+      "hashed surrogate keys for stability"
+    ],
+    "files": [
+      "models/staging/stg_events.sql",
+      "dags/daily_refresh.py",
+      "models/marts/dim_customer.sql",
+      "scripts/backfill.py",
+      "macros/revenue.sql"
+    ],
+    "errors": []
+  }
+}

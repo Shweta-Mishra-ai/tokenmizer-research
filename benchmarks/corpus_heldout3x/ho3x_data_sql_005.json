@@ -1,0 +1,141 @@
+{
+  "id": "ho3x_data_sql_005",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a schema normalisation effort."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a schema normalisation effort."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dbt for the transformation layer beat the alternatives on every axis we care about. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Airflow for orchestration sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "An anomaly alert on the daily order count is the obvious next step. Implemented a covering index on the customer lookup. Deduplication on the raw event stream is working now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `models/marts/fct_orders.sql`."
+    },
+    {
+      "role": "user",
+      "content": "What about a schema normalisation effort?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside profiles.yml."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Parquet as the landing format."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: a cost review of the warehouse spend. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A materialised view for the executive dashboard? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice.\n**Shipped:** incremental models for the daily aggregates.\nOutstanding: moving the nightly job to an hourly cadence."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Changes are in models/staging/stg_events.sql."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: UTC everywhere for timestamps. TO DO: archiving events older than two years. I edited dbt_project.yml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in models/marts/dim_customer.sql."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "incremental models for the daily aggregates",
+      "deduplication on the raw event stream",
+      "a materialised view for the executive dashboard",
+      "a covering index on the customer lookup"
+    ],
+    "pending_tasks": [
+      "an anomaly alert on the daily order count",
+      "archiving events older than two years",
+      "moving the nightly job to an hourly cadence",
+      "a cost review of the warehouse spend"
+    ],
+    "decisions": [
+      "UTC everywhere for timestamps",
+      "Parquet as the landing format",
+      "dbt for the transformation layer",
+      "Airflow for orchestration"
+    ],
+    "files": [
+      "models/marts/fct_orders.sql",
+      "models/staging/stg_events.sql",
+      "profiles.yml",
+      "models/marts/dim_customer.sql",
+      "dbt_project.yml"
+    ],
+    "errors": []
+  }
+}

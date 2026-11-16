@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_security_appsec_006",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a secrets management migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a secrets management migration."
+    },
+    {
+      "role": "user",
+      "content": "Pick mTLS between internal services."
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — a review of the CORS allowlist. Makes sense, doing that. Final call: gitleaks as a pre-commit hook."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed credential redaction on every log path. We resolved to use a deny-by-default egress policy. Complete: dependency pinning with a lockfile."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a secrets management migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Complete: parameterised queries across the data layer."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Path: `SECURITY.md`."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\n- [X] encrypted secrets at rest in the vault\nFinal call: Semgrep in the pull request pipeline."
+    },
+    {
+      "role": "user",
+      "content": "How is a secrets management migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "* api/auth.py Wrapped: rate limiting on the password reset endpoint."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: an XSS in the comment renderer. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Argon2id over bcrypt for new password hashes."
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO a security runbook for incident response\nSure, on it.\nKnown defect — session fixation after login."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: field-level encryption for PII columns."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "encrypted secrets at rest in the vault",
+      "parameterised queries across the data layer",
+      "rate limiting on the password reset endpoint",
+      "dependency pinning with a lockfile",
+      "credential redaction on every log path"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist",
+      "a security runbook for incident response"
+    ],
+    "decisions": [
+      "mTLS between internal services",
+      "Argon2id over bcrypt for new password hashes",
+      "field-level encryption for PII columns",
+      "Semgrep in the pull request pipeline",
+      "a deny-by-default egress policy",
+      "gitleaks as a pre-commit hook"
+    ],
+    "files": [
+      "api/auth.py",
+      "SECURITY.md"
+    ],
+    "errors": [
+      "session fixation after login",
+      "an XSS in the comment renderer"
+    ]
+  }
+}

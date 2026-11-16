@@ -1,0 +1,115 @@
+{
+  "id": "ho4x_debug_production_010",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a performance regression hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a performance regression hunt now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in config/flags.yaml. The hotfix reverting the connection pool change is up and working. We have bisecting the regression to a single commit now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in docs/postmortem.md."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated src/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated scripts/repro.py."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with paging on error rate rather than absolute count?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Confirming the hypothesis with a targeted experiment has shipped. Details are in monitoring/alerts.yaml. If this breaks later we can roll back. Correlating the errors with the deploy timeline went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in rolling back before investigating further."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done cleaning up the temporary debug logging yet. I got reproducing the failure in a staging environment over the line."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The postmortem document with action items has shipped. A regression test covering the failure mode went in this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "reproducing the failure in a staging environment",
+      "the hotfix reverting the connection pool change",
+      "confirming the hypothesis with a targeted experiment",
+      "a regression test covering the failure mode",
+      "bisecting the regression to a single commit",
+      "the postmortem document with action items",
+      "correlating the errors with the deploy timeline"
+    ],
+    "pending_tasks": [
+      "cleaning up the temporary debug logging"
+    ],
+    "decisions": [
+      "rolling back before investigating further",
+      "paging on error rate rather than absolute count"
+    ],
+    "files": [
+      "config/flags.yaml",
+      "scripts/repro.py",
+      "monitoring/alerts.yaml",
+      "docs/postmortem.md",
+      "src/client.py"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "ho3x_backend_go_004",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an event consumer."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an event consumer now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: go.mod. TO DO: distributed tracing spans across services."
+    },
+    {
+      "role": "user",
+      "content": "What about an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: benchmark tests on the hot encode path done."
+    },
+    {
+      "role": "user",
+      "content": "Switch to golangci-lint in CI."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. There were no failures in the nightly run. Bug report: excessive allocations causing GC pressure."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — table-driven tests for the parser. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented context propagation through every handler. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] structured logging with request correlation Outstanding: reducing allocations in the serialiser."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? * [ ] a soak test over 24 hours Finished — a circuit breaker around the downstream call."
+    },
+    {
+      "role": "user",
+      "content": "What about an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: NATS for the message transport. Implemented the gRPC service definition and generated stubs."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: internal/handler/orders.go. Regression: context deadline exceeded on the upstream call. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: connection churn exhausting ephemeral ports."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Go 1.23 as the toolchain."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with testcontainers for integration tests."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a circuit breaker around the downstream call",
+      "the gRPC service definition and generated stubs",
+      "context propagation through every handler",
+      "table-driven tests for the parser",
+      "benchmark tests on the hot encode path",
+      "structured logging with request correlation"
+    ],
+    "pending_tasks": [
+      "distributed tracing spans across services",
+      "reducing allocations in the serialiser",
+      "a soak test over 24 hours"
+    ],
+    "decisions": [
+      "NATS for the message transport",
+      "Go 1.23 as the toolchain",
+      "testcontainers for integration tests",
+      "golangci-lint in CI"
+    ],
+    "files": [
+      "go.mod",
+      "internal/handler/orders.go"
+    ],
+    "errors": [
+      "context deadline exceeded on the upstream call",
+      "connection churn exhausting ephemeral ports",
+      "excessive allocations causing GC pressure"
+    ]
+  }
+}

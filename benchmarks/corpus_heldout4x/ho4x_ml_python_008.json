@@ -1,0 +1,114 @@
+{
+  "id": "ho4x_ml_python_008",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a recommendation ranker?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a recommendation ranker."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a recommendation ranker?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** drift monitoring on the input distributions."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. We resolved to use a 90-day lookback window for features."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `src/serve.py`."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** hyperparameter search over 200 trials."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a recommendation ranker?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] an offline evaluation against last quarter's data\nTouched file: notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got a model registry entry for the release candidate over the line. Polars instead of pandas for the feature pipeline is the direction we committed to. I got class imbalance handling with focal loss over the line."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — shadow deployment against live traffic. After the spike, AUC-PR as the primary metric given the imbalance was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, sentence-transformers for the text embeddings was the clear winner. Nobody needs to think about SHAP explanations for the top features anymore. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a recommendation ranker?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked quantile clipping on the numeric features."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "class imbalance handling with focal loss",
+      "a model registry entry for the release candidate",
+      "an offline evaluation against last quarter's data",
+      "drift monitoring on the input distributions",
+      "hyperparameter search over 200 trials",
+      "SHAP explanations for the top features"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic"
+    ],
+    "decisions": [
+      "quantile clipping on the numeric features",
+      "sentence-transformers for the text embeddings",
+      "a 90-day lookback window for features",
+      "AUC-PR as the primary metric given the imbalance",
+      "Polars instead of pandas for the feature pipeline"
+    ],
+    "files": [
+      "src/serve.py",
+      "notebooks/eda.ipynb"
+    ],
+    "errors": []
+  }
+}

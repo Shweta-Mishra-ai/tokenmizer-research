@@ -1,0 +1,171 @@
+{
+  "id": "ho4x_data_sql_012",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a reporting layer rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a reporting layer rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle dbt_project.yml first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without moving the nightly job to an hourly cadence the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Somebody has to own retiring the legacy reporting views before Friday. Most of yesterday disappeared into timezone drift between the source and warehouse."
+    },
+    {
+      "role": "user",
+      "content": "Airflow for orchestration feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "sql/indexes.sql grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Column-level lineage documentation has been live since Tuesday with no complaints. tests/schema.yml grew by a couple hundred lines. Without a cost review of the warehouse spend the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to row count reconciliation against the source system, the on-call pages stopped. A covering index on the customer lookup came off the board this morning. dags/daily_refresh.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "The star schema for the orders fact table is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Surrogate keys across the dimension tables came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about a materialised view for the executive dashboard anymore."
+    },
+    {
+      "role": "user",
+      "content": "UTC everywhere for timestamps feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Parquet as the landing format feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, archiving events older than two years is where attention goes. If this breaks later we can roll back. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for incremental materialisation on the large models. Thanks to the slowly changing dimension on customer tier, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is a reporting layer rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "macros/revenue.sql grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Kafka for the event transport."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the star schema for the orders fact table",
+      "a materialised view for the executive dashboard",
+      "the slowly changing dimension on customer tier",
+      "row count reconciliation against the source system",
+      "surrogate keys across the dimension tables",
+      "a covering index on the customer lookup",
+      "column-level lineage documentation"
+    ],
+    "pending_tasks": [
+      "archiving events older than two years",
+      "retiring the legacy reporting views",
+      "moving the nightly job to an hourly cadence",
+      "a cost review of the warehouse spend"
+    ],
+    "decisions": [
+      "Kafka for the event transport",
+      "UTC everywhere for timestamps",
+      "Airflow for orchestration",
+      "incremental materialisation on the large models",
+      "Parquet as the landing format"
+    ],
+    "files": [
+      "sql/indexes.sql",
+      "dags/daily_refresh.py",
+      "tests/schema.yml",
+      "dbt_project.yml",
+      "macros/revenue.sql"
+    ],
+    "errors": [
+      "timezone drift between the source and warehouse"
+    ]
+  }
+}

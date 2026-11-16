@@ -1,0 +1,147 @@
+{
+  "id": "ho3x_mobile_ios_012",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a subscription billing flow."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a subscription billing flow."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: App/Info.plist. Nobody has touched watchOS companion app yet. Bug report: a crash from a missing NSMotionUsageDescription key."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. I've got crash reporting integration up and running. I plan to do localisation into three languages next. Async/await instead of Combine for networking beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "- Sources/Auth/Keychain.swift\nLet me know if anything looks off.\nDeep links into the workout detail screen is working now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** SwiftLint in the build phase."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Swift Package Manager for dependencies?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Hitting a keychain access error after device restore in CI."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at fastlane/Fastfile."
+    },
+    {
+      "role": "user",
+      "content": "Choose fastlane for the release pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "- Sources/App/ContentView.swift\nOkay, doing it.\nFailed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What about a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: an iPad layout for the summary screen. Most of the work happened inside .swiftlint.yml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. The subscription purchase and restore flow was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with a modular package layout per feature. Finished — Core Data persistence for the workout log. We can stop worrying about the HealthKit permission flow now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. A snapshot test suite for the components is still open. A widget showing today's activity went smoothly in the end."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the subscription purchase and restore flow",
+      "a widget showing today's activity",
+      "the HealthKit permission flow",
+      "Core Data persistence for the workout log",
+      "deep links into the workout detail screen",
+      "crash reporting integration"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components",
+      "an iPad layout for the summary screen",
+      "watchOS companion app",
+      "localisation into three languages"
+    ],
+    "decisions": [
+      "Swift Package Manager for dependencies",
+      "a modular package layout per feature",
+      "fastlane for the release pipeline",
+      "SwiftLint in the build phase",
+      "async/await instead of Combine for networking"
+    ],
+    "files": [
+      "Sources/App/ContentView.swift",
+      "Sources/Auth/Keychain.swift",
+      ".swiftlint.yml",
+      "fastlane/Fastfile",
+      "App/Info.plist"
+    ],
+    "errors": [
+      "a keychain access error after device restore",
+      "a crash from a missing NSMotionUsageDescription key"
+    ]
+  }
+}

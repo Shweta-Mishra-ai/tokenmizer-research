@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_backend_python_003",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an async task queue service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an async task queue service."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Turns out the slowdown was a 422 on login from a missing email validator all along."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Celery for the background worker is what everything will be built on from here. Somebody has to own audit logging for admin actions before Friday. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was an IntegrityError on duplicate order submission all along. Pagination on the list endpoints came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Alembic for schema migrations feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "The Alembic baseline migration is behind us now. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? requirements.txt grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Nobody needs to think about a health check endpoint at /healthz anymore."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pytest fixtures for a throwaway database is behind us now. Thanks to request ID middleware for structured logging, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "OpenAPI schema generation for the public routes is behind us now. Thanks to connection pooling against Postgres, the on-call pages stopped. Had to untangle api/models.py first. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "api/main.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "migrations/env.py grew by a couple hundred lines. CI is passing. docker-compose.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own rate limiting on the auth routes before Friday."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a health check endpoint at /healthz",
+      "the Alembic baseline migration",
+      "pytest fixtures for a throwaway database",
+      "connection pooling against Postgres",
+      "pagination on the list endpoints",
+      "OpenAPI schema generation for the public routes",
+      "request ID middleware for structured logging"
+    ],
+    "pending_tasks": [
+      "audit logging for admin actions",
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "Celery for the background worker",
+      "Alembic for schema migrations"
+    ],
+    "files": [
+      "migrations/env.py",
+      "api/main.py",
+      "requirements.txt",
+      "docker-compose.yml",
+      "api/models.py"
+    ],
+    "errors": [
+      "an IntegrityError on duplicate order submission",
+      "a 422 on login from a missing email validator"
+    ]
+  }
+}

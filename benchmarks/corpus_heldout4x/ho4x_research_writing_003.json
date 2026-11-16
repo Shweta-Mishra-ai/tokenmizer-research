@@ -1,0 +1,114 @@
+{
+  "id": "ho4x_research_writing_003",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a literature review."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in reporting macro F1 rather than accuracy. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated paper/related_work.tex. See the diff in data/results.json."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on an explicit statement that the corpus is synthetic. Support tickets mention a missing statistical test on the headline comparison."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with framing the contribution as a measurement study."
+    },
+    {
+      "role": "user",
+      "content": "How is a literature review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have a first pass at the methodology section now. Got hit by the page count exceeding the submission limit in staging."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? I've locked in naming the baselines by method rather than by vendor."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have the evaluation table with confidence intervals now. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got the abstract rewritten to lead with the result over the line. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Figure one showing the system architecture has shipped. A plain-language summary for the blog post hasn't been started."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a first pass at the methodology section",
+      "figure one showing the system architecture",
+      "the evaluation table with confidence intervals",
+      "the abstract rewritten to lead with the result"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "framing the contribution as a measurement study",
+      "naming the baselines by method rather than by vendor",
+      "an explicit statement that the corpus is synthetic"
+    ],
+    "files": [
+      "data/results.json",
+      "paper/related_work.tex"
+    ],
+    "errors": [
+      "the page count exceeding the submission limit",
+      "a missing statistical test on the headline comparison"
+    ]
+  }
+}

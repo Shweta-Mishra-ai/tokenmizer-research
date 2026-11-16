@@ -1,0 +1,135 @@
+{
+  "id": "ho3x_devops_kubernetes_001",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a zero-downtime deploy pipeline now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Velero for cluster backups beat the alternatives on every axis we care about. Do we need more tests? A rolling deploy with surge and unavailable tuned went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "The secrets migration into the external secret store? Taken care of. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Istio for service mesh traffic policy sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: horizontal pod autoscaling on CPU and request rate made it in before the freeze. Okay, doing it. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services? Taken care of. The alerts this morning came from a 502 during rolling deploys from missing readiness gates. The root cause turned out to be node pressure evictions during the nightly batch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Kustomize overlays per environment."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Reducing the image sizes on the worker pool is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of k8s/hpa.yaml as well. Failed jobs are retried twice. Most of the work happened inside .github/workflows/deploy.yml."
+    },
+    {
+      "role": "user",
+      "content": "Trivy for image scanning in CI sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Loki for log aggregation is what we'll ship with. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Network policies isolating the payments namespace? Taken care of. We can stop worrying about the ingress with automatic certificate renewal now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the Helm chart for the API deployment now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "An upgrade rehearsal in staging is the obvious next step. We may decide to change this later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "network policies isolating the payments namespace",
+      "a rolling deploy with surge and unavailable tuned",
+      "the secrets migration into the external secret store",
+      "the Helm chart for the API deployment",
+      "the ingress with automatic certificate renewal",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "an upgrade rehearsal in staging",
+      "reducing the image sizes on the worker pool"
+    ],
+    "decisions": [
+      "Loki for log aggregation",
+      "Trivy for image scanning in CI",
+      "Kustomize overlays per environment",
+      "Velero for cluster backups",
+      "Istio for service mesh traffic policy"
+    ],
+    "files": [
+      ".github/workflows/deploy.yml",
+      "k8s/hpa.yaml"
+    ],
+    "errors": [
+      "node pressure evictions during the nightly batch",
+      "a 502 during rolling deploys from missing readiness gates"
+    ]
+  }
+}

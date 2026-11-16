@@ -1,0 +1,138 @@
+{
+  "id": "ho4x_data_sql_010",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a warehouse migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a warehouse migration now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — scripts/backfill.py. Landed row count reconciliation against the source system."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Great Expectations for data quality checks.\nI'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Still open — unit tests for the revenue macro."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `models/staging/stg_events.sql`. * tests/schema.yml"
+    },
+    {
+      "role": "user",
+      "content": "Pick Parquet as the landing format."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — macros/revenue.sql.\nThe logs are easier to read now.\n**Finished work:** column-level lineage documentation.\nFine by me."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later.\n- [X] the slowly changing dimension on customer tier"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: a null propagation bug in the margin calculation. Todo — consolidating the three customer definitions. In the queue: a cost review of the warehouse spend."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — partitioning the events table by month."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Wrapped: deduplication on the raw event stream. Todo — documenting the grain of each fact table."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed freshness tests on every source table. Consensus: dbt for the transformation layer."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — profiles.yml. Final call: a medallion bronze/silver/gold layout. Wrapped: a materialised view for the executive dashboard."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "freshness tests on every source table",
+      "column-level lineage documentation",
+      "partitioning the events table by month",
+      "row count reconciliation against the source system",
+      "a materialised view for the executive dashboard",
+      "the slowly changing dimension on customer tier",
+      "deduplication on the raw event stream"
+    ],
+    "pending_tasks": [
+      "consolidating the three customer definitions",
+      "a cost review of the warehouse spend",
+      "documenting the grain of each fact table",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "a medallion bronze/silver/gold layout",
+      "dbt for the transformation layer",
+      "Parquet as the landing format",
+      "Great Expectations for data quality checks"
+    ],
+    "files": [
+      "profiles.yml",
+      "models/staging/stg_events.sql",
+      "macros/revenue.sql",
+      "tests/schema.yml",
+      "scripts/backfill.py"
+    ],
+    "errors": [
+      "a null propagation bug in the margin calculation"
+    ]
+  }
+}

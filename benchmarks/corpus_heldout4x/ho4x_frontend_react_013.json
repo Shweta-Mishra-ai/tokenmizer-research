@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_frontend_react_013",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an analytics dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Could Vitest over Jest for the unit suite work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. A virtualised list for the 10k-row view has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing layout shift on the chart container. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention a bundle regression from importing the whole icon set. I updated tailwind.config.js."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining class components is next up. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got session persistence in localStorage over the line. Dark mode using CSS custom properties went in this morning. Details are in package.json. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Details are in vite.config.ts. Support tickets mention a hydration mismatch on the server-rendered header."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Recharts for the visualisations?"
+    },
+    {
+      "role": "assistant",
+      "content": "The toast notification system went in this morning. I updated src/api/client.ts. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dark mode using CSS custom properties",
+      "a virtualised list for the 10k-row view",
+      "the toast notification system",
+      "session persistence in localStorage"
+    ],
+    "pending_tasks": [
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "Recharts for the visualisations",
+      "Vitest over Jest for the unit suite"
+    ],
+    "files": [
+      "package.json",
+      "src/api/client.ts",
+      "vite.config.ts",
+      "tailwind.config.js"
+    ],
+    "errors": [
+      "a bundle regression from importing the whole icon set",
+      "layout shift on the chart container",
+      "a hydration mismatch on the server-rendered header"
+    ]
+  }
+}

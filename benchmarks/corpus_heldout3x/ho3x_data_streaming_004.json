@@ -1,0 +1,110 @@
+{
+  "id": "ho3x_data_streaming_004",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do tiered storage for the older segments next. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with one topic per event type rather than a shared bus?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Flink for the stateful stream processing is the pick. Changes are in scripts/replay.py. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with protobuf for the internal service events?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at docker-compose.yml. Agreed. Nothing is blocking us right now. I've got the topic layout with twelve partitions per stream up and running."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consumer lag monitoring with alerting is sorted. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in config/kafka.yaml. The relevant code is in tests/test_aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at streams/dlq.py. I edited streams/aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Backpressure handling in the consumer loop is working now. The change data capture connector on the orders table was rolled out. A replay procedure for the last 24 hours still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found duplicate processing after an unclean rebalance. Exactly-once semantics on the aggregation job is sorted."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the topic layout with twelve partitions per stream",
+      "backpressure handling in the consumer loop",
+      "the change data capture connector on the orders table",
+      "consumer lag monitoring with alerting",
+      "exactly-once semantics on the aggregation job"
+    ],
+    "pending_tasks": [
+      "tiered storage for the older segments",
+      "a replay procedure for the last 24 hours"
+    ],
+    "decisions": [
+      "Flink for the stateful stream processing",
+      "protobuf for the internal service events",
+      "one topic per event type rather than a shared bus"
+    ],
+    "files": [
+      "config/kafka.yaml",
+      "docker-compose.yml",
+      "scripts/replay.py",
+      "streams/aggregator.py",
+      "streams/dlq.py",
+      "tests/test_aggregator.py"
+    ],
+    "errors": [
+      "duplicate processing after an unclean rebalance"
+    ]
+  }
+}

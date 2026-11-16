@@ -1,0 +1,107 @@
+{
+  "id": "ho3x_data_sql_009",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a query performance pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a query performance pass."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: the nightly job timing out after 6 hours."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a query performance pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed column-level lineage documentation yesterday.\n- models/marts/fct_orders.sql\nDo we need more tests?\nEdited: tests/schema.yml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: unit tests for the revenue macro. Documenting the grain of each fact table is waiting for someone to pick it up. Implemented incremental models for the daily aggregates."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. I've gone with Parquet as the landing format."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with Snowflake over BigQuery for the warehouse."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards incremental materialisation on the large models."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. The relevant code is in sql/indexes.sql. Implemented deduplication on the raw event stream."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use dbt for the transformation layer."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "macros/revenue.sql ended up with most of the changes. Here is the updated plan."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "column-level lineage documentation",
+      "deduplication on the raw event stream",
+      "incremental models for the daily aggregates"
+    ],
+    "pending_tasks": [
+      "documenting the grain of each fact table",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "incremental materialisation on the large models",
+      "dbt for the transformation layer",
+      "Snowflake over BigQuery for the warehouse",
+      "Parquet as the landing format"
+    ],
+    "files": [
+      "macros/revenue.sql",
+      "models/marts/fct_orders.sql",
+      "sql/indexes.sql",
+      "tests/schema.yml"
+    ],
+    "errors": [
+      "the nightly job timing out after 6 hours"
+    ]
+  }
+}

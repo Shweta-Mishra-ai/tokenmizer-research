@@ -1,0 +1,95 @@
+{
+  "id": "ho3x_mobile_ios_001",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a fitness tracking app."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a fitness tracking app now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** unit tests for the sync reducer.\nFinished — a widget showing today's activity.\nI'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Finished — background sync with a URLSession task."
+    },
+    {
+      "role": "user",
+      "content": "Choose fastlane for the release pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: dark mode across every screen. Here is the updated plan. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `Sources/App/ContentView.swift`."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: keychain storage for the auth token done."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with SwiftLint in the build phase."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — handling the offline conflict resolution case.\n**Shipped:** crash reporting integration.\nEdited: Sources/Store/WorkoutStore.swift."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a widget showing today's activity",
+      "keychain storage for the auth token",
+      "dark mode across every screen",
+      "unit tests for the sync reducer",
+      "crash reporting integration",
+      "background sync with a URLSession task"
+    ],
+    "pending_tasks": [
+      "handling the offline conflict resolution case"
+    ],
+    "decisions": [
+      "fastlane for the release pipeline",
+      "SwiftLint in the build phase"
+    ],
+    "files": [
+      "Sources/Store/WorkoutStore.swift",
+      "Sources/App/ContentView.swift"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "ho4x_data_sql_006",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a data quality initiative."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** documenting the grain of each fact table.\nWe resolved to use soft deletes with a valid_to column."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] the slowly changing dimension on customer tier\nTodo — moving the nightly job to an hourly cadence.\nBroken: a null propagation bug in the margin calculation.\nIf this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — profiles.yml. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Delivered — a materialised view for the executive dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now.\n- [X] partitioning the events table by month\nFailing now: timezone drift between the source and warehouse.\nComplete: backfilling six months of historical revenue."
+    },
+    {
+      "role": "user",
+      "content": "Pick an ELT rather than ETL pattern."
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — freshness tests on every source table. Fine by me. Wrapped: surrogate keys across the dimension tables. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to UTC everywhere for timestamps."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: tests/schema.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a materialised view for the executive dashboard",
+      "the slowly changing dimension on customer tier",
+      "partitioning the events table by month",
+      "surrogate keys across the dimension tables",
+      "backfilling six months of historical revenue",
+      "freshness tests on every source table"
+    ],
+    "pending_tasks": [
+      "documenting the grain of each fact table",
+      "moving the nightly job to an hourly cadence"
+    ],
+    "decisions": [
+      "soft deletes with a valid_to column",
+      "an ELT rather than ETL pattern",
+      "UTC everywhere for timestamps"
+    ],
+    "files": [
+      "tests/schema.yml",
+      "profiles.yml"
+    ],
+    "errors": [
+      "timezone drift between the source and warehouse",
+      "a null propagation bug in the margin calculation"
+    ]
+  }
+}

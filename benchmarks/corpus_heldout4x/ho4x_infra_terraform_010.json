@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_infra_terraform_010",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a cost optimisation pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a cost optimisation pass."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Private subnets for every compute workload won the vote. In the queue: a disaster recovery restore rehearsal. Broken: an apply failing on an IAM eventual consistency delay."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on OIDC for CI authentication into AWS."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention a cyclic dependency between the security group rules. Nothing is waiting on anyone at the moment. Security groups restricted to named ports went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] CloudWatch alarms on the error rate metric\n**Finished work:** VPC flow logs shipped to the log bucket.\nPath: `terraform/variables.tf`."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Terragrunt for the DRY module wiring."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in terraform/backend.tf."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while policy-as-code checks in the plan stage is missing. Path: `modules/service/main.tf`. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in terraform/rds.tf. Details are in environments/prod/terragrunt.hcl. * terraform/main.tf CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Use one state file per environment please."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] tagging enforced through a provider default\nA drift detection job on a daily schedule is next up."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "security groups restricted to named ports",
+      "CloudWatch alarms on the error rate metric",
+      "tagging enforced through a provider default",
+      "VPC flow logs shipped to the log bucket"
+    ],
+    "pending_tasks": [
+      "a drift detection job on a daily schedule",
+      "policy-as-code checks in the plan stage",
+      "a disaster recovery restore rehearsal"
+    ],
+    "decisions": [
+      "Terragrunt for the DRY module wiring",
+      "one state file per environment",
+      "private subnets for every compute workload",
+      "OIDC for CI authentication into AWS"
+    ],
+    "files": [
+      "terraform/rds.tf",
+      "modules/service/main.tf",
+      "terraform/main.tf",
+      "environments/prod/terragrunt.hcl",
+      "terraform/backend.tf",
+      "terraform/variables.tf"
+    ],
+    "errors": [
+      "an apply failing on an IAM eventual consistency delay",
+      "a cyclic dependency between the security group rules"
+    ]
+  }
+}

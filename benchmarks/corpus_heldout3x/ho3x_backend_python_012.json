@@ -1,0 +1,107 @@
+{
+  "id": "ho3x_backend_python_012",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a Django billing API."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a Django billing API now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Regression: an IntegrityError on duplicate order submission."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: request ID middleware for structured logging made it in before the freeze. I edited db/session.py. Everyone was happy with pytest-asyncio for the async test suite. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting a 500 from an unhandled TimeoutError in the payment client in CI."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: the Alembic baseline migration done. Customers are hitting flaky tests from shared database state. Implemented pagination on the list endpoints. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** Alembic for schema migrations."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on Pydantic v2 for request validation.\n**Decided:** Python 3.12 as the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — rate limiting on the auth routes."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Celery for the background worker?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it.\n- migrations/env.py\nThe build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "pagination on the list endpoints",
+      "the Alembic baseline migration"
+    ],
+    "pending_tasks": [
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "Celery for the background worker",
+      "Python 3.12 as the runtime",
+      "pytest-asyncio for the async test suite",
+      "Pydantic v2 for request validation",
+      "Alembic for schema migrations"
+    ],
+    "files": [
+      "migrations/env.py",
+      "db/session.py"
+    ],
+    "errors": [
+      "an IntegrityError on duplicate order submission",
+      "flaky tests from shared database state",
+      "a 500 from an unhandled TimeoutError in the payment client"
+    ]
+  }
+}

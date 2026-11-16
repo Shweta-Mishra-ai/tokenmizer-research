@@ -1,0 +1,91 @@
+{
+  "id": "ho4x_ml_python_005",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a fraud detection model."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a fraud detection model."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] the feature engineering pipeline with 42 features\nCI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: Optuna for hyperparameter search.\n- [X] SHAP explanations for the top features"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment.\n- [X] a model registry entry for the release candidate\n* data/schema.json"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — baseline logistic regression at 0.71 AUC.\nWrapped: gradient boosting reaching 0.84 AUC.\nNothing is waiting on anyone at the moment.\n- [ ] TODO a feature store migration"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — src/train.py. We might revisit this next quarter. Still open — retraining automation on a weekly cadence. File changed — requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** a 90-day lookback window for features.\nShould we add more coverage?\n**Fault:** non-determinism from an unseeded shuffle.\nGoing forward: quantile clipping on the numeric features."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a model registry entry for the release candidate",
+      "the feature engineering pipeline with 42 features",
+      "SHAP explanations for the top features",
+      "baseline logistic regression at 0.71 AUC",
+      "gradient boosting reaching 0.84 AUC"
+    ],
+    "pending_tasks": [
+      "a feature store migration",
+      "retraining automation on a weekly cadence"
+    ],
+    "decisions": [
+      "quantile clipping on the numeric features",
+      "a 90-day lookback window for features",
+      "Optuna for hyperparameter search"
+    ],
+    "files": [
+      "src/train.py",
+      "data/schema.json",
+      "requirements.txt"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle"
+    ]
+  }
+}

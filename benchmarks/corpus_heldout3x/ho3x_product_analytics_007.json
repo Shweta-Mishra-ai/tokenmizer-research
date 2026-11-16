@@ -1,0 +1,108 @@
+{
+  "id": "ho3x_product_analytics_007",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Amplitude for product analytics."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Agreed. The relevant code is in analytics/funnel.sql."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A funnel from signup through first value was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on one primary metric per experiment. We completed a holdout group excluded from all experiments yesterday. Have a look at analytics/segments.sql. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with median rather than mean for the latency metrics?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in tests/test_metrics.py. Okay, doing it. The build is green. Have a look at config/taxonomy.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: extending the cohort window to twelve months. Let's settle on a 95% confidence threshold for experiment calls. The relevant code is in dashboards/north_star.json."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with counting activation on first collaborative action."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Documentation of every metric definition is working now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in notebooks/churn_drivers.ipynb. We're going to use counting monthly actives on a rolling 28-day window."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a holdout group excluded from all experiments",
+      "documentation of every metric definition",
+      "a funnel from signup through first value"
+    ],
+    "pending_tasks": [
+      "extending the cohort window to twelve months"
+    ],
+    "decisions": [
+      "counting monthly actives on a rolling 28-day window",
+      "a 95% confidence threshold for experiment calls",
+      "median rather than mean for the latency metrics",
+      "Amplitude for product analytics",
+      "counting activation on first collaborative action",
+      "one primary metric per experiment"
+    ],
+    "files": [
+      "dashboards/north_star.json",
+      "config/taxonomy.yaml",
+      "notebooks/churn_drivers.ipynb",
+      "analytics/segments.sql",
+      "analytics/funnel.sql",
+      "tests/test_metrics.py"
+    ],
+    "errors": []
+  }
+}

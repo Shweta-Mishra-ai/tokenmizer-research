@@ -1,0 +1,146 @@
+{
+  "id": "ho3x_systems_rust_009",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a compression library."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a compression library now."
+    },
+    {
+      "role": "user",
+      "content": "Arc-swap for the hot config reload sounds like the better deal to me. An arena allocator for the parse nodes sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Cargo.toml ended up with most of the changes. Agreed. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. An async runtime built on tokio went smoothly in the end. We can stop worrying about zero-copy deserialisation of the record header now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from integer overflow in the length calculation."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: a lock-free ring buffer for the writer made it in before the freeze. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Parking_lot mutexes over the std ones is what we'll ship with. tests/roundtrip.rs ended up with most of the changes. Good news: cross-compilation for aarch64 made it in before the freeze. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: fuzzing the input decoder with cargo-fuzz made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "What about a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Adding a tracing subscriber is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Rust 2021 edition with MSRV 1.75 sounds like the better deal to me. Serde with a custom binary format sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Sounds right, on it. src/parser.rs ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Removing the remaining unsafe blocks is the obvious next step. src/buffer.rs ended up with most of the changes. We can stop worrying about a no_std core module now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to a deadlock from lock ordering in the flush path."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rayon for the parallel scan beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from a panic on slice index out of bounds. Once CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "zero-copy deserialisation of the record header",
+      "a no_std core module",
+      "a lock-free ring buffer for the writer",
+      "cross-compilation for aarch64",
+      "fuzzing the input decoder with cargo-fuzz",
+      "an async runtime built on tokio"
+    ],
+    "pending_tasks": [
+      "adding a tracing subscriber",
+      "removing the remaining unsafe blocks"
+    ],
+    "decisions": [
+      "serde with a custom binary format",
+      "rayon for the parallel scan",
+      "arc-swap for the hot config reload",
+      "Rust 2021 edition with MSRV 1.75",
+      "an arena allocator for the parse nodes",
+      "parking_lot mutexes over the std ones"
+    ],
+    "files": [
+      "src/buffer.rs",
+      "Cargo.toml",
+      "tests/roundtrip.rs",
+      "src/parser.rs"
+    ],
+    "errors": [
+      "integer overflow in the length calculation",
+      "a deadlock from lock ordering in the flush path",
+      "a panic on slice index out of bounds"
+    ]
+  }
+}

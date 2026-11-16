@@ -1,0 +1,117 @@
+{
+  "id": "ho3x_research_writing_008",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a conference paper draft."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a conference paper draft."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let permission to cite the internal deployment data slip through the cracks. We may decide to change this later. The reproducibility statement with exact commands? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of paper/references.bib as well."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of figures/architecture.py as well. There were no failures in the nightly run. We can stop worrying about peer feedback incorporated from two reviewers now. Good news: the related work section covering twelve papers made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Bootstrap confidence intervals rather than t-tests is what we'll ship with. We can stop worrying about a limitations section naming the sample size problem now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reporting macro F1 rather than accuracy beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "What about a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "An appendix documenting the corpus construction? Taken care of. The discussion section is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. data/results.json ended up with most of the changes. Good news: figure one showing the system architecture made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A first pass at the methodology section? Taken care of. Do we need more tests? Rewrote parts of Makefile as well. Targeting the workshop deadline rather than the main track beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with a single-column layout for the preprint. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an appendix documenting the corpus construction",
+      "peer feedback incorporated from two reviewers",
+      "the related work section covering twelve papers",
+      "figure one showing the system architecture",
+      "a limitations section naming the sample size problem",
+      "a first pass at the methodology section",
+      "the reproducibility statement with exact commands"
+    ],
+    "pending_tasks": [
+      "permission to cite the internal deployment data",
+      "the discussion section"
+    ],
+    "decisions": [
+      "targeting the workshop deadline rather than the main track",
+      "bootstrap confidence intervals rather than t-tests",
+      "a single-column layout for the preprint",
+      "reporting macro F1 rather than accuracy"
+    ],
+    "files": [
+      "Makefile",
+      "paper/references.bib",
+      "figures/architecture.py",
+      "data/results.json"
+    ],
+    "errors": []
+  }
+}

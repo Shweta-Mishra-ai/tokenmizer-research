@@ -1,0 +1,151 @@
+{
+  "id": "ho4x_data_streaming_010",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an event schema migration."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got the topic layout with twelve partitions per stream over the line."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. The bulk of the diff sits in scripts/replay.py. Windowed aggregation over five-minute tumbling windows is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into consumer lag growing unbounded during the nightly spike. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "My preference would be keying events by aggregate ID for ordering."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `connect/debezium.json`. Sure, on it. Migrating the remaining consumers off the v1 schema is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: a schema registry entry for every event type."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. We resolved to use Avro with a schema registry for the payloads."
+    },
+    {
+      "role": "user",
+      "content": "Pick consumer offsets committed after processing. What if we went with Flink for the stateful stream processing?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Fine by me. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle streams/consumer.py first. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A separate cluster for the analytics workloads is the direction we committed to. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "How is an event schema migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle docker-compose.yml first. Wrapped: consumer group rebalancing tuned for slow consumers."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Fault:** offset commit failures under broker restart.\nFlaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about backpressure handling in the consumer loop anymore."
+    },
+    {
+      "role": "user",
+      "content": "How is an event schema migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Kafka over Kinesis for the event backbone."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the topic layout with twelve partitions per stream",
+      "a schema registry entry for every event type",
+      "backpressure handling in the consumer loop",
+      "consumer group rebalancing tuned for slow consumers",
+      "windowed aggregation over five-minute tumbling windows"
+    ],
+    "pending_tasks": [
+      "migrating the remaining consumers off the v1 schema"
+    ],
+    "decisions": [
+      "Kafka over Kinesis for the event backbone",
+      "keying events by aggregate ID for ordering",
+      "Flink for the stateful stream processing",
+      "a separate cluster for the analytics workloads",
+      "consumer offsets committed after processing",
+      "Avro with a schema registry for the payloads"
+    ],
+    "files": [
+      "scripts/replay.py",
+      "connect/debezium.json",
+      "streams/consumer.py",
+      "docker-compose.yml"
+    ],
+    "errors": [
+      "consumer lag growing unbounded during the nightly spike",
+      "offset commit failures under broker restart"
+    ]
+  }
+}

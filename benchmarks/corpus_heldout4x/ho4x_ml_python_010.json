@@ -1,0 +1,171 @@
+{
+  "id": "ho4x_ml_python_010",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a fraud detection model."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Cross-validation across five folds is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "A fairness audit across customer segments is next up."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention non-determinism from an unseeded shuffle."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. I updated tests/test_features.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a fraud detection model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in src/features.py."
+    },
+    {
+      "role": "user",
+      "content": "Could Evidently for drift reporting work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. The team picked Polars instead of pandas for the feature pipeline."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be a 90-day lookback window for features."
+    },
+    {
+      "role": "assistant",
+      "content": "SHAP explanations for the top features has shipped. A model registry entry for the release candidate is up and working. Sure, on it. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in notebooks/eda.ipynb. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing a CUDA out of memory error at batch size 256. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. The fix lives in src/evaluate.py."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A stratified train/validation/test split is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention a silent dtype coercion dropping precision. An online A/B test against the current model hasn't been started. Optuna for hyperparameter search won the vote."
+    },
+    {
+      "role": "user",
+      "content": "How is a fraud detection model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in quantile clipping on the numeric features."
+    },
+    {
+      "role": "user",
+      "content": "How is a fraud detection model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Makefile. I updated requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Baseline logistic regression at 0.71 AUC has shipped. After review I'll deploy. We have hyperparameter search over 200 trials now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a model registry entry for the release candidate",
+      "baseline logistic regression at 0.71 AUC",
+      "a stratified train/validation/test split",
+      "hyperparameter search over 200 trials",
+      "SHAP explanations for the top features",
+      "cross-validation across five folds"
+    ],
+    "pending_tasks": [
+      "an online A/B test against the current model",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "Optuna for hyperparameter search",
+      "Polars instead of pandas for the feature pipeline",
+      "quantile clipping on the numeric features",
+      "a 90-day lookback window for features",
+      "Evidently for drift reporting"
+    ],
+    "files": [
+      "notebooks/eda.ipynb",
+      "src/features.py",
+      "tests/test_features.py",
+      "requirements.txt",
+      "Makefile",
+      "src/evaluate.py"
+    ],
+    "errors": [
+      "a silent dtype coercion dropping precision",
+      "a CUDA out of memory error at batch size 256",
+      "non-determinism from an unseeded shuffle"
+    ]
+  }
+}

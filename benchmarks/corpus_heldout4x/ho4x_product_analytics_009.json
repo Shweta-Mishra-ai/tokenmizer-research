@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_product_analytics_009",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about deduplication of the double-fired signup event anymore."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Excluding internal accounts from every metric won the vote. The trade-offs all pointed to a 95% confidence threshold for experiment calls. The event taxonomy covering fourteen product actions is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Pick one primary metric per experiment."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — analytics/experiments.py. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with a double-counted signup event inflating the funnel top. I got a funnel from signup through first value over the line. I updated config/taxonomy.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in dashboards/north_star.json."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Weekly retention cohorts over six months has been live since Tuesday with no complaints. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Pick counting activation on first collaborative action. Reporting absolute lift alongside relative feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Should we add more coverage? Fine by me. Path: `analytics/cohorts.sql`."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in analytics/significance.py."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Left to do — a guardrail metric on support ticket volume."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO reconciling the two conflicting active-user counts"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. I got a holdout group excluded from all experiments over the line. The experiment assignment and exposure logging is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication of the double-fired signup event",
+      "weekly retention cohorts over six months",
+      "a funnel from signup through first value",
+      "a holdout group excluded from all experiments",
+      "the experiment assignment and exposure logging",
+      "the event taxonomy covering fourteen product actions"
+    ],
+    "pending_tasks": [
+      "reconciling the two conflicting active-user counts",
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "reporting absolute lift alongside relative",
+      "counting activation on first collaborative action",
+      "excluding internal accounts from every metric",
+      "one primary metric per experiment",
+      "a 95% confidence threshold for experiment calls"
+    ],
+    "files": [
+      "analytics/significance.py",
+      "config/taxonomy.yaml",
+      "analytics/cohorts.sql",
+      "analytics/experiments.py",
+      "dashboards/north_star.json"
+    ],
+    "errors": [
+      "a double-counted signup event inflating the funnel top"
+    ]
+  }
+}

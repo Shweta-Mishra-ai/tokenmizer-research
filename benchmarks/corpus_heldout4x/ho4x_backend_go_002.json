@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_backend_go_002",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a gRPC gateway service."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a gRPC gateway service now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Most of yesterday disappeared into context deadline exceeded on the upstream call. Thanks to a worker pool bounded at 32 goroutines, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "internal/handler/orders.go grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Connection reuse in the HTTP client has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "OpenTelemetry for traces is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. internal/worker/pool.go grew by a couple hundred lines. Had to untangle go.mod first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for sqlc for type-safe database access."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Structured logging with request correlation is behind us now. The gRPC service definition and generated stubs held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own reducing allocations in the serialiser before Friday. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Graceful shutdown on SIGTERM is behind us now. Turns out the slowdown was excessive allocations causing GC pressure all along. Thanks to table-driven tests for the parser, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the mutex with a sharded map keeps getting pushed to next sprint. Had to untangle buf.yaml first. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "connection reuse in the HTTP client",
+      "table-driven tests for the parser",
+      "structured logging with request correlation",
+      "graceful shutdown on SIGTERM",
+      "a worker pool bounded at 32 goroutines",
+      "the gRPC service definition and generated stubs"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map",
+      "reducing allocations in the serialiser"
+    ],
+    "decisions": [
+      "OpenTelemetry for traces",
+      "sqlc for type-safe database access"
+    ],
+    "files": [
+      "go.mod",
+      "internal/worker/pool.go",
+      "internal/handler/orders.go",
+      "buf.yaml"
+    ],
+    "errors": [
+      "context deadline exceeded on the upstream call",
+      "excessive allocations causing GC pressure"
+    ]
+  }
+}

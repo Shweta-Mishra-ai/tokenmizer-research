@@ -1,0 +1,153 @@
+{
+  "id": "ho4x_research_writing_010",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a conference paper draft."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a conference paper draft."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — the artifact submission package. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: peer feedback incorporated from two reviewers. Left to do — a final proofread pass. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "How is a conference paper draft going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. We resolved to use reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] citations normalised to a single bibliography style"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: the page count exceeding the submission limit."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. File changed — paper/related_work.tex."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a conference paper draft?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: reporting macro F1 rather than accuracy. The logs are easier to read now. * paper/main.tex Wrapped: the evaluation table with confidence intervals."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "* data/results.json\nFile changed — Makefile.\n**Finished work:** the related work section covering twelve papers."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Touched file: paper/evaluation.tex."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: figure one showing the system architecture."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `notes/outline.md`."
+    },
+    {
+      "role": "user",
+      "content": "How is a conference paper draft going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use bootstrap confidence intervals rather than t-tests.\n**Finished work:** the reproducibility statement with exact commands.\nAfter review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "How is a conference paper draft going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** an appendix documenting the corpus construction.\nCrash: a numerical inconsistency between the abstract and table three.\nPing me if anything seems wrong."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "figure one showing the system architecture",
+      "the reproducibility statement with exact commands",
+      "the evaluation table with confidence intervals",
+      "the related work section covering twelve papers",
+      "an appendix documenting the corpus construction",
+      "peer feedback incorporated from two reviewers",
+      "citations normalised to a single bibliography style"
+    ],
+    "pending_tasks": [
+      "a final proofread pass",
+      "the artifact submission package"
+    ],
+    "decisions": [
+      "bootstrap confidence intervals rather than t-tests",
+      "reporting per-domain breakdowns in the appendix",
+      "reporting macro F1 rather than accuracy"
+    ],
+    "files": [
+      "paper/evaluation.tex",
+      "data/results.json",
+      "Makefile",
+      "notes/outline.md",
+      "paper/related_work.tex",
+      "paper/main.tex"
+    ],
+    "errors": [
+      "the page count exceeding the submission limit",
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

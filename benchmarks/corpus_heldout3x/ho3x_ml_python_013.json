@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_ml_python_013",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an embedding search service."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an embedding search service now."
+    },
+    {
+      "role": "user",
+      "content": "What about an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge.\nFile: `Makefile`.\nTO DO: a feature store migration.\n**Decided:** ONNX export for the serving runtime."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `requirements.txt`.\nOutstanding: reducing inference latency below 50ms.\nWe may decide to change this later.\n**Shipped:** batch inference over the full customer base."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: drift monitoring on the input distributions. We've decided on Polars instead of pandas for the feature pipeline. The build is green. We've decided on AUC-PR as the primary metric given the imbalance."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented hyperparameter search over 200 trials. Edited: src/features.py. Edited: data/schema.json."
+    },
+    {
+      "role": "user",
+      "content": "Choose quantile clipping on the numeric features."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. I'll summarise at the end. Affected file: notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented class imbalance handling with focal loss. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. File: `src/serve.py`."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: XGBoost over a neural network for tabular data."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "class imbalance handling with focal loss",
+      "batch inference over the full customer base",
+      "hyperparameter search over 200 trials",
+      "drift monitoring on the input distributions"
+    ],
+    "pending_tasks": [
+      "reducing inference latency below 50ms",
+      "a feature store migration"
+    ],
+    "decisions": [
+      "ONNX export for the serving runtime",
+      "XGBoost over a neural network for tabular data",
+      "AUC-PR as the primary metric given the imbalance",
+      "Polars instead of pandas for the feature pipeline",
+      "quantile clipping on the numeric features"
+    ],
+    "files": [
+      "Makefile",
+      "src/features.py",
+      "notebooks/eda.ipynb",
+      "requirements.txt",
+      "src/serve.py",
+      "data/schema.json"
+    ],
+    "errors": []
+  }
+}

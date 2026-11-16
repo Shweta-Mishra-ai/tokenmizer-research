@@ -1,0 +1,163 @@
+{
+  "id": "ho3x_frontend_react_012",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a customer support console."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a customer support console now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — the metrics grid with responsive breakpoints. We may decide to change this later. TO DO: migrating the remaining class components."
+    },
+    {
+      "role": "user",
+      "content": "What about a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/App.tsx`."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/hooks/useMetrics.ts. Backlog: error boundaries around each route. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** layout shift on the chart container."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. We've decided on pnpm as the package manager."
+    },
+    {
+      "role": "user",
+      "content": "What about a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: a Storybook entry for each primitive."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Playwright for end-to-end tests."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/components/DataTable.tsx. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Affected file: vite.config.ts."
+    },
+    {
+      "role": "user",
+      "content": "What about a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** keyboard navigation across the data grid.\nThere were no failures in the nightly run.\nImplemented server-side pagination on the results table."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/routes/dashboard.tsx."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: focus trapping in the modal component."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. * [x] a virtualised list for the 10k-row view"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: memoising the chart data transform. Bug report: stale closure state in the polling hook. Edited: package.json."
+    },
+    {
+      "role": "user",
+      "content": "Choose TypeScript in strict mode."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Result: dark mode using CSS custom properties done. Finished — the empty and loading states for every panel. Okay, doing it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "focus trapping in the modal component",
+      "the metrics grid with responsive breakpoints",
+      "keyboard navigation across the data grid",
+      "dark mode using CSS custom properties",
+      "a virtualised list for the 10k-row view",
+      "the empty and loading states for every panel",
+      "server-side pagination on the results table"
+    ],
+    "pending_tasks": [
+      "a Storybook entry for each primitive",
+      "migrating the remaining class components",
+      "error boundaries around each route",
+      "memoising the chart data transform"
+    ],
+    "decisions": [
+      "TypeScript in strict mode",
+      "Playwright for end-to-end tests",
+      "pnpm as the package manager"
+    ],
+    "files": [
+      "src/routes/dashboard.tsx",
+      "package.json",
+      "vite.config.ts",
+      "src/hooks/useMetrics.ts",
+      "src/components/DataTable.tsx",
+      "src/App.tsx"
+    ],
+    "errors": [
+      "layout shift on the chart container",
+      "stale closure state in the polling hook"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "ho4x_frontend_react_007",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a checkout flow rewrite."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a checkout flow rewrite now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to code splitting on the route boundaries, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the empty and loading states for every panel."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in tests/dashboard.spec.ts. Vitest over Jest for the unit suite is the direction we committed to. We have the toast notification system now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Focus trapping in the modal component went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Offline support for the draft editor is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Touched file: tailwind.config.js."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Session persistence in localStorage came off the board this morning. We haven't done a bundle size budget in CI yet."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Recharts for the visualisations."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated package.json. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the empty and loading states for every panel",
+      "code splitting on the route boundaries",
+      "the toast notification system",
+      "session persistence in localStorage",
+      "focus trapping in the modal component"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "a bundle size budget in CI"
+    ],
+    "decisions": [
+      "Recharts for the visualisations",
+      "Vitest over Jest for the unit suite"
+    ],
+    "files": [
+      "package.json",
+      "tailwind.config.js",
+      "tests/dashboard.spec.ts"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "ho3x_devops_ci_005",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a monorepo pipeline split."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a monorepo pipeline split."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Changes are in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is ruff replacing flake8 and isort. We completed parallel test execution across four shards yesterday. There is a rate limit from the container registry on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "A matrix build over three Python versions is working now. Hitting a race between the parallel shards writing the same fixture in CI. The plan is uv for dependency installation."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Test retries limited to two attempts is the pick. I edited scripts/run_tests.sh. OIDC federation instead of long-lived deploy keys is the pick."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Artifact upload for the failing test logs is sorted. Signed release artifacts was rolled out. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What about a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with a required review from one code owner. Container image build with layer caching was rolled out. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Automated changelog generation on tag is working now. Do we need more tests? There is the pipeline timing out after 60 minutes on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "What about a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "A concurrency group cancelling superseded runs is sorted. I plan to do a merge queue for the busy repositories next."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: a rollback job for failed deploys."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed release artifacts",
+      "a concurrency group cancelling superseded runs",
+      "artifact upload for the failing test logs",
+      "a matrix build over three Python versions",
+      "automated changelog generation on tag",
+      "container image build with layer caching",
+      "parallel test execution across four shards"
+    ],
+    "pending_tasks": [
+      "a merge queue for the busy repositories",
+      "a rollback job for failed deploys"
+    ],
+    "decisions": [
+      "uv for dependency installation",
+      "test retries limited to two attempts",
+      "OIDC federation instead of long-lived deploy keys",
+      "ruff replacing flake8 and isort",
+      "a required review from one code owner"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      "Makefile"
+    ],
+    "errors": [
+      "a race between the parallel shards writing the same fixture",
+      "the pipeline timing out after 60 minutes",
+      "a rate limit from the container registry"
+    ]
+  }
+}

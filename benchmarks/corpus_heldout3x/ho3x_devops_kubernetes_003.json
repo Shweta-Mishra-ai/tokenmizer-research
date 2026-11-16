@@ -1,0 +1,124 @@
+{
+  "id": "ho3x_devops_kubernetes_003",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a production cluster migration now."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** spot instances for the batch workloads.\nNothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: node pressure evictions during the nightly batch. Result: resource requests and limits for all containers done."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: reducing the image sizes on the worker pool. Affected file: charts/api/templates/deployment.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] cluster autoscaler on the spot node group\nFailed jobs are retried twice.\n- argocd/apps/api.yaml\nAction item: moving the remaining cron jobs to Kubernetes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Finished — network policies isolating the payments namespace."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Velero for cluster backups."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — the secrets migration into the external secret store."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Closed: readiness and liveness probes on every workload. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `scripts/rollout.sh`. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on external-secrets backed by Vault."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "resource requests and limits for all containers",
+      "the secrets migration into the external secret store",
+      "cluster autoscaler on the spot node group",
+      "network policies isolating the payments namespace",
+      "readiness and liveness probes on every workload"
+    ],
+    "pending_tasks": [
+      "moving the remaining cron jobs to Kubernetes",
+      "reducing the image sizes on the worker pool"
+    ],
+    "decisions": [
+      "Velero for cluster backups",
+      "spot instances for the batch workloads",
+      "Prometheus and Grafana for metrics",
+      "external-secrets backed by Vault"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "scripts/rollout.sh",
+      "charts/api/templates/deployment.yaml"
+    ],
+    "errors": [
+      "node pressure evictions during the nightly batch"
+    ]
+  }
+}

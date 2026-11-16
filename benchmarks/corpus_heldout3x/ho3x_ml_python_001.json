@@ -1,0 +1,127 @@
+{
+  "id": "ho3x_ml_python_001",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a recommendation ranker."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a recommendation ranker."
+    },
+    {
+      "role": "user",
+      "content": "Choose a time-based split to avoid leakage."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — a model registry entry for the release candidate."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/features.py`. Once CI passes I'll merge. Bug report: a CUDA out of memory error at batch size 256. * [x] cross-validation across five folds"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** class imbalance handling with focal loss."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: src/train.py."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: data/schema.json. Bug report: non-determinism from an unseeded shuffle."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a recommendation ranker?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] baseline logistic regression at 0.71 AUC Outstanding: a fairness audit across customer segments. Finished — hyperparameter search over 200 trials."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with XGBoost over a neural network for tabular data."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Finished — batch inference over the full customer base. Action item: shadow deployment against live traffic."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** an offline evaluation against last quarter's data.\nNothing is blocking us right now.\nFile: `Makefile`."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] reducing inference latency below 50ms"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a model registry entry for the release candidate",
+      "hyperparameter search over 200 trials",
+      "batch inference over the full customer base",
+      "baseline logistic regression at 0.71 AUC",
+      "cross-validation across five folds",
+      "an offline evaluation against last quarter's data",
+      "class imbalance handling with focal loss"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic",
+      "a fairness audit across customer segments",
+      "reducing inference latency below 50ms"
+    ],
+    "decisions": [
+      "a time-based split to avoid leakage",
+      "XGBoost over a neural network for tabular data"
+    ],
+    "files": [
+      "data/schema.json",
+      "Makefile",
+      "src/train.py",
+      "src/features.py"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle",
+      "a CUDA out of memory error at batch size 256"
+    ]
+  }
+}

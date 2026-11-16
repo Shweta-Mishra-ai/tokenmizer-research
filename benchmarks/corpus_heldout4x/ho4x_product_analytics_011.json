@@ -1,0 +1,120 @@
+{
+  "id": "ho4x_product_analytics_011",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be a 95% confidence threshold for experiment calls."
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in analytics/experiments.py. Deduplication of the double-fired signup event went in this morning. Should we add more coverage? Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Could counting monthly actives on a rolling 28-day window work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Here's where things stand. Documentation of every metric definition is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got the dashboard tracking the three north star metrics over the line. Instrumenting the mobile funnel is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. I got the experiment assignment and exposure logging over the line. The fix lives in analytics/segments.sql. The team picked reporting absolute lift alongside relative."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in analytics/cohorts.sql. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A segment definition for activated accounts is finished and deployed. Should we add more coverage? A holdout group excluded from all experiments has shipped."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with excluding internal accounts from every metric?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Got hit by the active user count differing 12% between two dashboards in staging. CI is passing. We haven't done a qualitative follow-up with churned accounts yet."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A data dictionary for the product team is next up. Sunsetting the legacy dashboard is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A funnel from signup through first value is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a funnel from signup through first value",
+      "the experiment assignment and exposure logging",
+      "a holdout group excluded from all experiments",
+      "a segment definition for activated accounts",
+      "documentation of every metric definition",
+      "deduplication of the double-fired signup event",
+      "the dashboard tracking the three north star metrics"
+    ],
+    "pending_tasks": [
+      "instrumenting the mobile funnel",
+      "a qualitative follow-up with churned accounts",
+      "a data dictionary for the product team",
+      "sunsetting the legacy dashboard"
+    ],
+    "decisions": [
+      "counting monthly actives on a rolling 28-day window",
+      "excluding internal accounts from every metric",
+      "a 95% confidence threshold for experiment calls",
+      "reporting absolute lift alongside relative"
+    ],
+    "files": [
+      "analytics/experiments.py",
+      "analytics/cohorts.sql",
+      "analytics/segments.sql"
+    ],
+    "errors": [
+      "the active user count differing 12% between two dashboards"
+    ]
+  }
+}

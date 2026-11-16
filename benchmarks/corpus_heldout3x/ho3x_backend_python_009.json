@@ -1,0 +1,104 @@
+{
+  "id": "ho3x_backend_python_009",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a Django billing API."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a Django billing API now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- requirements.txt"
+    },
+    {
+      "role": "user",
+      "content": "Choose Postgres over MySQL for JSONB support."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Redis for refresh token storage."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Edited: api/orders.py. Closed: pytest fixtures for a throwaway database."
+    },
+    {
+      "role": "user",
+      "content": "What about a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — soft deletes on the tenant table."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests?\n* [x] a health check endpoint at /healthz\n- migrations/env.py\nOutstanding: audit logging for admin actions."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: a load test against the order path."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Implemented connection pooling against Postgres."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "- api/deps.py\nOnce CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "connection pooling against Postgres",
+      "pytest fixtures for a throwaway database",
+      "a health check endpoint at /healthz"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table",
+      "audit logging for admin actions",
+      "a load test against the order path"
+    ],
+    "decisions": [
+      "Redis for refresh token storage",
+      "Postgres over MySQL for JSONB support"
+    ],
+    "files": [
+      "requirements.txt",
+      "migrations/env.py",
+      "api/orders.py",
+      "api/deps.py"
+    ],
+    "errors": []
+  }
+}

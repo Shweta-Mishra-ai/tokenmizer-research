@@ -1,0 +1,160 @@
+{
+  "id": "ho3x_platform_api_012",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a versioning strategy rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a versioning strategy rollout."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with JSON only, no XML support."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: api/routes/webhooks.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented at-least-once webhook delivery with retries. Edited: docs/api/changelog.md."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] webhook signature verification Bug report: an SDK deserialisation failure on a new nullable field."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose a six-month deprecation window."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Choice: ISO 8601 timestamps in UTC."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: api/auth.py."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — an API changelog published with each release. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Chose cursor pagination rather than offset."
+    },
+    {
+      "role": "user",
+      "content": "Choose exponential backoff with jitter for webhook retries."
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented request/response logging with PII stripped. Okay, doing it. Next task — field-level filtering on the large resources."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "- gateway/kong.yaml\nOutstanding: a conformance test suite for the SDKs."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- sdk/python/client.py\nNothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Switch to URL-based versioning over header negotiation."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now.\n- api/pagination.py"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an API changelog published with each release",
+      "at-least-once webhook delivery with retries",
+      "webhook signature verification",
+      "request/response logging with PII stripped"
+    ],
+    "pending_tasks": [
+      "a conformance test suite for the SDKs",
+      "field-level filtering on the large resources"
+    ],
+    "decisions": [
+      "a six-month deprecation window",
+      "cursor pagination rather than offset",
+      "exponential backoff with jitter for webhook retries",
+      "URL-based versioning over header negotiation",
+      "JSON only, no XML support",
+      "ISO 8601 timestamps in UTC"
+    ],
+    "files": [
+      "sdk/python/client.py",
+      "gateway/kong.yaml",
+      "docs/api/changelog.md",
+      "api/auth.py",
+      "api/pagination.py",
+      "api/routes/webhooks.py"
+    ],
+    "errors": [
+      "an SDK deserialisation failure on a new nullable field"
+    ]
+  }
+}

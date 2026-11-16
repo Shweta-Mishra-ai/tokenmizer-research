@@ -1,0 +1,126 @@
+{
+  "id": "ho3x_platform_api_005",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an API gateway migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an API gateway migration."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in api/errors.py."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with OAuth 2.0 client credentials for machine access?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. I've got SDK generation for three languages up and running. Let's settle on cursor pagination rather than offset. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Hitting cursor pagination skipping rows during concurrent writes in CI. Webhook signature verification was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an API gateway migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is exponential backoff with jitter for webhook retries."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got idempotency keys on all write operations up and running. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We need GraphQL as an alternative surface before launch. Let's settle on OpenAPI as the source of truth for SDK generation. A deprecation header on the v1 routes was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. The relevant code is in api/pagination.py."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Customers are hitting an SDK deserialisation failure on a new nullable field."
+    },
+    {
+      "role": "user",
+      "content": "What about an API gateway migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting inconsistent 404 versus 403 on unauthorised resources in CI. At-least-once webhook delivery with retries has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in api/ratelimit.py. I edited openapi/v2.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "webhook signature verification",
+      "idempotency keys on all write operations",
+      "a deprecation header on the v1 routes",
+      "SDK generation for three languages",
+      "at-least-once webhook delivery with retries"
+    ],
+    "pending_tasks": [
+      "GraphQL as an alternative surface"
+    ],
+    "decisions": [
+      "OpenAPI as the source of truth for SDK generation",
+      "cursor pagination rather than offset",
+      "OAuth 2.0 client credentials for machine access",
+      "exponential backoff with jitter for webhook retries"
+    ],
+    "files": [
+      "api/errors.py",
+      "api/pagination.py",
+      "openapi/v2.yaml",
+      "api/ratelimit.py"
+    ],
+    "errors": [
+      "inconsistent 404 versus 403 on unauthorised resources",
+      "an SDK deserialisation failure on a new nullable field",
+      "cursor pagination skipping rows during concurrent writes"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_backend_python_002",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a Django billing API."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a Django billing API."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. SQLAlchemy 2.0 with the async engine won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Got hit by a memory leak in the long-lived session object in staging."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in tests/test_orders.py. We'll run with Pydantic v2 for request validation. Idempotency keys on the order create path is up and working. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with bcrypt for password hashing?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Input validation on the payment payload went in this morning. I'll post a recap later. We'll run with Python 3.12 as the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated api/orders.py."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Details are in docker-compose.yml."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? We have POST /api/orders and GET /api/orders/{id} now. Details are in requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be UUIDv7 primary keys instead of integers."
+    },
+    {
+      "role": "assistant",
+      "content": "Rate limiting on the auth routes remains open. Fine by me. Production is showing a 500 from an unhandled TimeoutError in the payment client."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Redis for refresh token storage?"
+    },
+    {
+      "role": "assistant",
+      "content": "Background retry for failed webhook deliveries has shipped. Flaky jobs get one automatic retry. Sure, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "input validation on the payment payload",
+      "idempotency keys on the order create path",
+      "background retry for failed webhook deliveries",
+      "POST /api/orders and GET /api/orders/{id}"
+    ],
+    "pending_tasks": [
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "SQLAlchemy 2.0 with the async engine",
+      "Python 3.12 as the runtime",
+      "Redis for refresh token storage",
+      "bcrypt for password hashing",
+      "UUIDv7 primary keys instead of integers",
+      "Pydantic v2 for request validation"
+    ],
+    "files": [
+      "tests/test_orders.py",
+      "api/orders.py",
+      "docker-compose.yml",
+      "requirements.txt"
+    ],
+    "errors": [
+      "a 500 from an unhandled TimeoutError in the payment client",
+      "a memory leak in the long-lived session object"
+    ]
+  }
+}

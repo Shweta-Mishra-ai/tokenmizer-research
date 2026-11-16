@@ -1,0 +1,117 @@
+{
+  "id": "ho3x_devops_kubernetes_011",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a production cluster migration now."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with ArgoCD for GitOps delivery."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the Helm chart for the API deployment. There were no failures in the nightly run. Affected file: scripts/rollout.sh."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** the secrets migration into the external secret store.\nBug report: CrashLoopBackOff after the config map rename.\nChose Trivy for image scanning in CI."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented cluster autoscaler on the spot node group."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: k8s/networkpolicy.yaml.\nImplemented the ingress with automatic certificate renewal.\n**Decided:** Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: charts/api/values.yaml. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on Kustomize overlays per environment. Affected file: argocd/apps/api.yaml. File: `.github/workflows/deploy.yml`."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: charts/api/templates/deployment.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — moving the remaining cron jobs to Kubernetes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the secrets migration into the external secret store",
+      "the Helm chart for the API deployment",
+      "cluster autoscaler on the spot node group",
+      "the ingress with automatic certificate renewal"
+    ],
+    "pending_tasks": [
+      "moving the remaining cron jobs to Kubernetes"
+    ],
+    "decisions": [
+      "Prometheus and Grafana for metrics",
+      "Kustomize overlays per environment",
+      "Trivy for image scanning in CI",
+      "ArgoCD for GitOps delivery"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "charts/api/templates/deployment.yaml",
+      "scripts/rollout.sh",
+      "k8s/networkpolicy.yaml",
+      "charts/api/values.yaml",
+      ".github/workflows/deploy.yml"
+    ],
+    "errors": [
+      "CrashLoopBackOff after the config map rename"
+    ]
+  }
+}

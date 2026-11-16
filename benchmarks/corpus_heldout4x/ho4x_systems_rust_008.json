@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_systems_rust_008",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a storage engine prototype."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a storage engine prototype."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in a workspace layout with three crates."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with rayon for the parallel scan. A compatibility shim for the old format hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "A miri run over the concurrency tests is still owed to the client. We haven't done publishing the crate to crates.io yet."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention integer overflow in the length calculation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have fuzzing the input decoder with cargo-fuzz now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "SIMD acceleration on the checksum path went in this morning. We have a no_std core module now. The streaming parser over a bounded buffer is finished and deployed. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in src/lib.rs. We'll run with parking_lot mutexes over the std ones."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. We haven't done reducing the binary size below 2MB yet. I updated Cargo.toml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SIMD acceleration on the checksum path",
+      "fuzzing the input decoder with cargo-fuzz",
+      "the streaming parser over a bounded buffer",
+      "a no_std core module"
+    ],
+    "pending_tasks": [
+      "a miri run over the concurrency tests",
+      "a compatibility shim for the old format",
+      "reducing the binary size below 2MB",
+      "publishing the crate to crates.io"
+    ],
+    "decisions": [
+      "rayon for the parallel scan",
+      "a workspace layout with three crates",
+      "parking_lot mutexes over the std ones"
+    ],
+    "files": [
+      "src/lib.rs",
+      "Cargo.toml"
+    ],
+    "errors": [
+      "integer overflow in the length calculation"
+    ]
+  }
+}

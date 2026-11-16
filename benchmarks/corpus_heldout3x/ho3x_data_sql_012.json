@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_data_sql_012",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a query performance pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a query performance pass now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. models/marts/dim_customer.sql ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards soft deletes with a valid_to column."
+    },
+    {
+      "role": "assistant",
+      "content": "Surrogate keys across the dimension tables went smoothly in the end. The build is green. Row count reconciliation against the source system went smoothly in the end. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards an ELT rather than ETL pattern."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. UTC everywhere for timestamps is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Archiving events older than two years is waiting for someone to pick it up. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consolidating the three customer definitions is the obvious next step. Don't let retiring the legacy reporting views slip through the cracks. Most of the work happened inside tests/schema.yml."
+    },
+    {
+      "role": "user",
+      "content": "Snowflake over BigQuery for the warehouse sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Do we need more tests? Freshness tests on every source table went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside dags/daily_refresh.py. Nobody has touched moving the nightly job to an hourly cadence yet. Everyone was happy with Kafka for the event transport."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of models/marts/fct_orders.sql as well. Most of the work happened inside sql/indexes.sql."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "row count reconciliation against the source system",
+      "surrogate keys across the dimension tables",
+      "freshness tests on every source table"
+    ],
+    "pending_tasks": [
+      "archiving events older than two years",
+      "retiring the legacy reporting views",
+      "moving the nightly job to an hourly cadence",
+      "consolidating the three customer definitions"
+    ],
+    "decisions": [
+      "soft deletes with a valid_to column",
+      "an ELT rather than ETL pattern",
+      "Kafka for the event transport",
+      "Snowflake over BigQuery for the warehouse",
+      "UTC everywhere for timestamps"
+    ],
+    "files": [
+      "tests/schema.yml",
+      "models/marts/fct_orders.sql",
+      "dags/daily_refresh.py",
+      "models/marts/dim_customer.sql",
+      "sql/indexes.sql"
+    ],
+    "errors": []
+  }
+}

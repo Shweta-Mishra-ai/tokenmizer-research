@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_platform_api_001",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a versioning strategy rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a versioning strategy rollout."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in JSON only, no XML support. The logs are easier to read now. The fix lives in sdk/python/client.py. I got per-key rate limits with headers exposing the budget over the line."
+    },
+    {
+      "role": "user",
+      "content": "Could URL-based versioning over header negotiation work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The sandbox environment for partner testing has shipped. Sure, on it. Spotted webhook deliveries duplicated after a consumer timeout today."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated tests/test_webhooks.py. Webhook signature verification went in this morning. I've locked in RFC 7807 problem details for errors."
+    },
+    {
+      "role": "user",
+      "content": "How is a versioning strategy rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in OpenAPI as the source of truth for SDK generation. See the diff in api/pagination.py."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked a six-month deprecation window. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "A deprecation header on the v1 routes is finished and deployed. The fix lives in openapi/v2.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. A usage dashboard for API consumers is next up."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I got SDK generation for three languages over the line. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked ISO 8601 timestamps in UTC."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in gateway/kong.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the sandbox environment for partner testing",
+      "a deprecation header on the v1 routes",
+      "per-key rate limits with headers exposing the budget",
+      "webhook signature verification",
+      "SDK generation for three languages"
+    ],
+    "pending_tasks": [
+      "a usage dashboard for API consumers"
+    ],
+    "decisions": [
+      "OpenAPI as the source of truth for SDK generation",
+      "URL-based versioning over header negotiation",
+      "ISO 8601 timestamps in UTC",
+      "JSON only, no XML support",
+      "RFC 7807 problem details for errors",
+      "a six-month deprecation window"
+    ],
+    "files": [
+      "api/pagination.py",
+      "tests/test_webhooks.py",
+      "gateway/kong.yaml",
+      "sdk/python/client.py",
+      "openapi/v2.yaml"
+    ],
+    "errors": [
+      "webhook deliveries duplicated after a consumer timeout"
+    ]
+  }
+}

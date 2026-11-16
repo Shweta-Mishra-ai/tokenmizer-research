@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_data_sql_004",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a query performance pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a query performance pass."
+    },
+    {
+      "role": "user",
+      "content": "Soft deletes with a valid_to column feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. After the spike, a medallion bronze/silver/gold layout was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "How is a query performance pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Parquet as the landing format is the direction we committed to. Most of yesterday disappeared into duplicate rows from a non-unique natural key. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in profiles.yml. We might revisit this next quarter. Incremental models for the daily aggregates held up fine through the whole load test. Thanks to backfilling six months of historical revenue, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tests/schema.yml. The bulk of the diff sits in dbt_project.yml. Nothing is waiting on anyone at the moment. The pager went off twice overnight because of a full table scan on the unpartitioned events table."
+    },
+    {
+      "role": "user",
+      "content": "How is a query performance pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, consolidating the three customer definitions is where attention goes. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Deduplication on the raw event stream is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about surrogate keys across the dimension tables anymore. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "How is a query performance pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to freshness tests on every source table, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about a covering index on the customer lookup anymore. Nobody needs to think about partitioning the events table by month anymore. Unit tests for the revenue macro keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Dbt for the transformation layer feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication on the raw event stream",
+      "surrogate keys across the dimension tables",
+      "freshness tests on every source table",
+      "incremental models for the daily aggregates",
+      "partitioning the events table by month",
+      "backfilling six months of historical revenue",
+      "a covering index on the customer lookup"
+    ],
+    "pending_tasks": [
+      "unit tests for the revenue macro",
+      "consolidating the three customer definitions"
+    ],
+    "decisions": [
+      "dbt for the transformation layer",
+      "Parquet as the landing format",
+      "soft deletes with a valid_to column",
+      "a medallion bronze/silver/gold layout"
+    ],
+    "files": [
+      "dbt_project.yml",
+      "profiles.yml",
+      "tests/schema.yml"
+    ],
+    "errors": [
+      "duplicate rows from a non-unique natural key",
+      "a full table scan on the unpartitioned events table"
+    ]
+  }
+}

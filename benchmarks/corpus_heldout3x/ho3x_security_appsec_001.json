@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_security_appsec_001",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a compliance readiness review."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer.\nAutomated dependency updates is the obvious next step.\n- security/redaction.py"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with Dependabot for dependency updates."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — encrypted secrets at rest in the vault."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** signed container images in the registry.\nRate limiting on the password reset endpoint went smoothly in the end.\nI've got rotation of the leaked deploy key up and running."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: field-level encryption for PII columns. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Trivy for container image scanning."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited api/auth.py.\n**Issue:** an SSRF in the webhook fetcher.\nWe ran into an open redirect on the login return URL.\nDo we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside .gitleaks.toml. CSP headers on all rendered responses has been merged. Action item: a threat model for the payments flow."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Short-lived tokens with refresh rotation is what we'll ship with.\n- config/csp.json"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "CSP headers on all rendered responses",
+      "rate limiting on the password reset endpoint",
+      "signed container images in the registry",
+      "rotation of the leaked deploy key",
+      "encrypted secrets at rest in the vault"
+    ],
+    "pending_tasks": [
+      "a threat model for the payments flow",
+      "automated dependency updates"
+    ],
+    "decisions": [
+      "field-level encryption for PII columns",
+      "short-lived tokens with refresh rotation",
+      "Dependabot for dependency updates",
+      "Trivy for container image scanning"
+    ],
+    "files": [
+      "api/auth.py",
+      ".gitleaks.toml",
+      "config/csp.json",
+      "security/redaction.py"
+    ],
+    "errors": [
+      "an open redirect on the login return URL",
+      "an SSRF in the webhook fetcher"
+    ]
+  }
+}

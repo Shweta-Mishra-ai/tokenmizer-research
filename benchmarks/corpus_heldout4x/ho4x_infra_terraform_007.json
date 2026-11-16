@@ -1,0 +1,123 @@
+{
+  "id": "ho4x_infra_terraform_007",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a compliance baseline rollout."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** S3 lifecycle rules moving logs to Glacier after 90 days."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed an RDS instance with automated backups."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — policy-as-code checks in the plan stage. Ping me if anything seems wrong. Known defect — an S3 bucket name collision across accounts."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — terraform/backend.tf."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: subnet exhaustion in the primary availability zone. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — CloudWatch alarms on the error rate metric. We resolved to use Aurora Postgres over standard RDS."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Checkov for policy scanning.\n* .github/workflows/plan.yml"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Wrapped: IAM roles scoped per service."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed remote state in S3 with DynamoDB locking. Should we add more coverage? Wrapped: a read replica in the secondary region."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\n- [X] the VPC with public and private subnets across three zones"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "CloudWatch alarms on the error rate metric",
+      "an RDS instance with automated backups",
+      "remote state in S3 with DynamoDB locking",
+      "IAM roles scoped per service",
+      "the VPC with public and private subnets across three zones",
+      "a read replica in the secondary region"
+    ],
+    "pending_tasks": [
+      "policy-as-code checks in the plan stage"
+    ],
+    "decisions": [
+      "Aurora Postgres over standard RDS",
+      "S3 lifecycle rules moving logs to Glacier after 90 days",
+      "Checkov for policy scanning"
+    ],
+    "files": [
+      "terraform/backend.tf",
+      ".github/workflows/plan.yml"
+    ],
+    "errors": [
+      "subnet exhaustion in the primary availability zone",
+      "an S3 bucket name collision across accounts"
+    ]
+  }
+}

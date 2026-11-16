@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_ml_python_011",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a document classifier."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to Evidently for drift reporting. The pager went off twice overnight because of target leakage from a post-outcome feature. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into NaN losses after the learning rate change. We can't call this finished while a feature store migration is missing. Turns out the slowdown was a CUDA out of memory error at batch size 256 all along. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to MLflow for experiment tracking. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Polars instead of pandas for the feature pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "notebooks/eda.ipynb grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to class imbalance handling with focal loss, the on-call pages stopped. After review I'll deploy. Nobody argued once they saw the numbers for a 90-day lookback window for features. Had to untangle data/schema.json first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle src/serve.py first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Hyperparameter search over 200 trials came off the board this morning. We can't call this finished while calibrating the output probabilities is missing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The trade-offs all pointed to a time-based split to avoid leakage. Cross-validation across five folds came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Sentence-transformers for the text embeddings feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Gradient boosting reaching 0.84 AUC held up fine through the whole load test. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "gradient boosting reaching 0.84 AUC",
+      "class imbalance handling with focal loss",
+      "cross-validation across five folds"
+    ],
+    "pending_tasks": [
+      "calibrating the output probabilities",
+      "a feature store migration"
+    ],
+    "decisions": [
+      "Evidently for drift reporting",
+      "Polars instead of pandas for the feature pipeline",
+      "a time-based split to avoid leakage",
+      "MLflow for experiment tracking",
+      "a 90-day lookback window for features",
+      "sentence-transformers for the text embeddings"
+    ],
+    "files": [
+      "notebooks/eda.ipynb",
+      "src/serve.py",
+      "data/schema.json"
+    ],
+    "errors": [
+      "NaN losses after the learning rate change",
+      "a CUDA out of memory error at batch size 256",
+      "target leakage from a post-outcome feature"
+    ]
+  }
+}

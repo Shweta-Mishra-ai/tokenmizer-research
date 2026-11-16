@@ -1,0 +1,93 @@
+{
+  "id": "ho3x_backend_go_002",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an event consumer."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an event consumer now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The retry policy with exponential backoff? Taken care of. If this fails again we will revisit the design. Structured logging with request correlation? Taken care of. Rewrote parts of go.mod as well."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A monorepo layout with internal packages beat the alternatives on every axis we care about. Go 1.23 as the toolchain is what we'll ship with. Nothing is blocking us right now. Protobuf schema versioning went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let vendoring the internal proto definitions slip through the cracks. There were no failures in the nightly run. The root cause turned out to be connection churn exhausting ephemeral ports. We can stop worrying about table-driven tests for the parser now."
+    },
+    {
+      "role": "user",
+      "content": "Sqlc for type-safe database access sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Okay, doing it. proto/orders.proto ended up with most of the changes. What broke the release was excessive allocations causing GC pressure."
+    },
+    {
+      "role": "user",
+      "content": "What about an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of cmd/server/main.go as well."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Makefile ended up with most of the changes. Graceful shutdown on SIGTERM went smoothly in the end. The gRPC service definition and generated stubs? Taken care of."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "table-driven tests for the parser",
+      "structured logging with request correlation",
+      "graceful shutdown on SIGTERM",
+      "the gRPC service definition and generated stubs",
+      "the retry policy with exponential backoff",
+      "protobuf schema versioning"
+    ],
+    "pending_tasks": [
+      "vendoring the internal proto definitions"
+    ],
+    "decisions": [
+      "a monorepo layout with internal packages",
+      "sqlc for type-safe database access",
+      "Go 1.23 as the toolchain"
+    ],
+    "files": [
+      "go.mod",
+      "proto/orders.proto",
+      "Makefile",
+      "cmd/server/main.go"
+    ],
+    "errors": [
+      "excessive allocations causing GC pressure",
+      "connection churn exhausting ephemeral ports"
+    ]
+  }
+}

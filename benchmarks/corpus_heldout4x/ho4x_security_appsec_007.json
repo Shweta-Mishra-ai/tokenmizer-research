@@ -1,0 +1,122 @@
+{
+  "id": "ho4x_security_appsec_007",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a dependency audit."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Audit log retention policy is waiting on us. Production is showing session fixation after login."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in policy/egress.yaml. See the diff in .github/workflows/security.yml. We haven't done a security runbook for incident response yet."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked OIDC for single sign-on. We have dependency pinning with a lockfile now. Least-privilege IAM roles for the workers went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Signed container images in the registry has shipped. Details are in security/redaction.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a dependency audit going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rotation of the leaked deploy key went in this morning. Spotted an SSRF in the webhook fetcher today. A review of the CORS allowlist remains open."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in Dependabot for dependency updates."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. See the diff in config/csp.json. The fix lives in docs/threat-model.md."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. We're standardising on gitleaks as a pre-commit hook. Automated dependency updates remains open. We're standardising on a 90-day key rotation schedule."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in .gitleaks.toml. We're standardising on field-level encryption for PII columns."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rotation of the leaked deploy key",
+      "signed container images in the registry",
+      "dependency pinning with a lockfile",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist",
+      "automated dependency updates",
+      "a security runbook for incident response",
+      "audit log retention policy"
+    ],
+    "decisions": [
+      "field-level encryption for PII columns",
+      "OIDC for single sign-on",
+      "Dependabot for dependency updates",
+      "a 90-day key rotation schedule",
+      "gitleaks as a pre-commit hook"
+    ],
+    "files": [
+      "policy/egress.yaml",
+      "config/csp.json",
+      "security/redaction.py",
+      ".gitleaks.toml",
+      ".github/workflows/security.yml",
+      "docs/threat-model.md"
+    ],
+    "errors": [
+      "session fixation after login",
+      "an SSRF in the webhook fetcher"
+    ]
+  }
+}

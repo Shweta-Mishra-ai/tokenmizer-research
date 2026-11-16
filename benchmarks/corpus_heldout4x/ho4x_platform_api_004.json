@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_platform_api_004",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a public API v2 design."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — gateway/kong.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed SDK generation for three languages."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** idempotency keys on all write operations.\n- [X] per-key rate limits with headers exposing the budget"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — docs/api/changelog.md.\n**Fault:** webhook deliveries duplicated after a consumer timeout."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Consensus: OpenAPI as the source of truth for SDK generation. File changed — api/pagination.py. Outage: inconsistent 404 versus 403 on unauthorised resources."
+    },
+    {
+      "role": "user",
+      "content": "How is a public API v2 design going?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. We resolved to use RFC 7807 problem details for errors."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter.\n**Pending:** GraphQL as an alternative surface.\n* api/auth.py"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — tests/test_webhooks.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: openapi/v2.yaml.\nIf this breaks later we can roll back.\n**Fault:** cursor pagination skipping rows during concurrent writes."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: request/response logging with PII stripped."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "idempotency keys on all write operations",
+      "SDK generation for three languages",
+      "per-key rate limits with headers exposing the budget",
+      "request/response logging with PII stripped"
+    ],
+    "pending_tasks": [
+      "GraphQL as an alternative surface"
+    ],
+    "decisions": [
+      "OpenAPI as the source of truth for SDK generation",
+      "RFC 7807 problem details for errors"
+    ],
+    "files": [
+      "openapi/v2.yaml",
+      "api/pagination.py",
+      "tests/test_webhooks.py",
+      "gateway/kong.yaml",
+      "docs/api/changelog.md",
+      "api/auth.py"
+    ],
+    "errors": [
+      "webhook deliveries duplicated after a consumer timeout",
+      "cursor pagination skipping rows during concurrent writes",
+      "inconsistent 404 versus 403 on unauthorised resources"
+    ]
+  }
+}

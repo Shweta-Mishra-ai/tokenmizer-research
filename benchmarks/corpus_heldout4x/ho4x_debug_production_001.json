@@ -1,0 +1,142 @@
+{
+  "id": "ho4x_debug_production_001",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a latency incident investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a latency incident investigation now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. File changed — docs/postmortem.md."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. File changed — logs/analysis.py."
+    },
+    {
+      "role": "user",
+      "content": "Pick a feature flag to disable the suspect path."
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: an alert on the metric that would have caught it. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — memory growing 200MB per hour until restart.\n**Pending:** cleaning up the temporary debug logging.\nLanded a regression test covering the failure mode."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the postmortem document with action items."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: a blameless postmortem format. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed a timeline of the incident from the metrics."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to rolling back before investigating further."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Delivered — the hotfix reverting the connection pool change. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: src/handlers/checkout.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — a permanent fix replacing the hotfix.\nShould we add more coverage?\n**Chosen:** paging on error rate rather than absolute count."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. In the queue: a load test reproducing the traffic pattern."
+    },
+    {
+      "role": "user",
+      "content": "How is a latency incident investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. File changed — monitoring/alerts.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a timeline of the incident from the metrics",
+      "the hotfix reverting the connection pool change",
+      "the postmortem document with action items",
+      "a regression test covering the failure mode"
+    ],
+    "pending_tasks": [
+      "an alert on the metric that would have caught it",
+      "cleaning up the temporary debug logging",
+      "a load test reproducing the traffic pattern",
+      "a permanent fix replacing the hotfix"
+    ],
+    "decisions": [
+      "paging on error rate rather than absolute count",
+      "a blameless postmortem format",
+      "a feature flag to disable the suspect path",
+      "rolling back before investigating further"
+    ],
+    "files": [
+      "src/handlers/checkout.py",
+      "logs/analysis.py",
+      "monitoring/alerts.yaml",
+      "docs/postmortem.md"
+    ],
+    "errors": [
+      "memory growing 200MB per hour until restart"
+    ]
+  }
+}

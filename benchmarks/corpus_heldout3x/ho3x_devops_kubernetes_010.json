@@ -1,0 +1,180 @@
+{
+  "id": "ho3x_devops_kubernetes_010",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a zero-downtime deploy pipeline now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** certificate renewal failing the ACME HTTP challenge."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** cluster autoscaler on the spot node group."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to a 502 during rolling deploys from missing readiness gates. I plan to do a runbook for the failover procedure next."
+    },
+    {
+      "role": "user",
+      "content": "What about a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of scripts/rollout.sh as well."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: OOMKilled pods on the ingestion worker."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "- argocd/apps/api.yaml\nChanges are in terraform/cluster.tf.\nAffected file: k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — consolidating the three ingress controllers. I edited charts/api/values.yaml."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Trivy for image scanning in CI."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The Helm chart for the API deployment has been merged. We can stop worrying about resource requests and limits for all containers now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Closed: a canary stage in the deploy pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need tightening the pod security admission profile before launch.\n**Shipped:** node affinity rules keeping the databases separate."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on Karpenter instead of the cluster autoscaler."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: readiness and liveness probes on every workload made it in before the freeze. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "I'd like a blue-green strategy for the database proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. If this fails again we will revisit the design. Velero for cluster backups is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "k8s/networkpolicy.yaml ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: a rolling deploy with surge and unavailable tuned. Nothing is blocking us right now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "readiness and liveness probes on every workload",
+      "a canary stage in the deploy pipeline",
+      "cluster autoscaler on the spot node group",
+      "node affinity rules keeping the databases separate",
+      "resource requests and limits for all containers",
+      "a rolling deploy with surge and unavailable tuned",
+      "the Helm chart for the API deployment"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "consolidating the three ingress controllers",
+      "tightening the pod security admission profile"
+    ],
+    "decisions": [
+      "a blue-green strategy for the database proxy",
+      "Karpenter instead of the cluster autoscaler",
+      "Velero for cluster backups",
+      "Trivy for image scanning in CI"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "terraform/cluster.tf",
+      "scripts/rollout.sh",
+      "charts/api/values.yaml",
+      "k8s/ingress.yaml",
+      "k8s/networkpolicy.yaml"
+    ],
+    "errors": [
+      "OOMKilled pods on the ingestion worker",
+      "a 502 during rolling deploys from missing readiness gates",
+      "certificate renewal failing the ACME HTTP challenge"
+    ]
+  }
+}

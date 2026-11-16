@@ -1,0 +1,139 @@
+{
+  "id": "ho4x_platform_api_010",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an API gateway migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an API gateway migration now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "OpenAPI as the source of truth for SDK generation is the direction we committed to. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle docs/api/changelog.md first."
+    },
+    {
+      "role": "user",
+      "content": "How is an API gateway migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in api/routes/webhooks.py. After review I'll deploy. After the spike, OAuth 2.0 client credentials for machine access was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Webhook signature verification came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to ISO 8601 timestamps in UTC."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Consistent error envelopes with machine-readable codes held up fine through the whole load test. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A conformance test suite for the SDKs keeps getting pushed to next sprint. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to SDK generation for three languages, the on-call pages stopped. gateway/kong.yaml grew by a couple hundred lines. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about an API changelog published with each release anymore. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Expanding the sandbox data set keeps getting pushed to next sprint. Thanks to the OpenAPI specification for every public route, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "api/errors.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an API gateway migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. sdk/python/client.py grew by a couple hundred lines."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SDK generation for three languages",
+      "consistent error envelopes with machine-readable codes",
+      "the OpenAPI specification for every public route",
+      "webhook signature verification",
+      "an API changelog published with each release"
+    ],
+    "pending_tasks": [
+      "expanding the sandbox data set",
+      "a conformance test suite for the SDKs"
+    ],
+    "decisions": [
+      "OpenAPI as the source of truth for SDK generation",
+      "ISO 8601 timestamps in UTC",
+      "OAuth 2.0 client credentials for machine access"
+    ],
+    "files": [
+      "api/errors.py",
+      "sdk/python/client.py",
+      "api/routes/webhooks.py",
+      "gateway/kong.yaml",
+      "docs/api/changelog.md"
+    ],
+    "errors": []
+  }
+}

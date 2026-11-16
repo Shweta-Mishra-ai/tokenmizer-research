@@ -1,0 +1,146 @@
+{
+  "id": "ho4x_systems_rust_011",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a compression library."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a compression library."
+    },
+    {
+      "role": "user",
+      "content": "How is a compression library going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: criterion benchmarks on the parse loop.\n- [X] property tests over the encoder round trip"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — src/lib.rs."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Still open — a compatibility shim for the old format."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compression library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the streaming parser over a bounded buffer. After review I'll deploy. We resolved to use parking_lot mutexes over the std ones."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Landed zero-copy deserialisation of the record header."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/main.rs I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a deadlock from lock ordering in the flush path. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to an arena allocator for the parse nodes."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `Cargo.toml`. Delivered — cross-compilation for aarch64. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — removing the remaining unsafe blocks. Path: `src/buffer.rs`."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: rayon for the parallel scan."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed fuzzing the input decoder with cargo-fuzz.\n**Fault:** a borrow checker conflict in the writer loop.\nComplete: error types unified behind thiserror."
+    },
+    {
+      "role": "user",
+      "content": "How is a compression library going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** publishing the crate to crates.io.\n* src/parser.rs\nTodo — profiling the allocation hot path."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "property tests over the encoder round trip",
+      "error types unified behind thiserror",
+      "criterion benchmarks on the parse loop",
+      "fuzzing the input decoder with cargo-fuzz",
+      "zero-copy deserialisation of the record header",
+      "cross-compilation for aarch64",
+      "the streaming parser over a bounded buffer"
+    ],
+    "pending_tasks": [
+      "a compatibility shim for the old format",
+      "profiling the allocation hot path",
+      "publishing the crate to crates.io",
+      "removing the remaining unsafe blocks"
+    ],
+    "decisions": [
+      "rayon for the parallel scan",
+      "an arena allocator for the parse nodes",
+      "parking_lot mutexes over the std ones"
+    ],
+    "files": [
+      "src/lib.rs",
+      "src/buffer.rs",
+      "Cargo.toml",
+      "src/main.rs",
+      "src/parser.rs"
+    ],
+    "errors": [
+      "a deadlock from lock ordering in the flush path",
+      "a borrow checker conflict in the writer loop"
+    ]
+  }
+}

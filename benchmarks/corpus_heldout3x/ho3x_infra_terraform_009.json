@@ -1,0 +1,137 @@
+{
+  "id": "ho3x_infra_terraform_009",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a multi-account AWS layout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a multi-account AWS layout now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Most of the work happened inside terraform/outputs.tf."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a cost anomaly alert yet. Good news: remote state in S3 with DynamoDB locking made it in before the freeze. Here is the updated plan. Tagging enforced through a provider default went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards OIDC for CI authentication into AWS."
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to provider version drift between two engineers. Agreed. We can stop worrying about the VPC with public and private subnets across three zones now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Moving the legacy resources under Terraform is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to subnet exhaustion in the primary availability zone. Once CI passes I'll merge. Good news: a module for the standard service deployment made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the module interfaces is the obvious next step. Having compared the options, Checkov for policy scanning is the best fit. Good news: a read replica in the secondary region made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of terraform/rds.tf as well. Rewrote parts of terraform/variables.tf as well."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "A disaster recovery restore rehearsal is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "IAM roles scoped per service went smoothly in the end. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside terraform/main.tf. Half the afternoon went to a plan diff from an untracked manual console change. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside terraform/iam.tf."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a read replica in the secondary region",
+      "a module for the standard service deployment",
+      "the VPC with public and private subnets across three zones",
+      "remote state in S3 with DynamoDB locking",
+      "IAM roles scoped per service",
+      "tagging enforced through a provider default"
+    ],
+    "pending_tasks": [
+      "moving the legacy resources under Terraform",
+      "a disaster recovery restore rehearsal",
+      "a cost anomaly alert",
+      "documenting the module interfaces"
+    ],
+    "decisions": [
+      "Checkov for policy scanning",
+      "OIDC for CI authentication into AWS"
+    ],
+    "files": [
+      "terraform/main.tf",
+      "terraform/rds.tf",
+      "terraform/outputs.tf",
+      "terraform/variables.tf",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "subnet exhaustion in the primary availability zone",
+      "a plan diff from an untracked manual console change",
+      "provider version drift between two engineers"
+    ]
+  }
+}

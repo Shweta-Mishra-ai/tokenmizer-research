@@ -1,0 +1,99 @@
+{
+  "id": "ho3x_data_sql_008",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a reporting layer rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a reporting layer rebuild."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards hashed surrogate keys for stability."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched an anomaly alert on the daily order count yet. Everyone was happy with Great Expectations for data quality checks. Rewrote parts of dbt_project.yml as well."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, soft deletes with a valid_to column is the best fit. The star schema for the orders fact table went smoothly in the end. We can stop worrying about freshness tests on every source table now. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Dbt for the transformation layer is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to a fan-out join inflating revenue by 3x. I'll summarise at the end. Retiring the legacy reporting views is waiting for someone to pick it up. Everyone was happy with UTC everywhere for timestamps."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards an ELT rather than ETL pattern."
+    },
+    {
+      "role": "assistant",
+      "content": "sql/indexes.sql ended up with most of the changes. Once CI passes I'll merge. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "The slowly changing dimension on customer tier went smoothly in the end."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the star schema for the orders fact table",
+      "the slowly changing dimension on customer tier",
+      "freshness tests on every source table"
+    ],
+    "pending_tasks": [
+      "retiring the legacy reporting views",
+      "an anomaly alert on the daily order count"
+    ],
+    "decisions": [
+      "soft deletes with a valid_to column",
+      "an ELT rather than ETL pattern",
+      "dbt for the transformation layer",
+      "Great Expectations for data quality checks",
+      "UTC everywhere for timestamps",
+      "hashed surrogate keys for stability"
+    ],
+    "files": [
+      "dbt_project.yml",
+      "sql/indexes.sql"
+    ],
+    "errors": [
+      "a fan-out join inflating revenue by 3x"
+    ]
+  }
+}

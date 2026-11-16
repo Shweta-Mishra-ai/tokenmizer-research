@@ -1,0 +1,117 @@
+{
+  "id": "ho4x_frontend_react_004",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Radix primitives for accessible components."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** server-side pagination on the results table.\nSure, on it.\n- [X] the empty and loading states for every panel\nThe logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: stale closure state in the polling hook. Delivered — the metrics grid with responsive breakpoints."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Todo — a Storybook entry for each primitive."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** form validation with inline error messages.\n- [X] the toast notification system\n- [ ] TODO migrating the remaining class components\nI'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Wrapped: keyboard navigation across the data grid."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — memoising the chart data transform. Nothing is waiting on anyone at the moment. Path: `src/components/DataTable.tsx`."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO replacing the date picker with a headless one\nNothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: TypeScript in strict mode. Here's where things stand. Landed a virtualised list for the 10k-row view."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/store/session.ts"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "form validation with inline error messages",
+      "keyboard navigation across the data grid",
+      "a virtualised list for the 10k-row view",
+      "server-side pagination on the results table",
+      "the empty and loading states for every panel",
+      "the toast notification system",
+      "the metrics grid with responsive breakpoints"
+    ],
+    "pending_tasks": [
+      "replacing the date picker with a headless one",
+      "migrating the remaining class components",
+      "a Storybook entry for each primitive",
+      "memoising the chart data transform"
+    ],
+    "decisions": [
+      "Radix primitives for accessible components",
+      "TypeScript in strict mode"
+    ],
+    "files": [
+      "src/components/DataTable.tsx",
+      "src/store/session.ts"
+    ],
+    "errors": [
+      "stale closure state in the polling hook"
+    ]
+  }
+}

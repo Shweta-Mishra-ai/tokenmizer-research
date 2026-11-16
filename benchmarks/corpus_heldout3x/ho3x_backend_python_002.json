@@ -1,0 +1,153 @@
+{
+  "id": "ho3x_backend_python_002",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a FastAPI orders service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a FastAPI orders service."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Alembic for schema migrations?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We need soft deletes on the tenant table before launch. I've got the Alembic baseline migration up and running."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Celery for the background worker?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. I edited api/models.py. We need backfilling created_at on legacy rows before launch. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the email sender behind an interface is still open. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. A health check endpoint at /healthz is working now. We ran into a 500 from an unhandled TimeoutError in the payment client."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Idempotency keys on the order create path is working now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pydantic v2 for request validation is the pick. The plan is bcrypt for password hashing."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at db/session.py. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. The relevant code is in api/main.py."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need rate limiting on the auth routes before launch. Have a look at docker-compose.yml."
+    },
+    {
+      "role": "user",
+      "content": "I'd like pytest-asyncio for the async test suite."
+    },
+    {
+      "role": "assistant",
+      "content": "Pytest fixtures for a throwaway database has been merged. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Request ID middleware for structured logging is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in api/deps.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "pytest fixtures for a throwaway database",
+      "a health check endpoint at /healthz",
+      "idempotency keys on the order create path",
+      "the Alembic baseline migration"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table",
+      "moving the email sender behind an interface",
+      "rate limiting on the auth routes",
+      "backfilling created_at on legacy rows"
+    ],
+    "decisions": [
+      "bcrypt for password hashing",
+      "Pydantic v2 for request validation",
+      "Celery for the background worker",
+      "pytest-asyncio for the async test suite",
+      "Alembic for schema migrations"
+    ],
+    "files": [
+      "db/session.py",
+      "api/models.py",
+      "api/deps.py",
+      "api/main.py",
+      "docker-compose.yml"
+    ],
+    "errors": [
+      "a 500 from an unhandled TimeoutError in the payment client"
+    ]
+  }
+}

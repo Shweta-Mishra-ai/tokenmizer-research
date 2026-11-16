@@ -1,0 +1,130 @@
+{
+  "id": "ho4x_ml_python_013",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an embedding search service."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an embedding search service now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Landed drift monitoring on the input distributions."
+    },
+    {
+      "role": "user",
+      "content": "How is an embedding search service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO calibrating the output probabilities\nNo incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: src/serve.py. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: the evaluation set overlapping the training window. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] batch inference over the full customer base\nShould we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to scikit-learn pipelines for preprocessing."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — Makefile. Fine by me. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: a model registry entry for the release candidate."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Delivered — the feature engineering pipeline with 42 features."
+    },
+    {
+      "role": "user",
+      "content": "Use quantile clipping on the numeric features please."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: reducing inference latency below 50ms. Crash: a silent dtype coercion dropping precision."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: NaN losses after the learning rate change."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a model registry entry for the release candidate",
+      "the feature engineering pipeline with 42 features",
+      "batch inference over the full customer base",
+      "drift monitoring on the input distributions"
+    ],
+    "pending_tasks": [
+      "reducing inference latency below 50ms",
+      "calibrating the output probabilities"
+    ],
+    "decisions": [
+      "scikit-learn pipelines for preprocessing",
+      "quantile clipping on the numeric features"
+    ],
+    "files": [
+      "Makefile",
+      "src/serve.py"
+    ],
+    "errors": [
+      "the evaluation set overlapping the training window",
+      "NaN losses after the learning rate change",
+      "a silent dtype coercion dropping precision"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_mobile_ios_003",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an offline-first notes client."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an offline-first notes client."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to fastlane for the release pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Tests/SyncTests.swift grew by a couple hundred lines. Had to untangle fastlane/Fastfile first. The bulk of the diff sits in Sources/Widgets/ActivityWidget.swift."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "A widget showing today's activity is behind us now. We can't call this finished while handling the offline conflict resolution case is missing. After the spike, The Composable Architecture for state was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was a duplicate record after an interrupted sync all along."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Unit tests for the sync reducer came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "App/Info.plist grew by a couple hundred lines. Should we add more coverage? Sources/Store/WorkoutStore.swift grew by a couple hundred lines. Package.swift grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Somebody has to own watchOS companion app before Friday."
+    },
+    {
+      "role": "user",
+      "content": "How is an offline-first notes client going?"
+    },
+    {
+      "role": "assistant",
+      "content": "IOS 17 as the minimum deployment target is the direction we committed to. Thanks to the HealthKit permission flow, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. A modular package layout per feature is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Background sync with a URLSession task is behind us now. Migrating the remaining UIKit screens is the piece nobody has picked up. I'll post a recap later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "background sync with a URLSession task",
+      "unit tests for the sync reducer",
+      "the HealthKit permission flow",
+      "a widget showing today's activity"
+    ],
+    "pending_tasks": [
+      "watchOS companion app",
+      "migrating the remaining UIKit screens",
+      "handling the offline conflict resolution case"
+    ],
+    "decisions": [
+      "The Composable Architecture for state",
+      "iOS 17 as the minimum deployment target",
+      "fastlane for the release pipeline",
+      "a modular package layout per feature"
+    ],
+    "files": [
+      "Sources/Widgets/ActivityWidget.swift",
+      "Tests/SyncTests.swift",
+      "Package.swift",
+      "fastlane/Fastfile",
+      "Sources/Store/WorkoutStore.swift",
+      "App/Info.plist"
+    ],
+    "errors": [
+      "a duplicate record after an interrupted sync"
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_data_sql_007",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an event pipeline redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an event pipeline redesign."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling six months of historical revenue has been merged. Row count reconciliation against the source system has been merged. I've got the slowly changing dimension on customer tier up and running."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deduplication on the raw event stream was rolled out. I plan to do a cost review of the warehouse spend next. Have a look at dags/daily_refresh.py. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: unit tests for the revenue macro."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with a medallion bronze/silver/gold layout."
+    },
+    {
+      "role": "user",
+      "content": "What about an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Partitioning the events table by month was rolled out. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting timezone drift between the source and warehouse in CI. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Let's settle on incremental materialisation on the large models."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The star schema for the orders fact table is working now. The relevant code is in models/marts/dim_customer.sql. The error messages are now clearer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "backfilling six months of historical revenue",
+      "the star schema for the orders fact table",
+      "deduplication on the raw event stream",
+      "row count reconciliation against the source system",
+      "the slowly changing dimension on customer tier",
+      "partitioning the events table by month"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "a medallion bronze/silver/gold layout",
+      "incremental materialisation on the large models"
+    ],
+    "files": [
+      "models/marts/dim_customer.sql",
+      "dags/daily_refresh.py"
+    ],
+    "errors": [
+      "timezone drift between the source and warehouse"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "ho3x_backend_go_005",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a file transfer service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the config to environment variables still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Go 1.23 as the toolchain."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I edited go.mod. Changes are in Dockerfile. I've got a worker pool bounded at 32 goroutines up and running."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in buf.yaml. Failed jobs are retried twice. Still to do: vendoring the internal proto definitions."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at internal/handler/orders_test.go. Customers are hitting context deadline exceeded on the upstream call. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Customers are hitting excessive allocations causing GC pressure."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: replacing the mutex with a sharded map. Prometheus metrics on the request path has been merged. Protobuf schema versioning was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on testcontainers for integration tests. Have a look at internal/handler/orders.go. We ran into a data race on the shared counter. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Can we try OpenTelemetry for traces?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Profiling the p99 latency spike is on the backlog. The gRPC service definition and generated stubs has been merged."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a worker pool bounded at 32 goroutines",
+      "protobuf schema versioning",
+      "the gRPC service definition and generated stubs",
+      "Prometheus metrics on the request path"
+    ],
+    "pending_tasks": [
+      "moving the config to environment variables",
+      "vendoring the internal proto definitions",
+      "profiling the p99 latency spike",
+      "replacing the mutex with a sharded map"
+    ],
+    "decisions": [
+      "OpenTelemetry for traces",
+      "testcontainers for integration tests",
+      "Go 1.23 as the toolchain"
+    ],
+    "files": [
+      "Dockerfile",
+      "go.mod",
+      "buf.yaml",
+      "internal/handler/orders.go",
+      "internal/handler/orders_test.go"
+    ],
+    "errors": [
+      "excessive allocations causing GC pressure",
+      "a data race on the shared counter",
+      "context deadline exceeded on the upstream call"
+    ]
+  }
+}

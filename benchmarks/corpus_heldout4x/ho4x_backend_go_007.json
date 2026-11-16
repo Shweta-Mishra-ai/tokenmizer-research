@@ -1,0 +1,133 @@
+{
+  "id": "ho4x_backend_go_007",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a gRPC gateway service."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a gRPC gateway service now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Protobuf schema versioning has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without distributed tracing spans across services the launch checklist stays red. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** context propagation through every handler.\nI'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "How is a gRPC gateway service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Graceful shutdown on SIGTERM is up and working. Wrapped: a circuit breaker around the downstream call."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: internal/worker/pool.go."
+    },
+    {
+      "role": "user",
+      "content": "Could NATS for the message transport work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Table-driven tests for the parser is up and working. Nothing is waiting on anyone at the moment. Somebody has to own a fuzz test on the decoder before Friday. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. The trade-offs all pointed to gRPC over REST for internal traffic."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: reducing allocations in the serialiser."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Prometheus metrics on the request path is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is a gRPC gateway service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in internal/handler/orders.go. Spotted a data race on the shared counter today. The gRPC service definition and generated stubs came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Broken: excessive allocations causing GC pressure."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a circuit breaker around the downstream call",
+      "graceful shutdown on SIGTERM",
+      "context propagation through every handler",
+      "Prometheus metrics on the request path",
+      "table-driven tests for the parser",
+      "the gRPC service definition and generated stubs",
+      "protobuf schema versioning"
+    ],
+    "pending_tasks": [
+      "reducing allocations in the serialiser",
+      "a fuzz test on the decoder",
+      "distributed tracing spans across services"
+    ],
+    "decisions": [
+      "NATS for the message transport",
+      "gRPC over REST for internal traffic"
+    ],
+    "files": [
+      "internal/handler/orders.go",
+      "internal/worker/pool.go"
+    ],
+    "errors": [
+      "excessive allocations causing GC pressure",
+      "a data race on the shared counter"
+    ]
+  }
+}

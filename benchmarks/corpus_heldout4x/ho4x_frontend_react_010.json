@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_frontend_react_010",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The empty and loading states for every panel has been live since Tuesday with no complaints. The trade-offs all pointed to Zustand instead of Redux for local state. The bulk of the diff sits in tests/dashboard.spec.ts."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own offline support for the draft editor before Friday. Turns out the slowdown was an infinite re-render from an unstable dependency array all along."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to optimistic updates on the toggle controls, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of a CORS failure against the staging API."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The metrics grid with responsive breakpoints is behind us now. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "How is a checkout flow rewrite going?"
+    },
+    {
+      "role": "assistant",
+      "content": "MSW for mocking the API in tests is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Radix primitives for accessible components feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Focus trapping in the modal component has been live since Tuesday with no complaints. Had to untangle src/hooks/useMetrics.ts first. Tailwind for styling is what everything will be built on from here. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? The toast notification system came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into a memory leak from an unsubscribed event listener. React 19 with the compiler enabled is what everything will be built on from here."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "optimistic updates on the toggle controls",
+      "the metrics grid with responsive breakpoints",
+      "the empty and loading states for every panel",
+      "the toast notification system",
+      "focus trapping in the modal component"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor"
+    ],
+    "decisions": [
+      "React 19 with the compiler enabled",
+      "Zustand instead of Redux for local state",
+      "Tailwind for styling",
+      "MSW for mocking the API in tests",
+      "Radix primitives for accessible components"
+    ],
+    "files": [
+      "tests/dashboard.spec.ts",
+      "src/hooks/useMetrics.ts"
+    ],
+    "errors": [
+      "a CORS failure against the staging API",
+      "a memory leak from an unsubscribed event listener",
+      "an infinite re-render from an unstable dependency array"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_devops_ci_002",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a release automation project."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a release automation project."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of an out of disk space failure on the runner."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tox.ini."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to quarantining the six flakiest tests, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is a release automation project going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pinning all third-party actions by digest keeps getting pushed to next sprint. Had to untangle .github/dependabot.yml first. Publishing test timing history keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a release automation project?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Once the release settles, a rollback job for failed deploys is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. A nightly job running the slow integration suite is behind us now. Had to untangle .pre-commit-config.yaml first. Had to untangle .github/workflows/release.yml first."
+    },
+    {
+      "role": "user",
+      "content": "GitHub Actions over the self-managed runner fleet feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Most of yesterday disappeared into cache corruption producing stale build artifacts. Somebody has to own cutting the pipeline below eight minutes before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makefile grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Uv for dependency installation feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Coverage reporting posted to the pull request is behind us now. Most of yesterday disappeared into a rate limit from the container registry. CI is passing. Signed release artifacts came off the board this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed release artifacts",
+      "a nightly job running the slow integration suite",
+      "quarantining the six flakiest tests",
+      "coverage reporting posted to the pull request"
+    ],
+    "pending_tasks": [
+      "a rollback job for failed deploys",
+      "cutting the pipeline below eight minutes",
+      "pinning all third-party actions by digest",
+      "publishing test timing history"
+    ],
+    "decisions": [
+      "uv for dependency installation",
+      "GitHub Actions over the self-managed runner fleet"
+    ],
+    "files": [
+      ".github/workflows/release.yml",
+      ".pre-commit-config.yaml",
+      "Makefile",
+      ".github/dependabot.yml",
+      "tox.ini"
+    ],
+    "errors": [
+      "cache corruption producing stale build artifacts",
+      "a rate limit from the container registry",
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

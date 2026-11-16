@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_research_writing_007",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an internal architecture RFC."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an internal architecture RFC now."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done shortening to the eight-page limit yet."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. The related work section covering twelve papers has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Spotted a stale results table from an earlier run today. The team picked releasing the corpus alongside the paper. I updated Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. We're standardising on including the negative result on implicit language."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by a numerical inconsistency between the abstract and table three in staging."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with targeting the workshop deadline rather than the main track?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The introduction cut from four pages to two went in this morning. I got a first pass at the methodology section over the line. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reporting macro F1 rather than accuracy won the vote. I've locked in framing the contribution as a measurement study. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in paper/appendix.tex. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Citations normalised to a single bibliography style went in this morning. See the diff in paper/related_work.tex. See the diff in paper/abstract.tex."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the related work section covering twelve papers",
+      "a first pass at the methodology section",
+      "citations normalised to a single bibliography style",
+      "the introduction cut from four pages to two"
+    ],
+    "pending_tasks": [
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "releasing the corpus alongside the paper",
+      "framing the contribution as a measurement study",
+      "targeting the workshop deadline rather than the main track",
+      "including the negative result on implicit language"
+    ],
+    "files": [
+      "Makefile",
+      "paper/abstract.tex",
+      "paper/appendix.tex",
+      "paper/related_work.tex"
+    ],
+    "errors": [
+      "a stale results table from an earlier run",
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

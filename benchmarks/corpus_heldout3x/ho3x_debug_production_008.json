@@ -1,0 +1,140 @@
+{
+  "id": "ho3x_debug_production_008",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a data corruption postmortem."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a data corruption postmortem now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Correlating the errors with the deploy timeline is working now."
+    },
+    {
+      "role": "user",
+      "content": "What about a data corruption postmortem?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Result: bisecting the regression to a single commit done."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a data corruption postmortem?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Changes are in logs/analysis.py."
+    },
+    {
+      "role": "user",
+      "content": "Can we try treating the third-party timeout as the root cause?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Implemented a timeline of the incident from the metrics. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: reverting to the previous library version."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a data corruption postmortem?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outstanding: a follow-up on the third-party client bug report."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- tests/test_regression.py"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with increasing the connection pool as a stopgap."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reproducing the failure in a staging environment went smoothly in the end. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Switch to py-spy for the production profiling."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outstanding: a permanent fix replacing the hotfix. scripts/repro.py ended up with most of the changes. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Choose a feature flag to disable the suspect path."
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on an incident severity of SEV-2. Sounds right, on it. If this fails again we will revisit the design. Finished — ruling out the cache layer as the cause."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "bisecting the regression to a single commit",
+      "reproducing the failure in a staging environment",
+      "ruling out the cache layer as the cause",
+      "correlating the errors with the deploy timeline",
+      "a timeline of the incident from the metrics"
+    ],
+    "pending_tasks": [
+      "a permanent fix replacing the hotfix",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "treating the third-party timeout as the root cause",
+      "increasing the connection pool as a stopgap",
+      "an incident severity of SEV-2",
+      "reverting to the previous library version",
+      "a feature flag to disable the suspect path",
+      "py-spy for the production profiling"
+    ],
+    "files": [
+      "scripts/repro.py",
+      "tests/test_regression.py",
+      "logs/analysis.py"
+    ],
+    "errors": []
+  }
+}

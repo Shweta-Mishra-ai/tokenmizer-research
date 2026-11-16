@@ -1,0 +1,142 @@
+{
+  "id": "ho4x_research_writing_009",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a technical design document."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a technical design document now."
+    },
+    {
+      "role": "user",
+      "content": "How is a technical design document going?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. * paper/evaluation.tex"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — the reproducibility statement with exact commands. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `figures/architecture.py`.\nAfter review I'll deploy.\n**Chosen:** reporting macro F1 rather than accuracy."
+    },
+    {
+      "role": "user",
+      "content": "How is a technical design document going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Releasing the corpus alongside the paper is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: citations normalised to a single bibliography style. I got the related work section covering twelve papers over the line."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to an explicit statement that the corpus is synthetic."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Wrapped: the abstract rewritten to lead with the result. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a numerical inconsistency between the abstract and table three. Figure one showing the system architecture held up fine through the whole load test. Thanks to peer feedback incorporated from two reviewers, the on-call pages stopped. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A plain-language summary for the blog post hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "An appendix documenting the corpus construction is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. We keep seeing the page count exceeding the submission limit."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** including the negative result on implicit language."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an appendix documenting the corpus construction",
+      "citations normalised to a single bibliography style",
+      "peer feedback incorporated from two reviewers",
+      "figure one showing the system architecture",
+      "the related work section covering twelve papers",
+      "the reproducibility statement with exact commands",
+      "the abstract rewritten to lead with the result"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "releasing the corpus alongside the paper",
+      "including the negative result on implicit language",
+      "an explicit statement that the corpus is synthetic"
+    ],
+    "files": [
+      "Makefile",
+      "paper/evaluation.tex",
+      "figures/architecture.py"
+    ],
+    "errors": [
+      "the page count exceeding the submission limit",
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

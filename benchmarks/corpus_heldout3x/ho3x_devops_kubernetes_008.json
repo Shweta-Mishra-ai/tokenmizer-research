@@ -1,0 +1,117 @@
+{
+  "id": "ho3x_devops_kubernetes_008",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a production cluster migration."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need reducing the image sizes on the worker pool before launch."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. The Helm chart for the API deployment is sorted."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Cluster autoscaler on the spot node group was rolled out. Have a look at k8s/hpa.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is Trivy for image scanning in CI."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Kustomize overlays per environment?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Failed jobs are retried twice. Resource requests and limits for all containers is sorted. I edited Dockerfile."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. We found OOMKilled pods on the ingestion worker."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. I edited argocd/apps/api.yaml. Changes are in scripts/rollout.sh. Network policies isolating the payments namespace was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "I'd like cert-manager for TLS certificates."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. I edited k8s/networkpolicy.yaml. Changes are in k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "I'd like external-secrets backed by Vault."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Sounds right, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "network policies isolating the payments namespace",
+      "cluster autoscaler on the spot node group",
+      "the Helm chart for the API deployment",
+      "resource requests and limits for all containers"
+    ],
+    "pending_tasks": [
+      "reducing the image sizes on the worker pool"
+    ],
+    "decisions": [
+      "external-secrets backed by Vault",
+      "cert-manager for TLS certificates",
+      "Kustomize overlays per environment",
+      "Trivy for image scanning in CI"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "k8s/networkpolicy.yaml",
+      "Dockerfile",
+      "scripts/rollout.sh",
+      "k8s/ingress.yaml",
+      "k8s/hpa.yaml"
+    ],
+    "errors": [
+      "OOMKilled pods on the ingestion worker"
+    ]
+  }
+}

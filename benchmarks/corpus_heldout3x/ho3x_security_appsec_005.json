@@ -1,0 +1,137 @@
+{
+  "id": "ho3x_security_appsec_005",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an authentication hardening pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an authentication hardening pass now."
+    },
+    {
+      "role": "user",
+      "content": "Switch to gitleaks as a pre-commit hook."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Everyone was happy with mTLS between internal services. * [x] session invalidation on password change"
+    },
+    {
+      "role": "user",
+      "content": "A deny-by-default egress policy sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "- security/middleware.py\nSounds right, on it.\nLet me know if anything looks off.\n- config/csp.json"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside .github/workflows/security.yml. File: `docs/threat-model.md`. Nobody has touched a review of the CORS allowlist yet."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — an SBOM generated at build time."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed least-privilege IAM roles for the workers yesterday. Half the afternoon went to a path traversal in the file download handler. Rewrote parts of security/redaction.py as well."
+    },
+    {
+      "role": "user",
+      "content": "Choose field-level encryption for PII columns."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. The plan is Argon2id over bcrypt for new password hashes. Outstanding: moving the remaining secrets out of environment files."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use Semgrep in the pull request pipeline. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: a SQL injection in the search filter."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented CSP headers on all rendered responses."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Parameterised queries across the data layer was rolled out."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "CSP headers on all rendered responses",
+      "an SBOM generated at build time",
+      "parameterised queries across the data layer",
+      "session invalidation on password change",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "moving the remaining secrets out of environment files",
+      "a review of the CORS allowlist"
+    ],
+    "decisions": [
+      "mTLS between internal services",
+      "Semgrep in the pull request pipeline",
+      "field-level encryption for PII columns",
+      "a deny-by-default egress policy",
+      "gitleaks as a pre-commit hook",
+      "Argon2id over bcrypt for new password hashes"
+    ],
+    "files": [
+      "security/redaction.py",
+      "security/middleware.py",
+      ".github/workflows/security.yml",
+      "config/csp.json",
+      "docs/threat-model.md"
+    ],
+    "errors": [
+      "a SQL injection in the search filter",
+      "a path traversal in the file download handler"
+    ]
+  }
+}

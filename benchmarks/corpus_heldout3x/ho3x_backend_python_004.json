@@ -1,0 +1,128 @@
+{
+  "id": "ho3x_backend_python_004",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a FastAPI orders service."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a FastAPI orders service."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside api/deps.py."
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. * [x] pagination on the list endpoints"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "There is a memory leak in the long-lived session object on the main branch.\n**Decided:** structlog for JSON log output."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: N+1 queries on the order list endpoint. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched splitting the settings module per environment yet."
+    },
+    {
+      "role": "user",
+      "content": "I'd like pytest-asyncio for the async test suite."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Action item: caching the catalogue lookup. Agreed. Implemented a health check endpoint at /healthz."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: input validation on the payment payload. Agreed approach: Postgres over MySQL for JSONB support. Affected file: docker-compose.yml."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Redis for refresh token storage."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: OpenAPI schema generation for the public routes made it in before the freeze. The User model with email and hashed_password columns is working now. I'll summarise at the end. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of core/config.py as well. Failed: a deadlock between the invoice and ledger updates. Python 3.12 as the runtime beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Rewrote parts of api/models.py as well."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a health check endpoint at /healthz",
+      "OpenAPI schema generation for the public routes",
+      "the User model with email and hashed_password columns",
+      "input validation on the payment payload",
+      "pagination on the list endpoints"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment",
+      "caching the catalogue lookup"
+    ],
+    "decisions": [
+      "Python 3.12 as the runtime",
+      "Postgres over MySQL for JSONB support",
+      "Redis for refresh token storage",
+      "structlog for JSON log output",
+      "pytest-asyncio for the async test suite"
+    ],
+    "files": [
+      "core/config.py",
+      "api/deps.py",
+      "docker-compose.yml",
+      "api/models.py"
+    ],
+    "errors": [
+      "a deadlock between the invoice and ledger updates",
+      "N+1 queries on the order list endpoint",
+      "a memory leak in the long-lived session object"
+    ]
+  }
+}

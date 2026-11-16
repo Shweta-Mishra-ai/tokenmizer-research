@@ -1,0 +1,134 @@
+{
+  "id": "ho4x_research_writing_012",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an internal architecture RFC."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an internal architecture RFC now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to the evaluation table with confidence intervals, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while an ethics statement is missing. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Peer feedback incorporated from two reviewers came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Makefile grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle paper/related_work.tex first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "paper/evaluation.tex grew by a couple hundred lines. Had to untangle paper/references.bib first. Targeting the workshop deadline rather than the main track is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Restructuring the argument around three claims came off the board this morning. The introduction cut from four pages to two held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Most of yesterday disappeared into a numerical inconsistency between the abstract and table three. Figure one showing the system architecture is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bootstrap confidence intervals rather than t-tests is what everything will be built on from here. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. The trade-offs all pointed to an explicit statement that the corpus is synthetic. The pager went off twice overnight because of a stale results table from an earlier run."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, reporting macro F1 rather than accuracy was the clear winner. Nobody argued once they saw the numbers for reporting per-domain breakdowns in the appendix."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "figure one showing the system architecture",
+      "restructuring the argument around three claims",
+      "peer feedback incorporated from two reviewers",
+      "the introduction cut from four pages to two",
+      "the evaluation table with confidence intervals"
+    ],
+    "pending_tasks": [
+      "an ethics statement"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "reporting per-domain breakdowns in the appendix",
+      "an explicit statement that the corpus is synthetic",
+      "bootstrap confidence intervals rather than t-tests",
+      "targeting the workshop deadline rather than the main track"
+    ],
+    "files": [
+      "Makefile",
+      "paper/references.bib",
+      "paper/evaluation.tex",
+      "paper/related_work.tex"
+    ],
+    "errors": [
+      "a stale results table from an earlier run",
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

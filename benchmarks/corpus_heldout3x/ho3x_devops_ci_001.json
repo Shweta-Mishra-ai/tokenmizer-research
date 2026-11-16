@@ -1,0 +1,127 @@
+{
+  "id": "ho3x_devops_ci_001",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a CI pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a CI pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on trunk-based development with short-lived branches. If this fails again we will revisit the design. The relevant code is in .github/workflows/ci.yml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Deduplicating the three near-identical workflows is on the backlog. I edited tox.ini. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in .pre-commit-config.yaml."
+    },
+    {
+      "role": "user",
+      "content": "I'd like test retries limited to two attempts."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Failed jobs are retried twice. I edited Makefile. Let's settle on GitHub Actions over the self-managed runner fleet."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with pytest-xdist for test parallelism?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Okay, doing it. Quarantining the six flakiest tests is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got dependency caching across pipeline runs up and running."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited conftest.py."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with semantic versioning driven by commit messages?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. We found test pollution from an unreset global singleton. Do we need more tests? There is an out of disk space failure on the runner on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at scripts/run_tests.sh. We completed a matrix build over three Python versions yesterday. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Uv for dependency installation is the pick."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dependency caching across pipeline runs",
+      "quarantining the six flakiest tests",
+      "a matrix build over three Python versions"
+    ],
+    "pending_tasks": [
+      "deduplicating the three near-identical workflows"
+    ],
+    "decisions": [
+      "pytest-xdist for test parallelism",
+      "test retries limited to two attempts",
+      "GitHub Actions over the self-managed runner fleet",
+      "semantic versioning driven by commit messages",
+      "trunk-based development with short-lived branches",
+      "uv for dependency installation"
+    ],
+    "files": [
+      ".github/workflows/ci.yml",
+      ".pre-commit-config.yaml",
+      "Makefile",
+      "conftest.py",
+      "scripts/run_tests.sh",
+      "tox.ini"
+    ],
+    "errors": [
+      "test pollution from an unreset global singleton",
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

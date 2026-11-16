@@ -1,0 +1,131 @@
+{
+  "id": "ho4x_backend_python_008",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a Flask webhook receiver."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a Flask webhook receiver."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pagination on the list endpoints came off the board this morning. Complete: POST /api/orders and GET /api/orders/{id}."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to idempotency keys on the order create path, the on-call pages stopped. Consensus: Postgres over MySQL for JSONB support. Complete: request ID middleware for structured logging."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — moving the email sender behind an interface. migrations/env.py grew by a couple hundred lines. Turns out the slowdown was a memory leak in the long-lived session object all along."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in db/session.py. Ping me if anything seems wrong. api/models.py grew by a couple hundred lines. A health check endpoint at /healthz is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Celery for the background worker feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** connection pooling against Postgres.\nThe trade-offs all pointed to pytest-asyncio for the async test suite.\nDetails are in requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. The bulk of the diff sits in api/main.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: splitting the settings module per environment. Landed input validation on the payment payload. Outage: an IntegrityError on duplicate order submission."
+    },
+    {
+      "role": "user",
+      "content": "Bcrypt for password hashing feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Uvicorn behind gunicorn in production feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Fine by me. I updated tests/test_orders.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "connection pooling against Postgres",
+      "input validation on the payment payload",
+      "POST /api/orders and GET /api/orders/{id}",
+      "idempotency keys on the order create path",
+      "a health check endpoint at /healthz",
+      "pagination on the list endpoints"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment",
+      "moving the email sender behind an interface"
+    ],
+    "decisions": [
+      "pytest-asyncio for the async test suite",
+      "bcrypt for password hashing",
+      "Postgres over MySQL for JSONB support",
+      "uvicorn behind gunicorn in production",
+      "Celery for the background worker"
+    ],
+    "files": [
+      "api/models.py",
+      "tests/test_orders.py",
+      "requirements.txt",
+      "api/main.py",
+      "db/session.py",
+      "migrations/env.py"
+    ],
+    "errors": [
+      "an IntegrityError on duplicate order submission",
+      "a memory leak in the long-lived session object"
+    ]
+  }
+}

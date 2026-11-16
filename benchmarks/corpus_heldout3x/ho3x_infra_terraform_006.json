@@ -1,0 +1,144 @@
+{
+  "id": "ho3x_infra_terraform_006",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a multi-account AWS layout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a multi-account AWS layout now."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with private subnets for every compute workload?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests?\nAgreed.\n- environments/prod/terragrunt.hcl\nAction item: a cost anomaly alert."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. We can stop worrying about security groups restricted to named ports now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of modules/service/main.tf as well. I plan to do a drift detection job on a daily schedule next."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: .github/workflows/plan.yml. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about an RDS instance with automated backups now. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: an S3 bucket name collision across accounts. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: provider version drift between two engineers. There were no failures in the nightly run. Let's settle on Checkov for policy scanning."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A hub-and-spoke network topology is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The NAT gateway consolidated to one per region? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** encrypted EBS volumes across all instances.\nChanges are in terraform/variables.tf.\nWhat broke the release was a destroy plan on the production database from a renamed resource."
+    },
+    {
+      "role": "user",
+      "content": "I'd like S3 lifecycle rules moving logs to Glacier after 90 days."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Aurora Postgres over standard RDS?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Still to do: policy-as-code checks in the plan stage. Once CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an RDS instance with automated backups",
+      "security groups restricted to named ports",
+      "encrypted EBS volumes across all instances",
+      "the NAT gateway consolidated to one per region"
+    ],
+    "pending_tasks": [
+      "a cost anomaly alert",
+      "a drift detection job on a daily schedule",
+      "policy-as-code checks in the plan stage"
+    ],
+    "decisions": [
+      "private subnets for every compute workload",
+      "Aurora Postgres over standard RDS",
+      "a hub-and-spoke network topology",
+      "Checkov for policy scanning",
+      "S3 lifecycle rules moving logs to Glacier after 90 days"
+    ],
+    "files": [
+      "terraform/variables.tf",
+      "modules/service/main.tf",
+      ".github/workflows/plan.yml",
+      "environments/prod/terragrunt.hcl"
+    ],
+    "errors": [
+      "an S3 bucket name collision across accounts",
+      "provider version drift between two engineers",
+      "a destroy plan on the production database from a renamed resource"
+    ]
+  }
+}

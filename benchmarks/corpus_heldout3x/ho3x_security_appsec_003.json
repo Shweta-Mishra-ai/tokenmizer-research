@@ -1,0 +1,88 @@
+{
+  "id": "ho3x_security_appsec_003",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an authentication hardening pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an authentication hardening pass."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on short-lived tokens with refresh rotation. Session invalidation on password change was rolled out. Encrypted secrets at rest in the vault was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Credential redaction on every log path is working now. Audit log retention policy is still open."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed rotation of the leaked deploy key yesterday. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Automated dependency updates is on the backlog. I've got input sanitisation on the file upload path up and running. Dependency pinning with a lockfile has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with gitleaks as a pre-commit hook?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited SECURITY.md. We may decide to change this later. I edited security/redaction.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rotation of the leaked deploy key",
+      "encrypted secrets at rest in the vault",
+      "dependency pinning with a lockfile",
+      "input sanitisation on the file upload path",
+      "session invalidation on password change",
+      "credential redaction on every log path"
+    ],
+    "pending_tasks": [
+      "audit log retention policy",
+      "automated dependency updates"
+    ],
+    "decisions": [
+      "gitleaks as a pre-commit hook",
+      "short-lived tokens with refresh rotation"
+    ],
+    "files": [
+      "security/redaction.py",
+      "SECURITY.md"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "ho4x_data_sql_002",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a data quality initiative."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a data quality initiative now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: incremental materialisation on the large models. Landed column-level lineage documentation. Touched file: profiles.yml. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the star schema for the orders fact table.\nWe might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to hashed surrogate keys for stability."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that.\nFlaky jobs get one automatic retry.\n- [X] incremental models for the daily aggregates\nWrapped: a materialised view for the executive dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — sql/indexes.sql. We resolved to use soft deletes with a valid_to column. In the queue: documenting the grain of each fact table."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Great Expectations for data quality checks."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: models/marts/fct_orders.sql. Nothing is waiting on anyone at the moment. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — macros/revenue.sql. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** moving the nightly job to an hourly cadence.\n**Chosen:** a medallion bronze/silver/gold layout."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `models/marts/dim_customer.sql`."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the star schema for the orders fact table",
+      "incremental models for the daily aggregates",
+      "column-level lineage documentation",
+      "a materialised view for the executive dashboard"
+    ],
+    "pending_tasks": [
+      "moving the nightly job to an hourly cadence",
+      "documenting the grain of each fact table"
+    ],
+    "decisions": [
+      "soft deletes with a valid_to column",
+      "hashed surrogate keys for stability",
+      "Great Expectations for data quality checks",
+      "a medallion bronze/silver/gold layout",
+      "incremental materialisation on the large models"
+    ],
+    "files": [
+      "models/marts/dim_customer.sql",
+      "sql/indexes.sql",
+      "models/marts/fct_orders.sql",
+      "profiles.yml",
+      "macros/revenue.sql"
+    ],
+    "errors": []
+  }
+}

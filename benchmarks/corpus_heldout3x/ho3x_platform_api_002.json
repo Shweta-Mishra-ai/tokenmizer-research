@@ -1,0 +1,100 @@
+{
+  "id": "ho3x_platform_api_002",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a partner integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a partner integration."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Good news: the sandbox environment for partner testing made it in before the freeze. Idempotency keys on all write operations went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: at-least-once webhook delivery with retries made it in before the freeze. Good news: consistent error envelopes with machine-readable codes made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of sdk/python/client.py as well. The build is green. URL-based versioning over header negotiation is what we'll ship with. Don't let sunsetting v1 after the six-month window slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "What about a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cursor pagination rather than offset beat the alternatives on every axis we care about. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was cursor pagination skipping rows during concurrent writes. Webhook signature verification went smoothly in the end. A rate limit tier for enterprise keys is the obvious next step. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about per-key rate limits with headers exposing the budget now. Rewrote parts of gateway/kong.yaml as well. Half the afternoon went to a 500 leaking a stack trace to API consumers."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. What broke the release was rate limit headers reporting a stale budget."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "consistent error envelopes with machine-readable codes",
+      "the sandbox environment for partner testing",
+      "per-key rate limits with headers exposing the budget",
+      "at-least-once webhook delivery with retries",
+      "webhook signature verification",
+      "idempotency keys on all write operations"
+    ],
+    "pending_tasks": [
+      "a rate limit tier for enterprise keys",
+      "sunsetting v1 after the six-month window"
+    ],
+    "decisions": [
+      "URL-based versioning over header negotiation",
+      "cursor pagination rather than offset"
+    ],
+    "files": [
+      "gateway/kong.yaml",
+      "sdk/python/client.py"
+    ],
+    "errors": [
+      "rate limit headers reporting a stale budget",
+      "cursor pagination skipping rows during concurrent writes",
+      "a 500 leaking a stack trace to API consumers"
+    ]
+  }
+}

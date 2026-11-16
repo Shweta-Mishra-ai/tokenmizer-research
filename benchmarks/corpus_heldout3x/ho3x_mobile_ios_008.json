@@ -1,0 +1,86 @@
+{
+  "id": "ho3x_mobile_ios_008",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an offline-first notes client."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an offline-first notes client."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Background sync with a URLSession task was rolled out. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Keychain for token storage rather than UserDefaults."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Still to do: an App Store privacy nutrition label review."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: unit tests for the sync reducer."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deep links into the workout detail screen went smoothly in the end. The relevant code is in fastlane/Fastfile."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: App/Info.plist. Once CI passes I'll merge. Affected file: Sources/Store/WorkoutStore.swift."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the SwiftUI onboarding sequence. Fastlane for the release pipeline is the pick."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "background sync with a URLSession task",
+      "deep links into the workout detail screen",
+      "unit tests for the sync reducer",
+      "the SwiftUI onboarding sequence"
+    ],
+    "pending_tasks": [
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "Keychain for token storage rather than UserDefaults",
+      "fastlane for the release pipeline"
+    ],
+    "files": [
+      "App/Info.plist",
+      "fastlane/Fastfile",
+      "Sources/Store/WorkoutStore.swift"
+    ],
+    "errors": []
+  }
+}

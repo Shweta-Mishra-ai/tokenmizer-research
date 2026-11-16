@@ -1,0 +1,111 @@
+{
+  "id": "ho3x_product_analytics_012",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sunsetting the legacy dashboard is the obvious next step. Most of the work happened inside analytics/segments.sql. The alerts this morning came from survivorship bias in the retention calculation."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: instrumentation on every onboarding step made it in before the freeze. analytics/funnel.sql ended up with most of the changes. Rewrote parts of analytics/experiments.py as well."
+    },
+    {
+      "role": "user",
+      "content": "What about an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, weekly rather than daily cohorts for readability is the best fit. Good news: the event taxonomy covering fourteen product actions made it in before the freeze. Having compared the options, a seven-day activation window is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documentation of every metric definition went smoothly in the end. A 95% confidence threshold for experiment calls beat the alternatives on every axis we care about. A segment definition for activated accounts went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The alerts this morning came from timezone mismatch splitting one day across two cohorts."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about deduplication of the double-fired signup event now. A holdout group excluded from all experiments? Taken care of. Instrumenting the mobile funnel is waiting for someone to pick it up. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Excluding internal accounts from every metric beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the dashboard tracking the three north star metrics made it in before the freeze. I'll summarise at the end."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a segment definition for activated accounts",
+      "the dashboard tracking the three north star metrics",
+      "the event taxonomy covering fourteen product actions",
+      "deduplication of the double-fired signup event",
+      "documentation of every metric definition",
+      "instrumentation on every onboarding step",
+      "a holdout group excluded from all experiments"
+    ],
+    "pending_tasks": [
+      "sunsetting the legacy dashboard",
+      "instrumenting the mobile funnel"
+    ],
+    "decisions": [
+      "a 95% confidence threshold for experiment calls",
+      "weekly rather than daily cohorts for readability",
+      "a seven-day activation window",
+      "excluding internal accounts from every metric"
+    ],
+    "files": [
+      "analytics/funnel.sql",
+      "analytics/experiments.py",
+      "analytics/segments.sql"
+    ],
+    "errors": [
+      "timezone mismatch splitting one day across two cohorts",
+      "survivorship bias in the retention calculation"
+    ]
+  }
+}

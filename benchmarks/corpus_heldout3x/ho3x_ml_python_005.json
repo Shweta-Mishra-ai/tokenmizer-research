@@ -1,0 +1,132 @@
+{
+  "id": "ho3x_ml_python_005",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a recommendation ranker."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a recommendation ranker now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — documenting the model card. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** the feature engineering pipeline with 42 features."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outstanding: a fairness audit across customer segments. The error messages are now clearer. Agreed approach: scikit-learn pipelines for preprocessing."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge.\n- configs/model.yaml\nErrors: NaN losses after the learning rate change."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/features.py."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `requirements.txt`.\n**Shipped:** cross-validation across five folds."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose ONNX export for the serving runtime. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Outstanding: retraining automation on a weekly cadence. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: a 90-day lookback window for features."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: calibrating the output probabilities."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] an offline evaluation against last quarter's data The error messages are now clearer. File: `src/serve.py`."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the feature engineering pipeline with 42 features",
+      "cross-validation across five folds",
+      "an offline evaluation against last quarter's data"
+    ],
+    "pending_tasks": [
+      "calibrating the output probabilities",
+      "documenting the model card",
+      "retraining automation on a weekly cadence",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "a 90-day lookback window for features",
+      "scikit-learn pipelines for preprocessing",
+      "ONNX export for the serving runtime"
+    ],
+    "files": [
+      "configs/model.yaml",
+      "src/serve.py",
+      "requirements.txt",
+      "src/features.py"
+    ],
+    "errors": [
+      "NaN losses after the learning rate change"
+    ]
+  }
+}

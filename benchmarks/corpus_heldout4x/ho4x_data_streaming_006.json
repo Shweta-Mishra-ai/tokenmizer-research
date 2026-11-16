@@ -1,0 +1,153 @@
+{
+  "id": "ho4x_data_streaming_006",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an event schema migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an event schema migration now."
+    },
+    {
+      "role": "user",
+      "content": "How is an event schema migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, documenting the ordering guarantees is where attention goes. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in streams/aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to protobuf for the internal service events. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Kafka over Kinesis for the event backbone."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. If this breaks later we can roll back. See the diff in config/kafka.yaml. Checkpointing to durable storage every 30 seconds is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage?\n- [X] consumer lag monitoring with alerting"
+    },
+    {
+      "role": "user",
+      "content": "How is an event schema migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** a cost review of the broker cluster.\nAfter review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: silent message loss from an auto-commit race. We resolved to use Debezium for change data capture."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Avro with a schema registry for the payloads."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Path: `streams/dlq.py`."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `streams/windowing.py`. File changed — streams/consumer.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on a separate cluster for the analytics workloads. We can't call this finished while tiered storage for the older segments is missing. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to a seven-day retention on the raw topics."
+    },
+    {
+      "role": "assistant",
+      "content": "Backpressure handling in the consumer loop came off the board this morning. Sure, on it. An integration test spinning up a real broker is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle schemas/order_placed.avsc first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an integration test spinning up a real broker",
+      "backpressure handling in the consumer loop",
+      "consumer lag monitoring with alerting",
+      "checkpointing to durable storage every 30 seconds"
+    ],
+    "pending_tasks": [
+      "documenting the ordering guarantees",
+      "a cost review of the broker cluster",
+      "tiered storage for the older segments"
+    ],
+    "decisions": [
+      "a separate cluster for the analytics workloads",
+      "Kafka over Kinesis for the event backbone",
+      "protobuf for the internal service events",
+      "Debezium for change data capture",
+      "a seven-day retention on the raw topics",
+      "Avro with a schema registry for the payloads"
+    ],
+    "files": [
+      "streams/windowing.py",
+      "config/kafka.yaml",
+      "streams/consumer.py",
+      "streams/dlq.py",
+      "schemas/order_placed.avsc",
+      "streams/aggregator.py"
+    ],
+    "errors": [
+      "silent message loss from an auto-commit race"
+    ]
+  }
+}

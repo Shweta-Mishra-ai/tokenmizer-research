@@ -1,0 +1,170 @@
+{
+  "id": "ho4x_research_writing_004",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a benchmark methodology writeup."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a benchmark methodology writeup."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "An appendix documenting the corpus construction has been live since Tuesday with no complaints. We can't call this finished while reconciling the two conflicting result tables is missing. The trade-offs all pointed to targeting the workshop deadline rather than the main track."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own the discussion section before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The evaluation table with confidence intervals came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to framing the contribution as a measurement study."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to restructuring the argument around three claims, the on-call pages stopped. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in paper/abstract.tex. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Shortening to the eight-page limit keeps getting pushed to next sprint. No incidents were reported this week. Nobody needs to think about a limitations section naming the sample size problem anymore."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Including the negative result on implicit language is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "An explicit statement that the corpus is synthetic feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, the artifact submission package is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, bootstrap confidence intervals rather than t-tests was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, a single-column layout for the preprint was the clear winner. paper/main.tex grew by a couple hundred lines. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of a figure rendering illegibly in greyscale print. The pager went off twice overnight because of an overclaim in the introduction the data does not support."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "figures/architecture.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with a mislabelled axis on the compression figure. Nobody needs to think about figure one showing the system architecture anymore. Here's where things stand."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a limitations section naming the sample size problem",
+      "figure one showing the system architecture",
+      "restructuring the argument around three claims",
+      "the evaluation table with confidence intervals",
+      "an appendix documenting the corpus construction"
+    ],
+    "pending_tasks": [
+      "the discussion section",
+      "the artifact submission package",
+      "reconciling the two conflicting result tables",
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "a single-column layout for the preprint",
+      "including the negative result on implicit language",
+      "targeting the workshop deadline rather than the main track",
+      "bootstrap confidence intervals rather than t-tests",
+      "framing the contribution as a measurement study",
+      "an explicit statement that the corpus is synthetic"
+    ],
+    "files": [
+      "paper/main.tex",
+      "figures/architecture.py",
+      "paper/abstract.tex"
+    ],
+    "errors": [
+      "a mislabelled axis on the compression figure",
+      "a figure rendering illegibly in greyscale print",
+      "an overclaim in the introduction the data does not support"
+    ]
+  }
+}

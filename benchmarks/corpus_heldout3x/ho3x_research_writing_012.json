@@ -1,0 +1,119 @@
+{
+  "id": "ho3x_research_writing_012",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an internal architecture RFC."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an internal architecture RFC now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the evaluation table with confidence intervals made it in before the freeze. Reporting per-domain breakdowns in the appendix is what we'll ship with. Reconciling the two conflicting result tables is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with releasing the corpus alongside the paper. Half the afternoon went to a figure rendering illegibly in greyscale print."
+    },
+    {
+      "role": "user",
+      "content": "Targeting the workshop deadline rather than the main track sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Good news: figure one showing the system architecture made it in before the freeze. An appendix documenting the corpus construction went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of paper/evaluation.tex as well. What broke the release was a missing statistical test on the headline comparison."
+    },
+    {
+      "role": "user",
+      "content": "What about an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of data/results.json as well. Once CI passes I'll merge. Zotero for reference management is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about peer feedback incorporated from two reviewers now. Most of the work happened inside paper/abstract.tex. Restructuring the argument around three claims? Taken care of. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a stale results table from an earlier run. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "paper/related_work.tex ended up with most of the changes. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards the ACL template over the generic LaTeX class."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "peer feedback incorporated from two reviewers",
+      "the evaluation table with confidence intervals",
+      "restructuring the argument around three claims",
+      "figure one showing the system architecture",
+      "an appendix documenting the corpus construction"
+    ],
+    "pending_tasks": [
+      "reconciling the two conflicting result tables"
+    ],
+    "decisions": [
+      "Zotero for reference management",
+      "the ACL template over the generic LaTeX class",
+      "reporting per-domain breakdowns in the appendix",
+      "targeting the workshop deadline rather than the main track",
+      "releasing the corpus alongside the paper"
+    ],
+    "files": [
+      "data/results.json",
+      "paper/evaluation.tex",
+      "paper/related_work.tex",
+      "paper/abstract.tex"
+    ],
+    "errors": [
+      "a stale results table from an earlier run",
+      "a missing statistical test on the headline comparison",
+      "a figure rendering illegibly in greyscale print"
+    ]
+  }
+}

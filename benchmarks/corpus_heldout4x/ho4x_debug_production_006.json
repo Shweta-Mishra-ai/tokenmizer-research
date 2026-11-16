@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_debug_production_006",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a memory leak hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a memory leak hunt."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. We're standardising on paging on error rate rather than absolute count."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing memory growing 200MB per hour until restart. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "A load test reproducing the traffic pattern is next up. An incident severity of SEV-2 won the vote."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in tests/test_regression.py. Ruling out the cache layer as the cause has shipped. Confirming the hypothesis with a targeted experiment has shipped. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in config/flags.yaml. We'll run with keeping the extra logging for two weeks. I updated scripts/repro.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by a thundering herd on cache expiry in staging."
+    },
+    {
+      "role": "user",
+      "content": "How is a memory leak hunt going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in src/handlers/checkout.py. We have instrumenting the slow query with timing spans now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in runbooks/latency.md. Got hit by duplicate charges from a non-idempotent retry in staging. We might revisit this next quarter. Reproducing the failure in a staging environment has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "The postmortem document with action items has shipped. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done a permanent fix replacing the hotfix yet. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "confirming the hypothesis with a targeted experiment",
+      "instrumenting the slow query with timing spans",
+      "the postmortem document with action items",
+      "ruling out the cache layer as the cause",
+      "reproducing the failure in a staging environment"
+    ],
+    "pending_tasks": [
+      "a permanent fix replacing the hotfix",
+      "a load test reproducing the traffic pattern"
+    ],
+    "decisions": [
+      "paging on error rate rather than absolute count",
+      "an incident severity of SEV-2",
+      "keeping the extra logging for two weeks"
+    ],
+    "files": [
+      "tests/test_regression.py",
+      "runbooks/latency.md",
+      "config/flags.yaml",
+      "scripts/repro.py",
+      "src/handlers/checkout.py"
+    ],
+    "errors": [
+      "memory growing 200MB per hour until restart",
+      "a thundering herd on cache expiry",
+      "duplicate charges from a non-idempotent retry"
+    ]
+  }
+}

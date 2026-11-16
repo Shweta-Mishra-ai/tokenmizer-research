@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_mobile_ios_004",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a subscription billing flow."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Going forward: fastlane for the release pipeline. We resolved to use XCTest with snapshot assertions."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Package.swift grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing cold start below 400ms is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — fastlane/Fastfile. Had to untangle .swiftlint.yml first. Localisation into three languages remains open. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be SwiftLint in the build phase."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle Sources/Store/WorkoutStore.swift first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO migrating the remaining UIKit screens\nDelivered — a widget showing today's activity.\nNobody needs to think about Core Data persistence for the workout log anymore."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be The Composable Architecture for state."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. I updated Sources/Sync/SyncEngine.swift. Keychain storage for the auth token is behind us now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a widget showing today's activity",
+      "Core Data persistence for the workout log",
+      "keychain storage for the auth token"
+    ],
+    "pending_tasks": [
+      "reducing cold start below 400ms",
+      "migrating the remaining UIKit screens",
+      "localisation into three languages"
+    ],
+    "decisions": [
+      "SwiftLint in the build phase",
+      "The Composable Architecture for state",
+      "fastlane for the release pipeline",
+      "XCTest with snapshot assertions"
+    ],
+    "files": [
+      "Package.swift",
+      "fastlane/Fastfile",
+      "Sources/Sync/SyncEngine.swift",
+      "Sources/Store/WorkoutStore.swift",
+      ".swiftlint.yml"
+    ],
+    "errors": []
+  }
+}

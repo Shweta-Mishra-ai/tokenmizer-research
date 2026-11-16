@@ -1,0 +1,119 @@
+{
+  "id": "ho4x_backend_go_001",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a file transfer service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in internal/handler/orders.go. Distributed tracing spans across services is next up."
+    },
+    {
+      "role": "user",
+      "content": "How is a file transfer service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in proto/orders.proto. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated go.mod. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention context deadline exceeded on the upstream call."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be errgroup for concurrent fan-out."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in buf.yaml. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done replacing the mutex with a sharded map yet. Context propagation through every handler is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Profiling the p99 latency spike is still owed to the client. I'll post a recap later. I've locked in zerolog for logging. A soak test over 24 hours remains open."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in testcontainers for integration tests. We have table-driven tests for the parser now. We have protobuf schema versioning now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got benchmark tests on the hot encode path over the line. Production is showing a data race on the shared counter. The gRPC service definition and generated stubs is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "context propagation through every handler",
+      "benchmark tests on the hot encode path",
+      "table-driven tests for the parser",
+      "protobuf schema versioning",
+      "the gRPC service definition and generated stubs"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map",
+      "profiling the p99 latency spike",
+      "distributed tracing spans across services",
+      "a soak test over 24 hours"
+    ],
+    "decisions": [
+      "zerolog for logging",
+      "errgroup for concurrent fan-out",
+      "testcontainers for integration tests"
+    ],
+    "files": [
+      "go.mod",
+      "internal/handler/orders.go",
+      "buf.yaml",
+      "proto/orders.proto"
+    ],
+    "errors": [
+      "context deadline exceeded on the upstream call",
+      "a data race on the shared counter"
+    ]
+  }
+}

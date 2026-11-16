@@ -1,0 +1,98 @@
+{
+  "id": "ho3x_frontend_react_006",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an analytics dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards React 19 with the compiler enabled."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. The metrics grid with responsive breakpoints went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Error boundaries around each route is waiting for someone to pick it up. Nothing is blocking us right now. Migrating the remaining class components is the obvious next step. Code splitting on the route boundaries? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The toast notification system went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Tailwind for styling is the best fit. Form validation with inline error messages? Taken care of. We can stop worrying about the empty and loading states for every panel now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about dark mode using CSS custom properties now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Memoising the chart data transform is the obvious next step. Most of the work happened inside src/components/DataTable.tsx. Rewrote parts of src/routes/dashboard.tsx as well."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let offline support for the draft editor slip through the cracks. Do we need more tests?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the toast notification system",
+      "form validation with inline error messages",
+      "the metrics grid with responsive breakpoints",
+      "the empty and loading states for every panel",
+      "code splitting on the route boundaries",
+      "dark mode using CSS custom properties"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "error boundaries around each route",
+      "memoising the chart data transform",
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "Tailwind for styling",
+      "React 19 with the compiler enabled"
+    ],
+    "files": [
+      "src/routes/dashboard.tsx",
+      "src/components/DataTable.tsx"
+    ],
+    "errors": []
+  }
+}

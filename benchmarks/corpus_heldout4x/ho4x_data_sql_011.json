@@ -1,0 +1,133 @@
+{
+  "id": "ho4x_data_sql_011",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a reporting layer rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. We're standardising on incremental materialisation on the large models."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. We'll run with an ELT rather than ETL pattern."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done documenting the grain of each fact table yet. The team picked dbt for the transformation layer."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated dags/daily_refresh.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a reporting layer rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in models/marts/fct_orders.sql. Hashed surrogate keys for stability won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated macros/revenue.sql."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Snowflake over BigQuery for the warehouse."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated models/staging/stg_events.sql. If this breaks later we can roll back. Deduplication on the raw event stream went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have a materialised view for the executive dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Unit tests for the revenue macro remains open. We haven't done an anomaly alert on the daily order count yet. I got freshness tests on every source table over the line. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on soft deletes with a valid_to column. Moving the nightly job to an hourly cadence remains open."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication on the raw event stream",
+      "a materialised view for the executive dashboard",
+      "freshness tests on every source table"
+    ],
+    "pending_tasks": [
+      "an anomaly alert on the daily order count",
+      "documenting the grain of each fact table",
+      "unit tests for the revenue macro",
+      "moving the nightly job to an hourly cadence"
+    ],
+    "decisions": [
+      "an ELT rather than ETL pattern",
+      "soft deletes with a valid_to column",
+      "hashed surrogate keys for stability",
+      "Snowflake over BigQuery for the warehouse",
+      "dbt for the transformation layer",
+      "incremental materialisation on the large models"
+    ],
+    "files": [
+      "dags/daily_refresh.py",
+      "models/staging/stg_events.sql",
+      "models/marts/fct_orders.sql",
+      "macros/revenue.sql"
+    ],
+    "errors": []
+  }
+}

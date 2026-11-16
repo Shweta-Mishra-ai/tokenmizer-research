@@ -1,0 +1,140 @@
+{
+  "id": "ho4x_ml_python_007",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a churn prediction model."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle src/features.py first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle data/schema.json first. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to sentence-transformers for the text embeddings."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "SHAP explanations for the top features came off the board this morning. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle src/train.py first. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Thanks to cross-validation across five folds, the on-call pages stopped. Drift monitoring on the input distributions came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "AUC-PR as the primary metric given the imbalance feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. The bulk of the diff sits in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle notebooks/eda.ipynb first. Thanks to gradient boosting reaching 0.84 AUC, the on-call pages stopped. Without a fairness audit across customer segments the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "How is a churn prediction model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, a time-based split to avoid leakage was the clear winner. Hyperparameter search over 200 trials is behind us now. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. An offline evaluation against last quarter's data came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Optuna for hyperparameter search."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. After review I'll deploy."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cross-validation across five folds",
+      "drift monitoring on the input distributions",
+      "hyperparameter search over 200 trials",
+      "gradient boosting reaching 0.84 AUC",
+      "SHAP explanations for the top features",
+      "an offline evaluation against last quarter's data"
+    ],
+    "pending_tasks": [
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "Optuna for hyperparameter search",
+      "sentence-transformers for the text embeddings",
+      "AUC-PR as the primary metric given the imbalance",
+      "a time-based split to avoid leakage"
+    ],
+    "files": [
+      "src/train.py",
+      "notebooks/eda.ipynb",
+      "data/schema.json",
+      "src/features.py",
+      "Makefile"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "ho3x_platform_api_004",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a versioning strategy rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a versioning strategy rollout."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose a six-month deprecation window. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Closed: webhook signature verification. Edited: api/routes/webhooks.py."
+    },
+    {
+      "role": "user",
+      "content": "What about a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Result: the OpenAPI specification for every public route done."
+    },
+    {
+      "role": "user",
+      "content": "Switch to cursor pagination rather than offset."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. * [x] at-least-once webhook delivery with retries Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** Kong as the API gateway.\nFile: `sdk/python/client.py`.\n* [ ] documenting the webhook replay procedure"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `tests/test_webhooks.py`. Edited: api/ratelimit.py."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] per-key rate limits with headers exposing the budget Affected file: api/pagination.py. Implemented SDK generation for three languages."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: exponential backoff with jitter for webhook retries. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the sandbox environment for partner testing. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: clock skew invalidating webhook signatures. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. * [ ] sunsetting v1 after the six-month window"
+    },
+    {
+      "role": "user",
+      "content": "What about a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Choice: OpenAPI as the source of truth for SDK generation."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green.\nAffected file: docs/api/changelog.md.\n**Shipped:** consistent error envelopes with machine-readable codes.\nFailed: rate limit headers reporting a stale budget."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. * [ ] expanding the sandbox data set"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: an SDK deserialisation failure on a new nullable field."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "per-key rate limits with headers exposing the budget",
+      "SDK generation for three languages",
+      "consistent error envelopes with machine-readable codes",
+      "the OpenAPI specification for every public route",
+      "at-least-once webhook delivery with retries",
+      "webhook signature verification",
+      "the sandbox environment for partner testing"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window",
+      "expanding the sandbox data set",
+      "documenting the webhook replay procedure"
+    ],
+    "decisions": [
+      "a six-month deprecation window",
+      "exponential backoff with jitter for webhook retries",
+      "OpenAPI as the source of truth for SDK generation",
+      "Kong as the API gateway",
+      "cursor pagination rather than offset"
+    ],
+    "files": [
+      "sdk/python/client.py",
+      "api/pagination.py",
+      "docs/api/changelog.md",
+      "tests/test_webhooks.py",
+      "api/routes/webhooks.py",
+      "api/ratelimit.py"
+    ],
+    "errors": [
+      "an SDK deserialisation failure on a new nullable field",
+      "rate limit headers reporting a stale budget",
+      "clock skew invalidating webhook signatures"
+    ]
+  }
+}

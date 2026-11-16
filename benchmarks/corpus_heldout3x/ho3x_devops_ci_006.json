@@ -1,0 +1,151 @@
+{
+  "id": "ho3x_devops_ci_006",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a monorepo pipeline split."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a monorepo pipeline split now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Codecov for coverage tracking."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: a concurrency group cancelling superseded runs made it in before the freeze. Artifact upload for the failing test logs went smoothly in the end. Nobody has touched splitting the linting job from the test job yet."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of scripts/run_tests.sh as well. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards trunk-based development with short-lived branches."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "pyproject.toml ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to an out of disk space failure on the runner. Dockerfile ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Cutting the pipeline below eight minutes is the obvious next step. Good news: a nightly job running the slow integration suite made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pytest-xdist for test parallelism is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "conftest.py ended up with most of the changes. Release-please for version bumps beat the alternatives on every axis we care about. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Container image build with layer caching went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards semantic versioning driven by commit messages."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "GitHub Actions over the self-managed runner fleet sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: a matrix build over three Python versions made it in before the freeze."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a nightly job running the slow integration suite",
+      "artifact upload for the failing test logs",
+      "container image build with layer caching",
+      "a concurrency group cancelling superseded runs",
+      "a matrix build over three Python versions"
+    ],
+    "pending_tasks": [
+      "splitting the linting job from the test job",
+      "cutting the pipeline below eight minutes"
+    ],
+    "decisions": [
+      "pytest-xdist for test parallelism",
+      "release-please for version bumps",
+      "GitHub Actions over the self-managed runner fleet",
+      "trunk-based development with short-lived branches",
+      "Codecov for coverage tracking",
+      "semantic versioning driven by commit messages"
+    ],
+    "files": [
+      "Dockerfile",
+      "scripts/run_tests.sh",
+      "conftest.py",
+      "pyproject.toml"
+    ],
+    "errors": [
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

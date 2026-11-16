@@ -1,0 +1,97 @@
+{
+  "id": "ho3x_research_writing_003",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a literature review."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a literature review."
+    },
+    {
+      "role": "user",
+      "content": "I'd like reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Agreed. I've got restructuring the argument around three claims up and running. Peer feedback incorporated from two reviewers is working now."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with including the negative result on implicit language?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Makefile. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A first pass at the methodology section is working now."
+    },
+    {
+      "role": "user",
+      "content": "What about a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited paper/references.bib. The abstract rewritten to lead with the result is working now. The relevant code is in paper/related_work.tex."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in paper/abstract.tex. The introduction cut from four pages to two is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do shortening to the eight-page limit next. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got citations normalised to a single bibliography style up and running."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "restructuring the argument around three claims",
+      "the introduction cut from four pages to two",
+      "the abstract rewritten to lead with the result",
+      "citations normalised to a single bibliography style",
+      "a first pass at the methodology section",
+      "peer feedback incorporated from two reviewers"
+    ],
+    "pending_tasks": [
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "reporting per-domain breakdowns in the appendix",
+      "including the negative result on implicit language"
+    ],
+    "files": [
+      "Makefile",
+      "paper/abstract.tex",
+      "paper/related_work.tex",
+      "paper/references.bib"
+    ],
+    "errors": []
+  }
+}

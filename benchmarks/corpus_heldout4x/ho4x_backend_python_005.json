@@ -1,0 +1,117 @@
+{
+  "id": "ho4x_backend_python_005",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a Flask webhook receiver."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a Flask webhook receiver."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: structlog for JSON log output. No incidents were reported this week. Left to do — moving the email sender behind an interface."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now.\n**Finished work:** pagination on the list endpoints.\n**Pending:** soft deletes on the tenant table.\nGoing forward: Celery for the background worker."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use Alembic for schema migrations."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: connection pool exhaustion under concurrent load. Wrapped: POST /api/orders and GET /api/orders/{id}. Here's where things stand. * api/orders.py"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. File changed — api/deps.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Fault:** a 500 from an unhandled TimeoutError in the payment client.\nI'll post a recap later.\n- [X] a health check endpoint at /healthz"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: a memory leak in the long-lived session object."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "* api/models.py Todo — splitting the settings module per environment."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: caching the catalogue lookup. After review I'll deploy."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "POST /api/orders and GET /api/orders/{id}",
+      "a health check endpoint at /healthz",
+      "pagination on the list endpoints"
+    ],
+    "pending_tasks": [
+      "moving the email sender behind an interface",
+      "caching the catalogue lookup",
+      "soft deletes on the tenant table",
+      "splitting the settings module per environment"
+    ],
+    "decisions": [
+      "structlog for JSON log output",
+      "Celery for the background worker",
+      "Alembic for schema migrations"
+    ],
+    "files": [
+      "api/deps.py",
+      "api/orders.py",
+      "api/models.py"
+    ],
+    "errors": [
+      "a memory leak in the long-lived session object",
+      "connection pool exhaustion under concurrent load",
+      "a 500 from an unhandled TimeoutError in the payment client"
+    ]
+  }
+}

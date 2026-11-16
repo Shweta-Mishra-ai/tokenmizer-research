@@ -1,0 +1,140 @@
+{
+  "id": "ho3x_frontend_react_005",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a settings surface."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a settings surface."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed code splitting on the route boundaries yesterday. Have a look at src/App.tsx. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in src/hooks/useMetrics.ts. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the date picker with a headless one is on the backlog. Form validation with inline error messages has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Can we try TypeScript in strict mode?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in src/components/DataTable.tsx. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on React 19 with the compiler enabled. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: offline support for the draft editor. Have a look at tests/dashboard.spec.ts. Still to do: migrating the remaining class components."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Recharts for the visualisations?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Nothing is blocking us right now. We're going to use TanStack Query for server state. Changes are in src/store/session.ts."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is Vitest over Jest for the unit suite. I've got focus trapping in the modal component up and running."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Optimistic updates on the toggle controls was rolled out. I'll summarise at the end. I edited vite.config.ts."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Session persistence in localStorage is working now. Hitting a bundle regression from importing the whole icon set in CI. Still to do: error boundaries around each route."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? The metrics grid with responsive breakpoints was rolled out. Server-side pagination on the results table has been merged."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "server-side pagination on the results table",
+      "optimistic updates on the toggle controls",
+      "the metrics grid with responsive breakpoints",
+      "session persistence in localStorage",
+      "form validation with inline error messages",
+      "code splitting on the route boundaries",
+      "focus trapping in the modal component"
+    ],
+    "pending_tasks": [
+      "migrating the remaining class components",
+      "error boundaries around each route",
+      "replacing the date picker with a headless one",
+      "offline support for the draft editor"
+    ],
+    "decisions": [
+      "TypeScript in strict mode",
+      "React 19 with the compiler enabled",
+      "TanStack Query for server state",
+      "Recharts for the visualisations",
+      "Vitest over Jest for the unit suite"
+    ],
+    "files": [
+      "src/hooks/useMetrics.ts",
+      "tests/dashboard.spec.ts",
+      "src/store/session.ts",
+      "vite.config.ts",
+      "src/components/DataTable.tsx",
+      "src/App.tsx"
+    ],
+    "errors": [
+      "a bundle regression from importing the whole icon set"
+    ]
+  }
+}

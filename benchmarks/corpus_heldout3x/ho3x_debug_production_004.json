@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_debug_production_004",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a performance regression hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a performance regression hunt."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. We've decided on a blameless postmortem format. We completed the hotfix reverting the connection pool change yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Can we try reverting to the previous library version?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: monitoring/alerts.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited src/pool.py. We've decided on paging on error rate rather than absolute count. Confirming the hypothesis with a targeted experiment is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: reviewing the other call sites with the same pattern."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of runbooks/latency.md as well. I'll summarise at the end. What broke the release was a cascading failure from the retry storm."
+    },
+    {
+      "role": "user",
+      "content": "Choose a feature flag to disable the suspect path."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Reproducing the failure in a staging environment is working now. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What about a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: scripts/repro.py."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. What broke the release was connection pool exhaustion under the checkout load."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "confirming the hypothesis with a targeted experiment",
+      "the hotfix reverting the connection pool change",
+      "reproducing the failure in a staging environment"
+    ],
+    "pending_tasks": [
+      "reviewing the other call sites with the same pattern"
+    ],
+    "decisions": [
+      "paging on error rate rather than absolute count",
+      "a blameless postmortem format",
+      "reverting to the previous library version",
+      "a feature flag to disable the suspect path"
+    ],
+    "files": [
+      "runbooks/latency.md",
+      "monitoring/alerts.yaml",
+      "src/pool.py",
+      "scripts/repro.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under the checkout load",
+      "a cascading failure from the retry storm"
+    ]
+  }
+}

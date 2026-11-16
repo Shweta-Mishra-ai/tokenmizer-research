@@ -1,0 +1,134 @@
+{
+  "id": "ho3x_debug_production_009",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an outage root cause analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an outage root cause analysis now."
+    },
+    {
+      "role": "user",
+      "content": "Choose paging on error rate rather than absolute count."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — a regression test covering the failure mode. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: logs/analysis.py. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** reproducing the failure in a staging environment.\nTO DO: a load test reproducing the traffic pattern.\nChoice: keeping the extra logging for two weeks."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: increasing the connection pool as a stopgap."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose reverting to the previous library version. Finished — ruling out the cache layer as the cause. Bug report: connection pool exhaustion under the checkout load. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: cleaning up the temporary debug logging."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. File: `config/flags.yaml`."
+    },
+    {
+      "role": "user",
+      "content": "What about an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outstanding: backfilling the corrupted rows. Implemented instrumenting the slow query with timing spans. Finished — confirming the hypothesis with a targeted experiment."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: a cascading failure from the retry storm."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off.\n- src/handlers/checkout.py"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "instrumenting the slow query with timing spans",
+      "a regression test covering the failure mode",
+      "confirming the hypothesis with a targeted experiment",
+      "ruling out the cache layer as the cause",
+      "reproducing the failure in a staging environment"
+    ],
+    "pending_tasks": [
+      "backfilling the corrupted rows",
+      "a load test reproducing the traffic pattern",
+      "cleaning up the temporary debug logging"
+    ],
+    "decisions": [
+      "reverting to the previous library version",
+      "increasing the connection pool as a stopgap",
+      "paging on error rate rather than absolute count",
+      "keeping the extra logging for two weeks"
+    ],
+    "files": [
+      "config/flags.yaml",
+      "src/handlers/checkout.py",
+      "logs/analysis.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under the checkout load",
+      "a cascading failure from the retry storm"
+    ]
+  }
+}

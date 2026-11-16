@@ -1,0 +1,120 @@
+{
+  "id": "ho4x_security_appsec_002",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a dependency audit."
+    },
+    {
+      "role": "user",
+      "content": "Pick Trivy for container image scanning."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it.\n**Chosen:** gitleaks as a pre-commit hook.\nPing me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Use Semgrep in the pull request pipeline please."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — .github/workflows/security.yml. File changed — docs/threat-model.md. No incidents were reported this week. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing.\n**Finished work:** session invalidation on password change."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: field-level encryption for PII columns."
+    },
+    {
+      "role": "user",
+      "content": "Use Vault as the single secrets store please."
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: automated dependency updates. The logs are easier to read now. Fine by me. Touched file: terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: rate limiting on the password reset endpoint. Touched file: SECURITY.md. After review I'll deploy. Broken: an SSRF in the webhook fetcher."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: Argon2id over bcrypt for new password hashes. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] least-privilege IAM roles for the workers\nCrash: an open redirect on the login return URL.\nStill open — a threat model for the payments flow."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `policy/egress.yaml`. * security/middleware.py After review I'll deploy."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rate limiting on the password reset endpoint",
+      "session invalidation on password change",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "automated dependency updates",
+      "a threat model for the payments flow"
+    ],
+    "decisions": [
+      "field-level encryption for PII columns",
+      "Vault as the single secrets store",
+      "Semgrep in the pull request pipeline",
+      "Argon2id over bcrypt for new password hashes",
+      "Trivy for container image scanning",
+      "gitleaks as a pre-commit hook"
+    ],
+    "files": [
+      "SECURITY.md",
+      "security/middleware.py",
+      ".github/workflows/security.yml",
+      "policy/egress.yaml",
+      "docs/threat-model.md",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "an open redirect on the login return URL",
+      "an SSRF in the webhook fetcher"
+    ]
+  }
+}

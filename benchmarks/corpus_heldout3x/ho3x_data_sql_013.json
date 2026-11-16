@@ -1,0 +1,114 @@
+{
+  "id": "ho3x_data_sql_013",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a reporting layer rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a reporting layer rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a full table scan on the unpartitioned events table."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling six months of historical revenue went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to the nightly job timing out after 6 hours.\nChanges are in scripts/backfill.py.\n- macros/revenue.sql"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. We need retiring the legacy reporting views before launch."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** the slowly changing dimension on customer tier."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. A materialised view for the executive dashboard went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A cost review of the warehouse spend is the obvious next step. Partitioning the events table by month is working now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: Great Expectations for data quality checks. Still to do: documenting the grain of each fact table."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Snowflake over BigQuery for the warehouse."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a materialised view for the executive dashboard",
+      "partitioning the events table by month",
+      "backfilling six months of historical revenue",
+      "the slowly changing dimension on customer tier"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend",
+      "retiring the legacy reporting views",
+      "documenting the grain of each fact table"
+    ],
+    "decisions": [
+      "Great Expectations for data quality checks",
+      "Snowflake over BigQuery for the warehouse"
+    ],
+    "files": [
+      "macros/revenue.sql",
+      "scripts/backfill.py"
+    ],
+    "errors": [
+      "the nightly job timing out after 6 hours",
+      "a full table scan on the unpartitioned events table"
+    ]
+  }
+}

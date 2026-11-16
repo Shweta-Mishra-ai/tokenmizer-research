@@ -1,0 +1,110 @@
+{
+  "id": "ho3x_infra_terraform_001",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a networking rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a networking rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "IAM roles scoped per service? Taken care of. Let me know if anything looks off. Rewrote parts of .github/workflows/plan.yml as well."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a networking rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of terraform/iam.tf as well. Good news: a module for the standard service deployment made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Nobody has touched a drift detection job on a daily schedule yet. What broke the release was an S3 bucket name collision across accounts. What broke the release was a state lock left behind by a cancelled apply."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards AWS as the single cloud provider."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. We can stop worrying about tagging enforced through a provider default now. The VPC with public and private subnets across three zones? Taken care of. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "CloudWatch alarms on the error rate metric went smoothly in the end. The root cause turned out to be subnet exhaustion in the primary availability zone."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about security groups restricted to named ports now."
+    },
+    {
+      "role": "user",
+      "content": "Terragrunt for the DRY module wiring sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "S3 lifecycle rules moving logs to Glacier after 90 days is what we'll ship with. Agreed. Rewrote parts of terraform/variables.tf as well."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Good news: encrypted EBS volumes across all instances made it in before the freeze."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "encrypted EBS volumes across all instances",
+      "IAM roles scoped per service",
+      "the VPC with public and private subnets across three zones",
+      "CloudWatch alarms on the error rate metric",
+      "a module for the standard service deployment",
+      "tagging enforced through a provider default",
+      "security groups restricted to named ports"
+    ],
+    "pending_tasks": [
+      "a drift detection job on a daily schedule"
+    ],
+    "decisions": [
+      "Terragrunt for the DRY module wiring",
+      "AWS as the single cloud provider",
+      "S3 lifecycle rules moving logs to Glacier after 90 days"
+    ],
+    "files": [
+      ".github/workflows/plan.yml",
+      "terraform/variables.tf",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "an S3 bucket name collision across accounts",
+      "subnet exhaustion in the primary availability zone",
+      "a state lock left behind by a cancelled apply"
+    ]
+  }
+}

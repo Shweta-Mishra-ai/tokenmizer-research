@@ -1,0 +1,135 @@
+{
+  "id": "ho3x_backend_python_008",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a FastAPI orders service."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a FastAPI orders service now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. api/orders.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Splitting the settings module per environment is the obvious next step. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Background retry for failed webhook deliveries is sorted. Good news: a health check endpoint at /healthz made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Python 3.12 as the runtime is what we'll ship with. Rewrote parts of core/config.py as well."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bcrypt for password hashing beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] OpenAPI schema generation for the public routes"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off.\nEveryone was happy with SQLAlchemy 2.0 with the async engine.\n**Decided:** uvicorn behind gunicorn in production."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Hitting a deadlock between the invoice and ledger updates in CI. Edited: tests/test_orders.py. Result: pagination on the list endpoints done."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Most of the work happened inside db/session.py. * [x] idempotency keys on the order create path I've got pytest fixtures for a throwaway database up and running."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Alembic for schema migrations."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: input validation on the payment payload done. The error messages are now clearer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "OpenAPI schema generation for the public routes",
+      "background retry for failed webhook deliveries",
+      "pagination on the list endpoints",
+      "idempotency keys on the order create path",
+      "a health check endpoint at /healthz",
+      "input validation on the payment payload",
+      "pytest fixtures for a throwaway database"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment"
+    ],
+    "decisions": [
+      "Python 3.12 as the runtime",
+      "Alembic for schema migrations",
+      "uvicorn behind gunicorn in production",
+      "bcrypt for password hashing",
+      "SQLAlchemy 2.0 with the async engine"
+    ],
+    "files": [
+      "api/orders.py",
+      "tests/test_orders.py",
+      "core/config.py",
+      "db/session.py"
+    ],
+    "errors": [
+      "a deadlock between the invoice and ledger updates"
+    ]
+  }
+}

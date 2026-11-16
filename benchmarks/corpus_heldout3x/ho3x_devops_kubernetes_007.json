@@ -1,0 +1,132 @@
+{
+  "id": "ho3x_devops_kubernetes_007",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a production cluster migration now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `charts/api/templates/deployment.yaml`."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Result: readiness and liveness probes on every workload done."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: charts/api/values.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: the ingress with automatic certificate renewal done. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: a runbook for the failover procedure. Outstanding: moving the remaining cron jobs to Kubernetes."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Karpenter instead of the cluster autoscaler."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Loki for log aggregation. If this fails again we will revisit the design. Sounds right, on it. * [ ] consolidating the three ingress controllers"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** a canary stage in the deploy pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Agreed approach: Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: a blue-green strategy for the database proxy."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: terraform/cluster.tf. Affected file: k8s/networkpolicy.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose Trivy for image scanning in CI. Edited: Dockerfile."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the ingress with automatic certificate renewal",
+      "a canary stage in the deploy pipeline",
+      "readiness and liveness probes on every workload"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "consolidating the three ingress controllers",
+      "moving the remaining cron jobs to Kubernetes"
+    ],
+    "decisions": [
+      "Trivy for image scanning in CI",
+      "Prometheus and Grafana for metrics",
+      "Karpenter instead of the cluster autoscaler",
+      "a blue-green strategy for the database proxy",
+      "Loki for log aggregation"
+    ],
+    "files": [
+      "charts/api/templates/deployment.yaml",
+      "terraform/cluster.tf",
+      "k8s/networkpolicy.yaml",
+      "Dockerfile",
+      "charts/api/values.yaml"
+    ],
+    "errors": []
+  }
+}

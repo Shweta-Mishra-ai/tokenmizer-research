@@ -1,0 +1,134 @@
+{
+  "id": "ho4x_backend_python_013",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a Flask webhook receiver."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a Flask webhook receiver now."
+    },
+    {
+      "role": "user",
+      "content": "Use Celery for the background worker please."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter.\nWrapped: the Alembic baseline migration.\nSure, on it.\n**Finished work:** pytest fixtures for a throwaway database."
+    },
+    {
+      "role": "user",
+      "content": "How is a Flask webhook receiver going?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Wrapped: a health check endpoint at /healthz."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** bcrypt for password hashing.\nAfter review I'll deploy.\nWrapped: request ID middleware for structured logging."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** uvicorn behind gunicorn in production."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — splitting the settings module per environment.\n**Chosen:** Pydantic v2 for request validation."
+    },
+    {
+      "role": "user",
+      "content": "Use structlog for JSON log output please."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "* db/session.py In the queue: moving the email sender behind an interface."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: OpenAPI schema generation for the public routes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `api/main.py`.\nComplete: connection pooling against Postgres.\n**Pending:** backfilling created_at on legacy rows."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Delivered — input validation on the payment payload."
+    },
+    {
+      "role": "user",
+      "content": "How is a Flask webhook receiver going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** a load test against the order path."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "the Alembic baseline migration",
+      "input validation on the payment payload",
+      "OpenAPI schema generation for the public routes",
+      "a health check endpoint at /healthz",
+      "connection pooling against Postgres",
+      "pytest fixtures for a throwaway database"
+    ],
+    "pending_tasks": [
+      "backfilling created_at on legacy rows",
+      "moving the email sender behind an interface",
+      "a load test against the order path",
+      "splitting the settings module per environment"
+    ],
+    "decisions": [
+      "bcrypt for password hashing",
+      "structlog for JSON log output",
+      "uvicorn behind gunicorn in production",
+      "Pydantic v2 for request validation",
+      "Celery for the background worker"
+    ],
+    "files": [
+      "api/main.py",
+      "db/session.py"
+    ],
+    "errors": []
+  }
+}

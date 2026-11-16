@@ -1,0 +1,88 @@
+{
+  "id": "ho3x_security_appsec_013",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a penetration test remediation now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** least-privilege IAM roles for the workers."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a path traversal in the file download handler. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use a 90-day key rotation schedule. Failed jobs are retried twice. MTLS between internal services is the pick. Nobody has touched a third-party penetration test yet."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Dependency pinning with a lockfile is working now. * [ ] a review of the CORS allowlist Edited: .github/workflows/security.yml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "security/middleware.py ended up with most of the changes. Encrypted secrets at rest in the vault went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: signed container images in the registry."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "least-privilege IAM roles for the workers",
+      "dependency pinning with a lockfile",
+      "encrypted secrets at rest in the vault",
+      "signed container images in the registry"
+    ],
+    "pending_tasks": [
+      "a third-party penetration test",
+      "a review of the CORS allowlist"
+    ],
+    "decisions": [
+      "mTLS between internal services",
+      "a 90-day key rotation schedule"
+    ],
+    "files": [
+      ".github/workflows/security.yml",
+      "security/middleware.py"
+    ],
+    "errors": [
+      "a path traversal in the file download handler"
+    ]
+  }
+}

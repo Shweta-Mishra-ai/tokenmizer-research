@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_mobile_ios_005",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an offline-first notes client."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Todo — a snapshot test suite for the components. Wrapped: the HealthKit permission flow."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: SwiftUI for all new screens."
+    },
+    {
+      "role": "user",
+      "content": "How is an offline-first notes client going?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: an iPad layout for the summary screen.\n**Finished work:** crash reporting integration."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: watchOS companion app. If this breaks later we can roll back. Complete: unit tests for the sync reducer. Path: `App/Info.plist`."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. In the queue: migrating the remaining UIKit screens."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Core Data over Realm for local storage."
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] background sync with a URLSession task\nFine by me.\n**Finished work:** dark mode across every screen."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an offline-first notes client?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. * fastlane/Fastfile Landed deep links into the workout detail screen."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — keychain storage for the auth token."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "unit tests for the sync reducer",
+      "the HealthKit permission flow",
+      "dark mode across every screen",
+      "crash reporting integration",
+      "deep links into the workout detail screen",
+      "background sync with a URLSession task",
+      "keychain storage for the auth token"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components",
+      "watchOS companion app",
+      "an iPad layout for the summary screen",
+      "migrating the remaining UIKit screens"
+    ],
+    "decisions": [
+      "SwiftUI for all new screens",
+      "Core Data over Realm for local storage"
+    ],
+    "files": [
+      "fastlane/Fastfile",
+      "App/Info.plist"
+    ],
+    "errors": []
+  }
+}

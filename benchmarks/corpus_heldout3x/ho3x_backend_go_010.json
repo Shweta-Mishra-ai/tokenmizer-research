@@ -1,0 +1,79 @@
+{
+  "id": "ho3x_backend_go_010",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a gRPC gateway service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a gRPC gateway service."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, zerolog for logging is the best fit. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, pgx as the Postgres driver is the best fit. Once CI passes I'll merge. We can stop worrying about a worker pool bounded at 32 goroutines now. Most of the work happened inside proto/orders.proto."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: connection reuse in the HTTP client made it in before the freeze. Benchmark tests on the hot encode path? Taken care of. The retry policy with exponential backoff? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What about a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Nobody has touched a fuzz test on the decoder yet."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, a monorepo layout with internal packages is the best fit. Graceful shutdown on SIGTERM? Taken care of. Rewrote parts of Dockerfile as well."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "graceful shutdown on SIGTERM",
+      "a worker pool bounded at 32 goroutines",
+      "the retry policy with exponential backoff",
+      "connection reuse in the HTTP client",
+      "benchmark tests on the hot encode path"
+    ],
+    "pending_tasks": [
+      "a fuzz test on the decoder"
+    ],
+    "decisions": [
+      "zerolog for logging",
+      "a monorepo layout with internal packages",
+      "pgx as the Postgres driver"
+    ],
+    "files": [
+      "proto/orders.proto",
+      "Dockerfile"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "id": "ho3x_devops_kubernetes_004",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a zero-downtime deploy pipeline now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consolidating the three ingress controllers still needs doing. There were no failures in the nightly run. The relevant code is in k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The Helm chart for the API deployment is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Karpenter instead of the cluster autoscaler?"
+    },
+    {
+      "role": "assistant",
+      "content": "A canary stage in the deploy pipeline has been merged. Sounds right, on it. If this fails again we will revisit the design. The relevant code is in charts/api/values.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What about a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. A rolling deploy with surge and unavailable tuned is sorted. I edited .github/workflows/deploy.yml."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at argocd/apps/api.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got cluster autoscaler on the spot node group up and running. Readiness and liveness probes on every workload is sorted. Have a look at k8s/networkpolicy.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is Velero for cluster backups."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a canary stage in the deploy pipeline",
+      "a rolling deploy with surge and unavailable tuned",
+      "the Helm chart for the API deployment",
+      "cluster autoscaler on the spot node group",
+      "readiness and liveness probes on every workload"
+    ],
+    "pending_tasks": [
+      "consolidating the three ingress controllers"
+    ],
+    "decisions": [
+      "Velero for cluster backups",
+      "Karpenter instead of the cluster autoscaler"
+    ],
+    "files": [
+      ".github/workflows/deploy.yml",
+      "k8s/ingress.yaml",
+      "k8s/networkpolicy.yaml",
+      "charts/api/values.yaml",
+      "argocd/apps/api.yaml"
+    ],
+    "errors": []
+  }
+}

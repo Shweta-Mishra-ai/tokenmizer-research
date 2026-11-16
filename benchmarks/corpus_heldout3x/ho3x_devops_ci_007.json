@@ -1,0 +1,133 @@
+{
+  "id": "ho3x_devops_ci_007",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a release automation project."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a release automation project."
+    },
+    {
+      "role": "user",
+      "content": "What about a release automation project?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in Makefile. Result: dependency caching across pipeline runs done. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: a concurrency group cancelling superseded runs done. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We completed container image build with layer caching yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Rewrote parts of .github/workflows/release.yml as well."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] quarantining the six flakiest tests There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Release-please for version bumps is what we'll ship with.\nOnce CI passes I'll merge.\n- scripts/run_tests.sh\nChoice: GitHub Actions over the self-managed runner fleet."
+    },
+    {
+      "role": "user",
+      "content": "What about a release automation project?"
+    },
+    {
+      "role": "assistant",
+      "content": "A matrix build over three Python versions has been merged. Changes are in .github/workflows/ci.yml. Pytest-xdist for test parallelism is the pick."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deduplicating the three near-identical workflows is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Codecov for coverage tracking sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Required status checks on the default branch went smoothly in the end. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about a release automation project?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] publishing test timing history"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a release automation project?"
+    },
+    {
+      "role": "assistant",
+      "content": "conftest.py ended up with most of the changes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dependency caching across pipeline runs",
+      "a matrix build over three Python versions",
+      "a concurrency group cancelling superseded runs",
+      "quarantining the six flakiest tests",
+      "container image build with layer caching",
+      "required status checks on the default branch"
+    ],
+    "pending_tasks": [
+      "publishing test timing history",
+      "deduplicating the three near-identical workflows"
+    ],
+    "decisions": [
+      "GitHub Actions over the self-managed runner fleet",
+      "pytest-xdist for test parallelism",
+      "release-please for version bumps",
+      "Codecov for coverage tracking"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      ".github/workflows/ci.yml",
+      "conftest.py",
+      "Makefile",
+      ".github/workflows/release.yml"
+    ],
+    "errors": []
+  }
+}

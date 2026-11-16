@@ -1,0 +1,158 @@
+{
+  "id": "ho4x_devops_kubernetes_003",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Going forward: cert-manager for TLS certificates."
+    },
+    {
+      "role": "user",
+      "content": "How is a zero-downtime deploy pipeline going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** a runbook for the failover procedure.\n* k8s/ingress.yaml\nFinal call: Velero for cluster backups."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "* Dockerfile"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: an ImagePullBackOff from an expired registry credential."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] a canary stage in the deploy pipeline\nComplete: the secrets migration into the external secret store.\nHere's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Use ArgoCD for GitOps delivery please."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Sure, on it. Still open — an upgrade rehearsal in staging."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the ingress with automatic certificate renewal.\nKnown defect — DNS resolution failures inside the mesh sidecar.\n- [ ] TODO tightening the pod security admission profile\nFlaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Path: `terraform/cluster.tf`. * scripts/rollout.sh"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week.\n- [X] pod disruption budgets for the stateful services\nTouched file: .github/workflows/deploy.yml.\nFinal call: a blue-green strategy for the database proxy."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Kustomize overlays per environment."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — k8s/networkpolicy.yaml.\nI'll post a recap later.\nFine by me.\n**Finished work:** cluster autoscaler on the spot node group."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** reducing the image sizes on the worker pool.\nComplete: the Helm chart for the API deployment."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Istio for service mesh traffic policy."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] horizontal pod autoscaling on CPU and request rate"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the Helm chart for the API deployment",
+      "horizontal pod autoscaling on CPU and request rate",
+      "cluster autoscaler on the spot node group",
+      "the ingress with automatic certificate renewal",
+      "pod disruption budgets for the stateful services",
+      "the secrets migration into the external secret store",
+      "a canary stage in the deploy pipeline"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "reducing the image sizes on the worker pool",
+      "an upgrade rehearsal in staging",
+      "tightening the pod security admission profile"
+    ],
+    "decisions": [
+      "Velero for cluster backups",
+      "cert-manager for TLS certificates",
+      "a blue-green strategy for the database proxy",
+      "Istio for service mesh traffic policy",
+      "Kustomize overlays per environment",
+      "ArgoCD for GitOps delivery"
+    ],
+    "files": [
+      "k8s/ingress.yaml",
+      "Dockerfile",
+      "terraform/cluster.tf",
+      ".github/workflows/deploy.yml",
+      "scripts/rollout.sh",
+      "k8s/networkpolicy.yaml"
+    ],
+    "errors": [
+      "DNS resolution failures inside the mesh sidecar",
+      "an ImagePullBackOff from an expired registry credential"
+    ]
+  }
+}

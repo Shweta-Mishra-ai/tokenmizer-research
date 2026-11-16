@@ -1,0 +1,142 @@
+{
+  "id": "ho4x_devops_ci_001",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a CI pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a CI pipeline rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Dockerfile. Publishing test timing history is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Details are in pyproject.toml."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? See the diff in scripts/run_tests.sh."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "GitHub Actions over the self-managed runner fleet won the vote. Quarantining the six flakiest tests is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pinning all third-party actions by digest is next up. Automated changelog generation on tag has shipped."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be pytest-xdist for test parallelism."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. See the diff in .github/dependabot.yml."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in conftest.py. Details are in tox.ini. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Deduplicating the three near-identical workflows remains open."
+    },
+    {
+      "role": "user",
+      "content": "How is a CI pipeline rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cutting the pipeline below eight minutes hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A matrix build over three Python versions has shipped."
+    },
+    {
+      "role": "user",
+      "content": "How is a CI pipeline rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. We'll run with test retries limited to two attempts."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A nightly job running the slow integration suite went in this morning. After review I'll deploy. The team picked uv for dependency installation."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a matrix build over three Python versions",
+      "quarantining the six flakiest tests",
+      "automated changelog generation on tag",
+      "a nightly job running the slow integration suite"
+    ],
+    "pending_tasks": [
+      "publishing test timing history",
+      "cutting the pipeline below eight minutes",
+      "deduplicating the three near-identical workflows",
+      "pinning all third-party actions by digest"
+    ],
+    "decisions": [
+      "test retries limited to two attempts",
+      "uv for dependency installation",
+      "pytest-xdist for test parallelism",
+      "GitHub Actions over the self-managed runner fleet"
+    ],
+    "files": [
+      "tox.ini",
+      "pyproject.toml",
+      "scripts/run_tests.sh",
+      "Dockerfile",
+      ".github/dependabot.yml",
+      "conftest.py"
+    ],
+    "errors": []
+  }
+}

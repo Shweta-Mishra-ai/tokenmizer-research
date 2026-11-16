@@ -1,0 +1,119 @@
+{
+  "id": "ho4x_devops_ci_010",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a flaky test investigation."
+    },
+    {
+      "role": "user",
+      "content": "Test retries limited to two attempts feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in conftest.py. Fine by me. Thanks to signed release artifacts, the on-call pages stopped. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle .github/workflows/release.yml first. The dashboard lit up red with the pipeline timing out after 60 minutes. scripts/run_tests.sh grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? A nightly job running the slow integration suite is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "How is a flaky test investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "pyproject.toml grew by a couple hundred lines. Somebody has to own self-hosted runners for the GPU tests before Friday."
+    },
+    {
+      "role": "user",
+      "content": "GitHub Actions over the self-managed runner fleet feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while splitting the linting job from the test job is missing. Should we add more coverage? Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Semantic versioning driven by commit messages feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, a rollback job for failed deploys is where attention goes. Flaky jobs get one automatic retry. Quarantining the six flakiest tests came off the board this morning. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Had to untangle Dockerfile first."
+    },
+    {
+      "role": "user",
+      "content": "How is a flaky test investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while deduplicating the three near-identical workflows is missing."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to trunk-based development with short-lived branches. A matrix build over three Python versions is behind us now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed release artifacts",
+      "a matrix build over three Python versions",
+      "a nightly job running the slow integration suite",
+      "quarantining the six flakiest tests"
+    ],
+    "pending_tasks": [
+      "a rollback job for failed deploys",
+      "deduplicating the three near-identical workflows",
+      "splitting the linting job from the test job",
+      "self-hosted runners for the GPU tests"
+    ],
+    "decisions": [
+      "trunk-based development with short-lived branches",
+      "test retries limited to two attempts",
+      "GitHub Actions over the self-managed runner fleet",
+      "semantic versioning driven by commit messages"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      "conftest.py",
+      "Dockerfile",
+      "pyproject.toml",
+      ".github/workflows/release.yml"
+    ],
+    "errors": [
+      "the pipeline timing out after 60 minutes"
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "ho3x_debug_production_001",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a performance regression hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a performance regression hunt."
+    },
+    {
+      "role": "user",
+      "content": "What about a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] adding structured logging around the suspect path"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: a timeline of the incident from the metrics. Edited: docs/postmortem.md."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a performance regression hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/pool.py. Action item: a permanent fix replacing the hotfix. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: src/client.py.\n**Shipped:** confirming the hypothesis with a targeted experiment."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with a blameless postmortem format."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Choose an incident severity of SEV-2."
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the hotfix reverting the connection pool change. Agreed. Closed: a regression test covering the failure mode."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: a load test reproducing the traffic pattern. We may decide to change this later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "confirming the hypothesis with a targeted experiment",
+      "a timeline of the incident from the metrics",
+      "adding structured logging around the suspect path",
+      "the hotfix reverting the connection pool change",
+      "a regression test covering the failure mode"
+    ],
+    "pending_tasks": [
+      "a permanent fix replacing the hotfix",
+      "a load test reproducing the traffic pattern"
+    ],
+    "decisions": [
+      "a blameless postmortem format",
+      "an incident severity of SEV-2"
+    ],
+    "files": [
+      "src/client.py",
+      "src/pool.py",
+      "docs/postmortem.md"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "ho3x_debug_production_011",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an outage root cause analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an outage root cause analysis."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards a blameless postmortem format."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Everyone was happy with a canary deploy for the fix. An incident severity of SEV-2 is what we'll ship with. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The hotfix reverting the connection pool change went smoothly in the end. The error messages are now clearer. Nobody has touched a load test reproducing the traffic pattern yet."
+    },
+    {
+      "role": "user",
+      "content": "What about an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, py-spy for the production profiling is the best fit. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: ruling out the cache layer as the cause made it in before the freeze. Once CI passes I'll merge. Most of the work happened inside logs/analysis.py."
+    },
+    {
+      "role": "user",
+      "content": "Rolling back before investigating further sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "tests/test_regression.py ended up with most of the changes. Most of the work happened inside docs/postmortem.md."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the postmortem document with action items made it in before the freeze. A follow-up on the third-party client bug report is the obvious next step. Do we need more tests? We can stop worrying about adding structured logging around the suspect path now."
+    },
+    {
+      "role": "user",
+      "content": "What about an outage root cause analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: a timeline of the incident from the metrics made it in before the freeze. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. We can stop worrying about a regression test covering the failure mode now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards sampling traces at 10% rather than 1%."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Cleaning up the temporary debug logging is the obvious next step."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the hotfix reverting the connection pool change",
+      "ruling out the cache layer as the cause",
+      "adding structured logging around the suspect path",
+      "a timeline of the incident from the metrics",
+      "the postmortem document with action items",
+      "a regression test covering the failure mode"
+    ],
+    "pending_tasks": [
+      "cleaning up the temporary debug logging",
+      "a follow-up on the third-party client bug report",
+      "a load test reproducing the traffic pattern"
+    ],
+    "decisions": [
+      "sampling traces at 10% rather than 1%",
+      "an incident severity of SEV-2",
+      "a blameless postmortem format",
+      "a canary deploy for the fix",
+      "py-spy for the production profiling",
+      "rolling back before investigating further"
+    ],
+    "files": [
+      "docs/postmortem.md",
+      "tests/test_regression.py",
+      "logs/analysis.py"
+    ],
+    "errors": []
+  }
+}

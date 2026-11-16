@@ -1,0 +1,102 @@
+{
+  "id": "ho3x_ml_python_009",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a demand forecasting pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a demand forecasting pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Choose MLflow for experiment tracking."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: requirements.txt. Okay, doing it. Nothing is blocking us right now. Backlog: documenting the model card."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: retraining automation on a weekly cadence.\nI'll summarise at the end.\nErrors: a CUDA out of memory error at batch size 256.\n- configs/model.yaml"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: gradient boosting reaching 0.84 AUC done.\n**Shipped:** cross-validation across five folds.\nFile: `src/evaluate.py`."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a silent dtype coercion dropping precision. Do we need more tests? * [ ] a fairness audit across customer segments"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a demand forecasting pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: notebooks/eda.ipynb.\n- src/features.py"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Closed: the feature engineering pipeline with 42 features. Implemented class imbalance handling with focal loss. We've decided on XGBoost over a neural network for tabular data."
+    },
+    {
+      "role": "user",
+      "content": "What about a demand forecasting pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: src/train.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cross-validation across five folds",
+      "the feature engineering pipeline with 42 features",
+      "gradient boosting reaching 0.84 AUC",
+      "class imbalance handling with focal loss"
+    ],
+    "pending_tasks": [
+      "retraining automation on a weekly cadence",
+      "a fairness audit across customer segments",
+      "documenting the model card"
+    ],
+    "decisions": [
+      "MLflow for experiment tracking",
+      "XGBoost over a neural network for tabular data"
+    ],
+    "files": [
+      "requirements.txt",
+      "notebooks/eda.ipynb",
+      "src/evaluate.py",
+      "src/train.py",
+      "src/features.py",
+      "configs/model.yaml"
+    ],
+    "errors": [
+      "a silent dtype coercion dropping precision",
+      "a CUDA out of memory error at batch size 256"
+    ]
+  }
+}

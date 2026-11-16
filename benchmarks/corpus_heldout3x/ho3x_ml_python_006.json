@@ -1,0 +1,171 @@
+{
+  "id": "ho3x_ml_python_006",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a document classifier."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a document classifier."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got cross-validation across five folds up and running. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What about a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in requirements.txt. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in notebooks/eda.ipynb. If this fails again we will revisit the design. Let's settle on Optuna for hyperparameter search."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. I plan to do shadow deployment against live traffic next. I've got hyperparameter search over 200 trials up and running. The relevant code is in src/serve.py."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need reducing inference latency below 50ms before launch. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Retraining automation on a weekly cadence is still open. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on ONNX export for the serving runtime. There were no failures in the nightly run. Hitting NaN losses after the learning rate change in CI."
+    },
+    {
+      "role": "user",
+      "content": "Can we try a 90-day lookback window for features?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "Gradient boosting reaching 0.84 AUC has been merged. We're going to use Evidently for drift reporting. Baseline logistic regression at 0.71 AUC was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A fairness audit across customer segments is on the backlog. Failed jobs are retried twice. Batch inference over the full customer base was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "What about a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "The feature engineering pipeline with 42 features was rolled out. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting inference timeouts on the long-document path in CI."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "MLflow for experiment tracking is the pick. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting the evaluation set overlapping the training window in CI."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. We completed drift monitoring on the input distributions yesterday."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "baseline logistic regression at 0.71 AUC",
+      "gradient boosting reaching 0.84 AUC",
+      "batch inference over the full customer base",
+      "the feature engineering pipeline with 42 features",
+      "cross-validation across five folds",
+      "drift monitoring on the input distributions"
+    ],
+    "pending_tasks": [
+      "retraining automation on a weekly cadence",
+      "shadow deployment against live traffic",
+      "reducing inference latency below 50ms",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "Evidently for drift reporting",
+      "Optuna for hyperparameter search",
+      "MLflow for experiment tracking",
+      "ONNX export for the serving runtime",
+      "a 90-day lookback window for features"
+    ],
+    "files": [
+      "src/serve.py",
+      "requirements.txt",
+      "notebooks/eda.ipynb"
+    ],
+    "errors": [
+      "inference timeouts on the long-document path",
+      "the evaluation set overlapping the training window",
+      "NaN losses after the learning rate change"
+    ]
+  }
+}

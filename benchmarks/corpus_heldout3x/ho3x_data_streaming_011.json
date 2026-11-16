@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_data_streaming_011",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a change data capture setup."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a change data capture setup."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a change data capture setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] partitioning by tenant rather than by hash The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Implemented consumer lag monitoring with alerting. Edited: streams/windowing.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a change data capture setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented an integration test spinning up a real broker.\n- tests/test_aggregator.py"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** a schema registry entry for every event type."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] migrating the remaining consumers off the v1 schema Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Switch to a separate cluster for the analytics workloads."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] an automated schema compatibility check in CI File: `streams/consumer.py`. I'll summarise at the end. Implemented windowed aggregation over five-minute tumbling windows."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: exactly-once semantics on the aggregation job done."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on a seven-day retention on the raw topics.\n- connect/debezium.json\nAffected file: docker-compose.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an integration test spinning up a real broker",
+      "a schema registry entry for every event type",
+      "windowed aggregation over five-minute tumbling windows",
+      "consumer lag monitoring with alerting",
+      "exactly-once semantics on the aggregation job"
+    ],
+    "pending_tasks": [
+      "partitioning by tenant rather than by hash",
+      "migrating the remaining consumers off the v1 schema",
+      "an automated schema compatibility check in CI"
+    ],
+    "decisions": [
+      "a seven-day retention on the raw topics",
+      "a separate cluster for the analytics workloads"
+    ],
+    "files": [
+      "streams/consumer.py",
+      "tests/test_aggregator.py",
+      "streams/windowing.py",
+      "connect/debezium.json",
+      "docker-compose.yml"
+    ],
+    "errors": []
+  }
+}

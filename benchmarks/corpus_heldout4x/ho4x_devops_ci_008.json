@@ -1,0 +1,141 @@
+{
+  "id": "ho4x_devops_ci_008",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a build time reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a build time reduction pass now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: deduplicating the three near-identical workflows. CI is passing. Going forward: Codecov for coverage tracking."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** dependency caching across pipeline runs."
+    },
+    {
+      "role": "user",
+      "content": "How is a build time reduction pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "* pyproject.toml"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. * scripts/run_tests.sh"
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: GitHub Actions over the self-managed runner fleet."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: .github/workflows/ci.yml. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a build time reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] container image build with layer caching"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Failing now: test pollution from an unreset global singleton."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — splitting the linting job from the test job. Crash: cache corruption producing stale build artifacts. Still open — cutting the pipeline below eight minutes."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a build time reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: signed release artifacts. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed parallel test execution across four shards."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use buildx with a remote cache backend. Path: `.github/dependabot.yml`."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed release artifacts",
+      "container image build with layer caching",
+      "parallel test execution across four shards",
+      "dependency caching across pipeline runs"
+    ],
+    "pending_tasks": [
+      "deduplicating the three near-identical workflows",
+      "cutting the pipeline below eight minutes",
+      "splitting the linting job from the test job"
+    ],
+    "decisions": [
+      "buildx with a remote cache backend",
+      "GitHub Actions over the self-managed runner fleet",
+      "Codecov for coverage tracking"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      ".github/workflows/ci.yml",
+      ".github/dependabot.yml",
+      "pyproject.toml"
+    ],
+    "errors": [
+      "test pollution from an unreset global singleton",
+      "cache corruption producing stale build artifacts"
+    ]
+  }
+}

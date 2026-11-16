@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_systems_rust_002",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a compression library."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a compression library now."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be clap for argument parsing. My preference would be arc-swap for the hot config reload."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Should we add more coverage? The team picked serde with a custom binary format. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/parser.rs"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in src/lib.rs. The logs are easier to read now. Still open — a compatibility shim for the old format."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be parking_lot mutexes over the std ones."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. We resolved to use tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Publishing the crate to crates.io is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: tests/roundtrip.rs. Thanks to the streaming parser over a bounded buffer, the on-call pages stopped. Wrapped: property tests over the encoder round trip."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while reducing the binary size below 2MB is missing. The fix lives in src/codec/mod.rs. Path: `fuzz/fuzz_targets/decode.rs`."
+    },
+    {
+      "role": "user",
+      "content": "How is a compression library going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Complete: a no_std core module."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. A workspace layout with three crates is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in Cargo.lock. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Profiling the allocation hot path is waiting on us."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a no_std core module",
+      "property tests over the encoder round trip",
+      "the streaming parser over a bounded buffer"
+    ],
+    "pending_tasks": [
+      "a compatibility shim for the old format",
+      "publishing the crate to crates.io",
+      "profiling the allocation hot path",
+      "reducing the binary size below 2MB"
+    ],
+    "decisions": [
+      "parking_lot mutexes over the std ones",
+      "serde with a custom binary format",
+      "clap for argument parsing",
+      "arc-swap for the hot config reload",
+      "tokio over async-std for the runtime",
+      "a workspace layout with three crates"
+    ],
+    "files": [
+      "tests/roundtrip.rs",
+      "src/codec/mod.rs",
+      "src/parser.rs",
+      "src/lib.rs",
+      "fuzz/fuzz_targets/decode.rs",
+      "Cargo.lock"
+    ],
+    "errors": []
+  }
+}

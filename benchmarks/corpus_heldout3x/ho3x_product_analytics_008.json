@@ -1,0 +1,143 @@
+{
+  "id": "ho3x_product_analytics_008",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside config/taxonomy.yaml. Counting monthly actives on a rolling 28-day window beat the alternatives on every axis we care about. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about documentation of every metric definition now."
+    },
+    {
+      "role": "user",
+      "content": "Amplitude for product analytics sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, one primary metric per experiment is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the event taxonomy covering fourteen product actions now. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "What about an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of notebooks/churn_drivers.ipynb as well. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A data dictionary for the product team is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched an automated experiment readout template yet. Rewrote parts of docs/metric_definitions.md as well. We can stop worrying about a sample size calculation for the pricing test now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Most of the work happened inside analytics/segments.sql."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to timezone mismatch splitting one day across two cohorts. Rewrote parts of analytics/funnel.sql as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. The experiment assignment and exposure logging went smoothly in the end. Half the afternoon went to an experiment contaminated by overlapping assignment. Instrumenting the mobile funnel is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Excluding internal accounts from every metric beat the alternatives on every axis we care about."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a sample size calculation for the pricing test",
+      "the experiment assignment and exposure logging",
+      "documentation of every metric definition",
+      "the event taxonomy covering fourteen product actions"
+    ],
+    "pending_tasks": [
+      "instrumenting the mobile funnel",
+      "an automated experiment readout template",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "counting monthly actives on a rolling 28-day window",
+      "excluding internal accounts from every metric",
+      "Amplitude for product analytics",
+      "one primary metric per experiment"
+    ],
+    "files": [
+      "notebooks/churn_drivers.ipynb",
+      "docs/metric_definitions.md",
+      "analytics/funnel.sql",
+      "config/taxonomy.yaml",
+      "analytics/segments.sql"
+    ],
+    "errors": [
+      "an experiment contaminated by overlapping assignment",
+      "timezone mismatch splitting one day across two cohorts"
+    ]
+  }
+}

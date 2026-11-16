@@ -1,0 +1,107 @@
+{
+  "id": "ho3x_product_analytics_001",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a pricing change evaluation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a pricing change evaluation."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: one primary metric per experiment. Instrumentation on every onboarding step is sorted. Good news: a holdout group excluded from all experiments made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `config/taxonomy.yaml`. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — a qualitative follow-up with churned accounts. Nobody has touched an automated experiment readout template yet. Still to do: reconciling the two conflicting active-user counts."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: a funnel from signup through first value done. * [ ] a data dictionary for the product team"
+    },
+    {
+      "role": "user",
+      "content": "Weekly rather than daily cohorts for readability sounds like the better deal to me. Go ahead with counting monthly actives on a rolling 28-day window."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Sounds right, on it. We're going to use excluding internal accounts from every metric. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the experiment assignment and exposure logging yesterday. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited dashboards/north_star.json."
+    },
+    {
+      "role": "user",
+      "content": "What about a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use counting activation on first collaborative action."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "instrumentation on every onboarding step",
+      "a funnel from signup through first value",
+      "a holdout group excluded from all experiments",
+      "the experiment assignment and exposure logging"
+    ],
+    "pending_tasks": [
+      "an automated experiment readout template",
+      "reconciling the two conflicting active-user counts",
+      "a qualitative follow-up with churned accounts",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "one primary metric per experiment",
+      "weekly rather than daily cohorts for readability",
+      "excluding internal accounts from every metric",
+      "counting activation on first collaborative action",
+      "counting monthly actives on a rolling 28-day window"
+    ],
+    "files": [
+      "config/taxonomy.yaml",
+      "dashboards/north_star.json"
+    ],
+    "errors": []
+  }
+}

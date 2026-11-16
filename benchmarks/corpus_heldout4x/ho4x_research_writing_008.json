@@ -1,0 +1,140 @@
+{
+  "id": "ho4x_research_writing_008",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an internal architecture RFC."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Restructuring the argument around three claims came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, releasing the corpus alongside the paper was the clear winner. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A first pass at the methodology section has been live since Tuesday with no complaints. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. The introduction cut from four pages to two is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Naming the baselines by method rather than by vendor is what everything will be built on from here. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in Makefile. Had to untangle paper/abstract.tex first."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to framing the contribution as a measurement study."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle figures/architecture.py first. Nobody needs to think about the reproducibility statement with exact commands anymore. Makes sense, doing that. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Nobody argued once they saw the numbers for an explicit statement that the corpus is synthetic."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Reporting per-domain breakdowns in the appendix is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Without permission to cite the internal deployment data the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for reporting macro F1 rather than accuracy. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "How is an internal architecture RFC going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The abstract rewritten to lead with the result is behind us now. Once the release settles, the artifact submission package is where attention goes. Ping me if anything seems wrong."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the reproducibility statement with exact commands",
+      "restructuring the argument around three claims",
+      "a first pass at the methodology section",
+      "the introduction cut from four pages to two",
+      "the abstract rewritten to lead with the result"
+    ],
+    "pending_tasks": [
+      "the artifact submission package",
+      "permission to cite the internal deployment data"
+    ],
+    "decisions": [
+      "framing the contribution as a measurement study",
+      "naming the baselines by method rather than by vendor",
+      "releasing the corpus alongside the paper",
+      "an explicit statement that the corpus is synthetic",
+      "reporting macro F1 rather than accuracy",
+      "reporting per-domain breakdowns in the appendix"
+    ],
+    "files": [
+      "paper/abstract.tex",
+      "Makefile",
+      "figures/architecture.py"
+    ],
+    "errors": []
+  }
+}

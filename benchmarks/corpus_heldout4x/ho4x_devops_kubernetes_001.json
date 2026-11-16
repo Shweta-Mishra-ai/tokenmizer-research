@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_devops_kubernetes_001",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a cluster upgrade to 1.31."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a cluster upgrade to 1.31 now."
+    },
+    {
+      "role": "user",
+      "content": "Trivy for image scanning in CI feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to node affinity rules keeping the databases separate, the on-call pages stopped. Once the release settles, per-namespace cost attribution is where attention goes. Nothing is waiting on anyone at the moment. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a cluster upgrade to 1.31 going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about the secrets migration into the external secret store anymore. No incidents were reported this week. The ingress with automatic certificate renewal has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a cluster upgrade to 1.31?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, cert-manager for TLS certificates was the clear winner. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "How is a cluster upgrade to 1.31 going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Karpenter instead of the cluster autoscaler is what everything will be built on from here. The pager went off twice overnight because of PVC binding failures in the new availability zone. .github/workflows/deploy.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, a chaos test on node eviction is where attention goes. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to ArgoCD for GitOps delivery."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Had to untangle Dockerfile first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. A canary stage in the deploy pipeline came off the board this morning. Turns out the slowdown was CrashLoopBackOff after the config map rename all along."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Kustomize overlays per environment."
+    },
+    {
+      "role": "assistant",
+      "content": "The Helm chart for the API deployment came off the board this morning. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, tightening the pod security admission profile is where attention goes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "the secrets migration into the external secret store",
+      "the Helm chart for the API deployment",
+      "a canary stage in the deploy pipeline",
+      "the ingress with automatic certificate renewal",
+      "node affinity rules keeping the databases separate"
+    ],
+    "pending_tasks": [
+      "per-namespace cost attribution",
+      "tightening the pod security admission profile",
+      "a chaos test on node eviction"
+    ],
+    "decisions": [
+      "cert-manager for TLS certificates",
+      "Trivy for image scanning in CI",
+      "ArgoCD for GitOps delivery",
+      "Karpenter instead of the cluster autoscaler",
+      "Kustomize overlays per environment",
+      "Prometheus and Grafana for metrics"
+    ],
+    "files": [
+      ".github/workflows/deploy.yml",
+      "Dockerfile"
+    ],
+    "errors": [
+      "PVC binding failures in the new availability zone",
+      "CrashLoopBackOff after the config map rename"
+    ]
+  }
+}

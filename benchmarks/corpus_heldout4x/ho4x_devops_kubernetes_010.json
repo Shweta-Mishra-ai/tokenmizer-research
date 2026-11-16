@@ -1,0 +1,119 @@
+{
+  "id": "ho4x_devops_kubernetes_010",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a production cluster migration."
+    },
+    {
+      "role": "user",
+      "content": "How is a production cluster migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Outage: PVC binding failures in the new availability zone. charts/api/values.yaml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with spot instances for the batch workloads?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing the image sizes on the worker pool is the piece nobody has picked up. Delivered — the secrets migration into the external secret store. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: scripts/rollout.sh. We haven't done per-namespace cost attribution yet."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cluster autoscaler on the spot node group has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: external-secrets backed by Vault."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got pod disruption budgets for the stateful services over the line. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. A chaos test on node eviction keeps getting pushed to next sprint. Landed node affinity rules keeping the databases separate."
+    },
+    {
+      "role": "user",
+      "content": "How is a production cluster migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? We have horizontal pod autoscaling on CPU and request rate now. In the queue: tightening the pod security admission profile. Istio for service mesh traffic policy is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in terraform/cluster.tf. Consensus: Loki for log aggregation. Support tickets mention DNS resolution failures inside the mesh sidecar."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "node affinity rules keeping the databases separate",
+      "cluster autoscaler on the spot node group",
+      "pod disruption budgets for the stateful services",
+      "the secrets migration into the external secret store",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "per-namespace cost attribution",
+      "reducing the image sizes on the worker pool",
+      "tightening the pod security admission profile",
+      "a chaos test on node eviction"
+    ],
+    "decisions": [
+      "spot instances for the batch workloads",
+      "external-secrets backed by Vault",
+      "Loki for log aggregation",
+      "Istio for service mesh traffic policy"
+    ],
+    "files": [
+      "scripts/rollout.sh",
+      "terraform/cluster.tf",
+      "charts/api/values.yaml"
+    ],
+    "errors": [
+      "DNS resolution failures inside the mesh sidecar",
+      "PVC binding failures in the new availability zone"
+    ]
+  }
+}

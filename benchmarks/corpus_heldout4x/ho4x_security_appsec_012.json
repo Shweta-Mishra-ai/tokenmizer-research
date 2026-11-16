@@ -1,0 +1,151 @@
+{
+  "id": "ho4x_security_appsec_012",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a penetration test remediation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without audit log retention policy the launch checklist stays red. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dependency pinning with a lockfile is behind us now. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about rotation of the leaked deploy key anymore."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Vault as the single secrets store."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about credential redaction on every log path anymore. Nobody argued once they saw the numbers for mTLS between internal services. Session invalidation on password change is behind us now. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dependabot for dependency updates is what everything will be built on from here. docs/threat-model.md grew by a couple hundred lines. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to short-lived tokens with refresh rotation."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A security runbook for incident response is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "How is a penetration test remediation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle security/redaction.py first."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "OIDC for single sign-on is the direction we committed to. A deny-by-default egress policy is what everything will be built on from here. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Thanks to an SBOM generated at build time, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of an open redirect on the login return URL. CSP headers on all rendered responses came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Signed container images in the registry has been live since Tuesday with no complaints."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dependency pinning with a lockfile",
+      "CSP headers on all rendered responses",
+      "credential redaction on every log path",
+      "rotation of the leaked deploy key",
+      "signed container images in the registry",
+      "an SBOM generated at build time",
+      "session invalidation on password change"
+    ],
+    "pending_tasks": [
+      "a security runbook for incident response",
+      "audit log retention policy"
+    ],
+    "decisions": [
+      "a deny-by-default egress policy",
+      "Vault as the single secrets store",
+      "mTLS between internal services",
+      "Dependabot for dependency updates",
+      "short-lived tokens with refresh rotation",
+      "OIDC for single sign-on"
+    ],
+    "files": [
+      "docs/threat-model.md",
+      "security/redaction.py"
+    ],
+    "errors": [
+      "an open redirect on the login return URL"
+    ]
+  }
+}

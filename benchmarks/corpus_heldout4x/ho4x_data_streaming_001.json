@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_data_streaming_001",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an event schema migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an event schema migration now."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to one topic per event type rather than a shared bus."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Flaky jobs get one automatic retry. The pager went off twice overnight because of duplicate processing after an unclean rebalance. Had to untangle streams/windowing.py first."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tests/test_aggregator.py. CI is passing. Avro with a schema registry for the payloads is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Flink for the stateful stream processing."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. docker-compose.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "A separate cluster for the analytics workloads is the direction we committed to. The dashboard lit up red with out-of-order events breaking the windowed aggregate. The logs are easier to read now. Once the release settles, documenting the ordering guarantees is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about consumer lag monitoring with alerting anymore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in streams/aggregator.py. Turns out the slowdown was a schema incompatibility rejecting valid producers all along."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backpressure handling in the consumer loop came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to keying events by aggregate ID for ordering. We can't call this finished while partitioning by tenant rather than by hash is missing. If this breaks later we can roll back. An integration test spinning up a real broker came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "A seven-day retention on the raw topics feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle connect/debezium.json first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an integration test spinning up a real broker",
+      "backpressure handling in the consumer loop",
+      "consumer lag monitoring with alerting"
+    ],
+    "pending_tasks": [
+      "documenting the ordering guarantees",
+      "partitioning by tenant rather than by hash"
+    ],
+    "decisions": [
+      "one topic per event type rather than a shared bus",
+      "keying events by aggregate ID for ordering",
+      "a seven-day retention on the raw topics",
+      "a separate cluster for the analytics workloads",
+      "Avro with a schema registry for the payloads",
+      "Flink for the stateful stream processing"
+    ],
+    "files": [
+      "tests/test_aggregator.py",
+      "streams/windowing.py",
+      "connect/debezium.json",
+      "docker-compose.yml",
+      "streams/aggregator.py"
+    ],
+    "errors": [
+      "duplicate processing after an unclean rebalance",
+      "a schema incompatibility rejecting valid producers",
+      "out-of-order events breaking the windowed aggregate"
+    ]
+  }
+}

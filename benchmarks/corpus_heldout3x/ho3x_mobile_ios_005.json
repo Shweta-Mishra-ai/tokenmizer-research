@@ -1,0 +1,144 @@
+{
+  "id": "ho3x_mobile_ios_005",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a payments SDK integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a payments SDK integration."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the subscription purchase and restore flow. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Edited: App/Info.plist."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] localisation into three languages Affected file: Sources/Widgets/ActivityWidget.swift. Chose XCTest with snapshot assertions."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented dark mode across every screen. File: `Package.swift`. Finished — deep links into the workout detail screen."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Result: background sync with a URLSession task done."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: Core Data persistence for the workout log."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. TO DO: reducing cold start below 400ms."
+    },
+    {
+      "role": "user",
+      "content": "Choose a modular package layout per feature. Choose fastlane for the release pipeline. Choose SwiftUI for all new screens."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Agreed. Sounds right, on it. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "- fastlane/Fastfile"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Sources/Sync/SyncEngine.swift. Chose Keychain for token storage rather than UserDefaults."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Sources/Auth/Keychain.swift. TO DO: a snapshot test suite for the components."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: VoiceOver labels across the main screens done."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deep links into the workout detail screen",
+      "dark mode across every screen",
+      "VoiceOver labels across the main screens",
+      "background sync with a URLSession task",
+      "Core Data persistence for the workout log",
+      "the subscription purchase and restore flow"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components",
+      "reducing cold start below 400ms",
+      "localisation into three languages"
+    ],
+    "decisions": [
+      "fastlane for the release pipeline",
+      "a modular package layout per feature",
+      "SwiftUI for all new screens",
+      "XCTest with snapshot assertions",
+      "Keychain for token storage rather than UserDefaults"
+    ],
+    "files": [
+      "Sources/Widgets/ActivityWidget.swift",
+      "fastlane/Fastfile",
+      "App/Info.plist",
+      "Sources/Sync/SyncEngine.swift",
+      "Sources/Auth/Keychain.swift",
+      "Package.swift"
+    ],
+    "errors": []
+  }
+}

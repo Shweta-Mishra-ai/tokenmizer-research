@@ -1,0 +1,125 @@
+{
+  "id": "ho3x_devops_ci_004",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a build time reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a build time reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- conftest.py\nThere were no failures in the nightly run.\n**Shipped:** a matrix build over three Python versions.\nChose Codecov for coverage tracking."
+    },
+    {
+      "role": "user",
+      "content": "What about a build time reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** uv for dependency installation."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: a rate limit from the container registry. File: `pyproject.toml`. TO DO: publishing test timing history."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on release-please for version bumps. Implemented coverage reporting posted to the pull request."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** semantic versioning driven by commit messages.\nNothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented a nightly job running the slow integration suite. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Implemented required status checks on the default branch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Edited: scripts/run_tests.sh."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Dockerfile. Let me know if anything looks off. * [x] quarantining the six flakiest tests"
+    },
+    {
+      "role": "user",
+      "content": "What about a build time reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** dependency caching across pipeline runs.\nHere is the updated plan."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a matrix build over three Python versions",
+      "dependency caching across pipeline runs",
+      "required status checks on the default branch",
+      "a nightly job running the slow integration suite",
+      "quarantining the six flakiest tests",
+      "coverage reporting posted to the pull request"
+    ],
+    "pending_tasks": [
+      "publishing test timing history"
+    ],
+    "decisions": [
+      "release-please for version bumps",
+      "uv for dependency installation",
+      "Codecov for coverage tracking",
+      "semantic versioning driven by commit messages"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      "pyproject.toml",
+      "Dockerfile",
+      "conftest.py"
+    ],
+    "errors": [
+      "a rate limit from the container registry"
+    ]
+  }
+}

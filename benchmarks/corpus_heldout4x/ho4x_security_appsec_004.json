@@ -1,0 +1,109 @@
+{
+  "id": "ho4x_security_appsec_004",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a dependency audit."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a dependency audit now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about parameterised queries across the data layer anymore."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Argon2id over bcrypt for new password hashes."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. CSP headers on all rendered responses is behind us now. Had to untangle SECURITY.md first. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in policy/egress.yaml. The bulk of the diff sits in security/middleware.py. The dashboard lit up red with a SQL injection in the search filter."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about session invalidation on password change anymore. Signed container images in the registry has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to input sanitisation on the file upload path, the on-call pages stopped. terraform/iam.tf grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to OIDC for single sign-on."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Most of yesterday disappeared into a timing attack on the token comparison. config/csp.json grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dependency pinning with a lockfile is behind us now. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, moving the remaining secrets out of environment files is where attention goes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "parameterised queries across the data layer",
+      "input sanitisation on the file upload path",
+      "session invalidation on password change",
+      "CSP headers on all rendered responses",
+      "dependency pinning with a lockfile",
+      "signed container images in the registry"
+    ],
+    "pending_tasks": [
+      "moving the remaining secrets out of environment files"
+    ],
+    "decisions": [
+      "OIDC for single sign-on",
+      "Argon2id over bcrypt for new password hashes"
+    ],
+    "files": [
+      "security/middleware.py",
+      "config/csp.json",
+      "policy/egress.yaml",
+      "terraform/iam.tf",
+      "SECURITY.md"
+    ],
+    "errors": [
+      "a SQL injection in the search filter",
+      "a timing attack on the token comparison"
+    ]
+  }
+}

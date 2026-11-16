@@ -1,0 +1,95 @@
+{
+  "id": "ho4x_infra_terraform_011",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a state migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a state migration."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. * terraform/variables.tf Wrapped: the VPC with public and private subnets across three zones."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. In the queue: documenting the module interfaces."
+    },
+    {
+      "role": "user",
+      "content": "Pick provider versions pinned to a minor range."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it.\nAfter review I'll deploy.\n- [X] remote state in S3 with DynamoDB locking"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: terraform/rds.tf.\n**Chosen:** OIDC for CI authentication into AWS.\nWrapped: an RDS instance with automated backups."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. * terraform/backend.tf"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed encrypted EBS volumes across all instances."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: tagging enforced through a provider default."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "remote state in S3 with DynamoDB locking",
+      "encrypted EBS volumes across all instances",
+      "tagging enforced through a provider default",
+      "an RDS instance with automated backups",
+      "the VPC with public and private subnets across three zones"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces"
+    ],
+    "decisions": [
+      "OIDC for CI authentication into AWS",
+      "provider versions pinned to a minor range"
+    ],
+    "files": [
+      "terraform/variables.tf",
+      "terraform/backend.tf",
+      "terraform/rds.tf"
+    ],
+    "errors": []
+  }
+}

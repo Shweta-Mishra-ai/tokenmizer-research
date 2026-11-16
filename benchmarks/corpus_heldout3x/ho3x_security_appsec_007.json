@@ -1,0 +1,129 @@
+{
+  "id": "ho3x_security_appsec_007",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a penetration test remediation."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Moving the remaining secrets out of environment files is still open."
+    },
+    {
+      "role": "user",
+      "content": "What about a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in config/csp.json. An SBOM generated at build time is working now."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with gitleaks as a pre-commit hook?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Parameterised queries across the data layer was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypted secrets at rest in the vault has been merged. Once CI passes I'll merge. Changes are in .github/workflows/security.yml. We ran into a timing attack on the token comparison."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with mTLS between internal services. I've gone with Vault as the single secrets store. Session invalidation on password change is working now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do a security runbook for incident response next. A 90-day key rotation schedule is the pick. I'll summarise at the end. Have a look at api/auth.py."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting an open redirect on the login return URL in CI."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still to do: a threat model for the payments flow. Changes are in SECURITY.md. Audit log retention policy is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at terraform/iam.tf. Hitting an XSS in the comment renderer in CI. The error messages are now clearer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "parameterised queries across the data layer",
+      "an SBOM generated at build time",
+      "encrypted secrets at rest in the vault",
+      "session invalidation on password change"
+    ],
+    "pending_tasks": [
+      "a security runbook for incident response",
+      "audit log retention policy",
+      "moving the remaining secrets out of environment files",
+      "a threat model for the payments flow"
+    ],
+    "decisions": [
+      "Vault as the single secrets store",
+      "a 90-day key rotation schedule",
+      "gitleaks as a pre-commit hook",
+      "mTLS between internal services"
+    ],
+    "files": [
+      "config/csp.json",
+      ".github/workflows/security.yml",
+      "api/auth.py",
+      "SECURITY.md",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "an open redirect on the login return URL",
+      "an XSS in the comment renderer",
+      "a timing attack on the token comparison"
+    ]
+  }
+}

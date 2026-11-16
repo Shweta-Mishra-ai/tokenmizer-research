@@ -1,0 +1,110 @@
+{
+  "id": "ho3x_frontend_react_011",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an analytics dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got the toast notification system up and running. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** an infinite re-render from an unstable dependency array.\nLet me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with pnpm as the package manager. Should we go with TanStack Query for server state?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with TypeScript in strict mode?"
+    },
+    {
+      "role": "assistant",
+      "content": "A Storybook entry for each primitive is waiting for someone to pick it up. If this fails again we will revisit the design. Edited: src/routes/dashboard.tsx. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "The empty and loading states for every panel is working now. There is layout shift on the chart container on the main branch. Have a look at tests/dashboard.spec.ts. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a memory leak from an unsubscribed event listener. Changes are in src/components/DataTable.tsx. Changes are in src/api/client.ts. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: tailwind.config.js. Closed: session persistence in localStorage."
+    },
+    {
+      "role": "user",
+      "content": "Choose React 19 with the compiler enabled."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Failed jobs are retried twice. Memoising the chart data transform is on the backlog."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the toast notification system",
+      "session persistence in localStorage",
+      "the empty and loading states for every panel"
+    ],
+    "pending_tasks": [
+      "a Storybook entry for each primitive",
+      "memoising the chart data transform"
+    ],
+    "decisions": [
+      "TypeScript in strict mode",
+      "pnpm as the package manager",
+      "React 19 with the compiler enabled",
+      "TanStack Query for server state"
+    ],
+    "files": [
+      "src/api/client.ts",
+      "tests/dashboard.spec.ts",
+      "src/components/DataTable.tsx",
+      "tailwind.config.js",
+      "src/routes/dashboard.tsx"
+    ],
+    "errors": [
+      "an infinite re-render from an unstable dependency array",
+      "a memory leak from an unsubscribed event listener",
+      "layout shift on the chart container"
+    ]
+  }
+}

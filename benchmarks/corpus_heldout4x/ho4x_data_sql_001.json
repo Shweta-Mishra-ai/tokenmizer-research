@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_data_sql_001",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an event pipeline redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an event pipeline redesign."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Great Expectations for data quality checks. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Could Parquet as the landing format work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Freshness tests on every source table has shipped. After review I'll deploy. The dashboard lit up red with duplicate rows from a non-unique natural key. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "How is an event pipeline redesign going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: a materialised view for the executive dashboard. Deduplication on the raw event stream has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Surrogate keys across the dimension tables is up and working. UTC everywhere for timestamps won the vote. A cost review of the warehouse spend hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Wrapped: row count reconciliation against the source system."
+    },
+    {
+      "role": "user",
+      "content": "How is an event pipeline redesign going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Kafka for the event transport is the direction we committed to.\nNothing is waiting on anyone at the moment.\nWe'll run with Airflow for orchestration.\n**Fault:** a null propagation bug in the margin calculation."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — scripts/backfill.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — sql/indexes.sql."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling six months of historical revenue held up fine through the whole load test. See the diff in tests/schema.yml. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication on the raw event stream",
+      "row count reconciliation against the source system",
+      "backfilling six months of historical revenue",
+      "freshness tests on every source table",
+      "a materialised view for the executive dashboard",
+      "surrogate keys across the dimension tables"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend"
+    ],
+    "decisions": [
+      "Airflow for orchestration",
+      "Parquet as the landing format",
+      "Kafka for the event transport",
+      "UTC everywhere for timestamps",
+      "Great Expectations for data quality checks"
+    ],
+    "files": [
+      "scripts/backfill.py",
+      "sql/indexes.sql",
+      "tests/schema.yml"
+    ],
+    "errors": [
+      "a null propagation bug in the margin calculation",
+      "duplicate rows from a non-unique natural key"
+    ]
+  }
+}

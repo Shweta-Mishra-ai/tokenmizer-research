@@ -1,0 +1,145 @@
+{
+  "id": "ho3x_ml_python_012",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a fraud detection model."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a fraud detection model."
+    },
+    {
+      "role": "user",
+      "content": "Switch to a time-based split to avoid leakage."
+    },
+    {
+      "role": "assistant",
+      "content": "Drift monitoring on the input distributions is working now. Okay, doing it. The feature engineering pipeline with 42 features was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Scikit-learn pipelines for preprocessing is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "What about a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Don't let calibrating the output probabilities slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Shadow deployment against live traffic is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. I've gone with AUC-PR as the primary metric given the imbalance. Most of the work happened inside notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. I edited data/schema.json."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We need a feature store migration before launch."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. I plan to do documenting the model card next."
+    },
+    {
+      "role": "user",
+      "content": "What about a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was non-determinism from an unseeded shuffle. Chose quantile clipping on the numeric features. There were no failures in the nightly run. Failed: a CUDA out of memory error at batch size 256."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, MLflow for experiment tracking is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "What about a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Gradient boosting reaching 0.84 AUC has been merged. The relevant code is in configs/model.yaml. Batch inference over the full customer base went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a silent dtype coercion dropping precision.\n**Decided:** ONNX export for the serving runtime."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "batch inference over the full customer base",
+      "drift monitoring on the input distributions",
+      "the feature engineering pipeline with 42 features",
+      "gradient boosting reaching 0.84 AUC"
+    ],
+    "pending_tasks": [
+      "calibrating the output probabilities",
+      "a feature store migration",
+      "documenting the model card",
+      "shadow deployment against live traffic"
+    ],
+    "decisions": [
+      "scikit-learn pipelines for preprocessing",
+      "quantile clipping on the numeric features",
+      "ONNX export for the serving runtime",
+      "MLflow for experiment tracking",
+      "AUC-PR as the primary metric given the imbalance",
+      "a time-based split to avoid leakage"
+    ],
+    "files": [
+      "notebooks/eda.ipynb",
+      "configs/model.yaml",
+      "data/schema.json"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle",
+      "a CUDA out of memory error at batch size 256",
+      "a silent dtype coercion dropping precision"
+    ]
+  }
+}

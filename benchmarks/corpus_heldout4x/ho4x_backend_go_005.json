@@ -1,0 +1,134 @@
+{
+  "id": "ho4x_backend_go_005",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an event consumer."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an event consumer now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in cmd/server/main.go."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be NATS for the message transport."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Structured logging with request correlation is up and working. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Prometheus metrics on the request path went in this morning. The logs are easier to read now. I got the gRPC service definition and generated stubs over the line. Production is showing context deadline exceeded on the upstream call."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Go 1.23 as the toolchain."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on sqlc for type-safe database access. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Benchmark tests on the hot encode path went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on gRPC over REST for internal traffic. We have graceful shutdown on SIGTERM now. Flaky jobs get one automatic retry. See the diff in internal/worker/pool.go."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by a data race on the shared counter in staging. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "How is an event consumer going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing a goroutine leak on the cancelled request path."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with golangci-lint in CI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the config to environment variables is next up. Makes sense, doing that. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in buf.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "structured logging with request correlation",
+      "graceful shutdown on SIGTERM",
+      "Prometheus metrics on the request path",
+      "benchmark tests on the hot encode path",
+      "the gRPC service definition and generated stubs"
+    ],
+    "pending_tasks": [
+      "moving the config to environment variables"
+    ],
+    "decisions": [
+      "sqlc for type-safe database access",
+      "gRPC over REST for internal traffic",
+      "golangci-lint in CI",
+      "Go 1.23 as the toolchain",
+      "NATS for the message transport"
+    ],
+    "files": [
+      "internal/worker/pool.go",
+      "buf.yaml",
+      "cmd/server/main.go"
+    ],
+    "errors": [
+      "a data race on the shared counter",
+      "context deadline exceeded on the upstream call",
+      "a goroutine leak on the cancelled request path"
+    ]
+  }
+}

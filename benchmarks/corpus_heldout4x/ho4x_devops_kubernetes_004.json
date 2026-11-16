@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_devops_kubernetes_004",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a cost reduction pass now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing the image sizes on the worker pool is next up."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cluster autoscaler on the spot node group is finished and deployed. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. I got resource requests and limits for all containers over the line."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A chaos test on node eviction is waiting on us. The ingress with automatic certificate renewal has shipped. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Loki for log aggregation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a cost reduction pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A rolling deploy with surge and unavailable tuned is up and working. We haven't done tightening the pod security admission profile yet. We haven't done consolidating the three ingress controllers yet."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing node pressure evictions during the nightly batch. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Dockerfile. Nothing is waiting on anyone at the moment. A canary stage in the deploy pipeline is finished and deployed. See the diff in argocd/apps/api.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. We'll run with spot instances for the batch workloads. We'll run with ArgoCD for GitOps delivery."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in charts/api/templates/deployment.yaml. Horizontal pod autoscaling on CPU and request rate is finished and deployed. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Support tickets mention OOMKilled pods on the ingestion worker. Got hit by a 502 during rolling deploys from missing readiness gates in staging."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a rolling deploy with surge and unavailable tuned",
+      "the ingress with automatic certificate renewal",
+      "a canary stage in the deploy pipeline",
+      "horizontal pod autoscaling on CPU and request rate",
+      "cluster autoscaler on the spot node group",
+      "resource requests and limits for all containers"
+    ],
+    "pending_tasks": [
+      "consolidating the three ingress controllers",
+      "tightening the pod security admission profile",
+      "reducing the image sizes on the worker pool",
+      "a chaos test on node eviction"
+    ],
+    "decisions": [
+      "ArgoCD for GitOps delivery",
+      "Loki for log aggregation",
+      "spot instances for the batch workloads"
+    ],
+    "files": [
+      "charts/api/templates/deployment.yaml",
+      "Dockerfile",
+      "argocd/apps/api.yaml"
+    ],
+    "errors": [
+      "a 502 during rolling deploys from missing readiness gates",
+      "OOMKilled pods on the ingestion worker",
+      "node pressure evictions during the nightly batch"
+    ]
+  }
+}

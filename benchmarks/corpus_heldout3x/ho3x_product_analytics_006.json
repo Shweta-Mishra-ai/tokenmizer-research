@@ -1,0 +1,89 @@
+{
+  "id": "ho3x_product_analytics_006",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a pricing change evaluation."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a pricing change evaluation."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. TO DO: sunsetting the legacy dashboard. Outstanding: a data dictionary for the product team. Chose a two-week minimum experiment runtime."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: survivorship bias in the retention calculation."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] documentation of every metric definition"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** the experiment assignment and exposure logging.\n* [x] instrumentation on every onboarding step\nAffected file: docs/metric_definitions.md."
+    },
+    {
+      "role": "user",
+      "content": "What about a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off.\n**Decided:** reporting absolute lift alongside relative.\nClosed: a segment definition for activated accounts."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: instrumenting the mobile funnel. Edited: analytics/experiments.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "documentation of every metric definition",
+      "the experiment assignment and exposure logging",
+      "instrumentation on every onboarding step",
+      "a segment definition for activated accounts"
+    ],
+    "pending_tasks": [
+      "instrumenting the mobile funnel",
+      "a data dictionary for the product team",
+      "sunsetting the legacy dashboard"
+    ],
+    "decisions": [
+      "reporting absolute lift alongside relative",
+      "a two-week minimum experiment runtime"
+    ],
+    "files": [
+      "docs/metric_definitions.md",
+      "analytics/experiments.py"
+    ],
+    "errors": [
+      "survivorship bias in the retention calculation"
+    ]
+  }
+}

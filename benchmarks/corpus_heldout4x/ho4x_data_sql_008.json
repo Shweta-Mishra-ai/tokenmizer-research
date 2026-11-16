@@ -1,0 +1,145 @@
+{
+  "id": "ho4x_data_sql_008",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a reporting layer rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a reporting layer rebuild."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Airflow for orchestration."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. The trade-offs all pointed to a medallion bronze/silver/gold layout. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle tests/schema.yml first. Had to untangle profiles.yml first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the grain of each fact table is the piece nobody has picked up. The dashboard lit up red with a null propagation bug in the margin calculation. Had to untangle sql/indexes.sql first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own a cost review of the warehouse spend before Friday. Had to untangle dbt_project.yml first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about incremental models for the daily aggregates anymore."
+    },
+    {
+      "role": "user",
+      "content": "Great Expectations for data quality checks feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. The dashboard lit up red with a schema drift break when the source added a column."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in models/marts/fct_orders.sql."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Row count reconciliation against the source system has been live since Tuesday with no complaints. After the spike, dbt for the transformation layer was the clear winner. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about deduplication on the raw event stream anymore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "An anomaly alert on the daily order count keeps getting pushed to next sprint. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "How is a reporting layer rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Snowflake over BigQuery for the warehouse is what everything will be built on from here. Most of yesterday disappeared into duplicate rows from a non-unique natural key."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. We can't call this finished while unit tests for the revenue macro is missing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "incremental models for the daily aggregates",
+      "row count reconciliation against the source system",
+      "deduplication on the raw event stream"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend",
+      "an anomaly alert on the daily order count",
+      "documenting the grain of each fact table",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "a medallion bronze/silver/gold layout",
+      "Snowflake over BigQuery for the warehouse",
+      "Great Expectations for data quality checks",
+      "Airflow for orchestration",
+      "dbt for the transformation layer"
+    ],
+    "files": [
+      "profiles.yml",
+      "sql/indexes.sql",
+      "dbt_project.yml",
+      "tests/schema.yml",
+      "models/marts/fct_orders.sql"
+    ],
+    "errors": [
+      "a schema drift break when the source added a column",
+      "a null propagation bug in the margin calculation",
+      "duplicate rows from a non-unique natural key"
+    ]
+  }
+}

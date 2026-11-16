@@ -1,0 +1,126 @@
+{
+  "id": "ho4x_devops_ci_004",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a monorepo pipeline split."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a monorepo pipeline split."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — a rate limit from the container registry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed a concurrency group cancelling superseded runs. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "How is a monorepo pipeline split going?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] quarantining the six flakiest tests\nGoing forward: uv for dependency installation.\nStill open — pinning all third-party actions by digest."
+    },
+    {
+      "role": "user",
+      "content": "How is a monorepo pipeline split going?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO publishing test timing history\nFailing now: the pipeline timing out after 60 minutes.\nPath: `tox.ini`.\nNo incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** a nightly job running the slow integration suite.\n**Finished work:** container image build with layer caching.\n**Finished work:** automated changelog generation on tag.\nNo incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use buildx with a remote cache backend."
+    },
+    {
+      "role": "user",
+      "content": "How is a monorepo pipeline split going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: a flaky test failing one run in twenty on the timing assertion."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — signed release artifacts."
+    },
+    {
+      "role": "user",
+      "content": "Use release-please for version bumps please."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me.\n**Pending:** cutting the pipeline below eight minutes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed release artifacts",
+      "automated changelog generation on tag",
+      "container image build with layer caching",
+      "quarantining the six flakiest tests",
+      "a nightly job running the slow integration suite",
+      "a concurrency group cancelling superseded runs"
+    ],
+    "pending_tasks": [
+      "pinning all third-party actions by digest",
+      "cutting the pipeline below eight minutes",
+      "publishing test timing history"
+    ],
+    "decisions": [
+      "release-please for version bumps",
+      "uv for dependency installation",
+      "buildx with a remote cache backend"
+    ],
+    "files": [
+      "Makefile",
+      "tox.ini"
+    ],
+    "errors": [
+      "a flaky test failing one run in twenty on the timing assertion",
+      "a rate limit from the container registry",
+      "the pipeline timing out after 60 minutes"
+    ]
+  }
+}

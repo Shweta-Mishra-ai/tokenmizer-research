@@ -1,0 +1,119 @@
+{
+  "id": "ho4x_data_sql_007",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a warehouse migration."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in models/staging/stg_events.sql. See the diff in tests/schema.yml. I got freshness tests on every source table over the line."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in models/marts/fct_orders.sql."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with a medallion bronze/silver/gold layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. A cost review of the warehouse spend hasn't been started. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on hashed surrogate keys for stability. Support tickets mention a schema drift break when the source added a column. The fix lives in dbt_project.yml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. I updated models/marts/dim_customer.sql."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Retiring the legacy reporting views hasn't been started. We haven't done unit tests for the revenue macro yet."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. We're standardising on Airflow for orchestration. I updated sql/indexes.sql. I got column-level lineage documentation over the line."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be soft deletes with a valid_to column."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Row count reconciliation against the source system is up and working. We have backfilling six months of historical revenue now. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "freshness tests on every source table",
+      "row count reconciliation against the source system",
+      "column-level lineage documentation",
+      "backfilling six months of historical revenue"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend",
+      "unit tests for the revenue macro",
+      "retiring the legacy reporting views"
+    ],
+    "decisions": [
+      "Airflow for orchestration",
+      "hashed surrogate keys for stability",
+      "a medallion bronze/silver/gold layout",
+      "soft deletes with a valid_to column"
+    ],
+    "files": [
+      "models/staging/stg_events.sql",
+      "sql/indexes.sql",
+      "tests/schema.yml",
+      "models/marts/dim_customer.sql",
+      "models/marts/fct_orders.sql",
+      "dbt_project.yml"
+    ],
+    "errors": [
+      "a schema drift break when the source added a column"
+    ]
+  }
+}

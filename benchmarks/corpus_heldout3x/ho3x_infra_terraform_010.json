@@ -1,0 +1,143 @@
+{
+  "id": "ho3x_infra_terraform_010",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a state migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a state migration now."
+    },
+    {
+      "role": "user",
+      "content": "I'd like provider versions pinned to a minor range."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Customers are hitting a cyclic dependency between the security group rules."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A module for the standard service deployment went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "A cost anomaly alert is waiting for someone to pick it up.\nChoice: Checkov for policy scanning.\n- terraform/vpc.tf"
+    },
+    {
+      "role": "user",
+      "content": "What about a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched documenting the module interfaces yet. Edited: terraform/outputs.tf."
+    },
+    {
+      "role": "user",
+      "content": "What about a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to a state lock left behind by a cancelled apply. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of modules/service/main.tf as well. A read replica in the secondary region? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] encrypted EBS volumes across all instances"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A disaster recovery restore rehearsal is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. The NAT gateway consolidated to one per region is sorted."
+    },
+    {
+      "role": "user",
+      "content": "What about a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a drift detection job on a daily schedule yet. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Tagging enforced through a provider default is working now. Result: IAM roles scoped per service done. File: `terraform/rds.tf`."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "tagging enforced through a provider default",
+      "the NAT gateway consolidated to one per region",
+      "encrypted EBS volumes across all instances",
+      "IAM roles scoped per service",
+      "a read replica in the secondary region",
+      "a module for the standard service deployment"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces",
+      "a cost anomaly alert",
+      "a disaster recovery restore rehearsal",
+      "a drift detection job on a daily schedule"
+    ],
+    "decisions": [
+      "Checkov for policy scanning",
+      "provider versions pinned to a minor range"
+    ],
+    "files": [
+      "modules/service/main.tf",
+      "terraform/vpc.tf",
+      "terraform/rds.tf",
+      "terraform/outputs.tf"
+    ],
+    "errors": [
+      "a state lock left behind by a cancelled apply",
+      "a cyclic dependency between the security group rules"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "ho4x_frontend_react_012",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an analytics dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Touched file: vite.config.ts."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: src/hooks/useMetrics.ts."
+    },
+    {
+      "role": "user",
+      "content": "How is an analytics dashboard going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: TanStack Query for server state.\nShould we add more coverage?\nFile changed — src/components/DataTable.tsx.\n**Chosen:** Radix primitives for accessible components."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage?\n**Finished work:** focus trapping in the modal component.\nOutage: a memory leak from an unsubscribed event listener.\nFinal call: Vite as the build tool."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter.\n- [ ] TODO a bundle size budget in CI\nLanded a virtualised list for the 10k-row view."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/routes/dashboard.tsx Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] optimistic updates on the toggle controls"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — form validation with inline error messages. I'll post a recap later. * src/store/session.ts * tests/dashboard.spec.ts"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed the metrics grid with responsive breakpoints."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "optimistic updates on the toggle controls",
+      "a virtualised list for the 10k-row view",
+      "focus trapping in the modal component",
+      "form validation with inline error messages",
+      "the metrics grid with responsive breakpoints"
+    ],
+    "pending_tasks": [
+      "a bundle size budget in CI"
+    ],
+    "decisions": [
+      "Vite as the build tool",
+      "TanStack Query for server state",
+      "Radix primitives for accessible components"
+    ],
+    "files": [
+      "src/store/session.ts",
+      "vite.config.ts",
+      "src/components/DataTable.tsx",
+      "src/hooks/useMetrics.ts",
+      "src/routes/dashboard.tsx",
+      "tests/dashboard.spec.ts"
+    ],
+    "errors": [
+      "a memory leak from an unsubscribed event listener"
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "ho4x_data_streaming_008",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a Kafka pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "An integration test spinning up a real broker is finished and deployed. Backpressure handling in the consumer loop went in this morning. We might revisit this next quarter. The team picked protobuf for the internal service events."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have the dead letter topic with a replay tool now. Got hit by partition skew putting 60% of traffic on one consumer in staging. Reducing end-to-end latency below one second is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be at-least-once delivery with idempotent consumers."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in streams/aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with a seven-day retention on the raw topics."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. A replay procedure for the last 24 hours is next up."
+    },
+    {
+      "role": "user",
+      "content": "How is a Kafka pipeline rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated streams/windowing.py. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The change data capture connector on the orders table is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consumer group rebalancing tuned for slow consumers is finished and deployed. A schema registry entry for every event type is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Consumer lag monitoring with alerting is finished and deployed."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "consumer lag monitoring with alerting",
+      "a schema registry entry for every event type",
+      "consumer group rebalancing tuned for slow consumers",
+      "an integration test spinning up a real broker",
+      "the change data capture connector on the orders table",
+      "backpressure handling in the consumer loop",
+      "the dead letter topic with a replay tool"
+    ],
+    "pending_tasks": [
+      "reducing end-to-end latency below one second",
+      "a replay procedure for the last 24 hours"
+    ],
+    "decisions": [
+      "protobuf for the internal service events",
+      "a seven-day retention on the raw topics",
+      "at-least-once delivery with idempotent consumers"
+    ],
+    "files": [
+      "streams/aggregator.py",
+      "streams/windowing.py"
+    ],
+    "errors": [
+      "partition skew putting 60% of traffic on one consumer"
+    ]
+  }
+}

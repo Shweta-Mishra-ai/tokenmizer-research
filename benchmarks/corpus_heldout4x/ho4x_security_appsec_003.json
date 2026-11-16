@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_security_appsec_003",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a compliance readiness review."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Short-lived tokens with refresh rotation won the vote. We haven't done audit log retention policy yet. Automated dependency updates hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance readiness review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A security runbook for incident response hasn't been started. A third-party penetration test is waiting on us. Details are in .gitleaks.toml."
+    },
+    {
+      "role": "user",
+      "content": "Could Semgrep in the pull request pipeline work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Input sanitisation on the file upload path has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Signed container images in the registry has shipped. The fix lives in config/csp.json. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Spotted an SSRF in the webhook fetcher today. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. I've locked in field-level encryption for PII columns."
+    },
+    {
+      "role": "user",
+      "content": "Could Trivy for container image scanning work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in .github/workflows/security.yml. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Vault as the single secrets store?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. CI is passing. Rate limiting on the password reset endpoint is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Least-privilege IAM roles for the workers is finished and deployed. Spotted an API key committed to the repository history today."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "input sanitisation on the file upload path",
+      "least-privilege IAM roles for the workers",
+      "rate limiting on the password reset endpoint",
+      "signed container images in the registry"
+    ],
+    "pending_tasks": [
+      "audit log retention policy",
+      "a third-party penetration test",
+      "automated dependency updates",
+      "a security runbook for incident response"
+    ],
+    "decisions": [
+      "Vault as the single secrets store",
+      "Semgrep in the pull request pipeline",
+      "Trivy for container image scanning",
+      "short-lived tokens with refresh rotation",
+      "field-level encryption for PII columns"
+    ],
+    "files": [
+      "terraform/iam.tf",
+      "config/csp.json",
+      ".github/workflows/security.yml",
+      ".gitleaks.toml"
+    ],
+    "errors": [
+      "an SSRF in the webhook fetcher",
+      "an API key committed to the repository history"
+    ]
+  }
+}

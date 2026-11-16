@@ -1,0 +1,133 @@
+{
+  "id": "ho3x_platform_api_006",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an SDK release."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an SDK release."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. An API changelog published with each release went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "SDK generation for three languages? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "URL-based versioning over header negotiation sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about per-key rate limits with headers exposing the budget now. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Everyone was happy with a six-month deprecation window."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Half the afternoon went to a breaking change shipped in a minor version."
+    },
+    {
+      "role": "user",
+      "content": "What about an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be cursor pagination skipping rows during concurrent writes."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Idempotency keys on all write operations went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of tests/test_webhooks.py as well. Everyone was happy with JSON only, no XML support."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was a 500 leaking a stack trace to API consumers. Most of the work happened inside api/auth.py. Don't let documenting the webhook replay procedure slip through the cracks. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the sandbox environment for partner testing made it in before the freeze. docs/api/changelog.md ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "RFC 7807 problem details for errors sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. We may decide to change this later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the sandbox environment for partner testing",
+      "SDK generation for three languages",
+      "idempotency keys on all write operations",
+      "per-key rate limits with headers exposing the budget",
+      "an API changelog published with each release"
+    ],
+    "pending_tasks": [
+      "documenting the webhook replay procedure"
+    ],
+    "decisions": [
+      "a six-month deprecation window",
+      "RFC 7807 problem details for errors",
+      "URL-based versioning over header negotiation",
+      "JSON only, no XML support"
+    ],
+    "files": [
+      "docs/api/changelog.md",
+      "tests/test_webhooks.py",
+      "api/auth.py"
+    ],
+    "errors": [
+      "cursor pagination skipping rows during concurrent writes",
+      "a breaking change shipped in a minor version",
+      "a 500 leaking a stack trace to API consumers"
+    ]
+  }
+}

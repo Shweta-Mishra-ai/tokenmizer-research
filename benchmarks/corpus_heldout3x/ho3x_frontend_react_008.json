@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_frontend_react_008",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a settings surface."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a settings surface now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose Tailwind for styling. Agreed approach: Recharts for the visualisations. Finished — optimistic updates on the toggle controls. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer.\n- src/hooks/useMetrics.ts"
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: migrating the remaining class components."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "- vite.config.ts"
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "- src/App.tsx"
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/api/client.ts."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the metrics grid with responsive breakpoints."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented form validation with inline error messages.\nFile: `src/store/session.ts`.\nOnce CI passes I'll merge.\n- tests/dashboard.spec.ts"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Agreed approach: Vite as the build tool. Failed: a CORS failure against the staging API."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the metrics grid with responsive breakpoints",
+      "optimistic updates on the toggle controls",
+      "form validation with inline error messages"
+    ],
+    "pending_tasks": [
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "Vite as the build tool",
+      "Recharts for the visualisations",
+      "Tailwind for styling"
+    ],
+    "files": [
+      "tests/dashboard.spec.ts",
+      "src/api/client.ts",
+      "vite.config.ts",
+      "src/App.tsx",
+      "src/hooks/useMetrics.ts",
+      "src/store/session.ts"
+    ],
+    "errors": [
+      "a CORS failure against the staging API"
+    ]
+  }
+}

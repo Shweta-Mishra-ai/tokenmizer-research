@@ -1,0 +1,142 @@
+{
+  "id": "ho4x_devops_kubernetes_006",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an autoscaling review."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an autoscaling review."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the Helm chart for the API deployment."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an autoscaling review?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now.\n- [X] a rolling deploy with surge and unavailable tuned"
+    },
+    {
+      "role": "user",
+      "content": "Use ArgoCD for GitOps delivery please."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. The bulk of the diff sits in charts/api/values.yaml. Had to untangle argocd/apps/api.yaml first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — tightening the pod security admission profile."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without per-namespace cost attribution the launch checklist stays red. scripts/rollout.sh grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: .github/workflows/deploy.yml."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. I updated k8s/hpa.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Use external-secrets backed by Vault please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Makes sense, doing that. The bulk of the diff sits in terraform/cluster.tf. Resource requests and limits for all containers is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Could Loki for log aggregation work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention CrashLoopBackOff after the config map rename. The logs are easier to read now. Complete: horizontal pod autoscaling on CPU and request rate."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the Helm chart for the API deployment",
+      "pod disruption budgets for the stateful services",
+      "horizontal pod autoscaling on CPU and request rate",
+      "resource requests and limits for all containers",
+      "a rolling deploy with surge and unavailable tuned"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "per-namespace cost attribution"
+    ],
+    "decisions": [
+      "external-secrets backed by Vault",
+      "ArgoCD for GitOps delivery",
+      "Loki for log aggregation"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "charts/api/values.yaml",
+      "scripts/rollout.sh",
+      "terraform/cluster.tf",
+      ".github/workflows/deploy.yml",
+      "k8s/hpa.yaml"
+    ],
+    "errors": [
+      "CrashLoopBackOff after the config map rename"
+    ]
+  }
+}

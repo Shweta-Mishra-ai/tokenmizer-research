@@ -1,0 +1,86 @@
+{
+  "id": "ho3x_product_analytics_005",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a churn driver investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a churn driver investigation."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn driver investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, weekly rather than daily cohorts for readability is the best fit. Once CI passes I'll merge. Let's settle on counting activation on first collaborative action. Most of the work happened inside analytics/experiments.py."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Rewrote parts of docs/metric_definitions.md as well."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Closed: weekly retention cohorts over six months. A segment definition for activated accounts is sorted."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: analytics/cohorts.sql."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sunsetting the legacy dashboard still needs doing. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn driver investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the dashboard tracking the three north star metrics made it in before the freeze. Agreed approach: reporting absolute lift alongside relative. Let me know if anything looks off."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a segment definition for activated accounts",
+      "the dashboard tracking the three north star metrics",
+      "weekly retention cohorts over six months"
+    ],
+    "pending_tasks": [
+      "sunsetting the legacy dashboard"
+    ],
+    "decisions": [
+      "weekly rather than daily cohorts for readability",
+      "reporting absolute lift alongside relative",
+      "counting activation on first collaborative action"
+    ],
+    "files": [
+      "analytics/experiments.py",
+      "docs/metric_definitions.md",
+      "analytics/cohorts.sql"
+    ],
+    "errors": []
+  }
+}

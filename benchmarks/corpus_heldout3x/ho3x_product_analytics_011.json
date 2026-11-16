@@ -1,0 +1,114 @@
+{
+  "id": "ho3x_product_analytics_011",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an experiment platform rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an experiment platform rollout."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We completed documentation of every metric definition yesterday. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Instrumenting the mobile funnel still needs doing. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. The relevant code is in analytics/significance.py. The plan is counting monthly actives on a rolling 28-day window. The event taxonomy covering fourteen product actions was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed instrumentation on every onboarding step yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Deduplication of the double-fired signup event was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "A funnel from signup through first value was rolled out. If this fails again we will revisit the design. I've got statistical significance testing on the primary metric up and running. We completed a segment definition for activated accounts yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "One primary metric per experiment is the pick. Let me know if anything looks off. Still to do: reconciling the two conflicting active-user counts."
+    },
+    {
+      "role": "user",
+      "content": "What about an experiment platform rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Have a look at analytics/segments.sql."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an experiment platform rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do a data dictionary for the product team next. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "instrumentation on every onboarding step",
+      "a funnel from signup through first value",
+      "statistical significance testing on the primary metric",
+      "documentation of every metric definition",
+      "deduplication of the double-fired signup event",
+      "a segment definition for activated accounts",
+      "the event taxonomy covering fourteen product actions"
+    ],
+    "pending_tasks": [
+      "reconciling the two conflicting active-user counts",
+      "instrumenting the mobile funnel",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "counting monthly actives on a rolling 28-day window",
+      "one primary metric per experiment"
+    ],
+    "files": [
+      "analytics/significance.py",
+      "analytics/segments.sql"
+    ],
+    "errors": []
+  }
+}

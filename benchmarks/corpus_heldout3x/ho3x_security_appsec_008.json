@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_security_appsec_008",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a compliance readiness review now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Rewrote parts of security/redaction.py as well. Least-privilege IAM roles for the workers? Taken care of. CSP headers on all rendered responses went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Vault as the single secrets store. Let me know if anything looks off. Most of the work happened inside config/csp.json. The alerts this morning came from a timing attack on the token comparison."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: rate limiting on the password reset endpoint made it in before the freeze. Having compared the options, Semgrep in the pull request pipeline is the best fit. SECURITY.md ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of api/auth.py as well. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let moving the remaining secrets out of environment files slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to an API key committed to the repository history."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. The root cause turned out to be an open redirect on the login return URL. We can stop worrying about session invalidation on password change now. Parameterised queries across the data layer went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "policy/egress.yaml ended up with most of the changes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rate limiting on the password reset endpoint",
+      "CSP headers on all rendered responses",
+      "parameterised queries across the data layer",
+      "session invalidation on password change",
+      "least-privilege IAM roles for the workers"
+    ],
+    "pending_tasks": [
+      "moving the remaining secrets out of environment files"
+    ],
+    "decisions": [
+      "Vault as the single secrets store",
+      "Semgrep in the pull request pipeline"
+    ],
+    "files": [
+      "SECURITY.md",
+      "config/csp.json",
+      "policy/egress.yaml",
+      "api/auth.py",
+      "security/redaction.py"
+    ],
+    "errors": [
+      "an open redirect on the login return URL",
+      "an API key committed to the repository history",
+      "a timing attack on the token comparison"
+    ]
+  }
+}

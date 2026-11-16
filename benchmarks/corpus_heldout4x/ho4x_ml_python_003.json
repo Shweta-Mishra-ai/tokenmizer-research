@@ -1,0 +1,117 @@
+{
+  "id": "ho4x_ml_python_003",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a churn prediction model now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Batch inference over the full customer base has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in requirements.txt. Gradient boosting reaching 0.84 AUC held up fine through the whole load test. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A model registry entry for the release candidate is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? A 90-day lookback window for features is the direction we committed to. The dashboard lit up red with inference timeouts on the long-document path."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. A stratified train/validation/test split held up fine through the whole load test. Turns out the slowdown was NaN losses after the learning rate change all along."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to a time-based split to avoid leakage. We might revisit this next quarter. Optuna for hyperparameter search is what everything will be built on from here. The pager went off twice overnight because of the evaluation set overlapping the training window."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Had to untangle src/train.py first. A fairness audit across customer segments is the piece nobody has picked up. Scikit-learn pipelines for preprocessing is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "How is a churn prediction model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Shadow deployment against live traffic keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. src/evaluate.py grew by a couple hundred lines."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "gradient boosting reaching 0.84 AUC",
+      "a stratified train/validation/test split",
+      "a model registry entry for the release candidate",
+      "batch inference over the full customer base"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "a time-based split to avoid leakage",
+      "a 90-day lookback window for features",
+      "scikit-learn pipelines for preprocessing",
+      "Optuna for hyperparameter search"
+    ],
+    "files": [
+      "requirements.txt",
+      "src/train.py",
+      "src/evaluate.py"
+    ],
+    "errors": [
+      "the evaluation set overlapping the training window",
+      "NaN losses after the learning rate change",
+      "inference timeouts on the long-document path"
+    ]
+  }
+}

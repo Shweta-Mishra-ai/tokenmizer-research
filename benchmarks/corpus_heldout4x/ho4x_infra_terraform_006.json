@@ -1,0 +1,122 @@
+{
+  "id": "ho4x_infra_terraform_006",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a state migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a state migration."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The NAT gateway consolidated to one per region came off the board this morning. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "A read replica in the secondary region has shipped. We haven't done a drift detection job on a daily schedule yet. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `modules/service/main.tf`. IAM roles scoped per service went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for separate accounts for production and staging. The fix lives in terraform/variables.tf."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Touched file: terraform/rds.tf."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** encrypted EBS volumes across all instances.\nHere's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got remote state in S3 with DynamoDB locking over the line."
+    },
+    {
+      "role": "user",
+      "content": "Use provider versions pinned to a minor range please."
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — documenting the module interfaces. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "How is a state migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — terraform/backend.tf."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a read replica in the secondary region",
+      "IAM roles scoped per service",
+      "remote state in S3 with DynamoDB locking",
+      "encrypted EBS volumes across all instances",
+      "the NAT gateway consolidated to one per region"
+    ],
+    "pending_tasks": [
+      "a drift detection job on a daily schedule",
+      "documenting the module interfaces"
+    ],
+    "decisions": [
+      "provider versions pinned to a minor range",
+      "separate accounts for production and staging"
+    ],
+    "files": [
+      "terraform/backend.tf",
+      "modules/service/main.tf",
+      "terraform/variables.tf",
+      "terraform/rds.tf",
+      "terraform/iam.tf"
+    ],
+    "errors": []
+  }
+}

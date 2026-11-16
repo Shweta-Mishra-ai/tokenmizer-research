@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_data_sql_009",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a schema normalisation effort."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a schema normalisation effort."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Parquet as the landing format."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "UTC everywhere for timestamps is the direction we committed to. Column-level lineage documentation came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a schema normalisation effort?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. The trade-offs all pointed to an ELT rather than ETL pattern."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated profiles.yml."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Freshness tests on every source table held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing a full table scan on the unpartitioned events table."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be incremental materialisation on the large models."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Airflow for orchestration is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a schema normalisation effort?"
+    },
+    {
+      "role": "assistant",
+      "content": "dags/daily_refresh.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing a schema drift break when the source added a column. Left to do — moving the nightly job to an hourly cadence. Thanks to incremental models for the daily aggregates, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to partitioning the events table by month, the on-call pages stopped. The bulk of the diff sits in tests/schema.yml. We resolved to use dbt for the transformation layer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "column-level lineage documentation",
+      "partitioning the events table by month",
+      "freshness tests on every source table",
+      "incremental models for the daily aggregates"
+    ],
+    "pending_tasks": [
+      "moving the nightly job to an hourly cadence"
+    ],
+    "decisions": [
+      "Parquet as the landing format",
+      "UTC everywhere for timestamps",
+      "dbt for the transformation layer",
+      "Airflow for orchestration",
+      "incremental materialisation on the large models",
+      "an ELT rather than ETL pattern"
+    ],
+    "files": [
+      "tests/schema.yml",
+      "dags/daily_refresh.py",
+      "profiles.yml"
+    ],
+    "errors": [
+      "a full table scan on the unpartitioned events table",
+      "a schema drift break when the source added a column"
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_devops_kubernetes_005",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an autoscaling review."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an autoscaling review now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services is behind us now. Nobody argued once they saw the numbers for Velero for cluster backups. Here's where things stand. Thanks to the secrets migration into the external secret store, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is an autoscaling review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while a runbook for the failover procedure is missing."
+    },
+    {
+      "role": "user",
+      "content": "How is an autoscaling review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Karpenter instead of the cluster autoscaler. The logs are easier to read now. Had to untangle Dockerfile first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into an ImagePullBackOff from an expired registry credential. Had to untangle terraform/cluster.tf first."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle charts/api/values.yaml first. Nobody needs to think about the Helm chart for the API deployment anymore."
+    },
+    {
+      "role": "user",
+      "content": "Cert-manager for TLS certificates feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Resource requests and limits for all containers has been live since Tuesday with no complaints. Fine by me. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "How is an autoscaling review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. After the spike, Trivy for image scanning in CI was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "How is an autoscaling review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to Loki for log aggregation."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. After the spike, a blue-green strategy for the database proxy was the clear winner. Thanks to a canary stage in the deploy pipeline, the on-call pages stopped. A rolling deploy with surge and unavailable tuned came off the board this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "resource requests and limits for all containers",
+      "a canary stage in the deploy pipeline",
+      "pod disruption budgets for the stateful services",
+      "a rolling deploy with surge and unavailable tuned",
+      "the secrets migration into the external secret store",
+      "the Helm chart for the API deployment"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure"
+    ],
+    "decisions": [
+      "Karpenter instead of the cluster autoscaler",
+      "Trivy for image scanning in CI",
+      "cert-manager for TLS certificates",
+      "Loki for log aggregation",
+      "a blue-green strategy for the database proxy",
+      "Velero for cluster backups"
+    ],
+    "files": [
+      "Dockerfile",
+      "terraform/cluster.tf",
+      "charts/api/values.yaml"
+    ],
+    "errors": [
+      "an ImagePullBackOff from an expired registry credential"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "ho3x_debug_production_007",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a latency incident investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a latency incident investigation."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. scripts/repro.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Most of the work happened inside logs/analysis.py."
+    },
+    {
+      "role": "user",
+      "content": "Keeping the extra logging for two weeks sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The alerts this morning came from p99 latency rising from 200ms to 4 seconds. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Instrumenting the slow query with timing spans? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched an alert on the metric that would have caught it yet."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a latency incident investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling the corrupted rows is waiting for someone to pick it up. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a cascading failure from the retry storm. Do we need more tests? Don't let a permanent fix replacing the hotfix slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "An incident severity of SEV-2 beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "runbooks/latency.md ended up with most of the changes. Good news: the hotfix reverting the connection pool change made it in before the freeze. Everyone was happy with a blameless postmortem format. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Correlating the errors with the deploy timeline? Taken care of. Having compared the options, py-spy for the production profiling is the best fit. Nobody has touched a load test reproducing the traffic pattern yet."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. A canary deploy for the fix beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Sampling traces at 10% rather than 1% sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. If this fails again we will revisit the design. Most of the work happened inside src/pool.py."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: adding structured logging around the suspect path made it in before the freeze. Rewrote parts of docs/postmortem.md as well. The error messages are now clearer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "instrumenting the slow query with timing spans",
+      "adding structured logging around the suspect path",
+      "correlating the errors with the deploy timeline",
+      "the hotfix reverting the connection pool change"
+    ],
+    "pending_tasks": [
+      "a permanent fix replacing the hotfix",
+      "backfilling the corrupted rows",
+      "a load test reproducing the traffic pattern",
+      "an alert on the metric that would have caught it"
+    ],
+    "decisions": [
+      "sampling traces at 10% rather than 1%",
+      "an incident severity of SEV-2",
+      "py-spy for the production profiling",
+      "a canary deploy for the fix",
+      "keeping the extra logging for two weeks",
+      "a blameless postmortem format"
+    ],
+    "files": [
+      "runbooks/latency.md",
+      "docs/postmortem.md",
+      "src/pool.py",
+      "scripts/repro.py",
+      "logs/analysis.py"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "p99 latency rising from 200ms to 4 seconds"
+    ]
+  }
+}

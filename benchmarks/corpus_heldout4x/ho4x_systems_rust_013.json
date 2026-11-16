@@ -1,0 +1,153 @@
+{
+  "id": "ho4x_systems_rust_013",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a WASM plugin runtime."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to rayon for the parallel scan."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Thanks to a no_std core module, the on-call pages stopped. Fine by me. Zero-copy deserialisation of the record header is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, thiserror for library errors and anyhow at the boundary was the clear winner. Error types unified behind thiserror has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in Cargo.toml. Property tests over the encoder round trip has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "SIMD acceleration on the checksum path has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "How is a WASM plugin runtime going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for arc-swap for the hot config reload."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. The dashboard lit up red with stack overflow on deeply nested input."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about criterion benchmarks on the parse loop anymore. Once the release settles, removing the remaining unsafe blocks is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "src/main.rs grew by a couple hundred lines. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "A miri run over the concurrency tests keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for an arena allocator for the parse nodes. The logs are easier to read now. The bulk of the diff sits in Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was unbounded memory growth in the buffer pool all along. The bulk of the diff sits in fuzz/fuzz_targets/decode.rs."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, Rust 2021 edition with MSRV 1.75 was the clear winner. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "error types unified behind thiserror",
+      "criterion benchmarks on the parse loop",
+      "property tests over the encoder round trip",
+      "SIMD acceleration on the checksum path",
+      "a no_std core module",
+      "zero-copy deserialisation of the record header"
+    ],
+    "pending_tasks": [
+      "removing the remaining unsafe blocks",
+      "a miri run over the concurrency tests"
+    ],
+    "decisions": [
+      "arc-swap for the hot config reload",
+      "thiserror for library errors and anyhow at the boundary",
+      "tokio over async-std for the runtime",
+      "rayon for the parallel scan",
+      "Rust 2021 edition with MSRV 1.75",
+      "an arena allocator for the parse nodes"
+    ],
+    "files": [
+      "src/main.rs",
+      "fuzz/fuzz_targets/decode.rs",
+      "Cargo.lock",
+      "Cargo.toml"
+    ],
+    "errors": [
+      "stack overflow on deeply nested input",
+      "unbounded memory growth in the buffer pool"
+    ]
+  }
+}

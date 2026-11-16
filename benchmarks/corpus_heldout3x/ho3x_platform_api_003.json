@@ -1,0 +1,90 @@
+{
+  "id": "ho3x_platform_api_003",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a public API v2 design."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a public API v2 design."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at api/pagination.py. We completed SDK generation for three languages yesterday. Let's settle on OpenAPI as the source of truth for SDK generation."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, HMAC-SHA256 for webhook signatures is the best fit. We completed idempotency keys on all write operations yesterday."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: field-level filtering on the large resources."
+    },
+    {
+      "role": "user",
+      "content": "What about a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a 500 leaking a stack trace to API consumers. Do we need more tests? Affected file: openapi/v2.yaml. We can stop worrying about per-key rate limits with headers exposing the budget now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards OAuth 2.0 client credentials for machine access."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: webhook deliveries duplicated after a consumer timeout. There were no failures in the nightly run. Okay, doing it. We ran into rate limit headers reporting a stale budget."
+    },
+    {
+      "role": "user",
+      "content": "What about a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "gateway/kong.yaml ended up with most of the changes. If this fails again we will revisit the design."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "idempotency keys on all write operations",
+      "per-key rate limits with headers exposing the budget",
+      "SDK generation for three languages"
+    ],
+    "pending_tasks": [
+      "field-level filtering on the large resources"
+    ],
+    "decisions": [
+      "OpenAPI as the source of truth for SDK generation",
+      "HMAC-SHA256 for webhook signatures",
+      "OAuth 2.0 client credentials for machine access"
+    ],
+    "files": [
+      "openapi/v2.yaml",
+      "api/pagination.py",
+      "gateway/kong.yaml"
+    ],
+    "errors": [
+      "rate limit headers reporting a stale budget",
+      "a 500 leaking a stack trace to API consumers",
+      "webhook deliveries duplicated after a consumer timeout"
+    ]
+  }
+}

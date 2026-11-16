@@ -1,0 +1,137 @@
+{
+  "id": "ho4x_product_analytics_008",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a churn driver investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a churn driver investigation now."
+    },
+    {
+      "role": "user",
+      "content": "Weekly rather than daily cohorts for readability feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "How is a churn driver investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Turns out the slowdown was a broken event after the client release stopped firing it all along. After the spike, median rather than mean for the latency metrics was the clear winner. Without an automated experiment readout template the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to the event taxonomy covering fourteen product actions, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a churn driver investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deduplication of the double-fired signup event came off the board this morning. Extending the cohort window to twelve months is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Excluding internal accounts from every metric is the direction we committed to. Nobody argued once they saw the numbers for counting monthly actives on a rolling 28-day window."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a churn driver investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "An experiment registry with pre-registered hypotheses is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Instrumentation on every onboarding step is behind us now. The trade-offs all pointed to one primary metric per experiment."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "A segment definition for activated accounts held up fine through the whole load test. Here's where things stand. The experiment assignment and exposure logging has been live since Tuesday with no complaints. The bulk of the diff sits in analytics/funnel.sql."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "tests/test_metrics.py grew by a couple hundred lines. If this breaks later we can roll back. Had to untangle dashboards/north_star.json first. We can't call this finished while a data dictionary for the product team is missing."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documentation of every metric definition held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Weekly retention cohorts over six months is behind us now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication of the double-fired signup event",
+      "documentation of every metric definition",
+      "a segment definition for activated accounts",
+      "instrumentation on every onboarding step",
+      "the event taxonomy covering fourteen product actions",
+      "weekly retention cohorts over six months",
+      "the experiment assignment and exposure logging"
+    ],
+    "pending_tasks": [
+      "an automated experiment readout template",
+      "extending the cohort window to twelve months",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "median rather than mean for the latency metrics",
+      "counting monthly actives on a rolling 28-day window",
+      "weekly rather than daily cohorts for readability",
+      "an experiment registry with pre-registered hypotheses",
+      "excluding internal accounts from every metric",
+      "one primary metric per experiment"
+    ],
+    "files": [
+      "tests/test_metrics.py",
+      "dashboards/north_star.json",
+      "analytics/funnel.sql"
+    ],
+    "errors": [
+      "a broken event after the client release stopped firing it"
+    ]
+  }
+}

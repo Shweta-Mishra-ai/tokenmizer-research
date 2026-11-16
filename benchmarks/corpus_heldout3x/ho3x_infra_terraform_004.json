@@ -1,0 +1,142 @@
+{
+  "id": "ho3x_infra_terraform_004",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a state migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a state migration now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at terraform/outputs.tf. Documenting the module interfaces is on the backlog. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at terraform/iam.tf. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypted EBS volumes across all instances is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? We completed IAM roles scoped per service yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the VPC with public and private subnets across three zones yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I edited terraform/vpc.tf. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. The plan is Aurora Postgres over standard RDS."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got remote state in S3 with DynamoDB locking up and running. We're going to use one state file per environment."
+    },
+    {
+      "role": "user",
+      "content": "What about a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on AWS as the single cloud provider."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need a drift detection job on a daily schedule before launch. Have a look at terraform/backend.tf. The build is green. A read replica in the secondary region was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in environments/prod/terragrunt.hcl. Changes are in terraform/rds.tf."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Terraform over CloudFormation."
+    },
+    {
+      "role": "assistant",
+      "content": "VPC flow logs shipped to the log bucket was rolled out. Here is the updated plan. Sounds right, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "remote state in S3 with DynamoDB locking",
+      "IAM roles scoped per service",
+      "a read replica in the secondary region",
+      "VPC flow logs shipped to the log bucket",
+      "the VPC with public and private subnets across three zones",
+      "encrypted EBS volumes across all instances"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces",
+      "a drift detection job on a daily schedule"
+    ],
+    "decisions": [
+      "Aurora Postgres over standard RDS",
+      "one state file per environment",
+      "AWS as the single cloud provider",
+      "Terraform over CloudFormation"
+    ],
+    "files": [
+      "terraform/backend.tf",
+      "environments/prod/terragrunt.hcl",
+      "terraform/rds.tf",
+      "terraform/iam.tf",
+      "terraform/outputs.tf",
+      "terraform/vpc.tf"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "ho3x_systems_rust_006",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a storage engine prototype."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a storage engine prototype."
+    },
+    {
+      "role": "user",
+      "content": "What about a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "A lock-free ring buffer for the writer went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now.\n**Shipped:** property tests over the encoder round trip.\nSIMD acceleration on the checksum path is sorted.\nRayon for the parallel scan beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "What about a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in fuzz/fuzz_targets/decode.rs. Let me know if anything looks off. Error types unified behind thiserror? Taken care of. Still to do: reducing the binary size below 2MB."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on Rust 2021 edition with MSRV 1.75."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do publishing the crate to crates.io next. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Having compared the options, serde with a custom binary format is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Adding a tracing subscriber is the obvious next step. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Removing the remaining unsafe blocks is still open.\n- tests/roundtrip.rs"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "property tests over the encoder round trip",
+      "error types unified behind thiserror",
+      "SIMD acceleration on the checksum path",
+      "a lock-free ring buffer for the writer"
+    ],
+    "pending_tasks": [
+      "publishing the crate to crates.io",
+      "removing the remaining unsafe blocks",
+      "adding a tracing subscriber",
+      "reducing the binary size below 2MB"
+    ],
+    "decisions": [
+      "rayon for the parallel scan",
+      "Rust 2021 edition with MSRV 1.75",
+      "serde with a custom binary format"
+    ],
+    "files": [
+      "fuzz/fuzz_targets/decode.rs",
+      "tests/roundtrip.rs"
+    ],
+    "errors": []
+  }
+}

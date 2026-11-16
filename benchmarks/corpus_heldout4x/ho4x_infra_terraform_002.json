@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_infra_terraform_002",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a networking rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a networking rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Landed remote state in S3 with DynamoDB locking."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: environments/prod/terragrunt.hcl."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: CloudWatch alarms on the error rate metric. The dashboard lit up red with a state lock left behind by a cancelled apply. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. IAM roles scoped per service has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into a plan diff from an untracked manual console change. Had to untangle terraform/vpc.tf first. Should we add more coverage? Nobody needs to think about an RDS instance with automated backups anymore."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypted EBS volumes across all instances is finished and deployed. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: documenting the module interfaces. We resolved to use S3 lifecycle rules moving logs to Glacier after 90 days."
+    },
+    {
+      "role": "user",
+      "content": "How is a networking rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — tagging enforced through a provider default. We'll run with Checkov for policy scanning. Touched file: terraform/variables.tf."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Had to untangle .github/workflows/plan.yml first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "remote state in S3 with DynamoDB locking",
+      "an RDS instance with automated backups",
+      "tagging enforced through a provider default",
+      "encrypted EBS volumes across all instances",
+      "CloudWatch alarms on the error rate metric",
+      "IAM roles scoped per service"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces"
+    ],
+    "decisions": [
+      "Checkov for policy scanning",
+      "S3 lifecycle rules moving logs to Glacier after 90 days"
+    ],
+    "files": [
+      "environments/prod/terragrunt.hcl",
+      "terraform/variables.tf",
+      "terraform/vpc.tf",
+      ".github/workflows/plan.yml"
+    ],
+    "errors": [
+      "a plan diff from an untracked manual console change",
+      "a state lock left behind by a cancelled apply"
+    ]
+  }
+}

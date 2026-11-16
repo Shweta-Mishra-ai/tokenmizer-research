@@ -1,0 +1,140 @@
+{
+  "id": "ho3x_platform_api_007",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an SDK release."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an SDK release."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed per-key rate limits with headers exposing the budget yesterday."
+    },
+    {
+      "role": "user",
+      "content": "What about an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on OAuth 2.0 client credentials for machine access. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Have a look at docs/api/changelog.md."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found a 500 leaking a stack trace to API consumers. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. The relevant code is in api/auth.py. The plan is exponential backoff with jitter for webhook retries. Next task — GraphQL as an alternative surface."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched field-level filtering on the large resources yet."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cursor-based pagination across all list endpoints is sorted."
+    },
+    {
+      "role": "user",
+      "content": "What about an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. We can stop worrying about the OpenAPI specification for every public route now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose a six-month deprecation window."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "Request/response logging with PII stripped is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: at-least-once webhook delivery with retries made it in before the freeze. The plan is ISO 8601 timestamps in UTC."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the webhook replay procedure is on the backlog. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "at-least-once webhook delivery with retries",
+      "cursor-based pagination across all list endpoints",
+      "request/response logging with PII stripped",
+      "the OpenAPI specification for every public route",
+      "per-key rate limits with headers exposing the budget"
+    ],
+    "pending_tasks": [
+      "field-level filtering on the large resources",
+      "GraphQL as an alternative surface",
+      "documenting the webhook replay procedure"
+    ],
+    "decisions": [
+      "exponential backoff with jitter for webhook retries",
+      "ISO 8601 timestamps in UTC",
+      "a six-month deprecation window",
+      "OAuth 2.0 client credentials for machine access"
+    ],
+    "files": [
+      "api/auth.py",
+      "docs/api/changelog.md"
+    ],
+    "errors": [
+      "a 500 leaking a stack trace to API consumers"
+    ]
+  }
+}

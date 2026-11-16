@@ -1,0 +1,111 @@
+{
+  "id": "ho3x_mobile_ios_007",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a widget and live activity feature."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a widget and live activity feature."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside .swiftlint.yml. Background sync with a URLSession task? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Rewrote parts of App/Info.plist as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a widget and live activity feature?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Reducing cold start below 400ms is waiting for someone to pick it up. Async/await instead of Combine for networking is what we'll ship with. Most of the work happened inside fastlane/Fastfile."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to the widget timeline failing to refresh. Package.swift ended up with most of the changes. A snapshot test suite for the components is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Localisation into three languages is the obvious next step. Everyone was happy with Swift Package Manager for dependencies. The subscription purchase and restore flow went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of Sources/Auth/Keychain.swift as well."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about crash reporting integration now. Don't let an iPad layout for the summary screen slip through the cracks. Having compared the options, StoreKit 2 for subscriptions is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The HealthKit permission flow went smoothly in the end. Deep links into the workout detail screen? Taken care of."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deep links into the workout detail screen",
+      "background sync with a URLSession task",
+      "the subscription purchase and restore flow",
+      "crash reporting integration",
+      "the HealthKit permission flow"
+    ],
+    "pending_tasks": [
+      "a snapshot test suite for the components",
+      "reducing cold start below 400ms",
+      "localisation into three languages",
+      "an iPad layout for the summary screen"
+    ],
+    "decisions": [
+      "Swift Package Manager for dependencies",
+      "async/await instead of Combine for networking",
+      "StoreKit 2 for subscriptions"
+    ],
+    "files": [
+      "Package.swift",
+      "App/Info.plist",
+      ".swiftlint.yml",
+      "Sources/Auth/Keychain.swift",
+      "fastlane/Fastfile"
+    ],
+    "errors": [
+      "the widget timeline failing to refresh"
+    ]
+  }
+}

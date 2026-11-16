@@ -1,0 +1,110 @@
+{
+  "id": "ho4x_systems_rust_004",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a WASM plugin runtime."
+    },
+    {
+      "role": "user",
+      "content": "How is a WASM plugin runtime going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Spotted unbounded memory growth in the buffer pool today."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on thiserror for library errors and anyhow at the boundary. The fix lives in src/main.rs. A compatibility shim for the old format is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "How is a WASM plugin runtime going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cross-compilation for aarch64 is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is a WASM plugin runtime going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. I got a no_std core module over the line. Support tickets mention a panic on slice index out of bounds. A miri run over the concurrency tests remains open."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing the binary size below 2MB is waiting on us. Ping me if anything seems wrong. I updated src/buffer.rs. I updated Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "How is a WASM plugin runtime going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the public API surface remains open. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have property tests over the encoder round trip now. A workspace layout with three crates won the vote. Production is showing integer overflow in the length calculation."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with an arena allocator for the parse nodes?"
+    },
+    {
+      "role": "assistant",
+      "content": "Zero-copy deserialisation of the record header is up and working. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a no_std core module",
+      "property tests over the encoder round trip",
+      "cross-compilation for aarch64",
+      "zero-copy deserialisation of the record header"
+    ],
+    "pending_tasks": [
+      "a compatibility shim for the old format",
+      "a miri run over the concurrency tests",
+      "reducing the binary size below 2MB",
+      "documenting the public API surface"
+    ],
+    "decisions": [
+      "an arena allocator for the parse nodes",
+      "thiserror for library errors and anyhow at the boundary",
+      "a workspace layout with three crates"
+    ],
+    "files": [
+      "Cargo.lock",
+      "src/buffer.rs",
+      "src/main.rs"
+    ],
+    "errors": [
+      "integer overflow in the length calculation",
+      "unbounded memory growth in the buffer pool",
+      "a panic on slice index out of bounds"
+    ]
+  }
+}

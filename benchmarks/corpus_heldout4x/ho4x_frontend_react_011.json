@@ -1,0 +1,145 @@
+{
+  "id": "ho4x_frontend_react_011",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a customer support console."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Code splitting on the route boundaries has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Could React 19 with the compiler enabled work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: a virtualised list for the 10k-row view. Fine by me. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "How is a customer support console going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage?\n**Finished work:** optimistic updates on the toggle controls.\nI updated src/App.tsx.\nI've locked in Radix primitives for accessible components."
+    },
+    {
+      "role": "user",
+      "content": "How is a customer support console going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a bundle regression from importing the whole icon set. Final call: Recharts for the visualisations. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "How is a customer support console going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with layout shift on the chart container. A Storybook entry for each primitive keeps getting pushed to next sprint. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later.\n**Pending:** migrating the remaining class components."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "package.json grew by a couple hundred lines.\nIf this breaks later we can roll back.\n**Finished work:** the toast notification system."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. See the diff in src/store/session.ts. I got session persistence in localStorage over the line."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Form validation with inline error messages is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a customer support console?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: MSW for mocking the API in tests."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Memoising the chart data transform is still owed to the client. * src/components/DataTable.tsx"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The metrics grid with responsive breakpoints held up fine through the whole load test."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a virtualised list for the 10k-row view",
+      "the metrics grid with responsive breakpoints",
+      "form validation with inline error messages",
+      "optimistic updates on the toggle controls",
+      "code splitting on the route boundaries",
+      "the toast notification system",
+      "session persistence in localStorage"
+    ],
+    "pending_tasks": [
+      "a Storybook entry for each primitive",
+      "migrating the remaining class components",
+      "memoising the chart data transform"
+    ],
+    "decisions": [
+      "MSW for mocking the API in tests",
+      "Radix primitives for accessible components",
+      "Recharts for the visualisations",
+      "React 19 with the compiler enabled"
+    ],
+    "files": [
+      "src/App.tsx",
+      "src/components/DataTable.tsx",
+      "package.json",
+      "src/store/session.ts"
+    ],
+    "errors": [
+      "a bundle regression from importing the whole icon set",
+      "layout shift on the chart container"
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "ho4x_systems_rust_001",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a WASM plugin runtime now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Criterion benchmarks on the parse loop came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while documenting the public API surface is missing. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle src/codec/mod.rs first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "SIMD acceleration on the checksum path came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Thiserror for library errors and anyhow at the boundary feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Should we add more coverage? The trade-offs all pointed to serde with a custom binary format. Had to untangle src/parser.rs first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "tests/roundtrip.rs grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. A no_std core module has been live since Tuesday with no complaints. We can't call this finished while a miri run over the concurrency tests is missing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A lock-free ring buffer for the writer held up fine through the whole load test. Thanks to the streaming parser over a bounded buffer, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for Rust 2021 edition with MSRV 1.75."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Error types unified behind thiserror has been live since Tuesday with no complaints. Fuzzing the input decoder with cargo-fuzz came off the board this morning. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Without reducing the binary size below 2MB the launch checklist stays red."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the streaming parser over a bounded buffer",
+      "error types unified behind thiserror",
+      "SIMD acceleration on the checksum path",
+      "fuzzing the input decoder with cargo-fuzz",
+      "a no_std core module",
+      "criterion benchmarks on the parse loop",
+      "a lock-free ring buffer for the writer"
+    ],
+    "pending_tasks": [
+      "reducing the binary size below 2MB",
+      "documenting the public API surface",
+      "a miri run over the concurrency tests"
+    ],
+    "decisions": [
+      "thiserror for library errors and anyhow at the boundary",
+      "serde with a custom binary format",
+      "Rust 2021 edition with MSRV 1.75"
+    ],
+    "files": [
+      "src/parser.rs",
+      "tests/roundtrip.rs",
+      "src/codec/mod.rs"
+    ],
+    "errors": []
+  }
+}

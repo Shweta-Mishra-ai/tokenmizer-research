@@ -1,0 +1,135 @@
+{
+  "id": "ho3x_devops_kubernetes_002",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a production cluster migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a production cluster migration now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Istio for service mesh traffic policy."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Closed: readiness and liveness probes on every workload. Okay, doing it. The secrets migration into the external secret store is working now."
+    },
+    {
+      "role": "user",
+      "content": "Loki for log aggregation sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off.\nAgreed.\n**Shipped:** a rolling deploy with surge and unavailable tuned.\nEveryone was happy with Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the Helm chart for the API deployment yesterday. Implemented the ingress with automatic certificate renewal. Having compared the options, external-secrets backed by Vault is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "A runbook for the failover procedure is still open. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Pod disruption budgets for the stateful services is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Velero for cluster backups?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Reducing the image sizes on the worker pool is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from CrashLoopBackOff after the config map rename."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of Dockerfile as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a production cluster migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: a chaos test on node eviction."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with cert-manager for TLS certificates."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "readiness and liveness probes on every workload",
+      "a rolling deploy with surge and unavailable tuned",
+      "the secrets migration into the external secret store",
+      "the ingress with automatic certificate renewal",
+      "the Helm chart for the API deployment"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "a chaos test on node eviction",
+      "reducing the image sizes on the worker pool"
+    ],
+    "decisions": [
+      "Loki for log aggregation",
+      "cert-manager for TLS certificates",
+      "Prometheus and Grafana for metrics",
+      "Velero for cluster backups",
+      "external-secrets backed by Vault",
+      "Istio for service mesh traffic policy"
+    ],
+    "files": [
+      "k8s/ingress.yaml",
+      "Dockerfile"
+    ],
+    "errors": [
+      "CrashLoopBackOff after the config map rename"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_mobile_ios_001",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a fitness tracking app."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a fitness tracking app now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `Sources/Auth/Keychain.swift`. Final call: StoreKit 2 for subscriptions. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Use Keychain for token storage rather than UserDefaults please."
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: unit tests for the sync reducer. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the SwiftUI onboarding sequence."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Broken: a layout constraint conflict on the smallest device."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** background sync with a URLSession task.\nFinal call: async/await instead of Combine for networking.\nNo incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Pick Swift Package Manager for dependencies."
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: memory growth from uncancelled image tasks.\n**Chosen:** fastlane for the release pipeline.\nAfter review I'll deploy.\nMakes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "How is a fitness tracking app going?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: reducing cold start below 400ms."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: dark mode across every screen. File changed — Sources/Sync/SyncEngine.swift."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong.\n- [ ] TODO a snapshot test suite for the components"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "background sync with a URLSession task",
+      "unit tests for the sync reducer",
+      "the SwiftUI onboarding sequence",
+      "dark mode across every screen"
+    ],
+    "pending_tasks": [
+      "reducing cold start below 400ms",
+      "a snapshot test suite for the components"
+    ],
+    "decisions": [
+      "StoreKit 2 for subscriptions",
+      "Keychain for token storage rather than UserDefaults",
+      "fastlane for the release pipeline",
+      "Swift Package Manager for dependencies",
+      "async/await instead of Combine for networking"
+    ],
+    "files": [
+      "Sources/Auth/Keychain.swift",
+      "Sources/Sync/SyncEngine.swift"
+    ],
+    "errors": [
+      "memory growth from uncancelled image tasks",
+      "a layout constraint conflict on the smallest device"
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_platform_api_006",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a versioning strategy rollout."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. api/routes/webhooks.py grew by a couple hundred lines. After the spike, OpenAPI as the source of truth for SDK generation was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a versioning strategy rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in docs/api/changelog.md."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "At-least-once webhook delivery with retries is behind us now. RFC 7807 problem details for errors is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "JSON only, no XML support is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "How is a versioning strategy rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own a conformance test suite for the SDKs before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle gateway/kong.yaml first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The OpenAPI specification for every public route has been live since Tuesday with no complaints. The bulk of the diff sits in openapi/v2.yaml. The sandbox environment for partner testing came off the board this morning. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Sunsetting v1 after the six-month window keeps getting pushed to next sprint. GraphQL as an alternative surface keeps getting pushed to next sprint. Turns out the slowdown was clock skew invalidating webhook signatures all along."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to snake_case field naming throughout."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Idempotency keys on all write operations came off the board this morning. OAuth 2.0 client credentials for machine access is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "How is a versioning strategy rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Had to untangle tests/test_webhooks.py first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the OpenAPI specification for every public route",
+      "the sandbox environment for partner testing",
+      "idempotency keys on all write operations",
+      "at-least-once webhook delivery with retries"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window",
+      "GraphQL as an alternative surface",
+      "a conformance test suite for the SDKs"
+    ],
+    "decisions": [
+      "OAuth 2.0 client credentials for machine access",
+      "snake_case field naming throughout",
+      "RFC 7807 problem details for errors",
+      "JSON only, no XML support",
+      "OpenAPI as the source of truth for SDK generation"
+    ],
+    "files": [
+      "api/routes/webhooks.py",
+      "gateway/kong.yaml",
+      "docs/api/changelog.md",
+      "tests/test_webhooks.py",
+      "openapi/v2.yaml"
+    ],
+    "errors": [
+      "clock skew invalidating webhook signatures"
+    ]
+  }
+}

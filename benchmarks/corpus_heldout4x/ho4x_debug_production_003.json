@@ -1,0 +1,141 @@
+{
+  "id": "ho4x_debug_production_003",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an intermittent failure investigation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle docs/postmortem.md first. Without reviewing the other call sites with the same pattern the launch checklist stays red. The logs are easier to read now. Somebody has to own a follow-up on the third-party client bug report before Friday."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle runbooks/latency.md first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reproducing the failure in a staging environment has been live since Tuesday with no complaints. The logs are easier to read now. After the spike, paging on error rate rather than absolute count was the clear winner. The bulk of the diff sits in scripts/repro.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about correlating the errors with the deploy timeline anymore. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to ruling out the cache layer as the cause, the on-call pages stopped. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Nobody needs to think about the hotfix reverting the connection pool change anymore."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was connection pool exhaustion under the checkout load all along."
+    },
+    {
+      "role": "user",
+      "content": "How is an intermittent failure investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. We can't call this finished while a load test reproducing the traffic pattern is missing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in logs/analysis.py."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to bisecting the regression to a single commit, the on-call pages stopped. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Increasing the connection pool as a stopgap feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the failure mode in the runbook keeps getting pushed to next sprint."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "correlating the errors with the deploy timeline",
+      "bisecting the regression to a single commit",
+      "the hotfix reverting the connection pool change",
+      "reproducing the failure in a staging environment",
+      "ruling out the cache layer as the cause"
+    ],
+    "pending_tasks": [
+      "a load test reproducing the traffic pattern",
+      "a follow-up on the third-party client bug report",
+      "reviewing the other call sites with the same pattern",
+      "documenting the failure mode in the runbook"
+    ],
+    "decisions": [
+      "paging on error rate rather than absolute count",
+      "increasing the connection pool as a stopgap"
+    ],
+    "files": [
+      "docs/postmortem.md",
+      "scripts/repro.py",
+      "runbooks/latency.md",
+      "logs/analysis.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under the checkout load"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_ml_python_009",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a fraud detection model."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a fraud detection model now."
+    },
+    {
+      "role": "user",
+      "content": "Use scikit-learn pipelines for preprocessing please."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: src/evaluate.py. No incidents were reported this week. Todo — documenting the model card. Delivered — gradient boosting reaching 0.84 AUC."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — cross-validation across five folds.\n**Fault:** train/serve skew from inconsistent scaling.\n* requirements.txt"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: src/serve.py. We resolved to use XGBoost over a neural network for tabular data. Known defect — target leakage from a post-outcome feature. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? * notebooks/eda.ipynb"
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand.\n**Finished work:** the feature engineering pipeline with 42 features."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a fraud detection model?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — tests/test_features.py. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] hyperparameter search over 200 trials"
+    },
+    {
+      "role": "user",
+      "content": "How is a fraud detection model going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `src/features.py`."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to Optuna for hyperparameter search."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\nSure, on it.\n- [X] class imbalance handling with focal loss\nLeft to do — retraining automation on a weekly cadence."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the feature engineering pipeline with 42 features",
+      "hyperparameter search over 200 trials",
+      "gradient boosting reaching 0.84 AUC",
+      "class imbalance handling with focal loss",
+      "cross-validation across five folds"
+    ],
+    "pending_tasks": [
+      "documenting the model card",
+      "retraining automation on a weekly cadence"
+    ],
+    "decisions": [
+      "Optuna for hyperparameter search",
+      "XGBoost over a neural network for tabular data",
+      "scikit-learn pipelines for preprocessing"
+    ],
+    "files": [
+      "tests/test_features.py",
+      "src/evaluate.py",
+      "notebooks/eda.ipynb",
+      "src/serve.py",
+      "requirements.txt",
+      "src/features.py"
+    ],
+    "errors": [
+      "train/serve skew from inconsistent scaling",
+      "target leakage from a post-outcome feature"
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "ho3x_research_writing_007",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a benchmark methodology writeup."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a benchmark methodology writeup."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with an explicit statement that the corpus is synthetic?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Shortening to the eight-page limit is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "What about a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in paper/references.bib."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Makefile. There is a mislabelled axis on the compression figure on the main branch. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The introduction cut from four pages to two has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in paper/main.tex. The relevant code is in figures/architecture.py. I edited paper/appendix.tex."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Customers are hitting a figure rendering illegibly in greyscale print."
+    },
+    {
+      "role": "user",
+      "content": "Can we try naming the baselines by method rather than by vendor?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in data/results.json. If this fails again we will revisit the design. Sounds right, on it. The plan is reporting macro F1 rather than accuracy."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "A plain-language summary for the blog post is on the backlog. Here is the updated plan. The plan is Zotero for reference management. We're going to use releasing the corpus alongside the paper."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The related work section covering twelve papers is sorted. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got citations normalised to a single bibliography style up and running. Here is the updated plan. Peer feedback incorporated from two reviewers is working now. We need reconciling the two conflicting result tables before launch."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The discussion section is still open."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the introduction cut from four pages to two",
+      "peer feedback incorporated from two reviewers",
+      "the related work section covering twelve papers",
+      "citations normalised to a single bibliography style"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post",
+      "shortening to the eight-page limit",
+      "the discussion section",
+      "reconciling the two conflicting result tables"
+    ],
+    "decisions": [
+      "releasing the corpus alongside the paper",
+      "an explicit statement that the corpus is synthetic",
+      "Zotero for reference management",
+      "reporting macro F1 rather than accuracy",
+      "naming the baselines by method rather than by vendor"
+    ],
+    "files": [
+      "figures/architecture.py",
+      "Makefile",
+      "paper/references.bib",
+      "paper/appendix.tex",
+      "data/results.json",
+      "paper/main.tex"
+    ],
+    "errors": [
+      "a mislabelled axis on the compression figure",
+      "a figure rendering illegibly in greyscale print"
+    ]
+  }
+}

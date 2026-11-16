@@ -1,0 +1,133 @@
+{
+  "id": "ho3x_systems_rust_007",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a WASM plugin runtime."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: a use-after-free found by miri in the unsafe block."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: an async runtime built on tokio. Affected file: Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/buffer.rs`. File: `src/main.rs`."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — cross-compilation for aarch64. Edited: src/parser.rs."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/lib.rs`. Agreed approach: parking_lot mutexes over the std ones."
+    },
+    {
+      "role": "user",
+      "content": "What about a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — criterion benchmarks on the parse loop. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: profiling the allocation hot path."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Finished — SIMD acceleration on the checksum path."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: benches/parse.rs. Regression: a panic on slice index out of bounds."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now.\n**Issue:** a deadlock from lock ordering in the flush path."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** thiserror for library errors and anyhow at the boundary."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an async runtime built on tokio",
+      "cross-compilation for aarch64",
+      "SIMD acceleration on the checksum path",
+      "criterion benchmarks on the parse loop"
+    ],
+    "pending_tasks": [
+      "profiling the allocation hot path"
+    ],
+    "decisions": [
+      "thiserror for library errors and anyhow at the boundary",
+      "parking_lot mutexes over the std ones"
+    ],
+    "files": [
+      "src/parser.rs",
+      "Cargo.lock",
+      "src/lib.rs",
+      "src/buffer.rs",
+      "src/main.rs",
+      "benches/parse.rs"
+    ],
+    "errors": [
+      "a use-after-free found by miri in the unsafe block",
+      "a panic on slice index out of bounds",
+      "a deadlock from lock ordering in the flush path"
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "id": "ho4x_product_analytics_012",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an experiment platform rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an experiment platform rollout."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Had to untangle analytics/experiments.py first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Instrumenting the mobile funnel keeps getting pushed to next sprint. Reconciling the two conflicting active-user counts is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an experiment platform rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, a seven-day activation window was the clear winner. Most of yesterday disappeared into an experiment contaminated by overlapping assignment."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in analytics/significance.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to documentation of every metric definition, the on-call pages stopped. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to a two-week minimum experiment runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about weekly retention cohorts over six months anymore."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, weekly rather than daily cohorts for readability was the clear winner. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with peeking at results before the runtime completed."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about instrumentation on every onboarding step anymore. One primary metric per experiment is what everything will be built on from here. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, an experiment registry with pre-registered hypotheses was the clear winner. Without a guardrail metric on support ticket volume the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to median rather than mean for the latency metrics. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Statistical significance testing on the primary metric held up fine through the whole load test."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "statistical significance testing on the primary metric",
+      "documentation of every metric definition",
+      "weekly retention cohorts over six months",
+      "instrumentation on every onboarding step"
+    ],
+    "pending_tasks": [
+      "instrumenting the mobile funnel",
+      "reconciling the two conflicting active-user counts",
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "one primary metric per experiment",
+      "a two-week minimum experiment runtime",
+      "median rather than mean for the latency metrics",
+      "a seven-day activation window",
+      "an experiment registry with pre-registered hypotheses",
+      "weekly rather than daily cohorts for readability"
+    ],
+    "files": [
+      "analytics/experiments.py",
+      "analytics/significance.py"
+    ],
+    "errors": [
+      "an experiment contaminated by overlapping assignment",
+      "peeking at results before the runtime completed"
+    ]
+  }
+}

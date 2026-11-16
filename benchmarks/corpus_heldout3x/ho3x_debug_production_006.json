@@ -1,0 +1,133 @@
+{
+  "id": "ho3x_debug_production_006",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a memory leak hunt."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a memory leak hunt."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited docs/postmortem.md."
+    },
+    {
+      "role": "user",
+      "content": "What about a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in scripts/repro.py. If this fails again we will revisit the design. A regression test covering the failure mode is working now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Correlating the errors with the deploy timeline is working now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got capturing a heap profile during the spike up and running."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Reproducing the failure in a staging environment is sorted. Still to do: a load test reproducing the traffic pattern. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed ruling out the cache layer as the cause yesterday. I edited src/handlers/checkout.py. Documenting the failure mode in the runbook is on the backlog. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Can we try increasing the connection pool as a stopgap?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a canary deploy for the fix?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in monitoring/alerts.yaml. Okay, doing it. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in logs/analysis.py. An alert on the metric that would have caught it is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in src/client.py."
+    },
+    {
+      "role": "user",
+      "content": "What about a memory leak hunt?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed a timeline of the incident from the metrics yesterday. Let me know if anything looks off."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "correlating the errors with the deploy timeline",
+      "reproducing the failure in a staging environment",
+      "a timeline of the incident from the metrics",
+      "capturing a heap profile during the spike",
+      "ruling out the cache layer as the cause",
+      "a regression test covering the failure mode"
+    ],
+    "pending_tasks": [
+      "an alert on the metric that would have caught it",
+      "a load test reproducing the traffic pattern",
+      "documenting the failure mode in the runbook"
+    ],
+    "decisions": [
+      "increasing the connection pool as a stopgap",
+      "a canary deploy for the fix"
+    ],
+    "files": [
+      "scripts/repro.py",
+      "monitoring/alerts.yaml",
+      "src/client.py",
+      "docs/postmortem.md",
+      "logs/analysis.py",
+      "src/handlers/checkout.py"
+    ],
+    "errors": []
+  }
+}

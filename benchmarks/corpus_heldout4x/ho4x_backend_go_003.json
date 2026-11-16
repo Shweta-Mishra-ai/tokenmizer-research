@@ -1,0 +1,90 @@
+{
+  "id": "ho4x_backend_go_003",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an event consumer."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an event consumer now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the mutex with a sharded map is next up. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "go.mod grew by a couple hundred lines. We haven't done a fuzz test on the decoder yet. Known defect — a data race on the shared counter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle internal/handler/orders.go first. Consensus: gRPC over REST for internal traffic. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Could sqlc for type-safe database access work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** a circuit breaker around the downstream call.\nSure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in internal/store/postgres.go. Landed structured logging with request correlation. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Pick NATS for the message transport."
+    },
+    {
+      "role": "assistant",
+      "content": "A worker pool bounded at 32 goroutines is behind us now. * Makefile Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a worker pool bounded at 32 goroutines",
+      "a circuit breaker around the downstream call",
+      "structured logging with request correlation"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map",
+      "a fuzz test on the decoder"
+    ],
+    "decisions": [
+      "gRPC over REST for internal traffic",
+      "sqlc for type-safe database access",
+      "NATS for the message transport"
+    ],
+    "files": [
+      "Makefile",
+      "internal/store/postgres.go",
+      "go.mod",
+      "internal/handler/orders.go"
+    ],
+    "errors": [
+      "a data race on the shared counter"
+    ]
+  }
+}

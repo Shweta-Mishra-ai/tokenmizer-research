@@ -1,0 +1,129 @@
+{
+  "id": "ho3x_devops_ci_011",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a test infrastructure migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a test infrastructure migration."
+    },
+    {
+      "role": "user",
+      "content": "What about a test infrastructure migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got parallel test execution across four shards up and running. Nobody has touched pinning all third-party actions by digest yet. Coverage reporting posted to the pull request has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Codecov for coverage tracking."
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in .github/workflows/ci.yml. Okay, doing it. The relevant code is in .pre-commit-config.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. We ran into an out of disk space failure on the runner."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Required status checks on the default branch? Taken care of. Action item: a rollback job for failed deploys."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with a required review from one code owner?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pytest-xdist for test parallelism is the pick. The plan is ruff replacing flake8 and isort. The error messages are now clearer. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Makefile. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Half the afternoon went to a rate limit from the container registry. Action item: publishing test timing history."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "- .github/workflows/release.yml"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A matrix build over three Python versions is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "A merge queue for the busy repositories is still open. The relevant code is in conftest.py. The relevant code is in tox.ini."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "parallel test execution across four shards",
+      "a matrix build over three Python versions",
+      "required status checks on the default branch",
+      "coverage reporting posted to the pull request"
+    ],
+    "pending_tasks": [
+      "publishing test timing history",
+      "a merge queue for the busy repositories",
+      "a rollback job for failed deploys",
+      "pinning all third-party actions by digest"
+    ],
+    "decisions": [
+      "pytest-xdist for test parallelism",
+      "a required review from one code owner",
+      "ruff replacing flake8 and isort",
+      "Codecov for coverage tracking"
+    ],
+    "files": [
+      ".pre-commit-config.yaml",
+      "tox.ini",
+      ".github/workflows/release.yml",
+      "conftest.py",
+      "Makefile",
+      ".github/workflows/ci.yml"
+    ],
+    "errors": [
+      "a rate limit from the container registry",
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

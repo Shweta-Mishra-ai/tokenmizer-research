@@ -1,0 +1,124 @@
+{
+  "id": "ho4x_frontend_react_006",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a data table component library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a data table component library."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Vitest over Jest for the unit suite."
+    },
+    {
+      "role": "assistant",
+      "content": "src/App.tsx grew by a couple hundred lines. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The pager went off twice overnight because of an infinite re-render from an unstable dependency array."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to optimistic updates on the toggle controls, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with stale closure state in the polling hook. The empty and loading states for every panel held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. A Storybook entry for each primitive is the piece nobody has picked up. Form validation with inline error messages is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a data table component library?"
+    },
+    {
+      "role": "assistant",
+      "content": "package.json grew by a couple hundred lines. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in src/hooks/useMetrics.ts. The bulk of the diff sits in src/store/session.ts. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "How is a data table component library going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tailwind.config.js. The pager went off twice overnight because of a memory leak from an unsubscribed event listener. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a data table component library?"
+    },
+    {
+      "role": "assistant",
+      "content": "A virtualised list for the 10k-row view has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Tailwind for styling feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "optimistic updates on the toggle controls",
+      "the empty and loading states for every panel",
+      "a virtualised list for the 10k-row view",
+      "form validation with inline error messages"
+    ],
+    "pending_tasks": [
+      "a Storybook entry for each primitive"
+    ],
+    "decisions": [
+      "Vitest over Jest for the unit suite",
+      "Tailwind for styling"
+    ],
+    "files": [
+      "src/App.tsx",
+      "package.json",
+      "src/store/session.ts",
+      "src/hooks/useMetrics.ts",
+      "tailwind.config.js"
+    ],
+    "errors": [
+      "stale closure state in the polling hook",
+      "an infinite re-render from an unstable dependency array",
+      "a memory leak from an unsubscribed event listener"
+    ]
+  }
+}

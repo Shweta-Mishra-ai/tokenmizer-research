@@ -1,0 +1,133 @@
+{
+  "id": "ho3x_devops_kubernetes_013",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a multi-region rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a multi-region rollout."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A canary stage in the deploy pipeline? Taken care of. Don't let a runbook for the failover procedure slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "charts/api/templates/deployment.yaml ended up with most of the changes. The secrets migration into the external secret store? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was OOMKilled pods on the ingestion worker."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a chaos test on node eviction yet. What broke the release was CrashLoopBackOff after the config map rename."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-region rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Karpenter instead of the cluster autoscaler is what we'll ship with. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": ".github/workflows/deploy.yml ended up with most of the changes. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "External-secrets backed by Vault beat the alternatives on every axis we care about. Here is the updated plan. Kustomize overlays per environment beat the alternatives on every axis we care about. Tightening the pod security admission profile is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Cluster autoscaler on the spot node group went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-region rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing the image sizes on the worker pool is waiting for someone to pick it up. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. We can stop worrying about node affinity rules keeping the databases separate now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-region rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the ingress with automatic certificate renewal now. Here is the updated plan."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cluster autoscaler on the spot node group",
+      "the ingress with automatic certificate renewal",
+      "the secrets migration into the external secret store",
+      "node affinity rules keeping the databases separate",
+      "a canary stage in the deploy pipeline"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "reducing the image sizes on the worker pool",
+      "a chaos test on node eviction",
+      "a runbook for the failover procedure"
+    ],
+    "decisions": [
+      "external-secrets backed by Vault",
+      "Kustomize overlays per environment",
+      "Karpenter instead of the cluster autoscaler"
+    ],
+    "files": [
+      "charts/api/templates/deployment.yaml",
+      ".github/workflows/deploy.yml"
+    ],
+    "errors": [
+      "CrashLoopBackOff after the config map rename",
+      "OOMKilled pods on the ingestion worker"
+    ]
+  }
+}

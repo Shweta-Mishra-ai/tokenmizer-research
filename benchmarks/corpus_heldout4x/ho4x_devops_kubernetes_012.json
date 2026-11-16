@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_devops_kubernetes_012",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a zero-downtime deploy pipeline now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. A chaos test on node eviction hasn't been started. See the diff in terraform/cluster.tf. The team picked Karpenter instead of the cluster autoscaler."
+    },
+    {
+      "role": "user",
+      "content": "How is a zero-downtime deploy pipeline going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The Helm chart for the API deployment is up and working. Details are in charts/api/values.yaml. We haven't done tightening the pod security admission profile yet. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in charts/api/templates/deployment.yaml. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Istio for service mesh traffic policy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Network policies isolating the payments namespace has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Could spot instances for the batch workloads work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. The team picked external-secrets backed by Vault. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on ArgoCD for GitOps delivery."
+    },
+    {
+      "role": "user",
+      "content": "Could Velero for cluster backups work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in argocd/apps/api.yaml. Makes sense, doing that. Resource requests and limits for all containers is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the Helm chart for the API deployment",
+      "resource requests and limits for all containers",
+      "network policies isolating the payments namespace"
+    ],
+    "pending_tasks": [
+      "a chaos test on node eviction",
+      "tightening the pod security admission profile"
+    ],
+    "decisions": [
+      "ArgoCD for GitOps delivery",
+      "spot instances for the batch workloads",
+      "Istio for service mesh traffic policy",
+      "external-secrets backed by Vault",
+      "Karpenter instead of the cluster autoscaler",
+      "Velero for cluster backups"
+    ],
+    "files": [
+      "charts/api/values.yaml",
+      "terraform/cluster.tf",
+      "charts/api/templates/deployment.yaml",
+      "argocd/apps/api.yaml"
+    ],
+    "errors": []
+  }
+}

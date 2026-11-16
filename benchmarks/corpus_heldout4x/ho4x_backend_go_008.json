@@ -1,0 +1,153 @@
+{
+  "id": "ho4x_backend_go_008",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a gRPC gateway service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a gRPC gateway service."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use OpenTelemetry for traces. Still open — a fuzz test on the decoder. Landed the retry policy with exponential backoff."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `cmd/server/main.go`.\n- [X] the gRPC service definition and generated stubs\nTouched file: Dockerfile."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: structured logging with request correlation."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: buf for protobuf linting and generation. No incidents were reported this week. File changed — internal/store/postgres.go. In the queue: reducing allocations in the serialiser."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "* proto/orders.proto"
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Going forward: Go 1.23 as the toolchain."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: a panic on malformed protobuf input."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] table-driven tests for the parser\nShould we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — moving the config to environment variables."
+    },
+    {
+      "role": "user",
+      "content": "How is a gRPC gateway service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: errgroup for concurrent fan-out."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — go.mod. Consensus: testcontainers for integration tests."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — a worker pool bounded at 32 goroutines. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — a deadlock between the two mutexes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the retry policy with exponential backoff",
+      "a worker pool bounded at 32 goroutines",
+      "the gRPC service definition and generated stubs",
+      "table-driven tests for the parser",
+      "structured logging with request correlation"
+    ],
+    "pending_tasks": [
+      "a fuzz test on the decoder",
+      "reducing allocations in the serialiser",
+      "moving the config to environment variables"
+    ],
+    "decisions": [
+      "Go 1.23 as the toolchain",
+      "OpenTelemetry for traces",
+      "testcontainers for integration tests",
+      "buf for protobuf linting and generation",
+      "errgroup for concurrent fan-out"
+    ],
+    "files": [
+      "cmd/server/main.go",
+      "Dockerfile",
+      "go.mod",
+      "proto/orders.proto",
+      "internal/store/postgres.go"
+    ],
+    "errors": [
+      "a panic on malformed protobuf input",
+      "a deadlock between the two mutexes"
+    ]
+  }
+}

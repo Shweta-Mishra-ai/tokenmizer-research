@@ -1,0 +1,86 @@
+{
+  "id": "ho4x_data_sql_003",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an event pipeline redesign."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with hashed surrogate keys for stability."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated profiles.yml."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the grain of each fact table hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Column-level lineage documentation has shipped. We'll run with Snowflake over BigQuery for the warehouse."
+    },
+    {
+      "role": "user",
+      "content": "How is an event pipeline redesign going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. The fix lives in models/marts/fct_orders.sql. Row count reconciliation against the source system went in this morning. Details are in dags/daily_refresh.py."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event pipeline redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done unit tests for the revenue macro yet. Partitioning the events table by month went in this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "row count reconciliation against the source system",
+      "partitioning the events table by month",
+      "column-level lineage documentation"
+    ],
+    "pending_tasks": [
+      "documenting the grain of each fact table",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "hashed surrogate keys for stability",
+      "Snowflake over BigQuery for the warehouse"
+    ],
+    "files": [
+      "profiles.yml",
+      "dags/daily_refresh.py",
+      "models/marts/fct_orders.sql"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_data_streaming_002",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a real-time aggregation service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a real-time aggregation service."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Avro with a schema registry for the payloads."
+    },
+    {
+      "role": "user",
+      "content": "Use consumer offsets committed after processing please."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to an integration test spinning up a real broker, the on-call pages stopped. I updated docker-compose.yml. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use one topic per event type rather than a shared bus. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle streams/aggregator.py first. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage?\n- [ ] TODO a cost review of the broker cluster\nHad to untangle streams/dlq.py first.\nWindowed aggregation over five-minute tumbling windows is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a real-time aggregation service?"
+    },
+    {
+      "role": "assistant",
+      "content": "The change data capture connector on the orders table is behind us now. See the diff in config/kafka.yaml."
+    },
+    {
+      "role": "user",
+      "content": "How is a real-time aggregation service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: backpressure handling in the consumer loop. Complete: consumer group rebalancing tuned for slow consumers."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO reducing end-to-end latency below one second\nCI is passing.\nThanks to a schema registry entry for every event type, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, partitioning by tenant rather than by hash is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A replay procedure for the last 24 hours is waiting on us."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the change data capture connector on the orders table",
+      "consumer group rebalancing tuned for slow consumers",
+      "an integration test spinning up a real broker",
+      "backpressure handling in the consumer loop",
+      "windowed aggregation over five-minute tumbling windows",
+      "a schema registry entry for every event type"
+    ],
+    "pending_tasks": [
+      "a replay procedure for the last 24 hours",
+      "a cost review of the broker cluster",
+      "partitioning by tenant rather than by hash",
+      "reducing end-to-end latency below one second"
+    ],
+    "decisions": [
+      "Avro with a schema registry for the payloads",
+      "one topic per event type rather than a shared bus",
+      "consumer offsets committed after processing"
+    ],
+    "files": [
+      "docker-compose.yml",
+      "streams/dlq.py",
+      "streams/aggregator.py",
+      "config/kafka.yaml"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_systems_rust_005",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a packet inspector."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a packet inspector."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/codec/mod.rs ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside fuzz/fuzz_targets/decode.rs. Good news: zero-copy deserialisation of the record header made it in before the freeze. benches/parse.rs ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. The alerts this morning came from unbounded memory growth in the buffer pool."
+    },
+    {
+      "role": "user",
+      "content": "Serde with a custom binary format sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the public API surface is waiting for someone to pick it up. The streaming parser over a bounded buffer? Taken care of. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fuzzing the input decoder with cargo-fuzz went smoothly in the end. An arena allocator for the parse nodes is what we'll ship with. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Rust 2021 edition with MSRV 1.75 beat the alternatives on every axis we care about. Property tests over the encoder round trip went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A workspace layout with three crates beat the alternatives on every axis we care about. Everyone was happy with clap for argument parsing."
+    },
+    {
+      "role": "user",
+      "content": "What about a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about error types unified behind thiserror now. A lock-free ring buffer for the writer? Taken care of. Let me know if anything looks off."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the streaming parser over a bounded buffer",
+      "a lock-free ring buffer for the writer",
+      "zero-copy deserialisation of the record header",
+      "fuzzing the input decoder with cargo-fuzz",
+      "property tests over the encoder round trip",
+      "error types unified behind thiserror"
+    ],
+    "pending_tasks": [
+      "documenting the public API surface"
+    ],
+    "decisions": [
+      "a workspace layout with three crates",
+      "clap for argument parsing",
+      "serde with a custom binary format",
+      "Rust 2021 edition with MSRV 1.75",
+      "an arena allocator for the parse nodes",
+      "tokio over async-std for the runtime"
+    ],
+    "files": [
+      "benches/parse.rs",
+      "src/codec/mod.rs",
+      "fuzz/fuzz_targets/decode.rs"
+    ],
+    "errors": [
+      "unbounded memory growth in the buffer pool"
+    ]
+  }
+}

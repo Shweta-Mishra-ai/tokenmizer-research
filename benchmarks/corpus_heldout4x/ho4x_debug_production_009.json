@@ -1,0 +1,120 @@
+{
+  "id": "ho4x_debug_production_009",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an intermittent failure investigation."
+    },
+    {
+      "role": "user",
+      "content": "How is an intermittent failure investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `tests/test_regression.py`. After review I'll deploy. Failing now: silent data loss when the queue consumer crashed. Wrapped: ruling out the cache layer as the cause."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO a follow-up on the third-party client bug report\nConsensus: treating the third-party timeout as the root cause."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — connection pool exhaustion under the checkout load."
+    },
+    {
+      "role": "user",
+      "content": "Pick rolling back before investigating further."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. * runbooks/latency.md Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. File changed — src/client.py. Todo — reviewing the other call sites with the same pattern. Broken: duplicate charges from a non-idempotent retry."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: config/flags.yaml. Path: `logs/analysis.py`. Flaky jobs get one automatic retry. Path: `scripts/repro.py`."
+    },
+    {
+      "role": "user",
+      "content": "How is an intermittent failure investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — bisecting the regression to a single commit.\n- [ ] TODO an alert on the metric that would have caught it\nPing me if anything seems wrong.\nDelivered — a regression test covering the failure mode."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: a timeline of the incident from the metrics."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] adding structured logging around the suspect path"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a regression test covering the failure mode",
+      "bisecting the regression to a single commit",
+      "adding structured logging around the suspect path",
+      "ruling out the cache layer as the cause",
+      "a timeline of the incident from the metrics"
+    ],
+    "pending_tasks": [
+      "reviewing the other call sites with the same pattern",
+      "an alert on the metric that would have caught it",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "treating the third-party timeout as the root cause",
+      "rolling back before investigating further"
+    ],
+    "files": [
+      "scripts/repro.py",
+      "config/flags.yaml",
+      "src/client.py",
+      "runbooks/latency.md",
+      "logs/analysis.py",
+      "tests/test_regression.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under the checkout load",
+      "silent data loss when the queue consumer crashed",
+      "duplicate charges from a non-idempotent retry"
+    ]
+  }
+}

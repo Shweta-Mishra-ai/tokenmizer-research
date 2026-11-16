@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_devops_ci_008",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a build time reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a build time reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: scripts/run_tests.sh. Failed jobs are retried twice. Finished — quarantining the six flakiest tests. Choice: OIDC federation instead of long-lived deploy keys."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- Makefile"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a build time reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: deduplicating the three near-identical workflows. Affected file: tox.ini. The error messages are now clearer. Backlog: pinning all third-party actions by digest."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — signed release artifacts. Once CI passes I'll merge. Chose trunk-based development with short-lived branches. File: `.github/dependabot.yml`."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** an out of disk space failure on the runner.\nLet me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Chose GitHub Actions over the self-managed runner fleet. Edited: .github/workflows/ci.yml."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: dependency caching across pipeline runs done."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: pyproject.toml."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with semantic versioning driven by commit messages."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Okay, doing it. Regression: a rate limit from the container registry."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dependency caching across pipeline runs",
+      "signed release artifacts",
+      "quarantining the six flakiest tests"
+    ],
+    "pending_tasks": [
+      "deduplicating the three near-identical workflows",
+      "pinning all third-party actions by digest"
+    ],
+    "decisions": [
+      "trunk-based development with short-lived branches",
+      "semantic versioning driven by commit messages",
+      "GitHub Actions over the self-managed runner fleet",
+      "OIDC federation instead of long-lived deploy keys"
+    ],
+    "files": [
+      ".github/dependabot.yml",
+      "pyproject.toml",
+      ".github/workflows/ci.yml",
+      "scripts/run_tests.sh",
+      "tox.ini",
+      "Makefile"
+    ],
+    "errors": [
+      "a rate limit from the container registry",
+      "an out of disk space failure on the runner"
+    ]
+  }
+}

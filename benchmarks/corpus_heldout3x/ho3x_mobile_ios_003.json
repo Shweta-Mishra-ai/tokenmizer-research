@@ -1,0 +1,129 @@
+{
+  "id": "ho3x_mobile_ios_003",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a fitness tracking app."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a fitness tracking app now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside Sources/Widgets/ActivityWidget.swift."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fastlane for the release pipeline beat the alternatives on every axis we care about. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched handling the offline conflict resolution case yet. Good news: background sync with a URLSession task made it in before the freeze. Dark mode across every screen went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "StoreKit 2 for subscriptions sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Deep links into the workout detail screen? Taken care of. There were no failures in the nightly run. The root cause turned out to be a retain cycle in the sync completion handler. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Nobody has touched an iPad layout for the summary screen yet."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sources/Auth/Keychain.swift ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The SwiftUI onboarding sequence went smoothly in the end. SwiftUI for all new screens is what we'll ship with. Once CI passes I'll merge. Nobody has touched watchOS companion app yet."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was main thread blocking during the Core Data import. App/Info.plist ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards SwiftLint in the build phase."
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to a crash from a missing NSMotionUsageDescription key. Nobody has touched an App Store privacy nutrition label review yet. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a fitness tracking app?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the HealthKit permission flow now. We can stop worrying about unit tests for the sync reducer now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dark mode across every screen",
+      "unit tests for the sync reducer",
+      "background sync with a URLSession task",
+      "the HealthKit permission flow",
+      "deep links into the workout detail screen",
+      "the SwiftUI onboarding sequence"
+    ],
+    "pending_tasks": [
+      "watchOS companion app",
+      "an iPad layout for the summary screen",
+      "handling the offline conflict resolution case",
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "fastlane for the release pipeline",
+      "SwiftUI for all new screens",
+      "StoreKit 2 for subscriptions",
+      "SwiftLint in the build phase"
+    ],
+    "files": [
+      "Sources/Widgets/ActivityWidget.swift",
+      "App/Info.plist",
+      "Sources/Auth/Keychain.swift"
+    ],
+    "errors": [
+      "a retain cycle in the sync completion handler",
+      "a crash from a missing NSMotionUsageDescription key",
+      "main thread blocking during the Core Data import"
+    ]
+  }
+}

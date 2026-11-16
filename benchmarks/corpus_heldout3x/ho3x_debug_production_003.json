@@ -1,0 +1,143 @@
+{
+  "id": "ho3x_debug_production_003",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an intermittent failure investigation."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Good news: a regression test covering the failure mode made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? What broke the release was a cascading failure from the retry storm."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of runbooks/latency.md as well."
+    },
+    {
+      "role": "user",
+      "content": "A blameless postmortem format sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. We can stop worrying about instrumenting the slow query with timing spans now."
+    },
+    {
+      "role": "user",
+      "content": "An incident severity of SEV-2 sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. We can stop worrying about confirming the hypothesis with a targeted experiment now. What broke the release was connection pool exhaustion under the checkout load."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: ruling out the cache layer as the cause made it in before the freeze. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Increasing the connection pool as a stopgap is what we'll ship with. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "What about an intermittent failure investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Adding structured logging around the suspect path went smoothly in the end. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Don't let a load test reproducing the traffic pattern slip through the cracks. An alert on the metric that would have caught it is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "A timeline of the incident from the metrics went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "A canary deploy for the fix sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let a follow-up on the third-party client bug report slip through the cracks. Agreed. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "tests/test_regression.py ended up with most of the changes. We can stop worrying about correlating the errors with the deploy timeline now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "adding structured logging around the suspect path",
+      "a regression test covering the failure mode",
+      "correlating the errors with the deploy timeline",
+      "confirming the hypothesis with a targeted experiment",
+      "instrumenting the slow query with timing spans",
+      "a timeline of the incident from the metrics",
+      "ruling out the cache layer as the cause"
+    ],
+    "pending_tasks": [
+      "an alert on the metric that would have caught it",
+      "a load test reproducing the traffic pattern",
+      "a follow-up on the third-party client bug report"
+    ],
+    "decisions": [
+      "a canary deploy for the fix",
+      "an incident severity of SEV-2",
+      "increasing the connection pool as a stopgap",
+      "a blameless postmortem format"
+    ],
+    "files": [
+      "runbooks/latency.md",
+      "tests/test_regression.py"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "connection pool exhaustion under the checkout load"
+    ]
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_ml_python_002",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an embedding search service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an embedding search service."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on Evidently for drift reporting. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A fairness audit across customer segments is waiting on us. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "How is an embedding search service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have baseline logistic regression at 0.71 AUC now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing inference latency below 50ms is next up."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention target leakage from a post-outcome feature. The team picked Optuna for hyperparameter search. Cross-validation across five folds has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? We keep seeing inference timeouts on the long-document path. Details are in src/serve.py. Production is showing NaN losses after the learning rate change."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Drift monitoring on the input distributions is finished and deployed. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Shadow deployment against live traffic is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? I got hyperparameter search over 200 trials over the line. The feature engineering pipeline with 42 features has shipped."
+    },
+    {
+      "role": "user",
+      "content": "How is an embedding search service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in XGBoost over a neural network for tabular data. Details are in src/features.py. The fix lives in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. I've locked in a 90-day lookback window for features."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "baseline logistic regression at 0.71 AUC",
+      "cross-validation across five folds",
+      "drift monitoring on the input distributions",
+      "hyperparameter search over 200 trials",
+      "the feature engineering pipeline with 42 features"
+    ],
+    "pending_tasks": [
+      "reducing inference latency below 50ms",
+      "shadow deployment against live traffic",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "Evidently for drift reporting",
+      "Optuna for hyperparameter search",
+      "a 90-day lookback window for features",
+      "XGBoost over a neural network for tabular data"
+    ],
+    "files": [
+      "src/features.py",
+      "src/serve.py",
+      "Makefile"
+    ],
+    "errors": [
+      "target leakage from a post-outcome feature",
+      "NaN losses after the learning rate change",
+      "inference timeouts on the long-document path"
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "ho4x_data_streaming_003",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a real-time aggregation service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a real-time aggregation service."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: a seven-day retention on the raw topics."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `tests/test_aggregator.py`. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "How is a real-time aggregation service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Fault:** offset commit failures under broker restart."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — tiered storage for the older segments.\nThe logs are easier to read now.\n**Pending:** reducing end-to-end latency below one second."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** compaction on the entity state topics."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `streams/windowing.py`. Delivered — backpressure handling in the consumer loop."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: Debezium for change data capture. Complete: the change data capture connector on the orders table."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "compaction on the entity state topics",
+      "the change data capture connector on the orders table",
+      "backpressure handling in the consumer loop"
+    ],
+    "pending_tasks": [
+      "tiered storage for the older segments",
+      "reducing end-to-end latency below one second"
+    ],
+    "decisions": [
+      "Debezium for change data capture",
+      "a seven-day retention on the raw topics"
+    ],
+    "files": [
+      "tests/test_aggregator.py",
+      "streams/windowing.py"
+    ],
+    "errors": [
+      "offset commit failures under broker restart"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_backend_python_006",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an async task queue service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an async task queue service."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Alembic for schema migrations."
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done audit logging for admin actions yet. Makes sense, doing that. Pagination on the list endpoints is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The User model with email and hashed_password columns went in this morning. POST /api/orders and GET /api/orders/{id} went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in db/session.py. I got background retry for failed webhook deliveries over the line. The fix lives in requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "UUIDv7 primary keys instead of integers won the vote. A load test against the order path is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Connection pooling against Postgres is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked uvicorn behind gunicorn in production. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in core/config.py. Support tickets mention a deadlock between the invoice and ledger updates."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "connection pooling against Postgres",
+      "POST /api/orders and GET /api/orders/{id}",
+      "background retry for failed webhook deliveries",
+      "the User model with email and hashed_password columns",
+      "pagination on the list endpoints"
+    ],
+    "pending_tasks": [
+      "audit logging for admin actions",
+      "a load test against the order path"
+    ],
+    "decisions": [
+      "uvicorn behind gunicorn in production",
+      "Alembic for schema migrations",
+      "UUIDv7 primary keys instead of integers"
+    ],
+    "files": [
+      "requirements.txt",
+      "core/config.py",
+      "db/session.py"
+    ],
+    "errors": [
+      "a deadlock between the invoice and ledger updates"
+    ]
+  }
+}

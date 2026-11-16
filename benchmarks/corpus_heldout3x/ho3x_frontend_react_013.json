@@ -1,0 +1,112 @@
+{
+  "id": "ho3x_frontend_react_013",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an analytics dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with TanStack Query for server state. Code splitting on the route boundaries has been merged. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Server-side pagination on the results table has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. The relevant code is in tailwind.config.js."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. I edited src/store/session.ts. Still to do: migrating the remaining class components."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Vite as the build tool is the pick."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Recharts for the visualisations is the pick."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use TypeScript in strict mode."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "The empty and loading states for every panel has been merged. We're going to use Playwright for end-to-end tests. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? A virtualised list for the 10k-row view is sorted."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "server-side pagination on the results table",
+      "a virtualised list for the 10k-row view",
+      "code splitting on the route boundaries",
+      "the empty and loading states for every panel"
+    ],
+    "pending_tasks": [
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "Playwright for end-to-end tests",
+      "TanStack Query for server state",
+      "Vite as the build tool",
+      "TypeScript in strict mode",
+      "Recharts for the visualisations"
+    ],
+    "files": [
+      "src/store/session.ts",
+      "tailwind.config.js"
+    ],
+    "errors": []
+  }
+}

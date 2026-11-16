@@ -1,0 +1,121 @@
+{
+  "id": "ho3x_backend_python_005",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a Flask webhook receiver."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a Flask webhook receiver."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] audit logging for admin actions Finished — the Alembic baseline migration. Chose SQLAlchemy 2.0 with the async engine."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Celery for the background worker."
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] pytest fixtures for a throwaway database Agreed. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose Redis for refresh token storage. There were no failures in the nightly run. Finished — idempotency keys on the order create path. File: `api/orders.py`."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Errors: a memory leak in the long-lived session object. We've decided on uvicorn behind gunicorn in production."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: requirements.txt. TO DO: rate limiting on the auth routes. TO DO: a load test against the order path."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — backfilling created_at on legacy rows. Implemented the User model with email and hashed_password columns."
+    },
+    {
+      "role": "user",
+      "content": "What about a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** a 500 from an unhandled TimeoutError in the payment client.\nIncident: an IntegrityError on duplicate order submission."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests?\n- docker-compose.yml"
+    },
+    {
+      "role": "user",
+      "content": "Switch to Postgres over MySQL for JSONB support."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it.\nThe build is green.\n**Decided:** pytest-asyncio for the async test suite."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pytest fixtures for a throwaway database",
+      "the Alembic baseline migration",
+      "the User model with email and hashed_password columns",
+      "idempotency keys on the order create path"
+    ],
+    "pending_tasks": [
+      "backfilling created_at on legacy rows",
+      "audit logging for admin actions",
+      "a load test against the order path",
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "pytest-asyncio for the async test suite",
+      "Celery for the background worker",
+      "Redis for refresh token storage",
+      "Postgres over MySQL for JSONB support",
+      "uvicorn behind gunicorn in production",
+      "SQLAlchemy 2.0 with the async engine"
+    ],
+    "files": [
+      "api/orders.py",
+      "requirements.txt",
+      "docker-compose.yml"
+    ],
+    "errors": [
+      "a 500 from an unhandled TimeoutError in the payment client",
+      "a memory leak in the long-lived session object",
+      "an IntegrityError on duplicate order submission"
+    ]
+  }
+}

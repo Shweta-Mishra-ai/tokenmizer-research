@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_platform_api_009",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a public API v2 design."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a public API v2 design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is HMAC-SHA256 for webhook signatures."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. The sandbox environment for partner testing is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into rate limit headers reporting a stale budget. The error messages are now clearer. Idempotency keys on all write operations is sorted. I've gone with a six-month deprecation window."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in api/pagination.py. I plan to do sunsetting v1 after the six-month window next."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed webhook signature verification yesterday. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use exponential backoff with jitter for webhook retries. The OpenAPI specification for every public route has been merged. Nothing is blocking us right now. The relevant code is in sdk/python/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found a 500 leaking a stack trace to API consumers. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got per-key rate limits with headers exposing the budget up and running. Nothing is blocking us right now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the OpenAPI specification for every public route",
+      "the sandbox environment for partner testing",
+      "per-key rate limits with headers exposing the budget",
+      "idempotency keys on all write operations",
+      "webhook signature verification"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window"
+    ],
+    "decisions": [
+      "exponential backoff with jitter for webhook retries",
+      "a six-month deprecation window",
+      "HMAC-SHA256 for webhook signatures"
+    ],
+    "files": [
+      "api/pagination.py",
+      "sdk/python/client.py"
+    ],
+    "errors": [
+      "rate limit headers reporting a stale budget",
+      "a 500 leaking a stack trace to API consumers"
+    ]
+  }
+}

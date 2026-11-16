@@ -1,0 +1,107 @@
+{
+  "id": "ho3x_backend_python_006",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a document ingestion service."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a document ingestion service now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is Postgres over MySQL for JSONB support."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The Alembic baseline migration is working now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A load test against the order path still needs doing. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with bcrypt for password hashing?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. POST /api/orders and GET /api/orders/{id} is sorted. Agreed. We're going to use Celery for the background worker."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited api/models.py. I've got idempotency keys on the order create path up and running. Have a look at api/deps.py."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with uvicorn behind gunicorn in production?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in db/session.py. We need soft deletes on the tenant table before launch. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting a 422 on login from a missing email validator in CI."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at api/main.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "POST /api/orders and GET /api/orders/{id}",
+      "idempotency keys on the order create path",
+      "the Alembic baseline migration"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table",
+      "a load test against the order path"
+    ],
+    "decisions": [
+      "uvicorn behind gunicorn in production",
+      "bcrypt for password hashing",
+      "Celery for the background worker",
+      "Postgres over MySQL for JSONB support"
+    ],
+    "files": [
+      "api/main.py",
+      "api/deps.py",
+      "db/session.py",
+      "api/models.py"
+    ],
+    "errors": [
+      "a 422 on login from a missing email validator"
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_security_appsec_004",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a secrets management migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a secrets management migration now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of security/middleware.py as well."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about an SBOM generated at build time now. Dependabot for dependency updates is what we'll ship with. Semgrep in the pull request pipeline is what we'll ship with. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Field-level encryption for PII columns sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of policy/egress.yaml as well. Gitleaks as a pre-commit hook beat the alternatives on every axis we care about. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Least-privilege IAM roles for the workers went smoothly in the end. Session invalidation on password change? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a secrets management migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about rate limiting on the password reset endpoint now. Trivy for container image scanning beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rotation of the leaked deploy key? Taken care of. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "MTLS between internal services sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. MFA enforcement for admin accounts is the obvious next step."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an SBOM generated at build time",
+      "rotation of the leaked deploy key",
+      "rate limiting on the password reset endpoint",
+      "least-privilege IAM roles for the workers",
+      "session invalidation on password change"
+    ],
+    "pending_tasks": [
+      "MFA enforcement for admin accounts"
+    ],
+    "decisions": [
+      "field-level encryption for PII columns",
+      "mTLS between internal services",
+      "gitleaks as a pre-commit hook",
+      "Semgrep in the pull request pipeline",
+      "Trivy for container image scanning",
+      "Dependabot for dependency updates"
+    ],
+    "files": [
+      "security/middleware.py",
+      "policy/egress.yaml"
+    ],
+    "errors": []
+  }
+}

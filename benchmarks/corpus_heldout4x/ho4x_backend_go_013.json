@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_backend_go_013",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a metrics collector."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a metrics collector."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a metrics collector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing allocations in the serialiser is waiting on us. Production is showing excessive allocations causing GC pressure."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. I got graceful shutdown on SIGTERM over the line. Production is showing a goroutine leak on the cancelled request path."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a metrics collector?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in internal/handler/orders_test.go."
+    },
+    {
+      "role": "user",
+      "content": "Could testcontainers for integration tests work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the config to environment variables is next up. The logs are easier to read now. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be pgx as the Postgres driver."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "NATS for the message transport won the vote. We'll run with a monorepo layout with internal packages. Connection reuse in the HTTP client is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in proto/orders.proto. Production is showing a data race on the shared counter."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be sqlc for type-safe database access."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A worker pool bounded at 32 goroutines is up and working. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "graceful shutdown on SIGTERM",
+      "connection reuse in the HTTP client",
+      "a worker pool bounded at 32 goroutines"
+    ],
+    "pending_tasks": [
+      "moving the config to environment variables",
+      "reducing allocations in the serialiser"
+    ],
+    "decisions": [
+      "NATS for the message transport",
+      "a monorepo layout with internal packages",
+      "testcontainers for integration tests",
+      "sqlc for type-safe database access",
+      "pgx as the Postgres driver"
+    ],
+    "files": [
+      "internal/handler/orders_test.go",
+      "proto/orders.proto"
+    ],
+    "errors": [
+      "a data race on the shared counter",
+      "excessive allocations causing GC pressure",
+      "a goroutine leak on the cancelled request path"
+    ]
+  }
+}

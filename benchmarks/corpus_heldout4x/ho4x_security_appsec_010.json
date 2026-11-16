@@ -1,0 +1,135 @@
+{
+  "id": "ho4x_security_appsec_010",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a compliance readiness review."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: short-lived tokens with refresh rotation.\n**Finished work:** session invalidation on password change.\nNothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO a threat model for the payments flow\nShould we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: security/middleware.py. Ping me if anything seems wrong. File changed — terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Landed rate limiting on the password reset endpoint. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance readiness review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Left to do — audit log retention policy."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** an SBOM generated at build time."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] CSP headers on all rendered responses\n**Pending:** a third-party penetration test.\nFinal call: a deny-by-default egress policy."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** parameterised queries across the data layer.\nPing me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry.\nDelivered — input sanitisation on the file upload path.\n**Fault:** a SQL injection in the search filter."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: mTLS between internal services.\nI'll post a recap later.\nOutage: a path traversal in the file download handler.\n- [X] rotation of the leaked deploy key"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Outage: an XSS in the comment renderer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "input sanitisation on the file upload path",
+      "CSP headers on all rendered responses",
+      "rate limiting on the password reset endpoint",
+      "parameterised queries across the data layer",
+      "an SBOM generated at build time",
+      "rotation of the leaked deploy key",
+      "session invalidation on password change"
+    ],
+    "pending_tasks": [
+      "a third-party penetration test",
+      "a threat model for the payments flow",
+      "audit log retention policy"
+    ],
+    "decisions": [
+      "short-lived tokens with refresh rotation",
+      "a deny-by-default egress policy",
+      "mTLS between internal services"
+    ],
+    "files": [
+      "terraform/iam.tf",
+      "security/middleware.py"
+    ],
+    "errors": [
+      "a SQL injection in the search filter",
+      "a path traversal in the file download handler",
+      "an XSS in the comment renderer"
+    ]
+  }
+}

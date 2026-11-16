@@ -1,0 +1,137 @@
+{
+  "id": "ho4x_infra_terraform_004",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a disaster recovery setup."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in .github/workflows/plan.yml. Ping me if anything seems wrong. An RDS instance with automated backups is up and working. The team picked separate accounts for production and staging."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in terraform/vpc.tf. Nothing is waiting on anyone at the moment. I got tagging enforced through a provider default over the line."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Details are in environments/prod/terragrunt.hcl."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in provider versions pinned to a minor range. See the diff in terraform/variables.tf. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "How is a disaster recovery setup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A disaster recovery restore rehearsal remains open."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. We haven't done policy-as-code checks in the plan stage yet."
+    },
+    {
+      "role": "user",
+      "content": "How is a disaster recovery setup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Details are in terraform/iam.tf."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in terraform/main.tf. After review I'll deploy. We're standardising on Aurora Postgres over standard RDS. We keep seeing a plan diff from an untracked manual console change."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got the VPC with public and private subnets across three zones over the line. Security groups restricted to named ports is up and working. A cost anomaly alert is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. We keep seeing a cyclic dependency between the security group rules."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Encrypted EBS volumes across all instances is finished and deployed. We have a read replica in the secondary region now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a read replica in the secondary region",
+      "the VPC with public and private subnets across three zones",
+      "encrypted EBS volumes across all instances",
+      "an RDS instance with automated backups",
+      "tagging enforced through a provider default",
+      "security groups restricted to named ports"
+    ],
+    "pending_tasks": [
+      "policy-as-code checks in the plan stage",
+      "a disaster recovery restore rehearsal",
+      "a cost anomaly alert"
+    ],
+    "decisions": [
+      "Aurora Postgres over standard RDS",
+      "provider versions pinned to a minor range",
+      "separate accounts for production and staging"
+    ],
+    "files": [
+      "environments/prod/terragrunt.hcl",
+      "terraform/vpc.tf",
+      "terraform/main.tf",
+      "terraform/iam.tf",
+      ".github/workflows/plan.yml",
+      "terraform/variables.tf"
+    ],
+    "errors": [
+      "a plan diff from an untracked manual console change",
+      "a cyclic dependency between the security group rules"
+    ]
+  }
+}

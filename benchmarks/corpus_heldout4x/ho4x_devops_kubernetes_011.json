@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_devops_kubernetes_011",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a multi-region rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a multi-region rollout."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Complete: node affinity rules keeping the databases separate."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — a runbook for the failover procedure. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a multi-region rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `scripts/rollout.sh`. Outage: node pressure evictions during the nightly batch."
+    },
+    {
+      "role": "user",
+      "content": "Pick Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a multi-region rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: moving the remaining cron jobs to Kubernetes.\nCI is passing.\n**Finished work:** the secrets migration into the external secret store.\nTouched file: k8s/hpa.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — argocd/apps/api.yaml. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing.\n- [ ] TODO a chaos test on node eviction\nLanded network policies isolating the payments namespace."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `Dockerfile`.\nOutage: a 502 during rolling deploys from missing readiness gates.\n- [ ] TODO reducing the image sizes on the worker pool"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — k8s/ingress.yaml. Final call: Loki for log aggregation. Should we add more coverage? * charts/api/values.yaml"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "node affinity rules keeping the databases separate",
+      "network policies isolating the payments namespace",
+      "the secrets migration into the external secret store"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "reducing the image sizes on the worker pool",
+      "a chaos test on node eviction",
+      "moving the remaining cron jobs to Kubernetes"
+    ],
+    "decisions": [
+      "Loki for log aggregation",
+      "Prometheus and Grafana for metrics"
+    ],
+    "files": [
+      "k8s/hpa.yaml",
+      "scripts/rollout.sh",
+      "k8s/ingress.yaml",
+      "argocd/apps/api.yaml",
+      "Dockerfile",
+      "charts/api/values.yaml"
+    ],
+    "errors": [
+      "node pressure evictions during the nightly batch",
+      "a 502 during rolling deploys from missing readiness gates"
+    ]
+  }
+}

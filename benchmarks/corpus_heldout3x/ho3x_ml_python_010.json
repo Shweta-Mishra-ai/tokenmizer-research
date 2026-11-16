@@ -1,0 +1,136 @@
+{
+  "id": "ho3x_ml_python_010",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an embedding search service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an embedding search service."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Optuna for hyperparameter search?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Changes are in notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with ONNX export for the serving runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. SHAP explanations for the top features is working now. Have a look at data/schema.json. A feature store migration is still open."
+    },
+    {
+      "role": "user",
+      "content": "What about an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Have a look at requirements.txt."
+    },
+    {
+      "role": "user",
+      "content": "What about an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. The relevant code is in tests/test_features.py. Reducing inference latency below 50ms is still open."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at src/serve.py. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited src/train.py. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "What about an embedding search service?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do shadow deployment against live traffic next. We're going to use a 90-day lookback window for features."
+    },
+    {
+      "role": "user",
+      "content": "Can we try quantile clipping on the numeric features?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed batch inference over the full customer base yesterday. Okay, doing it. Cross-validation across five folds is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hyperparameter search over 200 trials is sorted. Gradient boosting reaching 0.84 AUC has been merged. Once CI passes I'll merge. I plan to do retraining automation on a weekly cadence next."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A stratified train/validation/test split has been merged."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "batch inference over the full customer base",
+      "cross-validation across five folds",
+      "gradient boosting reaching 0.84 AUC",
+      "a stratified train/validation/test split",
+      "SHAP explanations for the top features"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic",
+      "retraining automation on a weekly cadence",
+      "reducing inference latency below 50ms",
+      "a feature store migration"
+    ],
+    "decisions": [
+      "quantile clipping on the numeric features",
+      "ONNX export for the serving runtime",
+      "Optuna for hyperparameter search",
+      "a 90-day lookback window for features"
+    ],
+    "files": [
+      "tests/test_features.py",
+      "src/serve.py",
+      "src/train.py",
+      "data/schema.json",
+      "requirements.txt",
+      "notebooks/eda.ipynb"
+    ],
+    "errors": []
+  }
+}

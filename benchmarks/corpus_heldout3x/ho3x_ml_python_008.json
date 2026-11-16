@@ -1,0 +1,162 @@
+{
+  "id": "ho3x_ml_python_008",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a document classifier."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a document classifier."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. We've decided on a 90-day lookback window for features. Affected file: src/serve.py. Hitting a CUDA out of memory error at batch size 256 in CI."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed SHAP explanations for the top features yesterday. Cross-validation across five folds was rolled out. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "notebooks/eda.ipynb ended up with most of the changes. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was NaN losses after the learning rate change."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with quantile clipping on the numeric features?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Customers are hitting non-determinism from an unseeded shuffle."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on XGBoost over a neural network for tabular data. Do we need more tests? Everyone was happy with ONNX export for the serving runtime."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about an offline evaluation against last quarter's data now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Evidently for drift reporting is the best fit. Next task — an online A/B test against the current model."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Calibrating the output probabilities is waiting for someone to pick it up. We can stop worrying about drift monitoring on the input distributions now. Outstanding: documenting the model card."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We completed gradient boosting reaching 0.84 AUC yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose a time-based split to avoid leakage. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I edited configs/model.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Batch inference over the full customer base went smoothly in the end. There were no failures in the nightly run."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cross-validation across five folds",
+      "SHAP explanations for the top features",
+      "batch inference over the full customer base",
+      "gradient boosting reaching 0.84 AUC",
+      "an offline evaluation against last quarter's data",
+      "drift monitoring on the input distributions"
+    ],
+    "pending_tasks": [
+      "documenting the model card",
+      "calibrating the output probabilities",
+      "an online A/B test against the current model"
+    ],
+    "decisions": [
+      "ONNX export for the serving runtime",
+      "Evidently for drift reporting",
+      "a 90-day lookback window for features",
+      "a time-based split to avoid leakage",
+      "quantile clipping on the numeric features",
+      "XGBoost over a neural network for tabular data"
+    ],
+    "files": [
+      "notebooks/eda.ipynb",
+      "src/serve.py",
+      "configs/model.yaml"
+    ],
+    "errors": [
+      "NaN losses after the learning rate change",
+      "a CUDA out of memory error at batch size 256",
+      "non-determinism from an unseeded shuffle"
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "id": "ho4x_backend_go_004",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a file transfer service."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Wrapped: table-driven tests for the parser. Landed a circuit breaker around the downstream call."
+    },
+    {
+      "role": "user",
+      "content": "How is a file transfer service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** connection reuse in the HTTP client."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — Prometheus metrics on the request path."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: buf for protobuf linting and generation."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed structured logging with request correlation.\n**Finished work:** context propagation through every handler."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — internal/store/postgres.go."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to NATS for the message transport."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: internal/handler/orders.go. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Use errgroup for concurrent fan-out please. Use Go 1.23 as the toolchain please."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Final call: testcontainers for integration tests. Final call: gRPC over REST for internal traffic."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — replacing the mutex with a sharded map. Outage: a goroutine leak on the cancelled request path. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a circuit breaker around the downstream call",
+      "connection reuse in the HTTP client",
+      "structured logging with request correlation",
+      "Prometheus metrics on the request path",
+      "table-driven tests for the parser",
+      "context propagation through every handler"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map"
+    ],
+    "decisions": [
+      "testcontainers for integration tests",
+      "buf for protobuf linting and generation",
+      "Go 1.23 as the toolchain",
+      "gRPC over REST for internal traffic",
+      "errgroup for concurrent fan-out",
+      "NATS for the message transport"
+    ],
+    "files": [
+      "internal/handler/orders.go",
+      "internal/store/postgres.go"
+    ],
+    "errors": [
+      "a goroutine leak on the cancelled request path"
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "id": "ho3x_debug_production_005",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a data corruption postmortem."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a data corruption postmortem."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: connection pool exhaustion under the checkout load. Edited: tests/test_regression.py."
+    },
+    {
+      "role": "user",
+      "content": "Switch to a blameless postmortem format."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run.\nSounds right, on it.\nOutstanding: documenting the failure mode in the runbook.\n- src/pool.py"
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with an incident severity of SEV-2."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** a feature flag to disable the suspect path."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a cascading failure from the retry storm."
+    },
+    {
+      "role": "user",
+      "content": "What about a data corruption postmortem?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the postmortem document with action items. Action item: cleaning up the temporary debug logging. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `src/client.py`. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: config/flags.yaml. The build is green. Backlog: reviewing the other call sites with the same pattern. Result: a regression test covering the failure mode done."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** reproducing the failure in a staging environment."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the hotfix reverting the connection pool change."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose treating the third-party timeout as the root cause."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Outstanding: a load test reproducing the traffic pattern. Chose increasing the connection pool as a stopgap."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Edited: runbooks/latency.md."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on sampling traces at 10% rather than 1%. The error messages are now clearer."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the postmortem document with action items",
+      "reproducing the failure in a staging environment",
+      "a regression test covering the failure mode",
+      "the hotfix reverting the connection pool change"
+    ],
+    "pending_tasks": [
+      "reviewing the other call sites with the same pattern",
+      "cleaning up the temporary debug logging",
+      "a load test reproducing the traffic pattern",
+      "documenting the failure mode in the runbook"
+    ],
+    "decisions": [
+      "a feature flag to disable the suspect path",
+      "an incident severity of SEV-2",
+      "treating the third-party timeout as the root cause",
+      "increasing the connection pool as a stopgap",
+      "a blameless postmortem format",
+      "sampling traces at 10% rather than 1%"
+    ],
+    "files": [
+      "runbooks/latency.md",
+      "config/flags.yaml",
+      "src/client.py",
+      "tests/test_regression.py",
+      "src/pool.py"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "connection pool exhaustion under the checkout load"
+    ]
+  }
+}

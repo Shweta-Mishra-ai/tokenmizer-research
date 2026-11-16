@@ -1,0 +1,97 @@
+{
+  "id": "ho4x_platform_api_007",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a partner integration."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "api/routes/webhooks.py grew by a couple hundred lines. I got idempotency keys on all write operations over the line. An API changelog published with each release went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. See the diff in tests/test_webhooks.py. Sunsetting v1 after the six-month window hasn't been started. The sandbox environment for partner testing is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is a partner integration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consistent error envelopes with machine-readable codes has shipped. Here's where things stand. Had to untangle api/ratelimit.py first."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with HMAC-SHA256 for webhook signatures?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is a partner integration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: cursor pagination rather than offset."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. The OpenAPI specification for every public route came off the board this morning. After the spike, snake_case field naming throughout was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** OAuth 2.0 client credentials for machine access.\nNo incidents were reported this week."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the OpenAPI specification for every public route",
+      "idempotency keys on all write operations",
+      "consistent error envelopes with machine-readable codes",
+      "the sandbox environment for partner testing",
+      "an API changelog published with each release"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window"
+    ],
+    "decisions": [
+      "snake_case field naming throughout",
+      "HMAC-SHA256 for webhook signatures",
+      "cursor pagination rather than offset",
+      "OAuth 2.0 client credentials for machine access"
+    ],
+    "files": [
+      "tests/test_webhooks.py",
+      "api/ratelimit.py",
+      "api/routes/webhooks.py"
+    ],
+    "errors": []
+  }
+}

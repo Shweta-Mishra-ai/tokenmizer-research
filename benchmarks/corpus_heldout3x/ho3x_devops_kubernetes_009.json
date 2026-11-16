@@ -1,0 +1,140 @@
+{
+  "id": "ho3x_devops_kubernetes_009",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a cost reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Rewrote parts of Dockerfile as well."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Istio for service mesh traffic policy."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. We can stop worrying about the secrets migration into the external secret store now. We can stop worrying about the Helm chart for the API deployment now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards external-secrets backed by Vault."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside scripts/rollout.sh. argocd/apps/api.yaml ended up with most of the changes. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Rewrote parts of .github/workflows/deploy.yml as well. Nobody has touched tightening the pod security admission profile yet. Pod disruption budgets for the stateful services? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. The ingress with automatic certificate renewal went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Horizontal pod autoscaling on CPU and request rate went smoothly in the end. Rewrote parts of k8s/ingress.yaml as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "A rolling deploy with surge and unavailable tuned? Taken care of. Nobody has touched an upgrade rehearsal in staging yet. Nobody has touched a runbook for the failover procedure yet. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from an ImagePullBackOff from an expired registry credential. Loki for log aggregation is what we'll ship with. Having compared the options, cert-manager for TLS certificates is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Trivy for image scanning in CI."
+    },
+    {
+      "role": "user",
+      "content": "What about a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consolidating the three ingress controllers is the obvious next step. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: resource requests and limits for all containers made it in before the freeze. The build is green. Most of the work happened inside k8s/hpa.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "the secrets migration into the external secret store",
+      "the ingress with automatic certificate renewal",
+      "the Helm chart for the API deployment",
+      "a rolling deploy with surge and unavailable tuned",
+      "resource requests and limits for all containers",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "consolidating the three ingress controllers",
+      "an upgrade rehearsal in staging",
+      "a runbook for the failover procedure"
+    ],
+    "decisions": [
+      "external-secrets backed by Vault",
+      "cert-manager for TLS certificates",
+      "Trivy for image scanning in CI",
+      "Loki for log aggregation",
+      "Istio for service mesh traffic policy"
+    ],
+    "files": [
+      ".github/workflows/deploy.yml",
+      "argocd/apps/api.yaml",
+      "k8s/hpa.yaml",
+      "scripts/rollout.sh",
+      "Dockerfile",
+      "k8s/ingress.yaml"
+    ],
+    "errors": [
+      "an ImagePullBackOff from an expired registry credential"
+    ]
+  }
+}

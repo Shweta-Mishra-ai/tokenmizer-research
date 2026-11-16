@@ -1,0 +1,108 @@
+{
+  "id": "ho3x_devops_kubernetes_005",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? We can stop worrying about horizontal pod autoscaling on CPU and request rate now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Spot instances for the batch workloads beat the alternatives on every axis we care about. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be certificate renewal failing the ACME HTTP challenge. Rewrote parts of .github/workflows/deploy.yml as well. Rewrote parts of k8s/networkpolicy.yaml as well."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside k8s/ingress.yaml. External-secrets backed by Vault is what we'll ship with. The build is green. terraform/cluster.tf ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about cluster autoscaler on the spot node group now. The alerts this morning came from DNS resolution failures inside the mesh sidecar. Nobody has touched an upgrade rehearsal in staging yet."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A canary stage in the deploy pipeline? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Rewrote parts of scripts/rollout.sh as well. Per-namespace cost attribution is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside Dockerfile."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "horizontal pod autoscaling on CPU and request rate",
+      "a canary stage in the deploy pipeline",
+      "cluster autoscaler on the spot node group"
+    ],
+    "pending_tasks": [
+      "per-namespace cost attribution",
+      "an upgrade rehearsal in staging"
+    ],
+    "decisions": [
+      "external-secrets backed by Vault",
+      "spot instances for the batch workloads"
+    ],
+    "files": [
+      "k8s/networkpolicy.yaml",
+      "terraform/cluster.tf",
+      ".github/workflows/deploy.yml",
+      "k8s/ingress.yaml",
+      "scripts/rollout.sh",
+      "Dockerfile"
+    ],
+    "errors": [
+      "certificate renewal failing the ACME HTTP challenge",
+      "DNS resolution failures inside the mesh sidecar"
+    ]
+  }
+}

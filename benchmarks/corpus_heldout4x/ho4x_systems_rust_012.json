@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_systems_rust_012",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an HTTP proxy."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. The fix lives in Cargo.lock. We'll run with rayon for the parallel scan."
+    },
+    {
+      "role": "user",
+      "content": "How is an HTTP proxy going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by a segfault in the FFI boundary on aarch64 in staging."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the public API surface is next up. We haven't done a miri run over the concurrency tests yet."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in tests/roundtrip.rs."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in Cargo.toml."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked clap for argument parsing. I'll post a recap later. Adding a tracing subscriber is next up."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on cargo-deny for licence and advisory checks. Details are in fuzz/fuzz_targets/decode.rs. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have zero-copy deserialisation of the record header now. Fuzzing the input decoder with cargo-fuzz is up and working. The team picked a workspace layout with three crates."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done profiling the allocation hot path yet."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? I got property tests over the encoder round trip over the line."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked bincode for the wire encoding. Error types unified behind thiserror is finished and deployed. I've locked in tokio over async-std for the runtime."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "property tests over the encoder round trip",
+      "zero-copy deserialisation of the record header",
+      "error types unified behind thiserror",
+      "fuzzing the input decoder with cargo-fuzz"
+    ],
+    "pending_tasks": [
+      "profiling the allocation hot path",
+      "adding a tracing subscriber",
+      "a miri run over the concurrency tests",
+      "documenting the public API surface"
+    ],
+    "decisions": [
+      "a workspace layout with three crates",
+      "rayon for the parallel scan",
+      "tokio over async-std for the runtime",
+      "cargo-deny for licence and advisory checks",
+      "bincode for the wire encoding",
+      "clap for argument parsing"
+    ],
+    "files": [
+      "Cargo.toml",
+      "fuzz/fuzz_targets/decode.rs",
+      "tests/roundtrip.rs",
+      "Cargo.lock"
+    ],
+    "errors": [
+      "a segfault in the FFI boundary on aarch64"
+    ]
+  }
+}

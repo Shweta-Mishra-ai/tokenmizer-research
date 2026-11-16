@@ -1,0 +1,110 @@
+{
+  "id": "ho4x_infra_terraform_005",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a cost optimisation pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a cost optimisation pass."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "terraform/outputs.tf grew by a couple hundred lines. terraform/iam.tf grew by a couple hundred lines. Ping me if anything seems wrong. VPC flow logs shipped to the log bucket came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Security groups restricted to named ports held up fine through the whole load test. The VPC with public and private subnets across three zones is behind us now. A read replica in the secondary region held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "OIDC for CI authentication into AWS feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Fine by me. Without documenting the module interfaces the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "CloudWatch alarms on the error rate metric is behind us now. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "How is a cost optimisation pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about tagging enforced through a provider default anymore."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "AWS as the single cloud provider is what everything will be built on from here. Turns out the slowdown was provider version drift between two engineers all along."
+    },
+    {
+      "role": "user",
+      "content": "How is a cost optimisation pass going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while removing the last hardcoded account IDs is missing. Should we add more coverage? Most of yesterday disappeared into subnet exhaustion in the primary availability zone."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to private subnets for every compute workload."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. After the spike, provider versions pinned to a minor range was the clear winner. Nobody argued once they saw the numbers for Terragrunt for the DRY module wiring."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "VPC flow logs shipped to the log bucket",
+      "the VPC with public and private subnets across three zones",
+      "CloudWatch alarms on the error rate metric",
+      "security groups restricted to named ports",
+      "a read replica in the secondary region",
+      "tagging enforced through a provider default"
+    ],
+    "pending_tasks": [
+      "removing the last hardcoded account IDs",
+      "documenting the module interfaces"
+    ],
+    "decisions": [
+      "OIDC for CI authentication into AWS",
+      "Terragrunt for the DRY module wiring",
+      "AWS as the single cloud provider",
+      "provider versions pinned to a minor range",
+      "private subnets for every compute workload"
+    ],
+    "files": [
+      "terraform/outputs.tf",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "subnet exhaustion in the primary availability zone",
+      "provider version drift between two engineers"
+    ]
+  }
+}

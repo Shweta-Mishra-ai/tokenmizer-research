@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_devops_ci_011",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a monorepo pipeline split."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage?\nNobody needs to think about artifact upload for the failing test logs anymore.\n**Chosen:** OIDC federation instead of long-lived deploy keys.\nHad to untangle tox.ini first."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "* Dockerfile"
+    },
+    {
+      "role": "user",
+      "content": "What if we went with uv for dependency installation?"
+    },
+    {
+      "role": "assistant",
+      "content": "A nightly job running the slow integration suite is finished and deployed. Todo — splitting the linting job from the test job. Makes sense, doing that. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Container image build with layer caching has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Use trunk-based development with short-lived branches please."
+    },
+    {
+      "role": "assistant",
+      "content": "Parallel test execution across four shards held up fine through the whole load test. Here's where things stand. We resolved to use semantic versioning driven by commit messages. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Signed release artifacts has been live since Tuesday with no complaints. The logs are easier to read now. Thanks to coverage reporting posted to the pull request, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Buildx with a remote cache backend is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Use test retries limited to two attempts please."
+    },
+    {
+      "role": "assistant",
+      "content": "A rollback job for failed deploys remains open. Fine by me. Somebody has to own publishing test timing history before Friday."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `scripts/run_tests.sh`."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** self-hosted runners for the GPU tests."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a nightly job running the slow integration suite",
+      "coverage reporting posted to the pull request",
+      "container image build with layer caching",
+      "parallel test execution across four shards",
+      "artifact upload for the failing test logs",
+      "signed release artifacts"
+    ],
+    "pending_tasks": [
+      "publishing test timing history",
+      "a rollback job for failed deploys",
+      "splitting the linting job from the test job",
+      "self-hosted runners for the GPU tests"
+    ],
+    "decisions": [
+      "test retries limited to two attempts",
+      "trunk-based development with short-lived branches",
+      "OIDC federation instead of long-lived deploy keys",
+      "semantic versioning driven by commit messages",
+      "uv for dependency installation",
+      "buildx with a remote cache backend"
+    ],
+    "files": [
+      "scripts/run_tests.sh",
+      "tox.ini",
+      "Dockerfile"
+    ],
+    "errors": []
+  }
+}

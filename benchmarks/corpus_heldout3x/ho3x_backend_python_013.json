@@ -1,0 +1,130 @@
+{
+  "id": "ho3x_backend_python_013",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a FastAPI orders service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a FastAPI orders service."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with pytest-asyncio for the async test suite."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Postgres over MySQL for JSONB support."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] moving the email sender behind an interface Sounds right, on it. Edited: api/deps.py. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** SQLAlchemy 2.0 with the async engine."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan.\n**Shipped:** a health check endpoint at /healthz."
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "- requirements.txt"
+    },
+    {
+      "role": "user",
+      "content": "What about a FastAPI orders service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: input validation on the payment payload."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: flaky tests from shared database state."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: Alembic for schema migrations. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] OpenAPI schema generation for the public routes"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "- migrations/env.py"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: background retry for failed webhook deliveries. There were no failures in the nightly run."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "background retry for failed webhook deliveries",
+      "OpenAPI schema generation for the public routes",
+      "a health check endpoint at /healthz",
+      "input validation on the payment payload"
+    ],
+    "pending_tasks": [
+      "moving the email sender behind an interface"
+    ],
+    "decisions": [
+      "SQLAlchemy 2.0 with the async engine",
+      "Postgres over MySQL for JSONB support",
+      "Alembic for schema migrations",
+      "pytest-asyncio for the async test suite"
+    ],
+    "files": [
+      "requirements.txt",
+      "api/deps.py",
+      "migrations/env.py"
+    ],
+    "errors": [
+      "flaky tests from shared database state"
+    ]
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "id": "ho4x_backend_python_007",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a Flask webhook receiver."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a Flask webhook receiver now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can't call this finished while backfilling created_at on legacy rows is missing. Flaky jobs get one automatic retry. The bulk of the diff sits in tests/test_orders.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a Flask webhook receiver going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody argued once they saw the numbers for bcrypt for password hashing. Should we add more coverage? db/session.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Had to untangle migrations/env.py first."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Nobody needs to think about POST /api/orders and GET /api/orders/{id} anymore."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Connection pooling against Postgres held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the email sender behind an interface keeps getting pushed to next sprint. I'll post a recap later. The User model with email and hashed_password columns held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Had to untangle api/orders.py first. The dashboard lit up red with a memory leak in the long-lived session object. Rate limiting on the auth routes is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own splitting the settings module per environment before Friday. api/deps.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "How is a Flask webhook receiver going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was a deadlock between the invoice and ledger updates all along. The pager went off twice overnight because of connection pool exhaustion under concurrent load."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, pytest-asyncio for the async test suite was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. After the spike, Pydantic v2 for request validation was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a Flask webhook receiver?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to OpenAPI schema generation for the public routes, the on-call pages stopped."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the User model with email and hashed_password columns",
+      "OpenAPI schema generation for the public routes",
+      "connection pooling against Postgres",
+      "POST /api/orders and GET /api/orders/{id}"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment",
+      "rate limiting on the auth routes",
+      "moving the email sender behind an interface",
+      "backfilling created_at on legacy rows"
+    ],
+    "decisions": [
+      "bcrypt for password hashing",
+      "pytest-asyncio for the async test suite",
+      "Pydantic v2 for request validation"
+    ],
+    "files": [
+      "db/session.py",
+      "tests/test_orders.py",
+      "api/deps.py",
+      "migrations/env.py",
+      "api/orders.py"
+    ],
+    "errors": [
+      "a deadlock between the invoice and ledger updates",
+      "a memory leak in the long-lived session object",
+      "connection pool exhaustion under concurrent load"
+    ]
+  }
+}

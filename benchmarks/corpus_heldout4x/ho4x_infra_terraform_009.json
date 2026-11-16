@@ -1,0 +1,129 @@
+{
+  "id": "ho4x_infra_terraform_009",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a compliance baseline rollout."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "terraform/outputs.tf grew by a couple hundred lines. Once the release settles, documenting the module interfaces is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in terraform/variables.tf. Ping me if anything seems wrong. A hub-and-spoke network topology is what everything will be built on from here. Once the release settles, removing the last hardcoded account IDs is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to VPC flow logs shipped to the log bucket, the on-call pages stopped. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Separate accounts for production and staging feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "terraform/iam.tf grew by a couple hundred lines. terraform/backend.tf grew by a couple hundred lines. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own policy-as-code checks in the plan stage before Friday. .github/workflows/plan.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The NAT gateway consolidated to one per region has been live since Tuesday with no complaints. Most of yesterday disappeared into an apply failing on an IAM eventual consistency delay. The trade-offs all pointed to Checkov for policy scanning."
+    },
+    {
+      "role": "user",
+      "content": "Aurora Postgres over standard RDS feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Security groups restricted to named ports has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about a read replica in the secondary region anymore. Without a disaster recovery restore rehearsal the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to S3 lifecycle rules moving logs to Glacier after 90 days."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle terraform/vpc.tf first. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the NAT gateway consolidated to one per region",
+      "VPC flow logs shipped to the log bucket",
+      "a read replica in the secondary region",
+      "security groups restricted to named ports"
+    ],
+    "pending_tasks": [
+      "policy-as-code checks in the plan stage",
+      "documenting the module interfaces",
+      "a disaster recovery restore rehearsal",
+      "removing the last hardcoded account IDs"
+    ],
+    "decisions": [
+      "a hub-and-spoke network topology",
+      "Aurora Postgres over standard RDS",
+      "separate accounts for production and staging",
+      "S3 lifecycle rules moving logs to Glacier after 90 days",
+      "Checkov for policy scanning"
+    ],
+    "files": [
+      "terraform/outputs.tf",
+      "terraform/backend.tf",
+      ".github/workflows/plan.yml",
+      "terraform/variables.tf",
+      "terraform/vpc.tf",
+      "terraform/iam.tf"
+    ],
+    "errors": [
+      "an apply failing on an IAM eventual consistency delay"
+    ]
+  }
+}

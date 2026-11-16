@@ -1,0 +1,145 @@
+{
+  "id": "ho4x_frontend_react_009",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an analytics dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Migrating the remaining class components is next up. We'll run with Zustand instead of Redux for local state."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Server-side pagination on the results table has shipped. Should we add more coverage? We'll run with Vite as the build tool. Dark mode using CSS custom properties went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Offline support for the draft editor remains open. Got hit by a CORS failure against the staging API in staging. Session persistence in localStorage went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A Storybook entry for each primitive hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "How is an analytics dashboard going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. We're standardising on TypeScript in strict mode."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? The empty and loading states for every panel has shipped."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with React 19 with the compiler enabled?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in src/api/client.ts. The toast notification system is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is an analytics dashboard going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A bundle size budget in CI is waiting on us. I got focus trapping in the modal component over the line. Support tickets mention a hydration mismatch on the server-rendered header."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated tailwind.config.js. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with Radix primitives for accessible components?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Could Tailwind for styling work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "session persistence in localStorage",
+      "dark mode using CSS custom properties",
+      "the empty and loading states for every panel",
+      "focus trapping in the modal component",
+      "server-side pagination on the results table",
+      "the toast notification system"
+    ],
+    "pending_tasks": [
+      "a bundle size budget in CI",
+      "a Storybook entry for each primitive",
+      "offline support for the draft editor",
+      "migrating the remaining class components"
+    ],
+    "decisions": [
+      "TypeScript in strict mode",
+      "Tailwind for styling",
+      "React 19 with the compiler enabled",
+      "Zustand instead of Redux for local state",
+      "Vite as the build tool",
+      "Radix primitives for accessible components"
+    ],
+    "files": [
+      "src/api/client.ts",
+      "tailwind.config.js"
+    ],
+    "errors": [
+      "a hydration mismatch on the server-rendered header",
+      "a CORS failure against the staging API"
+    ]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "id": "ho3x_backend_go_009",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a gRPC gateway service."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a gRPC gateway service."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A circuit breaker around the downstream call has been merged. I edited Dockerfile."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Protobuf schema versioning was rolled out. Profiling the p99 latency spike still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on Go 1.23 as the toolchain. I'll summarise at the end. Structured logging with request correlation was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Reducing allocations in the serialiser is still open."
+    },
+    {
+      "role": "user",
+      "content": "Can we try a monorepo layout with internal packages?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about a gRPC gateway service?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. The relevant code is in proto/orders.proto."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Table-driven tests for the parser is working now. I've gone with testcontainers for integration tests."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in internal/worker/pool.go. We completed connection reuse in the HTTP client yesterday. The plan is gRPC over REST for internal traffic."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with golangci-lint in CI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Agreed. I edited internal/store/postgres.go. Graceful shutdown on SIGTERM is working now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting a data race on the shared counter in CI."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with errgroup for concurrent fan-out?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The gRPC service definition and generated stubs was rolled out."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "graceful shutdown on SIGTERM",
+      "a circuit breaker around the downstream call",
+      "structured logging with request correlation",
+      "connection reuse in the HTTP client",
+      "protobuf schema versioning",
+      "the gRPC service definition and generated stubs",
+      "table-driven tests for the parser"
+    ],
+    "pending_tasks": [
+      "profiling the p99 latency spike",
+      "reducing allocations in the serialiser"
+    ],
+    "decisions": [
+      "Go 1.23 as the toolchain",
+      "golangci-lint in CI",
+      "errgroup for concurrent fan-out",
+      "a monorepo layout with internal packages",
+      "testcontainers for integration tests",
+      "gRPC over REST for internal traffic"
+    ],
+    "files": [
+      "internal/store/postgres.go",
+      "proto/orders.proto",
+      "Dockerfile",
+      "internal/worker/pool.go"
+    ],
+    "errors": [
+      "a data race on the shared counter"
+    ]
+  }
+}

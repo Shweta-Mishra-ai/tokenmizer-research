@@ -1,0 +1,121 @@
+{
+  "id": "ho3x_security_appsec_012",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a compliance readiness review."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Vault as the single secrets store. The alerts this morning came from a timing attack on the token comparison."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside .gitleaks.toml. We can stop worrying about input sanitisation on the file upload path now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a review of the CORS allowlist yet. Everyone was happy with short-lived tokens with refresh rotation. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Having compared the options, field-level encryption for PII columns is the best fit. Everyone was happy with gitleaks as a pre-commit hook. Rate limiting on the password reset endpoint went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "terraform/iam.tf ended up with most of the changes. The alerts this morning came from a path traversal in the file download handler. Session invalidation on password change went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Nobody has touched a threat model for the payments flow yet. Rotation of the leaked deploy key went smoothly in the end. An SBOM generated at build time went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "A deny-by-default egress policy sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: CSP headers on all rendered responses made it in before the freeze. Rewrote parts of docs/threat-model.md as well."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Argon2id over bcrypt for new password hashes."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Rewrote parts of security/redaction.py as well."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "session invalidation on password change",
+      "an SBOM generated at build time",
+      "CSP headers on all rendered responses",
+      "rate limiting on the password reset endpoint",
+      "rotation of the leaked deploy key",
+      "input sanitisation on the file upload path"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist",
+      "a threat model for the payments flow"
+    ],
+    "decisions": [
+      "a deny-by-default egress policy",
+      "field-level encryption for PII columns",
+      "Vault as the single secrets store",
+      "gitleaks as a pre-commit hook",
+      "Argon2id over bcrypt for new password hashes",
+      "short-lived tokens with refresh rotation"
+    ],
+    "files": [
+      "docs/threat-model.md",
+      "security/redaction.py",
+      "terraform/iam.tf",
+      ".gitleaks.toml"
+    ],
+    "errors": [
+      "a timing attack on the token comparison",
+      "a path traversal in the file download handler"
+    ]
+  }
+}

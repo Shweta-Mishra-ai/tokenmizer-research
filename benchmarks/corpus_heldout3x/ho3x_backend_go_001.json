@@ -1,0 +1,124 @@
+{
+  "id": "ho3x_backend_go_001",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a rate limiting proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a rate limiting proxy."
+    },
+    {
+      "role": "user",
+      "content": "Can we try NATS for the message transport?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a worker pool bounded at 32 goroutines up and running. We completed Prometheus metrics on the request path yesterday. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting context deadline exceeded on the upstream call in CI."
+    },
+    {
+      "role": "user",
+      "content": "What about a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got protobuf schema versioning up and running. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited internal/worker/pool.go. We need moving the config to environment variables before launch. Context propagation through every handler is sorted. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The retry policy with exponential backoff is working now."
+    },
+    {
+      "role": "user",
+      "content": "I'd like a monorepo layout with internal packages."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Structured logging with request correlation has been merged. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Distributed tracing spans across services is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. The plan is golangci-lint in CI."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at go.mod. Replacing the mutex with a sharded map is still open."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "context propagation through every handler",
+      "Prometheus metrics on the request path",
+      "protobuf schema versioning",
+      "structured logging with request correlation",
+      "a worker pool bounded at 32 goroutines",
+      "the retry policy with exponential backoff"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map",
+      "distributed tracing spans across services",
+      "moving the config to environment variables"
+    ],
+    "decisions": [
+      "golangci-lint in CI",
+      "NATS for the message transport",
+      "a monorepo layout with internal packages"
+    ],
+    "files": [
+      "go.mod",
+      "internal/worker/pool.go"
+    ],
+    "errors": [
+      "context deadline exceeded on the upstream call"
+    ]
+  }
+}

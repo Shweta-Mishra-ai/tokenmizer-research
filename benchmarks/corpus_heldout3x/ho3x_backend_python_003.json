@@ -1,0 +1,127 @@
+{
+  "id": "ho3x_backend_python_003",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a Django billing API."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a Django billing API now."
+    },
+    {
+      "role": "user",
+      "content": "What about a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was a memory leak in the long-lived session object. Having compared the options, uvicorn behind gunicorn in production is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Celery for the background worker is the best fit. POST /api/orders and GET /api/orders/{id} went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: pytest fixtures for a throwaway database made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Connection pooling against Postgres went smoothly in the end. The root cause turned out to be a 422 on login from a missing email validator. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What about a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of migrations/env.py as well. Don't let backfilling created_at on legacy rows slip through the cracks. A load test against the order path is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Soft deletes on the tenant table is waiting for someone to pick it up. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Half the afternoon went to N+1 queries on the order list endpoint. Having compared the options, pytest-asyncio for the async test suite is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Pydantic v2 for request validation."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Rewrote parts of api/models.py as well. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Request ID middleware for structured logging went smoothly in the end. Everyone was happy with UUIDv7 primary keys instead of integers. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Django billing API?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let caching the catalogue lookup slip through the cracks."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "POST /api/orders and GET /api/orders/{id}",
+      "pytest fixtures for a throwaway database",
+      "connection pooling against Postgres",
+      "request ID middleware for structured logging"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table",
+      "backfilling created_at on legacy rows",
+      "caching the catalogue lookup",
+      "a load test against the order path"
+    ],
+    "decisions": [
+      "uvicorn behind gunicorn in production",
+      "pytest-asyncio for the async test suite",
+      "UUIDv7 primary keys instead of integers",
+      "Pydantic v2 for request validation",
+      "Celery for the background worker"
+    ],
+    "files": [
+      "api/models.py",
+      "migrations/env.py"
+    ],
+    "errors": [
+      "a memory leak in the long-lived session object",
+      "N+1 queries on the order list endpoint",
+      "a 422 on login from a missing email validator"
+    ]
+  }
+}

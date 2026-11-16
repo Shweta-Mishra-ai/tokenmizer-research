@@ -1,0 +1,153 @@
+{
+  "id": "ho3x_mobile_ios_006",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a payments SDK integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a payments SDK integration."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in App/Info.plist."
+    },
+    {
+      "role": "user",
+      "content": "Can we try async/await instead of Combine for networking?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Have a look at Sources/Widgets/ActivityWidget.swift. Have a look at Sources/Sync/SyncEngine.swift."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dark mode across every screen has been merged."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use iOS 17 as the minimum deployment target. Changes are in .swiftlint.yml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. I've got Core Data persistence for the workout log up and running."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "An App Store privacy nutrition label review is still open. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The subscription purchase and restore flow has been merged. There is a keychain access error after device restore on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Keychain for token storage rather than UserDefaults?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Sounds right, on it. Migrating the remaining UIKit screens is still open."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Keychain storage for the auth token is working now. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "An iPad layout for the summary screen is on the backlog. The plan is StoreKit 2 for subscriptions. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. I've gone with The Composable Architecture for state. Unit tests for the sync reducer was rolled out. I edited fastlane/Fastfile."
+    },
+    {
+      "role": "user",
+      "content": "Can we try fastlane for the release pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Do we need more tests?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "Core Data persistence for the workout log",
+      "unit tests for the sync reducer",
+      "keychain storage for the auth token",
+      "dark mode across every screen",
+      "the subscription purchase and restore flow"
+    ],
+    "pending_tasks": [
+      "an iPad layout for the summary screen",
+      "migrating the remaining UIKit screens",
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "async/await instead of Combine for networking",
+      "Keychain for token storage rather than UserDefaults",
+      "iOS 17 as the minimum deployment target",
+      "The Composable Architecture for state",
+      "fastlane for the release pipeline",
+      "StoreKit 2 for subscriptions"
+    ],
+    "files": [
+      "fastlane/Fastfile",
+      "App/Info.plist",
+      "Sources/Widgets/ActivityWidget.swift",
+      ".swiftlint.yml",
+      "Sources/Sync/SyncEngine.swift"
+    ],
+    "errors": [
+      "a keychain access error after device restore"
+    ]
+  }
+}

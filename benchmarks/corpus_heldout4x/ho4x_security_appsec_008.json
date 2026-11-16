@@ -1,0 +1,115 @@
+{
+  "id": "ho4x_security_appsec_008",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a compliance readiness review."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about an SBOM generated at build time anymore."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, gitleaks as a pre-commit hook was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Signed container images in the registry held up fine through the whole load test. SECURITY.md grew by a couple hundred lines. The bulk of the diff sits in security/middleware.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance readiness review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in security/redaction.py."
+    },
+    {
+      "role": "user",
+      "content": "Short-lived tokens with refresh rotation feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "MFA enforcement for admin accounts is the piece nobody has picked up. Makes sense, doing that. Turns out the slowdown was a path traversal in the file download handler all along."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle terraform/iam.tf first."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, automated dependency updates is where attention goes. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rotation of the leaked deploy key is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in .github/workflows/security.yml. After review I'll deploy. The dashboard lit up red with an SSRF in the webhook fetcher."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "signed container images in the registry",
+      "rotation of the leaked deploy key",
+      "an SBOM generated at build time"
+    ],
+    "pending_tasks": [
+      "MFA enforcement for admin accounts",
+      "automated dependency updates"
+    ],
+    "decisions": [
+      "gitleaks as a pre-commit hook",
+      "short-lived tokens with refresh rotation"
+    ],
+    "files": [
+      "terraform/iam.tf",
+      "SECURITY.md",
+      "security/middleware.py",
+      "security/redaction.py",
+      ".github/workflows/security.yml"
+    ],
+    "errors": [
+      "an SSRF in the webhook fetcher",
+      "a path traversal in the file download handler"
+    ]
+  }
+}

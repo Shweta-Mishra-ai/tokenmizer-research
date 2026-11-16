@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_devops_ci_009",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a test infrastructure migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a test infrastructure migration now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dependency caching across pipeline runs has shipped. The team picked Codecov for coverage tracking."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in .pre-commit-config.yaml. I updated conftest.py. I've locked in uv for dependency installation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in scripts/run_tests.sh. Quarantining the six flakiest tests went in this morning. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "How is a test infrastructure migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Details are in .github/workflows/release.yml."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by the pipeline timing out after 60 minutes in staging. We might revisit this next quarter. I've locked in test retries limited to two attempts."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Coverage reporting posted to the pull request went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Container image build with layer caching is finished and deployed. We have signed release artifacts now."
+    },
+    {
+      "role": "user",
+      "content": "Could GitHub Actions over the self-managed runner fleet work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Makefile. Fine by me. Ping me if anything seems wrong. I updated tox.ini."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. A rollback job for failed deploys hasn't been started. Automated changelog generation on tag went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a test infrastructure migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got parallel test execution across four shards over the line."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "coverage reporting posted to the pull request",
+      "automated changelog generation on tag",
+      "dependency caching across pipeline runs",
+      "container image build with layer caching",
+      "parallel test execution across four shards",
+      "signed release artifacts",
+      "quarantining the six flakiest tests"
+    ],
+    "pending_tasks": [
+      "a rollback job for failed deploys"
+    ],
+    "decisions": [
+      "GitHub Actions over the self-managed runner fleet",
+      "uv for dependency installation",
+      "Codecov for coverage tracking",
+      "test retries limited to two attempts"
+    ],
+    "files": [
+      "conftest.py",
+      ".github/workflows/release.yml",
+      "tox.ini",
+      "scripts/run_tests.sh",
+      ".pre-commit-config.yaml",
+      "Makefile"
+    ],
+    "errors": [
+      "the pipeline timing out after 60 minutes"
+    ]
+  }
+}

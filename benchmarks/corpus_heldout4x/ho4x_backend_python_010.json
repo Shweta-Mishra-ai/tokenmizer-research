@@ -1,0 +1,144 @@
+{
+  "id": "ho4x_backend_python_010",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a document ingestion service."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a document ingestion service now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Celery for the background worker won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated api/deps.py. We might revisit this next quarter. Soft deletes on the tenant table remains open. We'll run with Pydantic v2 for request validation."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated tests/test_orders.py. OpenAPI schema generation for the public routes has shipped."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be UUIDv7 primary keys instead of integers."
+    },
+    {
+      "role": "assistant",
+      "content": "The User model with email and hashed_password columns is finished and deployed. The team picked Redis for refresh token storage. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in api/main.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a document ingestion service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. I updated api/models.py."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated requirements.txt. Input validation on the payment payload has shipped."
+    },
+    {
+      "role": "user",
+      "content": "How is a document ingestion service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. A health check endpoint at /healthz is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got connection pooling against Postgres over the line."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with SQLAlchemy 2.0 with the async engine?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Idempotency keys on the order create path is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a document ingestion service?"
+    },
+    {
+      "role": "assistant",
+      "content": "The Alembic baseline migration went in this morning. The team picked Postgres over MySQL for JSONB support."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Caching the catalogue lookup is still owed to the client. I'll post a recap later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the Alembic baseline migration",
+      "OpenAPI schema generation for the public routes",
+      "connection pooling against Postgres",
+      "a health check endpoint at /healthz",
+      "the User model with email and hashed_password columns",
+      "idempotency keys on the order create path",
+      "input validation on the payment payload"
+    ],
+    "pending_tasks": [
+      "soft deletes on the tenant table",
+      "caching the catalogue lookup"
+    ],
+    "decisions": [
+      "Celery for the background worker",
+      "Postgres over MySQL for JSONB support",
+      "Pydantic v2 for request validation",
+      "SQLAlchemy 2.0 with the async engine",
+      "UUIDv7 primary keys instead of integers",
+      "Redis for refresh token storage"
+    ],
+    "files": [
+      "tests/test_orders.py",
+      "api/models.py",
+      "api/deps.py",
+      "api/main.py",
+      "requirements.txt"
+    ],
+    "errors": []
+  }
+}

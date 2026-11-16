@@ -1,0 +1,126 @@
+{
+  "id": "ho4x_platform_api_003",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an API gateway migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an API gateway migration now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an API gateway migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Wrapped: an API changelog published with each release. See the diff in api/auth.py. api/ratelimit.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by cursor pagination skipping rows during concurrent writes in staging. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Crash: webhook deliveries duplicated after a consumer timeout."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. We're standardising on JSON only, no XML support."
+    },
+    {
+      "role": "user",
+      "content": "How is an API gateway migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in sdk/python/client.py.\n**Finished work:** per-key rate limits with headers exposing the budget.\nThe sandbox environment for partner testing is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing a breaking change shipped in a minor version. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, OAuth 2.0 client credentials for machine access was the clear winner. The bulk of the diff sits in api/pagination.py. We can't call this finished while sunsetting v1 after the six-month window is missing. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "SDK generation for three languages has been live since Tuesday with no complaints. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Without a rate limit tier for enterprise keys the launch checklist stays red. URL-based versioning over header negotiation is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. I updated openapi/v2.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SDK generation for three languages",
+      "per-key rate limits with headers exposing the budget",
+      "the sandbox environment for partner testing",
+      "an API changelog published with each release"
+    ],
+    "pending_tasks": [
+      "a rate limit tier for enterprise keys",
+      "sunsetting v1 after the six-month window"
+    ],
+    "decisions": [
+      "URL-based versioning over header negotiation",
+      "OAuth 2.0 client credentials for machine access",
+      "JSON only, no XML support"
+    ],
+    "files": [
+      "openapi/v2.yaml",
+      "api/auth.py",
+      "api/ratelimit.py",
+      "sdk/python/client.py",
+      "api/pagination.py"
+    ],
+    "errors": [
+      "webhook deliveries duplicated after a consumer timeout",
+      "a breaking change shipped in a minor version",
+      "cursor pagination skipping rows during concurrent writes"
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_backend_python_011",
+  "origin": "synthetic",
+  "domain": "backend/python",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an async task queue service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an async task queue service."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Postgres over MySQL for JSONB support is the direction we committed to. After the spike, pytest-asyncio for the async test suite was the clear winner. Request ID middleware for structured logging has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to connection pooling against Postgres, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pytest fixtures for a throwaway database came off the board this morning. The User model with email and hashed_password columns is behind us now. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in api/deps.py. db/session.py grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the email sender behind an interface keeps getting pushed to next sprint. The Alembic baseline migration is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an async task queue service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. The pager went off twice overnight because of a memory leak in the long-lived session object."
+    },
+    {
+      "role": "user",
+      "content": "UUIDv7 primary keys instead of integers feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in api/models.py. Somebody has to own rate limiting on the auth routes before Friday."
+    },
+    {
+      "role": "user",
+      "content": "How is an async task queue service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. Splitting the settings module per environment is the piece nobody has picked up. Thanks to pagination on the list endpoints, the on-call pages stopped. OpenAPI schema generation for the public routes held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle docker-compose.yml first. core/config.py grew by a couple hundred lines. Nothing is waiting on anyone at the moment."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "request ID middleware for structured logging",
+      "the Alembic baseline migration",
+      "connection pooling against Postgres",
+      "pytest fixtures for a throwaway database",
+      "OpenAPI schema generation for the public routes",
+      "pagination on the list endpoints",
+      "the User model with email and hashed_password columns"
+    ],
+    "pending_tasks": [
+      "splitting the settings module per environment",
+      "moving the email sender behind an interface",
+      "rate limiting on the auth routes"
+    ],
+    "decisions": [
+      "pytest-asyncio for the async test suite",
+      "UUIDv7 primary keys instead of integers",
+      "Postgres over MySQL for JSONB support"
+    ],
+    "files": [
+      "core/config.py",
+      "docker-compose.yml",
+      "db/session.py",
+      "api/deps.py",
+      "api/models.py"
+    ],
+    "errors": [
+      "a memory leak in the long-lived session object"
+    ]
+  }
+}

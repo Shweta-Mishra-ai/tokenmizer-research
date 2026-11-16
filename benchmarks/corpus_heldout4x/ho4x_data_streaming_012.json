@@ -1,0 +1,139 @@
+{
+  "id": "ho4x_data_streaming_012",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a dead letter queue redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a dead letter queue redesign now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We have the dead letter topic with a replay tool now. I updated config/kafka.yaml. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backpressure handling in the consumer loop is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Could Kafka over Kinesis for the event backbone work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The topic layout with twelve partitions per stream is finished and deployed. Spotted silent message loss from an auto-commit race today. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on a separate cluster for the analytics workloads. A schema registry entry for every event type is finished and deployed. We'll run with keying events by aggregate ID for ordering."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in at-least-once delivery with idempotent consumers. Compaction on the entity state topics is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "How is a dead letter queue redesign going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in streams/consumer.py. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be a seven-day retention on the raw topics."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. Checkpointing to durable storage every 30 seconds is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in scripts/replay.py. A replay procedure for the last 24 hours is still owed to the client. The change data capture connector on the orders table went in this morning. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done tiered storage for the older segments yet. See the diff in connect/debezium.json. The logs are easier to read now. A cost review of the broker cluster remains open."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done documenting the ordering guarantees yet. We'll run with protobuf for the internal service events."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a schema registry entry for every event type",
+      "checkpointing to durable storage every 30 seconds",
+      "backpressure handling in the consumer loop",
+      "the topic layout with twelve partitions per stream",
+      "the change data capture connector on the orders table",
+      "compaction on the entity state topics",
+      "the dead letter topic with a replay tool"
+    ],
+    "pending_tasks": [
+      "a cost review of the broker cluster",
+      "documenting the ordering guarantees",
+      "a replay procedure for the last 24 hours",
+      "tiered storage for the older segments"
+    ],
+    "decisions": [
+      "a separate cluster for the analytics workloads",
+      "protobuf for the internal service events",
+      "at-least-once delivery with idempotent consumers",
+      "keying events by aggregate ID for ordering",
+      "a seven-day retention on the raw topics",
+      "Kafka over Kinesis for the event backbone"
+    ],
+    "files": [
+      "scripts/replay.py",
+      "streams/consumer.py",
+      "config/kafka.yaml",
+      "connect/debezium.json"
+    ],
+    "errors": [
+      "silent message loss from an auto-commit race"
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "id": "ho3x_data_sql_002",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a query performance pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a query performance pass."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a query performance pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — column-level lineage documentation. * [x] row count reconciliation against the source system * [x] a covering index on the customer lookup The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Great Expectations for data quality checks."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: dags/daily_refresh.py. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What about a query performance pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented deduplication on the raw event stream."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Outstanding: an anomaly alert on the daily order count."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Chose Parquet as the landing format."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a query performance pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — unit tests for the revenue macro.\nAction item: a cost review of the warehouse spend.\n**Decided:** dbt for the transformation layer.\nThe error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on Kafka for the event transport. Choice: an ELT rather than ETL pattern."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: consolidating the three customer definitions."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Result: the star schema for the orders fact table done."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: the slowly changing dimension on customer tier done."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "- models/staging/stg_events.sql\nNothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: freshness tests on every source table done. Once CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the slowly changing dimension on customer tier",
+      "row count reconciliation against the source system",
+      "the star schema for the orders fact table",
+      "column-level lineage documentation",
+      "deduplication on the raw event stream",
+      "freshness tests on every source table",
+      "a covering index on the customer lookup"
+    ],
+    "pending_tasks": [
+      "a cost review of the warehouse spend",
+      "unit tests for the revenue macro",
+      "an anomaly alert on the daily order count",
+      "consolidating the three customer definitions"
+    ],
+    "decisions": [
+      "Kafka for the event transport",
+      "Great Expectations for data quality checks",
+      "Parquet as the landing format",
+      "an ELT rather than ETL pattern",
+      "dbt for the transformation layer"
+    ],
+    "files": [
+      "dags/daily_refresh.py",
+      "models/staging/stg_events.sql"
+    ],
+    "errors": []
+  }
+}

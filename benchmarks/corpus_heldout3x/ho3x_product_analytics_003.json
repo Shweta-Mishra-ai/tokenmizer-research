@@ -1,0 +1,113 @@
+{
+  "id": "ho3x_product_analytics_003",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a pricing change evaluation."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a pricing change evaluation now."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Amplitude for product analytics?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Statistical significance testing on the primary metric is working now. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with median rather than mean for the latency metrics?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in analytics/cohorts.sql. A holdout group excluded from all experiments was rolled out. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "I'd like counting monthly actives on a rolling 28-day window."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard tracking the three north star metrics has been merged. Weekly retention cohorts over six months was rolled out. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a pricing change evaluation?"
+    },
+    {
+      "role": "assistant",
+      "content": "One primary metric per experiment is the pick. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a funnel from signup through first value up and running. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do extending the cohort window to twelve months next. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited dashboards/north_star.json. Nothing is blocking us right now. Let's settle on counting activation on first collaborative action."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a holdout group excluded from all experiments",
+      "the dashboard tracking the three north star metrics",
+      "statistical significance testing on the primary metric",
+      "a funnel from signup through first value",
+      "weekly retention cohorts over six months"
+    ],
+    "pending_tasks": [
+      "extending the cohort window to twelve months"
+    ],
+    "decisions": [
+      "one primary metric per experiment",
+      "Amplitude for product analytics",
+      "counting monthly actives on a rolling 28-day window",
+      "counting activation on first collaborative action",
+      "median rather than mean for the latency metrics"
+    ],
+    "files": [
+      "analytics/cohorts.sql",
+      "dashboards/north_star.json"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "id": "ho4x_devops_kubernetes_013",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a zero-downtime deploy pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a zero-downtime deploy pipeline now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "k8s/hpa.yaml grew by a couple hundred lines. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about the Helm chart for the API deployment anymore."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about readiness and liveness probes on every workload anymore."
+    },
+    {
+      "role": "user",
+      "content": "Prometheus and Grafana for metrics feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in k8s/networkpolicy.yaml. Thanks to resource requests and limits for all containers, the on-call pages stopped. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a zero-downtime deploy pipeline?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard lit up red with a 502 during rolling deploys from missing readiness gates. The ingress with automatic certificate renewal held up fine through the whole load test. Should we add more coverage? Horizontal pod autoscaling on CPU and request rate held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "scripts/rollout.sh grew by a couple hundred lines. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into certificate renewal failing the ACME HTTP challenge."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to node affinity rules keeping the databases separate, the on-call pages stopped. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "ArgoCD for GitOps delivery feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Tightening the pod security admission profile is the piece nobody has picked up. If this breaks later we can roll back. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, Trivy for image scanning in CI was the clear winner. Per-namespace cost attribution keeps getting pushed to next sprint. Pod disruption budgets for the stateful services is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "k8s/ingress.yaml grew by a couple hundred lines. The dashboard lit up red with an ImagePullBackOff from an expired registry credential."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the Helm chart for the API deployment",
+      "pod disruption budgets for the stateful services",
+      "readiness and liveness probes on every workload",
+      "node affinity rules keeping the databases separate",
+      "the ingress with automatic certificate renewal",
+      "resource requests and limits for all containers",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "per-namespace cost attribution",
+      "tightening the pod security admission profile"
+    ],
+    "decisions": [
+      "Trivy for image scanning in CI",
+      "Prometheus and Grafana for metrics",
+      "ArgoCD for GitOps delivery"
+    ],
+    "files": [
+      "k8s/ingress.yaml",
+      "k8s/hpa.yaml",
+      "scripts/rollout.sh",
+      "k8s/networkpolicy.yaml"
+    ],
+    "errors": [
+      "an ImagePullBackOff from an expired registry credential",
+      "certificate renewal failing the ACME HTTP challenge",
+      "a 502 during rolling deploys from missing readiness gates"
+    ]
+  }
+}

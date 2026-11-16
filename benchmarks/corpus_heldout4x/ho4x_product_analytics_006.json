@@ -1,0 +1,127 @@
+{
+  "id": "ho4x_product_analytics_006",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an activation funnel analysis now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. * notebooks/churn_drivers.ipynb"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] a funnel from signup through first value\nHere's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Still open — a data dictionary for the product team."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: Amplitude for product analytics. The logs are easier to read now. * analytics/funnel.sql Delivered — the experiment assignment and exposure logging."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: one primary metric per experiment.\n- [X] deduplication of the double-fired signup event\n**Finished work:** the dashboard tracking the three north star metrics."
+    },
+    {
+      "role": "user",
+      "content": "Pick weekly rather than daily cohorts for readability."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Use a two-week minimum experiment runtime please."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it.\n**Finished work:** documentation of every metric definition.\nWe resolved to use median rather than mean for the latency metrics."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "* tests/test_metrics.py Complete: weekly retention cohorts over six months."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: docs/metric_definitions.md.\n- [X] a segment definition for activated accounts\nPath: `config/taxonomy.yaml`.\nCI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** reconciling the two conflicting active-user counts."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "weekly retention cohorts over six months",
+      "documentation of every metric definition",
+      "the dashboard tracking the three north star metrics",
+      "deduplication of the double-fired signup event",
+      "a segment definition for activated accounts",
+      "a funnel from signup through first value",
+      "the experiment assignment and exposure logging"
+    ],
+    "pending_tasks": [
+      "reconciling the two conflicting active-user counts",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "median rather than mean for the latency metrics",
+      "a two-week minimum experiment runtime",
+      "Amplitude for product analytics",
+      "one primary metric per experiment",
+      "weekly rather than daily cohorts for readability"
+    ],
+    "files": [
+      "analytics/funnel.sql",
+      "notebooks/churn_drivers.ipynb",
+      "tests/test_metrics.py",
+      "docs/metric_definitions.md",
+      "config/taxonomy.yaml"
+    ],
+    "errors": []
+  }
+}

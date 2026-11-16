@@ -1,0 +1,100 @@
+{
+  "id": "ho4x_mobile_ios_006",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a widget and live activity feature."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a widget and live activity feature now."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be fastlane for the release pipeline."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Swift Package Manager for dependencies. I got unit tests for the sync reducer over the line. See the diff in .swiftlint.yml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Handling the offline conflict resolution case remains open. I updated Sources/App/ContentView.swift. We haven't done an iPad layout for the summary screen yet."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a widget and live activity feature?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Spotted a layout constraint conflict on the smallest device today."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a widget and live activity feature?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? We'll run with StoreKit 2 for subscriptions. Keychain storage for the auth token is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We have VoiceOver labels across the main screens now. The logs are easier to read now. WatchOS companion app is next up. I got deep links into the workout detail screen over the line."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The SwiftUI onboarding sequence is finished and deployed. We'll run with SwiftUI for all new screens. The logs are easier to read now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the SwiftUI onboarding sequence",
+      "unit tests for the sync reducer",
+      "keychain storage for the auth token",
+      "deep links into the workout detail screen",
+      "VoiceOver labels across the main screens"
+    ],
+    "pending_tasks": [
+      "handling the offline conflict resolution case",
+      "watchOS companion app",
+      "an iPad layout for the summary screen"
+    ],
+    "decisions": [
+      "SwiftUI for all new screens",
+      "StoreKit 2 for subscriptions",
+      "Swift Package Manager for dependencies",
+      "fastlane for the release pipeline"
+    ],
+    "files": [
+      "Sources/App/ContentView.swift",
+      ".swiftlint.yml"
+    ],
+    "errors": [
+      "a layout constraint conflict on the smallest device"
+    ]
+  }
+}

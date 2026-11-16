@@ -1,0 +1,129 @@
+{
+  "id": "ho4x_data_streaming_005",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a dead letter queue redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a dead letter queue redesign."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. The bulk of the diff sits in docker-compose.yml. Nobody needs to think about windowed aggregation over five-minute tumbling windows anymore. After the spike, consumer offsets committed after processing was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own documenting the ordering guarantees before Friday. After the spike, protobuf for the internal service events was the clear winner. The bulk of the diff sits in connect/debezium.json. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about the dead letter topic with a replay tool anymore. Should we add more coverage? An integration test spinning up a real broker held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Without a cost review of the broker cluster the launch checklist stays red. The trade-offs all pointed to a seven-day retention on the raw topics."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle tests/test_aggregator.py first. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Exactly-once semantics on the aggregation job held up fine through the whole load test. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, reducing end-to-end latency below one second is where attention goes. Thanks to compaction on the entity state topics, the on-call pages stopped. Nobody argued once they saw the numbers for Avro with a schema registry for the payloads. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. scripts/replay.py grew by a couple hundred lines. streams/windowing.py grew by a couple hundred lines. The bulk of the diff sits in streams/consumer.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backpressure handling in the consumer loop came off the board this morning. Somebody has to own partitioning by tenant rather than by hash before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about the topic layout with twelve partitions per stream anymore."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "backpressure handling in the consumer loop",
+      "windowed aggregation over five-minute tumbling windows",
+      "the dead letter topic with a replay tool",
+      "the topic layout with twelve partitions per stream",
+      "exactly-once semantics on the aggregation job",
+      "an integration test spinning up a real broker",
+      "compaction on the entity state topics"
+    ],
+    "pending_tasks": [
+      "documenting the ordering guarantees",
+      "reducing end-to-end latency below one second",
+      "partitioning by tenant rather than by hash",
+      "a cost review of the broker cluster"
+    ],
+    "decisions": [
+      "Avro with a schema registry for the payloads",
+      "consumer offsets committed after processing",
+      "protobuf for the internal service events",
+      "a seven-day retention on the raw topics"
+    ],
+    "files": [
+      "docker-compose.yml",
+      "streams/consumer.py",
+      "tests/test_aggregator.py",
+      "scripts/replay.py",
+      "connect/debezium.json",
+      "streams/windowing.py"
+    ],
+    "errors": []
+  }
+}

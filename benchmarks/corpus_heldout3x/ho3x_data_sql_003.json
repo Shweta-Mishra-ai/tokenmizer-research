@@ -1,0 +1,117 @@
+{
+  "id": "ho3x_data_sql_003",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a warehouse migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a warehouse migration."
+    },
+    {
+      "role": "user",
+      "content": "I'd like UTC everywhere for timestamps."
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is incremental materialisation on the large models. The relevant code is in profiles.yml. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deduplication on the raw event stream is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The slowly changing dimension on customer tier was rolled out. I've got the star schema for the orders fact table up and running. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at tests/schema.yml. A medallion bronze/silver/gold layout is the pick. A cost review of the warehouse spend is still open."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling six months of historical revenue has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a warehouse migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Surrogate keys across the dimension tables is sorted. Archiving events older than two years still needs doing. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "An anomaly alert on the daily order count still needs doing. We completed a covering index on the customer lookup yesterday. I edited sql/indexes.sql."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need retiring the legacy reporting views before launch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use an ELT rather than ETL pattern."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the slowly changing dimension on customer tier",
+      "the star schema for the orders fact table",
+      "backfilling six months of historical revenue",
+      "surrogate keys across the dimension tables",
+      "a covering index on the customer lookup",
+      "deduplication on the raw event stream"
+    ],
+    "pending_tasks": [
+      "archiving events older than two years",
+      "a cost review of the warehouse spend",
+      "an anomaly alert on the daily order count",
+      "retiring the legacy reporting views"
+    ],
+    "decisions": [
+      "UTC everywhere for timestamps",
+      "a medallion bronze/silver/gold layout",
+      "an ELT rather than ETL pattern",
+      "incremental materialisation on the large models"
+    ],
+    "files": [
+      "tests/schema.yml",
+      "sql/indexes.sql",
+      "profiles.yml"
+    ],
+    "errors": []
+  }
+}

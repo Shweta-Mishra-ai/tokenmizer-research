@@ -1,0 +1,137 @@
+{
+  "id": "ho3x_systems_rust_001",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an HTTP proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an HTTP proxy now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of src/buffer.rs as well."
+    },
+    {
+      "role": "user",
+      "content": "What about an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, serde with a custom binary format is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from a deadlock from lock ordering in the flush path."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Parking_lot mutexes over the std ones beat the alternatives on every axis we care about. Good news: a no_std core module made it in before the freeze. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of tests/roundtrip.rs as well. Everyone was happy with tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Adding a tracing subscriber is the obvious next step. Memory-mapped reads for the index file went smoothly in the end. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Everyone was happy with thiserror for library errors and anyhow at the boundary. Half the afternoon went to a borrow checker conflict in the writer loop. Half the afternoon went to integer overflow in the length calculation."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. An async runtime built on tokio? Taken care of. We can stop worrying about a lock-free ring buffer for the writer now. benches/parse.rs ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the streaming parser over a bounded buffer now. Cargo.toml ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: criterion benchmarks on the parse loop made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "What about an HTTP proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Arc-swap for the hot config reload is what we'll ship with. Everyone was happy with bincode for the wire encoding. Failed jobs are retried twice."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "memory-mapped reads for the index file",
+      "an async runtime built on tokio",
+      "a lock-free ring buffer for the writer",
+      "criterion benchmarks on the parse loop",
+      "the streaming parser over a bounded buffer",
+      "a no_std core module"
+    ],
+    "pending_tasks": [
+      "adding a tracing subscriber"
+    ],
+    "decisions": [
+      "tokio over async-std for the runtime",
+      "bincode for the wire encoding",
+      "thiserror for library errors and anyhow at the boundary",
+      "parking_lot mutexes over the std ones",
+      "serde with a custom binary format",
+      "arc-swap for the hot config reload"
+    ],
+    "files": [
+      "benches/parse.rs",
+      "src/buffer.rs",
+      "tests/roundtrip.rs",
+      "Cargo.toml"
+    ],
+    "errors": [
+      "integer overflow in the length calculation",
+      "a borrow checker conflict in the writer loop",
+      "a deadlock from lock ordering in the flush path"
+    ]
+  }
+}

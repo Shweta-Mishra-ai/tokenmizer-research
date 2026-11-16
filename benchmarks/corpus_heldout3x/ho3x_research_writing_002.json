@@ -1,0 +1,161 @@
+{
+  "id": "ho3x_research_writing_002",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a benchmark methodology writeup."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a benchmark methodology writeup."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Failed: a stale results table from an earlier run."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: paper/abstract.tex."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Action item: shortening to the eight-page limit."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: notes/outline.md."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: figures/architecture.py."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** a limitations section naming the sample size problem."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: framing the contribution as a measurement study."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on naming the baselines by method rather than by vendor. Action item: an ethics statement. Edited: paper/appendix.tex."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] the evaluation table with confidence intervals Finished — restructuring the argument around three claims."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later.\n**Shipped:** the reproducibility statement with exact commands."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Zotero for reference management."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a figure rendering illegibly in greyscale print. Errors: a numerical inconsistency between the abstract and table three."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: a single-column layout for the preprint."
+    },
+    {
+      "role": "user",
+      "content": "What about a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** reporting macro F1 rather than accuracy.\nFinished — peer feedback incorporated from two reviewers.\nFile: `data/results.json`.\nThere were no failures in the nightly run."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "peer feedback incorporated from two reviewers",
+      "restructuring the argument around three claims",
+      "the reproducibility statement with exact commands",
+      "a limitations section naming the sample size problem",
+      "the evaluation table with confidence intervals"
+    ],
+    "pending_tasks": [
+      "an ethics statement",
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "Zotero for reference management",
+      "naming the baselines by method rather than by vendor",
+      "framing the contribution as a measurement study",
+      "a single-column layout for the preprint"
+    ],
+    "files": [
+      "paper/abstract.tex",
+      "paper/appendix.tex",
+      "data/results.json",
+      "figures/architecture.py",
+      "notes/outline.md"
+    ],
+    "errors": [
+      "a figure rendering illegibly in greyscale print",
+      "a stale results table from an earlier run",
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

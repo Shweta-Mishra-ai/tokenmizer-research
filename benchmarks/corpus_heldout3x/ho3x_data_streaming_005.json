@@ -1,0 +1,162 @@
+{
+  "id": "ho3x_data_streaming_005",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a dead letter queue redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a dead letter queue redesign."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Flink for the stateful stream processing beat the alternatives on every axis we care about. A replay procedure for the last 24 hours is waiting for someone to pick it up. Backward-compatible schema evolution only is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Consumer offsets committed after processing sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of connect/debezium.json as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about a schema registry entry for every event type now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched an automated schema compatibility check in CI yet. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched documenting the ordering guarantees yet. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. We can stop worrying about the dead letter topic with a replay tool now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The change data capture connector on the orders table went smoothly in the end. Checkpointing to durable storage every 30 seconds went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Everyone was happy with Debezium for change data capture."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be partition skew putting 60% of traffic on one consumer. There were no failures in the nightly run. What broke the release was a poison message halting the consumer group."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, one topic per event type rather than a shared bus is the best fit. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about consumer lag monitoring with alerting now. If this fails again we will revisit the design. Having compared the options, a seven-day retention on the raw topics is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the topic layout with twelve partitions per stream made it in before the freeze. Most of the work happened inside streams/consumer.py. Most of the work happened inside streams/aggregator.py. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Most of the work happened inside docker-compose.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "checkpointing to durable storage every 30 seconds",
+      "the dead letter topic with a replay tool",
+      "consumer lag monitoring with alerting",
+      "a schema registry entry for every event type",
+      "the topic layout with twelve partitions per stream",
+      "the change data capture connector on the orders table"
+    ],
+    "pending_tasks": [
+      "documenting the ordering guarantees",
+      "a replay procedure for the last 24 hours",
+      "an automated schema compatibility check in CI"
+    ],
+    "decisions": [
+      "Debezium for change data capture",
+      "consumer offsets committed after processing",
+      "Flink for the stateful stream processing",
+      "one topic per event type rather than a shared bus",
+      "backward-compatible schema evolution only",
+      "a seven-day retention on the raw topics"
+    ],
+    "files": [
+      "connect/debezium.json",
+      "docker-compose.yml",
+      "streams/consumer.py",
+      "streams/aggregator.py"
+    ],
+    "errors": [
+      "a poison message halting the consumer group",
+      "partition skew putting 60% of traffic on one consumer"
+    ]
+  }
+}

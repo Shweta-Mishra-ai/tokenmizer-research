@@ -1,0 +1,128 @@
+{
+  "id": "ho3x_ml_python_011",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a churn prediction model."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. A time-based split to avoid leakage beat the alternatives on every axis we care about. Don't let an online A/B test against the current model slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about the feature engineering pipeline with 42 features now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: gradient boosting reaching 0.84 AUC made it in before the freeze. Batch inference over the full customer base went smoothly in the end. Rewrote parts of src/evaluate.py as well."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, ONNX export for the serving runtime is the best fit. Do we need more tests? Nobody has touched a feature store migration yet."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about SHAP explanations for the top features now. Most of the work happened inside src/features.py. We can stop worrying about baseline logistic regression at 0.71 AUC now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "notebooks/eda.ipynb ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "src/serve.py ended up with most of the changes. Everyone was happy with quantile clipping on the numeric features. Let me know if anything looks off. We can stop worrying about a model registry entry for the release candidate now."
+    },
+    {
+      "role": "user",
+      "content": "Polars instead of pandas for the feature pipeline sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "AUC-PR as the primary metric given the imbalance is what we'll ship with. The root cause turned out to be the evaluation set overlapping the training window. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makefile ended up with most of the changes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "batch inference over the full customer base",
+      "SHAP explanations for the top features",
+      "baseline logistic regression at 0.71 AUC",
+      "a model registry entry for the release candidate",
+      "the feature engineering pipeline with 42 features",
+      "gradient boosting reaching 0.84 AUC"
+    ],
+    "pending_tasks": [
+      "an online A/B test against the current model",
+      "a feature store migration"
+    ],
+    "decisions": [
+      "a time-based split to avoid leakage",
+      "AUC-PR as the primary metric given the imbalance",
+      "ONNX export for the serving runtime",
+      "quantile clipping on the numeric features",
+      "Polars instead of pandas for the feature pipeline"
+    ],
+    "files": [
+      "src/serve.py",
+      "notebooks/eda.ipynb",
+      "src/features.py",
+      "src/evaluate.py",
+      "Makefile"
+    ],
+    "errors": [
+      "the evaluation set overlapping the training window"
+    ]
+  }
+}

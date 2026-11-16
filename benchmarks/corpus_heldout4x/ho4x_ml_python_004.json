@@ -1,0 +1,120 @@
+{
+  "id": "ho4x_ml_python_004",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a document classifier."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a document classifier."
+    },
+    {
+      "role": "user",
+      "content": "How is a document classifier going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in tests/test_features.py. If this breaks later we can roll back. Known defect — train/serve skew from inconsistent scaling. File changed — notebooks/eda.ipynb."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got class imbalance handling with focal loss over the line. An online A/B test against the current model hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Drift monitoring on the input distributions has shipped. No incidents were reported this week. A model registry entry for the release candidate held up fine through the whole load test. Somebody has to own a fairness audit across customer segments before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a document classifier?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: hyperparameter search over 200 trials. Broken: inference timeouts on the long-document path."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Batch inference over the full customer base went in this morning. Baseline logistic regression at 0.71 AUC is behind us now. Optuna for hyperparameter search won the vote."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with quantile clipping on the numeric features?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Path: `requirements.txt`. Makes sense, doing that. Left to do — reducing inference latency below 50ms."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of non-determinism from an unseeded shuffle."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The feature engineering pipeline with 42 features has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "How is a document classifier going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Retraining automation on a weekly cadence is the piece nobody has picked up."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a model registry entry for the release candidate",
+      "class imbalance handling with focal loss",
+      "drift monitoring on the input distributions",
+      "baseline logistic regression at 0.71 AUC",
+      "batch inference over the full customer base",
+      "hyperparameter search over 200 trials",
+      "the feature engineering pipeline with 42 features"
+    ],
+    "pending_tasks": [
+      "retraining automation on a weekly cadence",
+      "reducing inference latency below 50ms",
+      "a fairness audit across customer segments",
+      "an online A/B test against the current model"
+    ],
+    "decisions": [
+      "Optuna for hyperparameter search",
+      "quantile clipping on the numeric features"
+    ],
+    "files": [
+      "tests/test_features.py",
+      "requirements.txt",
+      "notebooks/eda.ipynb"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle",
+      "train/serve skew from inconsistent scaling",
+      "inference timeouts on the long-document path"
+    ]
+  }
+}

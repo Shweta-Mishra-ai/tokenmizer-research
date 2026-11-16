@@ -1,0 +1,142 @@
+{
+  "id": "ho3x_data_streaming_006",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a stream processing job."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a stream processing job."
+    },
+    {
+      "role": "user",
+      "content": "What about a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "Compaction on the entity state topics? Taken care of. Most of the work happened inside schemas/order_placed.avsc. * [x] a schema registry entry for every event type We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: consumer offsets committed after processing. Reducing end-to-end latency below one second is still open."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The change data capture connector on the orders table went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Partitioning by tenant rather than by hash still needs doing. The topic layout with twelve partitions per stream is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. scripts/replay.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. TO DO: migrating the remaining consumers off the v1 schema."
+    },
+    {
+      "role": "user",
+      "content": "What about a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at docker-compose.yml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Checkpointing to durable storage every 30 seconds? Taken care of. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use keying events by aggregate ID for ordering. A separate cluster for the analytics workloads is the pick."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at streams/dlq.py. We can stop worrying about consumer group rebalancing tuned for slow consumers now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose Kafka over Kinesis for the event backbone."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of streams/aggregator.py as well. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the topic layout with twelve partitions per stream",
+      "compaction on the entity state topics",
+      "a schema registry entry for every event type",
+      "consumer group rebalancing tuned for slow consumers",
+      "checkpointing to durable storage every 30 seconds",
+      "the change data capture connector on the orders table"
+    ],
+    "pending_tasks": [
+      "reducing end-to-end latency below one second",
+      "migrating the remaining consumers off the v1 schema",
+      "partitioning by tenant rather than by hash"
+    ],
+    "decisions": [
+      "consumer offsets committed after processing",
+      "a separate cluster for the analytics workloads",
+      "Kafka over Kinesis for the event backbone",
+      "keying events by aggregate ID for ordering"
+    ],
+    "files": [
+      "streams/aggregator.py",
+      "scripts/replay.py",
+      "streams/dlq.py",
+      "schemas/order_placed.avsc",
+      "docker-compose.yml"
+    ],
+    "errors": []
+  }
+}

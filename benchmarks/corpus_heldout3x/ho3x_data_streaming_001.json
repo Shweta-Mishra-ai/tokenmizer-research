@@ -1,0 +1,144 @@
+{
+  "id": "ho3x_data_streaming_001",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Protobuf for the internal service events sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards one topic per event type rather than a shared bus."
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about backpressure handling in the consumer loop now. Agreed. A schema registry entry for every event type went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. scripts/replay.py ended up with most of the changes. Don't let migrating the remaining consumers off the v1 schema slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of schemas/order_placed.avsc as well."
+    },
+    {
+      "role": "user",
+      "content": "What about a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of tests/test_aggregator.py as well. streams/dlq.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Tiered storage for the older segments is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a poison message halting the consumer group. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Flink for the stateful stream processing."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. The change data capture connector on the orders table went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Rewrote parts of streams/aggregator.py as well."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be offset commit failures under broker restart. We can stop worrying about windowed aggregation over five-minute tumbling windows now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "config/kafka.yaml ended up with most of the changes. Everyone was happy with Debezium for change data capture."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about an integration test spinning up a real broker now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "backpressure handling in the consumer loop",
+      "an integration test spinning up a real broker",
+      "the change data capture connector on the orders table",
+      "a schema registry entry for every event type",
+      "windowed aggregation over five-minute tumbling windows"
+    ],
+    "pending_tasks": [
+      "migrating the remaining consumers off the v1 schema",
+      "tiered storage for the older segments"
+    ],
+    "decisions": [
+      "one topic per event type rather than a shared bus",
+      "Flink for the stateful stream processing",
+      "Debezium for change data capture",
+      "protobuf for the internal service events"
+    ],
+    "files": [
+      "scripts/replay.py",
+      "streams/aggregator.py",
+      "streams/dlq.py",
+      "tests/test_aggregator.py",
+      "schemas/order_placed.avsc",
+      "config/kafka.yaml"
+    ],
+    "errors": [
+      "offset commit failures under broker restart",
+      "a poison message halting the consumer group"
+    ]
+  }
+}

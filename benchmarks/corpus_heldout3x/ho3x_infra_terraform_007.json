@@ -1,0 +1,105 @@
+{
+  "id": "ho3x_infra_terraform_007",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a disaster recovery setup."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a disaster recovery setup."
+    },
+    {
+      "role": "user",
+      "content": "What about a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: terraform/backend.tf."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: documenting the module interfaces."
+    },
+    {
+      "role": "user",
+      "content": "What about a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: a disaster recovery restore rehearsal. Affected file: .github/workflows/plan.yml. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "What about a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: Checkov for policy scanning. File: `terraform/outputs.tf`."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: encrypted EBS volumes across all instances done. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "What about a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "- terraform/vpc.tf\n* [x] the VPC with public and private subnets across three zones"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "- terraform/main.tf\nFinished — tagging enforced through a provider default.\n**Decided:** one state file per environment."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a disaster recovery setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — CloudWatch alarms on the error rate metric."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "CloudWatch alarms on the error rate metric",
+      "encrypted EBS volumes across all instances",
+      "the VPC with public and private subnets across three zones",
+      "tagging enforced through a provider default"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces",
+      "a disaster recovery restore rehearsal"
+    ],
+    "decisions": [
+      "Checkov for policy scanning",
+      "one state file per environment"
+    ],
+    "files": [
+      "terraform/vpc.tf",
+      "terraform/main.tf",
+      ".github/workflows/plan.yml",
+      "terraform/backend.tf",
+      "terraform/outputs.tf"
+    ],
+    "errors": []
+  }
+}

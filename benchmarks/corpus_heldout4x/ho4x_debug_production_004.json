@@ -1,0 +1,143 @@
+{
+  "id": "ho4x_debug_production_004",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an intermittent failure investigation."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Bisecting the regression to a single commit held up fine through the whole load test. Support tickets mention connection pool exhaustion under the checkout load. The hotfix reverting the connection pool change is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: duplicate charges from a non-idempotent retry."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** adding structured logging around the suspect path.\nCI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Nobody needs to think about the postmortem document with action items anymore."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with keeping the extra logging for two weeks?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Sure, on it. Going forward: sampling traces at 10% rather than 1%. Nobody needs to think about reproducing the failure in a staging environment anymore."
+    },
+    {
+      "role": "user",
+      "content": "Use treating the third-party timeout as the root cause please."
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — a load test reproducing the traffic pattern. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle tests/test_regression.py first."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing memory growing 200MB per hour until restart. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Py-spy for the production profiling feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What if we went with a feature flag to disable the suspect path?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — a timeline of the incident from the metrics. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done backfilling the corrupted rows yet. logs/analysis.py grew by a couple hundred lines."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the hotfix reverting the connection pool change",
+      "reproducing the failure in a staging environment",
+      "bisecting the regression to a single commit",
+      "adding structured logging around the suspect path",
+      "a timeline of the incident from the metrics",
+      "the postmortem document with action items"
+    ],
+    "pending_tasks": [
+      "backfilling the corrupted rows",
+      "a load test reproducing the traffic pattern"
+    ],
+    "decisions": [
+      "treating the third-party timeout as the root cause",
+      "py-spy for the production profiling",
+      "sampling traces at 10% rather than 1%",
+      "a feature flag to disable the suspect path",
+      "keeping the extra logging for two weeks"
+    ],
+    "files": [
+      "logs/analysis.py",
+      "tests/test_regression.py"
+    ],
+    "errors": [
+      "connection pool exhaustion under the checkout load",
+      "memory growing 200MB per hour until restart",
+      "duplicate charges from a non-idempotent retry"
+    ]
+  }
+}

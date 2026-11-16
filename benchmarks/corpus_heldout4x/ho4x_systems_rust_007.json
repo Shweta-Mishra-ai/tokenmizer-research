@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_systems_rust_007",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a storage engine prototype."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a storage engine prototype now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — fuzzing the input decoder with cargo-fuzz. Known defect — integer overflow in the length calculation."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Going forward: bincode for the wire encoding. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use thiserror for library errors and anyhow at the boundary. Touched file: benches/parse.rs. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `fuzz/fuzz_targets/decode.rs`. Broken: a panic on slice index out of bounds."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: the streaming parser over a bounded buffer. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a use-after-free found by miri in the unsafe block. No incidents were reported this week. In the queue: documenting the public API surface."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "* src/parser.rs We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: rayon for the parallel scan.\n**Finished work:** zero-copy deserialisation of the record header.\nFinal call: clap for argument parsing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the streaming parser over a bounded buffer",
+      "fuzzing the input decoder with cargo-fuzz",
+      "zero-copy deserialisation of the record header"
+    ],
+    "pending_tasks": [
+      "documenting the public API surface"
+    ],
+    "decisions": [
+      "thiserror for library errors and anyhow at the boundary",
+      "rayon for the parallel scan",
+      "clap for argument parsing",
+      "bincode for the wire encoding"
+    ],
+    "files": [
+      "src/parser.rs",
+      "benches/parse.rs",
+      "fuzz/fuzz_targets/decode.rs"
+    ],
+    "errors": [
+      "integer overflow in the length calculation",
+      "a use-after-free found by miri in the unsafe block",
+      "a panic on slice index out of bounds"
+    ]
+  }
+}

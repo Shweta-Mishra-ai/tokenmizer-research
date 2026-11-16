@@ -1,0 +1,105 @@
+{
+  "id": "ho3x_mobile_ios_004",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a payments SDK integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a payments SDK integration now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the subscription purchase and restore flow made it in before the freeze. The relevant code is in .swiftlint.yml. Edited: Package.swift."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a widget showing today's activity up and running."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Closed: the SwiftUI onboarding sequence."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining UIKit screens still needs doing. We've decided on a modular package layout per feature. * [x] keychain storage for the auth token"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dark mode across every screen? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Unit tests for the sync reducer is working now. Once CI passes I'll merge. An App Store privacy nutrition label review is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Good news: Core Data persistence for the workout log made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "What about a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. We're going to use async/await instead of Combine for networking."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "unit tests for the sync reducer",
+      "the SwiftUI onboarding sequence",
+      "a widget showing today's activity",
+      "Core Data persistence for the workout log",
+      "keychain storage for the auth token",
+      "dark mode across every screen",
+      "the subscription purchase and restore flow"
+    ],
+    "pending_tasks": [
+      "an App Store privacy nutrition label review",
+      "migrating the remaining UIKit screens"
+    ],
+    "decisions": [
+      "async/await instead of Combine for networking",
+      "a modular package layout per feature"
+    ],
+    "files": [
+      ".swiftlint.yml",
+      "Package.swift"
+    ],
+    "errors": []
+  }
+}

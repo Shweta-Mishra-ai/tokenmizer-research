@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_data_streaming_004",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an event schema migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an event schema migration."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing end-to-end latency below one second is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. The fix lives in schemas/order_placed.avsc."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. I got compaction on the entity state topics over the line. We'll run with Flink for the stateful stream processing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Spotted a schema incompatibility rejecting valid producers today."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked Kafka over Kinesis for the event backbone. I updated streams/dlq.py. Windowed aggregation over five-minute tumbling windows is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event schema migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in streams/consumer.py."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining consumers off the v1 schema remains open. We might revisit this next quarter. I got an integration test spinning up a real broker over the line. We keep seeing out-of-order events breaking the windowed aggregate."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Tiered storage for the older segments is still owed to the client. A schema registry entry for every event type is up and working. We'll run with Avro with a schema registry for the payloads."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be a seven-day retention on the raw topics."
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "How is an event schema migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consumer lag monitoring with alerting is finished and deployed. An automated schema compatibility check in CI is waiting on us. Spotted duplicate processing after an unclean rebalance today. CI is passing."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an integration test spinning up a real broker",
+      "consumer lag monitoring with alerting",
+      "compaction on the entity state topics",
+      "a schema registry entry for every event type",
+      "windowed aggregation over five-minute tumbling windows"
+    ],
+    "pending_tasks": [
+      "migrating the remaining consumers off the v1 schema",
+      "tiered storage for the older segments",
+      "an automated schema compatibility check in CI",
+      "reducing end-to-end latency below one second"
+    ],
+    "decisions": [
+      "Kafka over Kinesis for the event backbone",
+      "a seven-day retention on the raw topics",
+      "Avro with a schema registry for the payloads",
+      "Flink for the stateful stream processing"
+    ],
+    "files": [
+      "streams/consumer.py",
+      "streams/dlq.py",
+      "schemas/order_placed.avsc"
+    ],
+    "errors": [
+      "a schema incompatibility rejecting valid producers",
+      "out-of-order events breaking the windowed aggregate",
+      "duplicate processing after an unclean rebalance"
+    ]
+  }
+}

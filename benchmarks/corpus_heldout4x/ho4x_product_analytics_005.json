@@ -1,0 +1,106 @@
+{
+  "id": "ho4x_product_analytics_005",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an onboarding redesign measurement."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an onboarding redesign measurement."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "A guardrail metric on support ticket volume is waiting on us. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed weekly retention cohorts over six months. The event taxonomy covering fourteen product actions has shipped."
+    },
+    {
+      "role": "user",
+      "content": "How is an onboarding redesign measurement going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed deduplication of the double-fired signup event."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with median rather than mean for the latency metrics. A sample size calculation for the pricing test came off the board this morning. Nobody argued once they saw the numbers for counting activation on first collaborative action."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an onboarding redesign measurement?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle analytics/experiments.py first. Details are in notebooks/churn_drivers.ipynb. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "How is an onboarding redesign measurement going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked counting monthly actives on a rolling 28-day window. The logs are easier to read now. Complete: a funnel from signup through first value. The dashboard tracking the three north star metrics is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to an experiment registry with pre-registered hypotheses."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to a 95% confidence threshold for experiment calls."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication of the double-fired signup event",
+      "a sample size calculation for the pricing test",
+      "the event taxonomy covering fourteen product actions",
+      "the dashboard tracking the three north star metrics",
+      "a funnel from signup through first value",
+      "weekly retention cohorts over six months"
+    ],
+    "pending_tasks": [
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "counting monthly actives on a rolling 28-day window",
+      "median rather than mean for the latency metrics",
+      "a 95% confidence threshold for experiment calls",
+      "counting activation on first collaborative action",
+      "an experiment registry with pre-registered hypotheses"
+    ],
+    "files": [
+      "notebooks/churn_drivers.ipynb",
+      "analytics/experiments.py"
+    ],
+    "errors": []
+  }
+}

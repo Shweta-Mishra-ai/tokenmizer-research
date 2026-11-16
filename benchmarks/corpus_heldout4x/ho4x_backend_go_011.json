@@ -1,0 +1,161 @@
+{
+  "id": "ho4x_backend_go_011",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with buf for protobuf linting and generation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Complete: context propagation through every handler."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. We're standardising on zerolog for logging."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: golangci-lint in CI. Ping me if anything seems wrong. A worker pool bounded at 32 goroutines has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to structured logging with request correlation, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "NATS for the message transport feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "How is a file transfer service going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Makefile. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "* internal/handler/orders.go We might revisit this next quarter. A fuzz test on the decoder is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A soak test over 24 hours is still owed to the client. Final call: testcontainers for integration tests. Profiling the p99 latency spike keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "go.mod grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. I've locked in Go 1.23 as the toolchain."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle proto/orders.proto first."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Nobody needs to think about connection reuse in the HTTP client anymore. The pager went off twice overnight because of a goroutine leak on the cancelled request path."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in cmd/server/main.go. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. The fix lives in Dockerfile."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "structured logging with request correlation",
+      "context propagation through every handler",
+      "connection reuse in the HTTP client",
+      "a worker pool bounded at 32 goroutines"
+    ],
+    "pending_tasks": [
+      "a fuzz test on the decoder",
+      "a soak test over 24 hours",
+      "profiling the p99 latency spike"
+    ],
+    "decisions": [
+      "zerolog for logging",
+      "buf for protobuf linting and generation",
+      "Go 1.23 as the toolchain",
+      "golangci-lint in CI",
+      "NATS for the message transport",
+      "testcontainers for integration tests"
+    ],
+    "files": [
+      "cmd/server/main.go",
+      "proto/orders.proto",
+      "internal/handler/orders.go",
+      "Dockerfile",
+      "go.mod",
+      "Makefile"
+    ],
+    "errors": [
+      "a goroutine leak on the cancelled request path"
+    ]
+  }
+}

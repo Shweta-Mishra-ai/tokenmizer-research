@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_backend_go_012",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** replacing the mutex with a sharded map."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the gRPC service definition and generated stubs. The logs are easier to read now. File changed — go.mod."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: context deadline exceeded on the upstream call. The logs are easier to read now. Outage: a panic on malformed protobuf input."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed a worker pool bounded at 32 goroutines."
+    },
+    {
+      "role": "user",
+      "content": "Use OpenTelemetry for traces please."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Fine by me. Touched file: cmd/server/main.go."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "* internal/handler/orders_test.go Consensus: zerolog for logging. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO distributed tracing spans across services\n**Pending:** profiling the p99 latency spike.\nBroken: a deadlock between the two mutexes."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — a soak test over 24 hours."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: benchmark tests on the hot encode path."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a worker pool bounded at 32 goroutines",
+      "benchmark tests on the hot encode path",
+      "the gRPC service definition and generated stubs"
+    ],
+    "pending_tasks": [
+      "profiling the p99 latency spike",
+      "a soak test over 24 hours",
+      "replacing the mutex with a sharded map",
+      "distributed tracing spans across services"
+    ],
+    "decisions": [
+      "zerolog for logging",
+      "OpenTelemetry for traces"
+    ],
+    "files": [
+      "go.mod",
+      "internal/handler/orders_test.go",
+      "cmd/server/main.go"
+    ],
+    "errors": [
+      "a deadlock between the two mutexes",
+      "a panic on malformed protobuf input",
+      "context deadline exceeded on the upstream call"
+    ]
+  }
+}

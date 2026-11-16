@@ -1,0 +1,152 @@
+{
+  "id": "ho3x_devops_kubernetes_006",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a cost reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Trivy for image scanning in CI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, a blue-green strategy for the database proxy is the best fit. Rewrote parts of argocd/apps/api.yaml as well. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: an ImagePullBackOff from an expired registry credential. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of terraform/cluster.tf as well. Rewrote parts of scripts/rollout.sh as well. Affected file: k8s/hpa.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Tightening the pod security admission profile is on the backlog. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The secrets migration into the external secret store? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "A chaos test on node eviction still needs doing. Action item: a runbook for the failover procedure. Outstanding: consolidating the three ingress controllers."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. The relevant code is in k8s/networkpolicy.yaml. We can stop worrying about pod disruption budgets for the stateful services now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "A canary stage in the deploy pipeline? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Velero for cluster backups is the pick."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, Karpenter instead of the cluster autoscaler is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Resource requests and limits for all containers is working now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "pod disruption budgets for the stateful services",
+      "the secrets migration into the external secret store",
+      "resource requests and limits for all containers",
+      "a canary stage in the deploy pipeline"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "a chaos test on node eviction",
+      "consolidating the three ingress controllers",
+      "a runbook for the failover procedure"
+    ],
+    "decisions": [
+      "Prometheus and Grafana for metrics",
+      "Velero for cluster backups",
+      "Karpenter instead of the cluster autoscaler",
+      "Trivy for image scanning in CI",
+      "a blue-green strategy for the database proxy"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "scripts/rollout.sh",
+      "k8s/hpa.yaml",
+      "terraform/cluster.tf",
+      "k8s/networkpolicy.yaml"
+    ],
+    "errors": [
+      "an ImagePullBackOff from an expired registry credential"
+    ]
+  }
+}

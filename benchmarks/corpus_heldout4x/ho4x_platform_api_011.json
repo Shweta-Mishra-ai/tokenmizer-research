@@ -1,0 +1,119 @@
+{
+  "id": "ho4x_platform_api_011",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a partner integration."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated gateway/kong.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about cursor-based pagination across all list endpoints anymore. Request/response logging with PII stripped came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Per-key rate limits with headers exposing the budget has been live since Tuesday with no complaints. HMAC-SHA256 for webhook signatures is the direction we committed to. See the diff in api/ratelimit.py."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with URL-based versioning over header negotiation?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in tests/test_webhooks.py. Complete: an API changelog published with each release. I'll post a recap later. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked JSON only, no XML support. Ping me if anything seems wrong. Outage: rate limit headers reporting a stale budget."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about idempotency keys on all write operations anymore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the webhook replay procedure is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be snake_case field naming throughout."
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use a six-month deprecation window. I've locked in cursor pagination rather than offset. Nothing is waiting on anyone at the moment. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The sandbox environment for partner testing came off the board this morning. Support tickets mention webhook deliveries duplicated after a consumer timeout."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cursor-based pagination across all list endpoints",
+      "request/response logging with PII stripped",
+      "an API changelog published with each release",
+      "the sandbox environment for partner testing",
+      "per-key rate limits with headers exposing the budget",
+      "idempotency keys on all write operations"
+    ],
+    "pending_tasks": [
+      "documenting the webhook replay procedure"
+    ],
+    "decisions": [
+      "JSON only, no XML support",
+      "snake_case field naming throughout",
+      "HMAC-SHA256 for webhook signatures",
+      "URL-based versioning over header negotiation",
+      "cursor pagination rather than offset",
+      "a six-month deprecation window"
+    ],
+    "files": [
+      "tests/test_webhooks.py",
+      "gateway/kong.yaml",
+      "api/ratelimit.py"
+    ],
+    "errors": [
+      "rate limit headers reporting a stale budget",
+      "webhook deliveries duplicated after a consumer timeout"
+    ]
+  }
+}

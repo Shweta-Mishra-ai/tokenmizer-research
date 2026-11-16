@@ -1,0 +1,140 @@
+{
+  "id": "ho4x_infra_terraform_008",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a compliance baseline rollout now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We keep seeing a cyclic dependency between the security group rules. Support tickets mention provider version drift between two engineers. Support tickets mention a destroy plan on the production database from a renamed resource."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The NAT gateway consolidated to one per region is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A disaster recovery restore rehearsal is next up. Details are in terraform/variables.tf. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Splitting the monolithic state file is next up. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have a read replica in the secondary region now."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "CloudWatch alarms on the error rate metric is finished and deployed. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Could provider versions pinned to a minor range work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done documenting the module interfaces yet. After review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in Terragrunt for the DRY module wiring."
+    },
+    {
+      "role": "user",
+      "content": "How is a compliance baseline rollout going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The VPC with public and private subnets across three zones is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done removing the last hardcoded account IDs yet."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated terraform/vpc.tf. I'll post a recap later."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the NAT gateway consolidated to one per region",
+      "a read replica in the secondary region",
+      "the VPC with public and private subnets across three zones",
+      "CloudWatch alarms on the error rate metric"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces",
+      "removing the last hardcoded account IDs",
+      "a disaster recovery restore rehearsal",
+      "splitting the monolithic state file"
+    ],
+    "decisions": [
+      "provider versions pinned to a minor range",
+      "Terragrunt for the DRY module wiring"
+    ],
+    "files": [
+      "terraform/variables.tf",
+      "terraform/vpc.tf"
+    ],
+    "errors": [
+      "a cyclic dependency between the security group rules",
+      "a destroy plan on the production database from a renamed resource",
+      "provider version drift between two engineers"
+    ]
+  }
+}

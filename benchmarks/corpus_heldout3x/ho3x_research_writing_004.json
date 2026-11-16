@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_research_writing_004",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a benchmark methodology writeup."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a benchmark methodology writeup."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards the ACL template over the generic LaTeX class."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. The related work section covering twelve papers went smoothly in the end. An appendix documenting the corpus construction? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "paper/references.bib ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. paper/appendix.tex ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with including the negative result on implicit language. Shortening to the eight-page limit is waiting for someone to pick it up. Everyone was happy with a single-column layout for the preprint. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside paper/abstract.tex."
+    },
+    {
+      "role": "user",
+      "content": "What about a benchmark methodology writeup?"
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be a numerical inconsistency between the abstract and table three. We can stop worrying about a first pass at the methodology section now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We can stop worrying about peer feedback incorporated from two reviewers now. We can stop worrying about figure one showing the system architecture now. We can stop worrying about the introduction cut from four pages to two now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The reproducibility statement with exact commands? Taken care of. Having compared the options, bootstrap confidence intervals rather than t-tests is the best fit. Failed jobs are retried twice."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a first pass at the methodology section",
+      "figure one showing the system architecture",
+      "the related work section covering twelve papers",
+      "the reproducibility statement with exact commands",
+      "peer feedback incorporated from two reviewers",
+      "the introduction cut from four pages to two",
+      "an appendix documenting the corpus construction"
+    ],
+    "pending_tasks": [
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "bootstrap confidence intervals rather than t-tests",
+      "including the negative result on implicit language",
+      "a single-column layout for the preprint",
+      "the ACL template over the generic LaTeX class"
+    ],
+    "files": [
+      "paper/references.bib",
+      "paper/abstract.tex",
+      "paper/appendix.tex",
+      "Makefile"
+    ],
+    "errors": [
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

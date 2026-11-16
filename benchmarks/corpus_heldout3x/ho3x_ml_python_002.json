@@ -1,0 +1,127 @@
+{
+  "id": "ho3x_ml_python_002",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a churn prediction model."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "There is non-determinism from an unseeded shuffle on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Changes are in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Baseline logistic regression at 0.71 AUC is working now."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use XGBoost over a neural network for tabular data. We completed gradient boosting reaching 0.84 AUC yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in src/train.py. An offline evaluation against last quarter's data is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use quantile clipping on the numeric features. I edited configs/model.yaml. Shadow deployment against live traffic is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. There is the evaluation set overlapping the training window on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting inference timeouts on the long-document path in CI. A stratified train/validation/test split is sorted. Drift monitoring on the input distributions has been merged."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got batch inference over the full customer base up and running."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Optuna for hyperparameter search."
+    },
+    {
+      "role": "assistant",
+      "content": "Hyperparameter search over 200 trials was rolled out. Let's settle on sentence-transformers for the text embeddings. Okay, doing it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "hyperparameter search over 200 trials",
+      "a stratified train/validation/test split",
+      "batch inference over the full customer base",
+      "baseline logistic regression at 0.71 AUC",
+      "gradient boosting reaching 0.84 AUC",
+      "an offline evaluation against last quarter's data",
+      "drift monitoring on the input distributions"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic"
+    ],
+    "decisions": [
+      "quantile clipping on the numeric features",
+      "XGBoost over a neural network for tabular data",
+      "Optuna for hyperparameter search",
+      "sentence-transformers for the text embeddings"
+    ],
+    "files": [
+      "Makefile",
+      "configs/model.yaml",
+      "src/train.py"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle",
+      "inference timeouts on the long-document path",
+      "the evaluation set overlapping the training window"
+    ]
+  }
+}

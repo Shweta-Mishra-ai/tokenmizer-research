@@ -1,0 +1,126 @@
+{
+  "id": "ho3x_devops_ci_002",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a flaky test investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a flaky test investigation."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards semantic versioning driven by commit messages."
+    },
+    {
+      "role": "assistant",
+      "content": "Publishing test timing history is waiting for someone to pick it up. We can stop worrying about required status checks on the default branch now. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What about a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Self-hosted runners for the GPU tests is waiting for someone to pick it up. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody has touched a rollback job for failed deploys yet."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Most of the work happened inside scripts/run_tests.sh. Container image build with layer caching? Taken care of. Nobody has touched pinning all third-party actions by digest yet."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Most of the work happened inside conftest.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, ruff replacing flake8 and isort is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Codecov for coverage tracking."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. The alerts this morning came from test pollution from an unreset global singleton."
+    },
+    {
+      "role": "user",
+      "content": "What about a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Trunk-based development with short-lived branches beat the alternatives on every axis we care about. I'll summarise at the end. Most of the work happened inside Makefile. Coverage reporting posted to the pull request? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. GitHub Actions over the self-managed runner fleet is what we'll ship with. Most of the work happened inside pyproject.toml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "coverage reporting posted to the pull request",
+      "container image build with layer caching",
+      "required status checks on the default branch"
+    ],
+    "pending_tasks": [
+      "a rollback job for failed deploys",
+      "self-hosted runners for the GPU tests",
+      "publishing test timing history",
+      "pinning all third-party actions by digest"
+    ],
+    "decisions": [
+      "GitHub Actions over the self-managed runner fleet",
+      "trunk-based development with short-lived branches",
+      "semantic versioning driven by commit messages",
+      "Codecov for coverage tracking",
+      "ruff replacing flake8 and isort"
+    ],
+    "files": [
+      "pyproject.toml",
+      "conftest.py",
+      "scripts/run_tests.sh",
+      "Makefile"
+    ],
+    "errors": [
+      "test pollution from an unreset global singleton"
+    ]
+  }
+}

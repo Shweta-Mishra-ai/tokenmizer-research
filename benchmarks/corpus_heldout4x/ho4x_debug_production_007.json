@@ -1,0 +1,109 @@
+{
+  "id": "ho4x_debug_production_007",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an intermittent failure investigation now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into a 30% error rate on the payment callback. scripts/repro.py grew by a couple hundred lines. A timeline of the incident from the metrics held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "How is an intermittent failure investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A permanent fix replacing the hotfix keeps getting pushed to next sprint. Capturing a heap profile during the spike is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Increasing the connection pool as a stopgap feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Makes sense, doing that. Nobody needs to think about adding structured logging around the suspect path anymore."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle tests/test_regression.py first. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/handlers/checkout.py grew by a couple hundred lines. Once the release settles, backfilling the corrupted rows is where attention goes. Flaky jobs get one automatic retry. The hotfix reverting the connection pool change held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to a blameless postmortem format."
+    },
+    {
+      "role": "assistant",
+      "content": "Bisecting the regression to a single commit came off the board this morning. Fine by me. We can't call this finished while a follow-up on the third-party client bug report is missing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Ruling out the cache layer as the cause held up fine through the whole load test. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Turns out the slowdown was silent data loss when the queue consumer crashed all along."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a timeline of the incident from the metrics",
+      "the hotfix reverting the connection pool change",
+      "adding structured logging around the suspect path",
+      "ruling out the cache layer as the cause",
+      "capturing a heap profile during the spike",
+      "bisecting the regression to a single commit"
+    ],
+    "pending_tasks": [
+      "a follow-up on the third-party client bug report",
+      "a permanent fix replacing the hotfix",
+      "backfilling the corrupted rows"
+    ],
+    "decisions": [
+      "a blameless postmortem format",
+      "increasing the connection pool as a stopgap"
+    ],
+    "files": [
+      "scripts/repro.py",
+      "tests/test_regression.py",
+      "src/handlers/checkout.py"
+    ],
+    "errors": [
+      "silent data loss when the queue consumer crashed",
+      "a 30% error rate on the payment callback"
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "ho4x_security_appsec_011",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a dependency audit."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a dependency audit."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have rotation of the leaked deploy key now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Moving the remaining secrets out of environment files is waiting on us. Details are in .gitleaks.toml. Here's where things stand. Production is showing an open redirect on the login return URL."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked Vault as the single secrets store. A deny-by-default egress policy won the vote. We might revisit this next quarter. A security runbook for incident response hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A review of the CORS allowlist is waiting on us. We might revisit this next quarter. Automated dependency updates is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "A 90-day key rotation schedule won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Production is showing a path traversal in the file download handler."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Input sanitisation on the file upload path is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in SECURITY.md. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Could Argon2id over bcrypt for new password hashes work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. No incidents were reported this week. We have dependency pinning with a lockfile now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Trivy for container image scanning."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated api/auth.py."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a dependency audit?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated docs/threat-model.md. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Signed container images in the registry is up and working. Ping me if anything seems wrong. An SBOM generated at build time is finished and deployed."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "rotation of the leaked deploy key",
+      "an SBOM generated at build time",
+      "input sanitisation on the file upload path",
+      "signed container images in the registry",
+      "dependency pinning with a lockfile"
+    ],
+    "pending_tasks": [
+      "automated dependency updates",
+      "a review of the CORS allowlist",
+      "moving the remaining secrets out of environment files",
+      "a security runbook for incident response"
+    ],
+    "decisions": [
+      "Trivy for container image scanning",
+      "a deny-by-default egress policy",
+      "a 90-day key rotation schedule",
+      "Vault as the single secrets store",
+      "Argon2id over bcrypt for new password hashes"
+    ],
+    "files": [
+      "docs/threat-model.md",
+      "SECURITY.md",
+      ".gitleaks.toml",
+      "api/auth.py"
+    ],
+    "errors": [
+      "an open redirect on the login return URL",
+      "a path traversal in the file download handler"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "id": "ho4x_devops_kubernetes_007",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an autoscaling review."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an autoscaling review."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: ArgoCD for GitOps delivery. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] readiness and liveness probes on every workload\nWe might revisit this next quarter.\nTouched file: k8s/ingress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an autoscaling review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — node pressure evictions during the nightly batch.\n- [X] network policies isolating the payments namespace\nCI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — moving the remaining cron jobs to Kubernetes. In the queue: consolidating the three ingress controllers. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "* k8s/networkpolicy.yaml File changed — charts/api/values.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an autoscaling review?"
+    },
+    {
+      "role": "assistant",
+      "content": "In the queue: tightening the pod security admission profile."
+    },
+    {
+      "role": "user",
+      "content": "How is an autoscaling review going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: horizontal pod autoscaling on CPU and request rate."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** per-namespace cost attribution."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: argocd/apps/api.yaml. Crash: DNS resolution failures inside the mesh sidecar."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\n**Finished work:** node affinity rules keeping the databases separate.\nGoing forward: Loki for log aggregation.\nCrash: an ImagePullBackOff from an expired registry credential."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] cluster autoscaler on the spot node group"
+    },
+    {
+      "role": "user",
+      "content": "Pick spot instances for the batch workloads."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — scripts/rollout.sh. We resolved to use Prometheus and Grafana for metrics."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: the ingress with automatic certificate renewal. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Landed resource requests and limits for all containers."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the ingress with automatic certificate renewal",
+      "network policies isolating the payments namespace",
+      "cluster autoscaler on the spot node group",
+      "resource requests and limits for all containers",
+      "node affinity rules keeping the databases separate",
+      "readiness and liveness probes on every workload",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "tightening the pod security admission profile",
+      "moving the remaining cron jobs to Kubernetes",
+      "per-namespace cost attribution",
+      "consolidating the three ingress controllers"
+    ],
+    "decisions": [
+      "Loki for log aggregation",
+      "ArgoCD for GitOps delivery",
+      "spot instances for the batch workloads",
+      "Prometheus and Grafana for metrics"
+    ],
+    "files": [
+      "k8s/ingress.yaml",
+      "charts/api/values.yaml",
+      "argocd/apps/api.yaml",
+      "k8s/networkpolicy.yaml",
+      "scripts/rollout.sh"
+    ],
+    "errors": [
+      "DNS resolution failures inside the mesh sidecar",
+      "an ImagePullBackOff from an expired registry credential",
+      "node pressure evictions during the nightly batch"
+    ]
+  }
+}

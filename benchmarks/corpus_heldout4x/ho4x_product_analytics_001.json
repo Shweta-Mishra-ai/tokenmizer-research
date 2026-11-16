@@ -1,0 +1,117 @@
+{
+  "id": "ho4x_product_analytics_001",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an activation funnel analysis now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** weekly rather than daily cohorts for readability.\nA sample size calculation for the pricing test went in this morning.\nThe logs are easier to read now.\nA seven-day activation window is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. I've locked in an experiment registry with pre-registered hypotheses."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in tests/test_metrics.py."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO an automated experiment readout template\nThanks to a segment definition for activated accounts, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "A data dictionary for the product team is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — analytics/funnel.sql. I updated analytics/cohorts.sql."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated notebooks/churn_drivers.ipynb. The bulk of the diff sits in analytics/significance.py. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "How is an activation funnel analysis going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reconciling the two conflicting active-user counts remains open. Consensus: a 95% confidence threshold for experiment calls. Weekly retention cohorts over six months is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "A holdout group excluded from all experiments is behind us now. Documentation of every metric definition is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a sample size calculation for the pricing test",
+      "a holdout group excluded from all experiments",
+      "weekly retention cohorts over six months",
+      "documentation of every metric definition",
+      "a segment definition for activated accounts"
+    ],
+    "pending_tasks": [
+      "reconciling the two conflicting active-user counts",
+      "a data dictionary for the product team",
+      "an automated experiment readout template"
+    ],
+    "decisions": [
+      "weekly rather than daily cohorts for readability",
+      "a 95% confidence threshold for experiment calls",
+      "a seven-day activation window",
+      "an experiment registry with pre-registered hypotheses"
+    ],
+    "files": [
+      "analytics/funnel.sql",
+      "analytics/cohorts.sql",
+      "tests/test_metrics.py",
+      "notebooks/churn_drivers.ipynb",
+      "analytics/significance.py"
+    ],
+    "errors": []
+  }
+}

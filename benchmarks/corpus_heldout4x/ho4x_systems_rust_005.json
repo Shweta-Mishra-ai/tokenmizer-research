@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_systems_rust_005",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a storage engine prototype."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a storage engine prototype now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Had to untangle src/parser.rs first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about an async runtime built on tokio anymore."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. After the spike, tokio over async-std for the runtime was the clear winner."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to an arena allocator for the parse nodes."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in src/codec/mod.rs. Removing the remaining unsafe blocks keeps getting pushed to next sprint. Fine by me."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle Cargo.toml first. Arc-swap for the hot config reload is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a storage engine prototype?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in fuzz/fuzz_targets/decode.rs. Ping me if anything seems wrong. Publishing the crate to crates.io is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in src/lib.rs. The trade-offs all pointed to Rust 2021 edition with MSRV 1.75. Somebody has to own profiling the allocation hot path before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about criterion benchmarks on the parse loop anymore. Nobody needs to think about error types unified behind thiserror anymore."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "error types unified behind thiserror",
+      "an async runtime built on tokio",
+      "criterion benchmarks on the parse loop"
+    ],
+    "pending_tasks": [
+      "publishing the crate to crates.io",
+      "removing the remaining unsafe blocks",
+      "profiling the allocation hot path"
+    ],
+    "decisions": [
+      "arc-swap for the hot config reload",
+      "Rust 2021 edition with MSRV 1.75",
+      "an arena allocator for the parse nodes",
+      "tokio over async-std for the runtime"
+    ],
+    "files": [
+      "src/codec/mod.rs",
+      "fuzz/fuzz_targets/decode.rs",
+      "Cargo.toml",
+      "src/lib.rs",
+      "src/parser.rs"
+    ],
+    "errors": []
+  }
+}

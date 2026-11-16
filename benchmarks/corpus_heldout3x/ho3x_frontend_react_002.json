@@ -1,0 +1,117 @@
+{
+  "id": "ho3x_frontend_react_002",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a checkout flow rewrite."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Pnpm as the package manager sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: dark mode using CSS custom properties made it in before the freeze. The toast notification system went smoothly in the end. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Everyone was happy with Vite as the build tool."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Don't let offline support for the draft editor slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Good news: keyboard navigation across the data grid made it in before the freeze. The alerts this morning came from layout shift on the chart container. Rewrote parts of src/api/client.ts as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "tests/dashboard.spec.ts ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Session persistence in localStorage went smoothly in the end. Once CI passes I'll merge. We can stop worrying about optimistic updates on the toggle controls now. Good news: the metrics grid with responsive breakpoints made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let error boundaries around each route slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining class components is the obvious next step. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The alerts this morning came from a memory leak from an unsubscribed event listener. TanStack Query for server state beat the alternatives on every axis we care about."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "dark mode using CSS custom properties",
+      "optimistic updates on the toggle controls",
+      "the toast notification system",
+      "the metrics grid with responsive breakpoints",
+      "session persistence in localStorage",
+      "keyboard navigation across the data grid"
+    ],
+    "pending_tasks": [
+      "error boundaries around each route",
+      "migrating the remaining class components",
+      "offline support for the draft editor"
+    ],
+    "decisions": [
+      "Vite as the build tool",
+      "TanStack Query for server state",
+      "pnpm as the package manager"
+    ],
+    "files": [
+      "src/api/client.ts",
+      "tests/dashboard.spec.ts"
+    ],
+    "errors": [
+      "layout shift on the chart container",
+      "a memory leak from an unsubscribed event listener"
+    ]
+  }
+}

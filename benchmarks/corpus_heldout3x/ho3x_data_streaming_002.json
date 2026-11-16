@@ -1,0 +1,81 @@
+{
+  "id": "ho3x_data_streaming_002",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a Kafka pipeline rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Choose one topic per event type rather than a shared bus."
+    },
+    {
+      "role": "assistant",
+      "content": "Reducing end-to-end latency below one second is waiting for someone to pick it up. Regression: offset commit failures under broker restart. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — consumer lag monitoring with alerting. Have a look at tests/test_aggregator.py. Nothing is blocking us right now. We completed the dead letter topic with a replay tool yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Tiered storage for the older segments is on the backlog. An automated schema compatibility check in CI is on the backlog. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: at-least-once delivery with idempotent consumers. * [ ] a replay procedure for the last 24 hours There were no failures in the nightly run. Have a look at schemas/order_placed.avsc."
+    },
+    {
+      "role": "user",
+      "content": "What about a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. We can stop worrying about exactly-once semantics on the aggregation job now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the dead letter topic with a replay tool",
+      "exactly-once semantics on the aggregation job",
+      "consumer lag monitoring with alerting"
+    ],
+    "pending_tasks": [
+      "an automated schema compatibility check in CI",
+      "tiered storage for the older segments",
+      "reducing end-to-end latency below one second",
+      "a replay procedure for the last 24 hours"
+    ],
+    "decisions": [
+      "at-least-once delivery with idempotent consumers",
+      "one topic per event type rather than a shared bus"
+    ],
+    "files": [
+      "schemas/order_placed.avsc",
+      "tests/test_aggregator.py"
+    ],
+    "errors": [
+      "offset commit failures under broker restart"
+    ]
+  }
+}

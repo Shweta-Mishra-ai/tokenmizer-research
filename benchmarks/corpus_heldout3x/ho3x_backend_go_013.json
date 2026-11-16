@@ -1,0 +1,126 @@
+{
+  "id": "ho3x_backend_go_013",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a file transfer service."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a file transfer service."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? I plan to do vendoring the internal proto definitions next."
+    },
+    {
+      "role": "user",
+      "content": "What about a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "There is connection churn exhausting ephemeral ports on the main branch."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into context deadline exceeded on the upstream call. The relevant code is in Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a file transfer service?"
+    },
+    {
+      "role": "assistant",
+      "content": "OpenTelemetry for traces is the pick. I edited proto/orders.proto. The retry policy with exponential backoff was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Customers are hitting a deadlock between the two mutexes. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "I'd like gRPC over REST for internal traffic."
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in internal/worker/pool.go. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We need moving the config to environment variables before launch."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited Dockerfile. If this fails again we will revisit the design. A circuit breaker around the downstream call was rolled out. Prometheus metrics on the request path is working now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Have a look at cmd/server/main.go. Replacing the mutex with a sharded map is still open."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The relevant code is in internal/store/postgres.go."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "Prometheus metrics on the request path",
+      "the retry policy with exponential backoff",
+      "a circuit breaker around the downstream call"
+    ],
+    "pending_tasks": [
+      "vendoring the internal proto definitions",
+      "replacing the mutex with a sharded map",
+      "moving the config to environment variables"
+    ],
+    "decisions": [
+      "OpenTelemetry for traces",
+      "gRPC over REST for internal traffic"
+    ],
+    "files": [
+      "internal/store/postgres.go",
+      "proto/orders.proto",
+      "cmd/server/main.go",
+      "Makefile",
+      "internal/worker/pool.go",
+      "Dockerfile"
+    ],
+    "errors": [
+      "context deadline exceeded on the upstream call",
+      "connection churn exhausting ephemeral ports",
+      "a deadlock between the two mutexes"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_mobile_ios_011",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a subscription billing flow?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a subscription billing flow."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to crash reporting integration, the on-call pages stopped."
+    },
+    {
+      "role": "user",
+      "content": "How is a subscription billing flow going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. VoiceOver labels across the main screens is behind us now. SwiftLint in the build phase is what everything will be built on from here. Had to untangle Sources/Widgets/ActivityWidget.swift first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The Composable Architecture for state is the direction we committed to. Core Data persistence for the workout log came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Keychain for token storage rather than UserDefaults feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks to a widget showing today's activity, the on-call pages stopped. CI is passing. Handling the offline conflict resolution case is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Core Data over Realm for local storage feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Nobody needs to think about the subscription purchase and restore flow anymore. Nobody needs to think about background sync with a URLSession task anymore. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle Package.swift first. After review I'll deploy. Localisation into three languages is the piece nobody has picked up. Nobody needs to think about keychain storage for the auth token anymore."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the subscription purchase and restore flow",
+      "keychain storage for the auth token",
+      "a widget showing today's activity",
+      "background sync with a URLSession task",
+      "crash reporting integration",
+      "Core Data persistence for the workout log",
+      "VoiceOver labels across the main screens"
+    ],
+    "pending_tasks": [
+      "handling the offline conflict resolution case",
+      "localisation into three languages"
+    ],
+    "decisions": [
+      "Keychain for token storage rather than UserDefaults",
+      "SwiftLint in the build phase",
+      "The Composable Architecture for state",
+      "Core Data over Realm for local storage"
+    ],
+    "files": [
+      "Package.swift",
+      "Sources/Widgets/ActivityWidget.swift"
+    ],
+    "errors": []
+  }
+}

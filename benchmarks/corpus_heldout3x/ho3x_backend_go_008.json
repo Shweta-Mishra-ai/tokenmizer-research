@@ -1,0 +1,90 @@
+{
+  "id": "ho3x_backend_go_008",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an event consumer."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an event consumer."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Incident: a goroutine leak on the cancelled request path. File: `Dockerfile`. There were no failures in the nightly run. Outstanding: a fuzz test on the decoder."
+    },
+    {
+      "role": "user",
+      "content": "Choose testcontainers for integration tests."
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] benchmark tests on the hot encode path Okay, doing it. File: `Makefile`."
+    },
+    {
+      "role": "user",
+      "content": "Choose a monorepo layout with internal packages."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Implemented Prometheus metrics on the request path."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Next task — profiling the p99 latency spike. Outstanding: distributed tracing spans across services. Bug report: context deadline exceeded on the upstream call."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. * [x] table-driven tests for the parser"
+    },
+    {
+      "role": "user",
+      "content": "Plan for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the gRPC service definition and generated stubs. Do we need more tests?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the gRPC service definition and generated stubs",
+      "benchmark tests on the hot encode path",
+      "Prometheus metrics on the request path",
+      "table-driven tests for the parser"
+    ],
+    "pending_tasks": [
+      "distributed tracing spans across services",
+      "profiling the p99 latency spike",
+      "a fuzz test on the decoder"
+    ],
+    "decisions": [
+      "testcontainers for integration tests",
+      "a monorepo layout with internal packages"
+    ],
+    "files": [
+      "Makefile",
+      "Dockerfile"
+    ],
+    "errors": [
+      "a goroutine leak on the cancelled request path",
+      "context deadline exceeded on the upstream call"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "ho4x_data_sql_013",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a reporting layer rebuild."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed a covering index on the customer lookup. Unit tests for the revenue macro is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "How is a reporting layer rebuild going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Had to untangle models/staging/stg_events.sql first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "macros/revenue.sql grew by a couple hundred lines. * dags/daily_refresh.py"
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Column-level lineage documentation went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Retiring the legacy reporting views is the piece nobody has picked up."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in incremental materialisation on the large models. The trade-offs all pointed to an ELT rather than ETL pattern."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention the nightly job timing out after 6 hours."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, consolidating the three customer definitions is where attention goes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `dbt_project.yml`. Touched file: profiles.yml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Row count reconciliation against the source system came off the board this morning. I updated tests/schema.yml. No incidents were reported this week. Known defect — stale data from a silently failing incremental run."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: incremental models for the daily aggregates."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — partitioning the events table by month. Deduplication on the raw event stream is up and working. Should we add more coverage? Landed the star schema for the orders fact table."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked Parquet as the landing format. We might revisit this next quarter."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "incremental models for the daily aggregates",
+      "partitioning the events table by month",
+      "deduplication on the raw event stream",
+      "column-level lineage documentation",
+      "the star schema for the orders fact table",
+      "a covering index on the customer lookup",
+      "row count reconciliation against the source system"
+    ],
+    "pending_tasks": [
+      "unit tests for the revenue macro",
+      "retiring the legacy reporting views",
+      "consolidating the three customer definitions"
+    ],
+    "decisions": [
+      "an ELT rather than ETL pattern",
+      "incremental materialisation on the large models",
+      "Parquet as the landing format"
+    ],
+    "files": [
+      "models/staging/stg_events.sql",
+      "tests/schema.yml",
+      "profiles.yml",
+      "dbt_project.yml",
+      "macros/revenue.sql",
+      "dags/daily_refresh.py"
+    ],
+    "errors": [
+      "the nightly job timing out after 6 hours",
+      "stale data from a silently failing incremental run"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "ho3x_systems_rust_003",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a log parsing CLI."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a log parsing CLI."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose parking_lot mutexes over the std ones. Affected file: src/codec/mod.rs. Agreed approach: tokio over async-std for the runtime."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — cross-compilation for aarch64.\n**Shipped:** memory-mapped reads for the index file.\n**Decided:** an arena allocator for the parse nodes.\nWe may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: Cargo.toml. Once CI passes I'll merge. * [ ] a miri run over the concurrency tests TO DO: removing the remaining unsafe blocks."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "- Cargo.lock\nBacklog: a compatibility shim for the old format.\n* [x] an async runtime built on tokio"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Next task — profiling the allocation hot path."
+    },
+    {
+      "role": "user",
+      "content": "What about a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** a workspace layout with three crates.\nI'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan.\n**Shipped:** fuzzing the input decoder with cargo-fuzz."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a use-after-free found by miri in the unsafe block. * [x] a lock-free ring buffer for the writer If this fails again we will revisit the design. Result: criterion benchmarks on the parse loop done."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: a panic on slice index out of bounds."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a lock-free ring buffer for the writer",
+      "fuzzing the input decoder with cargo-fuzz",
+      "an async runtime built on tokio",
+      "criterion benchmarks on the parse loop",
+      "cross-compilation for aarch64",
+      "memory-mapped reads for the index file"
+    ],
+    "pending_tasks": [
+      "removing the remaining unsafe blocks",
+      "profiling the allocation hot path",
+      "a miri run over the concurrency tests",
+      "a compatibility shim for the old format"
+    ],
+    "decisions": [
+      "parking_lot mutexes over the std ones",
+      "a workspace layout with three crates",
+      "tokio over async-std for the runtime",
+      "an arena allocator for the parse nodes"
+    ],
+    "files": [
+      "Cargo.lock",
+      "src/codec/mod.rs",
+      "Cargo.toml"
+    ],
+    "errors": [
+      "a use-after-free found by miri in the unsafe block",
+      "a panic on slice index out of bounds"
+    ]
+  }
+}

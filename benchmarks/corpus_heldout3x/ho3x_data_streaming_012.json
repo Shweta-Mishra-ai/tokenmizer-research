@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_data_streaming_012",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a stream processing job."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a stream processing job now."
+    },
+    {
+      "role": "user",
+      "content": "What about a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "Partitioning by tenant rather than by hash is still open."
+    },
+    {
+      "role": "user",
+      "content": "What about a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited connect/debezium.json. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in tests/test_aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Checkpointing to durable storage every 30 seconds was rolled out. We completed consumer group rebalancing tuned for slow consumers yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed backpressure handling in the consumer loop yesterday. We completed compaction on the entity state topics yesterday. Backward-compatible schema evolution only is the pick."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with Kafka over Kinesis for the event backbone. We completed windowed aggregation over five-minute tumbling windows yesterday. I edited docker-compose.yml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Customers are hitting offset commit failures under broker restart. We found partition skew putting 60% of traffic on one consumer."
+    },
+    {
+      "role": "user",
+      "content": "What about a stream processing job?"
+    },
+    {
+      "role": "assistant",
+      "content": "A schema registry entry for every event type was rolled out. There is consumer lag growing unbounded during the nightly spike on the main branch. The change data capture connector on the orders table was rolled out."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the change data capture connector on the orders table",
+      "a schema registry entry for every event type",
+      "backpressure handling in the consumer loop",
+      "consumer group rebalancing tuned for slow consumers",
+      "compaction on the entity state topics",
+      "checkpointing to durable storage every 30 seconds",
+      "windowed aggregation over five-minute tumbling windows"
+    ],
+    "pending_tasks": [
+      "partitioning by tenant rather than by hash"
+    ],
+    "decisions": [
+      "Kafka over Kinesis for the event backbone",
+      "backward-compatible schema evolution only"
+    ],
+    "files": [
+      "connect/debezium.json",
+      "docker-compose.yml",
+      "tests/test_aggregator.py"
+    ],
+    "errors": [
+      "consumer lag growing unbounded during the nightly spike",
+      "offset commit failures under broker restart",
+      "partition skew putting 60% of traffic on one consumer"
+    ]
+  }
+}

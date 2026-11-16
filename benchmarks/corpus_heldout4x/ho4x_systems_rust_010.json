@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_systems_rust_010",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a log parsing CLI."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a log parsing CLI."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "src/lib.rs grew by a couple hundred lines. Nothing is waiting on anyone at the moment. Error types unified behind thiserror has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Arc-swap for the hot config reload is the direction we committed to. The fix lives in fuzz/fuzz_targets/decode.rs. I got SIMD acceleration on the checksum path over the line."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, tokio over async-std for the runtime was the clear winner. If this breaks later we can roll back. * src/parser.rs Going forward: serde with a custom binary format."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO a miri run over the concurrency tests"
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was a deadlock from lock ordering in the flush path all along. Zero-copy deserialisation of the record header has shipped."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Delivered — the streaming parser over a bounded buffer."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done reducing the binary size below 2MB yet."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a log parsing CLI?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `tests/roundtrip.rs`. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Had to untangle src/main.rs first."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SIMD acceleration on the checksum path",
+      "the streaming parser over a bounded buffer",
+      "error types unified behind thiserror",
+      "zero-copy deserialisation of the record header"
+    ],
+    "pending_tasks": [
+      "a miri run over the concurrency tests",
+      "reducing the binary size below 2MB"
+    ],
+    "decisions": [
+      "serde with a custom binary format",
+      "tokio over async-std for the runtime",
+      "arc-swap for the hot config reload"
+    ],
+    "files": [
+      "src/lib.rs",
+      "tests/roundtrip.rs",
+      "src/parser.rs",
+      "fuzz/fuzz_targets/decode.rs",
+      "src/main.rs"
+    ],
+    "errors": [
+      "a deadlock from lock ordering in the flush path"
+    ]
+  }
+}

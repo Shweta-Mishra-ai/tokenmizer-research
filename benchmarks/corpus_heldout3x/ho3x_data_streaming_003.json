@@ -1,0 +1,97 @@
+{
+  "id": "ho3x_data_streaming_003",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a change data capture setup."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a change data capture setup."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: the change data capture connector on the orders table done. Finished — exactly-once semantics on the aggregation job."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "- docker-compose.yml\nFile: `streams/dlq.py`."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Flink for the stateful stream processing."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Finished — windowed aggregation over five-minute tumbling windows. Finished — backpressure handling in the consumer loop."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a change data capture setup?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** at-least-once delivery with idempotent consumers.\n* [ ] reducing end-to-end latency below one second\n* [ ] partitioning by tenant rather than by hash"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — the topic layout with twelve partitions per stream.\n- streams/aggregator.py"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: an integration test spinning up a real broker done."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "an integration test spinning up a real broker",
+      "windowed aggregation over five-minute tumbling windows",
+      "exactly-once semantics on the aggregation job",
+      "the change data capture connector on the orders table",
+      "backpressure handling in the consumer loop",
+      "the topic layout with twelve partitions per stream"
+    ],
+    "pending_tasks": [
+      "reducing end-to-end latency below one second",
+      "partitioning by tenant rather than by hash"
+    ],
+    "decisions": [
+      "Flink for the stateful stream processing",
+      "at-least-once delivery with idempotent consumers"
+    ],
+    "files": [
+      "docker-compose.yml",
+      "streams/aggregator.py",
+      "streams/dlq.py"
+    ],
+    "errors": []
+  }
+}

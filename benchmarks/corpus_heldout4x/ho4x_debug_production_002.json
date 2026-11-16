@@ -1,0 +1,103 @@
+{
+  "id": "ho4x_debug_production_002",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an intermittent failure investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an intermittent failure investigation now."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with an incident severity of SEV-2?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the failure mode in the runbook is still owed to the client. Should we add more coverage? We'll run with a blameless postmortem format. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated logs/analysis.py. We have the postmortem document with action items now. We haven't done reviewing the other call sites with the same pattern yet."
+    },
+    {
+      "role": "user",
+      "content": "How is an intermittent failure investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing silent data loss when the queue consumer crashed. We have a regression test covering the failure mode now. A follow-up on the third-party client bug report is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have adding structured logging around the suspect path now. I updated config/flags.yaml."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. We keep seeing duplicate charges from a non-idempotent retry. Rolling back before investigating further won the vote. The fix lives in src/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We have bisecting the regression to a single commit now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. The team picked reverting to the previous library version. We keep seeing a cascading failure from the retry storm. A permanent fix replacing the hotfix is still owed to the client."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "bisecting the regression to a single commit",
+      "a regression test covering the failure mode",
+      "adding structured logging around the suspect path",
+      "the postmortem document with action items"
+    ],
+    "pending_tasks": [
+      "documenting the failure mode in the runbook",
+      "a follow-up on the third-party client bug report",
+      "a permanent fix replacing the hotfix",
+      "reviewing the other call sites with the same pattern"
+    ],
+    "decisions": [
+      "an incident severity of SEV-2",
+      "a blameless postmortem format",
+      "reverting to the previous library version",
+      "rolling back before investigating further"
+    ],
+    "files": [
+      "config/flags.yaml",
+      "logs/analysis.py",
+      "src/client.py"
+    ],
+    "errors": [
+      "a cascading failure from the retry storm",
+      "silent data loss when the queue consumer crashed",
+      "duplicate charges from a non-idempotent retry"
+    ]
+  }
+}

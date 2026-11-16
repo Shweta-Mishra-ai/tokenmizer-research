@@ -1,0 +1,145 @@
+{
+  "id": "ho3x_security_appsec_010",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an authentication hardening pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an authentication hardening pass."
+    },
+    {
+      "role": "user",
+      "content": "Switch to a deny-by-default egress policy."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] moving the remaining secrets out of environment files\nAgreed.\n**Decided:** mTLS between internal services."
+    },
+    {
+      "role": "user",
+      "content": "What about an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — an SBOM generated at build time."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: .github/workflows/security.yml. I'll summarise at the end. Finished — parameterised queries across the data layer."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: a review of the CORS allowlist. Outstanding: automated dependency updates. The build is green. Bug report: session fixation after login."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: Vault as the single secrets store. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "- terraform/iam.tf"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented credential redaction on every log path."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — rotation of the leaked deploy key. Incident: an SSRF in the webhook fetcher."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on Trivy for container image scanning."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: a security runbook for incident response."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] rate limiting on the password reset endpoint File: `config/csp.json`. Finished — signed container images in the registry."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an authentication hardening pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: an open redirect on the login return URL. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "credential redaction on every log path",
+      "rotation of the leaked deploy key",
+      "parameterised queries across the data layer",
+      "rate limiting on the password reset endpoint",
+      "an SBOM generated at build time",
+      "signed container images in the registry"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist",
+      "moving the remaining secrets out of environment files",
+      "automated dependency updates",
+      "a security runbook for incident response"
+    ],
+    "decisions": [
+      "mTLS between internal services",
+      "Vault as the single secrets store",
+      "Trivy for container image scanning",
+      "a deny-by-default egress policy"
+    ],
+    "files": [
+      "config/csp.json",
+      "terraform/iam.tf",
+      ".github/workflows/security.yml"
+    ],
+    "errors": [
+      "session fixation after login",
+      "an SSRF in the webhook fetcher",
+      "an open redirect on the login return URL"
+    ]
+  }
+}

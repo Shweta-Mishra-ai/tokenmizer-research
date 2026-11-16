@@ -1,0 +1,112 @@
+{
+  "id": "ho3x_data_streaming_009",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a Kafka pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a Kafka pipeline rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Partitioning by tenant rather than by hash is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Checkpointing to durable storage every 30 seconds? Taken care of. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let migrating the remaining consumers off the v1 schema slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of streams/windowing.py as well. Failed jobs are retried twice. We can stop worrying about compaction on the entity state topics now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, keying events by aggregate ID for ordering is the best fit. Having compared the options, Kafka over Kinesis for the event backbone is the best fit. scripts/replay.py ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "A schema registry entry for every event type? Taken care of. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "A cost review of the broker cluster is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "A replay procedure for the last 24 hours is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "What about a Kafka pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. tests/test_aggregator.py ended up with most of the changes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "checkpointing to durable storage every 30 seconds",
+      "compaction on the entity state topics",
+      "a schema registry entry for every event type"
+    ],
+    "pending_tasks": [
+      "migrating the remaining consumers off the v1 schema",
+      "a cost review of the broker cluster",
+      "a replay procedure for the last 24 hours",
+      "partitioning by tenant rather than by hash"
+    ],
+    "decisions": [
+      "keying events by aggregate ID for ordering",
+      "Kafka over Kinesis for the event backbone"
+    ],
+    "files": [
+      "scripts/replay.py",
+      "streams/windowing.py",
+      "tests/test_aggregator.py"
+    ],
+    "errors": []
+  }
+}

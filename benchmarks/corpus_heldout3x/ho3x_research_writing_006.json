@@ -1,0 +1,137 @@
+{
+  "id": "ho3x_research_writing_006",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an internal architecture RFC."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an internal architecture RFC."
+    },
+    {
+      "role": "user",
+      "content": "Choose framing the contribution as a measurement study."
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: a first pass at the methodology section. Affected file: paper/main.tex. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "What about an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "- Makefile\nOutstanding: a final proofread pass.\nWe've decided on the ACL template over the generic LaTeX class.\nIf this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `paper/references.bib`. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: a limitations section naming the sample size problem. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "What about an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a numerical inconsistency between the abstract and table three. Implemented the introduction cut from four pages to two. Action item: a plain-language summary for the blog post."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: paper/abstract.tex. Implemented figure one showing the system architecture. Implemented an appendix documenting the corpus construction."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the reproducibility statement with exact commands. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "What about an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] reconciling the two conflicting result tables Result: the evaluation table with confidence intervals done. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: shortening to the eight-page limit."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: a single-column layout for the preprint. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about an internal architecture RFC?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** naming the baselines by method rather than by vendor."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the evaluation table with confidence intervals",
+      "a first pass at the methodology section",
+      "an appendix documenting the corpus construction",
+      "a limitations section naming the sample size problem",
+      "figure one showing the system architecture",
+      "the reproducibility statement with exact commands",
+      "the introduction cut from four pages to two"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post",
+      "a final proofread pass",
+      "reconciling the two conflicting result tables",
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "a single-column layout for the preprint",
+      "framing the contribution as a measurement study",
+      "the ACL template over the generic LaTeX class",
+      "naming the baselines by method rather than by vendor"
+    ],
+    "files": [
+      "Makefile",
+      "paper/references.bib",
+      "paper/main.tex",
+      "paper/abstract.tex"
+    ],
+    "errors": [
+      "a numerical inconsistency between the abstract and table three"
+    ]
+  }
+}

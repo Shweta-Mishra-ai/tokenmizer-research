@@ -1,0 +1,106 @@
+{
+  "id": "ho3x_infra_terraform_005",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a compliance baseline rollout."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "An RDS instance with automated backups? Taken care of. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "terraform/backend.tf ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "OIDC for CI authentication into AWS is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "What about a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Remote state in S3 with DynamoDB locking went smoothly in the end. Terraform over CloudFormation beat the alternatives on every axis we care about. IAM roles scoped per service went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Good news: CloudWatch alarms on the error rate metric made it in before the freeze. Most of the work happened inside terraform/variables.tf."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "A disaster recovery restore rehearsal is waiting for someone to pick it up. VPC flow logs shipped to the log bucket went smoothly in the end. Encrypted EBS volumes across all instances went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: the VPC with public and private subnets across three zones made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "AWS as the single cloud provider sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. terraform/vpc.tf ended up with most of the changes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "encrypted EBS volumes across all instances",
+      "remote state in S3 with DynamoDB locking",
+      "the VPC with public and private subnets across three zones",
+      "an RDS instance with automated backups",
+      "VPC flow logs shipped to the log bucket",
+      "CloudWatch alarms on the error rate metric",
+      "IAM roles scoped per service"
+    ],
+    "pending_tasks": [
+      "a disaster recovery restore rehearsal"
+    ],
+    "decisions": [
+      "Terraform over CloudFormation",
+      "OIDC for CI authentication into AWS",
+      "AWS as the single cloud provider"
+    ],
+    "files": [
+      "terraform/variables.tf",
+      "terraform/backend.tf",
+      "terraform/vpc.tf"
+    ],
+    "errors": []
+  }
+}

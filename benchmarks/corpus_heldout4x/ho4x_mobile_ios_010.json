@@ -1,0 +1,96 @@
+{
+  "id": "ho4x_mobile_ios_010",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an accessibility overhaul?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an accessibility overhaul."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated Sources/App/ContentView.swift. I updated Package.swift. Reducing cold start below 400ms is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Core Data persistence for the workout log went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with async/await instead of Combine for networking. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an accessibility overhaul?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got unit tests for the sync reducer over the line. The subscription purchase and restore flow is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Keychain storage for the auth token is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Could XCTest with snapshot assertions work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. IOS 17 as the minimum deployment target won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Core Data over Realm for local storage won the vote. An iPad layout for the summary screen hasn't been started."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "Core Data persistence for the workout log",
+      "keychain storage for the auth token",
+      "unit tests for the sync reducer",
+      "the subscription purchase and restore flow"
+    ],
+    "pending_tasks": [
+      "reducing cold start below 400ms",
+      "an iPad layout for the summary screen"
+    ],
+    "decisions": [
+      "Core Data over Realm for local storage",
+      "iOS 17 as the minimum deployment target",
+      "async/await instead of Combine for networking",
+      "XCTest with snapshot assertions"
+    ],
+    "files": [
+      "Package.swift",
+      "Sources/App/ContentView.swift"
+    ],
+    "errors": []
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "ho4x_frontend_react_003",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an analytics dashboard now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A bundle size budget in CI remains open."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Code splitting on the route boundaries is up and working. Got hit by an infinite re-render from an unstable dependency array in staging. The metrics grid with responsive breakpoints went in this morning. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now.\n**Finished work:** form validation with inline error messages."
+    },
+    {
+      "role": "user",
+      "content": "Use TanStack Query for server state please."
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to pnpm as the package manager. Makes sense, doing that. The logs are easier to read now. * vite.config.ts"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The trade-offs all pointed to Zustand instead of Redux for local state. Known defect — a race condition between two in-flight fetches. Nobody needs to think about optimistic updates on the toggle controls anymore."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Landed keyboard navigation across the data grid.\nIf this breaks later we can roll back.\n**Chosen:** React 19 with the compiler enabled."
+    },
+    {
+      "role": "user",
+      "content": "How is an analytics dashboard going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in src/api/client.ts. Tailwind for styling won the vote. Broken: a CORS failure against the staging API."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The toast notification system has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated src/App.tsx. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "A virtualised list for the 10k-row view is up and working."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the toast notification system",
+      "a virtualised list for the 10k-row view",
+      "keyboard navigation across the data grid",
+      "code splitting on the route boundaries",
+      "optimistic updates on the toggle controls",
+      "form validation with inline error messages",
+      "the metrics grid with responsive breakpoints"
+    ],
+    "pending_tasks": [
+      "a bundle size budget in CI"
+    ],
+    "decisions": [
+      "Tailwind for styling",
+      "React 19 with the compiler enabled",
+      "Zustand instead of Redux for local state",
+      "TanStack Query for server state",
+      "pnpm as the package manager"
+    ],
+    "files": [
+      "src/App.tsx",
+      "src/api/client.ts",
+      "vite.config.ts"
+    ],
+    "errors": [
+      "a CORS failure against the staging API",
+      "a race condition between two in-flight fetches",
+      "an infinite re-render from an unstable dependency array"
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "id": "ho3x_frontend_react_001",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a settings surface."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a settings surface."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in package.json."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Keyboard navigation across the data grid has been merged. Let's settle on React 19 with the compiler enabled."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found a bundle regression from importing the whole icon set."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting stale closure state in the polling hook in CI. The toast notification system is working now. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in src/store/session.ts."
+    },
+    {
+      "role": "user",
+      "content": "What about a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Error boundaries around each route is on the backlog."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dark mode using CSS custom properties is working now. Once CI passes I'll merge. I've gone with Playwright for end-to-end tests."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Server-side pagination on the results table has been merged. Code splitting on the route boundaries has been merged. Memoising the chart data transform is still open."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do an accessibility audit of the nav next."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is MSW for mocking the API in tests. Optimistic updates on the toggle controls has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "A Storybook entry for each primitive is still open."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting an infinite re-render from an unstable dependency array in CI. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Form validation with inline error messages is sorted. Have a look at tests/dashboard.spec.ts."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "code splitting on the route boundaries",
+      "the toast notification system",
+      "server-side pagination on the results table",
+      "optimistic updates on the toggle controls",
+      "dark mode using CSS custom properties",
+      "form validation with inline error messages",
+      "keyboard navigation across the data grid"
+    ],
+    "pending_tasks": [
+      "memoising the chart data transform",
+      "a Storybook entry for each primitive",
+      "an accessibility audit of the nav",
+      "error boundaries around each route"
+    ],
+    "decisions": [
+      "React 19 with the compiler enabled",
+      "MSW for mocking the API in tests",
+      "Playwright for end-to-end tests"
+    ],
+    "files": [
+      "tests/dashboard.spec.ts",
+      "package.json",
+      "src/store/session.ts"
+    ],
+    "errors": [
+      "a bundle regression from importing the whole icon set",
+      "stale closure state in the polling hook",
+      "an infinite re-render from an unstable dependency array"
+    ]
+  }
+}

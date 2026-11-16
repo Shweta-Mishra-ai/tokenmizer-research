@@ -1,0 +1,110 @@
+{
+  "id": "ho3x_security_appsec_009",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a penetration test remediation."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a penetration test remediation now."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards short-lived tokens with refresh rotation."
+    },
+    {
+      "role": "assistant",
+      "content": "A review of the CORS allowlist still needs doing. Agreed. Everyone was happy with OIDC for single sign-on."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: docs/threat-model.md."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Rate limiting on the password reset endpoint went smoothly in the end. Most of the work happened inside .github/workflows/security.yml."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Input sanitisation on the file upload path was rolled out. Vault as the single secrets store beat the alternatives on every axis we care about. Edited: policy/egress.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Finished — signed container images in the registry."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a penetration test remediation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: a deny-by-default egress policy. Action item: a third-party penetration test."
+    },
+    {
+      "role": "user",
+      "content": "Can we try field-level encryption for PII columns?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Changes are in security/middleware.py. Failed: a SQL injection in the search filter."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. What broke the release was an XSS in the comment renderer. Hitting a timing attack on the token comparison in CI."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "input sanitisation on the file upload path",
+      "signed container images in the registry",
+      "rate limiting on the password reset endpoint"
+    ],
+    "pending_tasks": [
+      "a review of the CORS allowlist",
+      "a third-party penetration test"
+    ],
+    "decisions": [
+      "OIDC for single sign-on",
+      "a deny-by-default egress policy",
+      "short-lived tokens with refresh rotation",
+      "Vault as the single secrets store",
+      "field-level encryption for PII columns"
+    ],
+    "files": [
+      "policy/egress.yaml",
+      "security/middleware.py",
+      "docs/threat-model.md",
+      ".github/workflows/security.yml"
+    ],
+    "errors": [
+      "a timing attack on the token comparison",
+      "an XSS in the comment renderer",
+      "a SQL injection in the search filter"
+    ]
+  }
+}

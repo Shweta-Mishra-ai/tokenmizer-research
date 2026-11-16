@@ -1,0 +1,96 @@
+{
+  "id": "ho3x_systems_rust_004",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a packet inspector."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a packet inspector now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "An arena allocator for the parse nodes is the pick. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Can we try cargo-deny for licence and advisory checks?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on serde with a custom binary format. We completed property tests over the encoder round trip yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. The plan is parking_lot mutexes over the std ones."
+    },
+    {
+      "role": "user",
+      "content": "What about a packet inspector?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Cargo.toml. The relevant code is in Cargo.lock."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at tests/roundtrip.rs. Removing the remaining unsafe blocks is on the backlog. Zero-copy deserialisation of the record header has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The streaming parser over a bounded buffer is working now. I've got fuzzing the input decoder with cargo-fuzz up and running."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "zero-copy deserialisation of the record header",
+      "the streaming parser over a bounded buffer",
+      "property tests over the encoder round trip",
+      "fuzzing the input decoder with cargo-fuzz"
+    ],
+    "pending_tasks": [
+      "removing the remaining unsafe blocks"
+    ],
+    "decisions": [
+      "an arena allocator for the parse nodes",
+      "parking_lot mutexes over the std ones",
+      "cargo-deny for licence and advisory checks",
+      "serde with a custom binary format"
+    ],
+    "files": [
+      "Cargo.lock",
+      "Cargo.toml",
+      "tests/roundtrip.rs"
+    ],
+    "errors": []
+  }
+}

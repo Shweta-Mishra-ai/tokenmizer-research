@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_frontend_react_008",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a data table component library."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a data table component library."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "* vite.config.ts\n**Finished work:** session persistence in localStorage.\n**Chosen:** MSW for mocking the API in tests."
+    },
+    {
+      "role": "user",
+      "content": "How is a data table component library going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use Playwright for end-to-end tests."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "* src/store/session.ts We resolved to use Radix primitives for accessible components. Delivered — focus trapping in the modal component. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Path: `src/App.tsx`."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] code splitting on the route boundaries\nIn the queue: offline support for the draft editor.\nComplete: optimistic updates on the toggle controls."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a data table component library?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `tests/dashboard.spec.ts`. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Failing now: layout shift on the chart container. The logs are easier to read now. Outage: a race condition between two in-flight fetches."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "optimistic updates on the toggle controls",
+      "focus trapping in the modal component",
+      "session persistence in localStorage",
+      "code splitting on the route boundaries"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor"
+    ],
+    "decisions": [
+      "MSW for mocking the API in tests",
+      "Radix primitives for accessible components",
+      "Playwright for end-to-end tests"
+    ],
+    "files": [
+      "tests/dashboard.spec.ts",
+      "src/store/session.ts",
+      "src/App.tsx",
+      "vite.config.ts"
+    ],
+    "errors": [
+      "a race condition between two in-flight fetches",
+      "layout shift on the chart container"
+    ]
+  }
+}

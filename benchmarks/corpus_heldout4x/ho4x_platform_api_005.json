@@ -1,0 +1,130 @@
+{
+  "id": "ho4x_platform_api_005",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume an API gateway migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming an API gateway migration now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sunsetting v1 after the six-month window is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consistent error envelopes with machine-readable codes is finished and deployed. Flaky jobs get one automatic retry. See the diff in api/pagination.py. A deprecation header on the v1 routes is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. We'll run with HMAC-SHA256 for webhook signatures."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "I updated gateway/kong.yaml. I've locked in cursor pagination rather than offset. Field-level filtering on the large resources is next up. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Per-key rate limits with headers exposing the budget went in this morning. Flaky jobs get one automatic retry. We have request/response logging with PII stripped now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with OAuth 2.0 client credentials for machine access. RFC 7807 problem details for errors won the vote. CI is passing. At-least-once webhook delivery with retries is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention clock skew invalidating webhook signatures. See the diff in sdk/python/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have idempotency keys on all write operations now. Got hit by rate limit headers reporting a stale budget in staging. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in api/ratelimit.py. See the diff in openapi/v2.yaml. Support tickets mention a 500 leaking a stack trace to API consumers."
+    },
+    {
+      "role": "user",
+      "content": "How is an API gateway migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The OpenAPI specification for every public route has shipped. If this breaks later we can roll back."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "consistent error envelopes with machine-readable codes",
+      "per-key rate limits with headers exposing the budget",
+      "a deprecation header on the v1 routes",
+      "idempotency keys on all write operations",
+      "request/response logging with PII stripped",
+      "at-least-once webhook delivery with retries",
+      "the OpenAPI specification for every public route"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window",
+      "field-level filtering on the large resources"
+    ],
+    "decisions": [
+      "HMAC-SHA256 for webhook signatures",
+      "OAuth 2.0 client credentials for machine access",
+      "cursor pagination rather than offset",
+      "RFC 7807 problem details for errors"
+    ],
+    "files": [
+      "api/ratelimit.py",
+      "api/pagination.py",
+      "openapi/v2.yaml",
+      "gateway/kong.yaml",
+      "sdk/python/client.py"
+    ],
+    "errors": [
+      "a 500 leaking a stack trace to API consumers",
+      "rate limit headers reporting a stale budget",
+      "clock skew invalidating webhook signatures"
+    ]
+  }
+}

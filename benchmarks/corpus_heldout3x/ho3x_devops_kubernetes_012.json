@@ -1,0 +1,131 @@
+{
+  "id": "ho3x_devops_kubernetes_012",
+  "origin": "synthetic",
+  "domain": "devops/kubernetes",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/kubernetes', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a cost reduction pass."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a cost reduction pass."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "The error messages are now clearer. Have a look at Dockerfile."
+    },
+    {
+      "role": "user",
+      "content": "Can we try Trivy for image scanning in CI?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Okay, doing it. A rolling deploy with surge and unavailable tuned has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need a runbook for the failover procedure before launch."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Horizontal pod autoscaling on CPU and request rate is sorted. Have a look at scripts/rollout.sh."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Changes are in k8s/hpa.yaml. Pod disruption budgets for the stateful services is working now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let's settle on Velero for cluster backups."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The relevant code is in .github/workflows/deploy.yml."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Karpenter instead of the cluster autoscaler?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "What about a cost reduction pass?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. Still to do: consolidating the three ingress controllers. Changes are in charts/api/values.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed the secrets migration into the external secret store yesterday. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. I edited argocd/apps/api.yaml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the secrets migration into the external secret store",
+      "pod disruption budgets for the stateful services",
+      "a rolling deploy with surge and unavailable tuned",
+      "horizontal pod autoscaling on CPU and request rate"
+    ],
+    "pending_tasks": [
+      "a runbook for the failover procedure",
+      "consolidating the three ingress controllers"
+    ],
+    "decisions": [
+      "Trivy for image scanning in CI",
+      "Velero for cluster backups",
+      "Karpenter instead of the cluster autoscaler"
+    ],
+    "files": [
+      "argocd/apps/api.yaml",
+      "scripts/rollout.sh",
+      ".github/workflows/deploy.yml",
+      "Dockerfile",
+      "charts/api/values.yaml",
+      "k8s/hpa.yaml"
+    ],
+    "errors": []
+  }
+}

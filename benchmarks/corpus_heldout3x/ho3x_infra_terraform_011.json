@@ -1,0 +1,130 @@
+{
+  "id": "ho3x_infra_terraform_011",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a state migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a state migration."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with one state file per environment."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. Finished — remote state in S3 with DynamoDB locking. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Terraform over CloudFormation."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: modules/service/main.tf. Agreed. Closed: a read replica in the secondary region."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Terragrunt for the DRY module wiring."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice.\n- terraform/iam.tf\nRegression: a state lock left behind by a cancelled apply.\nOkay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: terraform/backend.tf.\n- terraform/variables.tf"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: an RDS instance with automated backups."
+    },
+    {
+      "role": "user",
+      "content": "Choose a hub-and-spoke network topology."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** VPC flow logs shipped to the log bucket.\nImplemented the NAT gateway consolidated to one per region.\nAgreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `.github/workflows/plan.yml`.\n- terraform/outputs.tf"
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] moving the legacy resources under Terraform Closed: CloudWatch alarms on the error rate metric. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: a plan diff from an untracked manual console change. Next task — splitting the monolithic state file. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a state migration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Regression: a destroy plan on the production database from a renamed resource."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the NAT gateway consolidated to one per region",
+      "remote state in S3 with DynamoDB locking",
+      "VPC flow logs shipped to the log bucket",
+      "CloudWatch alarms on the error rate metric",
+      "an RDS instance with automated backups",
+      "a read replica in the secondary region"
+    ],
+    "pending_tasks": [
+      "moving the legacy resources under Terraform",
+      "splitting the monolithic state file"
+    ],
+    "decisions": [
+      "a hub-and-spoke network topology",
+      "one state file per environment",
+      "Terraform over CloudFormation",
+      "Terragrunt for the DRY module wiring"
+    ],
+    "files": [
+      "modules/service/main.tf",
+      "terraform/iam.tf",
+      "terraform/backend.tf",
+      "terraform/outputs.tf",
+      ".github/workflows/plan.yml",
+      "terraform/variables.tf"
+    ],
+    "errors": [
+      "a state lock left behind by a cancelled apply",
+      "a plan diff from an untracked manual console change",
+      "a destroy plan on the production database from a renamed resource"
+    ]
+  }
+}

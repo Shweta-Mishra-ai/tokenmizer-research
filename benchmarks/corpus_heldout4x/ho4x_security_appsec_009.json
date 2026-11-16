@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_security_appsec_009",
+  "origin": "synthetic",
+  "domain": "security/appsec",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='security/appsec', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a compliance readiness review."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a compliance readiness review now."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back.\nPath: `terraform/iam.tf`.\n**Finished work:** input sanitisation on the file upload path.\n**Pending:** a review of the CORS allowlist."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to Semgrep in the pull request pipeline. My preference would be Dependabot for dependency updates."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. If this breaks later we can roll back. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Credential redaction on every log path went in this morning. Should we add more coverage? We have signed container images in the registry now. Had to untangle security/redaction.py first."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done moving the remaining secrets out of environment files yet."
+    },
+    {
+      "role": "user",
+      "content": "Could short-lived tokens with refresh rotation work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a compliance readiness review?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. The bulk of the diff sits in config/csp.json."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in docs/threat-model.md. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without a third-party penetration test the launch checklist stays red. After review I'll deploy. The trade-offs all pointed to mTLS between internal services."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Production is showing an API key committed to the repository history."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have encrypted secrets at rest in the vault now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "encrypted secrets at rest in the vault",
+      "signed container images in the registry",
+      "input sanitisation on the file upload path",
+      "credential redaction on every log path"
+    ],
+    "pending_tasks": [
+      "a third-party penetration test",
+      "moving the remaining secrets out of environment files",
+      "a review of the CORS allowlist"
+    ],
+    "decisions": [
+      "Dependabot for dependency updates",
+      "mTLS between internal services",
+      "Semgrep in the pull request pipeline",
+      "short-lived tokens with refresh rotation"
+    ],
+    "files": [
+      "config/csp.json",
+      "terraform/iam.tf",
+      "docs/threat-model.md",
+      "security/redaction.py"
+    ],
+    "errors": [
+      "an API key committed to the repository history"
+    ]
+  }
+}

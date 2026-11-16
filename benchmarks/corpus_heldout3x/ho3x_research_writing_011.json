@@ -1,0 +1,132 @@
+{
+  "id": "ho3x_research_writing_011",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a technical design document."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a technical design document."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited paper/main.tex."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Figure one showing the system architecture was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "I'd like Zotero for reference management."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got the introduction cut from four pages to two up and running."
+    },
+    {
+      "role": "user",
+      "content": "What about a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a first pass at the methodology section up and running. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Restructuring the argument around three claims was rolled out. The related work section covering twelve papers is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a technical design document?"
+    },
+    {
+      "role": "assistant",
+      "content": "Citations normalised to a single bibliography style is sorted. The discussion section still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? The artifact submission package is still open."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "An ethics statement is still open."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited Makefile. An appendix documenting the corpus construction was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Can we try a single-column layout for the preprint? I'd like including the negative result on implicit language."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Have a look at paper/related_work.tex. The error messages are now clearer. Okay, doing it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the related work section covering twelve papers",
+      "an appendix documenting the corpus construction",
+      "the introduction cut from four pages to two",
+      "restructuring the argument around three claims",
+      "citations normalised to a single bibliography style",
+      "figure one showing the system architecture",
+      "a first pass at the methodology section"
+    ],
+    "pending_tasks": [
+      "the artifact submission package",
+      "an ethics statement",
+      "the discussion section"
+    ],
+    "decisions": [
+      "a single-column layout for the preprint",
+      "including the negative result on implicit language",
+      "Zotero for reference management"
+    ],
+    "files": [
+      "Makefile",
+      "paper/main.tex",
+      "paper/related_work.tex"
+    ],
+    "errors": []
+  }
+}

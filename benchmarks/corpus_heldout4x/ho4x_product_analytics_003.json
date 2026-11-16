@@ -1,0 +1,137 @@
+{
+  "id": "ho4x_product_analytics_003",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a churn driver investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a churn driver investigation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The dashboard tracking the three north star metrics is up and working. Got hit by survivorship bias in the retention calculation in staging. We might revisit this next quarter. Production is showing an experiment contaminated by overlapping assignment."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Weekly retention cohorts over six months is finished and deployed. A qualitative follow-up with churned accounts is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "How is a churn driver investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by peeking at results before the runtime completed in staging."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in docs/metric_definitions.md."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Counting activation on first collaborative action won the vote. We're standardising on a 95% confidence threshold for experiment calls. A funnel from signup through first value is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with an experiment registry with pre-registered hypotheses?"
+    },
+    {
+      "role": "assistant",
+      "content": "I got a sample size calculation for the pricing test over the line. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We have statistical significance testing on the primary metric now. I've locked in weekly rather than daily cohorts for readability. Instrumenting the mobile funnel is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Extending the cohort window to twelve months hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A holdout group excluded from all experiments went in this morning. Ping me if anything seems wrong."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have instrumentation on every onboarding step now. A seven-day activation window won the vote."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in analytics/experiments.py. No incidents were reported this week."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "statistical significance testing on the primary metric",
+      "a funnel from signup through first value",
+      "a holdout group excluded from all experiments",
+      "the dashboard tracking the three north star metrics",
+      "weekly retention cohorts over six months",
+      "instrumentation on every onboarding step",
+      "a sample size calculation for the pricing test"
+    ],
+    "pending_tasks": [
+      "extending the cohort window to twelve months",
+      "instrumenting the mobile funnel",
+      "a qualitative follow-up with churned accounts"
+    ],
+    "decisions": [
+      "counting activation on first collaborative action",
+      "a seven-day activation window",
+      "an experiment registry with pre-registered hypotheses",
+      "weekly rather than daily cohorts for readability",
+      "a 95% confidence threshold for experiment calls"
+    ],
+    "files": [
+      "docs/metric_definitions.md",
+      "analytics/experiments.py"
+    ],
+    "errors": [
+      "peeking at results before the runtime completed",
+      "an experiment contaminated by overlapping assignment",
+      "survivorship bias in the retention calculation"
+    ]
+  }
+}

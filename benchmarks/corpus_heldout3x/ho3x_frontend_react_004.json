@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_frontend_react_004",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a checkout flow rewrite."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: Zustand instead of Redux for local state. Result: focus trapping in the modal component done. Incident: a bundle regression from importing the whole icon set. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose TypeScript in strict mode."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. * [x] a virtualised list for the 10k-row view * [x] server-side pagination on the results table"
+    },
+    {
+      "role": "user",
+      "content": "Switch to Vite as the build tool."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: src/components/DataTable.tsx. Okay, doing it. * [ ] error boundaries around each route"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "- src/App.tsx\n* [x] code splitting on the route boundaries"
+    },
+    {
+      "role": "user",
+      "content": "Choose React 19 with the compiler enabled."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Radix primitives for accessible components. Result: optimistic updates on the toggle controls done. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** dark mode using CSS custom properties.\nNothing is blocking us right now.\n* [x] form validation with inline error messages"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "code splitting on the route boundaries",
+      "server-side pagination on the results table",
+      "focus trapping in the modal component",
+      "dark mode using CSS custom properties",
+      "form validation with inline error messages",
+      "a virtualised list for the 10k-row view",
+      "optimistic updates on the toggle controls"
+    ],
+    "pending_tasks": [
+      "error boundaries around each route"
+    ],
+    "decisions": [
+      "Radix primitives for accessible components",
+      "TypeScript in strict mode",
+      "React 19 with the compiler enabled",
+      "Vite as the build tool",
+      "Zustand instead of Redux for local state"
+    ],
+    "files": [
+      "src/components/DataTable.tsx",
+      "src/App.tsx"
+    ],
+    "errors": [
+      "a bundle regression from importing the whole icon set"
+    ]
+  }
+}

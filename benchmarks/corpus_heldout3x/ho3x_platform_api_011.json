@@ -1,0 +1,130 @@
+{
+  "id": "ho3x_platform_api_011",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a public API v2 design."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a public API v2 design now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let a conformance test suite for the SDKs slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "What about a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "- api/errors.py\nThe build is green."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in sdk/python/client.py."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of api/ratelimit.py as well. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Choice: JSON only, no XML support. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "I'd like URL-based versioning over header negotiation."
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in openapi/v2.yaml. Nobody has touched a rate limit tier for enterprise keys yet. Okay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. I edited api/pagination.py."
+    },
+    {
+      "role": "user",
+      "content": "What about a public API v2 design?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: webhook signature verification."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented request/response logging with PII stripped."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this fails again we will revisit the design. Finished — SDK generation for three languages."
+    },
+    {
+      "role": "user",
+      "content": "Should we go with Kong as the API gateway?"
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, doing it. I edited api/auth.py."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "webhook signature verification",
+      "request/response logging with PII stripped",
+      "SDK generation for three languages"
+    ],
+    "pending_tasks": [
+      "a rate limit tier for enterprise keys",
+      "a conformance test suite for the SDKs"
+    ],
+    "decisions": [
+      "JSON only, no XML support",
+      "URL-based versioning over header negotiation",
+      "Kong as the API gateway"
+    ],
+    "files": [
+      "sdk/python/client.py",
+      "api/pagination.py",
+      "api/ratelimit.py",
+      "openapi/v2.yaml",
+      "api/errors.py",
+      "api/auth.py"
+    ],
+    "errors": []
+  }
+}

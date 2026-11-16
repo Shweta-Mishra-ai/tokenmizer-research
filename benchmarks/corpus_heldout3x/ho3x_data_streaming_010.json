@@ -1,0 +1,118 @@
+{
+  "id": "ho3x_data_streaming_010",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a dead letter queue redesign."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a dead letter queue redesign now."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "I edited tests/test_aggregator.py."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards a seven-day retention on the raw topics."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. * [ ] migrating the remaining consumers off the v1 schema"
+    },
+    {
+      "role": "user",
+      "content": "Plan for a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Windowed aggregation over five-minute tumbling windows is working now. We completed the change data capture connector on the orders table yesterday. The alerts this morning came from out-of-order events breaking the windowed aggregate."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at streams/dlq.py. We're going to use Kafka over Kinesis for the event backbone. The relevant code is in config/kafka.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `scripts/replay.py`."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consumer group rebalancing tuned for slow consumers is working now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Documenting the ordering guarantees is on the backlog. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: streams/windowing.py. Here is the updated plan. A schema registry entry for every event type was rolled out. Implemented backpressure handling in the consumer loop."
+    },
+    {
+      "role": "user",
+      "content": "What about a dead letter queue redesign?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge.\nImplemented exactly-once semantics on the aggregation job.\n- docker-compose.yml"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "windowed aggregation over five-minute tumbling windows",
+      "backpressure handling in the consumer loop",
+      "a schema registry entry for every event type",
+      "consumer group rebalancing tuned for slow consumers",
+      "exactly-once semantics on the aggregation job",
+      "the change data capture connector on the orders table"
+    ],
+    "pending_tasks": [
+      "documenting the ordering guarantees",
+      "migrating the remaining consumers off the v1 schema"
+    ],
+    "decisions": [
+      "Kafka over Kinesis for the event backbone",
+      "a seven-day retention on the raw topics"
+    ],
+    "files": [
+      "streams/windowing.py",
+      "scripts/replay.py",
+      "streams/dlq.py",
+      "config/kafka.yaml",
+      "docker-compose.yml",
+      "tests/test_aggregator.py"
+    ],
+    "errors": [
+      "out-of-order events breaking the windowed aggregate"
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "ho3x_product_analytics_002",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an experiment platform rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an experiment platform rollout now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. * [x] a segment definition for activated accounts Result: a funnel from signup through first value done. Implemented deduplication of the double-fired signup event."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `dashboards/north_star.json`."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: extending the cohort window to twelve months. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the dashboard tracking the three north star metrics. Action item: a guardrail metric on support ticket volume."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed approach: Amplitude for product analytics. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Bug report: timezone mismatch splitting one day across two cohorts."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? * [ ] a data dictionary for the product team"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Finished — documentation of every metric definition."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on a seven-day activation window."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Errors: an experiment contaminated by overlapping assignment."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an experiment platform rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: docs/metric_definitions.md.\n**Issue:** a sample ratio mismatch in the pricing experiment.\nOnce CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Chose one primary metric per experiment."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deduplication of the double-fired signup event",
+      "a funnel from signup through first value",
+      "a segment definition for activated accounts",
+      "documentation of every metric definition",
+      "the dashboard tracking the three north star metrics"
+    ],
+    "pending_tasks": [
+      "extending the cohort window to twelve months",
+      "a data dictionary for the product team",
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "one primary metric per experiment",
+      "Amplitude for product analytics",
+      "a seven-day activation window"
+    ],
+    "files": [
+      "dashboards/north_star.json",
+      "docs/metric_definitions.md"
+    ],
+    "errors": [
+      "a sample ratio mismatch in the pricing experiment",
+      "an experiment contaminated by overlapping assignment",
+      "timezone mismatch splitting one day across two cohorts"
+    ]
+  }
+}

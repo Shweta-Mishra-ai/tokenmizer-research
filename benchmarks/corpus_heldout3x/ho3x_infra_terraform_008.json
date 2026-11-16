@@ -1,0 +1,135 @@
+{
+  "id": "ho3x_infra_terraform_008",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a multi-account AWS layout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a multi-account AWS layout now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting provider version drift between two engineers in CI. Changes are in terraform/iam.tf. I plan to do a disaster recovery restore rehearsal next. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Can we try AWS as the single cloud provider?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do a drift detection job on a daily schedule next. I'll summarise at the end. Agreed. Security groups restricted to named ports has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "VPC flow logs shipped to the log bucket has been merged. Changes are in terraform/vpc.tf."
+    },
+    {
+      "role": "user",
+      "content": "What about a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting a state lock left behind by a cancelled apply in CI. IAM roles scoped per service was rolled out. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in terraform/main.tf. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "We're going to use Terragrunt for the DRY module wiring. I've got the VPC with public and private subnets across three zones up and running."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a multi-account AWS layout?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with separate accounts for production and staging. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Can we try provider versions pinned to a minor range?"
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in terraform/variables.tf."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The relevant code is in terraform/rds.tf. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at .github/workflows/plan.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "VPC flow logs shipped to the log bucket",
+      "the VPC with public and private subnets across three zones",
+      "security groups restricted to named ports",
+      "IAM roles scoped per service"
+    ],
+    "pending_tasks": [
+      "a drift detection job on a daily schedule",
+      "a disaster recovery restore rehearsal"
+    ],
+    "decisions": [
+      "separate accounts for production and staging",
+      "Terragrunt for the DRY module wiring",
+      "AWS as the single cloud provider",
+      "provider versions pinned to a minor range"
+    ],
+    "files": [
+      "terraform/rds.tf",
+      "terraform/main.tf",
+      ".github/workflows/plan.yml",
+      "terraform/iam.tf",
+      "terraform/vpc.tf",
+      "terraform/variables.tf"
+    ],
+    "errors": [
+      "a state lock left behind by a cancelled apply",
+      "provider version drift between two engineers"
+    ]
+  }
+}

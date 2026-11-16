@@ -1,0 +1,125 @@
+{
+  "id": "ho4x_frontend_react_002",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a checkout flow rewrite."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a checkout flow rewrite."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a checkout flow rewrite?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. src/hooks/useMetrics.ts grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Radix primitives for accessible components feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Focus trapping in the modal component has been live since Tuesday with no complaints. I'll post a recap later. The pager went off twice overnight because of a bundle regression from importing the whole icon set. Vitest over Jest for the unit suite is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle src/components/DataTable.tsx first."
+    },
+    {
+      "role": "user",
+      "content": "How is a checkout flow rewrite going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Turns out the slowdown was a memory leak from an unsubscribed event listener all along. I'll post a recap later."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A bundle size budget in CI is the piece nobody has picked up. Nobody needs to think about optimistic updates on the toggle controls anymore."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once the release settles, migrating the remaining class components is where attention goes. Form validation with inline error messages has been live since Tuesday with no complaints. The bulk of the diff sits in tests/dashboard.spec.ts. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "TanStack Query for server state is the direction we committed to. The bulk of the diff sits in src/routes/dashboard.tsx."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Without offline support for the draft editor the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Here's where things stand. Session persistence in localStorage came off the board this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "focus trapping in the modal component",
+      "optimistic updates on the toggle controls",
+      "session persistence in localStorage",
+      "form validation with inline error messages"
+    ],
+    "pending_tasks": [
+      "a bundle size budget in CI",
+      "migrating the remaining class components",
+      "offline support for the draft editor"
+    ],
+    "decisions": [
+      "TanStack Query for server state",
+      "Radix primitives for accessible components",
+      "Vitest over Jest for the unit suite"
+    ],
+    "files": [
+      "src/hooks/useMetrics.ts",
+      "src/routes/dashboard.tsx",
+      "tests/dashboard.spec.ts",
+      "src/components/DataTable.tsx"
+    ],
+    "errors": [
+      "a memory leak from an unsubscribed event listener",
+      "a bundle regression from importing the whole icon set"
+    ]
+  }
+}

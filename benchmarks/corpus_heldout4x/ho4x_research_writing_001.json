@@ -1,0 +1,107 @@
+{
+  "id": "ho4x_research_writing_001",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a technical design document."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a technical design document now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The evaluation table with confidence intervals is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Could reporting macro F1 rather than accuracy work for us? Releasing the corpus alongside the paper feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Makes sense, doing that. We resolved to use targeting the workshop deadline rather than the main track."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash: a mislabelled axis on the compression figure."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have restructuring the argument around three claims now. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Figure one showing the system architecture held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "A plain-language summary for the blog post is the piece nobody has picked up. The abstract rewritten to lead with the result came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "The discussion section is next up. Final call: the ACL template over the generic LaTeX class. Had to untangle data/results.json first."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated figures/architecture.py. I'll post a recap later. Once the release settles, shortening to the eight-page limit is where attention goes."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the evaluation table with confidence intervals",
+      "figure one showing the system architecture",
+      "restructuring the argument around three claims",
+      "the abstract rewritten to lead with the result"
+    ],
+    "pending_tasks": [
+      "a plain-language summary for the blog post",
+      "shortening to the eight-page limit",
+      "the discussion section"
+    ],
+    "decisions": [
+      "reporting macro F1 rather than accuracy",
+      "targeting the workshop deadline rather than the main track",
+      "the ACL template over the generic LaTeX class",
+      "releasing the corpus alongside the paper"
+    ],
+    "files": [
+      "figures/architecture.py",
+      "data/results.json"
+    ],
+    "errors": [
+      "a mislabelled axis on the compression figure"
+    ]
+  }
+}

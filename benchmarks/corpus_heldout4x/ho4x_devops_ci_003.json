@@ -1,0 +1,92 @@
+{
+  "id": "ho4x_devops_ci_003",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a test infrastructure migration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a test infrastructure migration."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, uv for dependency installation was the clear winner. The bulk of the diff sits in tox.ini. Flaky jobs get one automatic retry. Coverage reporting posted to the pull request came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry.\nNobody needs to think about dependency caching across pipeline runs anymore.\nDetails are in Dockerfile.\n- [ ] TODO publishing test timing history"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Pinning all third-party actions by digest is the piece nobody has picked up. If this breaks later we can roll back. Required status checks on the default branch is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Codecov for coverage tracking feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: buildx with a remote cache backend. Most of yesterday disappeared into a flaky test failing one run in twenty on the timing assertion. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Could OIDC federation instead of long-lived deploy keys work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "The pager went off twice overnight because of a permissions error pushing the release tag. Fine by me. A concurrency group cancelling superseded runs came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "How is a test infrastructure migration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Left to do — a merge queue for the busy repositories."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "required status checks on the default branch",
+      "dependency caching across pipeline runs",
+      "coverage reporting posted to the pull request",
+      "a concurrency group cancelling superseded runs"
+    ],
+    "pending_tasks": [
+      "a merge queue for the busy repositories",
+      "pinning all third-party actions by digest",
+      "publishing test timing history"
+    ],
+    "decisions": [
+      "OIDC federation instead of long-lived deploy keys",
+      "buildx with a remote cache backend",
+      "Codecov for coverage tracking",
+      "uv for dependency installation"
+    ],
+    "files": [
+      "Dockerfile",
+      "tox.ini"
+    ],
+    "errors": [
+      "a permissions error pushing the release tag",
+      "a flaky test failing one run in twenty on the timing assertion"
+    ]
+  }
+}

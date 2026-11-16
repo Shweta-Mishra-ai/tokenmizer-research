@@ -1,0 +1,125 @@
+{
+  "id": "ho3x_platform_api_001",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a partner integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a partner integration."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "An API changelog published with each release was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. I edited docs/api/changelog.md. The plan is OAuth 2.0 client credentials for machine access."
+    },
+    {
+      "role": "user",
+      "content": "What about a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "We completed cursor-based pagination across all list endpoints yesterday. Let's settle on Kong as the API gateway."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in api/ratelimit.py."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Consistent error envelopes with machine-readable codes is sorted. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We need a rate limit tier for enterprise keys before launch. At-least-once webhook delivery with retries is working now. We may decide to change this later. I've gone with a six-month deprecation window."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a deprecation header on the v1 routes up and running. I plan to do a conformance test suite for the SDKs next. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the updated plan. We need a usage dashboard for API consumers before launch."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Cursor pagination rather than offset is the pick. The plan is URL-based versioning over header negotiation."
+    },
+    {
+      "role": "user",
+      "content": "What about a partner integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with OpenAPI as the source of truth for SDK generation. We need expanding the sandbox data set before launch."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a deprecation header on the v1 routes",
+      "consistent error envelopes with machine-readable codes",
+      "an API changelog published with each release",
+      "at-least-once webhook delivery with retries",
+      "cursor-based pagination across all list endpoints"
+    ],
+    "pending_tasks": [
+      "a conformance test suite for the SDKs",
+      "expanding the sandbox data set",
+      "a rate limit tier for enterprise keys",
+      "a usage dashboard for API consumers"
+    ],
+    "decisions": [
+      "a six-month deprecation window",
+      "URL-based versioning over header negotiation",
+      "cursor pagination rather than offset",
+      "OAuth 2.0 client credentials for machine access",
+      "OpenAPI as the source of truth for SDK generation",
+      "Kong as the API gateway"
+    ],
+    "files": [
+      "docs/api/changelog.md",
+      "api/ratelimit.py"
+    ],
+    "errors": []
+  }
+}

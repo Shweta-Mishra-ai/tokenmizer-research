@@ -1,0 +1,151 @@
+{
+  "id": "ho3x_research_writing_010",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a literature review."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a literature review now."
+    },
+    {
+      "role": "user",
+      "content": "Switch to reporting macro F1 rather than accuracy."
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: shortening to the eight-page limit.\n**Shipped:** the abstract rewritten to lead with the result.\nOkay, doing it."
+    },
+    {
+      "role": "user",
+      "content": "Switch to framing the contribution as a measurement study. Switch to Zotero for reference management."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Sounds right, on it. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] the artifact submission package"
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Finished — the introduction cut from four pages to two."
+    },
+    {
+      "role": "user",
+      "content": "Choose including the negative result on implicit language."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. If this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Edited: paper/main.tex."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Edited: paper/references.bib. Result: peer feedback incorporated from two reviewers done."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. Regression: a stale results table from an earlier run."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Result: the related work section covering twelve papers done. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "What about a literature review?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off.\n**Shipped:** an appendix documenting the corpus construction.\nImplemented a limitations section naming the sample size problem."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on bootstrap confidence intervals rather than t-tests."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: a mislabelled axis on the compression figure."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the abstract rewritten to lead with the result",
+      "a limitations section naming the sample size problem",
+      "the introduction cut from four pages to two",
+      "an appendix documenting the corpus construction",
+      "peer feedback incorporated from two reviewers",
+      "the related work section covering twelve papers"
+    ],
+    "pending_tasks": [
+      "shortening to the eight-page limit",
+      "the artifact submission package"
+    ],
+    "decisions": [
+      "Zotero for reference management",
+      "framing the contribution as a measurement study",
+      "bootstrap confidence intervals rather than t-tests",
+      "including the negative result on implicit language",
+      "reporting macro F1 rather than accuracy"
+    ],
+    "files": [
+      "Makefile",
+      "paper/references.bib",
+      "paper/main.tex"
+    ],
+    "errors": [
+      "a stale results table from an earlier run",
+      "a mislabelled axis on the compression figure"
+    ]
+  }
+}

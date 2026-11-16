@@ -1,0 +1,154 @@
+{
+  "id": "ho4x_mobile_ios_007",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a payments SDK integration."
+    },
+    {
+      "role": "user",
+      "content": "SwiftLint in the build phase feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "The HealthKit permission flow held up fine through the whole load test. If this breaks later we can roll back. The bulk of the diff sits in Sources/Auth/Keychain.swift. Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. Background sync with a URLSession task is behind us now."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. .swiftlint.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining UIKit screens keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. XCTest with snapshot assertions is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to a modular package layout per feature."
+    },
+    {
+      "role": "assistant",
+      "content": "Ping me if anything seems wrong. Fine by me. Thanks to unit tests for the sync reducer, the on-call pages stopped. Had to untangle Sources/Sync/SyncEngine.swift first."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of yesterday disappeared into the widget timeline failing to refresh."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. The bulk of the diff sits in fastlane/Fastfile. Core Data over Realm for local storage is the direction we committed to. Fastlane for the release pipeline is the direction we committed to."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Tests/SyncTests.swift grew by a couple hundred lines. The pager went off twice overnight because of a crash from a missing NSMotionUsageDescription key. If this breaks later we can roll back. VoiceOver labels across the main screens came off the board this morning."
+    },
+    {
+      "role": "user",
+      "content": "How is a payments SDK integration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash reporting integration held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Without handling the offline conflict resolution case the launch checklist stays red."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "The subscription purchase and restore flow held up fine through the whole load test. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Keychain for token storage rather than UserDefaults is what everything will be built on from here. We might revisit this next quarter."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "background sync with a URLSession task",
+      "VoiceOver labels across the main screens",
+      "the subscription purchase and restore flow",
+      "unit tests for the sync reducer",
+      "the HealthKit permission flow",
+      "crash reporting integration"
+    ],
+    "pending_tasks": [
+      "handling the offline conflict resolution case",
+      "migrating the remaining UIKit screens"
+    ],
+    "decisions": [
+      "Keychain for token storage rather than UserDefaults",
+      "XCTest with snapshot assertions",
+      "fastlane for the release pipeline",
+      "a modular package layout per feature",
+      "SwiftLint in the build phase",
+      "Core Data over Realm for local storage"
+    ],
+    "files": [
+      "fastlane/Fastfile",
+      ".swiftlint.yml",
+      "Sources/Sync/SyncEngine.swift",
+      "Tests/SyncTests.swift",
+      "Sources/Auth/Keychain.swift"
+    ],
+    "errors": [
+      "the widget timeline failing to refresh",
+      "a crash from a missing NSMotionUsageDescription key"
+    ]
+  }
+}

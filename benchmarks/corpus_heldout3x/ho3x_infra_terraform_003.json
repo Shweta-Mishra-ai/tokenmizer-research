@@ -1,0 +1,115 @@
+{
+  "id": "ho3x_infra_terraform_003",
+  "origin": "synthetic",
+  "domain": "infra/terraform",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='infra/terraform', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a compliance baseline rollout."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a compliance baseline rollout now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "- environments/prod/terragrunt.hcl\nFile: `terraform/outputs.tf`."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — CloudWatch alarms on the error rate metric.\n**Shipped:** IAM roles scoped per service.\nThere were no failures in the nightly run.\nImplemented a read replica in the secondary region."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** the VPC with public and private subnets across three zones.\nThe error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a compliance baseline rollout?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: a state lock left behind by a cancelled apply."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. TO DO: policy-as-code checks in the plan stage."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with private subnets for every compute workload."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Backlog: documenting the module interfaces. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run.\n**Issue:** a cyclic dependency between the security group rules."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Finished — remote state in S3 with DynamoDB locking. There were no failures in the nightly run. Edited: terraform/variables.tf."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with Aurora Postgres over standard RDS."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the VPC with public and private subnets across three zones",
+      "remote state in S3 with DynamoDB locking",
+      "a read replica in the secondary region",
+      "IAM roles scoped per service",
+      "CloudWatch alarms on the error rate metric"
+    ],
+    "pending_tasks": [
+      "documenting the module interfaces",
+      "policy-as-code checks in the plan stage"
+    ],
+    "decisions": [
+      "private subnets for every compute workload",
+      "Aurora Postgres over standard RDS"
+    ],
+    "files": [
+      "environments/prod/terragrunt.hcl",
+      "terraform/variables.tf",
+      "terraform/outputs.tf"
+    ],
+    "errors": [
+      "a state lock left behind by a cancelled apply",
+      "a cyclic dependency between the security group rules"
+    ]
+  }
+}

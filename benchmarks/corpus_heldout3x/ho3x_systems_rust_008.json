@@ -1,0 +1,107 @@
+{
+  "id": "ho3x_systems_rust_008",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a WASM plugin runtime now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "A compatibility shim for the old format still needs doing. Reducing the binary size below 2MB still needs doing."
+    },
+    {
+      "role": "user",
+      "content": "I'd like cargo-deny for licence and advisory checks."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Zero-copy deserialisation of the record header is working now. We're going to use bincode for the wire encoding."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at src/lib.rs. Let's settle on Rust 2021 edition with MSRV 1.75. We completed property tests over the encoder round trip yesterday. Do we need more tests?"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at fuzz/fuzz_targets/decode.rs. I plan to do adding a tracing subscriber next."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Still to do: profiling the allocation hot path."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Error types unified behind thiserror was rolled out. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What about a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've gone with a workspace layout with three crates."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The plan is parking_lot mutexes over the std ones. We completed fuzzing the input decoder with cargo-fuzz yesterday. The build is green."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "error types unified behind thiserror",
+      "zero-copy deserialisation of the record header",
+      "fuzzing the input decoder with cargo-fuzz",
+      "property tests over the encoder round trip"
+    ],
+    "pending_tasks": [
+      "profiling the allocation hot path",
+      "a compatibility shim for the old format",
+      "adding a tracing subscriber",
+      "reducing the binary size below 2MB"
+    ],
+    "decisions": [
+      "Rust 2021 edition with MSRV 1.75",
+      "cargo-deny for licence and advisory checks",
+      "a workspace layout with three crates",
+      "bincode for the wire encoding",
+      "parking_lot mutexes over the std ones"
+    ],
+    "files": [
+      "src/lib.rs",
+      "fuzz/fuzz_targets/decode.rs"
+    ],
+    "errors": []
+  }
+}

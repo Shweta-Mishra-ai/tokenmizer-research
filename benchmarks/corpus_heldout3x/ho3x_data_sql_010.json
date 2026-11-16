@@ -1,0 +1,127 @@
+{
+  "id": "ho3x_data_sql_010",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a data quality initiative."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a data quality initiative."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the star schema for the orders fact table."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: dags/daily_refresh.py.\n**Issue:** a schema drift break when the source added a column."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** UTC everywhere for timestamps.\nThere were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "- profiles.yml\n* [ ] an anomaly alert on the daily order count\nThe error messages are now clearer.\n* [ ] unit tests for the revenue macro"
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Outstanding: consolidating the three customer definitions."
+    },
+    {
+      "role": "user",
+      "content": "Switch to Great Expectations for data quality checks."
+    },
+    {
+      "role": "assistant",
+      "content": "* [ ] retiring the legacy reporting views\nOkay, doing it.\n**Decided:** incremental materialisation on the large models."
+    },
+    {
+      "role": "user",
+      "content": "What about a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: dbt_project.yml. The error messages are now clearer. Affected file: tests/schema.yml."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `macros/revenue.sql`. Implemented partitioning the events table by month. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a data quality initiative?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** a covering index on the customer lookup."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with an ELT rather than ETL pattern."
+    },
+    {
+      "role": "assistant",
+      "content": "File: `sql/indexes.sql`. Sounds right, on it. Once CI passes I'll merge."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the star schema for the orders fact table",
+      "partitioning the events table by month",
+      "a covering index on the customer lookup"
+    ],
+    "pending_tasks": [
+      "retiring the legacy reporting views",
+      "consolidating the three customer definitions",
+      "an anomaly alert on the daily order count",
+      "unit tests for the revenue macro"
+    ],
+    "decisions": [
+      "incremental materialisation on the large models",
+      "UTC everywhere for timestamps",
+      "Great Expectations for data quality checks",
+      "an ELT rather than ETL pattern"
+    ],
+    "files": [
+      "dags/daily_refresh.py",
+      "tests/schema.yml",
+      "profiles.yml",
+      "sql/indexes.sql",
+      "dbt_project.yml",
+      "macros/revenue.sql"
+    ],
+    "errors": [
+      "a schema drift break when the source added a column"
+    ]
+  }
+}

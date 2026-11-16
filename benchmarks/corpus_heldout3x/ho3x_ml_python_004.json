@@ -1,0 +1,145 @@
+{
+  "id": "ho3x_ml_python_004",
+  "origin": "synthetic",
+  "domain": "ml/python",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='ml/python', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a churn prediction model."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a churn prediction model."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Class imbalance handling with focal loss is working now. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards Optuna for hyperparameter search."
+    },
+    {
+      "role": "assistant",
+      "content": "The root cause turned out to be NaN losses after the learning rate change. Failed jobs are retried twice. Agreed."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. I've got drift monitoring on the input distributions up and running."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "- configs/model.yaml\n**Decided:** AUC-PR as the primary metric given the imbalance.\nOnce CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Baseline logistic regression at 0.71 AUC went smoothly in the end. Have a look at src/serve.py. SHAP explanations for the top features is sorted."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a model registry entry for the release candidate up and running. Edited: Makefile."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Issue:** inference timeouts on the long-document path.\nNobody has touched shadow deployment against live traffic yet.\nWe ran into non-determinism from an unseeded shuffle."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside src/train.py."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of data/schema.json as well. Closed: cross-validation across five folds. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let a fairness audit across customer segments slip through the cracks."
+    },
+    {
+      "role": "user",
+      "content": "What about a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside src/features.py."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a churn prediction model?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? We can stop worrying about batch inference over the full customer base now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "cross-validation across five folds",
+      "SHAP explanations for the top features",
+      "batch inference over the full customer base",
+      "drift monitoring on the input distributions",
+      "a model registry entry for the release candidate",
+      "baseline logistic regression at 0.71 AUC",
+      "class imbalance handling with focal loss"
+    ],
+    "pending_tasks": [
+      "shadow deployment against live traffic",
+      "a fairness audit across customer segments"
+    ],
+    "decisions": [
+      "AUC-PR as the primary metric given the imbalance",
+      "Optuna for hyperparameter search"
+    ],
+    "files": [
+      "src/features.py",
+      "src/serve.py",
+      "data/schema.json",
+      "src/train.py",
+      "Makefile",
+      "configs/model.yaml"
+    ],
+    "errors": [
+      "non-determinism from an unseeded shuffle",
+      "inference timeouts on the long-document path",
+      "NaN losses after the learning rate change"
+    ]
+  }
+}

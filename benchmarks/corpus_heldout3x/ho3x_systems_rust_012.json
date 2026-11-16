@@ -1,0 +1,109 @@
+{
+  "id": "ho3x_systems_rust_012",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a WASM plugin runtime now."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. I edited src/parser.rs."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "SIMD acceleration on the checksum path has been merged."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at Cargo.toml. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice. Fuzzing the input decoder with cargo-fuzz is working now. There is unbounded memory growth in the buffer pool on the main branch. Customers are hitting stack overflow on deeply nested input."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "We found a borrow checker conflict in the writer loop. The relevant code is in fuzz/fuzz_targets/decode.rs. The plan is thiserror for library errors and anyhow at the boundary. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "I'd like rayon for the parallel scan."
+    },
+    {
+      "role": "assistant",
+      "content": "Criterion benchmarks on the parse loop is sorted. Sounds right, on it. Reducing the binary size below 2MB is on the backlog. There were no failures in the nightly run."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need documenting the public API surface before launch. Here is the updated plan. We need a miri run over the concurrency tests before launch."
+    },
+    {
+      "role": "user",
+      "content": "What about a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "An async runtime built on tokio was rolled out. The build is green. Have a look at benches/parse.rs."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SIMD acceleration on the checksum path",
+      "an async runtime built on tokio",
+      "criterion benchmarks on the parse loop",
+      "fuzzing the input decoder with cargo-fuzz"
+    ],
+    "pending_tasks": [
+      "documenting the public API surface",
+      "reducing the binary size below 2MB",
+      "a miri run over the concurrency tests"
+    ],
+    "decisions": [
+      "rayon for the parallel scan",
+      "thiserror for library errors and anyhow at the boundary"
+    ],
+    "files": [
+      "Cargo.toml",
+      "src/parser.rs",
+      "benches/parse.rs",
+      "fuzz/fuzz_targets/decode.rs"
+    ],
+    "errors": [
+      "stack overflow on deeply nested input",
+      "unbounded memory growth in the buffer pool",
+      "a borrow checker conflict in the writer loop"
+    ]
+  }
+}

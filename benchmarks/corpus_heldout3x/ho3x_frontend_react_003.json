@@ -1,0 +1,100 @@
+{
+  "id": "ho3x_frontend_react_003",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up an analytics dashboard."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up an analytics dashboard."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Hitting a CORS failure against the staging API in CI."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let a bundle size budget in CI slip through the cracks. We're going to use TanStack Query for server state. Changes are in tailwind.config.js."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. I edited vite.config.ts."
+    },
+    {
+      "role": "user",
+      "content": "What about an analytics dashboard?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: session persistence in localStorage.\n**Shipped:** focus trapping in the modal component.\nIf this fails again we will revisit the design."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: stale closure state in the polling hook. Action item: an accessibility audit of the nav. Everyone was happy with TypeScript in strict mode."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Rewrote parts of tests/dashboard.spec.ts as well. Vite as the build tool is the pick. The relevant code is in src/App.tsx."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Vitest over Jest for the unit suite beat the alternatives on every axis we care about. The empty and loading states for every panel is sorted."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the empty and loading states for every panel",
+      "focus trapping in the modal component",
+      "session persistence in localStorage"
+    ],
+    "pending_tasks": [
+      "a bundle size budget in CI",
+      "an accessibility audit of the nav"
+    ],
+    "decisions": [
+      "TanStack Query for server state",
+      "Vite as the build tool",
+      "Vitest over Jest for the unit suite",
+      "TypeScript in strict mode"
+    ],
+    "files": [
+      "tailwind.config.js",
+      "src/App.tsx",
+      "tests/dashboard.spec.ts",
+      "vite.config.ts"
+    ],
+    "errors": [
+      "a CORS failure against the staging API",
+      "stale closure state in the polling hook"
+    ]
+  }
+}

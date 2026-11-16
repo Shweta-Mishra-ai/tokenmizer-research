@@ -1,0 +1,179 @@
+{
+  "id": "ho4x_product_analytics_010",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a retention cohort study."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a retention cohort study now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: a seven-day activation window. Known defect — the active user count differing 12% between two dashboards."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Complete: documentation of every metric definition."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "* docs/metric_definitions.md"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — extending the cohort window to twelve months. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `analytics/funnel.sql`."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** counting monthly actives on a rolling 28-day window.\nComplete: instrumentation on every onboarding step."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. Wrapped: the dashboard tracking the three north star metrics."
+    },
+    {
+      "role": "user",
+      "content": "Pick median rather than mean for the latency metrics."
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: statistical significance testing on the primary metric. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — a data dictionary for the product team. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — analytics/segments.sql."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Known defect — peeking at results before the runtime completed.\nPath: `notebooks/churn_drivers.ipynb`.\n**Pending:** a qualitative follow-up with churned accounts.\nCI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: survivorship bias in the retention calculation."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. * dashboards/north_star.json"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — analytics/significance.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Finished work:** the experiment assignment and exposure logging.\nAfter review I'll deploy.\nWe resolved to use a two-week minimum experiment runtime."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — an automated experiment readout template."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the experiment assignment and exposure logging",
+      "documentation of every metric definition",
+      "instrumentation on every onboarding step",
+      "the dashboard tracking the three north star metrics",
+      "statistical significance testing on the primary metric"
+    ],
+    "pending_tasks": [
+      "extending the cohort window to twelve months",
+      "a qualitative follow-up with churned accounts",
+      "an automated experiment readout template",
+      "a data dictionary for the product team"
+    ],
+    "decisions": [
+      "median rather than mean for the latency metrics",
+      "a seven-day activation window",
+      "counting monthly actives on a rolling 28-day window",
+      "a two-week minimum experiment runtime"
+    ],
+    "files": [
+      "docs/metric_definitions.md",
+      "notebooks/churn_drivers.ipynb",
+      "analytics/significance.py",
+      "dashboards/north_star.json",
+      "analytics/segments.sql",
+      "analytics/funnel.sql"
+    ],
+    "errors": [
+      "the active user count differing 12% between two dashboards",
+      "survivorship bias in the retention calculation",
+      "peeking at results before the runtime completed"
+    ]
+  }
+}

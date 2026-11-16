@@ -1,0 +1,126 @@
+{
+  "id": "ho3x_systems_rust_013",
+  "origin": "synthetic",
+  "domain": "systems/rust",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='systems/rust', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a WASM plugin runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a WASM plugin runtime."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: cross-compilation for aarch64 made it in before the freeze. SIMD acceleration on the checksum path went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "I'm leaning towards tokio over async-std for the runtime."
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, bincode for the wire encoding is the best fit. Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside Cargo.toml. The root cause turned out to be integer overflow in the length calculation. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of src/main.rs as well."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a WASM plugin runtime?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Rewrote parts of tests/roundtrip.rs as well. Rewrote parts of src/lib.rs as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Serde with a custom binary format is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The streaming parser over a bounded buffer went smoothly in the end. Rewrote parts of src/buffer.rs as well."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let a miri run over the concurrency tests slip through the cracks. Thiserror for library errors and anyhow at the boundary is what we'll ship with."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Criterion benchmarks on the parse loop went smoothly in the end. We can stop worrying about a lock-free ring buffer for the writer now. Failed jobs are retried twice."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Profiling the allocation hot path is the obvious next step. Do we need more tests?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the streaming parser over a bounded buffer",
+      "cross-compilation for aarch64",
+      "SIMD acceleration on the checksum path",
+      "a lock-free ring buffer for the writer",
+      "criterion benchmarks on the parse loop"
+    ],
+    "pending_tasks": [
+      "a miri run over the concurrency tests",
+      "profiling the allocation hot path"
+    ],
+    "decisions": [
+      "bincode for the wire encoding",
+      "thiserror for library errors and anyhow at the boundary",
+      "tokio over async-std for the runtime",
+      "serde with a custom binary format"
+    ],
+    "files": [
+      "src/main.rs",
+      "src/lib.rs",
+      "tests/roundtrip.rs",
+      "src/buffer.rs",
+      "Cargo.toml"
+    ],
+    "errors": [
+      "integer overflow in the length calculation"
+    ]
+  }
+}

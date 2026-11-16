@@ -1,0 +1,132 @@
+{
+  "id": "ho3x_devops_ci_012",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a CI pipeline rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a CI pipeline rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: the pipeline timing out after 60 minutes. Implemented a nightly job running the slow integration suite."
+    },
+    {
+      "role": "user",
+      "content": "What about a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Backlog: splitting the linting job from the test job."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed: a race between the parallel shards writing the same fixture."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: Dockerfile."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: pyproject.toml. If this fails again we will revisit the design. Closed: required status checks on the default branch. Action item: deduplicating the three near-identical workflows."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: signed release artifacts done. The build is green."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `scripts/run_tests.sh`."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with ruff replacing flake8 and isort."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Do we need more tests? Failed: a rate limit from the container registry."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "- tox.ini"
+    },
+    {
+      "role": "user",
+      "content": "What about a CI pipeline rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Action item: a merge queue for the busy repositories."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** test retries limited to two attempts."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a nightly job running the slow integration suite",
+      "signed release artifacts",
+      "required status checks on the default branch"
+    ],
+    "pending_tasks": [
+      "a merge queue for the busy repositories",
+      "splitting the linting job from the test job",
+      "deduplicating the three near-identical workflows"
+    ],
+    "decisions": [
+      "ruff replacing flake8 and isort",
+      "test retries limited to two attempts"
+    ],
+    "files": [
+      "Dockerfile",
+      "pyproject.toml",
+      "scripts/run_tests.sh",
+      "tox.ini"
+    ],
+    "errors": [
+      "a rate limit from the container registry",
+      "a race between the parallel shards writing the same fixture",
+      "the pipeline timing out after 60 minutes"
+    ]
+  }
+}

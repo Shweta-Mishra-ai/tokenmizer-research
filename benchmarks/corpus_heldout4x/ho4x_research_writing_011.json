@@ -1,0 +1,145 @@
+{
+  "id": "ho4x_research_writing_011",
+  "origin": "synthetic",
+  "domain": "research/writing",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='research/writing', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a benchmark methodology writeup."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a benchmark methodology writeup."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with the ACL template over the generic LaTeX class?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in paper/related_work.tex."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We haven't done the artifact submission package yet."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Makefile. We'll run with reporting per-domain breakdowns in the appendix."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reconciling the two conflicting result tables is next up. A first pass at the methodology section is up and working."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked releasing the corpus alongside the paper."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in paper/main.tex. We're standardising on bootstrap confidence intervals rather than t-tests. We have the introduction cut from four pages to two now."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on Zotero for reference management."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have citations normalised to a single bibliography style now. A plain-language summary for the blog post is still owed to the client. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Details are in figures/architecture.py. The fix lives in notes/outline.md. Shortening to the eight-page limit is next up."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have a limitations section naming the sample size problem now. No incidents were reported this week. The related work section covering twelve papers went in this morning."
+    },
+    {
+      "role": "user",
+      "content": "How is a benchmark methodology writeup going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by the page count exceeding the submission limit in staging."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the related work section covering twelve papers",
+      "citations normalised to a single bibliography style",
+      "a first pass at the methodology section",
+      "a limitations section naming the sample size problem",
+      "the introduction cut from four pages to two"
+    ],
+    "pending_tasks": [
+      "the artifact submission package",
+      "a plain-language summary for the blog post",
+      "reconciling the two conflicting result tables",
+      "shortening to the eight-page limit"
+    ],
+    "decisions": [
+      "the ACL template over the generic LaTeX class",
+      "releasing the corpus alongside the paper",
+      "bootstrap confidence intervals rather than t-tests",
+      "reporting per-domain breakdowns in the appendix",
+      "Zotero for reference management"
+    ],
+    "files": [
+      "paper/main.tex",
+      "figures/architecture.py",
+      "Makefile",
+      "paper/related_work.tex",
+      "notes/outline.md"
+    ],
+    "errors": [
+      "the page count exceeding the submission limit"
+    ]
+  }
+}

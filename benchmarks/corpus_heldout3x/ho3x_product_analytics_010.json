@@ -1,0 +1,124 @@
+{
+  "id": "ho3x_product_analytics_010",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a retention cohort study."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a retention cohort study."
+    },
+    {
+      "role": "user",
+      "content": "What about a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: documentation of every metric definition."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] the experiment assignment and exposure logging"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We may decide to change this later. Chose one primary metric per experiment. File: `config/taxonomy.yaml`."
+    },
+    {
+      "role": "user",
+      "content": "Choose excluding internal accounts from every metric."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is blocking us right now. Sounds right, on it. Errors: a sample ratio mismatch in the pricing experiment. Outstanding: a guardrail metric on support ticket volume."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Next task — an automated experiment readout template. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: a broken event after the client release stopped firing it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose counting monthly actives on a rolling 28-day window. File: `analytics/significance.py`."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with counting activation on first collaborative action."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Closed: a segment definition for activated accounts."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? Closed: a holdout group excluded from all experiments. Errors: a double-counted signup event inflating the funnel top."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the experiment assignment and exposure logging",
+      "a segment definition for activated accounts",
+      "documentation of every metric definition",
+      "a holdout group excluded from all experiments"
+    ],
+    "pending_tasks": [
+      "an automated experiment readout template",
+      "a guardrail metric on support ticket volume"
+    ],
+    "decisions": [
+      "excluding internal accounts from every metric",
+      "counting monthly actives on a rolling 28-day window",
+      "one primary metric per experiment",
+      "counting activation on first collaborative action"
+    ],
+    "files": [
+      "config/taxonomy.yaml",
+      "analytics/significance.py"
+    ],
+    "errors": [
+      "a broken event after the client release stopped firing it",
+      "a double-counted signup event inflating the funnel top",
+      "a sample ratio mismatch in the pricing experiment"
+    ]
+  }
+}

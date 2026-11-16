@@ -1,0 +1,99 @@
+{
+  "id": "ho4x_frontend_react_001",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a data table component library."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a data table component library."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. The fix lives in src/components/DataTable.tsx. Error boundaries around each route hasn't been started. Production is showing stale closure state in the polling hook."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have code splitting on the route boundaries now. We'll run with TypeScript in strict mode. If this breaks later we can roll back. Offline support for the draft editor is next up."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with React 19 with the compiler enabled."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in package.json."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The metrics grid with responsive breakpoints is finished and deployed. We have focus trapping in the modal component now. Session persistence in localStorage has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have keyboard navigation across the data grid now. Details are in src/store/session.ts."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Flaky jobs get one automatic retry. Support tickets mention a race condition between two in-flight fetches."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "code splitting on the route boundaries",
+      "focus trapping in the modal component",
+      "session persistence in localStorage",
+      "the metrics grid with responsive breakpoints",
+      "keyboard navigation across the data grid"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "error boundaries around each route"
+    ],
+    "decisions": [
+      "React 19 with the compiler enabled",
+      "TypeScript in strict mode"
+    ],
+    "files": [
+      "src/store/session.ts",
+      "package.json",
+      "src/components/DataTable.tsx"
+    ],
+    "errors": [
+      "a race condition between two in-flight fetches",
+      "stale closure state in the polling hook"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "ho4x_devops_ci_007",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a flaky test investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a flaky test investigation now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. * .github/workflows/ci.yml"
+    },
+    {
+      "role": "user",
+      "content": "GitHub Actions over the self-managed runner fleet feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. The trade-offs all pointed to OIDC federation instead of long-lived deploy keys. Still open — a merge queue for the busy repositories."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Outage: a permissions error pushing the release tag."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Automated changelog generation on tag came off the board this morning. Here's where things stand. Container image build with layer caching has been live since Tuesday with no complaints."
+    },
+    {
+      "role": "user",
+      "content": "How is a flaky test investigation going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: Dockerfile. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Consensus: release-please for version bumps. We might revisit this next quarter. Still open — a rollback job for failed deploys."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "CI is passing. Path: `.github/dependabot.yml`. We'll run with semantic versioning driven by commit messages."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Touched file: conftest.py. Should we add more coverage?"
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "A nightly job running the slow integration suite has shipped. Should we add more coverage? Nobody needs to think about parallel test execution across four shards anymore."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "container image build with layer caching",
+      "automated changelog generation on tag",
+      "parallel test execution across four shards",
+      "a nightly job running the slow integration suite"
+    ],
+    "pending_tasks": [
+      "a rollback job for failed deploys",
+      "a merge queue for the busy repositories"
+    ],
+    "decisions": [
+      "GitHub Actions over the self-managed runner fleet",
+      "semantic versioning driven by commit messages",
+      "release-please for version bumps",
+      "OIDC federation instead of long-lived deploy keys"
+    ],
+    "files": [
+      ".github/dependabot.yml",
+      "Dockerfile",
+      "conftest.py",
+      ".github/workflows/ci.yml"
+    ],
+    "errors": [
+      "a permissions error pushing the release tag"
+    ]
+  }
+}

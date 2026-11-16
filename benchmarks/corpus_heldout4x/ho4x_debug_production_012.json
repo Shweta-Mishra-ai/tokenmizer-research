@@ -1,0 +1,131 @@
+{
+  "id": "ho4x_debug_production_012",
+  "origin": "synthetic",
+  "domain": "debug/production",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='debug/production', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a data corruption postmortem?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a data corruption postmortem."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Reviewing the other call sites with the same pattern is next up."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "src/pool.py grew by a couple hundred lines. Left to do — a follow-up on the third-party client bug report. I got ruling out the cache layer as the cause over the line."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Backfilling the corrupted rows hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've locked in paging on error rate rather than absolute count. I've locked in py-spy for the production profiling. The postmortem document with action items is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Pick keeping the extra logging for two weeks."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Crash: a 30% error rate on the payment callback."
+    },
+    {
+      "role": "user",
+      "content": "How is a data corruption postmortem going?"
+    },
+    {
+      "role": "assistant",
+      "content": "No incidents were reported this week. See the diff in monitoring/alerts.yaml. Adding structured logging around the suspect path came off the board this morning. Touched file: config/flags.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about confirming the hypothesis with a targeted experiment anymore. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention memory growing 200MB per hour until restart. CI is passing. Reproducing the failure in a staging environment has shipped. We resolved to use increasing the connection pool as a stopgap."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "- [ ] TODO cleaning up the temporary debug logging\nHad to untangle src/handlers/checkout.py first.\n**Chosen:** treating the third-party timeout as the root cause."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — scripts/repro.py.\nNo incidents were reported this week.\n**Chosen:** rolling back before investigating further."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "reproducing the failure in a staging environment",
+      "confirming the hypothesis with a targeted experiment",
+      "the postmortem document with action items",
+      "adding structured logging around the suspect path",
+      "ruling out the cache layer as the cause"
+    ],
+    "pending_tasks": [
+      "reviewing the other call sites with the same pattern",
+      "cleaning up the temporary debug logging",
+      "a follow-up on the third-party client bug report",
+      "backfilling the corrupted rows"
+    ],
+    "decisions": [
+      "paging on error rate rather than absolute count",
+      "increasing the connection pool as a stopgap",
+      "rolling back before investigating further",
+      "keeping the extra logging for two weeks",
+      "py-spy for the production profiling",
+      "treating the third-party timeout as the root cause"
+    ],
+    "files": [
+      "src/handlers/checkout.py",
+      "config/flags.yaml",
+      "scripts/repro.py",
+      "src/pool.py",
+      "monitoring/alerts.yaml"
+    ],
+    "errors": [
+      "memory growing 200MB per hour until restart",
+      "a 30% error rate on the payment callback"
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "ho4x_mobile_ios_008",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "mixed",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a payments SDK integration."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a payments SDK integration."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "SwiftLint in the build phase is what everything will be built on from here. .swiftlint.yml grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Localisation into three languages hasn't been started."
+    },
+    {
+      "role": "user",
+      "content": "How is a payments SDK integration going?"
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. Package.swift grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Migrating the remaining UIKit screens is waiting on us. Deep links into the workout detail screen is up and working."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "Handling the offline conflict resolution case remains open. Had to untangle App/Info.plist first. We might revisit this next quarter. We resolved to use a modular package layout per feature."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter. The SwiftUI onboarding sequence held up fine through the whole load test."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "The bulk of the diff sits in Sources/Auth/Keychain.swift."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a payments SDK integration?"
+    },
+    {
+      "role": "assistant",
+      "content": "WatchOS companion app is still owed to the client. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Path: `Tests/SyncTests.swift`. I've locked in Swift Package Manager for dependencies."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: the subscription purchase and restore flow. Flaky jobs get one automatic retry."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the SwiftUI onboarding sequence",
+      "deep links into the workout detail screen",
+      "the subscription purchase and restore flow"
+    ],
+    "pending_tasks": [
+      "handling the offline conflict resolution case",
+      "migrating the remaining UIKit screens",
+      "localisation into three languages",
+      "watchOS companion app"
+    ],
+    "decisions": [
+      "SwiftLint in the build phase",
+      "Swift Package Manager for dependencies",
+      "a modular package layout per feature"
+    ],
+    "files": [
+      "Sources/Auth/Keychain.swift",
+      "App/Info.plist",
+      ".swiftlint.yml",
+      "Package.swift",
+      "Tests/SyncTests.swift"
+    ],
+    "errors": []
+  }
+}

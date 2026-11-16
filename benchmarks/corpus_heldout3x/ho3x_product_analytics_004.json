@@ -1,0 +1,119 @@
+{
+  "id": "ho3x_product_analytics_004",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with an activation funnel analysis."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on an activation funnel analysis."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Instrumenting the mobile funnel is waiting for someone to pick it up. The root cause turned out to be peeking at results before the runtime completed. Everyone was happy with Amplitude for product analytics."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside analytics/significance.py. Once CI passes I'll merge."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Reporting absolute lift alongside relative beat the alternatives on every axis we care about. analytics/segments.sql ended up with most of the changes. docs/metric_definitions.md ended up with most of the changes. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside analytics/funnel.sql. Most of the work happened inside notebooks/churn_drivers.ipynb. Reconciling the two conflicting active-user counts is the obvious next step."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an activation funnel analysis?"
+    },
+    {
+      "role": "assistant",
+      "content": "Do we need more tests? An automated experiment readout template is the obvious next step. Rewrote parts of config/taxonomy.yaml as well. A qualitative follow-up with churned accounts is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. We can stop worrying about statistical significance testing on the primary metric now."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. The event taxonomy covering fourteen product actions went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "What broke the release was survivorship bias in the retention calculation. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run. Half the afternoon went to a double-counted signup event inflating the funnel top. Good news: weekly retention cohorts over six months made it in before the freeze."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the event taxonomy covering fourteen product actions",
+      "statistical significance testing on the primary metric",
+      "weekly retention cohorts over six months"
+    ],
+    "pending_tasks": [
+      "a qualitative follow-up with churned accounts",
+      "reconciling the two conflicting active-user counts",
+      "instrumenting the mobile funnel",
+      "an automated experiment readout template"
+    ],
+    "decisions": [
+      "reporting absolute lift alongside relative",
+      "Amplitude for product analytics"
+    ],
+    "files": [
+      "analytics/significance.py",
+      "analytics/funnel.sql",
+      "notebooks/churn_drivers.ipynb",
+      "analytics/segments.sql",
+      "config/taxonomy.yaml",
+      "docs/metric_definitions.md"
+    ],
+    "errors": [
+      "a double-counted signup event inflating the funnel top",
+      "peeking at results before the runtime completed",
+      "survivorship bias in the retention calculation"
+    ]
+  }
+}

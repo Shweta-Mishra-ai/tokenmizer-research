@@ -1,0 +1,118 @@
+{
+  "id": "ho4x_data_streaming_011",
+  "origin": "synthetic",
+  "domain": "data/streaming",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='data/streaming', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a stream processing job."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a stream processing job."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "- [X] the change data capture connector on the orders table\nOutage: consumer lag growing unbounded during the nightly spike.\nBroken: silent message loss from an auto-commit race."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "We might revisit this next quarter.\n* streams/aggregator.py\n- [ ] TODO an automated schema compatibility check in CI"
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to a seven-day retention on the raw topics."
+    },
+    {
+      "role": "assistant",
+      "content": "Fine by me. Should we add more coverage? Landed the dead letter topic with a replay tool."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: the topic layout with twelve partitions per stream. * connect/debezium.json"
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Chosen:** Flink for the stateful stream processing."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Still open — a cost review of the broker cluster. Here's where things stand."
+    },
+    {
+      "role": "user",
+      "content": "Use protobuf for the internal service events please."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Let's commit to keying events by aggregate ID for ordering."
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy.\n- [ ] TODO reducing end-to-end latency below one second\nFine by me."
+    },
+    {
+      "role": "user",
+      "content": "Pick Debezium for change data capture."
+    },
+    {
+      "role": "assistant",
+      "content": "Todo — documenting the ordering guarantees. Should we add more coverage? Delivered — an integration test spinning up a real broker. Makes sense, doing that."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "the topic layout with twelve partitions per stream",
+      "the change data capture connector on the orders table",
+      "an integration test spinning up a real broker",
+      "the dead letter topic with a replay tool"
+    ],
+    "pending_tasks": [
+      "a cost review of the broker cluster",
+      "an automated schema compatibility check in CI",
+      "documenting the ordering guarantees",
+      "reducing end-to-end latency below one second"
+    ],
+    "decisions": [
+      "Flink for the stateful stream processing",
+      "protobuf for the internal service events",
+      "a seven-day retention on the raw topics",
+      "keying events by aggregate ID for ordering",
+      "Debezium for change data capture"
+    ],
+    "files": [
+      "connect/debezium.json",
+      "streams/aggregator.py"
+    ],
+    "errors": [
+      "silent message loss from an auto-commit race",
+      "consumer lag growing unbounded during the nightly spike"
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "ho4x_backend_go_009",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking an event consumer."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Production is showing a goroutine leak on the cancelled request path. I've locked in buf for protobuf linting and generation. Vendoring the internal proto definitions is next up."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Context propagation through every handler is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "See the diff in buf.yaml."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Zerolog for logging won the vote. See the diff in cmd/server/main.go."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "We're standardising on testcontainers for integration tests. Should we add more coverage? See the diff in internal/store/postgres.go. A soak test over 24 hours is still owed to the client."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Details are in internal/worker/pool.go. The retry policy with exponential backoff has shipped. I updated internal/handler/orders_test.go."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the mutex with a sharded map is still owed to the client. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an event consumer?"
+    },
+    {
+      "role": "assistant",
+      "content": "Graceful shutdown on SIGTERM is up and working. We haven't done reducing allocations in the serialiser yet. The fix lives in internal/handler/orders.go."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "graceful shutdown on SIGTERM",
+      "context propagation through every handler",
+      "the retry policy with exponential backoff"
+    ],
+    "pending_tasks": [
+      "replacing the mutex with a sharded map",
+      "a soak test over 24 hours",
+      "reducing allocations in the serialiser",
+      "vendoring the internal proto definitions"
+    ],
+    "decisions": [
+      "buf for protobuf linting and generation",
+      "zerolog for logging",
+      "testcontainers for integration tests"
+    ],
+    "files": [
+      "internal/worker/pool.go",
+      "internal/store/postgres.go",
+      "internal/handler/orders_test.go",
+      "cmd/server/main.go",
+      "internal/handler/orders.go",
+      "buf.yaml"
+    ],
+    "errors": [
+      "a goroutine leak on the cancelled request path"
+    ]
+  }
+}

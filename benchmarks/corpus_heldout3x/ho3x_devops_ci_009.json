@@ -1,0 +1,104 @@
+{
+  "id": "ho3x_devops_ci_009",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "semi",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a monorepo pipeline split."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a monorepo pipeline split."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Automated changelog generation on tag is sorted. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "A required review from one code owner is the pick. I plan to do publishing test timing history next."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "We found the pipeline timing out after 60 minutes. We may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "What about a monorepo pipeline split?"
+    },
+    {
+      "role": "assistant",
+      "content": "We ran into a race between the parallel shards writing the same fixture."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "Release-please for version bumps is the pick. The relevant code is in conftest.py."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. A concurrency group cancelling superseded runs was rolled out."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I've got a matrix build over three Python versions up and running."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Have a look at .github/workflows/release.yml. I've got container image build with layer caching up and running. Nothing is blocking us right now."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a matrix build over three Python versions",
+      "automated changelog generation on tag",
+      "container image build with layer caching",
+      "a concurrency group cancelling superseded runs"
+    ],
+    "pending_tasks": [
+      "publishing test timing history"
+    ],
+    "decisions": [
+      "release-please for version bumps",
+      "a required review from one code owner"
+    ],
+    "files": [
+      "conftest.py",
+      ".github/workflows/release.yml"
+    ],
+    "errors": [
+      "the pipeline timing out after 60 minutes",
+      "a race between the parallel shards writing the same fixture"
+    ]
+  }
+}

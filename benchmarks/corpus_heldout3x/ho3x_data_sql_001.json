@@ -1,0 +1,96 @@
+{
+  "id": "ho3x_data_sql_001",
+  "origin": "synthetic",
+  "domain": "data/sql",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='data/sql', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to a reporting layer rebuild."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on a reporting layer rebuild now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the slowly changing dimension on customer tier."
+    },
+    {
+      "role": "user",
+      "content": "What about a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Once CI passes I'll merge. A covering index on the customer lookup? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose an ELT rather than ETL pattern."
+    },
+    {
+      "role": "user",
+      "content": "What about a reporting layer rebuild?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: sql/indexes.sql. Failed jobs are retried twice. Affected file: macros/revenue.sql. Implemented freshness tests on every source table."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do retiring the legacy reporting views next. Closed: row count reconciliation against the source system. Partitioning the events table by month has been merged."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "We need documenting the grain of each fact table before launch. Having compared the options, soft deletes with a valid_to column is the best fit."
+    },
+    {
+      "role": "user",
+      "content": "Keep going."
+    },
+    {
+      "role": "assistant",
+      "content": "TO DO: a cost review of the warehouse spend. Let me know if anything looks off."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a covering index on the customer lookup",
+      "partitioning the events table by month",
+      "freshness tests on every source table",
+      "the slowly changing dimension on customer tier",
+      "row count reconciliation against the source system"
+    ],
+    "pending_tasks": [
+      "retiring the legacy reporting views",
+      "documenting the grain of each fact table",
+      "a cost review of the warehouse spend"
+    ],
+    "decisions": [
+      "an ELT rather than ETL pattern",
+      "soft deletes with a valid_to column"
+    ],
+    "files": [
+      "sql/indexes.sql",
+      "macros/revenue.sql"
+    ],
+    "errors": []
+  }
+}

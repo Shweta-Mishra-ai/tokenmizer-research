@@ -1,0 +1,139 @@
+{
+  "id": "ho4x_product_analytics_007",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resume a retention cohort study."
+    },
+    {
+      "role": "assistant",
+      "content": "Resuming a retention cohort study now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Sunsetting the legacy dashboard is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with one primary metric per experiment?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. Makes sense, doing that. Reconciling the two conflicting active-user counts is still owed to the client. We're standardising on counting monthly actives on a rolling 28-day window."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have weekly retention cohorts over six months now. I got the dashboard tracking the three north star metrics over the line. Nothing is waiting on anyone at the moment. We're standardising on weekly rather than daily cohorts for readability."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Counting activation on first collaborative action won the vote. Extending the cohort window to twelve months remains open."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "I updated notebooks/churn_drivers.ipynb. See the diff in analytics/cohorts.sql. Details are in analytics/experiments.py."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "A segment definition for activated accounts is finished and deployed. I updated analytics/significance.py."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Got hit by the active user count differing 12% between two dashboards in staging. The fix lives in docs/metric_definitions.md. See the diff in dashboards/north_star.json."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Nothing is waiting on anyone at the moment. I got statistical significance testing on the primary metric over the line."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "We have a funnel from signup through first value now."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Excluding internal accounts from every metric won the vote. A qualitative follow-up with churned accounts is waiting on us. If this breaks later we can roll back."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked a 95% confidence threshold for experiment calls."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "weekly retention cohorts over six months",
+      "a funnel from signup through first value",
+      "the dashboard tracking the three north star metrics",
+      "a segment definition for activated accounts",
+      "statistical significance testing on the primary metric"
+    ],
+    "pending_tasks": [
+      "sunsetting the legacy dashboard",
+      "extending the cohort window to twelve months",
+      "reconciling the two conflicting active-user counts",
+      "a qualitative follow-up with churned accounts"
+    ],
+    "decisions": [
+      "excluding internal accounts from every metric",
+      "counting monthly actives on a rolling 28-day window",
+      "weekly rather than daily cohorts for readability",
+      "one primary metric per experiment",
+      "a 95% confidence threshold for experiment calls",
+      "counting activation on first collaborative action"
+    ],
+    "files": [
+      "analytics/cohorts.sql",
+      "analytics/experiments.py",
+      "notebooks/churn_drivers.ipynb",
+      "analytics/significance.py",
+      "dashboards/north_star.json",
+      "docs/metric_definitions.md"
+    ],
+    "errors": [
+      "the active user count differing 12% between two dashboards"
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "ho3x_devops_ci_010",
+  "origin": "synthetic",
+  "domain": "devops/ci",
+  "register": "implicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='devops/ci', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's pick up a flaky test investigation."
+    },
+    {
+      "role": "assistant",
+      "content": "Picking up a flaky test investigation."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "The build is green. A merge queue for the busy repositories is waiting for someone to pick it up."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Makefile ended up with most of the changes."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Artifact upload for the failing test logs went smoothly in the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Codecov for coverage tracking beat the alternatives on every axis we care about."
+    },
+    {
+      "role": "user",
+      "content": "Release-please for version bumps sounds like the better deal to me."
+    },
+    {
+      "role": "assistant",
+      "content": "Sounds right, on it. Rewrote parts of Dockerfile as well. I'll summarise at the end. Everyone was happy with pytest-xdist for test parallelism."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside tox.ini. Required status checks on the default branch? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "What about a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: container image build with layer caching made it in before the freeze. Nobody has touched splitting the linting job from the test job yet."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a flaky test investigation?"
+    },
+    {
+      "role": "assistant",
+      "content": "Don't let publishing test timing history slip through the cracks. Nothing is blocking us right now."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Good news: dependency caching across pipeline runs made it in before the freeze."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Having compared the options, trunk-based development with short-lived branches is the best fit. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Most of the work happened inside .github/workflows/release.yml."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "container image build with layer caching",
+      "artifact upload for the failing test logs",
+      "required status checks on the default branch",
+      "dependency caching across pipeline runs"
+    ],
+    "pending_tasks": [
+      "a merge queue for the busy repositories",
+      "publishing test timing history",
+      "splitting the linting job from the test job"
+    ],
+    "decisions": [
+      "Codecov for coverage tracking",
+      "release-please for version bumps",
+      "trunk-based development with short-lived branches",
+      "pytest-xdist for test parallelism"
+    ],
+    "files": [
+      "Makefile",
+      ".github/workflows/release.yml",
+      "Dockerfile",
+      "tox.ini"
+    ],
+    "errors": []
+  }
+}

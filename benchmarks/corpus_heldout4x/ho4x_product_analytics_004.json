@@ -1,0 +1,141 @@
+{
+  "id": "ho4x_product_analytics_004",
+  "origin": "synthetic",
+  "domain": "product/analytics",
+  "register": "implicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='product/analytics', register='implicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a retention cohort study?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a retention cohort study."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. Most of yesterday disappeared into a double-counted signup event inflating the funnel top. The event taxonomy covering fourteen product actions has been live since Tuesday with no complaints. analytics/cohorts.sql grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "How is a retention cohort study going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own extending the cohort window to twelve months before Friday."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "The logs are easier to read now. Most of yesterday disappeared into survivorship bias in the retention calculation."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Nobody needs to think about a segment definition for activated accounts anymore. We might revisit this next quarter."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Had to untangle analytics/experiments.py first."
+    },
+    {
+      "role": "user",
+      "content": "Reporting absolute lift alongside relative feels like the right fit here."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. Amplitude for product analytics is the direction we committed to. One primary metric per experiment is what everything will be built on from here."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "docs/metric_definitions.md grew by a couple hundred lines."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Somebody has to own a data dictionary for the product team before Friday."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "After the spike, counting monthly actives on a rolling 28-day window was the clear winner. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "An automated experiment readout template keeps getting pushed to next sprint."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "A funnel from signup through first value has been live since Tuesday with no complaints. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "I keep coming back to median rather than mean for the latency metrics."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. After review I'll deploy."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a funnel from signup through first value",
+      "a segment definition for activated accounts",
+      "the event taxonomy covering fourteen product actions"
+    ],
+    "pending_tasks": [
+      "a data dictionary for the product team",
+      "an automated experiment readout template",
+      "extending the cohort window to twelve months"
+    ],
+    "decisions": [
+      "reporting absolute lift alongside relative",
+      "one primary metric per experiment",
+      "Amplitude for product analytics",
+      "median rather than mean for the latency metrics",
+      "counting monthly actives on a rolling 28-day window"
+    ],
+    "files": [
+      "analytics/cohorts.sql",
+      "analytics/experiments.py",
+      "docs/metric_definitions.md"
+    ],
+    "errors": [
+      "a double-counted signup event inflating the funnel top",
+      "survivorship bias in the retention calculation"
+    ]
+  }
+}

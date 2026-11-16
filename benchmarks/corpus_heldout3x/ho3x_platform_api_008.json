@@ -1,0 +1,130 @@
+{
+  "id": "ho3x_platform_api_008",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "explicit",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Back to an SDK release."
+    },
+    {
+      "role": "assistant",
+      "content": "Back on an SDK release now."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Result: idempotency keys on all write operations done.\nAction item: expanding the sandbox data set.\n**Decided:** RFC 7807 problem details for errors."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Failed jobs are retried twice.\nClosed: an API changelog published with each release.\nChoice: Kong as the API gateway.\n**Decided:** exponential backoff with jitter for webhook retries."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "Chose ISO 8601 timestamps in UTC. Once CI passes I'll merge. Errors: inconsistent 404 versus 403 on unauthorised resources."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Closed: the sandbox environment for partner testing. TO DO: a conformance test suite for the SDKs. Edited: sdk/python/client.py. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Plan for an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll summarise at the end. Result: at-least-once webhook delivery with retries done."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "* [x] SDK generation for three languages Closed: per-key rate limits with headers exposing the budget. Edited: api/ratelimit.py."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "File: `docs/api/changelog.md`. Here is the updated plan. Edited: openapi/v2.yaml. * [ ] a usage dashboard for API consumers"
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Decided:** HMAC-SHA256 for webhook signatures.\nWe may decide to change this later."
+    },
+    {
+      "role": "user",
+      "content": "Update me."
+    },
+    {
+      "role": "assistant",
+      "content": "There were no failures in the nightly run.\n- api/pagination.py"
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Regression: an SDK deserialisation failure on a new nullable field."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "at-least-once webhook delivery with retries",
+      "SDK generation for three languages",
+      "an API changelog published with each release",
+      "the sandbox environment for partner testing",
+      "idempotency keys on all write operations",
+      "per-key rate limits with headers exposing the budget"
+    ],
+    "pending_tasks": [
+      "a conformance test suite for the SDKs",
+      "expanding the sandbox data set",
+      "a usage dashboard for API consumers"
+    ],
+    "decisions": [
+      "ISO 8601 timestamps in UTC",
+      "Kong as the API gateway",
+      "RFC 7807 problem details for errors",
+      "exponential backoff with jitter for webhook retries",
+      "HMAC-SHA256 for webhook signatures"
+    ],
+    "files": [
+      "api/pagination.py",
+      "docs/api/changelog.md",
+      "api/ratelimit.py",
+      "openapi/v2.yaml",
+      "sdk/python/client.py"
+    ],
+    "errors": [
+      "an SDK deserialisation failure on a new nullable field",
+      "inconsistent 404 versus 403 on unauthorised resources"
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "ho4x_platform_api_012",
+  "origin": "synthetic",
+  "domain": "platform/api",
+  "register": "explicit",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='platform/api', register='explicit'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue an SDK release."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing an SDK release."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "File changed — gateway/kong.yaml. Flaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "How is an SDK release going?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Pending:** sunsetting v1 after the six-month window.\nFlaky jobs get one automatic retry."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for an SDK release?"
+    },
+    {
+      "role": "assistant",
+      "content": "Wrapped: consistent error envelopes with machine-readable codes. No incidents were reported this week."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "Complete: a deprecation header on the v1 routes."
+    },
+    {
+      "role": "user",
+      "content": "Status please."
+    },
+    {
+      "role": "assistant",
+      "content": "Path: `api/routes/webhooks.py`.\n**Pending:** GraphQL as an alternative surface.\nCrash: an SDK deserialisation failure on a new nullable field.\nAfter review I'll deploy."
+    },
+    {
+      "role": "user",
+      "content": "Use exponential backoff with jitter for webhook retries please."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Pick OpenAPI as the source of truth for SDK generation."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it.\nFlaky jobs get one automatic retry.\n- [X] SDK generation for three languages"
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "If this breaks later we can roll back. File changed — docs/api/changelog.md. Consensus: HMAC-SHA256 for webhook signatures."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Final call: URL-based versioning over header negotiation."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "We resolved to use a six-month deprecation window. Should we add more coverage?"
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "SDK generation for three languages",
+      "a deprecation header on the v1 routes",
+      "consistent error envelopes with machine-readable codes"
+    ],
+    "pending_tasks": [
+      "sunsetting v1 after the six-month window",
+      "GraphQL as an alternative surface"
+    ],
+    "decisions": [
+      "a six-month deprecation window",
+      "URL-based versioning over header negotiation",
+      "exponential backoff with jitter for webhook retries",
+      "HMAC-SHA256 for webhook signatures",
+      "OpenAPI as the source of truth for SDK generation"
+    ],
+    "files": [
+      "docs/api/changelog.md",
+      "api/routes/webhooks.py",
+      "gateway/kong.yaml"
+    ],
+    "errors": [
+      "an SDK deserialisation failure on a new nullable field"
+    ]
+  }
+}

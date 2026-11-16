@@ -1,0 +1,126 @@
+{
+  "id": "ho4x_mobile_ios_002",
+  "origin": "synthetic",
+  "domain": "mobile/ios",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='mobile/ios', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Let's continue a widget and live activity feature."
+    },
+    {
+      "role": "assistant",
+      "content": "Continuing a widget and live activity feature."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Crash reporting integration is up and working."
+    },
+    {
+      "role": "user",
+      "content": "What if we went with StoreKit 2 for subscriptions?"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll post a recap later. An App Store privacy nutrition label review is next up. The HealthKit permission flow went in this morning. Makes sense, doing that."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a widget and live activity feature?"
+    },
+    {
+      "role": "assistant",
+      "content": "Deep links into the workout detail screen has shipped. Production is showing a layout constraint conflict on the smallest device. We have a widget showing today's activity now."
+    },
+    {
+      "role": "user",
+      "content": "Where are we?"
+    },
+    {
+      "role": "assistant",
+      "content": "After review I'll deploy. I got keychain storage for the auth token over the line."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "Support tickets mention a keychain access error after device restore."
+    },
+    {
+      "role": "user",
+      "content": "Could The Composable Architecture for state work for us?"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, on it."
+    },
+    {
+      "role": "user",
+      "content": "My preference would be Core Data over Realm for local storage."
+    },
+    {
+      "role": "assistant",
+      "content": "Makes sense, doing that. The logs are easier to read now."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "The team picked iOS 17 as the minimum deployment target. We have Core Data persistence for the workout log now. We haven't done an iPad layout for the summary screen yet."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "XCTest with snapshot assertions won the vote. CI is passing."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "The fix lives in Sources/Widgets/ActivityWidget.swift. See the diff in .swiftlint.yml. Flaky jobs get one automatic retry."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "deep links into the workout detail screen",
+      "a widget showing today's activity",
+      "Core Data persistence for the workout log",
+      "the HealthKit permission flow",
+      "crash reporting integration",
+      "keychain storage for the auth token"
+    ],
+    "pending_tasks": [
+      "an iPad layout for the summary screen",
+      "an App Store privacy nutrition label review"
+    ],
+    "decisions": [
+      "iOS 17 as the minimum deployment target",
+      "The Composable Architecture for state",
+      "StoreKit 2 for subscriptions",
+      "XCTest with snapshot assertions",
+      "Core Data over Realm for local storage"
+    ],
+    "files": [
+      ".swiftlint.yml",
+      "Sources/Widgets/ActivityWidget.swift"
+    ],
+    "errors": [
+      "a layout constraint conflict on the smallest device",
+      "a keychain access error after device restore"
+    ]
+  }
+}

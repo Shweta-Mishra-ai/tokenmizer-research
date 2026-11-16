@@ -1,0 +1,131 @@
+{
+  "id": "ho4x_frontend_react_005",
+  "origin": "synthetic",
+  "domain": "frontend/react",
+  "register": "semi",
+  "notes": "Held-out v4 session — templates disjoint from generate.py, with distractor sentences. domain='frontend/react', register='semi'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Can you take a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, taking a settings surface."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Should we add more coverage? Details are in package.json."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Radix primitives for accessible components won the vote."
+    },
+    {
+      "role": "user",
+      "content": "How is a settings surface going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Playwright for end-to-end tests won the vote. We'll run with TypeScript in strict mode."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "TanStack Query for server state won the vote."
+    },
+    {
+      "role": "user",
+      "content": "What landed?"
+    },
+    {
+      "role": "assistant",
+      "content": "A bundle size budget in CI hasn't been started. Details are in src/store/session.ts. Nothing is waiting on anyone at the moment."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Code splitting on the route boundaries has shipped."
+    },
+    {
+      "role": "user",
+      "content": "Next steps for a settings surface?"
+    },
+    {
+      "role": "assistant",
+      "content": "We'll run with Tailwind for styling. Optimistic updates on the toggle controls is finished and deployed."
+    },
+    {
+      "role": "user",
+      "content": "How is a settings surface going?"
+    },
+    {
+      "role": "assistant",
+      "content": "Server-side pagination on the results table went in this morning. The team picked pnpm as the package manager."
+    },
+    {
+      "role": "user",
+      "content": "Anything broken?"
+    },
+    {
+      "role": "assistant",
+      "content": "Offline support for the draft editor is waiting on us."
+    },
+    {
+      "role": "user",
+      "content": "Carry on."
+    },
+    {
+      "role": "assistant",
+      "content": "Replacing the date picker with a headless one remains open."
+    },
+    {
+      "role": "user",
+      "content": "Blockers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Session persistence in localStorage went in this morning."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "code splitting on the route boundaries",
+      "session persistence in localStorage",
+      "optimistic updates on the toggle controls",
+      "server-side pagination on the results table"
+    ],
+    "pending_tasks": [
+      "offline support for the draft editor",
+      "a bundle size budget in CI",
+      "replacing the date picker with a headless one"
+    ],
+    "decisions": [
+      "TanStack Query for server state",
+      "Tailwind for styling",
+      "Radix primitives for accessible components",
+      "Playwright for end-to-end tests",
+      "TypeScript in strict mode",
+      "pnpm as the package manager"
+    ],
+    "files": [
+      "package.json",
+      "src/store/session.ts"
+    ],
+    "errors": []
+  }
+}

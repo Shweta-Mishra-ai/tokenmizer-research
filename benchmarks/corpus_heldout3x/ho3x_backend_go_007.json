@@ -1,0 +1,137 @@
+{
+  "id": "ho3x_backend_go_007",
+  "origin": "synthetic",
+  "domain": "backend/go",
+  "register": "mixed",
+  "notes": "Held-out v3 session — templates disjoint from generate.py, with distractor sentences. domain='backend/go', register='mixed'.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Help me with a rate limiting proxy."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure, working on a rate limiting proxy."
+    },
+    {
+      "role": "user",
+      "content": "What about a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "A worker pool bounded at 32 goroutines was rolled out. The root cause turned out to be a deadlock between the two mutexes. Half the afternoon went to context deadline exceeded on the upstream call."
+    },
+    {
+      "role": "user",
+      "content": "What's done?"
+    },
+    {
+      "role": "assistant",
+      "content": "Let me know if anything looks off. Finished — benchmark tests on the hot encode path. Outstanding: distributed tracing spans across services."
+    },
+    {
+      "role": "user",
+      "content": "What about a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in internal/worker/pool.go. Most of the work happened inside internal/store/postgres.go. I'll summarise at the end."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "I plan to do a fuzz test on the decoder next. The error messages are now clearer."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "**Shipped:** structured logging with request correlation."
+    },
+    {
+      "role": "user",
+      "content": "Issues?"
+    },
+    {
+      "role": "assistant",
+      "content": "Rewrote parts of internal/handler/orders_test.go as well. We need replacing the mutex with a sharded map before launch. Graceful shutdown on SIGTERM? Taken care of."
+    },
+    {
+      "role": "user",
+      "content": "Go ahead with buf for protobuf linting and generation."
+    },
+    {
+      "role": "assistant",
+      "content": "Agreed. Once CI passes I'll merge. Half the afternoon went to a goroutine leak on the cancelled request path. We completed the retry policy with exponential backoff yesterday."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "We've decided on pgx as the Postgres driver. We can stop worrying about context propagation through every handler now. Here is the updated plan."
+    },
+    {
+      "role": "user",
+      "content": "Plan for a rate limiting proxy?"
+    },
+    {
+      "role": "assistant",
+      "content": "Affected file: go.mod. Let me know if anything looks off."
+    },
+    {
+      "role": "user",
+      "content": "Any errors?"
+    },
+    {
+      "role": "assistant",
+      "content": "Implemented the gRPC service definition and generated stubs."
+    },
+    {
+      "role": "user",
+      "content": "Progress?"
+    },
+    {
+      "role": "assistant",
+      "content": "Changes are in Makefile."
+    }
+  ],
+  "ground_truth": {
+    "completed_tasks": [
+      "a worker pool bounded at 32 goroutines",
+      "graceful shutdown on SIGTERM",
+      "the retry policy with exponential backoff",
+      "benchmark tests on the hot encode path",
+      "context propagation through every handler",
+      "structured logging with request correlation",
+      "the gRPC service definition and generated stubs"
+    ],
+    "pending_tasks": [
+      "a fuzz test on the decoder",
+      "replacing the mutex with a sharded map",
+      "distributed tracing spans across services"
+    ],
+    "decisions": [
+      "buf for protobuf linting and generation",
+      "pgx as the Postgres driver"
+    ],
+    "files": [
+      "Makefile",
+      "internal/worker/pool.go",
+      "internal/handler/orders_test.go",
+      "internal/store/postgres.go",
+      "go.mod"
+    ],
+    "errors": [
+      "a goroutine leak on the cancelled request path",
+      "context deadline exceeded on the upstream call",
+      "a deadlock between the two mutexes"
+    ]
+  }
+}
